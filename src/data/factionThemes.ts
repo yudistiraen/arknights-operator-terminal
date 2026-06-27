@@ -10,6 +10,9 @@ const FACTION_THEMES: Record<string, FactionTheme> = {
   'Reserve Op Team A1': { accent: [70, 130, 190], secondary: [90, 110, 170] },
   'Reserve Op Team A4': { accent: [70, 130, 190], secondary: [90, 110, 170] },
   'Reserve Op Team A6': { accent: [70, 130, 190], secondary: [90, 110, 170] },
+  'Op Reserve A1': { accent: [70, 130, 190], secondary: [90, 110, 170] },
+  'Op Reserve A4': { accent: [60, 100, 170], secondary: [80, 90, 160] },
+  'Op Reserve A6': { accent: [70, 130, 190], secondary: [90, 110, 170] },
   'S.W.E.E.P.': { accent: [160, 30, 40], secondary: [100, 20, 30] },
 
   'Babel': { accent: [130, 60, 190], secondary: [90, 40, 140] },

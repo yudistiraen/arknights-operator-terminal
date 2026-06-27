@@ -26,6 +26,7 @@ export default function App() {
   const factionTheme = getFactionTheme(activeOperator.faction)
   const [accentR, accentG, accentB] = factionTheme.accent
   const [secR, secG, secB] = factionTheme.secondary
+  const hasModules = Object.keys(activeOperator.modules).length > 0
 
   const splashRef = useRef<HTMLDivElement>(null)
   const artRef = useRef<HTMLImageElement>(null)
@@ -362,7 +363,7 @@ export default function App() {
                   ))}
                 </div>
               </div>
-              <span className="text-[9px] text-white/30 font-display tracking-wider mt-1">3 Equipped &middot; M3</span>
+              <span className="text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator.skills[0].rank}</span>
             </>)}
             {renderCard('talents', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
               <h2 className="font-display text-xl font-bold text-white/90 tracking-wide">Talents</h2>
@@ -375,7 +376,7 @@ export default function App() {
             </>)}
           </div>
           <div className="flex gap-2 flex-[2]">
-            {renderCard('modules', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
+            {hasModules ? renderCard('modules', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
               <div className="flex items-center justify-between">
                 <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Modules</h2>
                 <div className="flex gap-1">
@@ -385,7 +386,17 @@ export default function App() {
                 </div>
               </div>
               <span className="text-xs text-white/30 font-display">{Object.keys(activeOperator.modules).length} Equipped</span>
-            </>)}
+            </>) : renderCard('modules', `${BUTTON_BASE} flex-1 p-3 opacity-40`, BUTTON_HOVER, <>
+              <div className="flex items-center gap-2">
+                <h2 className="font-display text-xl font-bold text-white/30 tracking-wide">Modules</h2>
+              </div>
+              <div className="display-flex w-full">
+                <svg className="w-10 h-10 text-white/20 shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                </svg>
+                <span className="text-xs text-white/15 font-display italic">— Module not available —</span>
+              </div>
+            </>, true)}
             {renderCard('physexam', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
               <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Physical Exam</h2>
               <div className="flex gap-0.5 mt-1.5">

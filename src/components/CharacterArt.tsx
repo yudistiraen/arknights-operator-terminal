@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useState, useEffect } from 'react'
 import type { Operator } from '../types'
 
 interface CharacterArtProps {
@@ -9,6 +9,9 @@ interface CharacterArtProps {
 
 export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
   function CharacterArt({ operator, skinSrc, chibiSrc }, ref) {
+    const [chibiError, setChibiError] = useState(false)
+    useEffect(() => { setChibiError(false) }, [chibiSrc])
+
     return (
       <div className="absolute inset-y-0 left-0 w-[58%] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-ak-bg z-10" />
@@ -24,15 +27,22 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
             <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-ak-accent/40" />
             <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-ak-accent/40" />
             <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-ak-accent/40" />
-            <video
-              key={chibiSrc}
-              src={chibiSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="relative z-10 w-full h-full object-cover scale-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
-            />
+            {chibiError ? (
+              <div className="relative z-10 w-full h-full flex items-center justify-center">
+                <span className="font-display text-[9px] text-white/20 tracking-wider">CHIBI N/A</span>
+              </div>
+            ) : (
+              <video
+                key={chibiSrc}
+                src={chibiSrc}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onError={() => setChibiError(true)}
+                className="relative z-10 w-full h-full object-cover scale-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+              />
+            )}
           </div>
           <div className="w-35 flex items-center gap-3 bg-ak-panel/60 backdrop-blur-sm border border-ak-border/30 px-4 py-2.5">
             <img src={operator.factionIcon} alt={operator.faction} className="w-6 h-6 object-contain drop-shadow-[0_0_4px_rgba(212,168,67,0.4)]" />

@@ -6,6 +6,23 @@ function isStagedModule(mod: OperatorModule): mod is StagedModule {
 
 export function ModulesPanel({ operator }: { operator: Operator }) {
   const moduleEntries = Object.values(operator.modules)
+  const hasModules = moduleEntries.length > 0
+
+  if (!hasModules) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16 gap-4">
+        <div className="w-16 h-16 rounded-full bg-white/[0.03] border border-white/[0.06] flex items-center justify-center">
+          <svg className="w-7 h-7 text-white/15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+          </svg>
+        </div>
+        <div className="text-center">
+          <p className="font-display text-sm text-white/25 tracking-wider">— Module not available —</p>
+          <p className="text-[10px] text-white/15 mt-2 font-display">This operator does not support module equipment</p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="grid gap-5">
