@@ -140,7 +140,7 @@ export default function App() {
   const [entered, setEntered] = useState(false)
   const [opIdx, setOpIdx] = useState(0)
   const [xId, setXId] = useState<string | null>(null)
-  const [skinIdx, setSkinIdx] = useState(1)
+  const [skinIdx, setSkinIdx] = useState(0)
   const [muted, setMuted] = useState(false)
   const [audioReady, setAudioReady] = useState(false)
   const OP = OPERATORS[opIdx]
@@ -299,7 +299,7 @@ export default function App() {
           setOpIdx(prev => {
             const next = (prev + dir + OPERATORS.length) % OPERATORS.length
             const nextOp = OPERATORS[next]
-            setSkinIdx(nextOp.skins.length > 1 ? 1 : 0)
+            setSkinIdx(0)
             return next
           })
         })
@@ -315,7 +315,7 @@ export default function App() {
       setOpIdx(prev => {
         const next = (prev + dir + OPERATORS.length) % OPERATORS.length
         const nextOp = OPERATORS[next]
-        setSkinIdx(nextOp.skins.length > 1 ? 1 : 0)
+        setSkinIdx(0)
         return next
       })
       skinBusy.current = false
@@ -324,7 +324,7 @@ export default function App() {
 
   useGSAP(() => {
     if (!entered) {
-      gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn'], { opacity: 0 })
+      gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn', '.section-label', '.section-divider'], { opacity: 0 })
       return
     }
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -347,6 +347,8 @@ export default function App() {
       .fromTo('.lobby-btn', { opacity: 0, y: 25, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06 }, '-=0.5')
       .fromTo('.hud-item', { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.05 }, '-=0.3')
       .fromTo('.skin-btn', { opacity: 0, x: -15 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.06 }, '-=0.4')
+      .fromTo('.section-label', { opacity: 0, x: 10, letterSpacing: '0.5em' }, { opacity: 1, x: 0, letterSpacing: '0.2em', duration: 0.6, stagger: 0.15, ease: 'power2.out' }, '-=0.6')
+      .fromTo('.section-divider', { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.5')
     gsap.to('.scanline', { y: '100vh', duration: 8, repeat: -1, ease: 'none' })
     gsap.to('.glow-orb', { opacity: 0.3, scale: 1.1, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' })
   }, { scope: containerRef, dependencies: [entered] })
@@ -392,10 +394,9 @@ export default function App() {
 
       <div className="bottom-info absolute bottom-6 left-8 z-30">
         <div className="flex items-end gap-2 mb-1"><span className="font-display text-7xl font-bold text-white leading-none tracking-tighter drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">{OP.level}</span><span className="font-display text-base text-ak-text-muted uppercase tracking-widest mb-2">LV</span></div>
-        <div className="flex items-center gap-2 mb-3"><div className="flex items-center gap-1 bg-ak-panel/80 backdrop-blur-sm px-2.5 py-1 border border-ak-border/40"><span className="font-display text-[10px] text-ak-accent-bright tracking-wider">ELITE</span><span className="font-display text-sm text-ak-gold-bright font-bold">{OP.elite}</span></div><div className="flex items-center gap-1.5 bg-ak-panel/80 backdrop-blur-sm px-2 py-1 border border-ak-border/40"><img src={OP.classIcon} alt={OP.class} className="w-4 h-4 object-contain"/><span className="font-display text-[10px] text-ak-accent-bright tracking-wider">{OP.class.toUpperCase()}</span></div></div>
+        <div className="flex items-center gap-2 mb-3"><div className="flex items-center gap-1.5 bg-ak-panel/80 backdrop-blur-sm px-2 py-1 border border-ak-border/40"><img src={OP.classIcon} alt={OP.class} className="w-4 h-4 object-contain"/><span className="font-display text-[10px] text-ak-accent-bright tracking-wider">{OP.class.toUpperCase()}</span></div></div>
         <h1 className="font-display text-4xl font-bold text-white tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] mb-1">{OP.name}</h1>
         <div className="flex items-center gap-3"><Stars n={OP.rarity}/><span className="text-[11px] text-ak-text-muted font-display tracking-wider">ID: RE45</span></div>
-        <div className="flex items-center gap-2 mt-3 opacity-50"><span className="text-[10px] text-ak-text-muted font-display tracking-wider uppercase">Rhodes Island · {OP.faction}</span></div>
       </div>
 
       <div className="absolute top-5 left-6 z-30 flex items-center gap-2">
@@ -410,7 +411,7 @@ export default function App() {
       <div className="absolute right-0 top-0 w-[46%] h-full z-20">
         <div className="absolute inset-0 bg-gradient-to-l from-ak-bg/70 via-ak-bg/40 to-transparent pointer-events-none"/>
         <div ref={gridRef} className="relative z-10 h-full flex flex-col justify-center gap-2 pr-6 pl-4 pt-16 pb-6">
-          <span className="text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
+          <span className="section-label text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
           <div className="flex gap-2 flex-[2]">
             {card('attribute',`${BTN_BASE} w-[38%] p-3`,BTN_HOVER,<><div><h2 className="font-display text-xl font-bold text-white/90 tracking-wide leading-none mb-1">Attribute</h2><span className="font-display text-[10px] text-white/40 tracking-wider">Trust {OP.trust} / 200</span></div><div className="flex gap-3 mt-1.5"><span className="text-[9px] text-white/30 font-display">HP {OP.stats.hp}</span><span className="text-[9px] text-white/30 font-display">ATK {OP.stats.atk}</span></div></>)}
             {card('trait',`${BTN_CYAN_BASE} flex-1 p-3`,BTN_CYAN_HOVER,<><div className="flex items-start justify-between"><h2 className="font-display text-xl font-bold text-white/90 tracking-wide">Trait</h2><img src={OP.branchIcon} alt={OP.branch} className="w-6 h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]"/></div><div><span className="text-[9px] text-white/40 font-display">{OP.class} · {OP.branch}</span></div></>)}
@@ -424,8 +425,8 @@ export default function App() {
             {card('physexam',`${BTN_BASE} flex-1 p-3`,BTN_HOVER,<><h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Physical</h2><div className="flex gap-0.5 mt-1.5">{Object.values(OP.physicalExam).map((v,i)=>{const n=({Flawed:1,Normal:2,Standard:3,Excellent:4,Outstanding:5} as Record<string,number>)[v]||3;return <div key={i} className={`h-1 flex-1 rounded-full ${n>=4?'bg-ak-accent/60':'bg-white/15'}`}/>})}</div></>)}
           </div>
 
-          <div className="h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-1"/>
-          <span className="text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
+          <div className="section-divider h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-1 origin-left"/>
+          <span className="section-label text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
           <div className="flex gap-2 flex-[2]">
             {card('profile',`${BTN_BASE} flex-1 p-3`,BTN_HOVER,<><h2 className="font-display text-xl font-bold text-white/90 tracking-wide leading-none mb-1">Profile</h2><div className="flex items-center gap-2 mt-1"><span className="text-[9px] text-white/50 font-display font-semibold">{OP.name}</span><span className="text-[9px] text-white/30">· {OP.faction}</span></div></>)}
             {card('voice',`${BTN_BASE} flex-[0.7] p-3`,BTN_HOVER,<><h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Voice</h2><span className="text-[9px] text-white/25 font-display mt-1">4 Lang</span></>)}
