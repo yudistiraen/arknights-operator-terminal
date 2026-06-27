@@ -298,7 +298,6 @@ export default function App() {
         .call(() => {
           setOpIdx(prev => {
             const next = (prev + dir + OPERATORS.length) % OPERATORS.length
-            const nextOp = OPERATORS[next]
             setSkinIdx(0)
             return next
           })
@@ -314,7 +313,6 @@ export default function App() {
     } else {
       setOpIdx(prev => {
         const next = (prev + dir + OPERATORS.length) % OPERATORS.length
-        const nextOp = OPERATORS[next]
         setSkinIdx(0)
         return next
       })
