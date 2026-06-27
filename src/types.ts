@@ -45,6 +45,7 @@ export interface ModuleStage {
   hp?: string
   atk?: string
   def?: string
+  res?: string
   aspd?: string
   effect: string
 }
@@ -67,10 +68,12 @@ export interface OperatorSkin {
   id: string
   label: string
   src: string
+  chibiSrc: string
 }
 
 export interface Operator {
   name: string
+  fileNo: string
   class: string
   branch: string
   rarity: number

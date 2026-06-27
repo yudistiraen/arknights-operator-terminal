@@ -25,6 +25,7 @@ export function ModulesPanel({ operator }: { operator: Operator }) {
                       {moduleStage.hp ? `HP ${moduleStage.hp} · ` : ''}
                       {moduleStage.atk ? `ATK ${moduleStage.atk}` : ''}
                       {moduleStage.def ? ` · DEF ${moduleStage.def}` : ''}
+                      {moduleStage.res ? ` · RES ${moduleStage.res}` : ''}
                       {moduleStage.aspd ? ` · ASPD +${moduleStage.aspd}` : ''}
                     </span>
                   </div>

@@ -21,7 +21,7 @@ export function OperatorHud({ operator }: OperatorHudProps) {
       <h1 className="font-display text-4xl font-bold text-white tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.5)] mb-1">{operator.name}</h1>
       <div className="flex items-center gap-3">
         <Stars count={operator.rarity} />
-        <span className="text-[11px] text-ak-text-muted font-display tracking-wider">ID: RE45</span>
+        <span className="text-[11px] text-ak-text-muted font-display tracking-wider">ID: {operator.fileNo}</span>
       </div>
     </div>
   )

@@ -12,4 +12,5 @@ export const PHYSICAL_EXAM_RATINGS: Record<string, number> = {
   Standard: 3,
   Excellent: 4,
   Outstanding: 5,
+  '■■': 5,
 }
