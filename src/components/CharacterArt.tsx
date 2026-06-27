@@ -17,7 +17,7 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
           <img ref={ref} src={skinSrc} alt={operator.name} className="max-h-[92%] max-w-[90%] w-auto h-auto object-contain drop-shadow-[0_0_40px_rgba(59,164,201,0.1)]" />
         </div>
         <div className="hud-item absolute bottom-8 right-20 z-20 flex flex-col items-center gap-5">
-          <div className="relative w-40 h-40 flex items-center justify-center overflow-hidden">
+          <div className="relative w-35 h-35 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-ak-panel/40 backdrop-blur-sm border border-ak-border/30 shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(59,164,201,0.06)_0%,transparent_70%)]" />
             <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-ak-accent/40" />
@@ -31,10 +31,10 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
               loop
               muted
               playsInline
-              className="relative z-10 w-52 h-auto drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+              className="relative z-10 w-full h-full object-cover scale-90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
             />
           </div>
-          <div className="flex items-center gap-3 bg-ak-panel/60 backdrop-blur-sm border border-ak-border/30 px-4 py-2.5">
+          <div className="w-35 flex items-center gap-3 bg-ak-panel/60 backdrop-blur-sm border border-ak-border/30 px-4 py-2.5">
             <img src={operator.factionIcon} alt={operator.faction} className="w-6 h-6 object-contain drop-shadow-[0_0_4px_rgba(212,168,67,0.4)]" />
             <div className="flex flex-col">
               <span className="font-display text-[11px] text-ak-gold-bright tracking-wider font-semibold">{operator.faction}</span>
