@@ -465,6 +465,36 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/hibiscus/base.png', chibiSrc: '/operators/hibiscus/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Night Watcher', src: '/operators/hibiscus/skin1.png', chibiSrc: '/operators/hibiscus/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
+    portrait: '/operators/hibiscus/portrait.png',
+    alter: {
+      name: 'Hibiscus the Purifier', fileNo: 'PA13', class: 'Medic', branch: 'Incantation Medic', rarity: 5, level: 80, elite: 2, trust: 200,
+      position: 'Ranged', trait: 'Attacks deal Arts damage and heal the HP of an ally within Attack Range for 50% of the damage dealt',
+      illustrator: '竜崎いち',
+      stats: { hp: 1508, atk: 571, def: 109, res: 20, block: 1, cost: 17, aspd: '1.6s', rdp: '70s' },
+      range: {
+        base: [[0,1,1,1],[2,1,1,1],[0,1,1,1]],
+        e1: [[1,1,1,1],[2,1,1,1],[1,1,1,1]],
+        e2: [[1,1,1,1],[2,1,1,1],[1,1,1,1]],
+      },
+      physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Normal', 'Originium Arts': 'Excellent' },
+      talents: [
+        { name: 'Dusk and Dawn', desc: 'Attacks inflict 12% Arts Fragility to the target for 5 seconds', elite: 'E2' },
+      ],
+      skills: [
+        { name: 'ATK Up γ', icon: '/operators/hibiscus/alter/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3' },
+        { name: 'Nurturing Touch', icon: '/operators/hibiscus/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Reduces the Movement Speed of 2 enemies within range by -45% and deals 170% ATK as Arts damage to them per second', spInit: 10, sp: 18, dur: '8s', rank: 'M3' },
+      ],
+      modules: {
+        original: { code: 'Original', name: "Hibiscus the Purifier's Badge", desc: 'Appointed as Medic Operator to exercise Incantation Medic responsibilities' },
+      },
+      lore: `After extensive training and fieldwork, Hibiscus has grown into a formidable Medic Operator whose Arts have evolved far beyond simple healing. As the Purifier, she wields Incantation Arts that simultaneously damage enemies and restore allies, embodying her unwavering dedication to both protecting her comrades and purging threats from the battlefield.\n\nHer growth mirrors her sister Lava's — both have shed their reserve operator roots to become forces to be reckoned with.`,
+      classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/incantation-medic-branch.png',
+      skins: [
+        { id: 'base', label: 'Base', src: '/operators/hibiscus/alter/base.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
+        { id: 'e2', label: 'Elite 2', src: '/operators/hibiscus/alter/e2.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
+      ],
+      portrait: '/operators/hibiscus/alter/portrait.png',
+    },
   },
   {
     name: 'Kroos', fileNo: 'PA12', class: 'Sniper', branch: 'Marksman', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -485,6 +515,42 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'the mag', src: '/operators/kroos/skin1.png', chibiSrc: '/operators/kroos/chibi-skin1.webm', illustrator: '下野宏铭' },
       { id: 'skin2', label: 'Moonlit Voyage', src: '/operators/kroos/skin2.png', chibiSrc: '/operators/kroos/chibi-skin2.webm', illustrator: '下野宏铭' },
     ],
+    portrait: '/operators/kroos/portrait.png',
+    alter: {
+      name: 'Kroos the Keen Glint', fileNo: 'R170', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200,
+      position: 'Ranged', trait: 'Attacks aerial enemies first',
+      illustrator: 'm9nokuro',
+      stats: { hp: 1520, atk: 577, def: 176, res: 0, block: 1, cost: 15, aspd: '1s', rdp: '80s' },
+      range: {
+        base: [[0,1,1,1],[2,0,1,1],[0,1,1,1]],
+        e1: [[0,1,1,1,1],[2,0,1,1,1],[0,1,1,1,1]],
+        e2: [[0,1,1,1,1],[2,0,1,1,1],[0,1,1,1,1]],
+      },
+      physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
+      talents: [
+        { name: 'Bullseye', desc: 'When attacking, has a 20% chance to deal 150% damage and Stun the target for 0.2 seconds', elite: 'E2' },
+      ],
+      skills: [
+        { name: 'Traceless', icon: '/operators/kroos/alter/skill-1.png', activation: 'Manual', recovery: 'Offensive', desc: 'ATK +40%, attacks hit 2 times in a row and gain Camouflage', spInit: 10, sp: 15, dur: '15s', rank: 'M3' },
+        { name: 'Silencer', icon: '/operators/kroos/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack Interval reduces greatly and attacks hit 2 times in a row. After hitting a target 32 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 25, sp: 35, dur: '30s', rank: 'M3' },
+      ],
+      modules: {
+        original: { code: 'Original', name: "Kroos the Keen Glint's Badge", desc: 'Appointed as Sniper Operator to exercise Marksman responsibilities' },
+        marx: { code: 'MAR-X', name: 'Truth or Dare', stages: [
+          { stage: 1, hp: '+110', atk: '+22', effect: 'New trait: Increases ATK to 110% when attacking aerial targets' },
+          { stage: 2, hp: '+160', atk: '+27', effect: 'Bullseye improved: When attacking, has a 20% chance to deal 160% damage and Stun the target for 0.2 seconds' },
+          { stage: 3, hp: '+190', atk: '+31', effect: 'Bullseye improved: When attacking, has a 20% chance to deal 165% damage and Stun the target for 0.2 seconds' },
+        ]},
+      },
+      lore: `Following extensive training and practical experience, Kroos has been smoothly promoted to formal Operator status, principally tasked with field missions. Under the guidance of Rhodes Island's Instructors and from tempering in the field, she has greatly matured, gaining her own insight into and views on firing techniques and concealing movements.\n\nNo longer is she Reserve Operator Kroos. After years of maturing, everyone can clearly see how Kroos has transformed. She still loves to play, laugh, and goof off — but get just a little closer, and next second you'll find yourself caught in her trap.\n\nThis, for her and her alone, is the price of maturity.`,
+      classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png',
+      skins: [
+        { id: 'base', label: 'Base', src: '/operators/kroos/alter/base.png', chibiSrc: '/operators/kroos/alter/chibi.webm', illustrator: 'm9nokuro' },
+        { id: 'e2', label: 'Elite 2', src: '/operators/kroos/alter/e2.png', chibiSrc: '/operators/kroos/alter/chibi.webm', illustrator: 'm9nokuro' },
+        { id: 'skin1', label: 'Along the Corridor', src: '/operators/kroos/alter/skin1.png', chibiSrc: '/operators/kroos/alter/chibi-skin1.webm', illustrator: 'm9nokuro' },
+      ],
+      portrait: '/operators/kroos/alter/portrait.png',
+    },
   },
   {
     name: 'Lava', fileNo: 'PA15', class: 'Caster', branch: 'Splash Caster', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -504,6 +570,42 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/lava/base.png', chibiSrc: '/operators/lava/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Bunch of Sunlight', src: '/operators/lava/skin1.png', chibiSrc: '/operators/lava/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
+    portrait: '/operators/lava/portrait.png',
+    alter: {
+      name: 'Lava the Purgatory', fileNo: 'R103', class: 'Caster', branch: 'Splash Caster', rarity: 5, level: 80, elite: 2, trust: 200,
+      position: 'Ranged', trait: 'Deals AOE Arts damage',
+      illustrator: 'Skade',
+      stats: { hp: 1543, atk: 888, def: 115, res: 20, block: 1, cost: 35, aspd: '2.9s', rdp: '80s' },
+      range: {
+        base: [[0,1,1],[2,0,1],[0,1,1]],
+        e1: [[0,1,1,1],[2,0,1,1],[0,1,1,1]],
+        e2: [[0,1,1,1],[2,0,1,1],[0,1,1,1]],
+      },
+      physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Normal', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
+      talents: [
+        { name: 'Spell Formation', desc: 'Immediately obtains 30 SP after first deployment. On each deployment, grants SP +4 to other Caster allies on the field. When deployed, other Caster allies obtain +4 SP after deployment', elite: 'E2' },
+      ],
+      skills: [
+        { name: 'Flame Quenched Dagger', icon: '/operators/lava/alter/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack Range +1 tile, ATK +20%, and attack up to 2 targets simultaneously', spInit: 10, sp: 50, dur: '35s', rank: 'M3' },
+        { name: 'Ring of Hellfire', icon: '/operators/lava/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 50% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 70, dur: '40s', rank: 'M3' },
+      ],
+      modules: {
+        original: { code: 'Original', name: "Lava the Purgatory's Badge", desc: 'Appointed as Caster Operator to exercise Splash Caster responsibilities' },
+        spcx: { code: 'SPC-X', name: "Sarkaz's Knife", stages: [
+          { stage: 1, hp: '+80', atk: '+43', effect: 'Trait improved: Attack Range expands' },
+          { stage: 2, hp: '+130', atk: '+55', effect: 'Spell Formation improved: Immediately obtains 33 SP after the first deployment' },
+          { stage: 3, hp: '+165', atk: '+62', effect: 'Spell Formation improved: Immediately obtains 35 SP after the first deployment' },
+        ]},
+      },
+      lore: `After parting ways with Reserve Op Team A1, Lava traveled the world honing her Originium Arts. Her fiery temper found focus in combat, and her devastating area attacks earned her the title "the Purgatory."\n\nWith her Arts immensely stronger since when she was fresh aboard Rhodes Island, Lava now skillfully creates space with outstanding Originium Arts. She taught Arts to slum children, forged daggers for the curious, and slowly changed things her own way.\n\n"Less regrets this way," she laughed.`,
+      classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png',
+      skins: [
+        { id: 'base', label: 'Base', src: '/operators/lava/alter/base.png', chibiSrc: '/operators/lava/alter/chibi.webm', illustrator: 'Skade' },
+        { id: 'e2', label: 'Elite 2', src: '/operators/lava/alter/e2.png', chibiSrc: '/operators/lava/alter/chibi.webm', illustrator: 'Skade' },
+        { id: 'skin1', label: 'Dusk Wisteria', src: '/operators/lava/alter/skin1.png', chibiSrc: '/operators/lava/alter/chibi-skin1.webm', illustrator: 'Skade' },
+      ],
+      portrait: '/operators/lava/alter/portrait.png',
+    },
   },
   {
     name: 'Melantha', fileNo: 'PA41', class: 'Guard', branch: 'Dreadnought', rarity: 3, level: 55, elite: 1, trust: 200,

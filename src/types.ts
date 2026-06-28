@@ -88,6 +88,31 @@ export interface OperatorVariant {
   skins: OperatorSkin[]
 }
 
+export interface OperatorAlter {
+  name: string
+  fileNo: string
+  class: string
+  branch: string
+  rarity: number
+  level: number
+  elite: number
+  trust: number
+  position: string
+  trait: string
+  illustrator: string
+  stats: OperatorStats
+  range: AttackRange
+  physicalExam: Record<string, string>
+  talents: Talent[]
+  skills: Skill[]
+  modules: Record<string, OperatorModule>
+  lore: string
+  classIcon: string
+  branchIcon: string
+  skins: OperatorSkin[]
+  portrait: string
+}
+
 export interface Operator {
   name: string
   fileNo: string
@@ -121,4 +146,6 @@ export interface Operator {
   factionIcon: string
   skins: OperatorSkin[]
   variants?: OperatorVariant[]
+  alter?: OperatorAlter
+  portrait?: string
 }

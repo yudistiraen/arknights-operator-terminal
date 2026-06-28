@@ -23,14 +23,18 @@ export default function App() {
   const [expandedPanelId, setExpandedPanelId] = useState<string | null>(null)
   const [skinIndex, setSkinIndex] = useState(0)
   const [variantIndex, setVariantIndex] = useState(-1)
+  const [isAlterActive, setIsAlterActive] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [isAudioReady, setIsAudioReady] = useState(false)
 
   const baseOperator = OPERATORS[operatorIndex]
   const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
-  const activeOperator = activeVariant
-    ? { ...baseOperator, ...activeVariant } as typeof baseOperator
-    : baseOperator
+  const activeAlter = isAlterActive ? baseOperator.alter : undefined
+  const activeOperator = activeAlter
+    ? { ...baseOperator, ...activeAlter } as typeof baseOperator
+    : activeVariant
+      ? { ...baseOperator, ...activeVariant } as typeof baseOperator
+      : baseOperator
   const factionTheme = getFactionTheme(activeOperator.faction)
   const [accentR, accentG, accentB] = factionTheme.accent
   const [secR, secG, secB] = factionTheme.secondary
@@ -208,6 +212,7 @@ export default function App() {
             const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
             setSkinIndex(0)
             setVariantIndex(-1)
+            setIsAlterActive(false)
             return nextIndex
           })
         })
@@ -224,6 +229,7 @@ export default function App() {
         const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
         setSkinIndex(0)
         setVariantIndex(-1)
+        setIsAlterActive(false)
         return nextIndex
       })
       isSkinAnimating.current = false
@@ -235,10 +241,11 @@ export default function App() {
     setCurrentPage('roster')
   }, [])
 
-  const handleSelectFromRoster = useCallback((index: number) => {
+  const handleSelectFromRoster = useCallback((index: number, activateAlter = false) => {
     setOperatorIndex(index)
     setSkinIndex(0)
     setVariantIndex(-1)
+    setIsAlterActive(activateAlter)
     setExpandedPanelId(null)
     setCurrentPage('terminal')
   }, [])
@@ -253,6 +260,26 @@ export default function App() {
     const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
     timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
       .call(() => { setVariantIndex(targetVariant); setSkinIndex(0); setExpandedPanelId(null) })
+      .set(artImage, { scale: 0.97 })
+      .to(artImage, { opacity: 0.15, duration: 0.04 })
+      .to(artImage, { opacity: 0, duration: 0.03 })
+      .to(artImage, { opacity: 0.5, duration: 0.05 })
+      .to(artImage, { opacity: 0.1, duration: 0.03 })
+      .to(artImage, { opacity: 0.8, duration: 0.06 })
+      .to(artImage, { opacity: 0.4, duration: 0.03 })
+      .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
+  }, [])
+
+  const switchAlter = useCallback((activate: boolean) => {
+    if (isSkinAnimating.current || !artRef.current) return
+    isSkinAnimating.current = true
+    const transitionSound = new Audio('/audio/glitch_transition.mp3')
+    transitionSound.volume = 0.6
+    transitionSound.play().catch(() => {})
+    const artImage = artRef.current
+    const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
+    timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
+      .call(() => { setIsAlterActive(activate); setVariantIndex(-1); setSkinIndex(0); setExpandedPanelId(null) })
       .set(artImage, { scale: 0.97 })
       .to(artImage, { opacity: 0.15, duration: 0.04 })
       .to(artImage, { opacity: 0, duration: 0.03 })
@@ -363,7 +390,7 @@ export default function App() {
         <div className="relative h-[50vh] w-full shrink-0 md:absolute md:inset-y-0 md:left-0 md:w-[58%] md:h-auto overflow-hidden">
           <CharacterArt ref={artRef} operator={activeOperator} skinSrc={activeOperator.skins[skinIndex].src} chibiSrc={activeOperator.skins[skinIndex].chibiSrc} />
           <OperatorHud operator={activeOperator} />
-          <IllustratorCredit illustrator={activeOperator.skins[skinIndex].illustrator} triggerKey={`${activeOperator.name}-${variantIndex}-${activeOperator.skins[skinIndex].id}`} />
+          <IllustratorCredit illustrator={activeOperator.skins[skinIndex].illustrator} triggerKey={`${activeOperator.name}-${variantIndex}-${isAlterActive}-${activeOperator.skins[skinIndex].id}`} />
           {hasEntered && baseOperator.variants && baseOperator.variants.length > 0 && (
             <div className="absolute bottom-28 md:bottom-52 left-4 md:left-8 z-30 flex items-center gap-1.5">
               <button
@@ -381,6 +408,39 @@ export default function App() {
                   title={variant.class}
                 >
                   <img src={variant.classIcon} alt={variant.class} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                </button>
+              ))}
+            </div>
+          )}
+          {hasEntered && baseOperator.alter && baseOperator.portrait && (
+            <div className="absolute bottom-28 md:bottom-52 left-4 md:left-8 z-30 flex items-center gap-2">
+              {[
+                { active: !isAlterActive, src: baseOperator.portrait, alt: baseOperator.name, onClick: () => switchAlter(false) },
+                { active: isAlterActive, src: baseOperator.alter.portrait, alt: baseOperator.alter.name, onClick: () => switchAlter(true) },
+              ].map((btn) => (
+                <button
+                  key={btn.alt}
+                  onClick={btn.onClick}
+                  className={`group relative w-10 h-10 md:w-11 md:h-11 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]`}
+                  title={btn.alt}
+                  style={{ transition: 'transform 0.15s' }}
+                >
+                  <div className="absolute bottom-full left-0 mb-1.5 pointer-events-none overflow-hidden h-0 group-hover:h-6 opacity-0 group-hover:opacity-100" style={{ transition: 'height 0.2s cubic-bezier(0.16,1,0.3,1), opacity 0.15s' }}>
+                    <div
+                      className="max-w-0 group-hover:max-w-48 overflow-hidden whitespace-nowrap h-full bg-ak-panel/90 backdrop-blur-sm border border-ak-border/40 flex items-center px-0 group-hover:px-2.5"
+                      style={{ transition: 'max-width 0.35s cubic-bezier(0.16,1,0.3,1) 0.1s, padding 0.25s ease 0.1s' }}
+                    >
+                      <span className="font-display text-[10px] tracking-wider text-white/70 opacity-0 group-hover:opacity-100" style={{ transition: 'opacity 0.15s ease 0.25s' }}>{btn.alt}</span>
+                    </div>
+                  </div>
+                  <div className={`absolute inset-0 border backdrop-blur-sm overflow-hidden ${btn.active ? 'border-ak-accent/60 bg-ak-accent/10 shadow-[0_0_14px_rgba(59,164,201,0.25)]' : 'border-white/[0.12] bg-ak-panel/60 hover:border-white/[0.25]'}`} style={{ transition: 'border-color 0.3s, background-color 0.3s, box-shadow 0.3s' }}>
+                    <img src={btn.src} alt={btn.alt} className={`w-full h-full object-cover ${btn.active ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'}`} style={{ transition: 'opacity 0.3s' }} />
+                  </div>
+                  <div className={`absolute w-2.5 h-2.5 border-t border-l ${btn.active ? 'top-0.5 left-0.5 border-ak-accent/70' : '-top-1 -left-1 border-transparent group-hover:top-0.5 group-hover:left-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, left 0.3s, border-color 0.3s' }} />
+                  <div className={`absolute w-2.5 h-2.5 border-t border-r ${btn.active ? 'top-0.5 right-0.5 border-ak-accent/70' : '-top-1 -right-1 border-transparent group-hover:top-0.5 group-hover:right-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, right 0.3s, border-color 0.3s' }} />
+                  <div className={`absolute w-2.5 h-2.5 border-b border-l ${btn.active ? 'bottom-0.5 left-0.5 border-ak-accent/70' : '-bottom-1 -left-1 border-transparent group-hover:bottom-0.5 group-hover:left-0.5 group-hover:border-white/30'}`} style={{ transition: 'bottom 0.3s, left 0.3s, border-color 0.3s' }} />
+                  <div className={`absolute w-2.5 h-2.5 border-b border-r ${btn.active ? 'bottom-0.5 right-0.5 border-ak-accent/70' : '-bottom-1 -right-1 border-transparent group-hover:bottom-0.5 group-hover:right-0.5 group-hover:border-white/30'}`} style={{ transition: 'bottom 0.3s, right 0.3s, border-color 0.3s' }} />
+                  {btn.active && <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-ak-accent rounded-full shadow-[0_0_8px_rgba(59,164,201,0.6)]" />}
                 </button>
               ))}
             </div>

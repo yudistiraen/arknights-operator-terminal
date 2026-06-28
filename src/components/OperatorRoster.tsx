@@ -6,7 +6,7 @@ import type { Operator } from '../types'
 import { Stars } from './ui/Stars'
 
 interface OperatorRosterProps {
-  onSelectOperator: (index: number) => void
+  onSelectOperator: (index: number, activateAlter?: boolean) => void
   onBack: () => void
 }
 
@@ -156,42 +156,63 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
     setBranchFilter('all')
   }
 
-  const filteredOperators = useMemo(() => {
-    let result = [...OPERATORS]
+  interface RosterEntry {
+    operator: Operator
+    operatorIndex: number
+    isAlter: boolean
+  }
+
+  const allEntries = useMemo<RosterEntry[]>(() => {
+    const entries: RosterEntry[] = []
+    OPERATORS.forEach((op, opIndex) => {
+      entries.push({ operator: op, operatorIndex: opIndex, isAlter: false })
+      if (op.alter) {
+        entries.push({
+          operator: { ...op, ...op.alter } as Operator,
+          operatorIndex: opIndex,
+          isAlter: true,
+        })
+      }
+    })
+    return entries
+  }, [])
+
+  const filteredEntries = useMemo(() => {
+    let result = [...allEntries]
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
-      result = result.filter(op => op.name.toLowerCase().includes(query))
+      result = result.filter(entry => entry.operator.name.toLowerCase().includes(query))
+    } else {
+      result = result.filter(entry => !entry.isAlter)
     }
-    if (rarityFilter !== 'all') result = result.filter(op => op.rarity === Number(rarityFilter))
-    if (classFilter !== 'all') result = result.filter(op => op.class === classFilter)
-    if (branchFilter !== 'all') result = result.filter(op => op.branch === branchFilter)
-    if (factionFilter !== 'all') result = result.filter(op => op.faction === factionFilter)
-    result.sort((a, b) => {
-      if (b.rarity !== a.rarity) return b.rarity - a.rarity
-      return a.name.localeCompare(b.name)
+    if (rarityFilter !== 'all') result = result.filter(entry => entry.operator.rarity === Number(rarityFilter))
+    if (classFilter !== 'all') result = result.filter(entry => entry.operator.class === classFilter)
+    if (branchFilter !== 'all') result = result.filter(entry => entry.operator.branch === branchFilter)
+    if (factionFilter !== 'all') result = result.filter(entry => entry.operator.faction === factionFilter)
+    result.sort((entryA, entryB) => {
+      if (entryB.operator.rarity !== entryA.operator.rarity) return entryB.operator.rarity - entryA.operator.rarity
+      return entryA.operator.name.localeCompare(entryB.operator.name)
     })
     return result
-  }, [searchQuery, rarityFilter, classFilter, branchFilter, factionFilter])
+  }, [searchQuery, rarityFilter, classFilter, branchFilter, factionFilter, allEntries])
 
   const groupedByRarity = useMemo(() => {
-    const groups: Record<number, Operator[]> = {}
-    for (const op of filteredOperators) {
-      if (!groups[op.rarity]) groups[op.rarity] = []
-      groups[op.rarity].push(op)
+    const groups: Record<number, RosterEntry[]> = {}
+    for (const entry of filteredEntries) {
+      const rarity = entry.operator.rarity
+      if (!groups[rarity]) groups[rarity] = []
+      groups[rarity].push(entry)
     }
     return Object.entries(groups)
       .sort(([a], [b]) => Number(b) - Number(a))
-      .map(([rarity, ops]) => ({ rarity: Number(rarity), operators: ops }))
-  }, [filteredOperators])
+      .map(([rarity, entries]) => ({ rarity: Number(rarity), entries }))
+  }, [filteredEntries])
 
-  const handleOperatorClick = (operator: Operator) => {
-    const index = OPERATORS.findIndex(op => op.name === operator.name)
-    if (index !== -1) {
-      const clickSound = new Audio('/audio/futuristic_click.mp3')
-      clickSound.volume = 0.5
-      clickSound.play().catch(() => {})
-      onSelectOperator(index)
-    }
+  const handleEntryClick = (entry: RosterEntry) => {
+    const clickSound = new Audio('/audio/futuristic_click.mp3')
+    clickSound.volume = 0.5
+    clickSound.play().catch(() => {})
+    onSelectOperator(entry.operatorIndex, entry.isAlter)
   }
 
   const activeFilterCount = [rarityFilter, classFilter, branchFilter, factionFilter].filter(f => f !== 'all').length + (searchQuery ? 1 : 0)
@@ -253,7 +274,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           </div>
           <div className="flex items-center gap-2.5">
             <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
-              {filteredOperators.length}<span className="text-white/15"> / {OPERATORS.length}</span>
+              {filteredEntries.length}<span className="text-white/15"> / {OPERATORS.length}</span>
             </span>
             <div className="w-1.5 h-1.5 bg-[#3ba4c9]/50 rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
           </div>
@@ -333,31 +354,31 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           </div>
         ) : (
           <div className="space-y-7 md:space-y-10">
-            {groupedByRarity.map(({ rarity, operators }) => (
+            {groupedByRarity.map(({ rarity, entries }) => (
               <section key={rarity} className="rarity-group">
                 <div className="flex items-center gap-3 mb-3 md:mb-4">
                   <Stars count={rarity} />
                   <div className={`flex-1 h-px bg-gradient-to-r ${RARITY_GRADIENT[rarity] ?? 'from-white/10 to-transparent'}`} />
                   <span className="text-[9px] md:text-[10px] text-white/20 font-display tracking-[0.2em] uppercase">
-                    {operators.length}
+                    {entries.length}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
-                  {operators.map(operator => (
+                  {entries.map(entry => (
                     <button
-                      key={operator.name}
-                      onClick={() => handleOperatorClick(operator)}
+                      key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                      onClick={() => handleEntryClick(entry)}
                       className="operator-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] cursor-pointer text-left aspect-[3/4] hover:border-[#3ba4c9]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
                       style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s, background-color 0.3s' }}
                     >
                       {/* Rarity bar top edge */}
-                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
+                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[entry.operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
 
                       {/* Art */}
                       <img
-                        src={operator.skins[0].src}
-                        alt={operator.name}
+                        src={entry.operator.skins[0].src}
+                        alt={entry.operator.name}
                         className="absolute inset-0 w-full h-full object-contain object-center opacity-70 group-hover:opacity-90"
                         style={{ transition: 'opacity 0.3s' }}
                         loading="lazy"
@@ -372,27 +393,36 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
 
                       {/* Class icon */}
                       <img
-                        src={operator.classIcon}
-                        alt={operator.class}
+                        src={entry.operator.classIcon}
+                        alt={entry.operator.class}
                         className="absolute top-2 left-2 w-4 h-4 md:w-[18px] md:h-[18px] object-contain opacity-35 group-hover:opacity-55 z-10"
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
                       {/* Faction icon */}
                       <img
-                        src={operator.factionIcon}
-                        alt={operator.faction}
+                        src={entry.operator.factionIcon}
+                        alt={entry.operator.faction}
                         className="absolute top-2 right-2 w-4 h-4 md:w-[18px] md:h-[18px] object-contain opacity-30 group-hover:opacity-50 z-10"
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
+                      {/* Alter badge */}
+                      {entry.isAlter && (
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
+                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f0c95c]/70 bg-[#f0c95c]/10 px-1.5 py-0.5 border border-[#f0c95c]/20">
+                            ALTER
+                          </span>
+                        </div>
+                      )}
+
                       {/* Info strip */}
                       <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2.5 z-10">
                         <p className="font-display text-[11px] md:text-xs font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
-                          {operator.name}
+                          {entry.operator.name}
                         </p>
                         <p className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider truncate">
-                          {operator.class} · {operator.branch}
+                          {entry.operator.class} · {entry.operator.branch}
                         </p>
                       </div>
 
