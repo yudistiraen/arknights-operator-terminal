@@ -463,7 +463,7 @@ export default function App() {
                   <svg className="w-7 h-7 md:w-10 md:h-10 text-white/20 shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
                   </svg>
-                  <span className="text-[10px] md:text-xs text-white/15 font-display italic">— Module not available —</span>
+                  <div className="text-[10px] md:text-xs text-white/15 font-display italic w-full text-center mt-1">— Module not available —</div>
                 </div>
               </>, true)}
               {renderCard('physexam', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
