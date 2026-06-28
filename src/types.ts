@@ -69,6 +69,22 @@ export interface OperatorSkin {
   label: string
   src: string
   chibiSrc: string
+  illustrator: string
+}
+
+export interface OperatorVariant {
+  class: string
+  branch: string
+  position: string
+  trait: string
+  stats: OperatorStats
+  range: AttackRange
+  talents: Talent[]
+  skills: Skill[]
+  modules: Record<string, OperatorModule>
+  classIcon: string
+  branchIcon: string
+  skins: OperatorSkin[]
 }
 
 export interface Operator {
@@ -103,4 +119,5 @@ export interface Operator {
   branchIcon: string
   factionIcon: string
   skins: OperatorSkin[]
+  variants?: OperatorVariant[]
 }

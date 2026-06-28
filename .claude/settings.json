@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/skin_table.json\" -o .firecrawl/skin_table_cn.json)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/refs/heads/master/zh_CN/gamedata/excel/skin_table.json\" -o .firecrawl/skin_table_cn.json)",
+      "Bash(node -e ' *)",
+      "Bash(npx tsc *)",
+      "Bash(pnpm dev *)"
+    ]
+  }
+}

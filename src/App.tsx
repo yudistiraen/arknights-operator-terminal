@@ -1,28 +1,36 @@
 import { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
-import { OPERATORS } from './data/operators'
+import { OPERATORS, DEFAULT_OPERATOR_INDEX } from './data/operators'
 import { getFactionTheme } from './data/factionThemes'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from './constants'
 import { PANEL_CONFIGS } from './components/panels'
 import { SplashScreen } from './components/SplashScreen'
 import { CharacterArt } from './components/CharacterArt'
 import { OperatorHud } from './components/OperatorHud'
+import { IllustratorCredit } from './components/IllustratorCredit'
 import { SkinSelector } from './components/SkinSelector'
 import { TopBar } from './components/TopBar'
 import { NavigationArrows } from './components/NavigationArrows'
+import { OperatorRoster } from './components/OperatorRoster'
 
 gsap.registerPlugin(useGSAP)
 
 export default function App() {
   const [hasEntered, setHasEntered] = useState(false)
-  const [operatorIndex, setOperatorIndex] = useState(0)
+  const [currentPage, setCurrentPage] = useState<'terminal' | 'roster'>('terminal')
+  const [operatorIndex, setOperatorIndex] = useState(DEFAULT_OPERATOR_INDEX)
   const [expandedPanelId, setExpandedPanelId] = useState<string | null>(null)
   const [skinIndex, setSkinIndex] = useState(0)
+  const [variantIndex, setVariantIndex] = useState(-1)
   const [isMuted, setIsMuted] = useState(false)
   const [isAudioReady, setIsAudioReady] = useState(false)
 
-  const activeOperator = OPERATORS[operatorIndex]
+  const baseOperator = OPERATORS[operatorIndex]
+  const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
+  const activeOperator = activeVariant
+    ? { ...baseOperator, ...activeVariant } as typeof baseOperator
+    : baseOperator
   const factionTheme = getFactionTheme(activeOperator.faction)
   const [accentR, accentG, accentB] = factionTheme.accent
   const [secR, secG, secB] = factionTheme.secondary
@@ -42,7 +50,7 @@ export default function App() {
   const switchSkin = useCallback((targetIndex: number) => {
     if (targetIndex === skinIndex || isSkinAnimating.current || !artRef.current) return
     isSkinAnimating.current = true
-    const transitionSound = new Audio('/glitch_transition.mp3')
+    const transitionSound = new Audio('/audio/glitch_transition.mp3')
     transitionSound.volume = 0.6
     transitionSound.play().catch(() => {})
     const artImage = artRef.current
@@ -63,7 +71,7 @@ export default function App() {
     const buttonElement = panelRefs.current[panelId]
     const gridElement = gridRef.current
     if (!buttonElement || !gridElement || expandedPanelId || isAnimating.current) return
-    const clickSound = new Audio('/futuristic_click.mp3')
+    const clickSound = new Audio('/audio/futuristic_click.mp3')
     clickSound.volume = 0.5
     clickSound.play().catch(() => {})
     pendingExpansion.current = { id: panelId, rect: buttonElement.getBoundingClientRect() }
@@ -139,7 +147,7 @@ export default function App() {
 
   const handleEnter = useCallback(() => {
     if (hasEntered) return
-    const enterSound = new Audio('/enter_effect.mp3')
+    const enterSound = new Audio('/audio/enter_effect.mp3')
     enterSound.volume = 0.8
     enterSound.play().catch(() => {})
     const audioElement = audioRef.current
@@ -186,7 +194,7 @@ export default function App() {
 
   const switchOperator = useCallback((direction: -1 | 1) => {
     if (isSkinAnimating.current) return
-    const clickSound = new Audio('/futuristic_click.mp3')
+    const clickSound = new Audio('/audio/futuristic_click.mp3')
     clickSound.volume = 0.5
     clickSound.play().catch(() => {})
     setExpandedPanelId(null)
@@ -199,6 +207,7 @@ export default function App() {
           setOperatorIndex(previousIndex => {
             const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
             setSkinIndex(0)
+            setVariantIndex(-1)
             return nextIndex
           })
         })
@@ -214,10 +223,44 @@ export default function App() {
       setOperatorIndex(previousIndex => {
         const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
         setSkinIndex(0)
+        setVariantIndex(-1)
         return nextIndex
       })
       isSkinAnimating.current = false
     }
+  }, [])
+
+  const handleOpenRoster = useCallback(() => {
+    setExpandedPanelId(null)
+    setCurrentPage('roster')
+  }, [])
+
+  const handleSelectFromRoster = useCallback((index: number) => {
+    setOperatorIndex(index)
+    setSkinIndex(0)
+    setVariantIndex(-1)
+    setExpandedPanelId(null)
+    setCurrentPage('terminal')
+  }, [])
+
+  const switchVariant = useCallback((targetVariant: number) => {
+    if (isSkinAnimating.current || !artRef.current) return
+    isSkinAnimating.current = true
+    const transitionSound = new Audio('/audio/glitch_transition.mp3')
+    transitionSound.volume = 0.6
+    transitionSound.play().catch(() => {})
+    const artImage = artRef.current
+    const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
+    timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
+      .call(() => { setVariantIndex(targetVariant); setSkinIndex(0); setExpandedPanelId(null) })
+      .set(artImage, { scale: 0.97 })
+      .to(artImage, { opacity: 0.15, duration: 0.04 })
+      .to(artImage, { opacity: 0, duration: 0.03 })
+      .to(artImage, { opacity: 0.5, duration: 0.05 })
+      .to(artImage, { opacity: 0.1, duration: 0.03 })
+      .to(artImage, { opacity: 0.8, duration: 0.06 })
+      .to(artImage, { opacity: 0.4, duration: 0.03 })
+      .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
   }, [])
 
   useGSAP(() => {
@@ -268,11 +311,11 @@ export default function App() {
         <div className="btn-preview flex flex-col justify-between h-full">{previewContent}</div>
         {isExpanded && (
           <div className="btn-expanded absolute inset-0 flex flex-col">
-            <div className="flex items-center gap-3 px-6 pt-5 pb-4 border-b border-white/[0.1] shrink-0">
-              <div className={`w-1 h-5 ${panelConfig.accent} rounded-full`} />
-              <h2 className="font-display text-lg font-bold text-white/90 tracking-wider uppercase">{panelConfig.title}</h2>
+            <div className="flex items-center gap-2 md:gap-3 px-4 md:px-6 pt-3 md:pt-5 pb-2 md:pb-4 border-b border-white/[0.1] shrink-0">
+              <div className={`w-1 h-4 md:h-5 ${panelConfig.accent} rounded-full`} />
+              <h2 className="font-display text-base md:text-lg font-bold text-white/90 tracking-wider uppercase">{panelConfig.title}</h2>
             </div>
-            <div className="flex-1 overflow-y-auto p-6 ak-scroll">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 ak-scroll">
               <PanelComponent operator={activeOperator} />
             </div>
           </div>
@@ -282,163 +325,195 @@ export default function App() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full h-screen overflow-hidden bg-ak-bg">
-      {/* Background layers — faction-tinted */}
-      <div
-        className="absolute inset-0 transition-[background-color] duration-1000 ease-in-out"
-        style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.04)` }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ background: `radial-gradient(ellipse at 25% 50%, rgba(${accentR}, ${accentG}, ${accentB}, 0.1) 0%, transparent 60%)` }}
-      />
-      <div
-        className="absolute inset-0"
-        style={{ background: `radial-gradient(ellipse at 80% 20%, rgba(${secR}, ${secG}, ${secB}, 0.05) 0%, transparent 50%)` }}
-      />
-      <div
-        className="glow-orb absolute top-1/3 left-1/5 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 transition-[background-color] duration-1000 ease-in-out"
-        style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.08)` }}
-      />
-      <div
-        className="scanline absolute left-0 w-full h-px pointer-events-none z-50"
-        style={{ top: '-1px', background: `linear-gradient(to right, transparent, rgba(${accentR}, ${accentG}, ${accentB}, 0.2), transparent)` }}
-      />
-      <div className="absolute inset-0 opacity-[0.025] pointer-events-none z-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+    <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-ak-bg">
+      {/* Audio — persists across pages */}
+      <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
 
-      {/* Character art section */}
-      <CharacterArt ref={artRef} operator={activeOperator} skinSrc={activeOperator.skins[skinIndex].src} chibiSrc={activeOperator.skins[skinIndex].chibiSrc} />
+      {/* Terminal (operator detail) view — hidden when on roster */}
+      <div className={currentPage === 'terminal' ? '' : 'hidden'}>
+        {/* Background layers — faction-tinted */}
+        <div
+          className="absolute inset-0 transition-[background-color] duration-1000 ease-in-out"
+          style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.04)` }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: `radial-gradient(ellipse at 25% 50%, rgba(${accentR}, ${accentG}, ${accentB}, 0.1) 0%, transparent 60%)` }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: `radial-gradient(ellipse at 80% 20%, rgba(${secR}, ${secG}, ${secB}, 0.05) 0%, transparent 50%)` }}
+        />
+        <div
+          className="glow-orb absolute top-1/3 left-1/5 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 transition-[background-color] duration-1000 ease-in-out"
+          style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.08)` }}
+        />
+        <div
+          className="scanline absolute left-0 w-full h-px pointer-events-none z-50"
+          style={{ top: '-1px', background: `linear-gradient(to right, transparent, rgba(${accentR}, ${accentG}, ${accentB}, 0.2), transparent)` }}
+        />
+        <div className="absolute inset-0 opacity-[0.025] pointer-events-none z-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
 
-      {/* Operator info HUD (bottom-left) */}
-      <OperatorHud operator={activeOperator} />
+        <TopBar isMuted={isMuted} onToggleMute={toggleMute} onOpenRoster={handleOpenRoster} />
 
-      {/* Skin selector (top-left) */}
-      <SkinSelector skins={activeOperator.skins} activeSkinIndex={skinIndex} onSkinChange={switchSkin} />
+        {/* Content layout — stacks vertically on mobile */}
+        <div className="relative flex flex-col md:block min-h-screen md:h-full">
 
-      {/* Audio */}
-      <audio ref={audioRef} src="/Arknights OST.mp3" loop preload="auto" />
+        {/* Character art section + overlays */}
+        <div className="relative h-[50vh] w-full shrink-0 md:absolute md:inset-y-0 md:left-0 md:w-[58%] md:h-auto overflow-hidden">
+          <CharacterArt ref={artRef} operator={activeOperator} skinSrc={activeOperator.skins[skinIndex].src} chibiSrc={activeOperator.skins[skinIndex].chibiSrc} />
+          <OperatorHud operator={activeOperator} />
+          <IllustratorCredit illustrator={activeOperator.skins[skinIndex].illustrator} triggerKey={`${activeOperator.name}-${variantIndex}-${activeOperator.skins[skinIndex].id}`} />
+          {hasEntered && baseOperator.variants && baseOperator.variants.length > 0 && (
+            <div className="absolute bottom-28 md:bottom-52 left-4 md:left-8 z-30 flex items-center gap-1.5">
+              <button
+                onClick={() => switchVariant(-1)}
+                className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === -1 ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
+                title={baseOperator.class}
+              >
+                <img src={baseOperator.classIcon} alt={baseOperator.class} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === -1 ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+              </button>
+              {baseOperator.variants.map((variant, index) => (
+                <button
+                  key={variant.class}
+                  onClick={() => switchVariant(index)}
+                  className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === index ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
+                  title={variant.class}
+                >
+                  <img src={variant.classIcon} alt={variant.class} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                </button>
+              ))}
+            </div>
+          )}
+          <SkinSelector skins={activeOperator.skins} activeSkinIndex={skinIndex} onSkinChange={switchSkin} />
+          {hasEntered && OPERATORS.length > 1 && (
+            <NavigationArrows onPrevious={() => switchOperator(-1)} onNext={() => switchOperator(1)} />
+          )}
+        </div>
 
-      {/* Top bar with mute + Rhodes Island badge */}
-      <TopBar isMuted={isMuted} onToggleMute={toggleMute} />
+        {/* Right panel grid — below character art on mobile */}
+        <div className="relative w-full md:absolute md:right-0 md:top-0 md:w-[46%] md:h-full z-20">
+          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-ak-bg/70 via-ak-bg/40 to-transparent pointer-events-none" />
+          <div ref={gridRef} className="relative z-10 md:h-full flex flex-col justify-start md:justify-center gap-1.5 md:gap-2 px-3 md:pr-6 md:pl-4 py-4 md:pt-16 md:pb-6">
 
-      {/* Right panel grid */}
-      <div className="absolute right-0 top-0 w-[46%] h-full z-20">
-        <div className="absolute inset-0 bg-gradient-to-l from-ak-bg/70 via-ak-bg/40 to-transparent pointer-events-none" />
-        <div ref={gridRef} className="relative z-10 h-full flex flex-col justify-center gap-2 pr-6 pl-4 pt-16 pb-6">
-
-          {/* Combat Data section */}
-          <span className="section-label text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
-          <div className="flex gap-2 flex-[2]">
-            {renderCard('attribute', `${BUTTON_BASE} w-[38%] p-3`, BUTTON_HOVER, <>
-              <div>
-                <h2 className="font-display text-xl font-bold text-white/90 tracking-wide leading-none mb-1">Attribute</h2>
-                <span className="font-display text-xs text-white/40 tracking-wider">Trust {activeOperator.trust} / 200</span>
-              </div>
-              <div className="flex gap-3 mt-1.5">
-                <span className="text-xs text-white/30 font-display">HP {activeOperator.stats.hp}</span>
-                <span className="text-xs text-white/30 font-display">ATK {activeOperator.stats.atk}</span>
-              </div>
-            </>)}
-            {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-3`, BUTTON_CYAN_HOVER, <>
-              <div className="flex items-start justify-between">
-                <h2 className="font-display text-xl font-bold text-white/90 tracking-wide">Trait</h2>
-                <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="w-6 h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" />
-              </div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="font-display text-xs text-ak-accent-bright">{activeOperator.branch} {activeOperator.class}</span>
-                <span className="text-[10px] text-white/40">&middot; {activeOperator.position}</span>
-              </div>
-              <div className="bg-white/[0.06] border border-white/[0.08] p-4">
-                <p className="text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
-              </div>
-            </>, true)}
-          </div>
-          <div className="flex gap-2 flex-[2.5]">
-            {renderCard('skills', `${BUTTON_BASE} w-[42%] p-3`, BUTTON_HOVER, <>
-              <div>
-                <h2 className="font-display text-xl font-bold text-white/90 tracking-wide">Skills</h2>
-                <div className="flex gap-2 mt-1.5">
-                  {activeOperator.skills.map((skill) => (
-                    <img key={skill.name} src={skill.icon} alt={skill.name} className="w-10 h-10 rounded object-contain bg-white/[0.06]" />
+            {/* Combat Data section */}
+            <span className="section-label text-[8px] md:text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
+            <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
+              {renderCard('attribute', `${BUTTON_BASE} w-[38%] p-2 md:p-3`, BUTTON_HOVER, <>
+                <div>
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide leading-none mb-0.5 md:mb-1">Attribute</h2>
+                  <span className="font-display text-[10px] md:text-xs text-white/40 tracking-wider">Trust {activeOperator.trust} / 200</span>
+                </div>
+                <div className="flex gap-2 md:gap-3 mt-1">
+                  <span className="text-[10px] md:text-xs text-white/30 font-display">HP {activeOperator.stats.hp}</span>
+                  <span className="text-[10px] md:text-xs text-white/30 font-display">ATK {activeOperator.stats.atk}</span>
+                </div>
+              </>)}
+              {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
+                <div className="flex items-start justify-between">
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
+                  <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="w-5 h-5 md:w-6 md:h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" />
+                </div>
+                <div className="flex items-center gap-2 mb-2 md:mb-4">
+                  <span className="font-display text-[10px] md:text-xs text-ak-accent-bright">{activeOperator.branch} {activeOperator.class}</span>
+                  <span className="text-[9px] md:text-[10px] text-white/40">&middot; {activeOperator.position}</span>
+                </div>
+                <div className="bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
+                  <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
+                </div>
+              </>, true)}
+            </div>
+            <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2.5]">
+              {renderCard('skills', `${BUTTON_BASE} w-[42%] p-2 md:p-3`, BUTTON_HOVER, <>
+                <div>
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Skills</h2>
+                  <div className="flex gap-1.5 md:gap-2 mt-1 md:mt-1.5">
+                    {activeOperator.skills.map((skill) => (
+                      <img key={skill.name} src={skill.icon} alt={skill.name} className="w-7 h-7 md:w-10 md:h-10 rounded object-contain bg-white/[0.06]" />
+                    ))}
+                  </div>
+                </div>
+                <span className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator.skills[0].rank}</span>
+              </>)}
+              {renderCard('talents', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Talents</h2>
+                <div className="mt-1">
+                  {activeOperator.talents.map((talent) => (
+                      <p key={talent.name} className="text-xs md:text-sm text-white/35 font-display leading-relaxed truncate">{talent.name}</p>
                   ))}
                 </div>
-              </div>
-              <span className="text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator.skills[0].rank}</span>
-            </>)}
-            {renderCard('talents', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
-              <h2 className="font-display text-xl font-bold text-white/90 tracking-wide">Talents</h2>
-              <div className="mt-1.5">
-                {activeOperator.talents.map((talent) => (
-                    <p key={talent.name} className="text-sm text-white/35 font-display leading-relaxed truncate">{talent.name}</p>
-                ))}
-
-              </div>
-            </>)}
-          </div>
-          <div className="flex gap-2 flex-[2]">
-            {hasModules ? renderCard('modules', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
-              <div className="flex items-center justify-between">
-                <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Modules</h2>
-                <div className="flex gap-1">
-                  {Object.values(activeOperator.modules).filter(mod => 'stages' in mod).map(mod => (
-                    <span key={mod.code} className="text-xs px-1.5 py-0.5 bg-ak-gold/20 text-ak-gold-bright border border-ak-gold/30 font-display rounded-sm">{mod.code}</span>
-                  ))}
+              </>)}
+            </div>
+            <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
+              {hasModules ? renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <div className="flex items-center justify-between">
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Modules</h2>
+                  <div className="flex gap-1">
+                    {Object.values(activeOperator.modules).filter(mod => 'stages' in mod).map(mod => (
+                      <span key={mod.code} className="text-[10px] md:text-xs px-1 md:px-1.5 py-0.5 bg-ak-gold/20 text-ak-gold-bright border border-ak-gold/30 font-display rounded-sm">{mod.code}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <span className="text-xs text-white/30 font-display">{Object.keys(activeOperator.modules).length} Equipped</span>
-            </>) : renderCard('modules', `${BUTTON_BASE} flex-1 p-3 opacity-40`, BUTTON_HOVER, <>
-              <div className="flex items-center gap-2">
-                <h2 className="font-display text-xl font-bold text-white/30 tracking-wide">Modules</h2>
-              </div>
-              <div className="display-flex w-full">
-                <svg className="w-10 h-10 text-white/20 shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
-                </svg>
-                <span className="text-xs text-white/15 font-display italic">— Module not available —</span>
-              </div>
-            </>, true)}
-            {renderCard('physexam', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
-              <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Physical Exam</h2>
-              <div className="flex gap-0.5 mt-1.5">
-                {Object.values(activeOperator.physicalExam).map((examValue, examIndex) => {
-                  const rating = PHYSICAL_EXAM_RATINGS[examValue] || 3
-                  return <div key={examIndex} className={`h-1 flex-1 rounded-full ${rating >= 4 ? 'bg-ak-accent/60' : 'bg-white/15'}`} />
-                })}
-              </div>
-            </>)}
-          </div>
+                <span className="text-[10px] md:text-xs text-white/30 font-display">{Object.keys(activeOperator.modules).length} Equipped</span>
+              </>) : renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3 opacity-40`, BUTTON_HOVER, <>
+                <div className="flex items-center gap-2">
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/30 tracking-wide">Modules</h2>
+                </div>
+                <div className="display-flex w-full">
+                  <svg className="w-7 h-7 md:w-10 md:h-10 text-white/20 shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
+                  </svg>
+                  <span className="text-[10px] md:text-xs text-white/15 font-display italic">— Module not available —</span>
+                </div>
+              </>, true)}
+              {renderCard('physexam', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Physical Exam</h2>
+                <div className="flex gap-0.5 mt-1">
+                  {Object.values(activeOperator.physicalExam).map((examValue, examIndex) => {
+                    const rating = PHYSICAL_EXAM_RATINGS[examValue] || 3
+                    return <div key={examIndex} className={`h-1 flex-1 rounded-full ${rating >= 4 ? 'bg-ak-accent/60' : 'bg-white/15'}`} />
+                  })}
+                </div>
+              </>)}
+            </div>
 
-          {/* Section divider */}
-          <div className="section-divider h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-1 origin-left" />
+            {/* Section divider */}
+            <div className="section-divider h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-0.5 md:my-1 origin-left" />
 
-          {/* Operator Info section */}
-          <span className="section-label text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
-          <div className="flex gap-2 flex-[2]">
-            {renderCard('profile', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
-              <h2 className="font-display text-xl font-bold text-white/90 tracking-wide leading-none mb-1">Profile</h2>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-xs text-white/50 font-display font-semibold">{activeOperator.name}</span>
-                <span className="text-xs text-white/30">&middot; {activeOperator.faction}</span>
-              </div>
-            </>)}
-            {renderCard('voice', `${BUTTON_BASE} flex-[0.7] p-3`, BUTTON_HOVER, <>
-              <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Voice Actors</h2>
-              <span className="text-xs text-white/25 font-display mt-1">4 Lang</span>
-            </>)}
-            {renderCard('lore', `${BUTTON_BASE} flex-1 p-3`, BUTTON_HOVER, <>
-              <h2 className="font-display text-xl font-bold text-white/85 tracking-wide">Lore</h2>
-              <p className="text-xs text-white/25 font-display leading-relaxed line-clamp-1 italic mt-1">{activeOperator.lore.slice(0, 60)}...</p>
-            </>)}
+            {/* Operator Info section */}
+            <span className="section-label text-[8px] md:text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
+            <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
+              {renderCard('profile', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide leading-none mb-0.5 md:mb-1">Profile</h2>
+                <div className="flex items-center gap-2 mt-0.5 md:mt-1">
+                  <span className="text-[10px] md:text-xs text-white/50 font-display font-semibold">{activeOperator.name}</span>
+                  <span className="text-[10px] md:text-xs text-white/30">&middot; {activeOperator.faction}</span>
+                </div>
+              </>)}
+              {renderCard('voice', `${BUTTON_BASE} flex-[0.7] p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Voice Actors</h2>
+                <span className="text-[10px] md:text-xs text-white/25 font-display mt-0.5 md:mt-1">4 Lang</span>
+              </>)}
+              {renderCard('lore', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Lore</h2>
+                <p className="text-[10px] md:text-xs text-white/25 font-display leading-relaxed line-clamp-1 italic mt-0.5 md:mt-1">{activeOperator.lore.slice(0, 60)}...</p>
+              </>)}
+            </div>
           </div>
         </div>
+
+        </div>{/* end content layout wrapper */}
+
+        {/* Vignette overlay */}
+        <div className="fixed md:absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
       </div>
 
-      {/* Vignette overlay */}
-      <div className="absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
-
-      {/* Operator navigation arrows */}
-      {hasEntered && OPERATORS.length > 1 && (
-        <NavigationArrows onPrevious={() => switchOperator(-1)} onNext={() => switchOperator(1)} />
+      {/* Roster view */}
+      {currentPage === 'roster' && (
+        <OperatorRoster
+          onSelectOperator={handleSelectFromRoster}
+          onBack={() => setCurrentPage('terminal')}
+        />
       )}
 
       {/* Splash screen */}
