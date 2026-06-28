@@ -19,6 +19,7 @@ export interface OperatorStats {
 export interface AttackRange {
   base: number[][]
   e1: number[][]
+  e2?: number[][]
 }
 
 export interface Talent {

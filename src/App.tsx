@@ -466,15 +466,24 @@ export default function App() {
                   <div className="text-[10px] md:text-xs text-white/15 font-display italic w-full text-center mt-1">— Module not available —</div>
                 </div>
               </>, true)}
-              {renderCard('physexam', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Physical Exam</h2>
-                <div className="flex gap-0.5 mt-1">
-                  {Object.values(activeOperator.physicalExam).map((examValue, examIndex) => {
-                    const rating = PHYSICAL_EXAM_RATINGS[examValue] || 3
-                    return <div key={examIndex} className={`h-1 flex-1 rounded-full ${rating >= 4 ? 'bg-ak-accent/60' : 'bg-white/15'}`} />
-                  })}
-                </div>
-              </>)}
+              {renderCard('physexam', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, (() => {
+                const examValues = Object.values(activeOperator.physicalExam)
+                const maxRating = Math.max(...examValues.map(v => PHYSICAL_EXAM_RATINGS[v] || 3))
+                return <>
+                  <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Physical Exam</h2>
+                  <div className="flex gap-0.5 mt-1">
+                    {examValues.map((examValue, examIndex) => {
+                      const rating = PHYSICAL_EXAM_RATINGS[examValue] || 3
+                      const isHighest = rating === maxRating
+                      return <div
+                        key={examIndex}
+                        className={`h-1 flex-1 rounded-full ${rating >= 4 ? 'bg-ak-accent/60' : 'bg-white/15'}`}
+                        style={isHighest && maxRating > 4 ? { animation: 'exam-blink 1.5s ease-in-out infinite' } : undefined}
+                      />
+                    })}
+                  </div>
+                </>
+              })())}
             </div>
 
             {/* Section divider */}

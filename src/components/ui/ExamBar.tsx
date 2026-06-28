@@ -3,12 +3,15 @@ import { PHYSICAL_EXAM_RATINGS } from '../../constants'
 interface ExamBarProps {
   label: string
   value: string
+  isHighest: boolean
+  shouldBlink: boolean
 }
 
 const MAX_SEGMENTS = 5
 
-export function ExamBar({ label, value }: ExamBarProps) {
+export function ExamBar({ label, value, isHighest, shouldBlink }: ExamBarProps) {
   const rating = PHYSICAL_EXAM_RATINGS[value] || 3
+  const blinkStyle = { animation: 'exam-blink 1.5s ease-in-out infinite' }
 
   return (
     <div className="flex items-center gap-2">
@@ -22,6 +25,7 @@ export function ExamBar({ label, value }: ExamBarProps) {
                 ? 'bg-ak-accent/80 shadow-[0_0_4px_rgba(59,164,201,0.3)]'
                 : 'bg-white/[0.06]'
             }`}
+            style={isHighest && shouldBlink && index === rating - 1 ? blinkStyle : undefined}
           />
         ))}
       </div>

@@ -19,6 +19,11 @@ export const OPERATORS = ([
         [2,1,1,1],
         [1,1,1,0],
       ],
+      e2: [
+        [1,1,1,0],
+        [2,1,1,1],
+        [1,1,1,0],
+      ],
     },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Standard', 'Originium Arts': '■■' },
     talents: [
@@ -53,7 +58,7 @@ export const OPERATORS = ([
         class: 'Guard', branch: 'Arts Fighter', position: 'Melee',
         trait: 'Deals Arts damage',
         stats: { hp: 2629, atk: 657, def: 376, res: 20, block: 1, cost: 21, aspd: '1.25s', rdp: '70s' },
-        range: { base: [[2,1]], e1: [[2,1]] },
+        range: { base: [[2,1]], e1: [[2,1]], e2: [[2,1]] },
         talents: [
           { name: 'Wrathful Cerulean Flame', desc: 'All allied units on the battlefield gain +7% ATK and DEF, doubled when skill is active', elite: 'E2' },
         ],
@@ -82,6 +87,11 @@ export const OPERATORS = ([
             [1,1,1,0],
           ],
           e1: [
+            [1,1,1,1],
+            [2,1,1,1],
+            [1,1,1,1],
+          ],
+          e2: [
             [1,1,1,1],
             [2,1,1,1],
             [1,1,1,1],
@@ -119,6 +129,13 @@ export const OPERATORS = ([
         [1,1,1,1],
       ],
       e1: [
+        [0,0,1,1,1],
+        [0,1,1,1,1],
+        [2,1,1,1,1],
+        [0,1,1,1,1],
+        [0,0,1,1,1],
+      ],
+      e2: [
         [0,0,1,1,1],
         [0,1,1,1,1],
         [2,1,1,1,1],
@@ -176,6 +193,11 @@ export const OPERATORS = ([
         [1,2,1,1],
         [1,1,1,1],
       ],
+      e2: [
+        [1,1,1,1],
+        [1,2,1,1],
+        [1,1,1,1],
+      ],
     },
     physicalExam: { 'Physical Strength': 'Flawed', Mobility: 'Outstanding', Endurance: 'Flawed', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Outstanding', 'Originium Arts': 'Flawed' },
     talents: [
@@ -217,6 +239,11 @@ export const OPERATORS = ([
         [1,1,1],
       ],
       e1: [
+        [1,1,1,0],
+        [2,1,1,1],
+        [1,1,1,0],
+      ],
+      e2: [
         [1,1,1,0],
         [2,1,1,1],
         [1,1,1,0],
@@ -267,6 +294,11 @@ export const OPERATORS = ([
         [0,1],
       ],
       e1: [
+        [0,1],
+        [2,1],
+        [0,1],
+      ],
+      e2: [
         [0,1],
         [2,1],
         [0,1],

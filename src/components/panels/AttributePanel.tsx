@@ -34,15 +34,21 @@ export function AttributePanel({ operator }: { operator: Operator }) {
         <div className="flex items-center justify-between mb-3">
           <span className="font-display text-[11px] text-white/40 uppercase tracking-wider">Attack Range</span>
         </div>
-        <div className="flex flex-col items-center gap-3">
-          <div className="flex items-center gap-10">
+        <div className="flex items-start justify-center gap-10">
+          <div className="flex flex-col items-center gap-2">
             <RangeGrid grid={operator.range.base} />
+            <span className="font-display text-[10px] text-white/30 tracking-wider">Base</span>
+          </div>
+          <div className="flex flex-col items-center gap-2">
             <RangeGrid grid={operator.range.e1} />
+            <span className="font-display text-[10px] text-white/30 tracking-wider">E1</span>
           </div>
-          <div className="flex gap-10">
-            <span className="font-display text-[10px] text-white/30 tracking-wider w-[92px] text-center">Base</span>
-            <span className="font-display text-[10px] text-white/30 tracking-wider w-[112px] text-center">E1 / E2</span>
-          </div>
+          {operator.rarity >= 4 && operator.range.e2 && (
+            <div className="flex flex-col items-center gap-2">
+              <RangeGrid grid={operator.range.e2} />
+              <span className="font-display text-[10px] text-white/30 tracking-wider">E2</span>
+            </div>
+          )}
         </div>
       </div>
     </>
