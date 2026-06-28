@@ -17,7 +17,7 @@ export function ProfilePanel({ operator }: { operator: Operator }) {
       {profileFields.map(([fieldLabel, fieldValue]) => (
         <div key={fieldLabel} className="flex justify-between items-baseline border-b border-white/[0.06] pb-2">
           <span className="text-[10px] font-display text-white/40 uppercase tracking-wider">{fieldLabel}</span>
-          <span className={`text-xs font-display font-semibold ${fieldValue === 'Infected' ? 'text-ak-infected' : 'text-white/80'}`}>{fieldValue}</span>
+          <span className={`text-xs font-display font-semibold ${fieldLabel === 'Infection' ? fieldValue === 'Infected' ? 'text-ak-infected' : 'text-ak-non-infected' : 'text-white/80'}`}>{fieldValue}</span>
         </div>
       ))}
     </div>
