@@ -1,15 +1,16 @@
+'use client'
+
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
 import type { Operator } from '../types'
+import { toSlug } from '../lib/operators'
+import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
-import { playClick } from '../lib/sound'
 
-interface OperatorRosterProps {
-  onSelectOperator: (index: number, activateAlter?: boolean) => void
-  onBack: () => void
-}
+gsap.registerPlugin(useGSAP)
 
 const RARITY_GRADIENT: Record<number, string> = {
   6: 'from-[#f0c95c]/60 to-[#d4a843]/20',
@@ -117,7 +118,14 @@ function FilterDropdown({ label, value, options, onChange }: {
   )
 }
 
-export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps) {
+interface RosterEntry {
+  operator: Operator
+  operatorIndex: number
+  isAlter: boolean
+}
+
+export function OperatorList() {
+  const { hasEntered } = useApp()
   const containerRef = useRef<HTMLDivElement>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [rarityFilter, setRarityFilter] = useState('all')
@@ -155,12 +163,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
   const handleClassChange = (value: string) => {
     setClassFilter(value)
     setBranchFilter('all')
-  }
-
-  interface RosterEntry {
-    operator: Operator
-    operatorIndex: number
-    isAlter: boolean
   }
 
   const allEntries = useMemo<RosterEntry[]>(() => {
@@ -207,11 +209,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
       .map(([rarity, entries]) => ({ rarity: Number(rarity), entries }))
   }, [filteredEntries])
 
-  const handleEntryClick = (entry: RosterEntry) => {
-    playClick()
-    onSelectOperator(entry.operatorIndex, entry.isAlter)
-  }
-
   const activeFilterCount = [rarityFilter, classFilter, branchFilter, factionFilter].filter(f => f !== 'all').length + (searchQuery ? 1 : 0)
 
   const clearFilters = () => {
@@ -222,15 +219,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
     setFactionFilter('all')
   }
 
-  useGSAP(() => {
-    gsap.set(['.roster-header', '.roster-filter', '.rarity-group'], { opacity: 0 })
-    const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
-    timeline
-      .to('.roster-header', { opacity: 1, y: 0, duration: 0.4 })
-      .to('.roster-filter', { opacity: 1, y: 0, duration: 0.35 }, '-=0.25')
-      .to('.rarity-group', { opacity: 1, y: 0, duration: 0.45, stagger: 0.12 }, '-=0.15')
-  }, { scope: containerRef })
-
   const selectStyle = {
     backgroundImage: SELECT_CHEVRON,
     backgroundPosition: 'right 6px center',
@@ -238,8 +226,26 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
     backgroundSize: '16px',
   }
 
+  const buildOperatorHref = (entry: RosterEntry) => {
+    const slug = toSlug(OPERATORS[entry.operatorIndex].name)
+    return entry.isAlter ? `/operator/${slug}?alter=true` : `/operator/${slug}`
+  }
+
+  useGSAP(() => {
+    if (!hasEntered) {
+      gsap.set(['.roster-header', '.roster-filter', '.rarity-group', '.op-card'], { opacity: 0 })
+      return
+    }
+    const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    timeline
+      .fromTo('.roster-header', { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4 })
+      .fromTo('.roster-filter', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.35 }, '-=0.25')
+      .fromTo('.rarity-group', { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.1 }, '-=0.15')
+      .fromTo('.op-card', { opacity: 0, y: 12, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.35, stagger: 0.03 }, '-=0.3')
+  }, { scope: containerRef, dependencies: [hasEntered] })
+
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full min-h-screen bg-ak-bg overflow-y-auto overflow-x-hidden ak-scroll">
+    <div ref={containerRef} className="relative w-full min-h-screen bg-ak-bg overflow-y-auto overflow-x-hidden ak-scroll">
       {/* Background */}
       <div
         className="fixed inset-0 opacity-[0.025] pointer-events-none"
@@ -254,16 +260,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
       <header className="roster-header sticky top-0 z-40 bg-ak-bg/80 backdrop-blur-xl border-b border-white/[0.06]">
         <div className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4">
           <div className="flex items-center gap-3 md:gap-4">
-            <button
-              onClick={onBack}
-              className="flex items-center gap-1.5 text-white/35 hover:text-white/70 active:text-white/25 font-display text-[10px] md:text-[11px] tracking-[0.15em] uppercase cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
-              style={{ transition: 'color 0.2s' }}
-            >
-              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
-                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-              </svg>
-              Terminal
-            </button>
             <div className="w-px h-4 bg-white/[0.08]" />
             <h1 className="font-display text-sm md:text-base font-bold text-white/80 tracking-[0.12em] uppercase">
               Operator List
@@ -271,7 +267,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           </div>
           <div className="flex items-center gap-2.5">
             <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
-              {filteredEntries.length}<span className="text-white/15"> / {OPERATORS.length}</span>
+              {filteredEntries.length}<span className="text-white/15"> / {allEntries.length}</span>
             </span>
             <div className="w-1.5 h-1.5 bg-[#3ba4c9]/50 rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
           </div>
@@ -363,16 +359,14 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
                   {entries.map(entry => (
-                    <button
+                    <Link
                       key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
-                      onClick={() => handleEntryClick(entry)}
-                      className="operator-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] cursor-pointer text-left aspect-[3/4] hover:border-[#3ba4c9]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+                      href={buildOperatorHref(entry)}
+                      className="op-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] text-left aspect-[3/4] hover:border-[#3ba4c9]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
                       style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s, background-color 0.3s' }}
                     >
-                      {/* Rarity bar top edge */}
                       <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[entry.operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
 
-                      {/* Art */}
                       <img
                         src={entry.operator.skins[0].src}
                         alt={entry.operator.name}
@@ -381,14 +375,12 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                         loading="lazy"
                       />
 
-                      {/* Gradient overlays */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/40 to-[#080c14]/10" />
                       <div
                         className="absolute inset-0 bg-[#080c14]/15 group-hover:bg-transparent"
                         style={{ transition: 'background-color 0.3s' }}
                       />
 
-                      {/* Class icon */}
                       <img
                         src={entry.operator.classIcon}
                         alt={entry.operator.class}
@@ -396,7 +388,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
-                      {/* Faction icon */}
                       <img
                         src={entry.operator.factionIcon}
                         alt={entry.operator.faction}
@@ -404,7 +395,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
-                      {/* Alter badge */}
                       {entry.isAlter && (
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
                           <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f0c95c]/70 bg-[#f0c95c]/10 px-1.5 py-0.5 border border-[#f0c95c]/20">
@@ -413,7 +403,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                         </div>
                       )}
 
-                      {/* Info strip */}
                       <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2.5 z-10">
                         <p className="font-display text-[11px] md:text-xs font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
                           {entry.operator.name}
@@ -423,12 +412,11 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                         </p>
                       </div>
 
-                      {/* Hover glow overlay */}
                       <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
                         style={{ transition: 'opacity 0.3s', boxShadow: 'inset 0 0 40px rgba(59,164,201,0.06)' }}
                       />
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </section>

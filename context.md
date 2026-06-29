@@ -2,44 +2,59 @@
 
 ## Overview
 
-Website portfolio bertema **Arknights Operator Terminal** — menampilkan data operator dari game Arknights dalam UI yang terinspirasi dari in-game terminal/lobby. Dibangun dengan React + TypeScript + Vite + Tailwind CSS v4 + GSAP.
+Website portfolio bertema **Arknights Operator Terminal** — menampilkan data operator dari game Arknights dalam UI yang terinspirasi dari in-game terminal/lobby. Dibangun dengan Next.js + React + TypeScript + Tailwind CSS v4 + GSAP.
 
 ## Tech Stack
 
-| Layer       | Tech                                      |
-| ----------- | ----------------------------------------- |
-| Framework   | React 19 + TypeScript 6                   |
-| Build       | Vite 8                                    |
-| Styling     | Tailwind CSS v4 (theme via `@theme`)      |
-| Animation   | GSAP 3 + `@gsap/react` (`useGSAP` hook)  |
-| Linter      | oxlint                                    |
-| Package Mgr | pnpm                                      |
+| Layer       | Tech                                         |
+| ----------- | -------------------------------------------- |
+| Framework   | Next.js 15 (App Router, Turbopack dev)       |
+| UI          | React 19 + TypeScript                        |
+| Styling     | Tailwind CSS v4 (theme via `@theme`)         |
+| Animation   | GSAP 3 + `@gsap/react` (`useGSAP` hook)     |
+| Linter      | oxlint                                       |
+| Package Mgr | pnpm                                         |
+
+## Routing (App Router)
+
+```
+src/app/
+├── layout.tsx               # Root layout — fonts (Rajdhani + Inter), AppShell wrapper
+├── globals.css              # Tailwind imports, design tokens (@theme), scrollbar, keyframes
+├── page.tsx                 # "/" → Dashboard (Command Center)
+├── operator/
+│   ├── page.tsx             # "/operator" → OperatorList (roster grid)
+│   └── [name]/page.tsx      # "/operator/{slug}" → OperatorTerminal (detail view)
+└── calendar/
+    └── page.tsx             # "/calendar" → Calendar
+```
 
 ## Struktur Project
 
 ```
 src/
-├── App.tsx                  # Root component, state management, page routing (Terminal/Roster)
-├── main.tsx                 # React entry point
-├── index.css                # Tailwind imports, design tokens (@theme), scrollbar, keyframes
-├── constants.ts             # Reusable Tailwind class strings (button styles, exam ratings)
-├── types.ts                 # Semua TypeScript interfaces (Operator, OperatorVariant, Skill, Module, dll.)
-├── data/
-│   ├── operators.ts         # Array OPERATORS[] — semua data operator hardcoded di sini
-│   └── factionThemes.ts     # Mapping faction → accent/secondary RGB colors untuk dynamic theming
+├── app/                     # Next.js App Router pages (lihat Routing di atas)
 ├── components/
+│   ├── AppShell.tsx         # Root client shell — context provider (mute, sidebar, hasEntered), splash screen, sidebar, audio
 │   ├── SplashScreen.tsx     # Layar pembuka "Click to Enter"
+│   ├── Dashboard.tsx        # Halaman utama (Command Center) — stats strip, supply schedule dengan gambar misi
+│   ├── SideMenu.tsx         # Sidebar navigasi — icon wiki (Base_icon.svg, Operator_icon.svg), collapsible, mobile responsive
+│   ├── Footer.tsx           # Footer disclaimer
+│   ├── OperatorList.tsx     # Halaman roster/grid seleksi operator (pengganti OperatorRoster)
+│   ├── OperatorTerminal.tsx # Halaman detail operator — artwork, HUD, panel tabs
 │   ├── CharacterArt.tsx     # Tampilan artwork operator (kiri layar)
 │   ├── OperatorHud.tsx      # HUD info operator: level, class, nama, rarity (kiri bawah)
 │   ├── SkinSelector.tsx     # Tombol pilih skin operator (kiri atas)
 │   ├── TopBar.tsx           # Mute button + "RHODES ISLAND" badge (kanan atas)
 │   ├── NavigationArrows.tsx # Tombol navigasi antar operator (panah kiri/kanan)
-│   ├── OperatorRoster.tsx   # Halaman roster/grid seleksi operator
+│   ├── IllustratorCredit.tsx# Credit illustrator
+│   ├── Calendar.tsx         # Kalender event
+│   ├── OperatorRoster.tsx   # (legacy) Grid seleksi operator
 │   ├── panels/
 │   │   ├── index.ts             # Registry PANEL_CONFIGS — mapping panel id ke component
 │   │   ├── AttributePanel.tsx   # Stats HP/ATK/DEF/RES + attack range grid
 │   │   ├── SkillsPanel.tsx      # Daftar skill operator
-│   │   ├── TalentsPanel.tsx     # Daftar talent
+│   │   ├── TalentsPanel.tsx     # Daftar talent + summon unit info
 │   │   ├── TraitPanel.tsx       # Trait + class info
 │   │   ├── ModulesPanel.tsx     # Module equipment
 │   │   ├── ProfilePanel.tsx     # Info personal (race, birthplace, dll.) + lore + operator records (accordion)
@@ -51,10 +66,24 @@ src/
 │       ├── StatBar.tsx      # Animated stat bar
 │       ├── ExamBar.tsx      # Physical exam bar
 │       └── RangeGrid.tsx    # Attack range grid visualizer
+├── data/
+│   ├── operators.ts         # Array OPERATORS[] — semua data operator hardcoded di sini
+│   └── factionThemes.ts     # Mapping faction → accent/secondary RGB colors untuk dynamic theming
+├── lib/
+│   ├── sound.ts             # playClick() — SFX utility
+│   ├── operators.ts         # toSlug(), findOperatorIndexBySlug() — URL slug helpers
+│   └── calendar.ts          # Calendar utilities
+├── types.ts                 # Semua TypeScript interfaces (Operator, OperatorVariant, Skill, Module, dll.)
+├── types/
+│   └── css.d.ts             # CSS module type declarations
+└── constants.ts             # Reusable Tailwind class strings (button styles, exam ratings)
+
 public/
+├── Arknights_logo.webp
+├── Base_icon.svg            # RIIC icon dari wiki — dipakai di sidebar (Command Center)
+├── Operator_icon.svg        # Operator icon dari wiki — dipakai di sidebar (Operator List)
 ├── favicon.svg
 ├── icons.svg
-├── Arknights_logo.webp
 ├── audio/
 │   ├── Arknights OST.mp3           # BGM loop
 │   ├── enter_effect.mp3            # SFX masuk
@@ -64,6 +93,16 @@ public/
 │   ├── classes/                    # Icon class (caster-class.png, guard-class.png, dll.)
 │   ├── branches/                   # Icon branch (core-caster-branch.png, marksman-branch.png, dll.)
 │   └── factions/                   # Icon faction (rhodes-island.png, elite-op.png, dll.)
+├── missions/                       # Supply operation banner images dari wiki
+│   ├── Aerial_Threat.png
+│   ├── Cargo_Escort.png
+│   ├── Fearless_Protection.png
+│   ├── Fierce_Attack.png
+│   ├── Resource_Search.png
+│   ├── Solid_Defense.png
+│   ├── Tactical_Drill.png
+│   ├── Tough_Siege.png
+│   └── Unstoppable_Charge.png
 └── operators/
     └── {nama-operator}/            # Satu folder per operator
         ├── base.png                # Artwork base/E0
@@ -73,6 +112,41 @@ public/
         ├── chibi.webm              # Chibi animation base
         └── chibi-skin1.webm        # Chibi animation per skin
 ```
+
+## AppShell & State Management
+
+`AppShell` (`src/components/AppShell.tsx`) adalah root client component yang membungkus seluruh app. Menyediakan context via `useApp()`:
+
+```typescript
+interface AppContextType {
+  isMuted: boolean          // Status mute audio
+  toggleMute: () => void
+  hasEntered: boolean       // Apakah user sudah melewati splash screen
+  sidebarOpen: boolean      // Status sidebar desktop
+  toggleSidebar: () => void
+}
+```
+
+Flow: SplashScreen → user click → `hasEntered = true` → BGM mulai → content tampil dengan GSAP animation.
+
+## Sidebar Navigation
+
+`SideMenu` (`src/components/SideMenu.tsx`) menggunakan icon dari Arknights wiki:
+- **Command Center** (`/`) — `Base_icon.svg` (RIIC icon)
+- **Operator List** (`/operator`) — `Operator_icon.svg`
+- **Calendar** (`/calendar`) — custom SVG
+- Collapsible di desktop, slide-in drawer di mobile
+
+## Dashboard (Command Center)
+
+`Dashboard` (`src/components/Dashboard.tsx`) — halaman utama setelah splash screen:
+- **Stats strip**: total operators, classes, factions (dihitung dari `OPERATORS[]`)
+- **Supply Schedule**: grid 8 misi harian dengan banner images dari wiki
+  - Menampilkan hari buka masing-masing misi (day dots Mon-Sun)
+  - Misi yang buka hari ini: gambar terang, accent glow, pulsing dot
+  - Misi yang tutup: grayscale, dimmed
+  - Futuristic overlays: scan lines, corner HUD marks, gradient fade
+  - Data schedule hardcoded di `DAILY_MISSIONS[]`
 
 ## Data Model
 
@@ -164,6 +238,16 @@ interface OperatorRecord {
   content: string       // Isi record
 }
 
+interface OperatorSummon {
+  name: string       // Nama summon unit
+  icon: string       // Path ke icon summon ("/operators/{nama}/{summon}.png")
+  position: string   // "Melee" | "Ranged"
+  trait: string      // Trait summon unit
+  stats: OperatorStats  // Stats summon pada level max operator
+  range: number[][]  // Attack range grid (format sama dengan operator)
+  note?: string      // Info tambahan (healable, invulnerable, dll.)
+}
+
 interface Operator {
   name: string
   fileNo: string
@@ -195,13 +279,15 @@ interface Operator {
   modules: Record<string, OperatorModule>
 
   lore: string
-  story?: string          // Background/overview dari wiki Story page (opsional, per-operator)
-  records?: OperatorRecord[]  // Operator file records selain Profile (Clinical Analysis, Class Conversion, dll.)
-  classIcon: string     // "/icons/classes/{class}-class.png"
-  branchIcon: string    // "/icons/branches/{branch}-branch.png"
-  factionIcon: string   // "/icons/factions/{faction}.png"
+  story?: string
+  records?: OperatorRecord[]
+  classIcon: string
+  branchIcon: string
+  factionIcon: string
   skins: OperatorSkin[]
-  variants?: OperatorVariant[]  // Untuk operator multi-class (contoh: Amiya Caster/Guard/Medic)
+  variants?: OperatorVariant[]
+  summon?: OperatorSummon
+  alter?: Operator       // Alter version (data operator dengan class berbeda, bukan variant)
 }
 ```
 
@@ -230,9 +316,11 @@ Saat ini data operator di-hardcode manual di `src/data/operators.ts`. Untuk mena
    - Stats, skills, talents, modules, range, trait
    - Paling lengkap dan akurat
 
-2. **Arknights Wiki (Fandom)** — `https://arknights.fandom.com/wiki/{Operator_Name}`
+2. **Arknights Wiki** — `https://arknights.wiki.gg/wiki/{Operator_Name}`
    - Lore, profile info, voice actor, illustrator
    - Physical exam data
+   - Asset gambar (artwork, skill icon, chibi)
+   - Supply operation banner images
 
 3. **PRTS Wiki** — `https://prts.wiki/w/{Operator_Name_CN}`
    - Data CN/original, bisa cross-check
@@ -400,6 +488,11 @@ Chibi animations TIDAK bisa ditemukan via scrape biasa karena di-render client-s
 - URL pattern: `https://arknights.wiki.gg/images/{SummonName}.png` (contoh: `Tentacle.png`)
 - Didapat dari scrape halaman operator utama atau halaman Summon
 
+**In-game icon (SVG) dari wiki homepage:**
+- Operator icon: `https://arknights.wiki.gg/images/Operator_iconv2.svg`
+- RIIC/Base icon: `https://arknights.wiki.gg/images/Base_iconv2.svg`
+- Supply operation banners: `https://arknights.wiki.gg/images/{Mission_Name}.png` (contoh: `Aerial_Threat.png`)
+
 ##### Cara download menggunakan Claude
 
 ```bash
@@ -421,6 +514,13 @@ curl -sL "https://arknights.wiki.gg/images/{OperatorName}_Skin_1.webm" -o public
 
 # Download summon icon (jika ada)
 curl -sL "https://arknights.wiki.gg/images/{SummonName}.png" -o public/operators/{nama}/{summon-name}.png
+
+# Download wiki UI icons
+curl -sL "https://arknights.wiki.gg/images/Operator_iconv2.svg" -o public/Operator_icon.svg
+curl -sL "https://arknights.wiki.gg/images/Base_iconv2.svg" -o public/Base_icon.svg
+
+# Download supply mission banners
+curl -sL "https://arknights.wiki.gg/images/{Mission_Name}.png" -o public/missions/{Mission_Name}.png
 ```
 
 **Selalu verifikasi ukuran file hasil download > 0 bytes. Jika 0 atau sangat kecil, URL salah.**
@@ -507,19 +607,6 @@ Beberapa operator memiliki summon unit — unit yang bisa di-deploy di battle te
 }
 ```
 
-**Interface `OperatorSummon` (di `src/types.ts`):**
-```typescript
-interface OperatorSummon {
-  name: string       // Nama summon unit
-  icon: string       // Path ke icon summon ("/operators/{nama}/{summon}.png")
-  position: string   // "Melee" | "Ranged"
-  trait: string      // Trait summon unit
-  stats: OperatorStats  // Stats summon pada level max operator
-  range: number[][]  // Attack range grid (format sama dengan operator)
-  note?: string      // Info tambahan (healable, invulnerable, dll.)
-}
-```
-
 **Sumber data summon:**
 - Halaman operator utama di wiki: trait section menyebut summon, talent section menjelaskan mekanisme
 - Halaman summon unit dedicated: `https://arknights.wiki.gg/wiki/{SummonName}` — berisi stats, range, trait detail
@@ -574,6 +661,25 @@ Beberapa operator memiliki lebih dari satu class (contoh: Amiya Caster/Guard/Med
 ```
 
 Setiap variant punya data combat sendiri (stats, skills, talents, modules, skins) tapi berbagi data identitas (name, faction, race, cv, lore, physicalExam, dll.) dari operator utama.
+
+### Operator dengan Alter
+
+Beberapa operator punya alter version — operator terpisah dengan class berbeda yang dibundel dalam satu entry menggunakan field `alter`. Berbeda dengan `variants` (multi-class dalam satu operator), alter adalah operator kedua yang berdiri sendiri tapi ditampilkan bersama (contoh: Amiya base Caster + alter Guard).
+
+```typescript
+{
+  name: 'Amiya',
+  class: 'Caster',
+  // ... data utama ...
+  alter: {
+    name: 'Amiya',
+    class: 'Guard',
+    // ... data alter lengkap (semua field Operator) ...
+  }
+}
+```
+
+Alter diakses via URL query param: `/operator/amiya?alter=true`
 
 ### Checklist Penambahan Operator
 
@@ -642,13 +748,18 @@ operators.filter(operator => operator.rarity > 4)
 - Satu component per file
 - Nama file = nama component (PascalCase)
 - Props interface di atas component
-- Export named, bukan default (kecuali `App.tsx`)
+- Export named, bukan default
 - `forwardRef` untuk component yang perlu expose DOM ref
+- Client components harus ditandai `'use client'` di baris pertama
 
 ### File Organization
 
+- Pages → `src/app/` (Next.js App Router convention)
+- Shared components → `src/components/`
 - Data statis → `src/data/`
+- Utility functions → `src/lib/`
 - Tipe/interface → `src/types.ts`
+- Type declarations → `src/types/`
 - Konstanta UI → `src/constants.ts`
 - Component reusable kecil → `src/components/ui/`
 - Panel content → `src/components/panels/`
@@ -656,3 +767,5 @@ operators.filter(operator => operator.rarity > 4)
   - Operator assets → `public/operators/{nama}/`
   - Icon assets → `public/icons/{classes,branches,factions}/`
   - Audio assets → `public/audio/`
+  - Mission banners → `public/missions/`
+  - Wiki UI icons → `public/*.svg` (Base_icon.svg, Operator_icon.svg)

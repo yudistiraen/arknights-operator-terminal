@@ -1,26 +1,23 @@
-interface TopBarProps {
-  isMuted: boolean
-  onToggleMute: () => void
-  onOpenRoster?: () => void
-}
+import Link from 'next/link'
+import { useApp } from './AppShell'
 
-export function TopBar({ isMuted, onToggleMute, onOpenRoster }: TopBarProps) {
+export function TopBar() {
+  const { isMuted, toggleMute } = useApp()
+
   return (
     <div className="fixed md:absolute top-3 right-3 md:top-5 md:right-6 z-50 md:z-30 flex items-center gap-2 md:gap-3">
-      {onOpenRoster && (
-        <button
-          onClick={onOpenRoster}
-          className="hud-item w-7 h-7 md:w-9 md:h-9 bg-white/[0.08] backdrop-blur-md border border-white/[0.12] shadow-[0_2px_12px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.06)] flex items-center justify-center hover:bg-white/[0.14] hover:border-white/[0.2] active:scale-[0.97] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
-          style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
-          title="Operator Roster"
-        >
-          <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] fill-white/50">
-            <path d="M3 3h8v8H3V3zm0 10h8v8H3v-8zm10-10h8v8h-8V3zm0 10h8v8h-8v-8z" />
-          </svg>
-        </button>
-      )}
+      <Link
+        href="/"
+        className="hud-item w-7 h-7 md:w-9 md:h-9 bg-white/[0.08] backdrop-blur-md border border-white/[0.12] shadow-[0_2px_12px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.06)] flex items-center justify-center hover:bg-white/[0.14] hover:border-white/[0.2] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+        style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
+        title="Control Center"
+      >
+        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-[18px] md:h-[18px] fill-white/50">
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+        </svg>
+      </Link>
       <button
-        onClick={onToggleMute}
+        onClick={toggleMute}
         className="hud-item w-7 h-7 md:w-9 md:h-9 bg-white/[0.08] backdrop-blur-md border border-white/[0.12] shadow-[0_2px_12px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.06)] flex items-center justify-center hover:bg-white/[0.14] hover:border-white/[0.2] active:scale-[0.97] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
         style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
       >
