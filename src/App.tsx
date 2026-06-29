@@ -13,6 +13,7 @@ import { SkinSelector } from './components/SkinSelector'
 import { TopBar } from './components/TopBar'
 import { NavigationArrows } from './components/NavigationArrows'
 import { OperatorRoster } from './components/OperatorRoster'
+import { Footer } from './components/Footer'
 
 gsap.registerPlugin(useGSAP)
 
@@ -352,12 +353,12 @@ export default function App() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-ak-bg">
+    <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-ak-bg flex flex-col">
       {/* Audio — persists across pages */}
       <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
 
       {/* Terminal (operator detail) view — hidden when on roster */}
-      <div className={currentPage === 'terminal' ? '' : 'hidden'}>
+      <div className={`flex-1 min-h-0 relative overflow-hidden ${currentPage === 'terminal' ? '' : 'hidden'}`}>
         {/* Background layers — faction-tinted */}
         <div
           className="absolute inset-0 transition-[background-color] duration-1000 ease-in-out"
@@ -384,7 +385,7 @@ export default function App() {
         <TopBar isMuted={isMuted} onToggleMute={toggleMute} onOpenRoster={handleOpenRoster} />
 
         {/* Content layout — stacks vertically on mobile */}
-        <div className="relative flex flex-col md:block min-h-screen md:h-full">
+        <div className="relative flex flex-col md:block min-h-screen md:min-h-0 md:h-full">
 
         {/* Character art section + overlays */}
         <div className="relative h-[50vh] w-full shrink-0 md:absolute md:inset-y-0 md:left-0 md:w-[58%] md:h-auto overflow-hidden">
@@ -422,7 +423,6 @@ export default function App() {
                   key={btn.alt}
                   onClick={btn.onClick}
                   className={`group relative w-10 h-10 md:w-11 md:h-11 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]`}
-                  title={btn.alt}
                   style={{ transition: 'transform 0.15s' }}
                 >
                   <div className="absolute bottom-full left-0 mb-1.5 pointer-events-none overflow-hidden h-0 group-hover:h-6 opacity-0 group-hover:opacity-100" style={{ transition: 'height 0.2s cubic-bezier(0.16,1,0.3,1), opacity 0.15s' }}>
@@ -563,9 +563,12 @@ export default function App() {
                 <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Voice Actors</h2>
                 <span className="text-[10px] md:text-xs text-white/25 font-display mt-0.5 md:mt-1">4 Lang</span>
               </>)}
-              {renderCard('lore', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Lore</h2>
-                <p className="text-[10px] md:text-xs text-white/25 font-display leading-relaxed line-clamp-1 italic mt-0.5 md:mt-1">{activeOperator.lore.slice(0, 60)}...</p>
+              {renderCard('story', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
+                <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Story</h2>
+                {activeOperator.story
+                  ? <p className="text-[10px] md:text-xs text-white/30 font-display leading-relaxed italic mt-0.5 md:mt-1">This section might contain spoiler</p>
+                  : <span className="text-[10px] md:text-xs text-white/25 font-display mt-0.5 md:mt-1">Coming Soon</span>
+                }
               </>)}
             </div>
           </div>
@@ -579,14 +582,18 @@ export default function App() {
 
       {/* Roster view */}
       {currentPage === 'roster' && (
-        <OperatorRoster
-          onSelectOperator={handleSelectFromRoster}
-          onBack={() => setCurrentPage('terminal')}
-        />
+        <div className="flex-1 min-h-0 relative">
+          <OperatorRoster
+            onSelectOperator={handleSelectFromRoster}
+            onBack={() => setCurrentPage('terminal')}
+          />
+        </div>
       )}
 
       {/* Splash screen */}
       {!hasEntered && <SplashScreen ref={splashRef} onEnter={handleEnter} />}
+
+      {hasEntered && <Footer />}
     </div>
   )
 }

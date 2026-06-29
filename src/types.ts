@@ -65,6 +65,16 @@ export interface StagedModule {
 
 export type OperatorModule = BaseModule | StagedModule
 
+export interface OperatorSummon {
+  name: string
+  icon: string
+  position: string
+  trait: string
+  stats: OperatorStats
+  range: number[][]
+  note?: string
+}
+
 export interface OperatorSkin {
   id: string
   label: string
@@ -113,6 +123,11 @@ export interface OperatorAlter {
   portrait: string
 }
 
+export interface OperatorRecord {
+  title: string
+  content: string
+}
+
 export interface Operator {
   name: string
   fileNo: string
@@ -141,6 +156,8 @@ export interface Operator {
   skills: Skill[]
   modules: Record<string, OperatorModule>
   lore: string
+  story?: string
+  records?: OperatorRecord[]
   classIcon: string
   branchIcon: string
   factionIcon: string
@@ -148,4 +165,5 @@ export interface Operator {
   variants?: OperatorVariant[]
   alter?: OperatorAlter
   portrait?: string
+  summon?: OperatorSummon
 }

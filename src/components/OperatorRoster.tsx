@@ -182,8 +182,6 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
       result = result.filter(entry => entry.operator.name.toLowerCase().includes(query))
-    } else {
-      result = result.filter(entry => !entry.isAlter)
     }
     if (rarityFilter !== 'all') result = result.filter(entry => entry.operator.rarity === Number(rarityFilter))
     if (classFilter !== 'all') result = result.filter(entry => entry.operator.class === classFilter)

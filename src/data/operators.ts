@@ -44,6 +44,25 @@ export const OPERATORS = ([
       ]},
     },
     lore: `The public face of Rhodes Island and its top executive. Although Amiya appears to be a young and inexperienced girl, she is universally trusted and highly qualified for her position.\n\nAmiya now leads the island in fighting for the future of the Infected and striving to exorcise the dark shadow of Originium from the land.\n\n"So we've definitely succeeded? Project DWDB-221E has borne fruit so quickly... My god."\n\nWith no warning, a curly-haired person springs to his feet.\n\n"Are we always going to call it DWDB-221E? I know, project numbering follows regulation format. Cold, cold nomenclature... But our work deserves a more dignified official name!"\n\nThe elderly woman interrupts her subordinates before they embroil themselves in yet another endless dispute. She gazes out at the stars beyond the window. Some unwelcome information is arriving, but humanity will ultimately overcome this hardship, just as it has countless times before.\n\n"I have a proposal..."\n\n"We should call it — 'Civilight Eterna'."`,
+    story: `Amiya is a Rim Billitonian Cautus who lost her parents when their convoy was raided by bandits in 1090. She contracted Oripathy due to the incident and was rescued by the Doctor. As orphaned Infected were normally sent to die by the locals, the Doctor decided to take care of her while travelling across Terra before finally returning to Babel after one year, where she was raised by Theresa, the King of Sarkaz.\n\nPrior to her demise, Theresa passed on the Civilight Eterna to Amiya and, along with it, the position of the King of Sarkaz. This resulted in her being classified as a Chimera, making her the only known King of Sarkaz who is not a Sarkaz — an "Outblood King" as the Revenants call her. The extent of Amiya's powers include the ability to tap into others' emotions and exert some level of control over them, and invoke the power of the previous Kings, although much of these abilities are suppressed by her ten rings for her own sake. Her Arts manifest as dark black lines with accents of red, and briefly manifested as blue when she mimicked Qui'lon's Wrathful Cerulean Flame. In the aftermath of the Victorian Crisis, her Arts manifest as threads of white and pink, taking after Theresa's.\n\nAmiya acts as the figurehead of Rhodes Island, Babel's successor, where she demonstrated herself to be a capable leader despite being only around 14 years old at the start of the Chernobog Crisis, and is a capable combatant who normally fights as a caster with fearsome Arts. Although many believed that she is the prophesized tyrannical King of Sarkaz who is set to be a harbinger of apocalypse, Amiya is anything but that; she wishes to use her power to deliver salvation to the world of Terra regardless of racial or national differences. To that end, Amiya leads Rhodes Island through the Chernobog and Victorian Crises alongside Kal'tsit and the Doctor, and stands ready to face the looming threat from within and beyond.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in her circulation, indicating signs of infection and confirming her as infected at this stage.\n\n[Cell-Originium Assimilation] 19%\n[Blood Originium-Crystal Density] 0.27u/L`,
+      },
+      {
+        title: 'Class Conversion Record 1',
+        content: `According to the records, the saber wielded by the Sarkaz Lord Kollam was between 0.9 and 1.2 meters long, about 5 centimeters thick, made of an unknown material, black in color, and bore a traditional Sarkaz inscription, which read "here the fighting stops".\n\nAfter succeeding to the throne, Kollam reorganized Kazdel and felt that time in the west had been unkind to the people, so he led some Sarkaz tribes to the east, at which point he vanished from history.\n\nAccording to legend, Kollam had the power to rout his enemies without fighting. Some accounts say that Kollam's enemies suffered a weight several times that of their normal weapons when facing him in battle, finding themselves physically and mentally defeated. If they were lucky enough to survive, they were often maimed. But some referred to Kollam as an enlightened despot, saying that cuts from his blade drew no blood, and anyone wise enough to retreat would survive.\n\nHowever, some ancient texts claim that Kollam's saber was destroyed in battle before he even succeeded to the throne, and that the weapon he later wielded was a fragile illusion born of his Arts. Such claims are inconsistent with Kollam's subsequent performance in Sarkaz conflicts, and few can explain why Kollam would not recast his favorite sword under those circumstances. I speculate that Kollam did have the power to shape weapons with Arts, and this theory is centered on the throne. But that Kollam rarely used his Arts in that way, having once been an adventurer.\n\nOf course, it is written that after Kollam's ascension, his saber gave off a greenish light, like a breath of flame. Kollam's famous ferocity led to the blade being dubbed "Wrathful Cerulean Flame".\n\nMost of the Sarkaz legends have been lost in the ongoing ruination of Kazdel, which has tremendously impeded historical research. There have been recent calls from Sarkaz scholars to restore their history, but their own research has been poisoned by propagandistic efforts to paint a noble picture of the Sarkaz race.\n\n— Logos`,
+      },
+      {
+        title: 'Class Conversion Record 2',
+        content: `About Her Highness? You sure I'm the best person to answer that, Doctor? I'm just a simple boiler worker. What could I possibly know that the Doctor of Rhodes Island wouldn't? Oh, you wanna hear what an average Rhodes Island Sarkaz thinks of the former King?\n\nWe're standing pretty close to the boiler here, so you'd better sit by the fan while I have a think.\n\nBefore Her Highness's reign, the King who ruled over Kazdel was named Yliš. He wasn't a brutal tyrant or nothing, but he didn't do anything impressive either. None of the Royal Court were loyal to him, but nobody rose up against him. And later, as we all know, there were a pair of mixed-blood twins in his court: one an armed bodyguard for the King, and the other a royal tailor. That's right, the General and Her Highness, exactly as you knew them.\n\nAfter Yliš's death in battle, they rose to the occasion and led the remaining Sarkaz in a counterattack. I still remember how the textbooks would describe it: "Her Highness, not yet coronated, never laid down her needle and thread, weaving tactics and strategy with the other heroes. As the rapacious enemy surged into the Sarkaz capital, they fell into a deadly trap." It wasn't easy, living through such a bloody battle.\n\nThere was this one Goliath warrior who found himself trapped under a pile of enemy corpses as he was dying. At least until Her Highness came to him. He saw her holding a faint ray of light, and she spun it on a colorless spindle to form a barely-visible staff in her hand. His wounds mended, and his shattered limbs returned to their original positions. He'd never seen Arts like that. Like a tailor darning life itself.\n\nWhen Her Highness was formally coronated, many cheered with joy, but others weren't too happy about it. The General chopped off the latter's heads. And for the next two centuries or so, Her Highness tried heal Kazdel.\n\nNow, this is just a cliché, but the soil of Kazdel is always being watered by the blood of the Sarkaz. Her Highness wanted to change that. As the King, she could do a lot of things, but there were always more that required her attention. Damn near never-ending. With Dame Kal'tsit's at her side, she was able to personally save many lives. But Her Highness knew that in the time it took to save ten lives, a hundred would be lost. If she could save a hundred, there'd be a thousand more she couldn't. And even the King was helpless in the face of Oripathy.\n\nFor the first few years of the civil war, more than a few people mocked her for leaving Kazdel. I've heard it plenty myself, but was never sure what to say. Their mothers safely gave birth to them in hospitals built almost a hundred years ago, and they were taught in travelling schools established about fifty years back. That's the only reason they even know fancy phrases like "blind charity," "lacking foresight" or "falling to foreign influences"... Ah, sorry Doctor, caught me ranting a bit there.\n\nI don't dare guess what Her Highness was thinking back then. And I believe you, Amiya, and Dame Kal'tsit will steer this ship towards a brighter future.\n\nBut sometimes I wonder if this ship can really achieve Her Highness's dream one day.`,
+      },
+      {
+        title: '???',
+        content: `??????`,
+      },
+    ],
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/amiya/base.png', chibiSrc: '/operators/amiya/chibi.webm', illustrator: '唯@W' },
@@ -758,6 +777,63 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/vanilla/base.png', chibiSrc: '/operators/vanilla/chibi.webm', illustrator: 'm9nokuro' },
       { id: 'skin1', label: 'The Zoophilist and Her Mollusca', src: '/operators/vanilla/skin1.png', chibiSrc: '/operators/vanilla/chibi-skin1.webm', illustrator: '3MO' },
     ],
+  },
+  {
+    name: 'Deepcolor', fileNo: 'AA04', class: 'Supporter', branch: 'Summoner', rarity: 4, level: 70, elite: 2, trust: 200,
+    faction: 'Ægir', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Undisclosed',
+    birthday: 'June 12th', height: '163 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'REALMBW',
+    cv: { JP: 'You Taichi', CN: 'Mihu zzZ', EN: 'Jenny Yokobori', KR: 'Kim Sae-hae' },
+    trait: 'Deals Arts damage\nCan use Summons in battles',
+    stats: { hp: 1350, atk: 403, def: 125, res: 15, block: 1, cost: 10, aspd: '1.6s', rdp: '70s' },
+    range: {
+      base: [
+        [1,1,1],
+        [2,1,1],
+        [1,1,1],
+      ],
+      e1: [
+        [1,1,1,0],
+        [2,1,1,1],
+        [1,1,1,0],
+      ],
+      e2: [
+        [1,1,1,0],
+        [2,1,1,1],
+        [1,1,1,0],
+      ],
+    },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
+    talents: [
+      { name: 'Tentacle Summoner', desc: 'Can summon 4 Tentacles to help in combat', elite: 'E2' },
+    ],
+    skills: [
+      { name: 'Shadow Tentacle', icon: '/operators/deepcolor/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: "All Tentacles' ATK and DEF +60%; Restores 70 HP per second", spInit: 0, sp: 30, dur: '30s', rank: 'M3', note: 'The HP regeneration is unaffected by healing effect modifiers.' },
+      { name: 'Visual Trap', icon: '/operators/deepcolor/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Range expands; Allies within range obtain 50% Physical Dodge', spInit: 60, sp: 80, dur: '55s', rank: 'M3' },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Deepcolor's Badge", desc: 'Appointed as Supporter Operator to exercise Summoner responsibilities' },
+      sumy: { code: 'SUM-Y', name: 'Weird Palette', stages: [
+        { stage: 1, hp: '+80', atk: '+20', effect: 'Trait improved: Can hold +3 additional summoned units and summoned unit deployment costs are reduced' },
+        { stage: 2, hp: '+100', atk: '+30', effect: 'Tentacle Summoner improved: Can summon 4 Tentacles to help in combat. Tentacle Max HP +10%' },
+        { stage: 3, hp: '+115', atk: '+35', effect: 'Tentacle Summoner improved: Can summon 4 Tentacles to help in combat. Tentacle Max HP +15%' },
+      ]},
+    },
+    lore: `"Where does Deepcolor get her paint?\nIs it ground up ores?\nIs it a product of modern manufacturing?\nI am not sure.\nBut that blue is very unsettling.\nDeeply unsettling.\n\nI watch her swish the paint in her palette together.\nIt forms the color she wants.\nI watch the paint entwine, making little noises.\n\nIs she preparing to paint? Or is this her Originium Arts?\nI am starting to be scared.\n\nShe seems to have noticed how disturbed I am.\nShe smiles and starts comforting me, telling me that this is just a part of her Arts.\nAs she says that, a tiny creature appears on her palette.\nShe tells me that this is her 'assistant.'\n\nThe critter may not seem like it's capable of making any sounds that are less than pleasant, but I seem to be able to hear some strange noises whispered into my ears.\n\nI do have to admit, though. It looks really cute.\nIt's leaping back and forth between the canvas and the paint every now and then.\nIt seems it's helping Deepcolor finish this painting.\n\n'So that's your assistant!'\nI can't help myself but to exclaim.\nShe nods.\nShe's smiling.\n\n......\n\nHow time flies; the painting has already been completed.\nShe hands the painting to me, and I pay her the commission we'd agreed upon.\n\n'You'll love this portrait for sure!'\nShe seems really happy.\n\nOf course, I am happy too. After all, what is there to be unhappy about when a painter hands you a freshly painted portrait, especially one so lifelike?\nThe colors are bright and vivid, and the expression is true and genuine.\nThis is magnificent!\n\nAs I mount the painting, a question suddenly comes to mind.\nThough it was on my mind just moments earlier, I immediately forgot about it when I laid my eyes on the painting.\n\n'Has she ever used any colors other than blue?'\n'Where did that discomforting noise come from?'\n\nWho cares?\nReally, who cares?!\nIt's not nice to pry into somebody else's secrets!\nEven if something might seem off, what does that have anything to do with me?"`,
+    classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/summoner-branch.png', factionIcon: '/icons/factions/aegir.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/deepcolor/base.png', chibiSrc: '/operators/deepcolor/chibi.webm', illustrator: 'REALMBW' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/deepcolor/e2.png', chibiSrc: '/operators/deepcolor/chibi.webm', illustrator: 'REALMBW' },
+      { id: 'skin1', label: 'Melodic Portrayal', src: '/operators/deepcolor/skin1.png', chibiSrc: '/operators/deepcolor/chibi-skin1.webm', illustrator: 'REALMBW' },
+    ],
+    summon: {
+      name: 'Tentacle',
+      icon: '/operators/deepcolor/tentacle.png',
+      position: 'Melee',
+      trait: 'Blocks 1 enemy',
+      stats: { hp: 2016, atk: 462, def: 335, res: 0, block: 1, cost: 5, aspd: '1.25s', rdp: '10s' },
+      range: [[2]],
+      note: 'Cannot be actively healed. Deployed through talent Tentacle Summoner. Up to 4 can be deployed at once (7 with SUM-Y module).',
+    },
   },
 ] as Operator[]).sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 

@@ -42,10 +42,10 @@ src/
 │   │   ├── TalentsPanel.tsx     # Daftar talent
 │   │   ├── TraitPanel.tsx       # Trait + class info
 │   │   ├── ModulesPanel.tsx     # Module equipment
-│   │   ├── ProfilePanel.tsx     # Info personal (race, birthplace, dll.)
+│   │   ├── ProfilePanel.tsx     # Info personal (race, birthplace, dll.) + lore + operator records (accordion)
 │   │   ├── PhysicalExamPanel.tsx# Physical exam ratings
 │   │   ├── VoicePanel.tsx       # Voice actor info (JP/CN/EN/KR)
-│   │   └── LorePanel.tsx        # Operator lore/story
+│   │   └── StoryPanel.tsx       # Operator story (wiki background/overview)
 │   └── ui/
 │       ├── Stars.tsx        # Rarity stars component
 │       ├── StatBar.tsx      # Animated stat bar
@@ -159,6 +159,11 @@ interface OperatorVariant {
   skins: OperatorSkin[]
 }
 
+interface OperatorRecord {
+  title: string         // "Clinical Analysis", "Class Conversion Record 1", "???", dll.
+  content: string       // Isi record
+}
+
 interface Operator {
   name: string
   fileNo: string
@@ -190,6 +195,8 @@ interface Operator {
   modules: Record<string, OperatorModule>
 
   lore: string
+  story?: string          // Background/overview dari wiki Story page (opsional, per-operator)
+  records?: OperatorRecord[]  // Operator file records selain Profile (Clinical Analysis, Class Conversion, dll.)
   classIcon: string     // "/icons/classes/{class}-class.png"
   branchIcon: string    // "/icons/branches/{branch}-branch.png"
   factionIcon: string   // "/icons/factions/{faction}.png"
@@ -319,7 +326,29 @@ Format module ada 2 tipe:
 **Catatan:** 3-star operator biasanya tidak punya module, gunakan `modules: {}`.
 
 #### 8. Ambil lore
-Copy lore/story quote dari Wiki. Gunakan template literal (`backtick`) karena biasanya multi-line dengan line breaks `\n`.
+Copy lore/story quote dari Wiki (bagian Profile di halaman File). Gunakan template literal (`backtick`) karena biasanya multi-line dengan line breaks `\n`.
+
+#### 8b. Ambil story (opsional)
+Scrape halaman Story wiki: `https://arknights.wiki.gg/wiki/{OperatorName}/Story`
+Ambil hanya bagian overview/background di atas (sebelum section "Plot"). Ini adalah ringkasan karakter yang mencakup latar belakang, kekuatan, dan peran mereka.
+
+#### 8c. Ambil operator records (opsional)
+Scrape halaman File wiki: `https://arknights.wiki.gg/wiki/{OperatorName}/File`
+Ambil semua section selain Profile (yang sudah jadi `lore`):
+- **Clinical Analysis** — data medis, Cell-Originium Assimilation, Blood Originium-Crystal Density
+- **Class Conversion Record 1/2** — cerita latar terkait class conversion (jika ada)
+- **???** — record yang belum ter-unlock di game, tetap masukkan apa adanya
+
+Format sebagai array `OperatorRecord[]`:
+```typescript
+records: [
+  { title: 'Clinical Analysis', content: `...` },
+  { title: 'Class Conversion Record 1', content: `...` },
+  { title: '???', content: `??????` },
+]
+```
+
+Records ditampilkan sebagai accordion di **ProfilePanel** — default tertutup, hanya satu yang bisa terbuka pada satu waktu.
 
 #### 9. Siapkan asset gambar — WAJIB DOWNLOAD
 
@@ -344,38 +373,57 @@ Buat folder `public/operators/{nama-lowercase}/` dan download semua file berikut
 
 ##### Sumber download asset
 
-**Operator artwork:**
-- Aceship: `https://aceship.github.io/AN-EN-Tags/img/characters/{character_id}_1.png` (base), `_2.png` (E2)
-- PRTS Wiki: halaman operator → klik gambar artwork
-- Arknights Wiki: halaman operator → gallery section
+**⚠️ Sumber utama untuk SEMUA asset (artwork, skill icon, chibi): Arknights Wiki (`arknights.wiki.gg`)**
 
-**Skill icons:**
-- Aceship: `https://aceship.github.io/AN-EN-Tags/img/skills/skill_icon_{skill_id}.png`
-- PRTS Wiki: halaman skill → icon gambar
+**Operator artwork (PNG):**
+URL pattern: `https://arknights.wiki.gg/images/{Nama_File}.png`
+- Base: `https://arknights.wiki.gg/images/{OperatorName}.png` (contoh: `Deepcolor.png`)
+- E2: `https://arknights.wiki.gg/images/{OperatorName}_Elite_2.png`
+- Skin: `https://arknights.wiki.gg/images/{OperatorName}_Skin_1.png`, `_Skin_2.png`, dll.
+- URL bisa didapat dari scrape halaman operator utama (`/wiki/{OperatorName}`) — cari link gambar di bagian artwork tabs
 
-**Chibi animations:**
-- PRTS Wiki: `https://prts.wiki/` → halaman operator → spine/chibi section
-- Alternatif: extract dari game data menggunakan Spine viewer
+**Skill icons (PNG):**
+URL pattern: `https://arknights.wiki.gg/images/Skill-{OperatorName}{N}.png`
+- Contoh: `Skill-Deepcolor1.png`, `Skill-Deepcolor2.png`
+- URL bisa didapat dari scrape halaman operator utama — cari di bagian Skills section
+
+**Chibi animations (WEBM) — WAJIB GUNAKAN `firecrawl interact`:**
+Chibi animations TIDAK bisa ditemukan via scrape biasa karena di-render client-side via JavaScript/Spine viewer. Langkah wajib:
+1. Scrape halaman Gallery: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/Gallery"`
+2. Gunakan `firecrawl interact` untuk menemukan URL webm: `firecrawl interact --prompt "Find the Sprites section. Get the URLs of all sprite/chibi animation webm files."`
+3. URL yang didapat biasanya berformat: `https://arknights.wiki.gg/images/{OperatorName}.webm` (base) dan `https://arknights.wiki.gg/images/{OperatorName}_Skin_1.webm` (skin)
+4. `firecrawl interact stop` untuk menutup session
+
+**⚠️ JANGAN coba URL chibi dari PRTS Wiki, Aceship, atau URL pattern yang ditebak — hampir selalu 404. Selalu gunakan `firecrawl interact` pada halaman Gallery wiki.gg.**
+
+**Summon unit icon (jika operator punya summon):**
+- URL pattern: `https://arknights.wiki.gg/images/{SummonName}.png` (contoh: `Tentacle.png`)
+- Didapat dari scrape halaman operator utama atau halaman Summon
 
 ##### Cara download menggunakan Claude
 
-Gunakan `firecrawl-scrape` untuk scrape halaman wiki yang memiliki URL gambar, lalu gunakan `curl` atau `Invoke-WebRequest` di PowerShell untuk mendownload file:
-
-```powershell
+```bash
 # Buat folder operator
-New-Item -ItemType Directory -Force "public/operators/{nama}"
+mkdir -p public/operators/{nama}
 
-# Download artwork
-Invoke-WebRequest -Uri "{URL_GAMBAR}" -OutFile "public/operators/{nama}/base.png"
+# Download artwork (gunakan curl, bukan Invoke-WebRequest)
+curl -sL "https://arknights.wiki.gg/images/{OperatorName}.png" -o public/operators/{nama}/base.png
+curl -sL "https://arknights.wiki.gg/images/{OperatorName}_Elite_2.png" -o public/operators/{nama}/e2.png
+curl -sL "https://arknights.wiki.gg/images/{OperatorName}_Skin_1.png" -o public/operators/{nama}/skin1.png
 
 # Download skill icons
-Invoke-WebRequest -Uri "{URL_SKILL_ICON}" -OutFile "public/operators/{nama}/skill-1.png"
+curl -sL "https://arknights.wiki.gg/images/Skill-{OperatorName}1.png" -o public/operators/{nama}/skill-1.png
+curl -sL "https://arknights.wiki.gg/images/Skill-{OperatorName}2.png" -o public/operators/{nama}/skill-2.png
 
-# Download chibi (jika tersedia sebagai webm/gif)
-Invoke-WebRequest -Uri "{URL_CHIBI}" -OutFile "public/operators/{nama}/chibi.webm"
+# Download chibi — URL didapat dari firecrawl interact pada halaman Gallery
+curl -sL "https://arknights.wiki.gg/images/{OperatorName}.webm" -o public/operators/{nama}/chibi.webm
+curl -sL "https://arknights.wiki.gg/images/{OperatorName}_Skin_1.webm" -o public/operators/{nama}/chibi-skin1.webm
+
+# Download summon icon (jika ada)
+curl -sL "https://arknights.wiki.gg/images/{SummonName}.png" -o public/operators/{nama}/{summon-name}.png
 ```
 
-**Jika chibi webm tidak tersedia untuk di-download**, gunakan chibi dari operator lain yang sudah ada sebagai placeholder, dan beri catatan di commit message bahwa chibi perlu diganti.
+**Selalu verifikasi ukuran file hasil download > 0 bytes. Jika 0 atau sangat kecil, URL salah.**
 
 ##### Icon class, branch, dan faction
 
@@ -419,19 +467,81 @@ Buka `src/data/operators.ts` dan tambahkan objek baru ke array `OPERATORS[]` men
 ### Tips Scraping dengan AI/Claude
 
 Ketika menggunakan Claude untuk membantu scraping:
-1. Buka halaman wiki operator di browser
-2. Minta Claude scrape menggunakan skill `firecrawl-scrape` dengan URL wiki operator
-3. Claude akan mengekstrak data dan memformatnya sesuai interface `Operator`
-4. **Claude HARUS juga mendownload semua asset** (artwork, skill icons, chibi) ke `public/operators/{nama}/`
-5. Review data yang di-generate, pastikan angka stats dan deskripsi skill akurat
-6. Cross-check dengan Aceship untuk akurasi stats
+1. Scrape halaman wiki operator: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}"` — untuk data stats, skills, talents, modules, profile
+2. Scrape halaman File: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/File"` — untuk lore (Profile section) dan operator records (Clinical Analysis, Class Conversion, dll.)
+3. Scrape halaman Story: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/Story"` — untuk story (overview section di atas, BUKAN plot episodes)
+4. **Download artwork & skill icons** dari URL yang didapat di langkah 1 (gunakan `curl -sL`)
+5. **Download chibi animations via `firecrawl interact`** pada halaman Gallery — ini WAJIB dilakukan terpisah karena URL chibi tidak muncul di scrape biasa
+6. Jika operator punya summon, scrape halaman summon: `firecrawl scrape "https://arknights.wiki.gg/wiki/{SummonName}"` — untuk stats summon unit
+7. Review data yang di-generate, pastikan angka stats dan deskripsi skill akurat
 
-**⚠️ REMINDER UNTUK CLAUDE: Ketika diminta menambahkan operator baru, SELALU lakukan 3 hal ini:**
-1. **Scrape data** dari wiki/aceship
-2. **Download SEMUA asset** (artwork base minimal, skill icons, chibi) ke `public/operators/{nama}/`
-3. **Tambahkan entry data** ke `operators.ts`
+**⚠️ REMINDER UNTUK CLAUDE: Ketika diminta menambahkan operator baru, SELALU lakukan 4 hal ini:**
+1. **Scrape data** dari wiki
+2. **Download artwork & skill icons** dari wiki (URL langsung via `curl`)
+3. **Download chibi animations** via `firecrawl interact` pada halaman Gallery — JANGAN skip langkah ini, JANGAN tebak URL
+4. **Tambahkan entry data** ke `operators.ts`
 
 **Jangan pernah hanya menambahkan data tanpa mendownload asset — ini akan menyebabkan gambar broken di UI.**
+**Jangan pernah pakai placeholder chibi dari operator lain — selalu download chibi asli via interact.**
+
+### Operator dengan Summon (Summoner, dll.)
+
+Beberapa operator memiliki summon unit — unit yang bisa di-deploy di battle terpisah dari operator utama (contoh: Deepcolor → Tentacle, Kal'tsit → Mon3tr, Magallan → Soaring Dragon). Untuk operator ini, gunakan field `summon`:
+
+```typescript
+{
+  name: 'Deepcolor',
+  class: 'Supporter',
+  branch: 'Summoner',
+  trait: 'Deals Arts damage\nCan use Summons in battles',
+  // ... data utama ...
+  summon: {
+    name: 'Tentacle',
+    icon: '/operators/deepcolor/tentacle.png',
+    position: 'Melee',
+    trait: 'Blocks 1 enemy',
+    stats: { hp: 2016, atk: 462, def: 335, res: 0, block: 1, cost: 5, aspd: '1.25s', rdp: '10s' },
+    range: [[2]],
+    note: 'Cannot be actively healed. Deployed through talent Tentacle Summoner.',
+  },
+}
+```
+
+**Interface `OperatorSummon` (di `src/types.ts`):**
+```typescript
+interface OperatorSummon {
+  name: string       // Nama summon unit
+  icon: string       // Path ke icon summon ("/operators/{nama}/{summon}.png")
+  position: string   // "Melee" | "Ranged"
+  trait: string      // Trait summon unit
+  stats: OperatorStats  // Stats summon pada level max operator
+  range: number[][]  // Attack range grid (format sama dengan operator)
+  note?: string      // Info tambahan (healable, invulnerable, dll.)
+}
+```
+
+**Sumber data summon:**
+- Halaman operator utama di wiki: trait section menyebut summon, talent section menjelaskan mekanisme
+- Halaman summon unit dedicated: `https://arknights.wiki.gg/wiki/{SummonName}` — berisi stats, range, trait detail
+- Halaman list summon: `https://arknights.wiki.gg/wiki/Summon` — overview semua summon dan operator pemiliknya
+
+**Asset summon:**
+- Download icon summon dari wiki: `https://arknights.wiki.gg/images/{SummonName}.png`
+- Simpan di folder operator: `public/operators/{nama}/{summon-name-lowercase}.png`
+
+**Rendering:** Info summon ditampilkan di dalam **TalentsPanel** (`src/components/panels/TalentsPanel.tsx`), di bawah daftar talent dengan separator "Summon Unit". Menampilkan icon, nama, position/trait, grid stats 4x2, range grid, dan note.
+
+### Panel Profile & Story
+
+**ProfilePanel** (`src/components/panels/ProfilePanel.tsx`):
+- Grid info personal (race, gender, birthplace, dll.)
+- Lore text (dari Profile section halaman File wiki)
+- Accordion untuk operator records (Clinical Analysis, Class Conversion, dll.) — default tertutup, exclusive toggle (buka satu = tutup yang lain, tutup tidak mempengaruhi yang lain)
+
+**StoryPanel** (`src/components/panels/StoryPanel.tsx`):
+- Menampilkan story/overview karakter dari halaman Story wiki (background, kekuatan, peran)
+- Fallback "Coming Soon" jika operator belum punya story data
+- Card button preview: "This section might contain spoiler" jika ada story, "Coming Soon" jika belum
 
 ### Operator dengan Variants (Multi-class)
 
@@ -468,18 +578,21 @@ Setiap variant punya data combat sendiri (stats, skills, talents, modules, skins
 ### Checklist Penambahan Operator
 
 - [ ] Data dasar (nama, class, rarity, dll.) terisi lengkap
-- [ ] Stats sesuai level target (E2 LV90 / E2 LV80 / E1 LV55 tergantung rarity)
+- [ ] Stats sesuai level target (E2 LV90 / E2 LV80 / E2 LV70 / E1 LV55 tergantung rarity)
 - [ ] Attack range base dan E1/E2 benar
 - [ ] Physical exam 6 parameter terisi
 - [ ] Semua talent tercatat
 - [ ] Semua skill dengan detail SP, durasi, deskripsi
 - [ ] Modules (original + upgrade) terisi (atau `{}` untuk 3-star)
-- [ ] Lore/story quote sudah di-copy
-- [ ] **Asset artwork sudah di-download ke `public/operators/{nama}/`**
-- [ ] **Skill icons sudah di-download ke `public/operators/{nama}/`**
-- [ ] **Chibi animations sudah di-download ke `public/operators/{nama}/`**
+- [ ] Lore (Profile dari halaman File) sudah di-copy
+- [ ] Story (overview dari halaman Story) sudah di-copy (opsional)
+- [ ] Operator records (Clinical Analysis, Class Conversion, dll.) sudah di-copy (opsional)
+- [ ] **Asset artwork sudah di-download** (base.png, e2.png, skin*.png)
+- [ ] **Skill icons sudah di-download** (skill-1.png, skill-2.png, dll.)
+- [ ] **Chibi animations sudah di-download via `firecrawl interact`** (chibi.webm, chibi-skin*.webm)
 - [ ] **Class/branch/faction icons tersedia di `public/icons/`**
 - [ ] Faction theme ditambahkan jika faction baru
+- [ ] **Summon data & asset** (jika operator punya summon unit) — icon, stats, range, note
 - [ ] Entry ditambahkan ke `OPERATORS[]`
 - [ ] Build berhasil tanpa TypeScript error (`pnpm build`)
 - [ ] Tampilan di browser sudah benar (navigasi, skin selector, semua panel)

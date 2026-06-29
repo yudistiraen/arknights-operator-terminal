@@ -7,7 +7,7 @@ import { PhysicalExamPanel } from './PhysicalExamPanel'
 import { VoicePanel } from './VoicePanel'
 import { TraitPanel } from './TraitPanel'
 import { ModulesPanel } from './ModulesPanel'
-import { LorePanel } from './LorePanel'
+import { StoryPanel } from './StoryPanel'
 
 export interface PanelConfig {
   title: string
@@ -24,5 +24,5 @@ export const PANEL_CONFIGS: Record<string, PanelConfig> = {
   voice: { title: 'Voice Actors', accent: 'bg-ak-accent', Component: VoicePanel },
   trait: { title: 'Trait', accent: 'bg-ak-gold', Component: TraitPanel },
   modules: { title: 'Modules', accent: 'bg-ak-gold', Component: ModulesPanel },
-  lore: { title: 'Lore', accent: 'bg-ak-infected', Component: LorePanel },
+  story: { title: 'Story', accent: 'bg-ak-infected', Component: StoryPanel },
 }
