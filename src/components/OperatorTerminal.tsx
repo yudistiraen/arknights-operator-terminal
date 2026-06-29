@@ -7,14 +7,13 @@ import { OPERATORS } from '../data/operators'
 import { getFactionTheme } from '../data/factionThemes'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
 import { PANEL_CONFIGS } from './panels'
-import { useApp } from './AppShell'
 import { CharacterArt } from './CharacterArt'
 import { OperatorHud } from './OperatorHud'
 import { IllustratorCredit } from './IllustratorCredit'
 import { SkinSelector } from './SkinSelector'
+import { TopBar } from './TopBar'
 import { NavigationArrows } from './NavigationArrows'
 import { Footer } from './Footer'
-import { playClick } from '../lib/sound'
 
 gsap.registerPlugin(useGSAP)
 
@@ -24,21 +23,12 @@ interface OperatorTerminalProps {
 }
 
 export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }: OperatorTerminalProps) {
-  const { hasEntered } = useApp()
   const [operatorIndex, setOperatorIndex] = useState(initialOperatorIndex)
   const [expandedPanelId, setExpandedPanelId] = useState<string | null>(null)
   const [skinIndex, setSkinIndex] = useState(0)
   const [variantIndex, setVariantIndex] = useState(-1)
   const [isAlterActive, setIsAlterActive] = useState(initialAlter)
-
-  const enteredBeforeMount = useRef(hasEntered)
-  useEffect(() => {
-    if (enteredBeforeMount.current) {
-      const enterSound = new Audio('/audio/enter_effect.mp3')
-      enterSound.volume = 0.8
-      enterSound.play().catch(() => {})
-    }
-  }, [])
+  const [isMuted, setIsMuted] = useState(true)
 
   const baseOperator = OPERATORS[operatorIndex]
   const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
@@ -54,6 +44,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const hasModules = Object.keys(activeOperator.modules).length > 0
 
   const artRef = useRef<HTMLImageElement>(null)
+  const audioRef = useRef<HTMLAudioElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const panelRefs = useRef<Record<string, HTMLDivElement | null>>({})
@@ -86,7 +77,9 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     const buttonElement = panelRefs.current[panelId]
     const gridElement = gridRef.current
     if (!buttonElement || !gridElement || expandedPanelId || isAnimating.current) return
-    playClick()
+    const clickSound = new Audio('/audio/futuristic_click.mp3')
+    clickSound.volume = 0.5
+    clickSound.play().catch(() => {})
     pendingExpansion.current = { id: panelId, rect: buttonElement.getBoundingClientRect() }
     setExpandedPanelId(panelId)
   }, [expandedPanelId])
@@ -158,9 +151,38 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     }
   }, [expandedPanelId, collapsePanel])
 
+  useEffect(() => {
+    const audioElement = audioRef.current
+    if (!audioElement) return
+    const handleVisibilityChange = () => {
+      if (document.hidden) audioElement.pause()
+      else if (!isMuted) audioElement.play().catch(() => {})
+    }
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
+  }, [isMuted])
+
+  const toggleMute = useCallback(() => {
+    const audioElement = audioRef.current
+    if (!audioElement) return
+    if (isMuted) {
+      audioElement.muted = false
+      audioElement.play().then(() => {
+        const volumeFade = { volume: 0 }
+        gsap.to(volumeFade, { volume: 0.8, duration: 0.5, ease: 'power2.out', onUpdate: () => { audioElement.volume = volumeFade.volume } })
+      }).catch(() => {})
+    } else {
+      const volumeFade = { volume: audioElement.volume }
+      gsap.to(volumeFade, { volume: 0, duration: 0.3, ease: 'power2.in', onUpdate: () => { audioElement.volume = volumeFade.volume }, onComplete: () => { audioElement.muted = true } })
+    }
+    setIsMuted(!isMuted)
+  }, [isMuted])
+
   const switchOperator = useCallback((direction: -1 | 1) => {
     if (isSkinAnimating.current) return
-    playClick()
+    const clickSound = new Audio('/audio/futuristic_click.mp3')
+    clickSound.volume = 0.5
+    clickSound.play().catch(() => {})
     setExpandedPanelId(null)
     isSkinAnimating.current = true
     const artImage = artRef.current
@@ -237,10 +259,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   }, [])
 
   useGSAP(() => {
-    if (!hasEntered) {
-      gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn', '.section-label', '.section-divider'], { opacity: 0 })
-      return
-    }
+    gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn', '.section-label', '.section-divider'], { opacity: 0 })
 
     const entranceTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
     const flickerTimeline = gsap.timeline()
@@ -266,7 +285,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
       .fromTo('.section-divider', { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.5')
     gsap.to('.scanline', { y: '100vh', duration: 8, repeat: -1, ease: 'none' })
     gsap.to('.glow-orb', { opacity: 0.3, scale: 1.1, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' })
-  }, { scope: containerRef, dependencies: [hasEntered] })
+  }, { scope: containerRef })
 
   const renderCard = (panelId: string, baseClassName: string, hoverClassName: string, previewContent: React.ReactNode, disabled = false) => {
     const panelConfig = PANEL_CONFIGS[panelId]
@@ -300,6 +319,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
   return (
     <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-ak-bg flex flex-col">
+      <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
+
       <div className="flex-1 min-h-0 relative overflow-hidden">
         <div
           className="absolute inset-0 transition-[background-color] duration-1000 ease-in-out"
@@ -322,6 +343,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
           style={{ top: '-1px', background: `linear-gradient(to right, transparent, rgba(${accentR}, ${accentG}, ${accentB}, 0.2), transparent)` }}
         />
         <div className="absolute inset-0 opacity-[0.025] pointer-events-none z-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+
+        <TopBar isMuted={isMuted} onToggleMute={toggleMute} />
 
         <div className="relative flex flex-col md:block min-h-screen md:min-h-0 md:h-full">
           <div className="relative h-[50vh] w-full shrink-0 md:absolute md:inset-y-0 md:left-0 md:w-[58%] md:h-auto overflow-hidden">
@@ -403,16 +426,18 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   </div>
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
-                  <div className="flex items-start justify-between">
-                    <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
-                    <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="w-5 h-5 md:w-6 md:h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" />
-                  </div>
-                  <div className="flex items-center gap-2 mb-2 md:mb-4">
-                    <span className="font-display text-[10px] md:text-xs text-ak-accent-bright">{activeOperator.branch}</span>
-                    <span className="text-[9px] md:text-[10px] text-white/40">&middot; {activeOperator.position}</span>
-                  </div>
-                  <div className="bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
-                    <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
+                  <div className="relative z-[1]">
+                    <div className="flex items-start justify-between">
+                      <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
+                      <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="w-5 h-5 md:w-6 md:h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" />
+                    </div>
+                    <div className="flex items-center gap-2 mb-2 md:mb-4">
+                      <span className="font-display text-[10px] md:text-xs text-ak-accent-bright">{activeOperator.branch} {activeOperator.class}</span>
+                      <span className="text-[9px] md:text-[10px] text-white/40">&middot; {activeOperator.position}</span>
+                    </div>
+                    <div className="bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
+                      <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
+                    </div>
                   </div>
                 </>, true)}
               </div>
