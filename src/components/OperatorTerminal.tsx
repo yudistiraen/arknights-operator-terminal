@@ -411,16 +411,16 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   </div>
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
-                  <div className="relative z-[1]">
+                  <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="absolute top-2 right-2 w-6 h-6 md:w-12 md:h-12 shrink-0 object-contain opacity-50 pointer-events-none drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" style={{ zIndex: 0 }} />
+                  <div className="relative">
                     <div className="flex items-start justify-between">
                       <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
-                      <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="w-5 h-5 md:w-6 md:h-6 shrink-0 object-contain opacity-70 drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" />
                     </div>
                     <div className="flex items-center gap-2 mb-2 md:mb-4">
                       <span className="font-display text-[10px] md:text-xs text-ak-accent-bright">{activeOperator.branch} {activeOperator.class}</span>
                       <span className="text-[9px] md:text-[10px] text-white/40">&middot; {activeOperator.position}</span>
                     </div>
-                    <div className="bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
+                    <div className="relative z-10 bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
                       <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
                     </div>
                   </div>
