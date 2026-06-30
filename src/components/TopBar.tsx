@@ -2,8 +2,6 @@ import Link from 'next/link'
 import { useApp } from './AppShell'
 
 export function TopBar() {
-  const { isMuted, toggleMute } = useApp()
-
   return (
     <div className="fixed md:absolute top-3 right-3 md:top-5 md:right-6 z-50 md:z-30 flex items-center gap-2 md:gap-3">
       <Link
