@@ -29,7 +29,7 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
             <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-ak-accent/40" />
             {chibiError ? (
               <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <span className="font-display text-[9px] text-white/20 tracking-wider">CHIBI N/A</span>
+                <span className="font-display text-xs text-white/20 tracking-wider">-Data Not Found-</span>
               </div>
             ) : (
               <video

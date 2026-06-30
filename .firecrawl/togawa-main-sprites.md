@@ -1,0 +1,3342 @@
+✓ Done
+- banner
+  - link "wiki.gg" [ref=e2]
+    - image "wiki.gg logo"
+  - navigation "Personal tools" [ref=e1]
+    - list
+      - listitem [level=1]
+        - link "Create account" [ref=e34]
+      - listitem [level=1]
+        - link "Log in" [ref=e35]
+    - LabelText
+      - StaticText "Toggle personal tools menu"
+- generic
+  - generic
+    - generic
+      - generic "Namespaces"
+        - list
+          - listitem [level=1]
+            - link "Page" [ref=e99]
+          - listitem [level=1]
+            - link "Discussion" [ref=e100]
+    - generic
+      - generic "Views"
+        - list
+          - listitem [level=1]
+            - link "Read" [ref=e101]
+          - listitem [level=1]
+            - link "Edit" [ref=e102]
+          - listitem [level=1]
+            - link "View history" [ref=e103]
+      - generic "More" [ref=e4] clickable [cursor:pointer]
+        - button "More" [ref=e26]
+        - LabelText
+          - StaticText "More"
+      - search
+        - generic
+          - searchbox "Search Arknights Terra Wiki" [ref=e134]
+          - button "Search" [ref=e104]
+  - generic
+    - banner
+      - link "Visit the main page" [ref=e5]
+    - generic "Navigation"
+      - heading "Navigation" [level=3, ref=e6] clickable [cursor:pointer]
+        - StaticText "Navigation"
+      - list
+        - listitem [level=1]
+          - link "Main page" [ref=e36]
+            - StaticText "Main page"
+        - listitem [level=1]
+          - link "Recent changes" [ref=e37]
+            - StaticText "Recent changes"
+        - listitem [level=1]
+          - link "Random page" [ref=e38]
+            - StaticText "Random page"
+        - listitem [level=1]
+          - link "About the wiki" [ref=e39]
+            - StaticText "About the wiki"
+        - listitem [level=1]
+          - link "Help about MediaWiki" [ref=e40]
+            - StaticText "Help about MediaWiki"
+        - listitem [level=1]
+          - link "Wiki Discord" [ref=e41]
+            - StaticText "Wiki Discord"
+    - generic "Arknights"
+      - heading "Arknights" [level=3, ref=e7] clickable [cursor:pointer]
+        - StaticText "Arknights"
+      - list
+        - listitem [level=1]
+          - link "Operators" [ref=e42]
+            - StaticText "Operators"
+        - listitem [level=1]
+          - link "Operations" [ref=e43]
+            - StaticText "Operations"
+        - listitem [level=1]
+          - link "Enemies" [ref=e44]
+            - StaticText "Enemies"
+        - listitem [level=1]
+          - link "Events" [ref=e45]
+            - StaticText "Events"
+        - listitem [level=1]
+          - link "Items" [ref=e46]
+            - StaticText "Items"
+        - listitem [level=1]
+          - link "RIIC" [ref=e47]
+            - StaticText "RIIC"
+        - listitem [level=1]
+          - link "Headhunting" [ref=e48]
+            - StaticText "Headhunting"
+        - listitem [level=1]
+          - link "Recruitment" [ref=e49]
+            - StaticText "Recruitment"
+    - generic "Game modes"
+      - heading "Game modes" [level=3, ref=e8] clickable [cursor:pointer]
+        - StaticText "Game modes"
+      - list
+        - listitem [level=1]
+          - link "Contingency Contract" [ref=e50]
+            - StaticText "Contingency Contract"
+        - listitem [level=1]
+          - link "Integrated Strategies" [ref=e51]
+            - StaticText "Integrated Strategies"
+        - listitem [level=1]
+          - link "Stationary Security Service" [ref=e52]
+            - StaticText "Stationary Security Service"
+        - listitem [level=1]
+          - link "Trials for Navigator" [ref=e53]
+            - StaticText "Trials for Navigator"
+        - listitem [level=1]
+          - link "Reclamation Algorithm" [ref=e54]
+            - StaticText "Reclamation Algorithm"
+        - listitem [level=1]
+          - link "Icebreaker Games" [ref=e55]
+            - StaticText "Icebreaker Games"
+        - listitem [level=1]
+          - link "Vector Breakthrough" [ref=e56]
+            - StaticText "Vector Breakthrough"
+        - listitem [level=1]
+          - link "Duel Channel" [ref=e57]
+            - StaticText "Duel Channel"
+    - generic "Miscellaneous"
+      - heading "Miscellaneous" [level=3, ref=e9] clickable [cursor:pointer]
+        - StaticText "Miscellaneous"
+      - list
+        - listitem [level=1]
+          - link "Outfits" [ref=e58]
+            - StaticText "Outfits"
+        - listitem [level=1]
+          - link "Furniture" [ref=e59]
+            - StaticText "Furniture"
+        - listitem [level=1]
+          - link "Character voices" [ref=e60]
+            - StaticText "Character voices"
+        - listitem [level=1]
+          - link "Illustrators" [ref=e61]
+            - StaticText "Illustrators"
+        - listitem [level=1]
+          - link "Soundtracks" [ref=e62]
+            - StaticText "Soundtracks"
+    - generic "Guides"
+      - heading "Guides" [level=3, ref=e10] clickable [cursor:pointer]
+        - StaticText "Guides"
+      - list
+        - listitem [level=1]
+          - link "User interface" [ref=e63]
+            - StaticText "User interface"
+        - listitem [level=1]
+          - link "Team building" [ref=e64]
+            - StaticText "Team building"
+        - listitem [level=1]
+          - link "Advanced strategies" [ref=e65]
+            - StaticText "Advanced strategies"
+        - listitem [level=1]
+          - link "Missions" [ref=e66]
+            - StaticText "Missions"
+        - listitem [level=1]
+          - link "Path to Glory" [ref=e67]
+            - StaticText "Path to Glory"
+        - listitem [level=1]
+          - link "Store" [ref=e68]
+            - StaticText "Store"
+        - listitem [level=1]
+          - link "Headhunting" [ref=e69]
+            - StaticText "Headhunting"
+        - listitem [level=1]
+          - link "Recruitment" [ref=e70]
+            - StaticText "Recruitment"
+    - generic "Lore"
+      - heading "Lore" [level=3, ref=e11] clickable [cursor:pointer]
+        - StaticText "Lore"
+      - list
+        - listitem [level=1]
+          - link "Terra" [ref=e71]
+            - StaticText "Terra"
+        - listitem [level=1]
+          - link "Characters" [ref=e72]
+            - StaticText "Characters"
+        - listitem [level=1]
+          - link "Factions" [ref=e73]
+            - StaticText "Factions"
+        - listitem [level=1]
+          - link "Races" [ref=e74]
+            - StaticText "Races"
+        - listitem [level=1]
+          - link "Originium" [ref=e75]
+            - StaticText "Originium"
+        - listitem [level=1]
+          - link "Stories" [ref=e76]
+            - StaticText "Stories"
+        - listitem [level=1]
+          - link "Timeline" [ref=e77]
+            - StaticText "Timeline"
+        - listitem [level=1]
+          - link "Terra Historicus" [ref=e78]
+            - StaticText "Terra Historicus"
+    - generic "Real-world"
+      - heading "Real-world" [level=3, ref=e12] clickable [cursor:pointer]
+        - StaticText "Real-world"
+      - list
+        - listitem [level=1]
+          - link "Hypergryph" [ref=e79]
+            - StaticText "Hypergryph"
+        - listitem [level=1]
+          - link "Yostar" [ref=e80]
+            - StaticText "Yostar"
+        - listitem [level=1]
+          - link "Ambience Synesthesia" [ref=e81]
+            - StaticText "Ambience Synesthesia"
+    - generic "Community"
+      - heading "Community" [level=3, ref=e13] clickable [cursor:pointer]
+        - StaticText "Community"
+      - list
+        - listitem [level=1]
+          - link "Administrators" [ref=e82]
+            - StaticText "Administrators"
+        - listitem [level=1]
+          - link "Policies and guidelines" [ref=e83]
+            - StaticText "Policies and guidelines"
+    - generic "Tools"
+      - heading "Tools" [level=3, ref=e14] clickable [cursor:pointer]
+        - StaticText "Tools"
+      - list
+        - listitem [level=1]
+          - link "What links here" [ref=e84]
+            - StaticText "What links here"
+        - listitem [level=1]
+          - link "New page" [ref=e85]
+            - StaticText "New page"
+        - listitem [level=1]
+          - link "Special pages" [ref=e86]
+            - StaticText "Special pages"
+        - listitem [level=1]
+          - link "Printable version" [ref=e87]
+            - StaticText "Printable version"
+        - listitem [level=1]
+          - link "Page information" [ref=e88]
+            - StaticText "Page information"
+        - listitem [level=1]
+          - link "Database data" [ref=e89]
+            - StaticText "Database data"
+- main
+  - complementary
+  - main
+    - generic
+      - StaticText "["
+      - button "dismiss" [ref=e27]
+        - button "dismiss" [ref=e90]
+      - StaticText "]"
+    - paragraph
+      - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+      - link "Arknights Terra Wiki Discord" [ref=e91]
+      - StaticText "."
+    - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e3]
+    - generic
+      - generic
+        - StaticText "< "
+        - link "Togawa Sakiko" [ref=e92]
+          - StaticText "Togawa Sakiko"
+      - link "Jump to navigation" [ref=e15]
+      - link "Jump to search" [ref=e16]
+      - LayoutTable
+        - LayoutTableRow
+          - LayoutTableCell "Operator"
+            - link "Operator" [ref=e115]
+          - LayoutTableCell "File"
+            - link "File" [ref=e116]
+          - LayoutTableCell "Story"
+            - link "Story" [ref=e117]
+          - LayoutTableCell "Overview"
+            - link "Overview" [ref=e118]
+          - LayoutTableCell "Dialogue"
+            - link "Dialogue" [ref=e119]
+          - LayoutTableCell "Gallery"
+          - LayoutTableCell "Trivia"
+            - link "Trivia" [ref=e120]
+      - navigation "Contents" [ref=e28]
+        - button "Hide the table of contents" [ref=e93]
+        - generic
+          - heading "Contents" [level=2, ref=e105]
+        - list
+          - listitem [level=1]
+            - link "1. Skins" [ref=e121]
+              - StaticText "1"
+              - StaticText "."
+              - StaticText "Skins"
+          - listitem [level=1]
+            - link "2. Outfits" [ref=e122]
+              - StaticText "2"
+              - StaticText "."
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "3. Miscelaneous" [ref=e123]
+              - StaticText "3"
+              - StaticText "."
+              - StaticText "Miscelaneous"
+            - list
+              - listitem [level=2]
+                - link "3.1. Promotional material" [ref=e140]
+                  - StaticText "3.1"
+                  - StaticText "."
+                  - StaticText "Promotional material"
+      - heading "Skins[edit]" [level=2, ref=e29]
+        - StaticText "Skins"
+        - StaticText "["
+        - link "edit" [ref=e94]
+        - StaticText "]"
+      - table
+        - row
+          - columnheader "Base" [ref=e106]
+        - row
+          - cell "Togawa Sakiko.png" [ref=e107]
+            - image "Togawa Sakiko.png"
+          - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e108]
+            - generic
+              - StaticText "Sakiko Togawa's day-to-day attire."
+              - LineBreak "\n"
+              - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+      - table
+        - row
+          - columnheader "Elite 2" [ref=e109]
+        - row
+          - cell "Togawa Sakiko Elite 2.png" [ref=e110]
+            - image "Togawa Sakiko Elite 2.png"
+          - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e111]
+            - generic
+              - StaticText "Sakiko Togawa's "
+              - link "Ave Mujica" [ref=e135]
+              - StaticText " stage costume."
+              - LineBreak "\n"
+              - StaticText "Oblivionis—Do not fear being forgotten."
+      - heading "Outfits[edit]" [level=2, ref=e30]
+        - StaticText "Outfits"
+        - StaticText "["
+        - link "edit" [ref=e95]
+        - StaticText "]"
+      - table
+        - row
+          - columnheader "Master of Melodia Outfit Voucher" [ref=e112]
+            - StaticText "Master of Melodia"
+            - deletion
+              - StaticText "Outfit Voucher"
+        - row
+          - cell "Togawa Sakiko Skin 1.png" [ref=e113]
+            - image "Togawa Sakiko Skin 1.png"
+          - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e114]
+            - generic
+              - StaticText "One of Sakiko Togawa's "
+              - link "Terran" [ref=e136]
+              - StaticText " stage costumes."
+            - StaticText "Fearing not oblivion, she bears it all."
+            - generic
+              - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+              - link "Ave Mujica" [ref=e137]
+              - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+            - generic
+              - StaticText "How to obtain: "
+              - link "Somniloquium Serenum" [ref=e138]
+              - StaticText " ("
+              - link "Outfit Store" [ref=e139]
+              - StaticText ", "
+              - generic
+                - StaticText "18 "
+                - link "Originite Prime" [ref=e141]
+                  - image "Originite Prime"
+              - StaticText ")"
+      - heading "Miscelaneous[edit]" [level=2, ref=e31]
+        - StaticText "Miscelaneous"
+        - StaticText "["
+        - link "edit" [ref=e96]
+        - StaticText "]"
+      - list
+        - listitem [level=1]
+          - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e124]
+            - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+          - generic
+            - StaticText "Togawa Sakiko as a "
+            - link "Rhodes Island" [ref=e125]
+            - StaticText " "
+            - link "Sarkaz" [ref=e126]
+            - StaticText " Operator during the events of "
+            - link "Somniloquium Serenum" [ref=e127]
+        - listitem [level=1]
+          - link "Sakiko with her hood on" [ref=e128]
+            - image "Sakiko with her hood on"
+          - StaticText "Sakiko with her hood on"
+        - listitem [level=1]
+          - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e129]
+            - image "The dinning hall of Sakiko's house inside her dreamscape"
+          - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+        - listitem [level=1]
+          - link "Sakiko's piano room inside her dreamscape" [ref=e130]
+            - image "Sakiko's piano room inside her dreamscape"
+          - StaticText "Sakiko's piano room inside her dreamscape"
+      - heading "Promotional material[edit]" [level=3, ref=e32]
+        - StaticText "Promotional material"
+        - StaticText "["
+        - link "edit" [ref=e97]
+        - StaticText "]"
+      - list
+        - listitem [level=1]
+          - link "Togawa Sakiko's operator introduction" [ref=e131]
+            - image "Togawa Sakiko's operator introduction"
+          - StaticText "Togawa Sakiko's operator introduction"
+      - generic
+        - link "Categories" [ref=e98]
+        - StaticText ": "
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko" [ref=e132]
+          - listitem [level=1]
+            - link "Operator galleries" [ref=e133]
+  - complementary
+    - link "Report bad advertisement" [ref=e17]
+  - complementary
+- contentinfo
+  - list
+    - listitem [level=1]
+      - StaticText "This page was last edited on 3 June 2026, at 14:06."
+    - listitem [level=1]
+      - generic
+        - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+        - LineBreak "\n"
+        - StaticText "Page content is under "
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e33]
+        - StaticText " unless otherwise noted."
+  - list
+    - listitem [level=1]
+      - link "Terms of Service" [ref=e18]
+    - listitem [level=1]
+      - link "Privacy policy" [ref=e19]
+    - listitem [level=1]
+      - link "Support Wiki" [ref=e20]
+    - listitem [level=1]
+      - link "Send a ticket to wiki.gg" [ref=e21]
+    - listitem [level=1]
+      - link "Status page" [ref=e22]
+    - listitem [level=1]
+  - list
+    - listitem [level=1]
+      - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e23]
+        - image "Creative Commons Attribution-ShareAlike 4.0 License"
+    - listitem [level=1]
+      - link "Powered by MediaWiki" [ref=e24]
+        - image "Powered by MediaWiki"
+    - listitem [level=1]
+      - link "Part of wiki.gg" [ref=e25]
+        - image "Part of wiki.gg"
+✓ Done
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+[]
+✓ Done
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+✓ Done
+✓ Done
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+✓ Done
+[
+  "",
+  "",
+  "",
+  "https://cdn.privacy-mgmt.com/index.html?hasCsp=true&message_id=1347873&consentUUID=bf1328d5-b278-4fb2-bdf3-05f89a908ba7&consent_origin=https%3A%2F%2Fcdn.privacy-mgmt.com%2Fconsent%2Ftcfv2&preload_message=true&concatenatedUUID=bf1328d5-b278-4fb2-bdf3-05f89a908ba7~c922f61c-988e-4f65-ae88-4391047a9839~~&version=v1"
+]
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+✓ Done
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+[]
+✓ Done
+✓ Done
+- generic
+  - banner
+    - link "wiki.gg" [ref=e3]
+      - image "wiki.gg logo"
+    - navigation "Personal tools" [ref=e1]
+      - list
+        - listitem [level=1]
+          - link "Create account" [ref=e39]
+        - listitem [level=1]
+          - link "Log in" [ref=e40]
+      - LabelText
+        - StaticText "Toggle personal tools menu"
+  - generic
+    - generic
+      - generic
+        - generic "Namespaces"
+          - list
+            - listitem [level=1]
+              - link "Page" [ref=e104]
+            - listitem [level=1]
+              - link "Discussion" [ref=e105]
+      - generic
+        - generic "Views"
+          - list
+            - listitem [level=1]
+              - link "Read" [ref=e106]
+            - listitem [level=1]
+              - link "Edit" [ref=e107]
+            - listitem [level=1]
+              - link "View history" [ref=e108]
+        - generic "More" [ref=e5] clickable [cursor:pointer]
+          - button "More" [ref=e31]
+          - LabelText
+            - StaticText "More"
+        - search
+          - generic
+            - searchbox "Search Arknights Terra Wiki" [ref=e139]
+            - button "Search" [ref=e109]
+    - generic
+      - banner
+        - link "Visit the main page" [ref=e6]
+      - generic "Navigation"
+        - heading "Navigation" [level=3, ref=e7] clickable [cursor:pointer]
+          - StaticText "Navigation"
+        - list
+          - listitem [level=1]
+            - link "Main page" [ref=e41]
+              - StaticText "Main page"
+          - listitem [level=1]
+            - link "Recent changes" [ref=e42]
+              - StaticText "Recent changes"
+          - listitem [level=1]
+            - link "Random page" [ref=e43]
+              - StaticText "Random page"
+          - listitem [level=1]
+            - link "About the wiki" [ref=e44]
+              - StaticText "About the wiki"
+          - listitem [level=1]
+            - link "Help about MediaWiki" [ref=e45]
+              - StaticText "Help about MediaWiki"
+          - listitem [level=1]
+            - link "Wiki Discord" [ref=e46]
+              - StaticText "Wiki Discord"
+      - generic "Arknights"
+        - heading "Arknights" [level=3, ref=e8] clickable [cursor:pointer]
+          - StaticText "Arknights"
+        - list
+          - listitem [level=1]
+            - link "Operators" [ref=e47]
+              - StaticText "Operators"
+          - listitem [level=1]
+            - link "Operations" [ref=e48]
+              - StaticText "Operations"
+          - listitem [level=1]
+            - link "Enemies" [ref=e49]
+              - StaticText "Enemies"
+          - listitem [level=1]
+            - link "Events" [ref=e50]
+              - StaticText "Events"
+          - listitem [level=1]
+            - link "Items" [ref=e51]
+              - StaticText "Items"
+          - listitem [level=1]
+            - link "RIIC" [ref=e52]
+              - StaticText "RIIC"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e53]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e54]
+              - StaticText "Recruitment"
+      - generic "Game modes"
+        - heading "Game modes" [level=3, ref=e9] clickable [cursor:pointer]
+          - StaticText "Game modes"
+        - list
+          - listitem [level=1]
+            - link "Contingency Contract" [ref=e55]
+              - StaticText "Contingency Contract"
+          - listitem [level=1]
+            - link "Integrated Strategies" [ref=e56]
+              - StaticText "Integrated Strategies"
+          - listitem [level=1]
+            - link "Stationary Security Service" [ref=e57]
+              - StaticText "Stationary Security Service"
+          - listitem [level=1]
+            - link "Trials for Navigator" [ref=e58]
+              - StaticText "Trials for Navigator"
+          - listitem [level=1]
+            - link "Reclamation Algorithm" [ref=e59]
+              - StaticText "Reclamation Algorithm"
+          - listitem [level=1]
+            - link "Icebreaker Games" [ref=e60]
+              - StaticText "Icebreaker Games"
+          - listitem [level=1]
+            - link "Vector Breakthrough" [ref=e61]
+              - StaticText "Vector Breakthrough"
+          - listitem [level=1]
+            - link "Duel Channel" [ref=e62]
+              - StaticText "Duel Channel"
+      - generic "Miscellaneous"
+        - heading "Miscellaneous" [level=3, ref=e10] clickable [cursor:pointer]
+          - StaticText "Miscellaneous"
+        - list
+          - listitem [level=1]
+            - link "Outfits" [ref=e63]
+              - StaticText "Outfits"
+          - listitem [level=1]
+            - link "Furniture" [ref=e64]
+              - StaticText "Furniture"
+          - listitem [level=1]
+            - link "Character voices" [ref=e65]
+              - StaticText "Character voices"
+          - listitem [level=1]
+            - link "Illustrators" [ref=e66]
+              - StaticText "Illustrators"
+          - listitem [level=1]
+            - link "Soundtracks" [ref=e67]
+              - StaticText "Soundtracks"
+      - generic "Guides"
+        - heading "Guides" [level=3, ref=e11] clickable [cursor:pointer]
+          - StaticText "Guides"
+        - list
+          - listitem [level=1]
+            - link "User interface" [ref=e68]
+              - StaticText "User interface"
+          - listitem [level=1]
+            - link "Team building" [ref=e69]
+              - StaticText "Team building"
+          - listitem [level=1]
+            - link "Advanced strategies" [ref=e70]
+              - StaticText "Advanced strategies"
+          - listitem [level=1]
+            - link "Missions" [ref=e71]
+              - StaticText "Missions"
+          - listitem [level=1]
+            - link "Path to Glory" [ref=e72]
+              - StaticText "Path to Glory"
+          - listitem [level=1]
+            - link "Store" [ref=e73]
+              - StaticText "Store"
+          - listitem [level=1]
+            - link "Headhunting" [ref=e74]
+              - StaticText "Headhunting"
+          - listitem [level=1]
+            - link "Recruitment" [ref=e75]
+              - StaticText "Recruitment"
+      - generic "Lore"
+        - heading "Lore" [level=3, ref=e12] clickable [cursor:pointer]
+          - StaticText "Lore"
+        - list
+          - listitem [level=1]
+            - link "Terra" [ref=e76]
+              - StaticText "Terra"
+          - listitem [level=1]
+            - link "Characters" [ref=e77]
+              - StaticText "Characters"
+          - listitem [level=1]
+            - link "Factions" [ref=e78]
+              - StaticText "Factions"
+          - listitem [level=1]
+            - link "Races" [ref=e79]
+              - StaticText "Races"
+          - listitem [level=1]
+            - link "Originium" [ref=e80]
+              - StaticText "Originium"
+          - listitem [level=1]
+            - link "Stories" [ref=e81]
+              - StaticText "Stories"
+          - listitem [level=1]
+            - link "Timeline" [ref=e82]
+              - StaticText "Timeline"
+          - listitem [level=1]
+            - link "Terra Historicus" [ref=e83]
+              - StaticText "Terra Historicus"
+      - generic "Real-world"
+        - heading "Real-world" [level=3, ref=e13] clickable [cursor:pointer]
+          - StaticText "Real-world"
+        - list
+          - listitem [level=1]
+            - link "Hypergryph" [ref=e84]
+              - StaticText "Hypergryph"
+          - listitem [level=1]
+            - link "Yostar" [ref=e85]
+              - StaticText "Yostar"
+          - listitem [level=1]
+            - link "Ambience Synesthesia" [ref=e86]
+              - StaticText "Ambience Synesthesia"
+      - generic "Community"
+        - heading "Community" [level=3, ref=e14] clickable [cursor:pointer]
+          - StaticText "Community"
+        - list
+          - listitem [level=1]
+            - link "Administrators" [ref=e87]
+              - StaticText "Administrators"
+          - listitem [level=1]
+            - link "Policies and guidelines" [ref=e88]
+              - StaticText "Policies and guidelines"
+      - generic "Tools"
+        - heading "Tools" [level=3, ref=e15] clickable [cursor:pointer]
+          - StaticText "Tools"
+        - list
+          - listitem [level=1]
+            - link "What links here" [ref=e89]
+              - StaticText "What links here"
+          - listitem [level=1]
+            - link "New page" [ref=e90]
+              - StaticText "New page"
+          - listitem [level=1]
+            - link "Special pages" [ref=e91]
+              - StaticText "Special pages"
+          - listitem [level=1]
+            - link "Printable version" [ref=e92]
+              - StaticText "Printable version"
+          - listitem [level=1]
+            - link "Page information" [ref=e93]
+              - StaticText "Page information"
+          - listitem [level=1]
+            - link "Database data" [ref=e94]
+              - StaticText "Database data"
+  - main
+    - complementary
+      - link [ref=e16]
+        - image
+    - main
+      - generic
+        - StaticText "["
+        - button "dismiss" [ref=e32]
+          - button "dismiss" [ref=e95]
+        - StaticText "]"
+      - paragraph
+        - StaticText "The Arknights Terra Wiki is a collaborative, community-maintained wiki. If you notice an issue, please consider making an edit, starting a discussion on the article's talk page, or reaching out via the "
+        - link "Arknights Terra Wiki Discord" [ref=e96]
+        - StaticText "."
+      - heading "Operator gallery: Togawa Sakiko" [level=1, ref=e4]
+      - generic
+        - generic
+          - StaticText "< "
+          - link "Togawa Sakiko" [ref=e97]
+            - StaticText "Togawa Sakiko"
+        - link "Jump to navigation" [ref=e17]
+        - link "Jump to search" [ref=e18]
+        - LayoutTable
+          - LayoutTableRow
+            - LayoutTableCell "Operator"
+              - link "Operator" [ref=e120]
+            - LayoutTableCell "File"
+              - link "File" [ref=e121]
+            - LayoutTableCell "Story"
+              - link "Story" [ref=e122]
+            - LayoutTableCell "Overview"
+              - link "Overview" [ref=e123]
+            - LayoutTableCell "Dialogue"
+              - link "Dialogue" [ref=e124]
+            - LayoutTableCell "Gallery"
+            - LayoutTableCell "Trivia"
+              - link "Trivia" [ref=e125]
+        - navigation "Contents" [ref=e33]
+          - button "Hide the table of contents" [ref=e98]
+          - generic
+            - heading "Contents" [level=2, ref=e110]
+          - list
+            - listitem [level=1]
+              - link "1. Skins" [ref=e126]
+                - StaticText "1"
+                - StaticText "."
+                - StaticText "Skins"
+            - listitem [level=1]
+              - link "2. Outfits" [ref=e127]
+                - StaticText "2"
+                - StaticText "."
+                - StaticText "Outfits"
+            - listitem [level=1]
+              - link "3. Miscelaneous" [ref=e128]
+                - StaticText "3"
+                - StaticText "."
+                - StaticText "Miscelaneous"
+              - list
+                - listitem [level=2]
+                  - link "3.1. Promotional material" [ref=e145]
+                    - StaticText "3.1"
+                    - StaticText "."
+                    - StaticText "Promotional material"
+        - heading "Skins[edit]" [level=2, ref=e34]
+          - StaticText "Skins"
+          - StaticText "["
+          - link "edit" [ref=e99]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Base" [ref=e111]
+          - row
+            - cell "Togawa Sakiko.png" [ref=e112]
+              - image "Togawa Sakiko.png"
+            - cell "Sakiko Togawa's day-to-day attire. A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil." [ref=e113]
+              - generic
+                - StaticText "Sakiko Togawa's day-to-day attire."
+                - LineBreak "\n"
+                - StaticText "A meticulously crafted outfit from a cultural context unknown to us, though its combat applicability appears to be nil."
+        - table
+          - row
+            - columnheader "Elite 2" [ref=e114]
+          - row
+            - cell "Togawa Sakiko Elite 2.png" [ref=e115]
+              - image "Togawa Sakiko Elite 2.png"
+            - cell "Sakiko Togawa's Ave Mujica stage costume. Oblivionis—Do not fear being forgotten." [ref=e116]
+              - generic
+                - StaticText "Sakiko Togawa's "
+                - link "Ave Mujica" [ref=e140]
+                - StaticText " stage costume."
+                - LineBreak "\n"
+                - StaticText "Oblivionis—Do not fear being forgotten."
+        - heading "Outfits[edit]" [level=2, ref=e35]
+          - StaticText "Outfits"
+          - StaticText "["
+          - link "edit" [ref=e100]
+          - StaticText "]"
+        - table
+          - row
+            - columnheader "Master of Melodia Outfit Voucher" [ref=e117]
+              - StaticText "Master of Melodia"
+              - deletion
+                - StaticText "Outfit Voucher"
+          - row
+            - cell "Togawa Sakiko Skin 1.png" [ref=e118]
+              - image "Togawa Sakiko Skin 1.png"
+            - cell "One of Sakiko Togawa's Terran stage costumes. Fearing not oblivion, she bears it all. Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, Ave Mujica. She awaits in stilled elegance, that she would entice her audience unto this world. How to obtain: Somniloquium Serenum (Outfit Store, 18 Originite Prime )" [ref=e119]
+              - generic
+                - StaticText "One of Sakiko Togawa's "
+                - link "Terran" [ref=e141]
+                - StaticText " stage costumes."
+              - StaticText "Fearing not oblivion, she bears it all."
+              - generic
+                - StaticText "Ave Mujica Collaborative Series/Master of Melodia. Tolling her decision, this stage costume is made manifest in the realm of dreams. She is the Creator of the Haven, "
+                - link "Ave Mujica" [ref=e142]
+                - StaticText ". She awaits in stilled elegance, that she would entice her audience unto this world."
+              - generic
+                - StaticText "How to obtain: "
+                - link "Somniloquium Serenum" [ref=e143]
+                - StaticText " ("
+                - link "Outfit Store" [ref=e144]
+                - StaticText ", "
+                - generic
+                  - StaticText "18 "
+                  - link "Originite Prime" [ref=e146]
+                    - image "Originite Prime"
+                - StaticText ")"
+        - heading "Miscelaneous[edit]" [level=2, ref=e36]
+          - StaticText "Miscelaneous"
+          - StaticText "["
+          - link "edit" [ref=e101]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum" [ref=e129]
+              - image "Togawa Sakiko as a Rhodes Island Sarkaz Operator during the events of Somniloquium Serenum"
+            - generic
+              - StaticText "Togawa Sakiko as a "
+              - link "Rhodes Island" [ref=e130]
+              - StaticText " "
+              - link "Sarkaz" [ref=e131]
+              - StaticText " Operator during the events of "
+              - link "Somniloquium Serenum" [ref=e132]
+          - listitem [level=1]
+            - link "Sakiko with her hood on" [ref=e133]
+              - image "Sakiko with her hood on"
+            - StaticText "Sakiko with her hood on"
+          - listitem [level=1]
+            - link "The dinning hall of Sakiko's house inside her dreamscape" [ref=e134]
+              - image "The dinning hall of Sakiko's house inside her dreamscape"
+            - StaticText "The dinning hall of Sakiko's house inside her dreamscape"
+          - listitem [level=1]
+            - link "Sakiko's piano room inside her dreamscape" [ref=e135]
+              - image "Sakiko's piano room inside her dreamscape"
+            - StaticText "Sakiko's piano room inside her dreamscape"
+        - heading "Promotional material[edit]" [level=3, ref=e37]
+          - StaticText "Promotional material"
+          - StaticText "["
+          - link "edit" [ref=e102]
+          - StaticText "]"
+        - list
+          - listitem [level=1]
+            - link "Togawa Sakiko's operator introduction" [ref=e136]
+              - image "Togawa Sakiko's operator introduction"
+            - StaticText "Togawa Sakiko's operator introduction"
+        - generic
+          - link "Categories" [ref=e103]
+          - StaticText ": "
+          - list
+            - listitem [level=1]
+              - link "Togawa Sakiko" [ref=e137]
+            - listitem [level=1]
+              - link "Operator galleries" [ref=e138]
+    - complementary
+      - link [ref=e19]
+        - image
+      - link "Report bad advertisement" [ref=e20]
+    - complementary
+      - link [ref=e21]
+        - image
+  - contentinfo
+    - list
+      - listitem [level=1]
+        - StaticText "This page was last edited on 3 June 2026, at 14:06."
+      - listitem [level=1]
+        - generic
+          - StaticText "Pages that were created prior to September 2023 are adapted from the Arknights Fandom wiki."
+          - LineBreak "\n"
+          - StaticText "Page content is under "
+          - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e38]
+          - StaticText " unless otherwise noted."
+    - list
+      - listitem [level=1]
+        - link "Terms of Service" [ref=e22]
+      - listitem [level=1]
+        - link "Privacy policy" [ref=e23]
+      - listitem [level=1]
+        - link "Support Wiki" [ref=e24]
+      - listitem [level=1]
+        - link "Send a ticket to wiki.gg" [ref=e25]
+      - listitem [level=1]
+        - link "Status page" [ref=e26]
+      - listitem [level=1]
+        - link "Manage cookie settings" [ref=e27]
+    - list
+      - listitem [level=1]
+        - link "Creative Commons Attribution-ShareAlike 4.0 License" [ref=e28]
+          - image "Creative Commons Attribution-ShareAlike 4.0 License"
+      - listitem [level=1]
+        - link "Powered by MediaWiki" [ref=e29]
+          - image "Powered by MediaWiki"
+      - listitem [level=1]
+        - link "Part of wiki.gg" [ref=e30]
+          - image "Part of wiki.gg"
+  - dialog "SP Consent Message"
+    - Iframe "SP Consent Message" [ref=e2]
+      - generic
+        - generic
+          - paragraph
+            - StaticText "We value your privacy"
+          - paragraph
+            - StaticText "wiki.gg and our technology partners ask you to consent to the use of cookies to store and access personal data on your device. This can include the use of unique identifiers and information about your browsing patterns to create the best possible user experience on this website. The following description outlines how your data may be used by us, or by our partners."
+          - button "Precise geolocation data, and identification through device scanning" [expanded=false, ref=e150]
+            - StaticText "Precise geolocation data, and identification through device scanning"
+          - button "Store and/or access information on a device" [expanded=false, ref=e151]
+            - StaticText "Store and/or access information on a device"
+          - button "Personalised advertising and content, advertising and content measurement, audience research and services development " [expanded=false, ref=e152]
+            - StaticText "Personalised advertising and content, advertising and content measurement, audience research and services development"
+          - button "Analytics Storage" [expanded=false, ref=e153]
+            - StaticText "Analytics Storage"
+          - paragraph
+            - StaticText "Some of our 297 "
+            - link "partners" [ref=e154]
+            - StaticText " process personal data on the basis of legitimate interest. You can object to such processing at any time. Please click “Options” below to view our list of partners and the purposes for which consent is required."
+            - paragraph
+            - paragraph
+              - StaticText "You don’t have to consent in order to view the information on this site, but if you don’t consent, some personalization of content and advertising won’t be available. Your choices on this site will be applied only to this site. You can change your settings at any time by clicking the \"Manage Cookie Settings\" to reopen the Privacy Preferences and manage the setting."
+          - button "More Options" [ref=e147]
+          - button "Accept" [ref=e148]
+          - button "Allow Essential Cookies" [ref=e149]
+✓ Done
+✓ Done
+✓ Done
+✓ Done
+✓ Done
+✓ Done

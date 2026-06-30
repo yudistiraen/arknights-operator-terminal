@@ -370,7 +370,7 @@ export function OperatorList() {
                       <img
                         src={entry.operator.skins[0].src}
                         alt={entry.operator.name}
-                        className="absolute inset-0 w-full h-full object-contain object-center opacity-70 group-hover:opacity-90"
+                        className="absolute bottom-0 left-0 right-0 h-[82%] w-full object-contain object-bottom opacity-70 group-hover:opacity-90"
                         style={{ transition: 'opacity 0.3s' }}
                         loading="lazy"
                       />
@@ -399,6 +399,14 @@ export function OperatorList() {
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
                           <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1.5 py-0.5 border border-[#f07830]/20">
                             ALTER
+                          </span>
+                        </div>
+                      )}
+
+                      {entry.operator.tags?.includes('Crossover') && (
+                        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
+                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1.5 py-0.5 border border-[#f07830]/20">
+                            CROSSOVER
                           </span>
                         </div>
                       )}
