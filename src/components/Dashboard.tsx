@@ -109,7 +109,7 @@ export function Dashboard() {
               <span className="font-display text-2xl md:text-4xl font-bold text-white/85 tracking-tight leading-none">
                 {stat.value}
               </span>
-              <p className="font-display text-[9px] md:text-[11px] text-white/25 tracking-[0.15em] uppercase mt-1">
+              <p className="font-display text-[9px] md:text-[11px] text-white/35 tracking-[0.15em] uppercase mt-1">
                 {stat.label}
               </p>
             </div>
@@ -182,7 +182,7 @@ export function Dashboard() {
                       {/* Mission name overlay */}
                       <div className="absolute inset-x-0 bottom-0 px-1.5 pb-1.5 z-10">
                         <p className={`font-display text-sm leading-tight tracking-wide ${
-                          isOpenToday ? 'text-white/90' : 'text-white/25'
+                          isOpenToday ? 'text-white/90' : 'text-white/35'
                         }`}>
                           {mission.name}
                         </p>

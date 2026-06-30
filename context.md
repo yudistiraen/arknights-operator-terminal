@@ -23,11 +23,23 @@ src/app/
 ├── globals.css              # Tailwind imports, design tokens (@theme), scrollbar, keyframes
 ├── page.tsx                 # "/" → Dashboard (Command Center)
 ├── operator/
-│   ├── page.tsx             # "/operator" → OperatorList (roster grid)
-│   └── [name]/page.tsx      # "/operator/{slug}" → OperatorTerminal (detail view)
+│   ├── page.tsx             # "/operator" → SPA: OperatorList atau OperatorTerminal (via ?operator= param)
+│   └── [name]/page.tsx      # "/operator/{slug}" → redirect ke "/operator?operator={slug}" (backward compat)
 └── calendar/
     └── page.tsx             # "/calendar" → Calendar
 ```
+
+### SPA Routing Operator
+
+Operator detail ditangani sebagai SPA di `/operator` melalui query param:
+
+- **`/operator`** — tampilkan `OperatorList` (roster grid)
+- **`/operator?operator={slug}`** — tampilkan `OperatorTerminal` untuk operator tersebut
+- **`/operator?operator={slug}&alter=true`** — tampilkan alter form operator
+
+`OperatorRouter` (`src/components/OperatorRouter.tsx`) adalah client component yang membaca `useSearchParams()` dan merender `OperatorList` atau `OperatorTerminal` berdasarkan ada/tidaknya `?operator=` param.
+
+Navigasi next/prev antar operator menggunakan `window.history.replaceState` untuk update URL tanpa trigger re-render/re-mount — sehingga entrance animation tidak main ulang, hanya glitch art yang muncul.
 
 ## Struktur Project
 
@@ -40,6 +52,7 @@ src/
 │   ├── Dashboard.tsx        # Halaman utama (Command Center) — stats strip, supply schedule dengan gambar misi
 │   ├── SideMenu.tsx         # Sidebar navigasi — icon wiki (Base_icon.svg, Operator_icon.svg), collapsible, mobile responsive
 │   ├── Footer.tsx           # Footer disclaimer
+│   ├── OperatorRouter.tsx   # SPA router — baca ?operator= param, render OperatorList atau OperatorTerminal
 │   ├── OperatorList.tsx     # Halaman roster/grid seleksi operator (pengganti OperatorRoster)
 │   ├── OperatorTerminal.tsx # Halaman detail operator — artwork, HUD, panel tabs
 │   ├── CharacterArt.tsx     # Tampilan artwork operator (kiri layar)
@@ -679,7 +692,7 @@ Beberapa operator punya alter version — operator terpisah dengan class berbeda
 }
 ```
 
-Alter diakses via URL query param: `/operator/amiya?alter=true`
+Alter diakses via URL query param: `/operator?operator=amiya&alter=true`
 
 ### Checklist Penambahan Operator
 

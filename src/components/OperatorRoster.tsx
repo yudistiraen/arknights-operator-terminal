@@ -392,7 +392,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                       <img
                         src={entry.operator.classIcon}
                         alt={entry.operator.class}
-                        className="absolute top-2 left-2 w-4 h-4 md:w-[18px] md:h-[18px] object-contain opacity-35 group-hover:opacity-55 z-10"
+                        className="absolute top-2 left-2 w-5 h-5 md:w-[18px] md:h-[18px] object-contain opacity-35 group-hover:opacity-55 z-10"
                         style={{ transition: 'opacity 0.3s' }}
                       />
 

@@ -39,7 +39,7 @@ function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day
 
       <span className={`
         font-display text-[10px] md:text-xs leading-none block
-        ${isToday ? 'text-ak-accent-bright font-semibold' : 'text-white/30'}
+        ${isToday ? 'text-ak-accent-bright font-semibold' : 'text-white/50'}
       `}>
         {day}
       </span>
@@ -67,7 +67,7 @@ function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day
 
       {entries.length > 0 && (
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-1 pb-0.5 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none hidden md:block" style={{ transition: 'opacity 0.2s' }}>
-          <p className="font-display text-[8px] text-ak-gold-bright/90 tracking-wider truncate">
+          <p className="font-display text-xs text-ak-gold-bright/90 tracking-wider truncate">
             {entries.map(e => e.operator.name).join(', ')}
           </p>
         </div>
@@ -125,7 +125,7 @@ function UpcomingList() {
               <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
                 {entry.operator.name}
               </p>
-              <p className="font-body text-[9px] md:text-[10px] text-white/25 tracking-wide">
+              <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
                 {MONTH_LABELS[entry.month]} {entry.day}
               </p>
             </div>
@@ -246,14 +246,14 @@ export function Calendar() {
                 <h1 className="font-display text-lg md:text-2xl font-bold text-white/85 tracking-wider uppercase leading-none">
                   Calendar
                 </h1>
-                <p className="font-display text-[9px] md:text-[10px] text-white/25 tracking-[0.15em] uppercase mt-0.5">
+                <p className="font-display text-[9px] md:text-[10px] text-white/50 tracking-[0.15em] uppercase mt-0.5">
                   Operator Birthdays
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
               <div className="w-1.5 h-1.5 bg-ak-gold/60 rounded-full" />
-              <span className="font-display text-[9px] md:text-[10px] text-white/30 tracking-wider">
+              <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
                 {birthdayCount} {birthdayCount === 1 ? 'BIRTHDAY' : 'BIRTHDAYS'} THIS MONTH
               </span>
             </div>
@@ -270,7 +270,7 @@ export function Calendar() {
             <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 fill-none stroke-white/40 stroke-2">
               <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="font-display text-[10px] md:text-xs text-white/40 tracking-wider hidden md:block">PREV</span>
+            <span className="font-display text-[10px] md:text-xs text-white/70 tracking-wider hidden md:block">PREV</span>
           </button>
 
           <div className="flex items-center gap-3 md:gap-4">
@@ -286,7 +286,7 @@ export function Calendar() {
             className="flex items-center gap-1.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] px-3 py-1.5 md:px-4 md:py-2 active:scale-[0.96] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
             style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
           >
-            <span className="font-display text-[10px] md:text-xs text-white/40 tracking-wider hidden md:block">NEXT</span>
+            <span className="font-display text-[10px] md:text-xs text-white/70 tracking-wider hidden md:block">NEXT</span>
             <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 fill-none stroke-white/40 stroke-2">
               <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -297,7 +297,7 @@ export function Calendar() {
         <div className="w-full max-w-4xl grid grid-cols-7 gap-px md:gap-1 mb-px md:mb-1">
           {DAY_LABELS.map((label) => (
             <div key={label} className="cal-day-label text-center py-1.5 md:py-2">
-              <span className="font-display text-[9px] md:text-[10px] text-white/20 tracking-[0.2em]">
+              <span className="font-display text-[9px] md:text-[10px] text-white/50 tracking-[0.2em]">
                 {label}
               </span>
             </div>

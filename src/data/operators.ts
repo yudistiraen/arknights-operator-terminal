@@ -7,6 +7,7 @@ export const OPERATORS = ([
     birthday: 'December 23rd', height: '142 cm', combatExp: '3 years', infectionStatus: 'Infected', illustrator: '唯@W',
     cv: { JP: 'Tomoyo Kurosawa', CN: 'Dian Tao', EN: 'Emma Ballantine', KR: 'Lee Ji-hyun' },
     trait: 'Deals Arts damage',
+    tags: ['DPS'],
     stats: { hp: 1480, atk: 612, def: 121, res: 20, block: 1, cost: 20, aspd: '1.6s', rdp: '70s' },
     range: {
       base: [
@@ -141,6 +142,7 @@ export const OPERATORS = ([
     birthday: 'July 6th', height: '142 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '唯@W',
     cv: { JP: 'Yui Ogura', CN: 'Zhang Ruoyu', EN: 'Hayden Daviau', KR: 'Yoon Eun-seo' },
     trait: 'Attacks deal two instances of Physical damage to ground enemies in a small area (The second instance is a shockwave that has half the normal ATK)',
+    tags: ['DPS'],
     stats: { hp: 1944, atk: 748, def: 275, res: 15, block: 1, cost: 25, aspd: '2.1s', rdp: '70s' },
     range: {
       base: [
@@ -202,6 +204,7 @@ export const OPERATORS = ([
     birthday: 'July 25th', height: '158 cm', combatExp: 'Undisclosed', infectionStatus: 'Non-infected', illustrator: '伍秋秋秋秋',
     cv: { JP: 'Fūka Izumi', CN: 'Chen Yixuan', EN: 'Molly Harris', KR: 'Lee Myung-ho' },
     trait: 'Restores HP of allies, bouncing between 3 allies. Healing reduced by 25% per bounce.',
+    tags: ['Healing', 'DPS', 'Support'],
     stats: { hp: 2235, atk: 558, def: 221, res: 0, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },
     range: {
       base: [
@@ -253,6 +256,7 @@ export const OPERATORS = ([
     birthday: 'September 5th', height: '178 cm', combatExp: '12 years', infectionStatus: 'Infected', illustrator: 'Skade',
     cv: { JP: 'Jun Fukuyama', CN: 'Liang Dawei', EN: 'Kyle McCarley', KR: 'Son Su-ho' },
     trait: 'Deals Arts damage',
+    tags: ['DPS'],
     stats: { hp: 1663, atk: 761, def: 119, res: 20, block: 1, cost: 21, aspd: '1.6s', rdp: '70s' },
     range: {
       base: [
@@ -309,6 +313,7 @@ export const OPERATORS = ([
     birthday: 'December 3rd', height: '191 cm', combatExp: '17 years', infectionStatus: 'Non-infected', illustrator: 'Ryuuzaki Ichi',
     cv: { JP: 'Rikiya Koyama', CN: 'Wang Yuhang', EN: 'Anthony Howell', KR: 'Choi Hyun-soo' },
     trait: 'Normally does not attack and has 0 Block; When skill is inactive, ATK gradually increases up to +200% over 40 seconds. ATK is reset when the skill ends',
+    tags: ['DPS', 'Nuker'],
     stats: { hp: 4266, atk: 385, def: 502, res: 15, block: 3, cost: 12, aspd: '1.2s', rdp: '70s' },
     range: {
       base: [
@@ -361,6 +366,7 @@ export const OPERATORS = ([
     birthday: 'May 30th', height: '171 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
     cv: { JP: 'Kengo Kawanishi', CN: 'Ke Muqing', EN: 'Stefan Menaul', KR: 'Shim Kyu-hyuck' },
     trait: 'Attacks aerial enemies first',
+    tags: ['DPS'],
     stats: { hp: 1080, atk: 415, def: 134, res: 0, block: 1, cost: 11, aspd: '1s', rdp: '70s' },
     range: { base: [[1,1,1,0],[2,1,1,1],[1,1,1,0]], e1: [[1,1,1,1,0],[2,1,1,1,0],[1,1,1,1,0]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -381,6 +387,7 @@ export const OPERATORS = ([
     birthday: 'January 31st', height: '163 cm', combatExp: 'Half a year', infectionStatus: 'Non-infected', illustrator: '一立里子',
     cv: { JP: 'Mayumi Kaneko', CN: 'Zi Mao', EN: 'Claire Morgan', KR: 'Ahn Hyun-seo' },
     trait: 'Restores the HP of allies',
+    tags: ['Healing'],
     stats: { hp: 1135, atk: 407, def: 109, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },
     range: { base: [[1,1,1,0],[2,1,1,1],[1,1,1,0]], e1: [[1,1,1,1,0],[2,1,1,1,0],[1,1,1,1,0]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -402,6 +409,7 @@ export const OPERATORS = ([
     birthday: 'March 2nd', height: '154 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Nana Harumura', CN: 'Wang Xiaotong', EN: 'Claire Morgan', KR: 'Lee Hyun-jin' },
     trait: 'Blocks 3 enemies',
+    tags: ['Defense'],
     stats: { hp: 2035, atk: 295, def: 550, res: 0, block: 3, cost: 18, aspd: '1.2s', rdp: '70s' },
     range: { base: [[2]], e1: [[2]] },
     physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Normal', Endurance: 'Excellent', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -422,6 +430,7 @@ export const OPERATORS = ([
     birthday: 'August 2nd', height: '156 cm', combatExp: 'Half a year', infectionStatus: 'Non-infected', illustrator: '一立里子',
     cv: { JP: 'Azumi Asakura', CN: 'Z-kun', EN: 'Anjali Kunapaneni', KR: 'Lee Jae-hyun' },
     trait: 'Blocks 3 enemies',
+    tags: ['Defense'],
     stats: { hp: 2430, atk: 305, def: 475, res: 0, block: 3, cost: 18, aspd: '1.2s', rdp: '70s' },
     range: { base: [[2]], e1: [[2]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Normal', 'Originium Arts': 'Normal' },
@@ -443,6 +452,7 @@ export const OPERATORS = ([
     birthday: 'August 8th', height: '163 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: 'm9nokuro',
     cv: { JP: 'Junko Minagawa', CN: 'Jing Liu', EN: 'Clare Louise Connolly', KR: 'Kang Sae-bom' },
     trait: 'Deals AOE Physical damage',
+    tags: ['AOE'],
     stats: { hp: 1150, atk: 672, def: 85, res: 0, block: 1, cost: 23, aspd: '2.8s', rdp: '70s' },
     range: { base: [[1,1,1,1,0],[2,1,1,1,0],[1,1,1,1,0]], e1: [[1,1,1,1,0,0],[2,1,1,1,1,0],[1,1,1,1,0,0]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -463,6 +473,7 @@ export const OPERATORS = ([
     birthday: 'December 2nd', height: '158 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Ryoko Shiraishi', CN: 'Chen Yanyi', EN: 'Norma Butikofer', KR: 'Kim Ha-ru' },
     trait: 'Blocks 2 enemies',
+    tags: ['DP-Recovery'],
     stats: { hp: 1325, atk: 325, def: 310, res: 0, block: 2, cost: 11, aspd: '1.05s', rdp: '70s' },
     range: { base: [[2,1]], e1: [[2,1]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -483,6 +494,7 @@ export const OPERATORS = ([
     birthday: 'June 21st', height: '153 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Yuka Iguchi', CN: 'Gui Niang', EN: 'Yuuki Luna', KR: 'Bang Yeon-jee' },
     trait: 'Restores the HP of allies',
+    tags: ['Healing'],
     stats: { hp: 1220, atk: 390, def: 110, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },
     range: { base: [[0,1,1,1],[2,0,1,1],[0,1,1,1]], e1: [[0,1,1,1,1],[2,0,1,1,1],[0,1,1,1,1]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Normal', 'Originium Arts': 'Standard' },
@@ -499,6 +511,7 @@ export const OPERATORS = ([
     alter: {
       name: 'Hibiscus the Purifier', fileNo: 'PA13', class: 'Medic', branch: 'Incantation Medic', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Attacks deal Arts damage and heal the HP of an ally within Attack Range for 50% of the damage dealt',
+      tags: ['Healing'],
       illustrator: '竜崎いち',
       stats: { hp: 1508, atk: 571, def: 109, res: 20, block: 1, cost: 17, aspd: '1.6s', rdp: '70s' },
       range: {
@@ -532,6 +545,7 @@ export const OPERATORS = ([
     birthday: 'November 22nd', height: '154 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Azusa Tadokoro', CN: 'Su Wan', EN: 'Grace Hogg-Robinson', KR: 'Yang Jung-hwa' },
     trait: 'Attacks aerial enemies first',
+    tags: ['DPS'],
     stats: { hp: 1060, atk: 425, def: 126, res: 0, block: 1, cost: 11, aspd: '1s', rdp: '70s' },
     range: { base: [[0,1,1,1],[2,0,1,1],[0,1,1,1]], e1: [[0,1,1,1,1],[2,0,1,1,1],[0,1,1,1,1]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
@@ -549,6 +563,7 @@ export const OPERATORS = ([
     alter: {
       name: 'Kroos the Keen Glint', fileNo: 'R170', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Attacks aerial enemies first',
+      tags: ['DPS'],
       illustrator: 'm9nokuro',
       stats: { hp: 1520, atk: 577, def: 176, res: 0, block: 1, cost: 15, aspd: '1s', rdp: '80s' },
       range: {
@@ -588,6 +603,7 @@ export const OPERATORS = ([
     birthday: 'June 22nd', height: '154 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Kaori Mizuhashi', CN: 'Ying Xie', EN: 'Díana Bermudez', KR: 'Kim Ha-young' },
     trait: 'Deals AOE Arts damage',
+    tags: ['AOE'],
     stats: { hp: 1141, atk: 642, def: 95, res: 15, block: 1, cost: 30, aspd: '2.9s', rdp: '70s' },
     range: { base: [[0,1,1],[2,0,1],[0,1,1]], e1: [[0,1,1,1],[2,0,1,1],[0,1,1,1]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -604,6 +620,7 @@ export const OPERATORS = ([
     alter: {
       name: 'Lava the Purgatory', fileNo: 'R103', class: 'Caster', branch: 'Splash Caster', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Deals AOE Arts damage',
+      tags: ['DPS'],
       illustrator: 'Skade',
       stats: { hp: 1543, atk: 888, def: 115, res: 20, block: 1, cost: 35, aspd: '2.9s', rdp: '80s' },
       range: {
@@ -643,6 +660,7 @@ export const OPERATORS = ([
     birthday: 'March 19th', height: '161 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
     cv: { JP: 'Yuko Hara', CN: 'Yue Xin', EN: 'Penelope Rawlins', KR: 'Yoon Mi-na' },
     trait: 'Blocks 1 enemy',
+    tags: ['DPS', 'Survival'],
     stats: { hp: 2745, atk: 803, def: 155, res: 0, block: 1, cost: 15, aspd: '1.5s', rdp: '70s' },
     range: { base: [[2,1]], e1: [[2,1]] },
     physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Excellent', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -663,6 +681,7 @@ export const OPERATORS = ([
     birthday: 'May 20th', height: '187 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: '竜崎いち',
     cv: { JP: 'Hidenori Takahashi', CN: 'Ma Yang', EN: 'Alex Jordan', KR: 'Kang Ho-chul' },
     trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
+    tags: ['DPS'],
     stats: { hp: 1653, atk: 547, def: 282, res: 10, block: 2, cost: 16, aspd: '1.3s', rdp: '70s' },
     range: { base: [[0,1,1],[2,0,1],[0,1,1]], e1: [[0,1,1,0],[2,0,1,1],[0,1,1,0]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Excellent', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
@@ -683,6 +702,7 @@ export const OPERATORS = ([
     birthday: 'January 15th', height: '164 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: 'Skade',
     cv: { JP: 'Airi Ōtsu', CN: 'Ke Zhong', EN: 'Susie Riddell', KR: 'Yeo Min-jeong' },
     trait: 'Deals Arts damage and Slows the target for a short time',
+    tags: ['Slow'],
     stats: { hp: 935, atk: 418, def: 83, res: 15, block: 1, cost: 12, aspd: '1.9s', rdp: '70s' },
     range: { base: [[1,1,1,1],[1,2,1,1],[1,1,1,1]], e1: [[1,1,1,1],[1,2,1,1],[1,1,1,1]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
@@ -703,6 +723,7 @@ export const OPERATORS = ([
     birthday: 'October 28th', height: '158 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: 'deel',
     cv: { JP: 'Rika Tachibana', CN: 'Vila', EN: 'Rosie Jones', KR: 'Yoon Mi-na' },
     trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
+    tags: ['DPS', 'DP-Recovery'],
     stats: { hp: 1226, atk: 495, def: 279, res: 0, block: 1, cost: 10, aspd: '1s', rdp: '70s' },
     range: { base: [[2,1]], e1: [[2,1]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Normal' },
@@ -723,6 +744,7 @@ export const OPERATORS = ([
     birthday: 'July 2nd', height: '144 cm', combatExp: '4 years', infectionStatus: 'Infected', illustrator: '下野宏铭',
     cv: { JP: 'Chiyo Ousaki', CN: 'Chen Yanyi', EN: 'Kayli Mills', KR: 'Ryu Jeom-hee' },
     trait: 'Attacks all blocked enemies',
+    tags: ['AOE', 'Survival'],
     stats: { hp: 1858, atk: 545, def: 245, res: 0, block: 2, cost: 19, aspd: '1.2s', rdp: '70s' },
     range: { base: [[2,1]], e1: [[2,1]] },
     physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Normal', 'Originium Arts': 'Standard' },
@@ -743,6 +765,7 @@ export const OPERATORS = ([
     birthday: 'April 30th', height: '169 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '阿鬼',
     cv: { JP: 'Atsushi Abe', CN: 'Zhao Yang', EN: "Hyoie O'Grady", KR: 'Kim Ji-yul' },
     trait: 'Can heal allies by using the skill',
+    tags: ['Defense', 'Healing'],
     stats: { hp: 1833, atk: 350, def: 472, res: 10, block: 3, cost: 17, aspd: '1.2s', rdp: '70s' },
     range: { base: [[2]], e1: [[2]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Normal', Endurance: 'Excellent', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -763,6 +786,7 @@ export const OPERATORS = ([
     birthday: 'December 24th', height: '172 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
     cv: { JP: 'Chihiro Suzuki', CN: 'Pei Zhang', EN: 'Gregg Lowe', KR: 'Han Man-joong' },
     trait: 'Deals Arts damage',
+    tags: ['DPS'],
     stats: { hp: 1100, atk: 520, def: 90, res: 15, block: 1, cost: 18, aspd: '1.6s', rdp: '70s' },
     range: { base: [[1,1,1,0],[2,1,1,0],[1,1,1,0]], e1: [[1,1,1,0],[2,1,1,1,10],[1,1,1,0]] },
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
@@ -783,6 +807,7 @@ export const OPERATORS = ([
     birthday: 'February 16th', height: '172 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: 'm9nokuro',
     cv: { JP: 'Shiori Sugiura', CN: 'Ruoyu Zhang', EN: 'Stephanie Sheh', KR: 'Kang Sae-bom' },
     trait: 'Blocks 2 enemies',
+    tags: ['DP-Recovery'],
     stats: { hp: 1270, atk: 405, def: 240, res: 0, block: 2, cost: 11, aspd: '1.05s', rdp: '70s' },
     range: { base: [[2,1]], e1: [[2,1]] },
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Excellent', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Normal' },
@@ -803,6 +828,7 @@ export const OPERATORS = ([
     birthday: 'June 12th', height: '163 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'REALMBW',
     cv: { JP: 'You Taichi', CN: 'Mihu zzZ', EN: 'Jenny Yokobori', KR: 'Kim Sae-hae' },
     trait: 'Deals Arts damage\nCan use Summons in battles',
+    tags: ['Summon'],
     stats: { hp: 1350, atk: 403, def: 125, res: 15, block: 1, cost: 10, aspd: '1.6s', rdp: '70s' },
     range: {
       base: [
@@ -854,6 +880,88 @@ export const OPERATORS = ([
       range: [[2]],
       note: 'Cannot be actively healed. Deployed through talent Tentacle Summoner. Up to 4 can be deployed at once (7 with SUM-Y module).',
     },
+  },
+  {
+    name: 'Matterhorn', fileNo: 'JC03', class: 'Defender', branch: 'Protector', rarity: 4, level: 70, elite: 2, trust: 200,
+    faction: 'Karlan Trade', position: 'Melee', race: 'Forte', gender: 'Male', birthplace: 'Kjerag',
+    birthday: 'May 19th', height: '182 cm', combatExp: '6 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '竜崎いち',
+    cv: { JP: 'Shunsuke Takeuchi', CN: 'MinoruK', EN: 'Adam Diggle', KR: 'Jang Min-hyuck' },
+    trait: 'Blocks 3 enemies',
+    tags: ['Defense'],
+    stats: { hp: 3620, atk: 375, def: 670, res: 20, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },
+    range: {
+      base: [[2]],
+      e1: [[2]],
+    },
+    physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Normal', Endurance: 'Excellent', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Flawed' },
+    talents: [
+      { name: 'Snowfield Guard', desc: 'RES +7', elite: 'E1' },
+      { name: 'Snowfield Guard', desc: 'RES +15', elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Stamina Enhancement',
+        icon: '/operators/matterhorn/skill-1.png',
+        activation: 'Manual',
+        recovery: 'Auto Recovery',
+        desc: 'Max HP +70%; Restores HP by 40 per second',
+        spInit: 10,
+        sp: 35,
+        rank: 'M3',
+        dur: '30s',
+        note: 'The HP regeneration is unaffected by healing effect modifiers and can still heal Matterhorn even if he becomes unable to be healed.',
+      },
+      {
+        name: 'Cold Resistance',
+        icon: '/operators/matterhorn/skill-2.png',
+        activation: 'Manual',
+        recovery: 'Auto Recovery',
+        desc: 'Max HP +50%; DEF +30%; RES +100%',
+        spInit: 10,
+        sp: 32,
+        rank: 'M3',
+        dur: '30s',
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Matterhorn's Badge", desc: "Operator Matterhorn has demonstrated a remarkable aptitude for preservation of the front and resilience against the enemy.\nThe Field Operations Department has thus passed the following resolution:\nThis operator shall be appointed a Defender Operator during field operations to exercise Protector responsibilities.\nIn witness whereof,\nThis badge is hereby conferred upon the above named." },
+      proy: { code: 'PRO-Y', name: "Father's Robe", stages: [
+        { stage: 1, hp: '+200', def: '+30', effect: 'Trait improved: Blocks 4 enemies (Block +1)' },
+        { stage: 2, hp: '+300', def: '+40', effect: 'Snowfield Guard improved: RES +18' },
+        { stage: 3, hp: '+380', def: '+50', effect: 'Snowfield Guard improved: RES +20' },
+      ]},
+    },
+    lore: `A member of the Karlan Trade Co. LTD born in Kjerag. Matterhorn is part of the cooperation agreement between the Karlan Trade Co. and Rhodes Island, but he also helps carry out missions for the latter as well.`,
+    story: `A member of Karlan Trade born in the northern side of Kjerag, Matterhorn comes from the Yek family. For generations, they have served the Silverash clan of Kjerag as guards. This includes Matterhorn himself, who was trained to become their bodyguard since he was young and witnessed the young Silverashes grow up. Even though he could do little to repair the strained relationship between the three siblings, he still endeavors to protect them from any danger alongside his coworkers, Weiss and Degenbrecher.\n\nWhen Cliffheart was taken to Rhodes Island for her Oripathy treatment, Matterhorn and Weiss accompanied her as bodyguards while carrying out missions as part of the cooperation agreement between Karlan Trade and Rhodes Island. Aside from his combat skills, he is also an excellent chef, a skill he learned and honed during the years he served the Silverash clan. He is close friends with Vulcan, who maintains Matterhorn's equipment while Matterhorn provides remuneration, and they often exchange culinary recipes and share meals together in their free time.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this Operator is believed to be non-infected.\n[Cell-Originium Assimilation] 0%\nOperator shows no signs of infection at this time.\n[Blood Originium-Crystal Density] 0.12u/L\nThis Operator has rarely come into contact with Originium.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Since he was young, Matterhorn was trained to be SilverAsh's bodyguard. His father and grandfather were honorable guards for SilverAsh's family. Naturally, this became his goal, as well. However, unlike military training during his father's time, he still had the opportunity to study other subjects. Almost subconsciously, he chose cooking.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Compared to foreign nations that are rich in resources, Kjerag has very few edible varieties of plants and animals. Even a wealthy family like SilverAsh's usually only eats plain meals. However, once Matterhorn became a cook, everything changed. His mastery of the art of cooking is awe-inspiring. With just a handful of Kjerag ingredients, he can craft culinary delicacies untasted by native Kjerags. It's no wonder that the politicians of Kjerag used to hold meetings at the government's reception hall, but now they only want to meet at SilverAsh's home. The power of food is truly something to behold.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `After coming to Rhodes Island, Matterhorn's combat frequency and intensity have increased substantially. His equipment, especially his shield, are in constant need of repair. Matterhorn knows some ways to perform simple repairs in the heat of battle, but thorough maintenance requires the skills of an artisan. Upon being given a recommendation, Matterhorn met Vulcan. Surprised by each other's abilities, they quickly established a long-term relationship: Vulcan maintains Matterhorn's equipment while Matterhorn provides renumeration. When they have free time, they exchange culinary recipes and occasionally share meals together. They are a good example of what close friends should be.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Matterhorn's ancestors were born in the norther region of Kjerag where the environment is harsh and people fight against nature day after day. To ensure the survival of the others, when northern Kjerags go out to fight, they are considered dead. This conviction has resulted in future generations of brave warriors like Matterhorn.`,
+      },
+    ],
+    classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/karlan-trade.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/matterhorn/base.png', chibiSrc: '/operators/matterhorn/chibi.webm', illustrator: '竜崎いち' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/matterhorn/e2.png', chibiSrc: '/operators/matterhorn/chibi.webm', illustrator: '竜崎いち' },
+      { id: 'skin1', label: 'Beach Guard GT.001', src: '/operators/matterhorn/skin1.png', chibiSrc: '/operators/matterhorn/chibi-skin1.webm', illustrator: '竜崎いち' },
+    ],
+    portrait: '/operators/matterhorn/portrait.png',
   },
 ] as Operator[]).sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 

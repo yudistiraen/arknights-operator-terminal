@@ -27,7 +27,7 @@ export function IllustratorCredit({ illustrator, triggerKey }: IllustratorCredit
 
   return (
     <div className="hud-item absolute bottom-1 left-1/2 -translate-x-1/2 md:bottom-2 z-30 flex items-center gap-1.5 md:gap-2">
-      <span className="font-display text-sm text-white/25 tracking-[0.15em] uppercase">Illust.</span>
+      <span className="font-display text-sm text-white/35 tracking-[0.15em] uppercase">Illust.</span>
       <span className="relative inline-block overflow-hidden">
         <span ref={textRef} className="font-display text-sm text-ak-accent/80 tracking-wider">
           {illustrator}

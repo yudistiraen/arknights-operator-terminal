@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { getFactionTheme } from '../data/factionThemes'
+import { toSlug } from '../lib/operators'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
 import { PANEL_CONFIGS } from './panels'
 import { CharacterArt } from './CharacterArt'
@@ -30,6 +31,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const [variantIndex, setVariantIndex] = useState(-1)
   const [isAlterActive, setIsAlterActive] = useState(initialAlter)
   const { hasEntered } = useApp()
+  const isFirstMount = useRef(true)
 
   useEffect(() => {
     if (!hasEntered) return
@@ -37,6 +39,22 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     enterSound.volume = 0.8
     enterSound.play().catch(() => {})
   }, [])
+
+  // Sync state when list navigation changes the operator (prop-driven, not arrow-driven).
+  // Skip first mount — state already matches initialOperatorIndex from useState.
+  // Arrow navigation updates operatorIndex directly and replaceState causes the prop to also
+  // arrive here, but since values match the already-updated state those setters are no-ops.
+  useEffect(() => {
+    if (isFirstMount.current) {
+      isFirstMount.current = false
+      return
+    }
+    setOperatorIndex(initialOperatorIndex)
+    setSkinIndex(0)
+    setVariantIndex(-1)
+    setIsAlterActive(initialAlter)
+    setExpandedPanelId(null)
+  }, [initialOperatorIndex, initialAlter])
 
   const baseOperator = OPERATORS[operatorIndex]
   const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
@@ -168,18 +186,18 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     clickSound.play().catch(() => {})
     setExpandedPanelId(null)
     isSkinAnimating.current = true
+    const nextIndex = (operatorIndex + direction + OPERATORS.length) % OPERATORS.length
+    const nextSlug = toSlug(OPERATORS[nextIndex].name)
     const artImage = artRef.current
     if (artImage) {
       const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
       timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
         .call(() => {
-          setOperatorIndex(previousIndex => {
-            const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
-            setSkinIndex(0)
-            setVariantIndex(-1)
-            setIsAlterActive(false)
-            return nextIndex
-          })
+          setOperatorIndex(nextIndex)
+          setSkinIndex(0)
+          setVariantIndex(-1)
+          setIsAlterActive(false)
+          window.history.replaceState(null, '', `/operator?operator=${nextSlug}`)
         })
         .set(artImage, { scale: 0.97 })
         .to(artImage, { opacity: 0.15, duration: 0.04 })
@@ -190,16 +208,14 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
         .to(artImage, { opacity: 0.4, duration: 0.03 })
         .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
     } else {
-      setOperatorIndex(previousIndex => {
-        const nextIndex = (previousIndex + direction + OPERATORS.length) % OPERATORS.length
-        setSkinIndex(0)
-        setVariantIndex(-1)
-        setIsAlterActive(false)
-        return nextIndex
-      })
+      setOperatorIndex(nextIndex)
+      setSkinIndex(0)
+      setVariantIndex(-1)
+      setIsAlterActive(false)
+      window.history.replaceState(null, '', `/operator?operator=${nextSlug}`)
       isSkinAnimating.current = false
     }
-  }, [])
+  }, [operatorIndex])
 
   const switchVariant = useCallback((targetVariant: number) => {
     if (isSkinAnimating.current || !artRef.current) return
@@ -228,9 +244,16 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     transitionSound.volume = 0.6
     transitionSound.play().catch(() => {})
     const artImage = artRef.current
+    const slug = toSlug(OPERATORS[operatorIndex].name)
     const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
     timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
-      .call(() => { setIsAlterActive(activate); setVariantIndex(-1); setSkinIndex(0); setExpandedPanelId(null) })
+      .call(() => {
+        setIsAlterActive(activate)
+        setVariantIndex(-1)
+        setSkinIndex(0)
+        setExpandedPanelId(null)
+        window.history.replaceState(null, '', activate ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`)
+      })
       .set(artImage, { scale: 0.97 })
       .to(artImage, { opacity: 0.15, duration: 0.04 })
       .to(artImage, { opacity: 0, duration: 0.03 })
@@ -239,7 +262,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
       .to(artImage, { opacity: 0.8, duration: 0.06 })
       .to(artImage, { opacity: 0.4, duration: 0.03 })
       .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
-  }, [])
+  }, [operatorIndex])
 
   useGSAP(() => {
     gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn', '.section-label', '.section-divider'], { opacity: 0 })
@@ -398,7 +421,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
           <div className="relative w-full md:absolute md:right-0 md:top-0 md:w-[46%] md:h-full z-20">
             <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-ak-bg/70 via-ak-bg/40 to-transparent pointer-events-none" />
             <div ref={gridRef} className="relative z-10 md:h-full flex flex-col justify-start md:justify-center gap-1.5 md:gap-2 px-3 md:pr-6 md:pl-4 py-4 md:pt-16 md:pb-6">
-              <span className="section-label text-[8px] md:text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
+              <span className="section-label text-[8px] md:text-[10px] text-white/35 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {renderCard('attribute', `${BUTTON_BASE} w-[38%] p-2 md:p-3`, BUTTON_HOVER, <>
                   <div>
@@ -411,14 +434,14 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   </div>
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
-                  <img src={activeOperator.branchIcon} alt="" aria-hidden="true" className="absolute -right-3 -bottom-3 md:-right-4 md:-bottom-4 w-24 h-24 md:w-32 md:h-32 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
+                  <img src={activeOperator.branchIcon} alt="" aria-hidden="true" className="absolute right-0 top-0 w-13 h-13 md:w-22 md:h-22 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
                   <div className="relative">
                     <div className="flex items-start justify-between">
                       <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
                     </div>
                     <div className="flex items-center gap-2 mb-2 md:mb-4">
-                      <span className="font-display text-[10px] md:text-xs text-ak-accent-bright">{activeOperator.branch} {activeOperator.class}</span>
-                      <span className="text-[9px] md:text-[10px] text-white/40">&middot; {activeOperator.position}</span>
+                      <span className="font-display text-[10px] md:text-sm text-ak-accent-bright">{activeOperator.branch}</span>
+                      <span className="text-[10px] md:text-sm text-white/40">&middot; {activeOperator.position}</span>
                     </div>
                     <div className="relative z-10 bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
                       <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
@@ -441,8 +464,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                 {renderCard('talents', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Talents</h2>
                   <div className="mt-1">
-                    {activeOperator.talents.map((talent) => (
-                      <p key={talent.name} className="text-xs md:text-sm text-white/35 font-display leading-relaxed truncate">{talent.name}</p>
+                    {activeOperator.talents.map((talent, index) => (
+                      <p key={index} className="text-xs md:text-sm text-white/35 font-display leading-relaxed truncate">{talent.name}</p>
                     ))}
                   </div>
                 </>)}
@@ -491,7 +514,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
               <div className="section-divider h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-0.5 md:my-1 origin-left" />
 
-              <span className="section-label text-[8px] md:text-[10px] text-white/25 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
+              <span className="section-label text-[8px] md:text-[10px] text-white/35 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {renderCard('profile', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide leading-none mb-0.5 md:mb-1">Profile</h2>
@@ -502,13 +525,13 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                 </>)}
                 {renderCard('voice', `${BUTTON_BASE} flex-[0.7] p-2 md:p-3`, BUTTON_HOVER, <>
                   <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Voice Actors</h2>
-                  <span className="text-[10px] md:text-xs text-white/25 font-display mt-0.5 md:mt-1">4 Lang</span>
+                  <span className="text-[10px] md:text-xs text-white/35 font-display mt-0.5 md:mt-1">4 Lang</span>
                 </>)}
                 {renderCard('story', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Story</h2>
                   {activeOperator.story
                     ? <p className="text-[10px] md:text-xs text-white/30 font-display leading-relaxed italic mt-0.5 md:mt-1">This section might contain spoiler</p>
-                    : <span className="text-[10px] md:text-xs text-white/25 font-display mt-0.5 md:mt-1">Coming Soon</span>
+                    : <span className="text-[10px] md:text-xs text-white/35 font-display mt-0.5 md:mt-1">Coming Soon</span>
                   }
                 </>)}
               </div>

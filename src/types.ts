@@ -109,6 +109,7 @@ export interface OperatorAlter {
   trust: number
   position: string
   trait: string
+  tags: string[]
   illustrator: string
   stats: OperatorStats
   range: AttackRange
@@ -148,7 +149,8 @@ export interface Operator {
   infectionStatus: string
   illustrator: string
   cv: OperatorCV
-  trait: string
+  trait: string,
+  tags: string[]
   stats: OperatorStats
   range: AttackRange
   physicalExam: Record<string, string>

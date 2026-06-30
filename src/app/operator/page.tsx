@@ -1,5 +1,10 @@
-import { OperatorList } from '../../components/OperatorList'
+import { Suspense } from 'react'
+import { OperatorRouter } from '../../components/OperatorRouter'
 
-export default function OperatorListPage() {
-  return <OperatorList />
+export default function OperatorPage() {
+  return (
+    <Suspense>
+      <OperatorRouter />
+    </Suspense>
+  )
 }

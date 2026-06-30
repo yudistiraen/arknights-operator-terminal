@@ -13,7 +13,7 @@ import { Stars } from './ui/Stars'
 gsap.registerPlugin(useGSAP)
 
 const RARITY_GRADIENT: Record<number, string> = {
-  6: 'from-[#f0c95c]/60 to-[#d4a843]/20',
+  6: 'from-[#f07830]/60 to-[#c05018]/20',
   5: 'from-[#f0c95c]/40 to-[#d4a843]/15',
   4: 'from-[#c9a0f0]/40 to-[#9060c0]/15',
   3: 'from-[#5ec4e6]/40 to-[#3ba4c9]/15',
@@ -22,7 +22,7 @@ const RARITY_GRADIENT: Record<number, string> = {
 }
 
 const RARITY_BAR: Record<number, string> = {
-  6: 'from-[#f0c95c] to-[#d4a843]',
+  6: 'from-[#f07830] to-[#c05018]',
   5: 'from-[#f0c95c]/70 to-[#d4a843]/50',
   4: 'from-[#c9a0f0]/70 to-[#9060c0]/50',
   3: 'from-[#5ec4e6]/60 to-[#3ba4c9]/40',
@@ -228,7 +228,7 @@ export function OperatorList() {
 
   const buildOperatorHref = (entry: RosterEntry) => {
     const slug = toSlug(OPERATORS[entry.operatorIndex].name)
-    return entry.isAlter ? `/operator/${slug}?alter=true` : `/operator/${slug}`
+    return entry.isAlter ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`
   }
 
   useGSAP(() => {
@@ -384,30 +384,30 @@ export function OperatorList() {
                       <img
                         src={entry.operator.classIcon}
                         alt={entry.operator.class}
-                        className="absolute top-2 left-2 w-4 h-4 md:w-[18px] md:h-[18px] object-contain opacity-35 group-hover:opacity-55 z-10"
+                        className="absolute top-2 left-2 w-5 h-5 md:w-7 md:h-7 object-contain opacity-35 group-hover:opacity-55 z-10"
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
                       <img
                         src={entry.operator.factionIcon}
                         alt={entry.operator.faction}
-                        className="absolute top-2 right-2 w-4 h-4 md:w-[18px] md:h-[18px] object-contain opacity-30 group-hover:opacity-50 z-10"
+                        className="absolute top-2 right-2 w-5 h-5 md:w-7 md:h-7 object-contain opacity-30 group-hover:opacity-50 z-10"
                         style={{ transition: 'opacity 0.3s' }}
                       />
 
                       {entry.isAlter && (
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f0c95c]/70 bg-[#f0c95c]/10 px-1.5 py-0.5 border border-[#f0c95c]/20">
+                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1.5 py-0.5 border border-[#f07830]/20">
                             ALTER
                           </span>
                         </div>
                       )}
 
                       <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2.5 z-10">
-                        <p className="font-display text-[11px] md:text-xs font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
+                        <p className="font-display text-[12px] md:text-sm font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
                           {entry.operator.name}
                         </p>
-                        <p className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider truncate">
+                        <p className="text-[10px] md:text-xs text-white/30 font-display tracking-wider truncate">
                           {entry.operator.class} · {entry.operator.branch}
                         </p>
                       </div>
