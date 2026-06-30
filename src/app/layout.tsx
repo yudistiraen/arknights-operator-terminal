@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Rajdhani, Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { AppShell } from '../components/AppShell'
 import './globals.css'
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${rajdhani.variable} ${inter.variable}`}>
       <body>
         <AppShell>{children}</AppShell>
+        <Analytics />
       </body>
     </html>
   )
