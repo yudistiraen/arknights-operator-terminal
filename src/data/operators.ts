@@ -72,6 +72,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Fresh Fastener', src: '/operators/amiya/skin2.png', chibiSrc: '/operators/amiya/chibi-skin2.webm', illustrator: '唯@W' },
       { id: 'skin3', label: 'Seedsower', src: '/operators/amiya/skin3.png', chibiSrc: '/operators/amiya/chibi-skin3.webm', illustrator: '唯@W' },
     ],
+    portrait: '/operators/amiya/portrait.png',
     variants: [
       {
         class: 'Guard', branch: 'Arts Fighter', position: 'Melee',
@@ -193,6 +194,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'Become Anew', src: '/operators/rosmontis/skin1.png', chibiSrc: '/operators/rosmontis/chibi-skin1.webm', illustrator: '唯@W' },
       { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎' },
     ],
+    portrait: '/operators/rosmontis/portrait.png',
   },
   {
     name: 'Mon3tr', fileNo: 'RI08', class: 'Medic', branch: 'Chain Medic', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -243,6 +245,7 @@ export const OPERATORS = ([
       { id: 'e2', label: 'Elite 2', src: '/operators/mon3tr/e2.png', chibiSrc: '/operators/mon3tr/chibi.webm', illustrator: '唯@W' },
       { id: 'skin1', label: 'Sharpened Blades', src: '/operators/mon3tr/skin1.png', chibiSrc: '/operators/mon3tr/chibi-skin1.webm', illustrator: '伍秋秋秋秋' },
     ],
+    portrait: '/operators/mon3tr/portrait.png',
   },
   {
     name: 'Logos', fileNo: 'RE03', class: 'Caster', branch: 'Core Caster', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -298,6 +301,7 @@ export const OPERATORS = ([
       { id: 'e2', label: 'Elite 2', src: '/operators/logos/e2.png', chibiSrc: '/operators/logos/chibi.webm', illustrator: 'Skade' },
       { id: 'skin1', label: 'Radiant Serenity', src: '/operators/logos/skin1.png', chibiSrc: '/operators/logos/chibi-skin1.webm', illustrator: 'Skade' },
     ],
+    portrait: '/operators/logos/portrait.png',
   },
   {
     name: 'Młynar', fileNo: 'KZ08', class: 'Guard', branch: 'Liberator', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -349,6 +353,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'W Dali', src: '/operators/mlynar/skin1.png', chibiSrc: '/operators/mlynar/chibi-skin1.webm', illustrator: '竜崎いち' },
       { id: 'skin2', label: 'Roar Against The Wilds', src: '/operators/mlynar/skin2.png', chibiSrc: '/operators/mlynar/chibi-skin2.webm', illustrator: '竜崎いち' },
     ],
+    portrait: '/operators/mlynar/portrait.png',
   },
   {
     name: 'Adnachiel', fileNo: 'PA44', class: 'Sniper', branch: 'Marksman', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -368,6 +373,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/adnachiel/base.png', chibiSrc: '/operators/adnachiel/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Traceless Walker', src: '/operators/adnachiel/skin1.png', chibiSrc: '/operators/adnachiel/chibi-skin1.webm', illustrator: '一立里子' },
     ],
+    portrait: '/operators/adnachiel/portrait.png',
   },
   {
     name: 'Ansel', fileNo: 'PA43', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -388,6 +394,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'Holiday HDm06', src: '/operators/ansel/skin1.png', chibiSrc: '/operators/ansel/chibi-skin1.webm', illustrator: '一立里子' },
       { id: 'skin2', label: 'Nighttime Café', src: '/operators/ansel/skin2.png', chibiSrc: '/operators/ansel/chibi-skin2.webm', illustrator: '一立里子' },
     ],
+    portrait: '/operators/ansel/portrait.png',
   },
   {
     name: 'Beagle', fileNo: 'PA14', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -407,6 +414,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/beagle/base.png', chibiSrc: '/operators/beagle/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Dreadnaught', src: '/operators/beagle/skin1.png', chibiSrc: '/operators/beagle/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
+    portrait: '/operators/beagle/portrait.png',
   },
   {
     name: 'Cardigan', fileNo: 'PA45', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -427,6 +435,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'Cheerful Guardian', src: '/operators/cardigan/skin1.png', chibiSrc: '/operators/cardigan/chibi-skin1.webm', illustrator: '一立里子' },
       { id: 'skin2', label: 'Sunny Day', src: '/operators/cardigan/skin2.png', chibiSrc: '/operators/cardigan/chibi-skin2.webm', illustrator: '一立里子' },
     ],
+    portrait: '/operators/cardigan/portrait.png',
   },
   {
     name: 'Catapult', fileNo: 'PA63', class: 'Sniper', branch: 'Artilleryman', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -446,6 +455,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/catapult/base.png', chibiSrc: '/operators/catapult/chibi.webm', illustrator: 'm9nokuro' },
       { id: 'skin1', label: 'Holiday HD', src: '/operators/catapult/skin1.png', chibiSrc: '/operators/catapult/chibi-skin1.webm', illustrator: '二开' },
     ],
+    portrait: '/operators/catapult/portrait.png',
   },
   {
     name: 'Fang', fileNo: 'PA11', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -465,6 +475,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/fang/base.png', chibiSrc: '/operators/fang/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Cruciata', src: '/operators/fang/skin1.png', chibiSrc: '/operators/fang/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
+    portrait: '/operators/fang/portrait.png',
   },
   {
     name: 'Hibiscus', fileNo: 'PA13', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -644,6 +655,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/melantha/base.png', chibiSrc: '/operators/melantha/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Letters from Wessex', src: '/operators/melantha/skin1.png', chibiSrc: '/operators/melantha/chibi-skin1.webm', illustrator: '一立里子' },
     ],
+    portrait: '/operators/melantha/portrait.png',
   },
   {
     name: 'Midnight', fileNo: 'PA62', class: 'Guard', branch: 'Lord', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -663,6 +675,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/midnight/base.png', chibiSrc: '/operators/midnight/chibi.webm', illustrator: '竜崎いち' },
       { id: 'skin1', label: 'Seventh Night', src: '/operators/midnight/skin1.png', chibiSrc: '/operators/midnight/chibi-skin1.webm', illustrator: '竜崎いち' },
     ],
+    portrait: '/operators/midnight/portrait.png',
   },
   {
     name: 'Orchid', fileNo: 'PA61', class: 'Supporter', branch: 'Decel Binder', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -682,6 +695,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/orchid/base.png', chibiSrc: '/operators/orchid/chibi.webm', illustrator: 'Skade' },
       { id: 'skin1', label: 'Twines of Time', src: '/operators/orchid/skin1.png', chibiSrc: '/operators/orchid/chibi-skin1.webm', illustrator: 'Liyu黎' },
     ],
+    portrait: '/operators/orchid/portrait.png',
   },
   {
     name: 'Plume', fileNo: 'LT05', class: 'Vanguard', branch: 'Charger', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -701,6 +715,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/plume/base.png', chibiSrc: '/operators/plume/chibi.webm', illustrator: 'deel' },
       { id: 'skin1', label: 'Easy Time', src: '/operators/plume/skin1.png', chibiSrc: '/operators/plume/chibi-skin1.webm', illustrator: 'deel' },
     ],
+    portrait: '/operators/plume/portrait.png',
   },
   {
     name: 'Popukar', fileNo: 'PA65', class: 'Guard', branch: 'Centurion', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -720,6 +735,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/popukar/base.png', chibiSrc: '/operators/popukar/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: "Witch's Swing", src: '/operators/popukar/skin1.png', chibiSrc: '/operators/popukar/chibi-skin1.webm', illustrator: '3MO' },
     ],
+    portrait: '/operators/popukar/portrait.png',
   },
   {
     name: 'Spot', fileNo: 'PA64', class: 'Defender', branch: 'Guardian', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -739,6 +755,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/spot/base.png', chibiSrc: '/operators/spot/chibi.webm', illustrator: '阿鬼' },
       { id: 'skin1', label: 'Professional', src: '/operators/spot/skin1.png', chibiSrc: '/operators/spot/chibi-skin1.webm', illustrator: '阿鬼' },
     ],
+    portrait: '/operators/spot/portrait.png',
   },
   {
     name: 'Steward', fileNo: 'PA42', class: 'Caster', branch: 'Core Caster', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -758,6 +775,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/steward/base.png', chibiSrc: '/operators/steward/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Snowstorm Invitation', src: '/operators/steward/skin1.png', chibiSrc: '/operators/steward/chibi-skin1.webm', illustrator: '一立里子' },
     ],
+    portrait: '/operators/steward/portrait.png',
   },
   {
     name: 'Vanilla', fileNo: 'BS04', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -777,6 +795,7 @@ export const OPERATORS = ([
       { id: 'base', label: 'Base', src: '/operators/vanilla/base.png', chibiSrc: '/operators/vanilla/chibi.webm', illustrator: 'm9nokuro' },
       { id: 'skin1', label: 'The Zoophilist and Her Mollusca', src: '/operators/vanilla/skin1.png', chibiSrc: '/operators/vanilla/chibi-skin1.webm', illustrator: '3MO' },
     ],
+    portrait: '/operators/vanilla/portrait.png',
   },
   {
     name: 'Deepcolor', fileNo: 'AA04', class: 'Supporter', branch: 'Summoner', rarity: 4, level: 70, elite: 2, trust: 200,
@@ -825,6 +844,7 @@ export const OPERATORS = ([
       { id: 'e2', label: 'Elite 2', src: '/operators/deepcolor/e2.png', chibiSrc: '/operators/deepcolor/chibi.webm', illustrator: 'REALMBW' },
       { id: 'skin1', label: 'Melodic Portrayal', src: '/operators/deepcolor/skin1.png', chibiSrc: '/operators/deepcolor/chibi-skin1.webm', illustrator: 'REALMBW' },
     ],
+    portrait: '/operators/deepcolor/portrait.png',
     summon: {
       name: 'Tentacle',
       icon: '/operators/deepcolor/tentacle.png',

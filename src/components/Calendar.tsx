@@ -57,7 +57,7 @@ function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day
               <img
                 src={entry.portrait}
                 alt={entry.operator.name}
-                className="w-full h-full object-cover object-[center_20%] scale-[1.8]"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </Link>
@@ -118,7 +118,7 @@ function UpcomingList() {
               <img
                 src={entry.portrait}
                 alt={entry.operator.name}
-                className="w-full h-full object-cover object-[center_20%] scale-[1.8]"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             <div className="flex-1 min-w-0">

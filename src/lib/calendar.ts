@@ -32,7 +32,7 @@ export function getAllBirthdays(): BirthdayEntry[] {
       operator: op,
       month: parsed.month,
       day: parsed.day,
-      portrait: op.skins[0]?.src ?? '',
+      portrait: op.portrait ?? '',
     })
   }
   return entries

@@ -1,0 +1,800 @@
+[
+  {
+    "name": "Amiya",
+    "fileName": "Amiya_icon.png",
+    "rawFile": "Amiya_icon.png",
+    "slug": "amiya"
+  },
+  {
+    "name": "Aak",
+    "fileName": "Aak_icon.png",
+    "rawFile": "Aak_icon.png",
+    "slug": "aak"
+  },
+  {
+    "name": "Angelina",
+    "fileName": "Angelina_icon.png",
+    "rawFile": "Angelina_icon.png",
+    "slug": "angelina"
+  },
+  {
+    "name": "Archetto",
+    "fileName": "Archetto_icon.png",
+    "rawFile": "Archetto_icon.png",
+    "slug": "archetto"
+  },
+  {
+    "name": "Ascalon",
+    "fileName": "Ascalon_icon.png",
+    "rawFile": "Ascalon_icon.png",
+    "slug": "ascalon"
+  },
+  {
+    "name": "Ash",
+    "fileName": "Ash_icon.png",
+    "rawFile": "Ash_icon.png",
+    "slug": "ash"
+  },
+  {
+    "name": "Astgenne the Lightchaser",
+    "fileName": "Astgenne_the_Lightchaser_icon.png",
+    "rawFile": "Astgenne_the_Lightchaser_icon.png",
+    "slug": "astgenne-the-lightchaser"
+  },
+  {
+    "name": "Bagpipe",
+    "fileName": "Bagpipe_icon.png",
+    "rawFile": "Bagpipe_icon.png",
+    "slug": "bagpipe"
+  },
+  {
+    "name": "Bellone",
+    "fileName": "Bellone_icon.png",
+    "rawFile": "Bellone_icon.png",
+    "slug": "bellone"
+  },
+  {
+    "name": "Blaze",
+    "fileName": "Blaze_icon.png",
+    "rawFile": "Blaze_icon.png",
+    "slug": "blaze"
+  },
+  {
+    "name": "Blaze the Igniting Spark",
+    "fileName": "Blaze_the_Igniting_Spark_icon.png",
+    "rawFile": "Blaze_the_Igniting_Spark_icon.png",
+    "slug": "blaze-the-igniting-spark"
+  },
+  {
+    "name": "Blemishine",
+    "fileName": "Blemishine_icon.png",
+    "rawFile": "Blemishine_icon.png",
+    "slug": "blemishine"
+  },
+  {
+    "name": "Carnelian",
+    "fileName": "Carnelian_icon.png",
+    "rawFile": "Carnelian_icon.png",
+    "slug": "carnelian"
+  },
+  {
+    "name": "Ceobe",
+    "fileName": "Ceobe_icon.png",
+    "rawFile": "Ceobe_icon.png",
+    "slug": "ceobe"
+  },
+  {
+    "name": "Ch'en",
+    "fileName": "Ch'en_icon.png",
+    "rawFile": "Ch%27en_icon.png",
+    "slug": "chen"
+  },
+  {
+    "name": "Ch'en the Dawnstreak",
+    "fileName": "Ch'en_the_Dawnstreak_icon.png",
+    "rawFile": "Ch%27en_the_Dawnstreak_icon.png",
+    "slug": "chen-the-dawnstreak"
+  },
+  {
+    "name": "Ch'en the Holungday",
+    "fileName": "Ch'en_the_Holungday_icon.png",
+    "rawFile": "Ch%27en_the_Holungday_icon.png",
+    "slug": "chen-the-holungday"
+  },
+  {
+    "name": "Chongyue",
+    "fileName": "Chongyue_icon.png",
+    "rawFile": "Chongyue_icon.png",
+    "slug": "chongyue"
+  },
+  {
+    "name": "Civilight Eterna",
+    "fileName": "Civilight_Eterna_icon.png",
+    "rawFile": "Civilight_Eterna_icon.png",
+    "slug": "civilight-eterna"
+  },
+  {
+    "name": "Closure",
+    "fileName": "Closure_icon.png",
+    "rawFile": "Closure_icon.png",
+    "slug": "closure"
+  },
+  {
+    "name": "Crownslayer",
+    "fileName": "Crownslayer_icon.png",
+    "rawFile": "Crownslayer_icon.png",
+    "slug": "crownslayer"
+  },
+  {
+    "name": "Degenbrecher",
+    "fileName": "Degenbrecher_icon.png",
+    "rawFile": "Degenbrecher_icon.png",
+    "slug": "degenbrecher"
+  },
+  {
+    "name": "Dorothy",
+    "fileName": "Dorothy_icon.png",
+    "rawFile": "Dorothy_icon.png",
+    "slug": "dorothy"
+  },
+  {
+    "name": "Dusk",
+    "fileName": "Dusk_icon.png",
+    "rawFile": "Dusk_icon.png",
+    "slug": "dusk"
+  },
+  {
+    "name": "Ebenholz",
+    "fileName": "Ebenholz_icon.png",
+    "rawFile": "Ebenholz_icon.png",
+    "slug": "ebenholz"
+  },
+  {
+    "name": "Ela",
+    "fileName": "Ela_icon.png",
+    "rawFile": "Ela_icon.png",
+    "slug": "ela"
+  },
+  {
+    "name": "Entelechia",
+    "fileName": "Entelechia_icon.png",
+    "rawFile": "Entelechia_icon.png",
+    "slug": "entelechia"
+  },
+  {
+    "name": "Eunectes",
+    "fileName": "Eunectes_icon.png",
+    "rawFile": "Eunectes_icon.png",
+    "slug": "eunectes"
+  },
+  {
+    "name": "Executor the Ex Foedere",
+    "fileName": "Executor_the_Ex_Foedere_icon.png",
+    "rawFile": "Executor_the_Ex_Foedere_icon.png",
+    "slug": "executor-the-ex-foedere"
+  },
+  {
+    "name": "Exusiai",
+    "fileName": "Exusiai_icon.png",
+    "rawFile": "Exusiai_icon.png",
+    "slug": "exusiai"
+  },
+  {
+    "name": "Exusiai the New Covenant",
+    "fileName": "Exusiai_the_New_Covenant_icon.png",
+    "rawFile": "Exusiai_the_New_Covenant_icon.png",
+    "slug": "exusiai-the-new-covenant"
+  },
+  {
+    "name": "Eyjafjalla",
+    "fileName": "Eyjafjalla_icon.png",
+    "rawFile": "Eyjafjalla_icon.png",
+    "slug": "eyjafjalla"
+  },
+  {
+    "name": "Eyjafjalla the Hvít Aska",
+    "fileName": "Eyjafjalla_the_Hvít_Aska_icon.png",
+    "rawFile": "Eyjafjalla_the_Hv%C3%ADt_Aska_icon.png",
+    "slug": "eyjafjalla-the-hvit-aska"
+  },
+  {
+    "name": "Fartooth",
+    "fileName": "Fartooth_icon.png",
+    "rawFile": "Fartooth_icon.png",
+    "slug": "fartooth"
+  },
+  {
+    "name": "Fiammetta",
+    "fileName": "Fiammetta_icon.png",
+    "rawFile": "Fiammetta_icon.png",
+    "slug": "fiammetta"
+  },
+  {
+    "name": "Flametail",
+    "fileName": "Flametail_icon.png",
+    "rawFile": "Flametail_icon.png",
+    "slug": "flametail"
+  },
+  {
+    "name": "Gavial the Invincible",
+    "fileName": "Gavial_the_Invincible_icon.png",
+    "rawFile": "Gavial_the_Invincible_icon.png",
+    "slug": "gavial-the-invincible"
+  },
+  {
+    "name": "Gladiia",
+    "fileName": "Gladiia_icon.png",
+    "rawFile": "Gladiia_icon.png",
+    "slug": "gladiia"
+  },
+  {
+    "name": "Gnosis",
+    "fileName": "Gnosis_icon.png",
+    "rawFile": "Gnosis_icon.png",
+    "slug": "gnosis"
+  },
+  {
+    "name": "Goldenglow",
+    "fileName": "Goldenglow_icon.png",
+    "rawFile": "Goldenglow_icon.png",
+    "slug": "goldenglow"
+  },
+  {
+    "name": "Haruka",
+    "fileName": "Haruka_icon.png",
+    "rawFile": "Haruka_icon.png",
+    "slug": "haruka"
+  },
+  {
+    "name": "Hellagur",
+    "fileName": "Hellagur_icon.png",
+    "rawFile": "Hellagur_icon.png",
+    "slug": "hellagur"
+  },
+  {
+    "name": "Ho'olheyak",
+    "fileName": "Ho'olheyak_icon.png",
+    "rawFile": "Ho%27olheyak_icon.png",
+    "slug": "hoolheyak"
+  },
+  {
+    "name": "Hoederer",
+    "fileName": "Hoederer_icon.png",
+    "rawFile": "Hoederer_icon.png",
+    "slug": "hoederer"
+  },
+  {
+    "name": "Horn",
+    "fileName": "Horn_icon.png",
+    "rawFile": "Horn_icon.png",
+    "slug": "horn"
+  },
+  {
+    "name": "Hoshiguma",
+    "fileName": "Hoshiguma_icon.png",
+    "rawFile": "Hoshiguma_icon.png",
+    "slug": "hoshiguma"
+  },
+  {
+    "name": "Hoshiguma the Breacher",
+    "fileName": "Hoshiguma_the_Breacher_icon.png",
+    "rawFile": "Hoshiguma_the_Breacher_icon.png",
+    "slug": "hoshiguma-the-breacher"
+  },
+  {
+    "name": "Ifrit",
+    "fileName": "Ifrit_icon.png",
+    "rawFile": "Ifrit_icon.png",
+    "slug": "ifrit"
+  },
+  {
+    "name": "Ines",
+    "fileName": "Ines_icon.png",
+    "rawFile": "Ines_icon.png",
+    "slug": "ines"
+  },
+  {
+    "name": "Irene",
+    "fileName": "Irene_icon.png",
+    "rawFile": "Irene_icon.png",
+    "slug": "irene"
+  },
+  {
+    "name": "Jessica the Liberated",
+    "fileName": "Jessica_the_Liberated_icon.png",
+    "rawFile": "Jessica_the_Liberated_icon.png",
+    "slug": "jessica-the-liberated"
+  },
+  {
+    "name": "Kal'tsit",
+    "fileName": "Kal'tsit_icon.png",
+    "rawFile": "Kal%27tsit_icon.png",
+    "slug": "kaltsit"
+  },
+  {
+    "name": "Kal'tsit - Esperanta",
+    "fileName": "Kal'tsit_-_Esperanta_icon.png",
+    "rawFile": "Kal%27tsit_-_Esperanta_icon.png",
+    "slug": "kaltsit---esperanta"
+  },
+  {
+    "name": "Kirin R Yato",
+    "fileName": "Kirin_R_Yato_icon.png",
+    "rawFile": "Kirin_R_Yato_icon.png",
+    "slug": "kirin-r-yato"
+  },
+  {
+    "name": "Lappland the Decadenza",
+    "fileName": "Lappland_the_Decadenza_icon.png",
+    "rawFile": "Lappland_the_Decadenza_icon.png",
+    "slug": "lappland-the-decadenza"
+  },
+  {
+    "name": "Lee",
+    "fileName": "Lee_icon.png",
+    "rawFile": "Lee_icon.png",
+    "slug": "lee"
+  },
+  {
+    "name": "Leizi the Thunderbringer",
+    "fileName": "Leizi_the_Thunderbringer_icon.png",
+    "rawFile": "Leizi_the_Thunderbringer_icon.png",
+    "slug": "leizi-the-thunderbringer"
+  },
+  {
+    "name": "Lemuen",
+    "fileName": "Lemuen_icon.png",
+    "rawFile": "Lemuen_icon.png",
+    "slug": "lemuen"
+  },
+  {
+    "name": "Lessing",
+    "fileName": "Lessing_icon.png",
+    "rawFile": "Lessing_icon.png",
+    "slug": "lessing"
+  },
+  {
+    "name": "Lin",
+    "fileName": "Lin_icon.png",
+    "rawFile": "Lin_icon.png",
+    "slug": "lin"
+  },
+  {
+    "name": "Ling",
+    "fileName": "Ling_icon.png",
+    "rawFile": "Ling_icon.png",
+    "slug": "ling"
+  },
+  {
+    "name": "Logos",
+    "fileName": "Logos_icon.png",
+    "rawFile": "Logos_icon.png",
+    "slug": "logos"
+  },
+  {
+    "name": "Lumen",
+    "fileName": "Lumen_icon.png",
+    "rawFile": "Lumen_icon.png",
+    "slug": "lumen"
+  },
+  {
+    "name": "Magallan",
+    "fileName": "Magallan_icon.png",
+    "rawFile": "Magallan_icon.png",
+    "slug": "magallan"
+  },
+  {
+    "name": "Mantra",
+    "fileName": "Mantra_icon.png",
+    "rawFile": "Mantra_icon.png",
+    "slug": "mantra"
+  },
+  {
+    "name": "Marcille",
+    "fileName": "Marcille_icon.png",
+    "rawFile": "Marcille_icon.png",
+    "slug": "marcille"
+  },
+  {
+    "name": "Mizuki",
+    "fileName": "Mizuki_icon.png",
+    "rawFile": "Mizuki_icon.png",
+    "slug": "mizuki"
+  },
+  {
+    "name": "Mon3tr",
+    "fileName": "Mon3tr_icon.png",
+    "rawFile": "Mon3tr_icon.png",
+    "slug": "mon3tr"
+  },
+  {
+    "name": "Mostima",
+    "fileName": "Mostima_icon.png",
+    "rawFile": "Mostima_icon.png",
+    "slug": "mostima"
+  },
+  {
+    "name": "Mountain",
+    "fileName": "Mountain_icon.png",
+    "rawFile": "Mountain_icon.png",
+    "slug": "mountain"
+  },
+  {
+    "name": "Mudrock",
+    "fileName": "Mudrock_icon.png",
+    "rawFile": "Mudrock_icon.png",
+    "slug": "mudrock"
+  },
+  {
+    "name": "Muelsyse",
+    "fileName": "Muelsyse_icon.png",
+    "rawFile": "Muelsyse_icon.png",
+    "slug": "muelsyse"
+  },
+  {
+    "name": "Młynar",
+    "fileName": "Młynar_icon.png",
+    "rawFile": "M%C5%82ynar_icon.png",
+    "slug": "mlynar"
+  },
+  {
+    "name": "Narantuya",
+    "fileName": "Narantuya_icon.png",
+    "rawFile": "Narantuya_icon.png",
+    "slug": "narantuya"
+  },
+  {
+    "name": "Nasti",
+    "fileName": "Nasti_icon.png",
+    "rawFile": "Nasti_icon.png",
+    "slug": "nasti"
+  },
+  {
+    "name": "Nearl the Radiant Knight",
+    "fileName": "Nearl_the_Radiant_Knight_icon.png",
+    "rawFile": "Nearl_the_Radiant_Knight_icon.png",
+    "slug": "nearl-the-radiant-knight"
+  },
+  {
+    "name": "Necrass",
+    "fileName": "Necrass_icon.png",
+    "rawFile": "Necrass_icon.png",
+    "slug": "necrass"
+  },
+  {
+    "name": "Nian",
+    "fileName": "Nian_icon.png",
+    "rawFile": "Nian_icon.png",
+    "slug": "nian"
+  },
+  {
+    "name": "Nightingale",
+    "fileName": "Nightingale_icon.png",
+    "rawFile": "Nightingale_icon.png",
+    "slug": "nightingale"
+  },
+  {
+    "name": "Nymph",
+    "fileName": "Nymph_icon.png",
+    "rawFile": "Nymph_icon.png",
+    "slug": "nymph"
+  },
+  {
+    "name": "Pallas",
+    "fileName": "Pallas_icon.png",
+    "rawFile": "Pallas_icon.png",
+    "slug": "pallas"
+  },
+  {
+    "name": "Passenger",
+    "fileName": "Passenger_icon.png",
+    "rawFile": "Passenger_icon.png",
+    "slug": "passenger"
+  },
+  {
+    "name": "Penance",
+    "fileName": "Penance_icon.png",
+    "rawFile": "Penance_icon.png",
+    "slug": "penance"
+  },
+  {
+    "name": "Pepe",
+    "fileName": "Pepe_icon.png",
+    "rawFile": "Pepe_icon.png",
+    "slug": "pepe"
+  },
+  {
+    "name": "Phantom",
+    "fileName": "Phantom_icon.png",
+    "rawFile": "Phantom_icon.png",
+    "slug": "phantom"
+  },
+  {
+    "name": "Pozëmka",
+    "fileName": "Pozëmka_icon.png",
+    "rawFile": "Poz%C3%ABmka_icon.png",
+    "slug": "pozemka"
+  },
+  {
+    "name": "Pramanix the Prerita",
+    "fileName": "Pramanix_the_Prerita_icon.png",
+    "rawFile": "Pramanix_the_Prerita_icon.png",
+    "slug": "pramanix-the-prerita"
+  },
+  {
+    "name": "Qiubai",
+    "fileName": "Qiubai_icon.png",
+    "rawFile": "Qiubai_icon.png",
+    "slug": "qiubai"
+  },
+  {
+    "name": "Raidian",
+    "fileName": "Raidian_icon.png",
+    "rawFile": "Raidian_icon.png",
+    "slug": "raidian"
+  },
+  {
+    "name": "Ray",
+    "fileName": "Ray_icon.png",
+    "rawFile": "Ray_icon.png",
+    "slug": "ray"
+  },
+  {
+    "name": "Reed the Flame Shadow",
+    "fileName": "Reed_the_Flame_Shadow_icon.png",
+    "rawFile": "Reed_the_Flame_Shadow_icon.png",
+    "slug": "reed-the-flame-shadow"
+  },
+  {
+    "name": "Rosa",
+    "fileName": "Rosa_icon.png",
+    "rawFile": "Rosa_icon.png",
+    "slug": "rosa"
+  },
+  {
+    "name": "Rosmontis",
+    "fileName": "Rosmontis_icon.png",
+    "rawFile": "Rosmontis_icon.png",
+    "slug": "rosmontis"
+  },
+  {
+    "name": "Saga",
+    "fileName": "Saga_icon.png",
+    "rawFile": "Saga_icon.png",
+    "slug": "saga"
+  },
+  {
+    "name": "Saileach",
+    "fileName": "Saileach_icon.png",
+    "rawFile": "Saileach_icon.png",
+    "slug": "saileach"
+  },
+  {
+    "name": "Sankta Miksaparato",
+    "fileName": "Sankta_Miksaparato_icon.png",
+    "rawFile": "Sankta_Miksaparato_icon.png",
+    "slug": "sankta-miksaparato"
+  },
+  {
+    "name": "Saria",
+    "fileName": "Saria_icon.png",
+    "rawFile": "Saria_icon.png",
+    "slug": "saria"
+  },
+  {
+    "name": "Schwarz",
+    "fileName": "Schwarz_icon.png",
+    "rawFile": "Schwarz_icon.png",
+    "slug": "schwarz"
+  },
+  {
+    "name": "Shining",
+    "fileName": "Shining_icon.png",
+    "rawFile": "Shining_icon.png",
+    "slug": "shining"
+  },
+  {
+    "name": "Shu",
+    "fileName": "Shu_icon.png",
+    "rawFile": "Shu_icon.png",
+    "slug": "shu"
+  },
+  {
+    "name": "Siege",
+    "fileName": "Siege_icon.png",
+    "rawFile": "Siege_icon.png",
+    "slug": "siege"
+  },
+  {
+    "name": "Silence the Paradigmatic",
+    "fileName": "Silence_the_Paradigmatic_icon.png",
+    "rawFile": "Silence_the_Paradigmatic_icon.png",
+    "slug": "silence-the-paradigmatic"
+  },
+  {
+    "name": "SilverAsh",
+    "fileName": "SilverAsh_icon.png",
+    "rawFile": "SilverAsh_icon.png",
+    "slug": "silverash"
+  },
+  {
+    "name": "SilverAsh the Reignfrost",
+    "fileName": "SilverAsh_the_Reignfrost_icon.png",
+    "rawFile": "SilverAsh_the_Reignfrost_icon.png",
+    "slug": "silverash-the-reignfrost"
+  },
+  {
+    "name": "Skadi",
+    "fileName": "Skadi_icon.png",
+    "rawFile": "Skadi_icon.png",
+    "slug": "skadi"
+  },
+  {
+    "name": "Skadi the Corrupting Heart",
+    "fileName": "Skadi_the_Corrupting_Heart_icon.png",
+    "rawFile": "Skadi_the_Corrupting_Heart_icon.png",
+    "slug": "skadi-the-corrupting-heart"
+  },
+  {
+    "name": "Specter the Unchained",
+    "fileName": "Specter_the_Unchained_icon.png",
+    "rawFile": "Specter_the_Unchained_icon.png",
+    "slug": "specter-the-unchained"
+  },
+  {
+    "name": "Stainless",
+    "fileName": "Stainless_icon.png",
+    "rawFile": "Stainless_icon.png",
+    "slug": "stainless"
+  },
+  {
+    "name": "Surtr",
+    "fileName": "Surtr_icon.png",
+    "rawFile": "Surtr_icon.png",
+    "slug": "surtr"
+  },
+  {
+    "name": "Suzuran",
+    "fileName": "Suzuran_icon.png",
+    "rawFile": "Suzuran_icon.png",
+    "slug": "suzuran"
+  },
+  {
+    "name": "Swire the Elegant Wit",
+    "fileName": "Swire_the_Elegant_Wit_icon.png",
+    "rawFile": "Swire_the_Elegant_Wit_icon.png",
+    "slug": "swire-the-elegant-wit"
+  },
+  {
+    "name": "Texas the Omertosa",
+    "fileName": "Texas_the_Omertosa_icon.png",
+    "rawFile": "Texas_the_Omertosa_icon.png",
+    "slug": "texas-the-omertosa"
+  },
+  {
+    "name": "Thorns",
+    "fileName": "Thorns_icon.png",
+    "rawFile": "Thorns_icon.png",
+    "slug": "thorns"
+  },
+  {
+    "name": "Thorns the Lodestar",
+    "fileName": "Thorns_the_Lodestar_icon.png",
+    "rawFile": "Thorns_the_Lodestar_icon.png",
+    "slug": "thorns-the-lodestar"
+  },
+  {
+    "name": "Titi",
+    "fileName": "Titi_icon.png",
+    "rawFile": "Titi_icon.png",
+    "slug": "titi"
+  },
+  {
+    "name": "Togawa Sakiko",
+    "fileName": "Togawa_Sakiko_icon.png",
+    "rawFile": "Togawa_Sakiko_icon.png",
+    "slug": "togawa-sakiko"
+  },
+  {
+    "name": "Tragodia",
+    "fileName": "Tragodia_icon.png",
+    "rawFile": "Tragodia_icon.png",
+    "slug": "tragodia"
+  },
+  {
+    "name": "Typhon",
+    "fileName": "Typhon_icon.png",
+    "rawFile": "Typhon_icon.png",
+    "slug": "typhon"
+  },
+  {
+    "name": "Ulpianus",
+    "fileName": "Ulpianus_icon.png",
+    "rawFile": "Ulpianus_icon.png",
+    "slug": "ulpianus"
+  },
+  {
+    "name": "Vigil",
+    "fileName": "Vigil_icon.png",
+    "rawFile": "Vigil_icon.png",
+    "slug": "vigil"
+  },
+  {
+    "name": "Vina Victoria",
+    "fileName": "Vina_Victoria_icon.png",
+    "rawFile": "Vina_Victoria_icon.png",
+    "slug": "vina-victoria"
+  },
+  {
+    "name": "Violet Mizutsune Orchid",
+    "fileName": "Violet_Mizutsune_Orchid_icon.png",
+    "rawFile": "Violet_Mizutsune_Orchid_icon.png",
+    "slug": "violet-mizutsune-orchid"
+  },
+  {
+    "name": "Virtuosa",
+    "fileName": "Virtuosa_icon.png",
+    "rawFile": "Virtuosa_icon.png",
+    "slug": "virtuosa"
+  },
+  {
+    "name": "Viviana",
+    "fileName": "Viviana_icon.png",
+    "rawFile": "Viviana_icon.png",
+    "slug": "viviana"
+  },
+  {
+    "name": "Viy",
+    "fileName": "Viy_icon.png",
+    "rawFile": "Viy_icon.png",
+    "slug": "viy"
+  },
+  {
+    "name": "Vulpisfoglia",
+    "fileName": "Vulpisfoglia_icon.png",
+    "rawFile": "Vulpisfoglia_icon.png",
+    "slug": "vulpisfoglia"
+  },
+  {
+    "name": "W",
+    "fileName": "W_icon.png",
+    "rawFile": "W_icon.png",
+    "slug": "w"
+  },
+  {
+    "name": "Wang",
+    "fileName": "Wang_icon.png",
+    "rawFile": "Wang_icon.png",
+    "slug": "wang"
+  },
+  {
+    "name": "Weedy",
+    "fileName": "Weedy_icon.png",
+    "rawFile": "Weedy_icon.png",
+    "slug": "weedy"
+  },
+  {
+    "name": "Wiš'adel",
+    "fileName": "Wiš'adel_icon.png",
+    "rawFile": "Wi%C5%A1%27adel_icon.png",
+    "slug": "wisadel"
+  },
+  {
+    "name": "Yu",
+    "fileName": "Yu_icon.png",
+    "rawFile": "Yu_icon.png",
+    "slug": "yu"
+  },
+  {
+    "name": "Zima the Raging Tide",
+    "fileName": "Zima_the_Raging_Tide_icon.png",
+    "rawFile": "Zima_the_Raging_Tide_icon.png",
+    "slug": "zima-the-raging-tide"
+  },
+  {
+    "name": "Zuo Le",
+    "fileName": "Zuo_Le_icon.png",
+    "rawFile": "Zuo_Le_icon.png",
+    "slug": "zuo-le"
+  }
+]

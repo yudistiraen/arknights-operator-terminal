@@ -411,7 +411,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   </div>
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
-                  <img src={activeOperator.branchIcon} alt={activeOperator.branch} className="absolute top-2 right-2 w-6 h-6 md:w-12 md:h-12 shrink-0 object-contain opacity-50 pointer-events-none drop-shadow-[0_0_6px_rgba(59,164,201,0.3)]" style={{ zIndex: 0 }} />
+                  <img src={activeOperator.branchIcon} alt="" aria-hidden="true" className="absolute -right-3 -bottom-3 md:-right-4 md:-bottom-4 w-24 h-24 md:w-32 md:h-32 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
                   <div className="relative">
                     <div className="flex items-start justify-between">
                       <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
