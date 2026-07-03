@@ -159,6 +159,7 @@ export interface Operator {
   modules: Record<string, OperatorModule>
   lore: string
   story?: string
+  profile?: string
   records?: OperatorRecord[]
   classIcon: string
   branchIcon: string

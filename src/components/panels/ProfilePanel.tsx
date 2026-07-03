@@ -31,7 +31,7 @@ export function ProfilePanel({ operator }: { operator: Operator }) {
       </div>
 
       <div className="bg-white/[0.04] border border-white/[0.06] p-5">
-        <p className="text-xs leading-[1.8] text-white/50 whitespace-pre-line italic">{operator.lore}</p>
+        <p className="text-xs leading-[1.8] text-white/50 whitespace-pre-line italic">{operator.profile}</p>
       </div>
 
       {operator.records && operator.records.length > 0 && (
