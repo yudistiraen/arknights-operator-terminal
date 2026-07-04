@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useRef, useCallback, useLayoutEffect, useEffect } from 'react'
+import { useState, useRef, useCallback, useLayoutEffect, useEffect, useMemo } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { getFactionTheme } from '../data/factionThemes'
-import { toSlug } from '../lib/operators'
+import { toSlug, getRosterEntries } from '../lib/operators'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
 import { PANEL_CONFIGS } from './panels'
 import { CharacterArt } from './CharacterArt'
@@ -55,6 +55,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     setIsAlterActive(initialAlter)
     setExpandedPanelId(null)
   }, [initialOperatorIndex, initialAlter])
+
+  const rosterEntries = useMemo(() => getRosterEntries(), [])
 
   const baseOperator = OPERATORS[operatorIndex]
   const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
@@ -186,8 +188,14 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     clickSound.play().catch(() => {})
     setExpandedPanelId(null)
     isSkinAnimating.current = true
-    const nextIndex = (operatorIndex + direction + OPERATORS.length) % OPERATORS.length
+    const currentEntryIndex = rosterEntries.findIndex(
+      entry => entry.operatorIndex === operatorIndex && entry.isAlter === isAlterActive
+    )
+    const nextEntry = rosterEntries[(currentEntryIndex + direction + rosterEntries.length) % rosterEntries.length]
+    const nextIndex = nextEntry.operatorIndex
+    const nextIsAlter = nextEntry.isAlter
     const nextSlug = toSlug(OPERATORS[nextIndex].name)
+    const nextUrl = nextIsAlter ? `/operator?operator=${nextSlug}&alter=true` : `/operator?operator=${nextSlug}`
     const artImage = artRef.current
     if (artImage) {
       const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
@@ -196,8 +204,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
           setOperatorIndex(nextIndex)
           setSkinIndex(0)
           setVariantIndex(-1)
-          setIsAlterActive(false)
-          window.history.replaceState(null, '', `/operator?operator=${nextSlug}`)
+          setIsAlterActive(nextIsAlter)
+          window.history.replaceState(null, '', nextUrl)
         })
         .set(artImage, { scale: 0.97 })
         .to(artImage, { opacity: 0.15, duration: 0.04 })
@@ -211,11 +219,11 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
       setOperatorIndex(nextIndex)
       setSkinIndex(0)
       setVariantIndex(-1)
-      setIsAlterActive(false)
-      window.history.replaceState(null, '', `/operator?operator=${nextSlug}`)
+      setIsAlterActive(nextIsAlter)
+      window.history.replaceState(null, '', nextUrl)
       isSkinAnimating.current = false
     }
-  }, [operatorIndex])
+  }, [operatorIndex, isAlterActive, rosterEntries])
 
   const switchVariant = useCallback((targetVariant: number) => {
     if (isSkinAnimating.current || !artRef.current) return
@@ -413,7 +421,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
               </div>
             )}
             <SkinSelector skins={activeOperator.skins} activeSkinIndex={skinIndex} onSkinChange={switchSkin} />
-            {OPERATORS.length > 1 && (
+            {rosterEntries.length > 1 && (
               <NavigationArrows onPrevious={() => switchOperator(-1)} onNext={() => switchOperator(1)} />
             )}
           </div>

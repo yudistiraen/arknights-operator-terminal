@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { useApp } from './AppShell'
 import { Footer } from './Footer'
+import { WorldMap } from './WorldMap'
 
 gsap.registerPlugin(useGSAP)
 
@@ -45,7 +46,7 @@ export function Dashboard() {
 
   useGSAP(() => {
     if (!hasEntered) {
-      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.mission-schedule', '.dashboard-cta', '.dashboard-footer'], { opacity: 0 })
+      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.mission-schedule', '.world-map-panel', '.dashboard-cta', '.dashboard-footer'], { opacity: 0 })
       return
     }
 
@@ -59,6 +60,7 @@ export function Dashboard() {
       .fromTo('.stat-card', { opacity: 0, y: 20, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.08 }, '-=0.2')
       .fromTo('.mission-schedule', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.15')
       .fromTo('.mission-row', { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.04 }, '-=0.3')
+      .fromTo('.world-map-panel', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.1')
       .fromTo('.dashboard-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.15')
       .fromTo('.dashboard-footer', { opacity: 0 }, { opacity: 1, duration: 0.3 }, '-=0.2')
 
@@ -231,6 +233,10 @@ export function Dashboard() {
               )
             })}
           </div>
+        </div>
+
+        <div className="mt-10 md:mt-14 w-full flex justify-center">
+          <WorldMap />
         </div>
 
       </div>
