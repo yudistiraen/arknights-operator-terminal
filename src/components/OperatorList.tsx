@@ -5,8 +5,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
-import type { Operator } from '../types'
-import { toSlug } from '../lib/operators'
+import { toSlug, getRosterEntries, type RosterEntry } from '../lib/operators'
 import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
 
@@ -118,12 +117,6 @@ function FilterDropdown({ label, value, options, onChange }: {
   )
 }
 
-interface RosterEntry {
-  operator: Operator
-  operatorIndex: number
-  isAlter: boolean
-}
-
 export function OperatorList() {
   const { hasEntered } = useApp()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -165,23 +158,10 @@ export function OperatorList() {
     setBranchFilter('all')
   }
 
-  const allEntries = useMemo<RosterEntry[]>(() => {
-    const entries: RosterEntry[] = []
-    OPERATORS.forEach((op, opIndex) => {
-      entries.push({ operator: op, operatorIndex: opIndex, isAlter: false })
-      if (op.alter) {
-        entries.push({
-          operator: { ...op, ...op.alter } as Operator,
-          operatorIndex: opIndex,
-          isAlter: true,
-        })
-      }
-    })
-    return entries
-  }, [])
+  const allEntries = useMemo<RosterEntry[]>(() => getRosterEntries(), [])
 
   const filteredEntries = useMemo(() => {
-    let result = [...allEntries]
+    let result = allEntries
     if (searchQuery) {
       const query = searchQuery.toLowerCase()
       result = result.filter(entry => entry.operator.name.toLowerCase().includes(query))
@@ -190,10 +170,6 @@ export function OperatorList() {
     if (classFilter !== 'all') result = result.filter(entry => entry.operator.class === classFilter)
     if (branchFilter !== 'all') result = result.filter(entry => entry.operator.branch === branchFilter)
     if (factionFilter !== 'all') result = result.filter(entry => entry.operator.faction === factionFilter)
-    result.sort((entryA, entryB) => {
-      if (entryB.operator.rarity !== entryA.operator.rarity) return entryB.operator.rarity - entryA.operator.rarity
-      return entryA.operator.name.localeCompare(entryB.operator.name)
-    })
     return result
   }, [searchQuery, rarityFilter, classFilter, branchFilter, factionFilter, allEntries])
 
