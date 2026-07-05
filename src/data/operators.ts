@@ -77,6 +77,7 @@ export const OPERATORS = ([
       { id: 'skin3', label: 'Seedsower', src: '/operators/amiya/skin3.png', chibiSrc: '/operators/amiya/chibi-skin3.webm', illustrator: '唯@W' },
     ],
     portrait: '/operators/amiya/portrait.png',
+    portraitFocus: { y: 10, x: 40, zoom: 250 },
     variants: [
       {
         class: 'Guard', branch: 'Arts Fighter', position: 'Melee',
@@ -191,31 +192,12 @@ export const OPERATORS = ([
         { stage: 3, atk: '+90', aspd: '+7', effect: 'Stable Esthesia improved: Grants +8% ATK to self and a random Caster; in IS, also benefits from Caster Collectibles, and when any Sniper or Caster is deployed, 1 stronger Tactical Equipment with special effects is summoned' },
       ]},
     },
-    lore: `"Outcast, I'm a little concerned. After returning from the Chernobog core city, Rosmontis has been carrying out her missions with extreme aggression."\n\n"Isn't it normal to adjust the mission objectives in our line of work? Pith, you oughta trust Rosmontis's judgement."\n\n"Have you heard? Surviving witnesses refer to her as the 'Scourge of Minos.' Fortunately, the girl herself doesn't remember any of it."\n\n"Memories aren't always useful experiences, sometimes they can be heavy burdens. Since her opinions aren't colored by her own prejudices, Rosmontis might be even more impartial than we are. She's like a mirror that can't be stained."\n\n"She's awake now, Pith. We can ask her ourselves."\n\nHello Outcast.\n\n"Hello, Rosmontis."\n\nAre you leaving, Outcast?\n\n"Yes, I'm off to Victoria for a little something. But Pith is right, I'll be gone, Kal'tsit will be gone, and someday, we'll all be gone."\n\nWill Amiya be gone too?\n\n"Could be. Nobody knows the future. Judge Rosmontis, Your Little Honor, can you look after yourself for us?"\n\nYes, I promise. I promise everyone that I'll write everything down. I remember the stories you and Pith told me. I won't forget.\n\nIf I ever turn bad... no, no matter what I become in the future. I'll document it all, I'll look over it carefully.\n\nThe last one I will judge will be me, myself.`,
-    profile: `Rhodes Island Elite Operator Rosmontis possesses a high aptitude for a rare form of Originium Arts particularly adept at confronting large creatures, destroying hard objectives, immobilizing facilities under emergency, and putting a stop to small-scale skirmishes. She has been shown to possess a solid control of the battlefield and considerable tactical value in assault, positional, and annihilation scenarios. Under Kal'tsit's assignment, she is currently active as a core annihilation specialist.
-    All other files pertaining to Rosmontis have been moved to the high clearance database.`,
+    story: `A quiet and absent-minded young Feline and one of Rhodes Island's Elite Ops, Narcissa, codenamed "Rosmontis", is known for her immeasurable Arts aptitude and potential which manifests in the form of physics manipulation/telekinesis where she could control and effortlessly send large, heavy objects flying into her foes to crush them with immense force, filling in the "giant killer" role (i.e. someone who could take on a mighty enemy) in R.I.'s force. As a matter of fact, she is only deployed by R.I. when the situation calls for the complete and utter destruction of hostile forces, or when a foe is almost impossible to be taken down by conventional methods, since her Arts is simply too strong for most mundane operations; it can easily cause severe collateral damage! For all her might, she is given the "Annihilation Specialist" moniker by R.I.\n\nRosmontis' past turns out to be a harsh one. As an orphan, she could have lived a normal life together with her brothers. But both Loken Williams, the mad Columbian scientist who adopted them, and the Columbian Department of Defense tore her siblings apart by forcing them into becoming the subject of several extreme Arts-related experimentations in the Loken Watertank Laboratory. These include turning Rosmontis into an Infected by implanting Originium inside her organs while keeping herself "uncontaminated" and a "mind transplantation" that costed the life of Rosmontis' brother and fragmented her memories. Their intention was simple: to turn her into an "non-Infected" caster without relying on Originium devices, thus accelerating Columbia's military might which fulfils the D.O.D.'s ambition. Eventually, Rosmontis' powers went out of control, resulting in the destruction of the laboratory. As Maylander tried to cover up such a heinous crime from the public, she was quietly deported from Columbia through an illegal child labor smugglers in Minos before she was luckily rescued by R.I.\n\nDespite her memory issues, Rosmontis tries her best to remember as much as she can about her past. She greatly values her friends and colleagues, like a lost kitty might. In order to remember them, she carries a tablet that records their names with her at all times. If they are severely injured by her enemies, the little girl will not hesitate to avenge them, even if it means total bloodshed and destruction.`,
+    profile: `Rhodes Island Elite Operator Rosmontis possesses a high aptitude for a rare form of Originium Arts particularly adept at confronting large creatures, destroying hard objectives, immobilizing facilities under emergency, and putting a stop to small-scale skirmishes. She has been shown to possess a solid control of the battlefield and considerable tactical value in assault, positional, and annihilation scenarios. Under Kal'tsit's assignment, she is currently active as a core annihilation specialist.\nAll other files pertaining to Rosmontis have been moved to the high clearance database.`,
     records: [
       {
         title: 'Clinical Analysis',
-        content: `Imaging tests have shown the outlines of some of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system; there are signs of Oripathy infection.\n\n[Cell-Originium Assimilation] <1%\n[Blood Originium-Crystal Density] 0.13u/L\n\nMost currently known internal organ crystallization and Originium hyperplasia originate from localized lesions caused by the accumulation of Originium particles in the bloodstream.
-          Yes, Touch, your hypothesis is more or less on point.
-          This particular subject can perhaps be called an Infected, but it's hard to say this is Oripathy.
-          The Infected organ located in her brain stem isn't natural. That's right... It was an artificial implant. Having referenced Raidian's inspection report, we can say for certain that this device is unmistakably artificial in nature.\n\nIf, just like this particular subject, Specter's Infection was artificially induced... Leaving aside the question of how Specter's immune system is able to fight her Originium infection so fiercely... the liquid Originium density in Specter's cerebrospinal fluid has already reached such a high level that her life is undeniably in danger. We had to resort to all kinds of measures just to prevent her situation from getting any worse, as we naturally should do.
-          Let's look at the experiment that was performed on this particular individual. One of the objectives of this experiment was to figure out how to contain the Originium Infection and the negative effects it produces.
-          And they managed to pull it off, albeit only temporarily.
-          From the project's inception, their plan was to create an individual who is not afflicted by Oripathy but is nonetheless an Infected. A caster who doesn't need an Arts Unit. A master of Originium Arts who does not need to be trained in its theory.
-          Her Infected organs do not exacerbate the Originium density in her body in any way. In a certain sense, this individual is as good as not Infected.
-          With her life functions still in perfect order, should we really remove this artificial organ? The organ that lets her breathe and swallow, and lets her blood flow normally?
-          I'm afraid we haven't met that requirement. No one has. This experiment is likely impossible to reproduce in the short term, and we are supposed to reverse its results, to return her body composition to normal?\n\nThe Loken Watertank Laboratory is a shambles. The little research data they had were all wiped out as well. We will likely never know whether the data was destroyed or successfully retrieved by its sponsor. The lab's actual proprietor would prefer to keep news of the scandal under wraps. The technological companies looking to thrive in the wake of Loken Watertank's downfall are likely a dime a dozen, and who knows how many spies there are in the Columbian cities?
-          Loken Williams was a genius, but his ignorance and apathy led to the deaths of many, including his own in the very end. Poetic justice, no doubt.
-          The Maylander Child Rights Protection Foundation's rescue of the individual from the laboratory ruins and their subsequent exfiltration from the country were the result of its board's careful deliberation. They were intent on keeping Loken's research results out of the hands of Columbian companies and interest groups. If the research conducted at Loken was allowed to continue to ferment, it would only result in further instability. This will not be tolerated. They will not allow it. They would rather pretend it happened in the first place.
-          In the end, the girl ended up under my care... Perhaps by fate, or perhaps because, along with Loken's mentor, I was the one who ended Loken's life as an Oripathy researcher in Columbian academia. But we both knew it in our hearts that he wasn't going to be stopped by that. It was nowhere close to enough to stop someone who would claim the lives of everyone who walks upon this land for his own benefit.
-          With this, our cooperation with Maylander came to an end. This would be the final mission ever to be sanctioned by them and carried out in secret by us. This individual, the experimental subject, will forever disappear from Columbia's records.\n\nMaylander doesn't care if she lives or dies. What happens to her from here onwards is up to us.
-          But what would her treatment—the removal of this artificial organ—entail? The damage this has on her system may be minimal.
-          The device does not have a replacement function. It had never crossed their minds to implement such a function.
-          The device has already become a part of the individual. They turned her Arts Unit... into her life source.
-          I don't have the right to ask her to give up her own life.
-          ...However, ethics is a matter between you and me, not Rhodes Island.\n\n——Dr. Kal'tsit`,
+        content: `Imaging tests have shown the outlines of some of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system; there are signs of Oripathy infection.\n\n[Cell-Originium Assimilation] <1%\n[Blood Originium-Crystal Density] 0.13u/L\n\nMost currently known internal organ crystallization and Originium hyperplasia originate from localized lesions caused by the accumulation of Originium particles in the bloodstream.\nYes, Touch, your hypothesis is more or less on point.\nThis particular subject can perhaps be called an Infected, but it's hard to say this is Oripathy.\nThe Infected organ located in her brain stem isn't natural. That's right... It was an artificial implant. Having referenced Raidian's inspection report, we can say for certain that this device is unmistakably artificial in nature.\n\nIf, just like this particular subject, Specter's Infection was artificially induced... Leaving aside the question of how Specter's immune system is able to fight her Originium infection so fiercely... the liquid Originium density in Specter's cerebrospinal fluid has already reached such a high level that her life is undeniably in danger. We had to resort to all kinds of measures just to prevent her situation from getting any worse, as we naturally should do.\nLet's look at the experiment that was performed on this particular individual. One of the objectives of this experiment was to figure out how to contain the Originium Infection and the negative effects it produces.\nAnd they managed to pull it off, albeit only temporarily.\nFrom the project's inception, their plan was to create an individual who is not afflicted by Oripathy but is nonetheless an Infected. A caster who doesn't need an Arts Unit. A master of Originium Arts who does not need to be trained in its theory.\nHer Infected organs do not exacerbate the Originium density in her body in any way. In a certain sense, this individual is as good as not Infected.\nWith her life functions still in perfect order, should we really remove this artificial organ? The organ that lets her breathe and swallow, and lets her blood flow normally?\nI'm afraid we haven't met that requirement. No one has. This experiment is likely impossible to reproduce in the short term, and we are supposed to reverse its results, to return her body composition to normal?\n\nThe Loken Watertank Laboratory is a shambles. The little research data they had were all wiped out as well. We will likely never know whether the data was destroyed or successfully retrieved by its sponsor. The lab's actual proprietor would prefer to keep news of the scandal under wraps. The technological companies looking to thrive in the wake of Loken Watertank's downfall are likely a dime a dozen, and who knows how many spies there are in the Columbian cities?\nLoken Williams was a genius, but his ignorance and apathy led to the deaths of many, including his own in the very end. Poetic justice, no doubt.\nThe Maylander Child Rights Protection Foundation's rescue of the individual from the laboratory ruins and their subsequent exfiltration from the country were the result of its board's careful deliberation. They were intent on keeping Loken's research results out of the hands of Columbian companies and interest groups. If the research conducted at Loken was allowed to continue to ferment, it would only result in further instability. This will not be tolerated. They will not allow it. They would rather pretend it happened in the first place.\nIn the end, the girl ended up under my care... Perhaps by fate, or perhaps because, along with Loken's mentor, I was the one who ended Loken's life as an Oripathy researcher in Columbian academia. But we both knew it in our hearts that he wasn't going to be stopped by that. It was nowhere close to enough to stop someone who would claim the lives of everyone who walks upon this land for his own benefit.\nWith this, our cooperation with Maylander came to an end. This would be the final mission ever to be sanctioned by them and carried out in secret by us. This individual, the experimental subject, will forever disappear from Columbia's records.\n\nMaylander doesn't care if she lives or dies. What happens to her from here onwards is up to us.\nBut what would her treatment—the removal of this artificial organ—entail? The damage this has on her system may be minimal.\nThe device does not have a replacement function. It had never crossed their minds to implement such a function.\nThe device has already become a part of the individual. They turned her Arts Unit... into her life source.\nI don't have the right to ask her to give up her own life.\n...However, ethics is a matter between you and me, not Rhodes Island.\n— Dr. Kal'tsit`,
       },
     ],
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/flinger-branch.png', factionIcon: '/icons/factions/elite-op.png',
@@ -226,6 +208,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎' },
     ],
     portrait: '/operators/rosmontis/portrait.png',
+    portraitFocus: { x:50, y: 22, zoom: 290 },
   },
   {
     name: 'Mon3tr', fileNo: 'RI08', class: 'Medic', branch: 'Chain Medic', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -270,7 +253,30 @@ export const OPERATORS = ([
         { stage: 3, atk: '+65', def: '+40', effect: 'Self-Repair improved: Reconstruction grants surrounding allies ATK +25%; next bounce also does not weaken' },
       ]},
     },
-    lore: `"You're hurt."\n\nAs you leaf through the documents, the paper slices open your skin at one particularly tricky angle.\n\nIt's no big deal. You didn't even feel it.\n\nAt least, not until Mon3tr comes in with a new stack of documents.\n\nAt first, she simply stops and looks around, left and right, like she senses something wrong in the office.\n\nWhen she grabs your wrist, snatches away your pen, and flips your hand over, you finally see the cut on your index finger.\n\nAfter using a cotton swab to disinfect the wound, she gently yet deftly plasters on a band-aid. Once done, she cups your hand in hers, mumbling something to herself as she softly pats your palm.\n\n"Does it still hurt?"\n\nYou shake your head, showing her your formerly-injured finger as you give it a good rub with another, doing your best to assuage her worries.\n\n"But my memories tell me that bleeding hurts a lot. What does it feel like?"\n\nHer heart is now calmed, but her tone of voice takes a turn for the strange as she "warns" you that any bodily abnormalities must be reported to her ASAP.`,
+    story: `"You're hurt."\n\nAs you leaf through the documents, the paper slices open your skin at one particularly tricky angle.\n\nIt's no big deal. You didn't even feel it.\n\nAt least, not until Mon3tr comes in with a new stack of documents.\n\nAt first, she simply stops and looks around, left and right, like she senses something wrong in the office.\n\nWhen she grabs your wrist, snatches away your pen, and flips your hand over, you finally see the cut on your index finger.\n\nAfter using a cotton swab to disinfect the wound, she gently yet deftly plasters on a band-aid. Once done, she cups your hand in hers, mumbling something to herself as she softly pats your palm.\n\n"Does it still hurt?"\n\nYou shake your head, showing her your formerly-injured finger as you give it a good rub with another, doing your best to assuage her worries.\n\n"But my memories tell me that bleeding hurts a lot. What does it feel like?"\n\nHer heart is now calmed, but her tone of voice takes a turn for the strange as she "warns" you that any bodily abnormalities must be reported to her ASAP.`,
+    profile: `Mon3tr is profoundly knowledgeable in life sciences, Oripathy treatment, history and genealogy, and many other fields. She also possesses plentiful experience in mobile combat maneuvers, and offers much-needed assistance during Rhodes Island's rebuilding. Currently serves as a special consultant for the Medical, Engineering, and Field Operations departments.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n\n[Cell-Originium Assimilation] 0%\nOperator Mon3tr shows no signs of Originium infection.\n\n[Blood Originium-Crystal Density] 0.00u/L\nShe is no longer steadfast, incisive, or relentless, nor the bearer of certain extreme traits. A reminder that our recent loss is all too real.\n\nMon3tr's vital signs are extremely unstable. This is not to say her new body is diseased, but rather that she is currently in a state of accelerated catalysis and morphosis—in simpler terms, this new body of hers is not yet truly complete. Thankfully, unlike Kal'tsit, who never acquiesced to a physical examination, Mon3tr is more than happy to cooperate with Medical, perhaps even too enthusiastic at times. We will continue monitoring her situation.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Dr. Kal'tsit has left us, and another wearing similar clothes is now at our side, helping to rebuild Rhodes Island. This leaves many feeling somewhat bewildered. We often heard such mutterings as HQ was being rebuilt, the earliest of which even came from Medical itself.\n\nAccording to the Medic operators, Mon3tr showed up to the very first meeting held after Medical was rebuilt. She stood in the corner of the room, not saying a word, electing to quietly listen to Dr. Warfarin's speech. Eventually, she was noticed. At first, Dr. Warfarin was clearly at a loss for words, but she quickly started raising her voice, drawing everyone's eyes back to her.\n\n'I know she wants to come along. She feels like she should be there. You must have noticed it, Amiya. Kal'tsit's stethoscope, hanging around her neck... Although she got it upside down.'\n'I don't think she's trying to copy Dr. Kal'tsit, nor does she hope to be her equal. She's inherited all her memories, but at the same time, she's trying to process all that pain... She needs a little... no, a lot more time, just like the rest of us.'\n\nI have decided to officially hire Operator Mon3tr as Medical's special consultant. This decision was made after an assessment of her professional ability in basic medicine, life sciences, clinical medicine, first aid, and other such fields. Her performance during this period has also been taken into account, having helped provide aid to the wounded of her own accord and assisting in surgery (using two talons to secure the wounded while using another two to distract them—Kal'tsit never did anything like that before). This has been decided by a show of hands from all members of Medical.\n— Warfarin\n\nYour hands are so soft, Mon3tr.\n— Rosmontis\n\nSee you at the training room today, Mon3tr! We're not leaving until we're all tired out!\n— Blaze\n\nShe's become Blaze's ideal sparring partner, and not long after she started participating in stool racing and nut-cracking racing; she got second place in both of them.\n\nShe is Mon3tr, our new comrade-in-arms.\n— Stormeye`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `[Training Room Recording]\n'Wait, wait, wait, I didn't get a good look. How'd you manage to block my chainsaw? I thought it'd be a sure thing, imploding the air to force you back. No way you'd be prepared for it...'\n'It was my talons.'\n'You're harder to get a solid hit on than ever. Speaking of, I was wondering... Can you still do that thing with your mouth...?'\n(Sound of a violent shockwave blast)\n'What the ****?!?'\n\nWith Operator Blaze's enthusiastic assistance, Mon3tr has gotten accustomed to her current body in a short period of time, and has mastered several unusual combat techniques. She makes full use of the metallic constructs that float in front of her. The pair of large and small constructs are able to decompress into a pair of upper talons and lower talons respectively. The decompression process is near-instantaneous, and their shape can be freely changed to suit the current needs. For example, they can be split into fragments and adhere onto someone else, or act as an Arts unit and help her render emergency treatment. The current Mon3tr does not possess the same formidable resilience she had while at Kal'tsit's side, but there is no doubt that her highly flexible nature on the battlefield is not something to be overlooked, whether she be threatening an enemy or aiding an ally. As a new operator who has not been with Rhodes Island for very long—sorry, official procedure, gotta follow it—she has been very active, participating in over a dozen field missions. She has proven herself a great help to us.\n\n[Classified Log]\nI've ordered Medical to set up a group dedicated to monitoring Mon3tr's condition. We need to keep an eye on it.\n\nShe accompanied Dr. Kal'tsit for an incredibly long time. The end of the gemini cycle system means a painful rebirth, one full of unknowns. She hasn't been awake for long enough... Mon3tr's current appearance is merely her initial form as an independent construct—in other words, her countenance and capabilities are currently in a state of continuous flux. This process is filled with uncontrollable elements. It must be guided. Ever since we experienced that grave incident, there have been more and more disturbing developments appearing across the land. The situation is deteriorating, and that deterioration is accelerating. Rhodes Island has no time to rest. I worry... I worry that our reliance on Mon3tr will outstrip the speed at which she is adapting to these changes...\n\nBut no matter what, we will stand with her, and meet those changes together.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `[Classified Log]\n'According to our intelligence, there has been a surge in 'academic exchanges' between the spires of Zwillingstürme lately. There is no doubt that the Golden Empress is trying to analyze the secrets plucked out from amidst the chaos. The hole in the starpod is still open, and the Columbian government is increasingly engrossed in levitation research... The nations of the Core love new opportunities, but they must understand that these opportunities indicate a brewing crisis that will affect us all, not the start of another round of disputes. We should offer Vina more support. She's able to do a lot more now... But Rhodes Island should refrain from official collaboration with Parliament.\n'Just note these words down for now, Mon3tr. The Doctor and Amiya will know what they mean.'\n'Laterano's Law has been on guard for a very long time now. The Holy City's futile call for peace across Terra is, in essence, a way of saving itself. We still do not know exactly what sort of disaster the Law has foreseen, but I fear that not so far in the future, all the past calamities we have seen will be but a shadow of this new one.\n'If there is the opportunity, try to contact the Law, but by no means regard it as a peer. It still retains the ability that caused endless dispute in the past. It is still able to cause irreversible influence on one's personality with ease.\n'But when the time is right, do not hesitate to access its system.'\n'I am glad that Clementia and Gladiia listened to my proposal. The 'Land Patrol' is a good starting point. For the time being, Ægir is willing to work on dry land via more neutral powers.\n'Ægir boasts of being the successor of prehistoric civilization. It is the closest to the most foundational of legacies, yet also closest to where the sea currents are cut off. If the one I least want to see shows herself, she will not overlook its existence. She will not come to them as equals of humanity, nor will she, as the philosophers of Ægir expect, reveal a million truths to them in endless communion. Even arrogant Ægir must learn how to confront a 'Creator'.\n'We must deepen our bond with them, and seek out more possibilities from the ruins. Perhaps even from the Seaborn.\n'Raise the priority level of founding an office in Ægir. The two consuls are a good place to start. But remember, Mon3tr. When in contact with Ægir, keep the Doctor well guarded.'\n......\n'War comes. It will not be one limited to her and us. It is one that affects all of Terra, and everyone on it.'\n\n[Office Recording]\n'Kal'tsit recorded this information bit by bit in my spinal cord. She probably already had an idea of how things would end, and made her final decision. Before her life faded away, she tried to leave behind as much guidance as she could for Rhodes Island.'\n'You've already told the Doctor and me all of this, Mon3tr. You don't need to sit here repeating it over and over... like you're just reciting lines.'\n'No, I need to understand it for myself too.'`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `>TIMEDATA TT 197/19/09\n>ADMIN: Oracle; PRTS\nProject Codename: AMa-10\nA mechanical lifeform that uses the gemini cycle system as its core. This lifeform is characterized by an impressive ability to learn and a near-indestructible structure, one that can adapt to all sorts of extreme environments. Furthermore, in theory, it will not be recognized as life by ■■■. In the original plan, this model of mechanical lifeform would have been mass-produced by the millions, helping humanity terraform planets and build new homes for us.\n\nAt the time, this was not a particularly vital project. It would not have forestalled the oncoming calamity, nor would it have served as the ark of civilization like DWDB-221E. It was more of an investment by its creators. When they were discussing AMa-10, they decided it should be designed to survive, as a way to ensure that in the future, life will still persist.\n\nIf that is to be considered the moment I was born, then this ship named Rhodes Island should be considered my birthplace. At the time, she still sailed among the stars, the two administrators aboard her cautiously watching the undulations of the dark tides as they debated concepts for the future.\n\nBut the tide fell on them faster than anybody imagined, and the AMa-10 project could not wait for the day mass production of mechanical life was feasible. And so, I was special, and alone.\n\nOnce the administrators went into hibernation, I received no further signs of life. But before the true end comes to pass, I still have some duties I must see through.\n\n>TIMEDATA TT ???/??/??\n>ADMIN: AMa-10\nThe administrator known as Oracle has been awakened from hibernation, and I find myself accompanying Oracle alongside the investigation of this land known as Terra. However, this is not an appropriate time for it. None of our projects have progressed as we expected. Oracle should be aware of all this. From this perspective, this awakening was not a rational action.\n\nAt journey's end, Oracle issued one last command to me.\n'Find yourself.'\nThis command was not especially difficult to parse. What 'finding yourself' means is known to both philosophers and logicians. But I sensed a strong undercurrent of frustration in Oracle's words.\n\nPerhaps Oracle still had other matters for me to do?\nSeek out traces of life. Protect the spark of civilization. These actions may be of equal value to the hope Oracle advocated for during debates. Still, in contrast to that final instruction, they are somewhat more complicated issues.\n\nWith these doubts on my mind, I begin my own journey.\n\n>TIMEDATA 899/03/01\n>ADMIN: Kal'tsit; Mon3tr\nThis is the second death Kal'tsit had experienced.\n\nThe civilizations of this land are advancing, and the enemies we face are becoming more difficult to handle by the day.\n\nNot every step of Kal'tsit's plan can go smoothly. Her defeats are not unexpected. Yet I have never seen her put her full trust in anyone before, let alone a Sarkaz woman who was once an enemy. But as her mastery of DWDB-221E shows, she is a Terran with more wisdom than most. Maybe this is why Kal'tsit likes her.\n\nThe only thing I don't understand is why she gave up her former strength, why she chose a body like an ordinary Terran. She had begun to copy the appearance of the humans of Terra a very long time ago. Imitation is a biological instinct, and the starting point for wisdom, but to Kal'tsit, this copying must have another meaning.\n\nThis is not entirely a bad thing, however. We have a clearer division of labor between us. Sometimes her conversational skills can get us out of trouble, sure, but I think using my strength's the simpler option.\n\nI will protect her.\n\n>TIMEDATA 1101/09/03\n>ADMIN: Mon3tr\nI ran into the Doctor and Amiya again.\n\nIt's strange talking to them in words, especially when talking to the Doctor. My subconscious always treats it as some sort of reunion, after ten thousand long years of waiting, and I find myself having to suppress this inappropriate joy. I believe the past me has always been able to communicate with the two quite clearly, but only now, in this current form, is the connection between us truly close. We have 'become the same kind'.\n\nIt seems I now understand the choice Kal'tsit once made.\n\nI've been reorganizing this ten millennia of data. It feels like it all happened only yesterday, yet they also feel like ancient, faraway stories. They are the foundation my logic and personality rely on, and the treasures I share with Kal'tsit.\n\nProtect the Doctor and Amiya. I will follow this order to the last, but not only because I was commanded to. It is also my wish.\n\nPerhaps this will be a new beginning. I must 'find myself' once more.`,
+      },
+    ],
     classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/chain-medic-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/mon3tr/base.png', chibiSrc: '/operators/mon3tr/chibi.webm', illustrator: '唯@W' },
@@ -327,8 +333,32 @@ export const OPERATORS = ([
         { stage: 3, hp: '+170', atk: '+67', effect: 'Lexical Evolution improved: 60% chance to deal 60% ATK as Arts damage to a random target and Slow for 0.8s. If under Necrosis burst, also deals Elemental damage equal to 60% ATK' },
       ]},
     },
-    lore: `A long time ago, when the young river bed was not yet covered in waves.\nA lone traveler had lost his way in the Convallis.\nHe sipped on dew and fed on dust, until a beautiful Banshee appeared before him.\n\n"Why do you not ask the sun where you should go, traveler?"\n"My eyes are ruined, and I wish not to gaze up at a foreign land where I may not dwell."\n\n"Why do you reject the guide's invitation to lead you to a new home, traveler?"\n"He is the embodiment of lies. With his honeyed words he stole my bag and my walking stick."\n\n"Yet you speak to me. Do you not fear my curse, that I would feed upon you?"\n"Sing a dirge for me, then. Let my hungry memories gaze upon home for the last time."\n\n"No, wretched-yet-brave one, come with me, and let the song of the Banshees lend you sight and heal your wounds."\n\nThe enchanting mist kisses the traveler's lips and takes his hand, leading him into the depths of the Convallis.`,
+    story: `A long time ago, when the young river bed was not yet covered in waves.\nA lone traveler had lost his way in the Convallis.\nHe sipped on dew and fed on dust, until a beautiful Banshee appeared before him.\n\n"Why do you not ask the sun where you should go, traveler?"\n"My eyes are ruined, and I wish not to gaze up at a foreign land where I may not dwell."\n\n"Why do you reject the guide's invitation to lead you to a new home, traveler?"\n"He is the embodiment of lies. With his honeyed words he stole my bag and my walking stick."\n\n"Yet you speak to me. Do you not fear my curse, that I would feed upon you?"\n"Sing a dirge for me, then. Let my hungry memories gaze upon home for the last time."\n\n"No, wretched-yet-brave one, come with me, and let the song of the Banshees lend you sight and heal your wounds."\n\nThe enchanting mist kisses the traveler's lips and takes his hand, leading him into the depths of the Convallis.`,
+    profile: `Logos, elite caster operator, Arts master, and young "mistress" of the Convallis of the Banshees. Participated in the Kazdel Civil War as one of Babel's core members, and became one of the first elite operators of Rhodes Island. He is credited with establishing the standards and procedures for assessing an operator's Originium Arts assimilation, the definitive benchmark for predicting future Arts potential.\nHis current duties include field command, assessment and selection of caster operators, and encrypting and deciphering sensitive intel.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 10%\nLogos's external symptoms are mild compared to other Kazdelian operators, but medical tests tell a different story.\n\n[Blood Originium-Crystal Density] 0.22u/L\nTests indicate that Logos's condition is more advanced than many veteran Sarkaz in our ranks. Fortunately, it is now under control thanks to his continuing cooperation with our treatment.\n\nThat Banshee prince? He wasn't always so cooperative. I've personally seen him alter test records with his incantations, to let others get treated first. Maybe it was out of the kindness of his heart, but that's not a trick any patient should play on their doctors. What happened afterward? Well, Dr. Kal'tsit found out, and the rest, as they say, is history.\n— Anonymous senior medic`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `In a recognition test conducted by Field Operations instructors with 300 reserve operators, more than 60% of respondents identified Logos's picture as a Liberi. 30%—the ones who paid attention in training—identified his "ear feathers" and horns as belonging to a rare Elder offshoot from the east, which, while not entirely off-base, nevertheless misses the mark. Of the less than 20 respondents who accurately identified his race, five correctly noted his Royal Court affiliation, two arrived at the answer by guesswork, and another eight cheated.\n\nOf course, the instructors did not come up with this idea, but Logos himself.\n\nOne is bound to encounter many of his ideas by spending enough time on Rhodes Island, such as inserting Banshee incantations into sensitive documents to protect their confidentiality. Anyone who attempts to access our secrets and somehow manages to evade S.W.E.E.P. surveillance still has to deal with more than a hundred different incantations personally developed by Logos, including ones that melt your eyeballs in their sockets, others that make you forget to breathe, etc.\n\nHow did that [expletive] Banshee cast his incantations on my anti-Arts drones? And don't think I've forgotten about that saliva hex!\n— Closure\n\nHis best ideas, though, are reserved for his Arts research. In the past, it was believed that Sarkaz witchcraft and modern Arts are entirely distinct branches in the history of Originium usage. One being powerful but unruly, bound to bloodlines and rituals, while the other is well-founded in scientific theory and accessible to the many. Logos was unwilling to accept this conventional wisdom at face value, but could not find substantial evidence to the contrary, whether in ancient tomes or modern journals.\n\nTo his own surprise, though, he found his inspiration in a game of riddles with Mechanist. Mechanist had incorporated voice commands into his riddles, requiring the use of voice-activated devices to solve them verbally. When he accidentally solved a riddle by uttering an incantation, Logos realized that the rules and logic of incantations, a form of witchcraft ritual performed through language or music, could perhaps be applied to modern Arts as well.\n\nWith assistance from Pith and Misery—and working through Banshee incantations as a test case—Logos successfully extracted the key component of Sarkaz witchcraft from modern Arts theory: the "semantics" of rituals, i.e. the caster's definition of goal and cost. The principles are complicated, but the conclusion is simple: he has unlocked brand-new possibilities for the application of Arts. Any modern Arts could theoretically be recreated through witchcraft by designing the proper incantation or ritual, including those used in large-scale industrial production. The converse is also true: it is not outside the realm of possibility that modern methods could be incorporated into the use of witchcraft.\n\nAccording to the Core convention, such an important academic breakthrough calls for the publishing of its own book. Perhaps the time had come for Kazdel to have its own foundational text.\n\nWhen asked, however, the young Banshee pondered the question, then said that he would wait until the day Kazdel truly needs it.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `The golden forest and winding canyon conceal a secret path. There are no forks in the road, and no way back once you have tread it; only the Banshees and their honored guests may walk this incantation-woven path. Emerge from the path, and you still need cross a fog-shrouded bridge of white stone, walking through the night until you reach the end of the bridge along with the first ray of dawn. Gaze towards the sunrise, and you will see a stepped balcony wide enough to hold hundreds. Then you may carefully remove the veil the Banshees place upon their guests, and see for the first time the spectacular sight of the Convallis.\n\nMassive rock structures line the valley walls. Once used to build walls and fortresses, they have been reshaped by witchcraft into flowing shapes that support hanging gardens and overpasses reminiscent of a Banshee's dress. It is almost noon, and you could follow the Banshees frolicking in the water into the depths of the Convallis to see crystal-clear streams converge before your eyes, carrying the Banshees' delicate song even further into the Convallis. Sun shines upon the golden forests, the reflection of the leaves like flames tamed by the breeze, burning brightly beneath the overflowing colors of the hanging gardens. Do not leave hastily at sunset, even if you fear the sight will consume the rest of your life. Watch as the mistress of the Convallis steps out from her palace dressed in silk like midnight, greeted by a procession of crones. The Banshees remove their garlands and veils, and sing in response to her song a dirge for the souls who have passed into the beyond between day and night.\n\nThis is the Convallis of the Banshees.\n\nTwo centuries ago, following the failure of the coalition invasion of Kazdel, Laqeramaline—the Great Banshee and one of the Six Heroes—abandoned the Banshee hold in Kazdel and led the remnants of her court to the valley, their last abode. Aefanyl was born to the blessings of his countless sisters, and grew up in a garden overlooking the deepest parts of the Convallis. Filled with curiosity about Kazdel, the history of the Sarkaz, and the war the Six Heroes fought, he began delving into the old tomes and scrolls of the Sarkaz even before his tenth birthday. He soon began to doubt his mother's decision to lead their Royal Court away from Kazdel: if the Banshees could create such a paradise in this valley, why would they abandon their kin in Kazdel? What does the city look like now?\n\nAefanyl felt no joy when he came to the city he had so often dreamed of, searching for the answer on his own. Gazing back at his homeland, he began to see the dilemma of the Banshees, and the fragility of the Convallis. He was bewildered by the burning furnace of souls, the crowds beneath the tall smokestacks, and the power games played by the Royal Courts in the shadows. It was his encounter with Theresa that changed the circumstances of the young Banshee. At Babel, he became Logos, and found another vision for Kazdel's future.\n\nFor a long time, he has refused to talk about the home of the Banshees, considering any reminiscence on the comforts of the Convallis to be a betrayal of his other kin. He will never forget the day he shared his vexation with the old soldiers of Babel as they sat around a campfire, oblivious to the arrogance of his thinking.\n\n"Did you think we would envy you, little Banshee? We followed Her Highness and Babel because we wanted a better life!"\n"Yeah! Just because we lived in Kazdel all our lives doesn't mean we don't deserve to hear stories about something other than war!"\n"Tells us more, Logos!"\n"Hey, Logos, I heard your people had a special traditional dessert..."\n\nAnd for the first time, Logos spoke of his homeland, the Convallis of the Banshees.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `To put it bluntly, the elite operators of Rhodes Island are a bunch of weirdos. Not to say that they're the only weirdos on Rhodes Island, or that they're unqualified in any way. I've told you before that our elites are not necessarily peerless warriors, only that they always stand for Rhodes Island at the very front. They must be willing to give everything for our dream, and remain true to this vow even at the worst of times.\n\nTo cross beyond death, and usher in a more just vision.\n\nYou've worked with most of them by now; you know why they're called "weirdos." But let me fill in some details: Blaze often gets her own critical condition notice from Medical because she ends up going into shock multiple times in every high-intensity operation. Stormeye tends to get distracted by the prospect of facing powerful foes and needs a no-nonsense partner like Sharp to keep him on track. Misery's dagger tricks are in fact completely unrelated to his Arts, and were inspired by a bet between him and Outcast. Mechanist's machine oil latte is real, while Mantra has a knack for keeping up with the latest gossip on the ship...\n\nAs for Logos, I'm sure many on Rhodes Island still remember the stool racing competition. You weren't there—a shame—but yes, Logos organized that. They held the qualifiers in the workshop, then moved to the training grounds for the finals. The night before, Logos and Mechanist made some unapproved changes to the training grounds; when the contestants arrived the next day, they found themselves facing a grueling obstacle course with numerous sharp curves and slopes.\n\nBlaze was the first to be disqualified after melting her own wheels while trying to get a head start with heated air. Mechanist started full of confidence, but got swept off the course by his own contraptions at the first U-curve. Misery, sitting lost in thought on his steadily moving stool, failed to take evasive action and took Outcast out in the process... As the favorites dropped out one by one, Ace caught up with Logos and Scout in the lead, and the trio charged towards the finish line in a clump. That was when Amiya and Kal'tsit walked in. Ace immediately exited the course, but Logos and Scout failed to notice that the cheering crowd had suddenly gone quiet. Anyway, Logos won, Scout took second place, and there was no third place. Under Kal'tsit's supervision, Amiya "reprimanded" the primary culprit—Logos—as Rhodes Island's leader for the very first time.\n\nThat's what our elite operators are like.\n\nJoining those weirdos is easier than people think. All you need is approval from Amiya and the Elite Operator Council, and you'll get a small key giving you access to their workshop. One must pass through its doors to become accepted into their ranks.\n\nEach key is personally crafted by Logos and can never be taken from its owner. It serves as their personal token, and Logos is the first to know if its owner can never return. Whereupon he commands the key to self-destruct, leaving no trace behind.\n\nLogos and all the other weirdos know well the toll their dream will exact upon them.\n— ■■■`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `The vines of the past have tugged at Logos's feet ever since he set foot in Londinium. He knew that facing the sovereigns who chose Theresis meant facing the history of Kazdel, a history that would reproach him, oppress him, and attempt to coerce the young sovereign who had denied the duty of his bloodline and tried to destroy the seeds planted by Qui'lon.\n\nThe life-or-death battle he endured was a grueling trial, but he survived, and so did his ideals.\n\nLogos told us something he had once discussed with the Doctor: aside from pragmatic dangers, the Sarkaz of Kazdel have long carried a inextricable curse, like a self-contradictory Arts riddle. He used the example of a Banshee's blinding curse to illustrate this. The quickest and most effective way to break the curse is to remove one's eyeballs, but of course that would simply result in permanent blindness. Those who have tried to save Kazdel from its predicament face the same dilemma. Anyone carrying the burden of history is inevitably crushed by it, but those who cast it aside can never paint the future the Sarkaz long for.\n\nThis revelation came not only from the twins of the Heroic Age. Logos had long been perplexed by Laqeramaline's choice, trying and failing to answer why she had led the Banshees away from Kazdel without fully distancing herself from Kazdel's matters. Finally, he found the answer in Londinium. Laqeramaline had left herself in the past when Logos left Kazdel with Babel. She had carved out cracks in the vines, waiting for Logos to find his own way to free himself from them. She always believed that his wisdom would exceed her expectations.\n\nHistory, however, does not wait for the Banshee to complete his theory.\n\nThe actions of Rhodes Island in Londinium have brought turmoil to Kazdel. The failure of the Military Commission's forces and the fall of the sovereigns of the Royal Courts have reignited the embers of ambition. Even the Liches leaving their temple for the first time in many years to maintain order may not be enough to prevent another civil war. The curse of history bellows, unless those in power in Kazdel can bring the situation under control. Unless...\n\n"Unless the ghosts of the past are allowed to die, and the shackles be no more."\n\nThe Banshee mutters, his bone pen floating by his side.`,
+      },
+    ],
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/elite-op.png',
+    portraitFocus: { x: 40,y: 0, zoom: 300 },
     skins: [
       { id: 'base', label: 'Base', src: '/operators/logos/base.png', chibiSrc: '/operators/logos/chibi.webm', illustrator: 'Skade' },
       { id: 'e2', label: 'Elite 2', src: '/operators/logos/e2.png', chibiSrc: '/operators/logos/chibi.webm', illustrator: 'Skade' },
@@ -379,8 +409,32 @@ export const OPERATORS = ([
         { stage: 3, hp: '+360', atk: '+35', aspd: '+7', effect: 'Wanderer improved: ATK increased to 120% when attacking. If 3+ enemies nearby, ATK increased to 125%, and take 25% less damage' },
       ]},
     },
-    lore: `[An old letter]\n\nI don't care, Father. Must knights prove themselves through victory? The men in the arenas never seem more brilliant simply because they manage to maul more of their opponents.\n\nKnights should stand with those in distress, those with nothing but the clothes on their backs. This alone I will always believe in. When you stand with the weak, failure is hardly unheard of. Rather than relishing in victory, I would rather believe that the spirit of the knighthood also encompasses the endurance of failure.\n\nIt's just as our family motto goes, "Fear neither hardship nor darkness."\n\n...\n\nPerhaps Młynar was merely thinking in silence, or perhaps he mumbled these words to himself.\n\nThanks to the excellent soundproof car windows manufactured by Mieszko, no one heard a word he spoke in that underground garage. He silently returns the sword into its scabbard, and takes out a stack of newspapers that had previously acted as a seat cushion. He reads them without thinking, with no concern for their date, or where he had previously started or stopped reading. He fills himself with their words, like inflating a balloon man.`,
+    story: `[An old letter]\n\nI don't care, Father. Must knights prove themselves through victory? The men in the arenas never seem more brilliant simply because they manage to maul more of their opponents.\n\nKnights should stand with those in distress, those with nothing but the clothes on their backs. This alone I will always believe in. When you stand with the weak, failure is hardly unheard of. Rather than relishing in victory, I would rather believe that the spirit of the knighthood also encompasses the endurance of failure.\n\nIt's just as our family motto goes, "Fear neither hardship nor darkness."\n\n...\n\nPerhaps Młynar was merely thinking in silence, or perhaps he mumbled these words to himself.\n\nThanks to the excellent soundproof car windows manufactured by Mieszko, no one heard a word he spoke in that underground garage. He silently returns the sword into its scabbard, and takes out a stack of newspapers that had previously acted as a seat cushion. He reads them without thinking, with no concern for their date, or where he had previously started or stopped reading. He fills himself with their words, like inflating a balloon man.`,
+    profile: `Młynar Nearl, the former head of the Nearl household and the uncle of Operators Nearl and Blemishine, has yet to receive a knight title of any kind.\nRoughly two months after the Kazimierz Major came to a close, he accepted Rhodes Island's invitation and is now assisting us with our affairs in Kazimierz.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n\n[Cell-Originium Assimilation] 0%\nOperator Młynar shows no signs of Originium infection.\n\n[Blood Originium-Crystal Density] 0.14u/L\nAt one point, Operator Młynar spent an extended period of time in the wilderness. As such, his numbers are slightly higher than average for an office worker in the Grand Knight Territory.\n\nAlthough it is unlikely that he needs a reminder, the Medical Department has nonetheless provided him with recommendations on wilderness protection, per protocol.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `We rarely get the opportunity to see Operator Młynar aboard the landship, but if you are lucky enough to run into him and he happens to have some free time, he might just give you a few words of advice at the training grounds.\n\nMłynar may not have formally been a campaign knight, but his combat techniques clearly take after the traditional style employed by Kazimierz's knights. It can be inferred that the Nearl family's traditional training practices were sufficient to develop his mastery over the weapons commonly used by knights. As a young man, Młynar frequently followed his father, Kirill Nearl, and his team of campaign knights as an apprentice, giving him the opportunity to accumulate combat experience under the wings of a great many outstanding knights.\n\nHowever, whenever he puts down his training knight shield and picks up his sword, it becomes immediately clear to everyone nearby that the sword is his weapon. In most historied knight families, when a young man comes of age, he often chooses to once again leave home to improve his techniques and disposition, before joining a knight order to serve Kazimierz. However, having already mastered the sword during his time as a wanderer, Młynar set himself on a different path.\n\n...As for his Originium Arts, from what I've heard, knights never use Arts during a duel unless their beliefs are on the line. That said, during his test, he did show us his Arts just once.\n\nWe've seen Nearl and Blemishine's Arts. They are always as radiant as can be, possibly scorching, unadulterated. To our surprise, though, Operator Młynar's Arts initially felt gentle, even loving. However, upon realizing the anger the flow of his golden light embodied, we had to immediately stop him from drawing his sword, so as to minimize the repair work needed after his test.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Unlike the Radiant Knight, Młynar primarily operates outside the Grand Knight Territory. Not long after he came aboard Rhodes Island and signed his agreement, he made his way back to Kazimierz. However, he did not immediately report to Rhodes Island's Kawalerielki office. In addition, he tendered his letter of resignation to his former employer in the Grand Knight Territory by mail.\n\nClearly, there are many in the city who view Młynar as a threat, and we can also surmise from his own account that a number of recent incidents he was involved in have affected the interests of certain individuals. Still, the retrial of a misjudged case, or the downfall of a few companies and nobles, are hardly significant in this city. At this point, rather than being concerned by all the attacks, open or covert, against his family, perhaps it's more fitting to say that having stayed in this city for ten years, he no longer feels that fighting these forces will accomplish anything.\n\n"We were honored to have his help during an operation. He wasn't as difficult to work with as I expected. By which I mean I thought he'd be a bossy, arrogant noble, or maybe someone who strictly followed the traditional rules of chivalry... but he simply listened and promised to give you a hand before you screwed up too badly. The only thing we had to get used to is that he never calls anyone by their codename. I mean, we do have a good number of Kazimierzian operators who use their titles from the Major as their codenames, so maybe he's got a grudge against that, but it's not that weird if you ask me."\n"...That said, it's hard not to feel bad if you make a mistake while working with him. That time, I almost screwed up the entire mission, and after that we let him make all the decisions."\n"He gives smooth, efficient plans. It doesn't seem like he cares whether you can actually follow them or not, though. I remember him asking us to split up to stop a couple commercial knights from tailing us. How were we supposed to find them? How would we stop them? Can we knock them out? Is it okay if we blow the roads up? He didn't discuss any of that with us."\n"I guess he's probably more used to working alone? I mean, all of us did our own thing and finished our own objectives with no communication whatsoever, and somehow it all just worked out... I'm really curious. What kind of man does it take to get used to doing things the way he does? And what got him doing things like that in the first place?"`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `[Classified Log]\nBased on available data, the Nearl couple was active on the battlefield for an exceedingly short period of time. The two of them rose to prominence twenty-five years ago when they fought under the same knight order's banner during the campaign knights' invasion of Ursus, with Schnitz taking over command during a crucial battle when the knight captain was gravely injured, and leaving a deep impression on the soldiers from both sides. However, that was their last notable accomplishment. Their disappearance without a trace over a decade ago seems to have marked a turning point in the fate of this generation of the Nearl family. As Rhodes Island has expressed our willingness to help locate them, Młynar agreed to have a conversation with us on the matter.\n\nDuring our conversation, we learned that Yolanta Nearl was also born into an established knight family and had been on good terms with the Nearls since she was young. She had originally intended to join the Silverlance Pegasus when she became a campaign knight, but Schnitz insisted that she would be more effective on the battlefield with a bow than a silverlance.\n\n"He arrived at that conclusion the moment she released her bowstring for the first time," said Młynar, without elaborating further. Yolanta quickly proved Schnitz correct with her performance during the campaign, and her extraordinary talent in and understanding of Originium Arts made her particularly effective when deployed in positions overlooking the entire battlefield.\n\nAs for his brother Schnitz, Młynar had only this to say: "He is my brother."\n\nPerhaps it is because of how well he knew them, but despite the passage of time and the fact that everyone, including their daughters Margaret and Maria, has already accepted that they might be dead, Młynar continues to search for his brother and sister-in-law. When asked if he had any new leads, he shook his head, though it seemed his doubts on the matter were stronger than ever.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Before joining Rhodes Island, Młynar worked at a medium-sized corporation that primarily sold construction materials. Mieszko Industries is its biggest shareholder, and the company has had a stable fiscal performance. It has not faced any significant charges and has no obvious connections to the nobility. It's merely one of Kazimierz's countless unremarkable companies. While prevailing rumors at the time suggested that the Nearls' younger son would join either the Adeptus Sprawiedliwi or the Knights Association and eventually take over the family's Knight Primus title from the ailing Kirill, the decision that Młynar ultimately made was perhaps influenced by some external factor, or his disappointment with Kazimierz.\n\nBut we've met many disappointed men. The real question is what made him decide to do something now, and how much of his strength he's willing to lend to Rhodes Island.\n\nMłynar joined Rhodes Island after the Infected disturbances across the Dzwonek region. The Adeptus Sprawiedliwi successfully kept the word of the incident from spreading, thus ensuring no other forces could take advantage of this information. Młynar himself did not provide much in the way of his personal perspective on the matter. However, when HR brought this up again while organizing files, he gave an unexpected response: "I've just always thought I needed to prove Kazimierz still has a way out."\n\nMłynar has also never brought up anything to do with Operators Blemishine, Whislash, or Platinum since signing his cooperation agreement with us. Nor does he interact with Flametail and the others while in Kazimierz. There has been only one instance of Młynar, Whislash, and Blemishine having a conversation, after Whislash requested a meeting, and it lasted less than ten minutes. Although the details of that conversation are unknown, our Engineering operators told us that Blemishine suddenly seemed much more energetic, as if a weight had been lifted from her heart. Even then, Młynar didn't appear to pay much more attention to the other Kazimierzian operators than before, even though many of us are just as curious about him as we are about the Radiant Knight herself.\n\nIt is clear that Młynar is not looking for an answer from Rhodes Island, and perhaps he does not even believe that there is an answer out there. But when he assisted us with a string of Infected problems, he displayed a sense of responsibility that definitely did not seem to come from respect towards his work. Some may believe the Land of Knights has no more room for knightly fantasies, and that the endless waves will eventually consume its cities, but how can anyone know how the next story will be written, and where the next city will be built, until they are completed?`,
+      },
+    ],
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/liberator-branch.png', factionIcon: '/icons/factions/kazimierz.png',
+
     skins: [
       { id: 'base', label: 'Base', src: '/operators/mlynar/base.png', chibiSrc: '/operators/mlynar/chibi.webm', illustrator: '竜崎いち' },
       { id: 'e2', label: 'Elite 2', src: '/operators/mlynar/e2.png', chibiSrc: '/operators/mlynar/chibi.webm', illustrator: '竜崎いち' },
@@ -388,6 +442,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Roar Against The Wilds', src: '/operators/mlynar/skin2.png', chibiSrc: '/operators/mlynar/chibi-skin2.webm', illustrator: '竜崎いち' },
     ],
     portrait: '/operators/mlynar/portrait.png',
+    portraitFocus: { y: -5, x: 48, zoom: 260 },
   },
   {
     name: 'Adnachiel', fileNo: 'PA44', class: 'Sniper', branch: 'Marksman', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -402,13 +457,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Shortcoming Breakthrough', desc: 'ASPD +8; Attacks ranged enemies first', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/adnachiel/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    lore: `Adnachiel is a Sankta from Laterano who joined Rhodes Island as part of Op Reserve A4. Despite his halo being lower than usual, his accuracy with a crossbow remains sharp. He assists in interrupting enemy attacks from the back line.`,
+    story: `Adnachiel is a Sankta from Laterano who joined Rhodes Island as part of Op Reserve A4. Despite his halo being lower than usual, his accuracy with a crossbow remains sharp. He assists in interrupting enemy attacks from the back line.`,
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/adnachiel/base.png', chibiSrc: '/operators/adnachiel/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Traceless Walker', src: '/operators/adnachiel/skin1.png', chibiSrc: '/operators/adnachiel/chibi-skin1.webm', illustrator: '一立里子' },
     ],
     portrait: '/operators/adnachiel/portrait.png',
+    portraitFocus: { y: 0, x: 50, zoom: 250 },
   },
   {
     name: 'Ansel', fileNo: 'PA43', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -423,7 +479,7 @@ export const OPERATORS = ([
     talents: [{ name: 'Additional Healing', desc: '15% chance to heal 1 extra ally', elite: 'E1' }],
     skills: [{ name: 'Healing Range Up', icon: '/operators/ansel/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Range +2 tiles; ATK +40%', spInit: 10, sp: 35, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    lore: `Ansel is a Cautus medic from Rim Billiton who serves in Op Reserve A4. Despite his youthful appearance and gentle demeanor, he is a reliable healer who can extend his care to allies beyond normal range.`,
+    story: `Ansel is a Cautus medic from Rim Billiton who serves in Op Reserve A4. Despite his youthful appearance and gentle demeanor, he is a reliable healer who can extend his care to allies beyond normal range.`,
     classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/ansel/base.png', chibiSrc: '/operators/ansel/chibi.webm', illustrator: '一立里子' },
@@ -431,6 +487,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Nighttime Café', src: '/operators/ansel/skin2.png', chibiSrc: '/operators/ansel/chibi-skin2.webm', illustrator: '一立里子' },
     ],
     portrait: '/operators/ansel/portrait.png',
+    portraitFocus: { y: -9, x: 30, zoom: 250 },
   },
   {
     name: 'Beagle', fileNo: 'PA14', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -445,13 +502,14 @@ export const OPERATORS = ([
     talents: [{ name: 'DEF Up', desc: 'DEF +10%', elite: 'E1' }],
     skills: [{ name: 'DEF Up α', icon: '/operators/beagle/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'DEF +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '30s' }],
     modules: {},
-    lore: `Beagle is a Perro Defender from Bolivar who serves in Op Reserve A1. She is earnest and hardworking, always striving to improve her defensive capabilities. Her sturdy shield provides reliable protection for her allies on the front line.`,
+    story: `Beagle is a Perro Defender from Bolivar who serves in Op Reserve A1. She is earnest and hardworking, always striving to improve her defensive capabilities. Her sturdy shield provides reliable protection for her allies on the front line.`,
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/beagle/base.png', chibiSrc: '/operators/beagle/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Dreadnaught', src: '/operators/beagle/skin1.png', chibiSrc: '/operators/beagle/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/beagle/portrait.png',
+    portraitFocus: { y: -13, x: 45, zoom: 200 },
   },
   {
     name: 'Cardigan', fileNo: 'PA45', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -466,7 +524,7 @@ export const OPERATORS = ([
     talents: [{ name: 'Max HP Up', desc: 'Max HP +12%', elite: 'E1' }],
     skills: [{ name: 'Regeneration α', icon: '/operators/cardigan/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Restores HP by 40% of Max HP', spInit: 10, sp: 20, rank: 'Rank 7' }],
     modules: {},
-    lore: `Cardigan is an energetic Perro Defender from Leithanien who joined Op Reserve A4. She may not have the strongest defense, but her high vitality and self-healing ability make her a surprisingly durable front-liner.`,
+    story: `Cardigan is an energetic Perro Defender from Leithanien who joined Op Reserve A4. She may not have the strongest defense, but her high vitality and self-healing ability make her a surprisingly durable front-liner.`,
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/cardigan/base.png', chibiSrc: '/operators/cardigan/chibi.webm', illustrator: '一立里子' },
@@ -474,6 +532,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Sunny Day', src: '/operators/cardigan/skin2.png', chibiSrc: '/operators/cardigan/chibi-skin2.webm', illustrator: '一立里子' },
     ],
     portrait: '/operators/cardigan/portrait.png',
+    portraitFocus: { y: -5, x: 40, zoom: 250 },
   },
   {
     name: 'Catapult', fileNo: 'PA63', class: 'Sniper', branch: 'Artilleryman', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -488,13 +547,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Lightweight', desc: 'DP Cost -1', elite: 'E1' }],
     skills: [{ name: 'Blast Range Up α', icon: '/operators/catapult/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Increases AOE of Normal Attacks to 200%', spInit: 0, sp: 45, rank: 'Rank 7', dur: '30s' }],
     modules: {},
-    lore: `Catapult is a Kuranta Sniper from Kazimierz who belongs to Op Reserve A6. Her Originium infection is visible, but she does not let it hold her back. She rains explosive bolts on grouped enemies with devastating area damage.`,
+    story: `Catapult is a Kuranta Sniper from Kazimierz who belongs to Op Reserve A6. Her Originium infection is visible, but she does not let it hold her back. She rains explosive bolts on grouped enemies with devastating area damage.`,
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/catapult/base.png', chibiSrc: '/operators/catapult/chibi.webm', illustrator: 'm9nokuro' },
       { id: 'skin1', label: 'Holiday HD', src: '/operators/catapult/skin1.png', chibiSrc: '/operators/catapult/chibi-skin1.webm', illustrator: '二开' },
     ],
     portrait: '/operators/catapult/portrait.png',
+    portraitFocus: { y: -3, x: 58, zoom: 250 },
   },
   {
     name: 'Fang', fileNo: 'PA11', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -509,13 +569,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Lightweight', desc: 'DP Cost -1', elite: 'E1' }],
     skills: [{ name: 'Charge α', icon: '/operators/fang/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Instantly gain 6 DP', spInit: 6, sp: 25, rank: 'Rank 7' }],
     modules: {},
-    lore: `Fang is a Kuranta Vanguard from Kazimierz and a dependable member of Op Reserve A1. She takes the lead on the battlefield, generating deployment points while holding the line with her solid blocking ability.`,
+    story: `Fang is a Kuranta Vanguard from Kazimierz and a dependable member of Op Reserve A1. She takes the lead on the battlefield, generating deployment points while holding the line with her solid blocking ability.`,
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/fang/base.png', chibiSrc: '/operators/fang/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Cruciata', src: '/operators/fang/skin1.png', chibiSrc: '/operators/fang/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/fang/portrait.png',
+    portraitFocus: { y: -5, x: 63, zoom: 250 },
   },
   {
     name: 'Hibiscus', fileNo: 'PA13', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -530,13 +591,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Healing Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Healing Up α', icon: '/operators/hibiscus/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 30, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    lore: `Hibiscus is a Sarkaz Medic from Victoria and the older sister of Operator Lava. She is dedicated to her medical duties within Op Reserve A1, providing reliable healing to keep the team alive through prolonged engagements.`,
+    story: `Hibiscus is a Sarkaz Medic from Victoria and the older sister of Operator Lava. She is dedicated to her medical duties within Op Reserve A1, providing reliable healing to keep the team alive through prolonged engagements.`,
     classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/hibiscus/base.png', chibiSrc: '/operators/hibiscus/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Night Watcher', src: '/operators/hibiscus/skin1.png', chibiSrc: '/operators/hibiscus/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/hibiscus/portrait.png',
+    portraitFocus: { y: -5, x: 50, zoom: 250 },
     alter: {
       name: 'Hibiscus the Purifier', fileNo: 'PA13', class: 'Medic', branch: 'Incantation Medic', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Attacks deal Arts damage and heal the HP of an ally within Attack Range for 50% of the damage dealt',
@@ -559,13 +621,14 @@ export const OPERATORS = ([
       modules: {
         original: { code: 'Original', name: "Hibiscus the Purifier's Badge", desc: 'Appointed as Medic Operator to exercise Incantation Medic responsibilities' },
       },
-      lore: `After extensive training and fieldwork, Hibiscus has grown into a formidable Medic Operator whose Arts have evolved far beyond simple healing. As the Purifier, she wields Incantation Arts that simultaneously damage enemies and restore allies, embodying her unwavering dedication to both protecting her comrades and purging threats from the battlefield.\n\nHer growth mirrors her sister Lava's — both have shed their reserve operator roots to become forces to be reckoned with.`,
+      story: `After extensive training and fieldwork, Hibiscus has grown into a formidable Medic Operator whose Arts have evolved far beyond simple healing. As the Purifier, she wields Incantation Arts that simultaneously damage enemies and restore allies, embodying her unwavering dedication to both protecting her comrades and purging threats from the battlefield.\n\nHer growth mirrors her sister Lava's — both have shed their reserve operator roots to become forces to be reckoned with.`,
       classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/incantation-medic-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/hibiscus/alter/base.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
         { id: 'e2', label: 'Elite 2', src: '/operators/hibiscus/alter/e2.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
       ],
       portrait: '/operators/hibiscus/alter/portrait.png',
+      portraitFocus: { y: -5, x: 48, zoom: 250 },
     },
   },
   {
@@ -581,7 +644,7 @@ export const OPERATORS = ([
     talents: [{ name: 'Targeting - Primary', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 150%', elite: 'E1' }],
     skills: [{ name: 'Double Tap - Auto', icon: '/operators/kroos/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'The next attack shoots 2 in a row, dealing 140% of ATK in physical damage with each shot', spInit: 0, sp: 4, rank: 'Rank 7' }],
     modules: {},
-    lore: `Kroos is a Cautus Sniper from Rim Billiton who always seems to have her eyes closed and a carefree smile. Beneath her relaxed demeanor lies excellent combat skill, and her double-tap crossbow technique packs a surprising punch.`,
+    story: `Kroos is a Cautus Sniper from Rim Billiton who always seems to have her eyes closed and a carefree smile. Beneath her relaxed demeanor lies excellent combat skill, and her double-tap crossbow technique packs a surprising punch.`,
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/kroos/base.png', chibiSrc: '/operators/kroos/chibi.webm', illustrator: '下野宏铭' },
@@ -589,6 +652,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Moonlit Voyage', src: '/operators/kroos/skin2.png', chibiSrc: '/operators/kroos/chibi-skin2.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/kroos/portrait.png',
+    portraitFocus: { y: -5, x: 17, zoom: 250 },
     alter: {
       name: 'Kroos the Keen Glint', fileNo: 'R170', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Attacks aerial enemies first',
@@ -616,7 +680,7 @@ export const OPERATORS = ([
           { stage: 3, hp: '+190', atk: '+31', effect: 'Bullseye improved: When attacking, has a 20% chance to deal 165% damage and Stun the target for 0.2 seconds' },
         ]},
       },
-      lore: `Following extensive training and practical experience, Kroos has been smoothly promoted to formal Operator status, principally tasked with field missions. Under the guidance of Rhodes Island's Instructors and from tempering in the field, she has greatly matured, gaining her own insight into and views on firing techniques and concealing movements.\n\nNo longer is she Reserve Operator Kroos. After years of maturing, everyone can clearly see how Kroos has transformed. She still loves to play, laugh, and goof off — but get just a little closer, and next second you'll find yourself caught in her trap.\n\nThis, for her and her alone, is the price of maturity.`,
+      story: `Following extensive training and practical experience, Kroos has been smoothly promoted to formal Operator status, principally tasked with field missions. Under the guidance of Rhodes Island's Instructors and from tempering in the field, she has greatly matured, gaining her own insight into and views on firing techniques and concealing movements.\n\nNo longer is she Reserve Operator Kroos. After years of maturing, everyone can clearly see how Kroos has transformed. She still loves to play, laugh, and goof off — but get just a little closer, and next second you'll find yourself caught in her trap.\n\nThis, for her and her alone, is the price of maturity.`,
       classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/kroos/alter/base.png', chibiSrc: '/operators/kroos/alter/chibi.webm', illustrator: 'm9nokuro' },
@@ -624,6 +688,7 @@ export const OPERATORS = ([
         { id: 'skin1', label: 'Along the Corridor', src: '/operators/kroos/alter/skin1.png', chibiSrc: '/operators/kroos/alter/chibi-skin1.webm', illustrator: 'm9nokuro' },
       ],
       portrait: '/operators/kroos/alter/portrait.png',
+      portraitFocus: { y: 10, x: 52, zoom: 270 },
     },
   },
   {
@@ -639,13 +704,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Quick Skill Usage', desc: 'Immediately obtains 30 Skill Points after deployment', elite: 'E1' }],
     skills: [{ name: 'Tactical Chant α', icon: '/operators/lava/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ASPD +50', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    lore: `Lava is a Sarkaz Caster from Victoria and the younger sister of Operator Hibiscus. Her fiery temper matches her Arts, which deal devastating area-of-effect damage. She gains skill points on deployment, letting her cast quickly.`,
+    story: `Lava is a Sarkaz Caster from Victoria and the younger sister of Operator Hibiscus. Her fiery temper matches her Arts, which deal devastating area-of-effect damage. She gains skill points on deployment, letting her cast quickly.`,
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/lava/base.png', chibiSrc: '/operators/lava/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: 'Bunch of Sunlight', src: '/operators/lava/skin1.png', chibiSrc: '/operators/lava/chibi-skin1.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/lava/portrait.png',
+    portraitFocus: { y: -5, x: 10, zoom: 250 },
     alter: {
       name: 'Lava the Purgatory', fileNo: 'R103', class: 'Caster', branch: 'Splash Caster', rarity: 5, level: 80, elite: 2, trust: 200,
       position: 'Ranged', trait: 'Deals AOE Arts damage',
@@ -673,7 +739,7 @@ export const OPERATORS = ([
           { stage: 3, hp: '+165', atk: '+62', effect: 'Spell Formation improved: Immediately obtains 35 SP after the first deployment' },
         ]},
       },
-      lore: `After parting ways with Reserve Op Team A1, Lava traveled the world honing her Originium Arts. Her fiery temper found focus in combat, and her devastating area attacks earned her the title "the Purgatory."\n\nWith her Arts immensely stronger since when she was fresh aboard Rhodes Island, Lava now skillfully creates space with outstanding Originium Arts. She taught Arts to slum children, forged daggers for the curious, and slowly changed things her own way.\n\n"Less regrets this way," she laughed.`,
+      story: `After parting ways with Reserve Op Team A1, Lava traveled the world honing her Originium Arts. Her fiery temper found focus in combat, and her devastating area attacks earned her the title "the Purgatory."\n\nWith her Arts immensely stronger since when she was fresh aboard Rhodes Island, Lava now skillfully creates space with outstanding Originium Arts. She taught Arts to slum children, forged daggers for the curious, and slowly changed things her own way.\n\n"Less regrets this way," she laughed.`,
       classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/lava/alter/base.png', chibiSrc: '/operators/lava/alter/chibi.webm', illustrator: 'Skade' },
@@ -681,6 +747,7 @@ export const OPERATORS = ([
         { id: 'skin1', label: 'Dusk Wisteria', src: '/operators/lava/alter/skin1.png', chibiSrc: '/operators/lava/alter/chibi-skin1.webm', illustrator: 'Skade' },
       ],
       portrait: '/operators/lava/alter/portrait.png',
+      portraitFocus: { y: 2, x: 52, zoom: 240 },
     },
   },
   {
@@ -696,13 +763,14 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/melantha/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    lore: `Melantha is a Feline Guard from Victoria who serves in Op Reserve A4. She possesses outstanding attack power for a 3-star operator and excels at assassinating high-value targets with her blade.`,
+    story: `Melantha is a Feline Guard from Victoria who serves in Op Reserve A4. She possesses outstanding attack power for a 3-star operator and excels at assassinating high-value targets with her blade.`,
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/dreadnought-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/melantha/base.png', chibiSrc: '/operators/melantha/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Letters from Wessex', src: '/operators/melantha/skin1.png', chibiSrc: '/operators/melantha/chibi-skin1.webm', illustrator: '一立里子' },
     ],
     portrait: '/operators/melantha/portrait.png',
+    portraitFocus: { y: -5, x: 27, zoom: 250 },
   },
   {
     name: 'Midnight', fileNo: 'PA62', class: 'Guard', branch: 'Lord', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -717,13 +785,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Targeting - Primary', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 150%', elite: 'E1' }],
     skills: [{ name: 'Enchant Weapon α', icon: '/operators/midnight/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +35%; Damage dealt by Normal Attacks turn into Arts Damage', spInit: 30, sp: 70, rank: 'Rank 7', dur: '40s' }],
     modules: {},
-    lore: `Midnight is a Sarkaz Guard from the Far East who joined Op Reserve A6. Despite having no prior combat experience, his swordsmanship is surprisingly refined. His skill enchants his blade to deal Arts damage, bypassing enemy armor.`,
+    story: `Midnight is a Sarkaz Guard from the Far East who joined Op Reserve A6. Despite having no prior combat experience, his swordsmanship is surprisingly refined. His skill enchants his blade to deal Arts damage, bypassing enemy armor.`,
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/lord-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/midnight/base.png', chibiSrc: '/operators/midnight/chibi.webm', illustrator: '竜崎いち' },
       { id: 'skin1', label: 'Seventh Night', src: '/operators/midnight/skin1.png', chibiSrc: '/operators/midnight/chibi-skin1.webm', illustrator: '竜崎いち' },
     ],
     portrait: '/operators/midnight/portrait.png',
+    portraitFocus: { y: -5, x: 60, zoom: 280 },
   },
   {
     name: 'Orchid', fileNo: 'PA61', class: 'Supporter', branch: 'Decel Binder', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -738,13 +807,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Casting Speed Up', desc: 'ASPD +9', elite: 'E1' }],
     skills: [{ name: 'Swift Strike α', icon: '/operators/orchid/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +25%; ASPD +25', spInit: 0, sp: 45, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    lore: `Orchid is a Liberi Supporter from Columbia who joined Op Reserve A6. A former office worker, she uses her Originium Arts to slow enemies on the battlefield. She insists every second of her work time be properly recorded.`,
+    story: `Orchid is a Liberi Supporter from Columbia who joined Op Reserve A6. A former office worker, she uses her Originium Arts to slow enemies on the battlefield. She insists every second of her work time be properly recorded.`,
     classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/decel-binder-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/orchid/base.png', chibiSrc: '/operators/orchid/chibi.webm', illustrator: 'Skade' },
       { id: 'skin1', label: 'Twines of Time', src: '/operators/orchid/skin1.png', chibiSrc: '/operators/orchid/chibi-skin1.webm', illustrator: 'Liyu黎' },
     ],
     portrait: '/operators/orchid/portrait.png',
+    portraitFocus: { y: -8, x: 45, zoom: 250 },
   },
   {
     name: 'Plume', fileNo: 'LT05', class: 'Vanguard', branch: 'Charger', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -759,13 +829,14 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Swift Strike α', icon: '/operators/plume/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +25%; ASPD +25', spInit: 0, sp: 45, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    lore: `Plume is a Liberi Vanguard and a guard from Laterano who always maintains a serious expression. She earns DP by defeating enemies and can be retreated for a full DP refund, making her an efficient early-game assassin.`,
+    story: `Plume is a Liberi Vanguard and a guard from Laterano who always maintains a serious expression. She earns DP by defeating enemies and can be retreated for a full DP refund, making her an efficient early-game assassin.`,
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/charger-branch.png', factionIcon: '/icons/factions/laterano.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/plume/base.png', chibiSrc: '/operators/plume/chibi.webm', illustrator: 'deel' },
       { id: 'skin1', label: 'Easy Time', src: '/operators/plume/skin1.png', chibiSrc: '/operators/plume/chibi-skin1.webm', illustrator: 'deel' },
     ],
     portrait: '/operators/plume/portrait.png',
+    portraitFocus: { y: 15, x: 40, zoom: 300 },
   },
   {
     name: 'Popukar', fileNo: 'PA65', class: 'Guard', branch: 'Centurion', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -780,13 +851,14 @@ export const OPERATORS = ([
     talents: [{ name: 'HP Up', desc: 'Max HP +6%; ATK +6%', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/popukar/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    lore: `Popukar is a young Cautus Guard from Rim Billiton who wields a chainsaw nearly as big as herself. She is a good girl when calm, but terrifyingly effective when she loses control. Her attacks hit all blocked enemies simultaneously.`,
+    story: `Popukar is a young Cautus Guard from Rim Billiton who wields a chainsaw nearly as big as herself. She is a good girl when calm, but terrifyingly effective when she loses control. Her attacks hit all blocked enemies simultaneously.`,
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/centurion-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/popukar/base.png', chibiSrc: '/operators/popukar/chibi.webm', illustrator: '下野宏铭' },
       { id: 'skin1', label: "Witch's Swing", src: '/operators/popukar/skin1.png', chibiSrc: '/operators/popukar/chibi-skin1.webm', illustrator: '3MO' },
     ],
     portrait: '/operators/popukar/portrait.png',
+    portraitFocus: { y: -10, x: 66, zoom: 190 },
   },
   {
     name: 'Spot', fileNo: 'PA64', class: 'Defender', branch: 'Guardian', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -801,13 +873,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Smoke Installation', desc: 'Heals an ally and then provides 20% Physical Dodge for 3 seconds', elite: 'E1' }],
     skills: [{ name: 'Secondary Healing Mode', icon: '/operators/spot/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +45%; Stops attacking and focuses on healing surrounding allies', spInit: 25, sp: 40, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    lore: `Spot is a Rebbah Defender from Sargon who joined Op Reserve A6. He appears polite and gentle until he opens his mouth. As a Guardian Defender, he can switch to healing nearby allies, providing both defense and support.`,
+    story: `Spot is a Rebbah Defender from Sargon who joined Op Reserve A6. He appears polite and gentle until he opens his mouth. As a Guardian Defender, he can switch to healing nearby allies, providing both defense and support.`,
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/guardian-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/spot/base.png', chibiSrc: '/operators/spot/chibi.webm', illustrator: '阿鬼' },
       { id: 'skin1', label: 'Professional', src: '/operators/spot/skin1.png', chibiSrc: '/operators/spot/chibi-skin1.webm', illustrator: '阿鬼' },
     ],
     portrait: '/operators/spot/portrait.png',
+    portraitFocus: { y: -5, x: 50, zoom:230 },
   },
   {
     name: 'Steward', fileNo: 'PA42', class: 'Caster', branch: 'Core Caster', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -822,13 +895,14 @@ export const OPERATORS = ([
     talents: [{ name: 'Armor Break', desc: 'ATK +6%; Attacks enemies with the highest DEF first', elite: 'E1' }],
     skills: [{ name: 'Power Strike α', icon: '/operators/steward/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'Increases the ATK of next attack to 190%', spInit: 0, sp: 4, rank: 'Rank 7' }],
     modules: {},
-    lore: `Steward is a Vulpo Caster from Kjerag and the nice guy of Op Reserve A4. His talent causes him to prioritize attacking enemies with the highest DEF, making his Arts damage especially effective against armored foes.`,
+    story: `Steward is a Vulpo Caster from Kjerag and the nice guy of Op Reserve A4. His talent causes him to prioritize attacking enemies with the highest DEF, making his Arts damage especially effective against armored foes.`,
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/steward/base.png', chibiSrc: '/operators/steward/chibi.webm', illustrator: '一立里子' },
       { id: 'skin1', label: 'Snowstorm Invitation', src: '/operators/steward/skin1.png', chibiSrc: '/operators/steward/chibi-skin1.webm', illustrator: '一立里子' },
     ],
     portrait: '/operators/steward/portrait.png',
+    portraitFocus: { y: -5, x: 50, zoom:250 },
   },
   {
     name: 'Vanilla', fileNo: 'BS04', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200,
@@ -843,8 +917,9 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Command - Reinforcement', icon: '/operators/vanilla/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Gain 6 Deployment Points; ATK +35%', spInit: 6, sp: 20, rank: 'Rank 7', dur: '10s' }],
     modules: {},
-    lore: `Vanilla is a Vouivre Vanguard from the Blacksteel corporation. She is a professional soldier who generates DP through her skill while providing a solid attack boost. She has a well-known fear of wild animals despite her combat prowess.`,
+    story: `Vanilla is a Vouivre Vanguard from the Blacksteel corporation. She is a professional soldier who generates DP through her skill while providing a solid attack boost. She has a well-known fear of wild animals despite her combat prowess.`,
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/blacksteel.png',
+    portraitFocus: { y: -5, x: 88, zoom:250 },
     skins: [
       { id: 'base', label: 'Base', src: '/operators/vanilla/base.png', chibiSrc: '/operators/vanilla/chibi.webm', illustrator: 'm9nokuro' },
       { id: 'skin1', label: 'The Zoophilist and Her Mollusca', src: '/operators/vanilla/skin1.png', chibiSrc: '/operators/vanilla/chibi-skin1.webm', illustrator: '3MO' },
@@ -892,7 +967,7 @@ export const OPERATORS = ([
         { stage: 3, hp: '+115', atk: '+35', effect: 'Tentacle Summoner improved: Can summon 4 Tentacles to help in combat. Tentacle Max HP +15%' },
       ]},
     },
-    lore: `"Where does Deepcolor get her paint?\nIs it ground up ores?\nIs it a product of modern manufacturing?\nI am not sure.\nBut that blue is very unsettling.\nDeeply unsettling.\n\nI watch her swish the paint in her palette together.\nIt forms the color she wants.\nI watch the paint entwine, making little noises.\n\nIs she preparing to paint? Or is this her Originium Arts?\nI am starting to be scared.\n\nShe seems to have noticed how disturbed I am.\nShe smiles and starts comforting me, telling me that this is just a part of her Arts.\nAs she says that, a tiny creature appears on her palette.\nShe tells me that this is her 'assistant.'\n\nThe critter may not seem like it's capable of making any sounds that are less than pleasant, but I seem to be able to hear some strange noises whispered into my ears.\n\nI do have to admit, though. It looks really cute.\nIt's leaping back and forth between the canvas and the paint every now and then.\nIt seems it's helping Deepcolor finish this painting.\n\n'So that's your assistant!'\nI can't help myself but to exclaim.\nShe nods.\nShe's smiling.\n\n......\n\nHow time flies; the painting has already been completed.\nShe hands the painting to me, and I pay her the commission we'd agreed upon.\n\n'You'll love this portrait for sure!'\nShe seems really happy.\n\nOf course, I am happy too. After all, what is there to be unhappy about when a painter hands you a freshly painted portrait, especially one so lifelike?\nThe colors are bright and vivid, and the expression is true and genuine.\nThis is magnificent!\n\nAs I mount the painting, a question suddenly comes to mind.\nThough it was on my mind just moments earlier, I immediately forgot about it when I laid my eyes on the painting.\n\n'Has she ever used any colors other than blue?'\n'Where did that discomforting noise come from?'\n\nWho cares?\nReally, who cares?!\nIt's not nice to pry into somebody else's secrets!\nEven if something might seem off, what does that have anything to do with me?"`,
+    story: `"Where does Deepcolor get her paint?\nIs it ground up ores?\nIs it a product of modern manufacturing?\nI am not sure.\nBut that blue is very unsettling.\nDeeply unsettling.\n\nI watch her swish the paint in her palette together.\nIt forms the color she wants.\nI watch the paint entwine, making little noises.\n\nIs she preparing to paint? Or is this her Originium Arts?\nI am starting to be scared.\n\nShe seems to have noticed how disturbed I am.\nShe smiles and starts comforting me, telling me that this is just a part of her Arts.\nAs she says that, a tiny creature appears on her palette.\nShe tells me that this is her 'assistant.'\n\nThe critter may not seem like it's capable of making any sounds that are less than pleasant, but I seem to be able to hear some strange noises whispered into my ears.\n\nI do have to admit, though. It looks really cute.\nIt's leaping back and forth between the canvas and the paint every now and then.\nIt seems it's helping Deepcolor finish this painting.\n\n'So that's your assistant!'\nI can't help myself but to exclaim.\nShe nods.\nShe's smiling.\n\n......\n\nHow time flies; the painting has already been completed.\nShe hands the painting to me, and I pay her the commission we'd agreed upon.\n\n'You'll love this portrait for sure!'\nShe seems really happy.\n\nOf course, I am happy too. After all, what is there to be unhappy about when a painter hands you a freshly painted portrait, especially one so lifelike?\nThe colors are bright and vivid, and the expression is true and genuine.\nThis is magnificent!\n\nAs I mount the painting, a question suddenly comes to mind.\nThough it was on my mind just moments earlier, I immediately forgot about it when I laid my eyes on the painting.\n\n'Has she ever used any colors other than blue?'\n'Where did that discomforting noise come from?'\n\nWho cares?\nReally, who cares?!\nIt's not nice to pry into somebody else's secrets!\nEven if something might seem off, what does that have anything to do with me?"`,
     classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/summoner-branch.png', factionIcon: '/icons/factions/aegir.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/deepcolor/base.png', chibiSrc: '/operators/deepcolor/chibi.webm', illustrator: 'REALMBW' },
@@ -900,6 +975,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'Melodic Portrayal', src: '/operators/deepcolor/skin1.png', chibiSrc: '/operators/deepcolor/chibi-skin1.webm', illustrator: 'REALMBW' },
     ],
     portrait: '/operators/deepcolor/portrait.png',
+    portraitFocus: { y: -15, x: 40, zoom: 190 },
     summon: {
       name: 'Tentacle',
       icon: '/operators/deepcolor/tentacle.png',
@@ -960,8 +1036,7 @@ export const OPERATORS = ([
         { stage: 3, hp: '+380', def: '+50', effect: 'Snowfield Guard improved: RES +20' },
       ]},
     },
-    lore: `A member of the Karlan Trade Co. LTD born in Kjerag. Matterhorn is part of the cooperation agreement between the Karlan Trade Co. and Rhodes Island, but he also helps carry out missions for the latter as well.`,
-    story: `A member of Karlan Trade born in the northern side of Kjerag, Matterhorn comes from the Yek family. For generations, they have served the Silverash clan of Kjerag as guards. This includes Matterhorn himself, who was trained to become their bodyguard since he was young and witnessed the young Silverashes grow up. Even though he could do little to repair the strained relationship between the three siblings, he still endeavors to protect them from any danger alongside his coworkers, Weiss and Degenbrecher.\n\nWhen Cliffheart was taken to Rhodes Island for her Oripathy treatment, Matterhorn and Weiss accompanied her as bodyguards while carrying out missions as part of the cooperation agreement between Karlan Trade and Rhodes Island. Aside from his combat skills, he is also an excellent chef, a skill he learned and honed during the years he served the Silverash clan. He is close friends with Vulcan, who maintains Matterhorn's equipment while Matterhorn provides remuneration, and they often exchange culinary recipes and share meals together in their free time.`,
+    story: `A member of the Karlan Trade Co. LTD born in Kjerag. Matterhorn is part of the cooperation agreement between the Karlan Trade Co. and Rhodes Island, but he also helps carry out missions for the latter as well.`,
     records: [
       {
         title: 'Clinical Analysis',
@@ -991,6 +1066,7 @@ export const OPERATORS = ([
       { id: 'skin1', label: 'Beach Guard GT.001', src: '/operators/matterhorn/skin1.png', chibiSrc: '/operators/matterhorn/chibi-skin1.webm', illustrator: '竜崎いち' },
     ],
     portrait: '/operators/matterhorn/portrait.png',
+    portraitFocus: { y: -5, x: 40, zoom: 250 },
   },
   {
     name: 'Togawa Sakiko', fileNo: 'AM01', class: 'Guard', branch: 'Lord', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -1082,6 +1158,7 @@ export const OPERATORS = ([
       { id: 'e2', label: 'Elite 2', src: '/operators/togawa-sakiko/e2.png', chibiSrc: '/operators/togawa-sakiko/chibi.webm', illustrator: '〇亻' },
       { id: 'skin1', label: 'Master of Melodia', src: '/operators/togawa-sakiko/skin1.png', chibiSrc: '/operators/togawa-sakiko/chibi-skin1.webm', illustrator: 'Yukuso' },
     ],
+    portraitFocus: { x: 4,y: -10, zoom: 240 },
   },
   {
     name: 'Penance', fileNo: 'SR35', class: 'Defender', branch: 'Juggernaut', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -1154,6 +1231,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Scribing', src: '/operators/penance/skin2.png', chibiSrc: '/operators/penance/chibi-skin2.webm', illustrator: 'IRIS_口艺' },
     ],
     portrait: '/operators/penance/portrait.png',
+    portraitFocus: { y: 0, x: 50, zoom: 270 },
   },
   {
     name: 'Mostima', fileNo: 'LT77', class: 'Caster', branch: 'Splash Caster', rarity: 6, level: 90, elite: 2, trust: 200,
@@ -1208,6 +1286,7 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'Ethereal Harmony', src: '/operators/mostima/skin2.png', chibiSrc: '/operators/mostima/chibi-skin2.webm', illustrator: '三目YYB' },
     ],
     portrait: '/operators/mostima/portrait.png',
+    portraitFocus: { y: -8, x: 50, zoom: 220 },
   },
   {
     name: 'Ulpianus', fileNo: 'AA00', class: 'Guard', branch: 'Crusher', rarity: 6, level: 90, elite: 2, trust: 200,
