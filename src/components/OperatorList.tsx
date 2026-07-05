@@ -333,65 +333,48 @@ export function OperatorList() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-1.5 md:gap-3">
                   {entries.map(entry => (
                     <Link
                       key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
                       href={buildOperatorHref(entry)}
-                      className="op-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] text-left aspect-[3/4] hover:border-[#3ba4c9]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
-                      style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s, background-color 0.3s' }}
+                      className="op-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] text-left aspect-[0.60] w-full hover:border-[#3ba4c9]/25 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+                      style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s' }}
                     >
                       <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[entry.operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
 
-                      <img
-                        src={entry.operator.skins[0].src}
-                        alt={entry.operator.name}
-                        className="absolute bottom-0 left-0 right-0 h-[82%] w-full object-contain object-bottom opacity-70 group-hover:opacity-90"
-                        style={{ transition: 'opacity 0.3s' }}
-                        loading="lazy"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/40 to-[#080c14]/10" />
                       <div
-                        className="absolute inset-0 bg-[#080c14]/15 group-hover:bg-transparent"
-                        style={{ transition: 'background-color 0.3s' }}
+                        className="absolute inset-0 bg-no-repeat opacity-75 group-hover:opacity-95 group-hover:scale-[1.06]"
+                        style={{
+                          backgroundImage: `url(${entry.operator.skins[0].src})`,
+                          backgroundSize: `auto ${entry.operator.portraitFocus?.zoom ?? 250}%`,
+                          backgroundPosition: `${entry.operator.portraitFocus?.x ?? 50}% ${entry.operator.portraitFocus?.y ?? 0}%`,
+                          transition: 'transform 0.4s ease, opacity 0.3s',
+                        }}
                       />
 
-                      <img
-                        src={entry.operator.classIcon}
-                        alt={entry.operator.class}
-                        className="absolute top-2 left-2 w-5 h-5 md:w-7 md:h-7 object-contain opacity-35 group-hover:opacity-55 z-10"
-                        style={{ transition: 'opacity 0.3s' }}
-                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/35 to-transparent" />
 
-                      <img
-                        src={entry.operator.factionIcon}
-                        alt={entry.operator.faction}
-                        className="absolute top-2 right-2 w-5 h-5 md:w-7 md:h-7 object-contain opacity-30 group-hover:opacity-50 z-10"
-                        style={{ transition: 'opacity 0.3s' }}
-                      />
-
-                      {entry.isAlter && (
-                        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1.5 py-0.5 border border-[#f07830]/20">
-                            ALTER
+                      {(entry.isAlter || entry.operator.tags?.includes('Crossover')) && (
+                        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10">
+                          <span className="font-display text-[6px] md:text-[7px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1 py-0.5 border border-[#f07830]/20">
+                            {entry.isAlter ? 'ALTER' : 'CROSSOVER'}
                           </span>
                         </div>
                       )}
 
-                      {entry.operator.tags?.includes('Crossover') && (
-                        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1.5 py-0.5 border border-[#f07830]/20">
-                            CROSSOVER
-                          </span>
+                      <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 z-10">
+                        <div className="flex items-center gap-1 md:gap-1.5">
+                          <img
+                            src={entry.operator.classIcon}
+                            alt={entry.operator.class}
+                            className="w-3 h-3 md:w-5 md:h-5 object-contain opacity-70 shrink-0"
+                          />
+                          <p className="font-display text-xs md:text-sm font-bold text-white/90 tracking-wide leading-none truncate">
+                            {entry.operator.name}
+                          </p>
                         </div>
-                      )}
-
-                      <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2.5 z-10">
-                        <p className="font-display text-[12px] md:text-sm font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
-                          {entry.operator.name}
-                        </p>
-                        <p className="text-[10px] md:text-xs text-white/30 font-display tracking-wider truncate">
+                        <p className="text-xs md:text-[11px] text-white/35 font-display tracking-wider truncate mt-1 pl-4 md:pl-6.5">
                           {entry.operator.class} · {entry.operator.branch}
                         </p>
                       </div>

@@ -70,7 +70,7 @@ src/
 │   │   ├── TalentsPanel.tsx     # Daftar talent + summon unit info
 │   │   ├── TraitPanel.tsx       # Trait + class info
 │   │   ├── ModulesPanel.tsx     # Module equipment
-│   │   ├── ProfilePanel.tsx     # Info personal (race, birthplace, dll.) + lore + operator records (accordion)
+│   │   ├── ProfilePanel.tsx     # Info personal (race, birthplace, dll.) + profile + operator records (accordion)
 │   │   ├── PhysicalExamPanel.tsx# Physical exam ratings
 │   │   ├── VoicePanel.tsx       # Voice actor info (JP/CN/EN/KR)
 │   │   └── StoryPanel.tsx       # Operator story (wiki background/overview)
@@ -291,8 +291,8 @@ interface Operator {
   skills: Skill[]
   modules: Record<string, OperatorModule>
 
-  lore: string
   story?: string
+  profile?: string
   records?: OperatorRecord[]
   classIcon: string
   branchIcon: string
@@ -426,16 +426,17 @@ Format module ada 2 tipe:
 
 **Catatan:** 3-star operator biasanya tidak punya module, gunakan `modules: {}`.
 
-#### 8. Ambil lore
-Copy lore/story quote dari Wiki (bagian Profile di halaman File). Gunakan template literal (`backtick`) karena biasanya multi-line dengan line breaks `\n`.
+#### 8. Ambil profile
+Scrape halaman File wiki: `https://arknights.wiki.gg/wiki/{OperatorName}/File`
+Copy paragraf singkat di bagian **Profile** menjadi field `profile` (opsional tapi disarankan — ini yang ditampilkan di **ProfilePanel**). Gunakan template literal (`backtick`) karena biasanya multi-line dengan line breaks `\n`.
 
 #### 8b. Ambil story (opsional)
 Scrape halaman Story wiki: `https://arknights.wiki.gg/wiki/{OperatorName}/Story`
-Ambil hanya bagian overview/background di atas (sebelum section "Plot"). Ini adalah ringkasan karakter yang mencakup latar belakang, kekuatan, dan peran mereka.
+Ambil hanya bagian overview/background di atas (sebelum section "Plot"). Ini adalah ringkasan karakter yang mencakup latar belakang, kekuatan, dan peran mereka. Field `story` ini yang ditampilkan di **StoryPanel** — jangan diisi dengan quote/promotion record dari halaman File, itu masuk ke `profile`/`records`, bukan `story`.
 
 #### 8c. Ambil operator records (opsional)
 Scrape halaman File wiki: `https://arknights.wiki.gg/wiki/{OperatorName}/File`
-Ambil semua section selain Profile (yang sudah jadi `lore`):
+Ambil semua section selain Profile (yang sudah jadi `profile`):
 - **Clinical Analysis** — data medis, Cell-Originium Assimilation, Blood Originium-Crystal Density
 - **Class Conversion Record 1/2** — cerita latar terkait class conversion (jika ada)
 - **???** — record yang belum ter-unlock di game, tetap masukkan apa adanya
@@ -581,7 +582,7 @@ Buka `src/data/operators.ts` dan tambahkan objek baru ke array `OPERATORS[]` men
 
 Ketika menggunakan Claude untuk membantu scraping:
 1. Scrape halaman wiki operator: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}"` — untuk data stats, skills, talents, modules, profile
-2. Scrape halaman File: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/File"` — untuk lore (Profile section) dan operator records (Clinical Analysis, Class Conversion, dll.)
+2. Scrape halaman File: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/File"` — untuk profile (Profile section) dan operator records (Clinical Analysis, Class Conversion, dll.)
 3. Scrape halaman Story: `firecrawl scrape "https://arknights.wiki.gg/wiki/{OperatorName}/Story"` — untuk story (overview section di atas, BUKAN plot episodes)
 4. **Download artwork & skill icons** dari URL yang didapat di langkah 1 (gunakan `curl -sL`)
 5. **Download chibi animations via `firecrawl interact`** pada halaman Gallery — ini WAJIB dilakukan terpisah karena URL chibi tidak muncul di scrape biasa
@@ -635,7 +636,7 @@ Beberapa operator memiliki summon unit — unit yang bisa di-deploy di battle te
 
 **ProfilePanel** (`src/components/panels/ProfilePanel.tsx`):
 - Grid info personal (race, gender, birthplace, dll.)
-- Lore text (dari Profile section halaman File wiki)
+- Profile text (dari Profile section halaman File wiki)
 - Accordion untuk operator records (Clinical Analysis, Class Conversion, dll.) — default tertutup, exclusive toggle (buka satu = tutup yang lain, tutup tidak mempengaruhi yang lain)
 
 **StoryPanel** (`src/components/panels/StoryPanel.tsx`):
@@ -673,7 +674,7 @@ Beberapa operator memiliki lebih dari satu class (contoh: Amiya Caster/Guard/Med
 }
 ```
 
-Setiap variant punya data combat sendiri (stats, skills, talents, modules, skins) tapi berbagi data identitas (name, faction, race, cv, lore, physicalExam, dll.) dari operator utama.
+Setiap variant punya data combat sendiri (stats, skills, talents, modules, skins) tapi berbagi data identitas (name, faction, race, cv, profile, physicalExam, dll.) dari operator utama.
 
 ### Operator dengan Alter
 
@@ -703,7 +704,7 @@ Alter diakses via URL query param: `/operator?operator=amiya&alter=true`
 - [ ] Semua talent tercatat
 - [ ] Semua skill dengan detail SP, durasi, deskripsi
 - [ ] Modules (original + upgrade) terisi (atau `{}` untuk 3-star)
-- [ ] Lore (Profile dari halaman File) sudah di-copy
+- [ ] Profile (Profile section dari halaman File) sudah di-copy
 - [ ] Story (overview dari halaman Story) sudah di-copy (opsional)
 - [ ] Operator records (Clinical Analysis, Class Conversion, dll.) sudah di-copy (opsional)
 - [ ] **Asset artwork sudah di-download** (base.png, e2.png, skin*.png)

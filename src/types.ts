@@ -117,16 +117,25 @@ export interface OperatorAlter {
   talents: Talent[]
   skills: Skill[]
   modules: Record<string, OperatorModule>
-  lore: string
+  story?: string
   classIcon: string
   branchIcon: string
   skins: OperatorSkin[]
   portrait: string
+  portraitFocus?: PortraitFocus
 }
 
 export interface OperatorRecord {
   title: string
   content: string
+}
+
+// Overrides the roster card's default half-body crop for art where the face
+// sits at a non-standard position (long hair, raised weapon, tilted pose, etc).
+export interface PortraitFocus {
+  x?: number
+  y?: number
+  zoom?: number
 }
 
 export interface Operator {
@@ -157,7 +166,6 @@ export interface Operator {
   talents: Talent[]
   skills: Skill[]
   modules: Record<string, OperatorModule>
-  lore: string
   story?: string
   profile?: string
   records?: OperatorRecord[]
@@ -169,4 +177,5 @@ export interface Operator {
   alter?: OperatorAlter
   portrait?: string
   summon?: OperatorSummon
+  portraitFocus?: PortraitFocus
 }
