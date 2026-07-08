@@ -1,8 +1,12 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
 import { NATION_LABELS, normalizeNationId } from '../lib/nations'
+import { toSlug } from '../lib/operators'
+import { playClick } from '../lib/sound'
+import type { Operator } from '../types'
 import terraGridRaw from '../data/terraGrid.json'
 
 interface TerraTile {
@@ -103,20 +107,28 @@ interface Shape {
   fill: string
   nationId: string | null
   depth: number
-  col: number
-  row: number
 }
 
 export function WorldMap() {
+  // Two layers of selection: hover (and keyboard focus) is a transient
+  // preview that clears as soon as the pointer leaves, while click/tap pins a
+  // nation so the operator strip below stays reachable. Pinning clears on
+  // Escape, on tapping open sea, or by re-tapping the same nation.
   const [hoveredNation, setHoveredNation] = useState<string | null>(null)
+  const [pinnedNation, setPinnedNation] = useState<string | null>(null)
+  const activeNation = hoveredNation ?? pinnedNation
 
-  const operatorCountByNation = useMemo(() => {
-    const counts: Record<string, number> = {}
+  const operatorsByNation = useMemo(() => {
+    const byNation: Record<string, Operator[]> = {}
     for (const op of OPERATORS) {
       const nationId = normalizeNationId(op.birthplace)
-      if (NATION_LABELS[nationId]) counts[nationId] = (counts[nationId] ?? 0) + 1
+      if (!NATION_LABELS[nationId]) continue
+      ;(byNation[nationId] ??= []).push(op)
     }
-    return counts
+    for (const ops of Object.values(byNation)) {
+      ops.sort((a, b) => b.rarity - a.rarity || a.name.localeCompare(b.name))
+    }
+    return byNation
   }, [])
 
   const { gridCols, gridRows, imageWidth, imageHeight, tiles } = terraGrid
@@ -151,8 +163,14 @@ export function WorldMap() {
 
     for (const tile of tiles) {
       const [cx, cy] = groundCenter(tile.col, tile.row)
-      const tileElevation = tile.type === 'sea' ? 0 : elevation
+      const isSea = tile.type === 'sea'
+      const tileElevation = isSea ? 0 : elevation
       const nationId = tile.type === 'country' ? tile.nationId ?? null : null
+      // Sea tiles keep their sampled per-tile variation but are toned down
+      // toward the page's dark palette — still clearly ocean, but no longer a
+      // bright plate that fights the page background; the radial mask on the
+      // <svg> below fades its outer edge the rest of the way into the page.
+      const fill = isSea ? darken(tile.color, 0.55) : tile.color
 
       if (nationId) {
         const acc = nationCentroids.get(nationId) ?? { sumX: 0, sumY: 0, count: 0 }
@@ -171,11 +189,9 @@ export function WorldMap() {
       allShapes.push({
         key: `${tile.col}-${tile.row}-top`,
         points: polygonPoints(topProjected),
-        fill: tile.color,
+        fill,
         nationId,
         depth: topDepth,
-        col: tile.col,
-        row: tile.row,
       })
 
       if (tileElevation === 0) continue
@@ -199,8 +215,6 @@ export function WorldMap() {
           fill: darken(tile.color, WALL_SHADE),
           nationId,
           depth: (topDepth + projectDepth(cx, cy, 0)) / 2,
-          col: tile.col,
-          row: tile.row,
         })
       }
     }
@@ -231,31 +245,39 @@ export function WorldMap() {
     return { shapes: allShapes, labels, viewBox: box }
   }, [tiles, imageWidth, imageHeight, stepX, stepY, hexWidth, hexHeight, elevation])
 
-  const hoveredLabel = hoveredNation ? NATION_LABELS[hoveredNation] : null
-  const hoveredCount = hoveredNation ? operatorCountByNation[hoveredNation] ?? 0 : 0
+  // Hover hit-testing is split from the visual layer: the visual polygons lift
+  // when active (see liftOffset below), which would move their own hit-area out
+  // from under the cursor and flicker. These transparent copies sit at each
+  // country tile's original position, grouped per nation so moving between
+  // tiles of the same nation never fires a leave/enter pair — one focusable,
+  // labelled element per nation.
+  const nationHitGroups = useMemo(() => {
+    const groups = new Map<string, Shape[]>()
+    for (const shape of shapes) {
+      if (!shape.nationId) continue
+      const list = groups.get(shape.nationId) ?? []
+      list.push(shape)
+      groups.set(shape.nationId, list)
+    }
+    return Array.from(groups.entries())
+  }, [shapes])
+
+  const activeLabel = activeNation ? NATION_LABELS[activeNation] : null
+  const activeOperators = activeNation ? operatorsByNation[activeNation] ?? [] : []
 
   // A plain CSS transform (GPU-accelerated, no geometry recompute) rather than
   // re-projecting points at a higher elevation — cheap enough to run on every
   // hover without any jank.
-  const hoverLift = stepY * 0.5
+  const liftOffset = stepY * 0.5
 
   // SVG text isn't warped by the polygons' per-vertex projection — placing it
   // at a projected anchor point renders upright on its own, no extra work
   // needed to keep nation names horizontal and legible.
   const labelFontSize = stepY * 1.3
 
-  // Hover hit-testing is split from the visual layer: the visual polygons lift
-  // on hover (see hoverLift above), which moves their own hit-area out from
-  // under the cursor — for a small 1-2 tile nation that's often enough to
-  // fully clear the cursor, firing mouseleave, snapping back, then
-  // mouseenter again in a flicker loop. These hit targets sit at each country
-  // tile's original (never-transformed) position — both top faces and walls,
-  // matching the area a visitor can actually see — and are the only thing
-  // tracking hover, so the lift can't feed back into itself.
-  const hitTargets = useMemo(
-    () => shapes.filter(shape => shape.nationId !== null),
-    [shapes]
-  )
+  const togglePinned = (nationId: string) => {
+    setPinnedNation(prev => (prev === nationId ? null : nationId))
+  }
 
   return (
     <div className="world-map-panel w-full max-w-[960px]">
@@ -266,7 +288,9 @@ export function WorldMap() {
         </span>
         <div className="flex-1 h-px bg-white/[0.06]" />
         <span className="font-display text-md text-ak-accent-bright/60 tracking-wider uppercase">
-          {hoveredLabel ? `${hoveredLabel} · ${hoveredCount} Operator${hoveredCount === 1 ? '' : 's'}` : 'Hover a Nation'}
+          {activeLabel
+            ? `${activeLabel} · ${activeOperators.length} Operator${activeOperators.length === 1 ? '' : 's'}`
+            : `${nationHitGroups.length} Nations`}
         </span>
       </div>
 
@@ -275,47 +299,69 @@ export function WorldMap() {
 
         <svg
           viewBox={viewBox}
-          className="relative w-full h-auto block drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)]"
-          style={{
-            WebkitMaskImage: 'radial-gradient(ellipse 68% 68% at 50% 50%, black 62%, transparent 100%)',
-            maskImage: 'radial-gradient(ellipse 68% 68% at 50% 50%, black 62%, transparent 100%)',
-          }}
+          className="relative w-full h-auto block drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)] mask-[radial-gradient(ellipse_62%_62%_at_50%_50%,black_48%,transparent_92%)]"
+          onClick={() => setPinnedNation(null)}
         >
           {shapes.map(shape => {
-            const isHovered = shape.nationId !== null && shape.nationId === hoveredNation
-            const isDimmed = hoveredNation !== null && shape.nationId !== null && !isHovered
+            const isActive = shape.nationId !== null && shape.nationId === activeNation
+            const isDimmed = activeNation !== null && shape.nationId !== null && !isActive
             return (
               <polygon
                 key={shape.key}
-                data-col={shape.col}
-                data-row={shape.row}
                 points={shape.points}
                 fill={shape.fill}
-                stroke={isHovered ? 'rgba(255,255,255,0.75)' : 'none'}
-                strokeWidth={isHovered ? 3 : 0}
+                stroke={isActive ? 'rgba(255,255,255,0.75)' : 'none'}
+                strokeWidth={isActive ? 3 : 0}
                 opacity={isDimmed ? 0.55 : 1}
-                style={shape.nationId !== null ? {
-                  pointerEvents: 'none',
-                  transition: 'transform 0.15s ease-out, opacity 0.2s ease',
-                  transform: isHovered ? `translateY(-${hoverLift}px)` : undefined,
-                } : undefined}
+                className={shape.nationId !== null
+                  ? 'pointer-events-none [transition:transform_0.15s_ease-out,opacity_0.2s_ease] motion-reduce:transition-none'
+                  : undefined}
+                style={shape.nationId !== null && isActive ? { transform: `translateY(-${liftOffset}px)` } : undefined}
               />
             )
           })}
-          {hitTargets.map(target => (
-            <polygon
-              key={`${target.key}-hit`}
-              data-col={target.col}
-              data-row={target.row}
-              points={target.points}
-              fill="transparent"
-              style={{ pointerEvents: 'all', cursor: 'pointer' }}
-              onMouseEnter={() => setHoveredNation(target.nationId)}
-              onMouseLeave={() => setHoveredNation(null)}
-            />
+          {nationHitGroups.map(([nationId, nationShapes]) => (
+            <g
+              key={`hit-${nationId}`}
+              role="button"
+              tabIndex={0}
+              aria-label={`${NATION_LABELS[nationId]} — ${(operatorsByNation[nationId] ?? []).length} operators`}
+              aria-pressed={pinnedNation === nationId}
+              className="cursor-pointer outline-none [pointer-events:all]"
+              onPointerEnter={event => {
+                if (event.pointerType === 'mouse') setHoveredNation(nationId)
+              }}
+              onPointerLeave={event => {
+                if (event.pointerType === 'mouse') {
+                  setHoveredNation(prev => (prev === nationId ? null : prev))
+                }
+              }}
+              onClick={event => {
+                event.stopPropagation()
+                playClick()
+                togglePinned(nationId)
+              }}
+              onFocus={() => setHoveredNation(nationId)}
+              onBlur={() => setHoveredNation(prev => (prev === nationId ? null : prev))}
+              onKeyDown={event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault()
+                  playClick()
+                  togglePinned(nationId)
+                }
+                if (event.key === 'Escape') {
+                  setPinnedNation(null)
+                  setHoveredNation(null)
+                }
+              }}
+            >
+              {nationShapes.map(shape => (
+                <polygon key={`${shape.key}-hit`} points={shape.points} fill="transparent" />
+              ))}
+            </g>
           ))}
           {labels.map(label => {
-            const isHovered = label.nationId === hoveredNation
+            const isActive = label.nationId === activeNation
             return (
               <text
                 key={`label-${label.nationId}`}
@@ -329,18 +375,57 @@ export function WorldMap() {
                 stroke="rgba(0,0,0,0.65)"
                 strokeWidth={labelFontSize * 0.12}
                 paintOrder="stroke"
-                opacity={isHovered ? 1 : 0}
-                className="font-display uppercase tracking-wide pointer-events-none"
-                style={{
-                  transition: 'opacity 0.2s ease, transform 0.15s ease-out',
-                  transform: isHovered ? `translateY(-${hoverLift}px)` : undefined,
-                }}
+                opacity={isActive ? 1 : 0}
+                className="font-display uppercase tracking-wide pointer-events-none [transition:opacity_0.2s_ease,transform_0.15s_ease-out] motion-reduce:transition-none"
+                style={isActive ? { transform: `translateY(-${liftOffset}px)` } : undefined}
               >
                 {NATION_LABELS[label.nationId]}
               </text>
             )
           })}
         </svg>
+      </div>
+
+      {/* Nation detail strip: the payoff for selecting a nation. Reserved
+          height so hovering the map never shifts the layout below it. */}
+      <div className="mt-2 min-h-[72px]">
+        {activeNation ? (
+          <div key={activeNation} className="animate-[map-detail-in_0.25s_ease-out] motion-reduce:animate-none">
+            {activeOperators.length > 0 ? (
+              <div className="flex flex-wrap justify-center gap-2">
+                {activeOperators.map(op => (
+                  <Link
+                    key={op.name}
+                    href={`/operator?operator=${toSlug(op.name)}`}
+                    onClick={playClick}
+                    className="group flex items-center gap-2 border border-white/[0.07] bg-white/[0.03] pl-1 pr-3 py-1 hover:border-ak-accent/30 hover:bg-white/[0.06] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright [transition:border-color_0.2s,background-color_0.2s,transform_0.15s_ease] motion-reduce:transition-none"
+                  >
+                    <span
+                      aria-hidden
+                      className="w-7 h-7 shrink-0 bg-no-repeat bg-white/[0.04] opacity-85 group-hover:opacity-100 [transition:opacity_0.2s] motion-reduce:transition-none"
+                      style={{
+                        backgroundImage: `url(${op.skins[0].src})`,
+                        backgroundSize: `auto ${op.portraitFocus?.zoom ?? 250}%`,
+                        backgroundPosition: `${op.portraitFocus?.x ?? 50}% ${op.portraitFocus?.y ?? 0}%`,
+                      }}
+                    />
+                    <span className="font-display text-[11px] text-white/55 group-hover:text-white/90 tracking-wide [transition:color_0.2s] motion-reduce:transition-none">
+                      {op.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <p className="pt-6 text-center font-display text-[10px] text-white/25 tracking-[0.2em] uppercase">
+                No operators on file for {activeLabel}
+              </p>
+            )}
+          </div>
+        ) : (
+          <p className="pt-6 text-center font-display text-[10px] text-white/25 tracking-[0.2em] uppercase">
+            Hover to preview · click a nation to pin it
+          </p>
+        )}
       </div>
     </div>
   )

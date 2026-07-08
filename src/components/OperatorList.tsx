@@ -356,8 +356,8 @@ export function OperatorList() {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/35 to-transparent" />
 
                       {(entry.isAlter || entry.operator.tags?.includes('Crossover')) && (
-                        <div className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[6px] md:text-[7px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1 py-0.5 border border-[#f07830]/20">
+                        <div className="absolute top-1 left-1/2 -translate-x-1/2 z-10">
+                          <span className="font-display text-[8px] md:text-[10px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1 py-0.5 border border-[#f07830]/20">
                             {entry.isAlter ? 'ALTER' : 'CROSSOVER'}
                           </span>
                         </div>

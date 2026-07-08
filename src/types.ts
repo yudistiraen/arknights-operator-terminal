@@ -38,6 +38,7 @@ export interface Skill {
   sp: number
   rank: string
   dur?: string
+  range?: number[][]
   note?: string
 }
 

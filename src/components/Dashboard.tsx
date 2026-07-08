@@ -46,7 +46,7 @@ export function Dashboard() {
 
   useGSAP(() => {
     if (!hasEntered) {
-      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.mission-schedule', '.world-map-panel', '.dashboard-cta', '.dashboard-footer'], { opacity: 0 })
+      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.mission-schedule', '.world-map-panel', '.dashboard-cta', '.dashboard-footer', '.hud-ambient', '.hud-rail'], { opacity: 0 })
       return
     }
 
@@ -63,6 +63,7 @@ export function Dashboard() {
       .fromTo('.world-map-panel', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.1')
       .fromTo('.dashboard-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.15')
       .fromTo('.dashboard-footer', { opacity: 0 }, { opacity: 1, duration: 0.3 }, '-=0.2')
+      .fromTo('.hud-ambient, .hud-rail', { opacity: 0 }, { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.3')
 
   }, { scope: containerRef, dependencies: [hasEntered] })
 
@@ -71,8 +72,31 @@ export function Dashboard() {
       {/* Background layers */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        {/* Faint hex grid, echoing the Terra map's hex mosaic; masked so it
+            concentrates near the top and dissolves before the map section */}
+        <div
+          className="absolute inset-0 opacity-[0.03] mask-[radial-gradient(ellipse_90%_70%_at_50%_0%,black,transparent_75%)]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='28' height='49' viewBox='0 0 28 49' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z' fill='%233ba4c9' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+            backgroundSize: '56px 98px',
+          }}
+        />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(59,164,201,0.06) 0%, transparent 60%)' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 80% 100%, rgba(212,168,67,0.03) 0%, transparent 50%)' }} />
+      </div>
+
+      {/* HUD readouts: decorative terminal chrome pinned to the viewport */}
+      <div className="hud-ambient fixed inset-0 pointer-events-none z-20 hidden md:block font-display">
+        <div className="absolute top-4 right-5 flex items-center gap-2.5">
+          <span className="w-1 h-1 rounded-full bg-ak-accent/60 animate-[pulse-glow_2.5s_ease-in-out_infinite]" />
+          <span className="text-[9px] text-white/25 tracking-[0.25em] uppercase">PRTS // Online</span>
+          <span className="text-[9px] text-ak-accent/35 tracking-[0.2em]" suppressHydrationWarning>
+            {new Date().toISOString().slice(0, 10).replace(/-/g, ' · ')}
+          </span>
+        </div>
+        <div className="absolute bottom-9 right-5 text-right">
+          <p className="text-[9px] text-white/15 tracking-[0.25em] uppercase">Terra Surveillance Grid</p>
+        </div>
       </div>
 
       {/* Vignette */}
@@ -80,6 +104,21 @@ export function Dashboard() {
 
       {/* Content — centered vertically */}
       <div className="flex-1 relative z-10 flex flex-col items-center justify-center px-4 py-16">
+        {/* Side rails: hairline + rotated label filling the wide-screen margins */}
+        <div className="hud-rail hidden xl:flex absolute left-7 top-1/2 -translate-y-1/2 flex-col items-center gap-4">
+          <div className="w-px h-28 bg-gradient-to-b from-transparent via-ak-accent/20 to-ak-accent/20" />
+          <span className="font-display text-[9px] text-white/15 tracking-[0.35em] uppercase [writing-mode:vertical-rl]">
+            Rhodes Island Terminal
+          </span>
+          <div className="w-px h-28 bg-gradient-to-b from-ak-accent/20 via-ak-accent/20 to-transparent" />
+        </div>
+        <div className="hud-rail hidden xl:flex absolute right-7 top-1/2 -translate-y-1/2 flex-col items-center gap-4">
+          <div className="w-px h-28 bg-gradient-to-b from-transparent via-ak-accent/20 to-ak-accent/20" />
+          <span className="font-display text-[9px] text-white/15 tracking-[0.35em] uppercase [writing-mode:vertical-rl]">
+            Operator Records
+          </span>
+          <div className="w-px h-28 bg-gradient-to-b from-ak-accent/20 via-ak-accent/20 to-transparent" />
+        </div>
         {/* Hero section */}
         <div className="dashboard-logo mb-5 md:mb-6">
           <img

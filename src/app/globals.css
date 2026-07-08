@@ -18,6 +18,8 @@
   --color-ak-danger: #c44040;
   --color-ak-infected: #a855f7;
   --color-ak-non-infected: #58f755;
+  --color-ak-orange: #d97b3f;
+  --color-ak-orange-bright: #f0954f;
 }
 
 @layer base {
@@ -77,6 +79,11 @@
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+}
+
+@keyframes map-detail-in {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes sidemenu-scan {
