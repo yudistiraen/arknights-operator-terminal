@@ -644,6 +644,19 @@ Beberapa operator memiliki summon unit — unit yang bisa di-deploy di battle te
 - Fallback "Coming Soon" jika operator belum punya story data
 - Card button preview: "This section might contain spoiler" jika ada story, "Coming Soon" jika belum
 
+### Status Data Story/Profile/Records — Placeholder vs Wiki Asli
+
+**⚠️ PENTING:** Sejumlah operator (terutama roster 3-star Op Reserve) awalnya ditambahkan dengan field `story` berupa satu paragraf ringkasan buatan (bukan hasil scrape wiki), dan tanpa field `profile`/`records` sama sekali. Field ini sudah diperbaiki satu per satu dengan data asli dari `{Operator}/File` (Profile + records) dan `{Operator}/Story` (overview) di `arknights.wiki.gg`.
+
+**Sudah diperbaiki (story/profile/records asli dari wiki):**
+Rosmontis (records ditambah), Hibiscus + alter Hibiscus the Purifier, Kroos + alter Kroos the Keen Glint, Lava + alter Lava the Purgatory, Melantha, Midnight, Orchid, Plume, Popukar, Spot, Steward, Vanilla, Adnachiel, Ansel, Beagle, Cardigan, Catapult, Fang.
+
+**Belum diperbaiki (masih placeholder buatan, tanpa `profile`/`records`):** Deepcolor, Matterhorn.
+
+Jika operator lain di luar daftar "sudah diperbaiki" ditemukan punya `story` satu paragraf pendek berpola `"{Nama} is a {Race} {Class} from {Tempat} who..."` tanpa field `profile`, kemungkinan besar itu juga masih placeholder — perlu di-scrape ulang dari wiki mengikuti langkah 8/8b/8c di atas.
+
+**Catatan khusus operator dengan alter yang Story page-nya redirect/404:** Beberapa alter (Hibiscus the Purifier, Kroos the Keen Glint, Lava the Purgatory) tidak punya halaman `{Alter Name}/Story` sendiri di wiki — halaman tersebut 404 dan overview cerita mereka digabung di halaman `{Base Name}/Story`. Untuk kasus ini, field `story` alter memakai teks overview yang sama persis dengan base form-nya (bukan duplikasi keliru, memang itu sumber datanya). Field `profile` dan `records` tetap diambil terpisah dari `{Alter Name}/File` karena section tersebut memang spesifik per form.
+
 ### Operator dengan Variants (Multi-class)
 
 Beberapa operator memiliki lebih dari satu class (contoh: Amiya Caster/Guard/Medic). Untuk operator ini, gunakan field `variants`:

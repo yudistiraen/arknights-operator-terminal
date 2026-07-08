@@ -34,7 +34,13 @@ export const OPERATORS = ([
     skills: [
       { name: 'Tactical Chant γ', icon: '/operators/amiya/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: 'ASPD +90', spInit: 15, sp: 30, dur: '30s', rank: 'M3' },
       { name: 'Spirit Burst', icon: '/operators/amiya/skill-2.png', activation: 'Auto', recovery: 'Auto', desc: 'Fires 8 times with 60% ATK when attacking and attacks random targets within Attack Range. Automatically activated; Amiya is Stunned for 10 seconds after the skill duration', spInit: 0, sp: 100, dur: '25s', rank: 'M3' },
-      { name: 'Chimera', icon: '/operators/amiya/skill-3.png', activation: 'Manual', recovery: 'Auto', desc: 'ATK +230%, Max HP +100%, Range expands, damage type changes to True; After the skill ends, Amiya will automatically be retreated', spInit: 0, sp: 120, dur: '30s', rank: 'M3', note: 'The in-game animation shows Amiya as having been knocked out, but she is indeed forcibly retreated and refunds part of her DP cost in the process.' },
+      { name: 'Chimera', icon: '/operators/amiya/skill-3.png', activation: 'Manual', recovery: 'Auto', desc: 'ATK +230%, Max HP +100%, Range expands, damage type changes to True; After the skill ends, Amiya will automatically be retreated', spInit: 0, sp: 120, dur: '30s', rank: 'M3', range: [
+        [1,1,1,0],
+        [1,1,1,1],
+        [2,1,1,1],
+        [1,1,1,1],
+        [1,1,1,0],
+      ], note: 'The in-game animation shows Amiya as having been knocked out, but she is indeed forcibly retreated and refunds part of her DP cost in the process.' },
     ],
     modules: {
       original: { code: 'Original', name: "Amiya's Badge", desc: 'Appointed as Caster Operator to exercise Core Caster responsibilities' },
@@ -199,6 +205,26 @@ export const OPERATORS = ([
         title: 'Clinical Analysis',
         content: `Imaging tests have shown the outlines of some of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system; there are signs of Oripathy infection.\n\n[Cell-Originium Assimilation] <1%\n[Blood Originium-Crystal Density] 0.13u/L\n\nMost currently known internal organ crystallization and Originium hyperplasia originate from localized lesions caused by the accumulation of Originium particles in the bloodstream.\nYes, Touch, your hypothesis is more or less on point.\nThis particular subject can perhaps be called an Infected, but it's hard to say this is Oripathy.\nThe Infected organ located in her brain stem isn't natural. That's right... It was an artificial implant. Having referenced Raidian's inspection report, we can say for certain that this device is unmistakably artificial in nature.\n\nIf, just like this particular subject, Specter's Infection was artificially induced... Leaving aside the question of how Specter's immune system is able to fight her Originium infection so fiercely... the liquid Originium density in Specter's cerebrospinal fluid has already reached such a high level that her life is undeniably in danger. We had to resort to all kinds of measures just to prevent her situation from getting any worse, as we naturally should do.\nLet's look at the experiment that was performed on this particular individual. One of the objectives of this experiment was to figure out how to contain the Originium Infection and the negative effects it produces.\nAnd they managed to pull it off, albeit only temporarily.\nFrom the project's inception, their plan was to create an individual who is not afflicted by Oripathy but is nonetheless an Infected. A caster who doesn't need an Arts Unit. A master of Originium Arts who does not need to be trained in its theory.\nHer Infected organs do not exacerbate the Originium density in her body in any way. In a certain sense, this individual is as good as not Infected.\nWith her life functions still in perfect order, should we really remove this artificial organ? The organ that lets her breathe and swallow, and lets her blood flow normally?\nI'm afraid we haven't met that requirement. No one has. This experiment is likely impossible to reproduce in the short term, and we are supposed to reverse its results, to return her body composition to normal?\n\nThe Loken Watertank Laboratory is a shambles. The little research data they had were all wiped out as well. We will likely never know whether the data was destroyed or successfully retrieved by its sponsor. The lab's actual proprietor would prefer to keep news of the scandal under wraps. The technological companies looking to thrive in the wake of Loken Watertank's downfall are likely a dime a dozen, and who knows how many spies there are in the Columbian cities?\nLoken Williams was a genius, but his ignorance and apathy led to the deaths of many, including his own in the very end. Poetic justice, no doubt.\nThe Maylander Child Rights Protection Foundation's rescue of the individual from the laboratory ruins and their subsequent exfiltration from the country were the result of its board's careful deliberation. They were intent on keeping Loken's research results out of the hands of Columbian companies and interest groups. If the research conducted at Loken was allowed to continue to ferment, it would only result in further instability. This will not be tolerated. They will not allow it. They would rather pretend it happened in the first place.\nIn the end, the girl ended up under my care... Perhaps by fate, or perhaps because, along with Loken's mentor, I was the one who ended Loken's life as an Oripathy researcher in Columbian academia. But we both knew it in our hearts that he wasn't going to be stopped by that. It was nowhere close to enough to stop someone who would claim the lives of everyone who walks upon this land for his own benefit.\nWith this, our cooperation with Maylander came to an end. This would be the final mission ever to be sanctioned by them and carried out in secret by us. This individual, the experimental subject, will forever disappear from Columbia's records.\n\nMaylander doesn't care if she lives or dies. What happens to her from here onwards is up to us.\nBut what would her treatment—the removal of this artificial organ—entail? The damage this has on her system may be minimal.\nThe device does not have a replacement function. It had never crossed their minds to implement such a function.\nThe device has already become a part of the individual. They turned her Arts Unit... into her life source.\nI don't have the right to ask her to give up her own life.\n...However, ethics is a matter between you and me, not Rhodes Island.\n— Dr. Kal'tsit`,
       },
+      {
+        title: 'Archive File 1',
+        content: `Hmm, we've already put together a two-way comparison table...Yeah, she is exactly as she looks. Just a little Feline girl. There isn't very much we can say about that...\n\nHowever, her Arts... Well, we've stopped holding the tests indoors already, but the data we got from the tests before explains a lot.\n\nI guess it's not a good idea to talk theories here. I mean, I don't really understand theories myself. The theoretical casters are always talking about stuff like perception reversal and thought impetus. Seems to have to do with cognitive science and neurology, and things I'm bound to never understand.\n\nLet's just talk about her Arts' performance. Right, I mean, there's quite a lot that's classified, and this information is just here to give you the gist.\n\nSome of us have started to call her Arts her spiritual entity. After all... This is a very fitting and convenient way to describe it.\n\nHer Arts can stretch out into a wide "net" that can detect the movements of objects within its range. The "net" covers a huge area, and most people are unaware of her "touch". Her Arts can also be used on just a single individual. I suppose it's like a big hand... I've tried asking her to keep her Arts's range to the smallest area possible, but, even then, she can only manage to shrink it down to a few square meters. I'm guessing that's because she's trying to "grip" her target. Aside from that, it doesn't seem she can use this power on the inside of her target. Even when we gave her a transparent pitcher with its innards clearly visible, she couldn't make the pitcher burst from the inside. All she could do was squeeze it from the outside. This looks even more and more like a flexible, malleable force-exerting entity.\n\nDuring the test process, still going by that "hand" and "grip" imagery, we surmised she's able to use at most four of those large, shapeless "hands" of hers when her concentration is at its peak. It seems the test results were measured based on her Arts' activity and deep water testing. Both her speed and strength measurements go to show that there is tremendous power hiding in her Arts, yet we aren't even able to detect any signs of her using her Arts before they break something.\n\nWhy just four, and why are they all shapeless "hands"? Is that how she imagines them? Indeed, when we were examining the deformation of her targets' structures, we can't help but think that some of the bumps might be the gaps between her fingers...\n\nAnd whenever there was a considerable temperature difference, she would also seem to get frostbite or burns when she uses her Arts... neurally speaking, at least. There weren't any apparent symptoms. She would just say... "It's cold"... or "It hurts". And based on her cerebral cortex's activity, it's true.\n\n(The voice in the recording gets softer)\n\nI heard an explanation that's kinda out there... even scary.\n\nThey say her brother still lives within her. And her Arts are like... her brother reaching out his hands, either hugging the land or pounding it with force.\n\nI have no idea who was the first person to say that. It's unsettling.\n\n— Recording of Field Reporter Caster KK`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `It's been a while since the patient Maylander sent us began her training. I have no idea if this is Kal'tsit or Outcast's idea, but there's no doubt she's got better thanks to this.\n\nShe's not like the other experimentation victims I've seen. They're either always screaming their lungs out, or they've already lost their ability to live and take care of themselves; they're always just curled up in their vessels, trembling.\n\nMy first impression is that she is from a middle-class family and has received a certain amount of education. But when her mental state is unstable, the destruction she wreaks on the ship sure is a terrifying sight to behold.\n\nShe fears laboratories. She hates medical equipment. And even though our equipment is already several times hardier than normal armor, she even managed to lift one up into the air and crushed it into a ball about the size of a fist. I suppose if it wasn't for Logos, all of us would've long been dead several times over.\n\nBut thanks to that, we now have a pretty good picture of the kind of life she lived. Kal'tsit has recently requested Engineering to renovate some of the laboratories and rehab sickrooms. I also took the opportunity to replace some of the equipment in the testing facilities to give them a more comfortable, warmer feel.\n\nAnd now she doesn't make quite as much of a scene.\n\nTrying to talk to her about what's right or wrong isn't going to do us much good... She's a very sensible kid to begin with. She demonstrates a kind of mental sickness not dissimilar to memory loss. Sometimes, she even forgets her professional knowledge.\n\nNonetheless, we found that reinforcing her knowledge bit by bit is effective. Touch speculates that she hasn't actually forgotten. She's merely sealed her memories. We think this might have to do with the device in her brain. Or perhaps this is the result that she wanted, and her Arts helped her achieve that.\n\nHer Arts definitely isn't as simple as a kind of telekinesis. Her past torments her, and that's why she's trying to erase her memories. But she also isn't able to control the strong, unorderly emotions left over... It's a mess. Then, she gets upset that she's forgotten again, and gets anxious and confused because of that. She gets distressed for not meeting our expectations, even though we'd be more than willing to cheer her on and help her. She will still blame herself.\n\nAt the very least, it's not possible for us to retrace her participation in the experiments. She has practically dug her entire brain out. It's a violent way to go about it, almost like she sealed herself away. Her amnesic symptoms might even be side effects of this behavior.\n\nHer cognitive ability is being exhausted by herself relentlessly. My guess is her artificial organ is using it up to deal with her ongoing stress.\n\nI think she needs a recorder. I will make her a terminal. One that's easy to type on. That way she can go over her notes whenever she wants, dig up those scenes and dialogues she wants, and restore her emotions back to the truths in her head and reorganize them. Just like giving a movie its dialogues back.\n\nOnce she asked me why I wouldn't let her wear shoes in the room. As I explained the safety side of it, I also thought of borrowing a pair of shoes from Amiya for her to wear when she leaves the cabin. Amiya came over herself. She even brought with her a new pair of shoes, and were they not a perfect fit. The two kids were fast friends. Amiya was very skilled at comforting her.\n\nI thought to myself. That was the moment the patient's life truly began instead of some point in the past. There are still lots of mysteries surrounding her, but what does any of that matter?\n\nKal'tsit said she'll put up a poll for the casters and medical elite operators after a while. I'm in engineering, so I'm not voting, but if I had a vote, I would probably vote to let her stay on the island. If what she needs is someone to guide her through her stress, to teach her how to control her Arts, then we're the right men for the job.\n\n— Indistinct personal records found inside a folder.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `[Elite Operator File]\n#Infected.\n\n1. Personality:\nA strong sense of togetherness, Proactive.\n\n2. Information Pertaining to Identity:\nColumbia.\nPartnership status, Disastrous event, Agreement terminated.\nInfected, Protected, Experimental subject.\nFurther disclosure of information forbidden.\n\n3. Information Pertaining to Infected Status:\nAttachment, Understanding, Protective.\n\n4. Strategy Summary:\nCore of her squad, Annihilation, Focused.\n\n5. ■■ Possibility:\nMedium.\n\n6. Type B Events:\nAllowed. As carefully supervised.\n\n7. Mobilization Authority Granted:\nKal'tsit, Amiya\n\nNewly Granted: Doctor.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Loken Watertank isn't the source of the problem.\n\nWhen it all happened, Loken was likely under a lot of pressure. Otherwise, knowing his personality, he would not have made such a gamble.\n\nI'm not trying to defend him, but by trying to dissect his actions, I might also be able to verify a few of my viewpoints.\n\nMy guess is that he urgently needed some test results that supported his hypothesis, either to get his hands on some resources, to maintain his position, or to preserve his project.\n\nLoken implanted this artificial organ in this particular subject only because his research had to do with the Infected. If his research was in the bionics, then no matter how many of her organs ended up getting replaced, the subject would not have had even the tiniest traces of Oripathy.\n\nThe subject and her brother were dragged into this mess only because they had a somewhat unique gift in Originium Arts... Their adoption after their family was destroyed, their fraudulent guardian, the corrupt orphanage all played a hand.\n\nI won't rule out the possibility. Maylander's report clearly says that Loken murdered her brother to fulfill his experiment's objectives. The direct cause of the incident was that the "consciousness" that he forcefully extracted from her brother activated her Infected organ.\n\nWhether this is purely a product of her imagination or is indeed just like what was reflected by the errors in the scans... It's eerie, I know. But her "brother" might still exist somewhere in her brain. She probably doesn't want to know about this yet—This stems from her subconscious refusal, or perhaps it's the wishes of her "brother".\n\nExcessive theoretical neuroscience interests me not. Such experiment was entirely profit-driven. Its data was tainted by blood. This kind of data can only be used to back theories that support war and violence. We don't need that.\n\nLoken Watertank had been under the table for long. The fact that a laboratory of its size was able to direct such deep, inhumane crimes just goes to show how far down this road of privilege Columbia's scientific research has come.\n\nCompared to Ursus and Sargon, Columbia's laws are no doubt more advanced and stringent. But how severe the law is has nothing to do with how many crimes have gone unpunished. It actually is. Both the ones who enforce the law and those who administer it are only people. A progressive society carries the burden of being even more "civilized".\n\nThat's how that fate befell her. Just simply because they needed her to be an Infected, they wanted her to have those powers, being able to expand her Arts casting by the way of compressing her consciousness...\n\nPerhaps it was Volvort Kochinski or Rhine Lab... and it's a bit of a stretch, but it could also have been pharmaceutical companies like Parasol or Tower Mountains... but in any case... It doesn't matter who Loken Watertank's benefactors were.\n\nWhoever they are, there's an even bigger disaster waiting for them sooner or later.\n\nSo, the vote's results... My guess is there are two votes against.\n\nLogos agreed as well, didn't he? Hm? No, I'm not surprised. You may think he doesn't care about anything other than Kazdel affairs, but if that was the case, he wouldn't have agreed to become an elite operator in the first place.\n\nIt's just like those two to vote no... Pith was against it, and I suppose that's only natural.\n\nI'll persuade them.\n\nOf course, you guys practically forced this one on me. Right, Touch, you guys voted yes. You guys should be the ones to persuade them. I'm merely trying to speed things up.\n\nMy reason for doing this?\n\nI was giving her a checkup this morning, and she asked me if I remember what her name was.\n\nShe wants to know what she used to be called. She's slowly trying to face her past... even if it's already ruined her once. Or perhaps she should get a new name.\n\n...If our cities and our residents are truly more advanced than the bloodthirsty barbarians of ages past, then we must at least prove that our personalities have improved.\n\nPreventing science from being used to harm the innocent is also a responsibility of mine.\n\nPerhaps it's still too early to give her a name. She should come up with her name herself. But we can give her a codename right now.\n\nI believe that by becoming an operator, her future, as well as that of the world itself, will become that much brighter. Now that all of you agreed, I promise I will teach her. She will still become your family... Your teammate.\n\nShe can do it.\n\n[In the old mythologies, there exists a miraculous plant that helps those who cannot face their memories to be brave and courageous. From here on out, her codename will be Rosmontis.]`,
+      },
+      {
+        title: 'Promotion Record',
+        content: `"Will she ever return to a normal life?"\n\n...What makes a life "normal" anyway? Is it the tatters woven from leaves that the settlers of the wilderness wear, or is it the fine Leithanien garments woven with Arts? The sour bean soup that sells for three cents a bowl in the Columbian slums, or the dozens of lavish dishes served at banquets of a county of Victoria?\n\nEach and every person born in this world is shaped by the environment they grew up in. You would have to be biased, arrogant, and completely ignorant to believe that there is a certain kind of life you could call "normal".\n\nYou should trust this girl and nothing more than the girl herself, Give her time. Wait for her to puff her chest out, her head held high. The decisions she makes and the future she wants to achieve. That's her normal life. That's what you call a normal life. It's that simple.\n\nYou're her world. However you treat her, that's how she'll treat this world.\n\n— Whitesmith`,
+      },
     ],
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/flinger-branch.png', factionIcon: '/icons/factions/elite-op.png',
     skins: [
@@ -316,9 +342,19 @@ export const OPERATORS = ([
       { name: 'Requiem Aeternam', desc: 'Attacks inflict -10 RES and Arts damage taken +150 on targets for 5s', elite: 'E2' },
     ],
     skills: [
-      { name: 'Perish', icon: '/operators/logos/skill-1.png', activation: 'Auto', recovery: 'Auto', desc: 'Attack range expands and ATK +100%. Immediately defeats enemies in range with HP below 150% of Logos\' ATK, and deals Arts damage equal to the HP of the defeated unit to another random target', spInit: 0, sp: 60, rank: 'M3', note: 'The instant defeat deals 9999999 True damage that ignores dodge, Shield, and Barrier. Unlimited duration.' },
+      { name: 'Perish', icon: '/operators/logos/skill-1.png', activation: 'Auto', recovery: 'Auto', desc: 'Attack range expands and ATK +100%. Immediately defeats enemies in range with HP below 150% of Logos\' ATK, and deals Arts damage equal to the HP of the defeated unit to another random target', spInit: 0, sp: 60, rank: 'M3', range: [
+        [1,1,1,1],
+        [2,1,1,1],
+        [1,1,1,1],
+      ], note: 'The instant defeat deals 9999999 True damage that ignores dodge, Shield, and Barrier. Unlimited duration.' },
       { name: 'Synecdoche', icon: '/operators/logos/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'RES +70. Attacks lock on to a target, dealing 75% ATK as Arts damage every 0.5s. Gradually increases damage up to 3x and reduces Movement Speed to 40% (max after 5s). Resets on skill interrupt or target defeat', spInit: 20, sp: 30, dur: '20s', rank: 'M3' },
-      { name: 'Extended Acuity', icon: '/operators/logos/skill-3.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack range expands, ATK +300%, attacks strike 4 targets at once; enemy projectile speed in attack range is greatly reduced, and all projectiles are removed when skill expires', spInit: 30, sp: 45, dur: '30s', rank: 'M3', note: 'Reduces enemy projectile speed by 95%. Also works on Gramophone projectiles.' },
+      { name: 'Extended Acuity', icon: '/operators/logos/skill-3.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack range expands, ATK +300%, attacks strike 4 targets at once; enemy projectile speed in attack range is greatly reduced, and all projectiles are removed when skill expires', spInit: 30, sp: 45, dur: '30s', rank: 'M3', range: [
+        [1,1,1,0],
+        [1,1,1,1],
+        [2,1,1,1],
+        [1,1,1,1],
+        [1,1,1,0],
+      ], note: 'Reduces enemy projectile speed by 95%. Also works on Gramophone projectiles.' },
     ],
     modules: {
       original: { code: 'Original', name: "Logos's Badge", desc: 'Appointed as Caster Operator to exercise Core Caster responsibilities' },
@@ -457,7 +493,26 @@ export const OPERATORS = ([
     talents: [{ name: 'Shortcoming Breakthrough', desc: 'ASPD +8; Attacks ranged enemies first', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/adnachiel/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    story: `Adnachiel is a Sankta from Laterano who joined Rhodes Island as part of Op Reserve A4. Despite his halo being lower than usual, his accuracy with a crossbow remains sharp. He assists in interrupting enemy attacks from the back line.`,
+    story: `The Lateran Sankta Adnachiel, a former freelancer, joined Rhodes Island to receive treatment for his Oripathy after he and Steward were rescued by Cardigan during a snowstorm in Leithanien. Adnachiel is known for being friendly, humble, honest, and intelligent. He is currently serving as a marksman and as a member of Op Reserve A4. Unlike other Sankta combatants who use firearms, Adnachiel has yet to be permitted to use one and instead uses a crossbow in combat. According to Adnachiel, Sankta like him appear from time to time and their minds work a little differently from the ordinary Sankta. In order to win the right to carry a gun, they must agree to join the Curia and be bound by it.`,
+    profile: `Adnachiel is a citizen of Laterano and enjoys rights one through thirteen afforded to all citizens of Laterano. Before his arrival at Rhodes Island, he worked as a freelancer. He received excellent results on a battery of tests and was assigned to Rhodes Island Op Reserve Team A4.\nHe has demonstrated great potential in the areas of rapid response, marksmanship, and support operations.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Medical tests have shown the outlines of his internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in his circulatory system, confirming him to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 9%\nHe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.26u/L\nDegree of infection is minor and has not displayed any significant physical symptoms.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Operators familiar with Adnachiel tend to use one word to describe the angel: bright. No matter how complicated the subject or advanced the technology involved, he seems to have no trouble mastering it in a short period of time.\n\nIn a show of humility, Adnachiel stands helpless in the face of loftier, theoretical topics, though everyone assumes he's just being modest. After all, as soft spoken and kind as he is, Adnachiel gives off the impression of being a clever and considerate young man. After meeting him, most operators come to understand his observant and sensitive personality. He always speaks to the true nature of things, but the scope of his theories is limited to that over which he has immediate control. Through his analyses, he can even predict the short-term future of his targets. He consistently rejects the titles of both "prophet" and "genius pretty boy," but rumors about him continue to proliferate.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `When he has free time between missions, Adnachiel often goes to the Rhodes Island Maintenance and Repair Workshop. Working as an intern assistant, Adnachiel's wrists are flexible and his attention to detail is meticulous. He has demonstrated an insatiable curiosity about Rhodes Island's equipment.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Adnachiel has not yet completed the Laterano Firearms Usage Agreement. His most trusted piece of equipment is his personally modified crossbow (Laterano crossbows are very different from the metal crossbows mass produced by Raythean). As he is not sufficiently physically strong, Adnachiel's crossbow has a pedal on the front used to help pull back the string with his foot.`,
+      },
+    ],
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/adnachiel/base.png', chibiSrc: '/operators/adnachiel/chibi.webm', illustrator: '一立里子' },
@@ -479,7 +534,26 @@ export const OPERATORS = ([
     talents: [{ name: 'Additional Healing', desc: '15% chance to heal 1 extra ally', elite: 'E1' }],
     skills: [{ name: 'Healing Range Up', icon: '/operators/ansel/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Range +2 tiles; ATK +40%', spInit: 10, sp: 35, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    story: `Ansel is a Cautus medic from Rim Billiton who serves in Op Reserve A4. Despite his youthful appearance and gentle demeanor, he is a reliable healer who can extend his care to allies beyond normal range.`,
+    story: `The compassionate young Rim Billitoner Cautus Ansel decided to study medicine for the sake of helping people after his parents passed away, having lost his mother to lung disease, and his father to overwork. As the second-youngest of his siblings, he was sent to live with his father's older brother, while his younger sister was sent to their father's younger brother. Meanwhile, their older brothers were already old enough to work. His uncle and brothers opposed his choice, with his uncle preferring that Ansel work in the company he works for as well. However, with his sister's support, Ansel persevered, intent on studying medicine and finally going to Rhodes Island.\n\nBeginning as a medical intern in Rhodes Island, he gradually became a member of Op Reserve Team A4, where he currently works as a field medic.`,
+    profile: `Ansel is a member of the Reserve Op Team A4 and a citizen of RIM Billiton. Before officially taking up his post, he was a member of the Rhodes Island pharmaceutical intern staff. After excelling on multiple tests, he was permitted to join the Rhodes Island medic team.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this Operator is believed to be non-infected.\n\n[Cell-Originium Assimilation] 0%\nOperator shows no signs of infection at this time.\n[Blood Originium-Crystal Density] 0.09u/L\nPhysical data reveal this Operator to be in a basically healthy state.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Ansel maintains a very calm demeanor. No matter how complicated the situation, he gives priority to providing timely medical support. This calm personality makes the enemy even question whether or not he is taking part in the battle. Very few people can care for the wounded in a well-ordered manner while there are explosions and collapsing roofs all around them. Of course, this is also because Ansel is very strict with his own rules as a medical practitioner. He works hard to follow established medical regulations and doesn't hesitate to let others know if they are violating them.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Ansel was born in a city in Rim Billiton that is, like so many of them, famous for mining. He has three older brothers and one younger sister. After his mother passed away due to infection, his exhausted father gave him to his sonless brother to adopt. Despite growing up in such an environment without a steady household to live in, he nevertheless grew into a gentle and responsible man. When Ansel realized that most of the workers around him were in poor health due to overwork, he decided to become a medic, hoping to one day alleviate some of the suffering in the world.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `During his time at medical school, Ansel sent his resume to several large medical companies and research institutes in Rim Billiton, but he lacked the money required for further study. His sparse resume was rejected by almost all of the companies. Of the two companies that did not reject his resume, Ansel chose the newly established Rhodes Island Pharmaceutical Company for his internship. During the half-year internship period, Ansel proved himself to be diligent, patient, and attentive to medicine, which earned him recognition from one of the company's top doctors, Dr. Kal'tsit.`,
+      },
+    ],
     classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/ansel/base.png', chibiSrc: '/operators/ansel/chibi.webm', illustrator: '一立里子' },
@@ -502,7 +576,30 @@ export const OPERATORS = ([
     talents: [{ name: 'DEF Up', desc: 'DEF +10%', elite: 'E1' }],
     skills: [{ name: 'DEF Up α', icon: '/operators/beagle/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'DEF +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '30s' }],
     modules: {},
-    story: `Beagle is a Perro Defender from Bolivar who serves in Op Reserve A1. She is earnest and hardworking, always striving to improve her defensive capabilities. Her sturdy shield provides reliable protection for her allies on the front line.`,
+    story: `The young Bolívarian Perro Beagle is a former Columbian police cadet who worked in Tkaronto with Fang and Kroos. Following a Catastrophe codenamed "The Blackwasp" that struck the city, Beagle contracted severe Oripathy, and she went with her colleagues to Rhodes Island for treatment. After becoming an R.I. operator to avoid discrimination as Infected, they formed the Op Reserve Team A1, where Beagle puts her police training to good use as a defender on the battlefield. Beagle is somewhat childish and clumsy, but she demonstrates that she is a capable combatant.`,
+    profile: `A frontline Operator on Op Reserve Team A1. Beagle originally came to Rhodes Island with Fang and Kroos. Though immature in some respects, she has gradually displayed professionalism, resilience, and extreme talent. As a result, she has earned the recognition of others as a reliable Operator.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 8%\nShe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.21u/L\nDegree of infection is not yet severe and has not yet brought about a significant physical impact.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Though she lacks flashy skills or the capacity for Arts, Beagle uses her endurance to establish a strong forward defense for her teammates. Though a bit clumsy, she believes that everything will work out as long as she continues to press forward tenaciously. So far, she has only been proven right in this regard.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Her time in a Columbia outskirts garrison was one of the most difficult periods of her life, but also among the most precious. Beagle, along with her close companions Fang and Kroos, worked tirelessly to close the gap between them and the official team members. However, Beagle fell into a deep bout of self-loathing after being infected with Oripathy. She felt that she had become a burden on Fang and Kroos, and that it was her fault they lost everything.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `At their lowest point, Fang, Kroos, and Beagle faced expulsion and banishment from the garrison. On Kroos's recommendation, the three of them came to Rhodes Island together. On that day, Beagle resolved to repay the kindness of Fang, Kroos, and everyone who stood beside her.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `After witnessing everyone bicker, play, and express joy day after day, Beagle began to feel grateful and happy. Everyday, Beagle works hard to solve the disputes that arise between Hibiscus and Lava. She helps Fang find Kroos whenever she is slacking off. She even helps the senior members of Rhodes Island by doing chores in her free time. Time and time through and through, she enjoys every moment of her hard work.`,
+      },
+    ],
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/beagle/base.png', chibiSrc: '/operators/beagle/chibi.webm', illustrator: '下野宏铭' },
@@ -524,7 +621,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Max HP Up', desc: 'Max HP +12%', elite: 'E1' }],
     skills: [{ name: 'Regeneration α', icon: '/operators/cardigan/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Restores HP by 40% of Max HP', spInit: 10, sp: 20, rank: 'Rank 7' }],
     modules: {},
-    story: `Cardigan is an energetic Perro Defender from Leithanien who joined Op Reserve A4. She may not have the strongest defense, but her high vitality and self-healing ability make her a surprisingly durable front-liner.`,
+    story: `The young Leithanian Perro Merry is a former member of the Leithanien Bobsled Patrol Team, which she joined to make up for her failure to become a skier. At some point, Merry met Steward and Adnachiel and quickly befriended them. However, the three got caught in a snowstorm while hiking, which caused both Steward and Adnachiel to suffer frostbite and even worsened their Oripathy. After five hours of desperate searching for medical aid, Merry finally found Rhodes Island requesting to become an operator in exchange for the duo's treatment. She picks up the codename "Cardigan" and works as a member of Op Reserve A4, where she acts as a defender. However, Cardigan is also infamous for her hyperactive behavior, which has caused many problems for her teammates now and then.`,
+    profile: `Cardigan is a member of Op Reserve Team A4 and a citizen of Leithanien. Before taking up her current position, she was a member of the Bobsled Patrol Team. After an exceptional performance on her tests, she received permission to join Rhodes Island.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Medical tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this Operator is believed to be non-infected.\n\n[Cell-Originium Assimilation] 0%\nOperator shows no signs of infection at this time.\n[Blood Originium-Crystal Density] 0.09u/L\nPhysical data reveal this Operator to be in a roughly healthy state.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `[Cardigan]\nCardigan is a proactive and confident Operator who carries out both daily tasks and combat missions with vigor. As a member of Op Reserve Team A4, Cardigan is very fond of all her teammates.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `[Cardigan's History 1]\nCardigan was born the oldest of five children in the frigid northern region of Leithanien to a mother and father who worked in the forests. Growing up in a comfortable and relaxed household, she had harmonious and intimate relationships with all her family members. When she was a child, she dreamed of becoming a professional skier. With her family's support, she took a shot at her dream, but ultimately failed to succeed. She quit ski training and was recruited by a bobsled patrol team. It was during this time that Cardigan underwent defensive and tactical training.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `[Cardigan's History 2]\nBefore she was recruited by Rhodes Island, she left her hometown, curious about city life. She made her way to the center of Leithanien to seek work, but due to its focus on Arts and her lack of talent for it, as well as her love of sport, she felt the city wasn't a good fit for her. During her stay in Leithanien, she met fellow travelers Steward and Adnachiel and formed a deep friendship with them. Even after the two of them became infected, Cardigan continued to put all her effort into helping her friends make it through, and contacted Rhodes Island to seek treatment for them.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `[Cardigan's...]\nA list of broken items.\n\nSofa back leather 14 square centimeters. Cause of damage: Weapon wasn't unequipped and its edge cut everything up.\nMedic Operator Ansel's office chair legs. Cause of damage: Got over-excited and lost balance. Chair legs bent as a result.\nA 90*120cm tactics book. Cause of damage: Over-excitement resulted in book getting broken with a hammer.\n\nSignature of person responsible: Cardigan. Signature of team leader: Melantha.\n\nOutcome: After finance personnel calculate damage, they inform the responsible party that payment will be deducted from their salary in 12 equal installments for compensation. Responsible party has been handed over to team leader for Op Reserve Team discipline and re-education.`,
+      },
+    ],
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/cardigan/base.png', chibiSrc: '/operators/cardigan/chibi.webm', illustrator: '一立里子' },
@@ -547,7 +667,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Lightweight', desc: 'DP Cost -1', elite: 'E1' }],
     skills: [{ name: 'Blast Range Up α', icon: '/operators/catapult/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Increases AOE of Normal Attacks to 200%', spInit: 0, sp: 45, rank: 'Rank 7', dur: '30s' }],
     modules: {},
-    story: `Catapult is a Kuranta Sniper from Kazimierz who belongs to Op Reserve A6. Her Originium infection is visible, but she does not let it hold her back. She rains explosive bolts on grouped enemies with devastating area damage.`,
+    story: `The young Kazimierzian Kuranta Arleta originally served in her local noble's private army until she got fed up with his greed and his exploitation of her fellow villagers. Therefore, in an act befitting her rebellious and impulsive nature, she blew up the noble's vault and returned the money to the townspeople by throwing it into the streets. She avoided the guards hunting her and sneaked out of town with the help of her friends and the Candle Knight. After she contracted Oripathy in the wilderness, she went to Rhodes Island to undergo treatment. She was later assigned to Op Reserve A6 under the codename "Catapult" (a nickname that originated from her friends back home), where she acts as a demolitions expert who provides indirect fire support with a grenade launcher. While she has the reputation of a troublemaker and slacker, often complaining about Dobermann's strict training techniques, Arleta is nevertheless a reliable operator with good morals.`,
+    profile: `Originally a patient, Catapult was accepted by Rhodes Island because she was found to be incredibly observant in examinations.\nAssigned to Op Reserve Team A6.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in her circulation, indicating signs of infection and confirming her as infected at this stage.\n\n[Cell-Originium Assimilation] 2%\nCrystallization is visible on body surface, with many symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.30u/L\nMid-stage infection but in stable condition. Regular observation and treatment required.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `She is a soldier in Op Reserve Team A6.\n\nThe problem child of A6, she loves to stick her nose where it doesn't belong and stir the pot.\n\nCatapult is a repeat offender who always gets into trouble and irritates Orchid in particular...`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `She didn't make a big mess in the last city she served.\n\nThe mayor didn't step down, no one suspended the construction of the dam, and the vaults she blew up only accounted for a fraction of the city's revenue.\n\nJust a matter of time before the consequences finally kick in.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Catapult actually enjoys hearing Orchid's critiques, and even deliberately makes her angry sometimes.\n\nBecause she knows Orchid means well, she makes trouble for her.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Catapult often avoids responsibility and work. It is hard to say if this is because she is simply rebellious, or something left over from her time in the military, or both.\n\nBut she is a good girl, otherwise she wouldn't have blown up the vaults. Although she wasn't happy with it, she did the best she could. In addition, since her time at Rhodes Island, she has never neglected her duty.\n\nIf one day Rhodes Island disappoints her, she just might blow something up and leave. Hopefully, that day never comes.`,
+      },
+    ],
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/catapult/base.png', chibiSrc: '/operators/catapult/chibi.webm', illustrator: 'm9nokuro' },
@@ -569,7 +712,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Lightweight', desc: 'DP Cost -1', elite: 'E1' }],
     skills: [{ name: 'Charge α', icon: '/operators/fang/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Instantly gain 6 DP', spInit: 6, sp: 25, rank: 'Rank 7' }],
     modules: {},
-    story: `Fang is a Kuranta Vanguard from Kazimierz and a dependable member of Op Reserve A1. She takes the lead on the battlefield, generating deployment points while holding the line with her solid blocking ability.`,
+    story: `A young Kazimierzian Kuranta raised in Columbia, Fang decided to follow many Kazimierzian immigrants and move to the country when she was 10 years old. Inspired by the Columbian Police Force's ideals of justice and equality, she later became a police cadet in Tkaronto who worked together with Kroos and Beagle, after the three of whom earned the highest grades in the Tkaronto Police Academy's history.\n\nWhen a Catastrophe titled "Blackwasp" hit the city, however, Fang and her friends risked their lives to save as many lives as possible in Tkaronto's Infected district —Plate #4, contracting Oripathy in the process. She then joined Rhodes Island together with her colleagues to escape discrimination as Infected within her police station and ultimately overcoming her grief for Plate #4's residents' deaths. In R.I., she is putting her police training and speed to good use as a vanguard and the leader of Op Reserve Team A1.`,
+    profile: `Captain of Op Reserve Team A1. She has prior experience working with a Columbian garrison, and has proven herself to be outstanding in combat. After joining Rhodes Island, she had no problem adjusting to her current work. She joined the Operation Planning Group with its original members, Beagle and Kroos, and has worked hard to become its leading Operator.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Fusion Rate] 7.4%\nShe presents no obvious external symptoms of Oripathy.\n[Blood Crystal Density] 0.2 u/L\nDegree of infection is minor and physical symptoms are not yet present.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Fang shows off a Kuranta's natural dominance in battle by always holding the most advantageous position at the critical moment. To strike a balance between power and control, Fang prefer to use a spear, which she applies with versatility in any situation. Fang acts impulsively and springs into action before others even finish talking.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Immigrants from many nations came to the outskirts of Columbia. Fang, Kroos, and Beagle all met there after moving from their respective homelands. After realizing their common goals, they joined the city guard and underwent basic training together. The humorless Fang, the gentle Beagle, and the laid-back Kroos possess wildly different personalities yet rely on one another for support.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Before an election day, a Catastrophe struck the outskirts of Columbia. In their efforts to aid others in escaping, all three Operators were infected with Oripathy. Fang suffered discrimination due to her condition and fell into deep despair. Kroos rallied the three of them and together they went to Rhodes Island.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `After arriving at Rhodes Island, Fang and her two companions as well as Hibiscus and Lava were all trained by Dobermann. The training was extraordinarily intense, and Kroos and Hibiscus seized every opportunity they could to goof off. Even Fang as their captain couldn't do anything to control them. Currently, Fang is training herself to be as intense and strict as her teacher, Dobermann. However, if the giddy expression on her face as she eats fruit is any indication, she's got a long way to go.`,
+      },
+    ],
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/fang/base.png', chibiSrc: '/operators/fang/chibi.webm', illustrator: '下野宏铭' },
@@ -591,7 +757,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Healing Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Healing Up α', icon: '/operators/hibiscus/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 30, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    story: `Hibiscus is a Sarkaz Medic from Victoria and the older sister of Operator Lava. She is dedicated to her medical duties within Op Reserve A1, providing reliable healing to keep the team alive through prolonged engagements.`,
+    story: `Born to a middle-class Londinium family and growing up in a multicultural neighborhood, Hibiscus is a Victorian Sarkaz girl with a heart of gold; Kind and hard-working, she likes to take care of the people around her, especially her younger twin sister Lava. The two joined Rhodes Island together to treat their growing Oripathy. Her humanitarian desire leads her to become a medic of the Op Reserve Team A1. But perhaps, she is more well known for preparing "healthy" diets that are really unacceptable to others, even including her sister. If one does not want to disappoint Hibiscus, one should eat her food.`,
+    profile: `Born in Londinium in Victoria, Hibiscus is the older twin sister of her fellow Operator, Lava. After contracting Oripathy, she came to Rhodes Island for treatment. While undergoing that treatment, she began to dream of helping others. Her passion for caring for others, as well as her hard work, have led Hibiscus to become a Rhodes Island Medic.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 7.4%\nShe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.2 u/L\nDegree of infection is minor and physical symptoms are not yet present.`,
+      },
+      {
+        title: 'Originium Arts Rating',
+        content: `Though she possess basic Originium Arts, Hibiscus prefers not to utilize her Originium power. Instead she prefers to use her medical skills in order to care for and treat the wounds of her allies. Given her talents in medicine, Hibiscus has become an outstanding Rhodes Island Medic Operator.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Born in Londinium, Hibiscus was popular among her neighbors as a child, and for good reason - she is considerate, hardworking, courteous, modest, and is good at taking care of people. Though it appears to outsiders that Lava does not like to deal with Hibiscus and that the two sisters don't share a strong relationship, Hibiscus knows the truth - that Lava just isn't very good at expressing those kinds of feelings.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `After the two sisters were infected with Oripathy, Hibiscus took Lava and left their parents to come to Rhodes Island. The determined Hibiscus decided to work hard for Rhodes Island for her sister, herself, her parents back home, and all the other infected.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Because of Lava's obstinance, Hibiscus has cultivated a tough attitude from the time they were little. "This food is good for you. You need to eat it every day!" "I threw all your snacks away because they're bad for you!" "It's 10:30. You need to go to bed!" From a bystanders' perspective, Lava seems to have a rough time dealing with her older sister.`,
+      },
+    ],
     classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/hibiscus/base.png', chibiSrc: '/operators/hibiscus/chibi.webm', illustrator: '下野宏铭' },
@@ -621,7 +810,34 @@ export const OPERATORS = ([
       modules: {
         original: { code: 'Original', name: "Hibiscus the Purifier's Badge", desc: 'Appointed as Medic Operator to exercise Incantation Medic responsibilities' },
       },
-      story: `After extensive training and fieldwork, Hibiscus has grown into a formidable Medic Operator whose Arts have evolved far beyond simple healing. As the Purifier, she wields Incantation Arts that simultaneously damage enemies and restore allies, embodying her unwavering dedication to both protecting her comrades and purging threats from the battlefield.\n\nHer growth mirrors her sister Lava's — both have shed their reserve operator roots to become forces to be reckoned with.`,
+      story: `Born to a middle-class Londinium family and growing up in a multicultural neighborhood, Hibiscus is a Victorian Sarkaz girl with a heart of gold; Kind and hard-working, she likes to take care of the people around her, especially her younger twin sister Lava. The two joined Rhodes Island together to treat their growing Oripathy. Her humanitarian desire leads her to become a medic of the Op Reserve Team A1. But perhaps, she is more well known for preparing "healthy" diets that are really unacceptable to others, even including her sister. If one does not want to disappoint Hibiscus, one should eat her food.`,
+      profile: `Following both systematic training in medical theory and long-term training in clinical practice, Hibiscus has graduated from intern doctor to formal Medic Operator, as well as one of the Medical Department's attending physicians. Hibiscus possesses not only ample experience in medical field work, but has made considerable contributions to health management and aftercare as a theoretical researcher.`,
+      records: [
+        {
+          title: 'Clinical Analysis',
+          content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 14%\nLarge abnormal shadows located about operator's thoracic cavity.\n[Blood Originium-Crystal Density] 0.30u/L\nCondition provisionally shows no signs of degradation.\n\n"Hibiscus is highly specialized in health management, and she's just as strict on herself as you'd expect. But even so, that battle left a grave impact on her, and the extent of her infection is no cause for optimism. Regular examinations will be needed."\n– Ansel`,
+        },
+        {
+          title: 'Archive File 1',
+          content: `We've all borne witness to the growth of the children emerging from Reserve Op Team A1, as a youthful influence and the next generation of Rhodes Island. But among them, the way Hibiscus has changed draws particular attention.\n\nWhile the maturation of her technique goes without saying, the old Hibiscus who made unyielding demands of everyone around her has "vanished," one could say, at some point. How long has it been since anyone's seen her making a grand scene of confiscating a patient's snacks and fiercely requiring them to follow her health schedule to the letter? These days, she need only gently advise them what would be best for their health, and they'll readily comply. We have reason to believe that in her heart lies a kind of innate power to have others warm up to her. She's simply picked up on a better way showing this side of herself to others.\n\nThe young pupil nipping at Operator Pith's heels, asking about this and that, day after day, is now a mentor herself, instructing even younger new interns. Without even realizing it, her work within the Medical Department has taken on a degree of professionalism, and you can often find her by hospital beds, patiently soothing patients who are panicked or afraid. It's something no one but her could accomplish... Time pushes us all onwards, never allowing us much of a look back on what we've lose to the past. But now and again, on seeing what's come of this baptism by time, the wisdom gained, how can we not be relieved?\n\nIf only everyone were still here for it.`,
+        },
+        {
+          title: 'Archive File 2',
+          content: `How long does it take to go from an intern lacking any fundamentals to an attending physician in charge of her own interns? Five years? Ten? To the majority who give up on it partway through, it's a goal that's out of reach for one's entire life.\n\nCertainly, many medical personnel aboard Rhodes Island are astounding in terms of professional ability and reserves of knowledge. But for them, finding the time to systematically teach students the vast swathes of modern medical theory is near-impossible. Under those circumstances, Hibiscus simply had to treat every practical as an opportunity to learn. She meticulously summed up her medical experience, earnestly took note of every bit of wisdom her seniors offered, seized nearly every free moment to pour through reference materials, and gradually digested it all until she finally attained a comprehensive mastery.\n\nHibiscus has an exceptional amount of experience in her chosen vocation of patient care, and her gentle personality and delicate mood allows her treatments to proceed without a hitch. Having acquired enough medical knowledge over the years, Hibiscus has been attempting to synthesize a systematic theory of healthcare based on her initial field of expertise, nutrition. The value of her current research results has been recognized even by Dr. Kal'tsit. Guided by her theories, Hibiscus has directed a gradual upgrade of the Medical Department's ward facilities. And judging by the recovery of the patients afterwards, these measures have shown clear results.\n\n"The idea of medical treatment isn't just to bring patients out of life-threatening situations. It's just as important that we provide ample care to the sick, keeping their bodies and minds healthy so they can fend off encroaching illness. It's long-term work, and requires plenty of patience, attention, and concern for your patients from the bottom of your heart."\nAn additional paragraph authored by Hibiscus, from a revision of the Rhodes Island Medical Department handbook.`,
+        },
+        {
+          title: 'Archive File 3',
+          content: `When Rhodes Island's Medic Operators are carrying out field missions, they typically have at least one Field Operator accompanying, so as to ensure the safety of medical personnel. We noted a fair degree of disconcerting information in reports from Field Operators who've worked alongside Hibiscus.\n\n"Mission got off to a rocky start. Local Infected was clearly cautious of, even hostile towards us..."\n\n"I was a hair from beating the hell out of him. What reined me in in the end wasn't Rhodes employee regulations, it was Dr. Hibiscus... I know he was Infected. I am too, so is Dr. Hibiscus. He was clearly aware she had saved his life. So how could he say those things to her... No conflict ultimately arose between us."\n\nThe above is an extract from one such Field Operator's mission report. However, similar notes appear in the reports of many other operators that work with Hibiscus. More concerning still is that all incidents of this nature go completely unmentioned in her own mission reports.\n\nHibiscus's consistent silence regarding this has worried more than us: Lava has also repeatedly asked that we pay closer mind to Hibiscus's physical and mental state.\n\n"She's not gonna say anything about it herself. But that doesn't mean it doesn't bother her... I want you to keep an eye on her for me. After all, she's just a dummy who acts like she can take care of herself. That's it. She just acts like it."\n\nRenouncing prejudice and hatred has always been the stance of Rhodes Island, but we cannot deny that such animosity for Infected and the Sarkaz objectively exists, all across the land. While shouldered with such a complex identity, and doing everything she can to fulfill her duties as a doctor, the source of hostility is more often than not the very one she's trying to help. Others can only imagine the pressure she must be bearing, truly empathizing is something else altogether. We very much hope that Hibiscus can open her heart to others. But until she herself seeks help, all we can do is continue to watch over her and give her a degree of choice when assigning missions.\n\nSo far, Hibiscus still has never refused a single field mission.`,
+        },
+        {
+          title: 'Archive File 4',
+          content: `Hibiscus often mentions the block of buildings where she used to live.\n\nBased on her descriptions, it was akin to a slum hidden in a corner of bustling Londinium. Many who lived there were of different races and nationalities. There were Feline workers local to Londinium, as well as traders from Sargon and Vouivre. Everyone came from different backgrounds, but their shared experience of "we have to do all we can before we can put down roots here" was enough to bring them together.\n\nAs Hibiscus paints a picture of the peace and harmony there, colored in nostalgia, we can't help but wonder–could such a neighborhood truly exist? Especially now, years on, with the chaos Londinium has been through, we fear that even if that block was once reality, it's long since been reduced to ruins.\n\nPerhaps she's seeing these things through rose-tinted glasses. Perhaps she was simply lucky, and this Sarkaz girl with no concept of prejudice found friendly faces in her first contact outside her household. Regardless, these earliest memories have become the simplest, yet staunchest grounds Hibiscus has for believing in goodwill. Upon these lands exist hatred and prejudice, but so too do love and kindness. As for which outnumbers which, it hardly seems a question at all to her. A lamp in the cold night may not be enough for warmth, but it can be what supports the conviction to keep going. By her own actions, the Hibiscus of today is passing down that lamp.\n\nShe may be far more resilient than we can imagine.`,
+        },
+        {
+          title: 'Promotion Record',
+          content: `"...On this mission, Operator Hibiscus displayed exceptional professionalism. She looked after Infected with every ounce of her heart, acted decisively at critical moments, and from an objective lens removed the danger of a large-scale infection in the Afterglow... In summary, based on Hibiscus's outstanding performance, I suggest that she be awarded a corresponding promotion."\n\n"But it's worth mentioning that during the mission, she often acted rashly without regard for her own safety. Though her intent was to better fulfil her duties as a doctor, we cannot condone such risky methods. Nobody requires that Rhodes Island's medical personnel place the safety of their patients ahead of their own; this cannot be considered a proper philosophy. We'd like Operator Hibiscus to make a habit of protecting herself from dangerous situations in the future."\n\n– Extract from Rhodes Island Afterglow Branch Officer-in-Charge Andante's mission report on the Vyseheim incident\n\n"Vyseheim's Afterglow is a very interesting place. The coffee and specialty snacks are absolutely scrumptious, and the people love to sing and dance, not to mention how welcoming they are. During my mission as a Medic, I received plenty of assistance from the locals... I miss it there very much."\n\n– Extract from Hibiscus's mission report on the Vyseheim incident`,
+        },
+      ],
       classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/incantation-medic-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/hibiscus/alter/base.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
@@ -644,7 +860,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Targeting - Primary', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 150%', elite: 'E1' }],
     skills: [{ name: 'Double Tap - Auto', icon: '/operators/kroos/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'The next attack shoots 2 in a row, dealing 140% of ATK in physical damage with each shot', spInit: 0, sp: 4, rank: 'Rank 7' }],
     modules: {},
-    story: `Kroos is a Cautus Sniper from Rim Billiton who always seems to have her eyes closed and a carefree smile. Beneath her relaxed demeanor lies excellent combat skill, and her double-tap crossbow technique packs a surprising punch.`,
+    story: `A Columbian Cautus of Rim Billitoner descent, Kroos was a police cadet in Tkaronto working together with Fang and Beagle. Following a Catastrophe titled "Blackwasp" that led to their Oripathy, Kroos joined Rhodes Island together with her colleagues to escape the discrimination towards the Infected. Assigned to Op Reserve A1, Kroos puts her police training to good use in the field as a sharpshooter, and her happy, upbeat, and fun-loving attitude is actually the way for her to cope with her Oripathy.\n\nAfter years of strenuous training, Kroos become a skilled markswoman on par with R.I.'s veteran sharpshooters. However, by then, Op Reserve A1 had been disbanded, Beagle was W.I.A. during an operation in Bolívar, while Fang was wounded following a friendly fire incident during an operation in Rim Billiton. Consequently, Kroos is no longer the cheerful and jovial Cautus we knew and love; she occasionally becomes somber and stern, and her depression makes it difficult for her to take a peaceful, quiet nap.`,
+    profile: `Originally from Rim Billiton. Kroos also received her training from the Columbian Garrison at Holmegard with Fang and Beagle. She is calm and constantly smiling as she maintains a gentle demeanor. However, she sometimes breaks her facade, revealing a sharp-tongued, ferocious side.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 8%\nShe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.23u/L\nDegree of infection is minor and physical symptoms are not yet present.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Kroos prefers to put in the absolute minimum effort in life and on the battlefield, which is reflective of her weapon of choice - a modern crossbow. Despite her lazy work ethic, Kroos has become a skilled marksman and assists her fellow Operators by flanking the enemy and shooting them in the rear with deadly precision.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Ever since she was a child, Kroos lacked initiative. But during training, she showed an exceptional talent for marksmanship. On the battlefield, she effortlessly locates ideal sniper nests and rains down a hail of precise and deadly fire while backed up by her teammates. Both Fang and Beagle trust Kroos with their lives and she is their support sniper of choice.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `While a member of the garrison, Kroos faced everything with a smile. Upon being infected with Oripathy and suffering discrimination, she had a complete change in mood. After angrily cursing out the other members of the garrison, she along with Fang and Beagle left the garrison for good. In order to find a way for the three of them to survive, Kroos searched far and wide before finally discovering their new home at Rhodes Island.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `The always smiling Kroos often leaves others with an affectionate impression but does so in order to avoid trouble. She enjoys finding quiet places to slack off and take naps. Although she is typically well-mannered and aloof, when something she cares about is on the line her persona shifts into a more ferocious persona. Even when she is talking, she occasionally displays hints of that ferocity. This facade works on Fang but not Beagle as Kroos cannot withstand her piercing gaze.`,
+      },
+    ],
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/kroos/base.png', chibiSrc: '/operators/kroos/chibi.webm', illustrator: '下野宏铭' },
@@ -680,7 +919,34 @@ export const OPERATORS = ([
           { stage: 3, hp: '+190', atk: '+31', effect: 'Bullseye improved: When attacking, has a 20% chance to deal 165% damage and Stun the target for 0.2 seconds' },
         ]},
       },
-      story: `Following extensive training and practical experience, Kroos has been smoothly promoted to formal Operator status, principally tasked with field missions. Under the guidance of Rhodes Island's Instructors and from tempering in the field, she has greatly matured, gaining her own insight into and views on firing techniques and concealing movements.\n\nNo longer is she Reserve Operator Kroos. After years of maturing, everyone can clearly see how Kroos has transformed. She still loves to play, laugh, and goof off — but get just a little closer, and next second you'll find yourself caught in her trap.\n\nThis, for her and her alone, is the price of maturity.`,
+      story: `A Columbian Cautus of Rim Billitoner descent, Kroos was a police cadet in Tkaronto working together with Fang and Beagle. Following a Catastrophe titled "Blackwasp" that led to their Oripathy, Kroos joined Rhodes Island together with her colleagues to escape the discrimination towards the Infected. Assigned to Op Reserve A1, Kroos puts her police training to good use in the field as a sharpshooter, and her happy, upbeat, and fun-loving attitude is actually the way for her to cope with her Oripathy.\n\nAfter years of strenuous training, Kroos become a skilled markswoman on par with R.I.'s veteran sharpshooters. However, by then, Op Reserve A1 had been disbanded, Beagle was W.I.A. during an operation in Bolívar, while Fang was wounded following a friendly fire incident during an operation in Rim Billiton. Consequently, Kroos is no longer the cheerful and jovial Cautus we knew and love; she occasionally becomes somber and stern, and her depression makes it difficult for her to take a peaceful, quiet nap.`,
+      profile: `Following extensive training and practical experience, Kroos has been smoothly promoted to formal Operator status, principally tasked with field missions. Under the guidance of Rhodes Island's Instructors and from tempering in the field, she has greatly matured, gaining her own insight into and views on firing techniques and concealing movements.`,
+      records: [
+        {
+          title: 'Clinical Analysis',
+          content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 10%\nVery fortunately, she continues to present no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.25u/L\nOripathy shows signs of spread, owing to her undertaking of long-term field assignments. Close attention needs to be paid.`,
+        },
+        {
+          title: 'Archive File 1',
+          content: `After years of maturing, everyone can clearly see how Kroos has transformed. Is she taller? For a fact. Is her hair longer? Sure is. Have her tastes shifted? Seeing how she dresses now, you'd be right. Apart from those changes though, she still seems to be the same Kroos we know and love. She loves to play, laugh, and goof off. However, if you ever see her curled up in some corner, napping, pay careful attention to whether she really is off-guard. The old her would lazily greet you as you approach, still half-asleep. Now? Get just a little closer, and next second you'll find yourself caught in her trap. Then she'll shoot to her feet, free you from it, and tell you in that same old tone that it was just a little prank. But after seeing her proficiency at disassembling her traps, and that her crossbow was specially refitted with a bayonet, we're sure you'll realize at least one thing.\n\nNo longer is she Reserve Operator Kroos.`,
+        },
+        {
+          title: 'Archive File 2',
+          content: `Excerpts from Kroos' trapping notes: On "Magic Tricks"\n\n"Marathon Alarms"\nThis is that prank Fang and the rest pulled to get me out of bed, but now I finally get to use it on others! Wish I could see the looks on their faces when they wake up from their nap to find a few extra alarm clocks~\nNotes: Not to be used bedside or on people in deep sleeps, they'll wake up grumpy.\n......\nPeople stuck in combat situations get very sensitive to sounds. That's how they become part of the trap themselves, one after another. Can completely numb the enemy's senses, or alert teammates that they're coming. But not all that practical, on account of all the alarm clocks you'd need. Switch out for appropriate substitute based on the battlefield.\n\n"Invisible Warning Tape"\nThere's a lot of fun to be had with a roll of clear sticky tape. Most classic's when you stick strips all across a doorframe and lead a good friend into it. Watching them get stuck or even trip really brings a smile to your face!\nNotes: Target must however be chosen with care, and watch the mood they're in. If it doesn't turn out funny, apologize straight away.\n......\nAt first I used tactical rope, but nowadays this purpose-developed tripwire has the edge in concealment, weight and price. Based on real combat testing, this see-through thread gets exactly the effect you want, and even marries well with other traps. Gives you a level of lethality from the materials alone, and can be wound in a pinch to work as tactical rope. Considering how all-purpose it is, I should apply for a reel with Logistics next time I'm out on the field. Majorly useful.\n\n"Hollow Cake"\nPreparing this one's a pain in the rear, but especially funny. Hollow out a hole in a cake, fill it with other stuff and then re-cover. Wait for everyone's looks when they come to eat the cake and find "something nice" inside.\nNotes: Some people don't have very good teeth, so make sure not to stuff anything too hard in.\n......\nYou're not just limited to food when you pull this one in practical combat. Kettles, cupboards, supplies. Just use your thinker, and the world's full of stuff to use against your enemies.\n\n"Me"\nMy mates have always loved showing up next to me from out of nowhere to scare me, which got me thinking: if I use myself to draw their attention, won't it be even harder for them to notice all the little shadows where I've tucked my pranks?\nNotes: People have all their focus on you when they scare you, so you'd best not make any moves and give it away.\n......\nWhat does the enemy most want to see? Me, of course. Me, hurt. Me, dead. The instructors said: "No hunter hunts forever." There'll always come a day when a Sniper Operator becomes someone else's prey. So why not... treat myself as bait, and give the other guy a "nice surprise?" Right, no hunter hunts forever, but there are some hunters who'll disguise themselves as the prey.`,
+        },
+        {
+          title: 'Archive File 3',
+          content: `After passing the examination and becoming a formal Operator, Kroos is now qualified to accept solo missions. Her treatment of assignments is painstakingly conscientious. She can delicately sort out all manner of conflicting views, and she's more than fluent in communicating with her employers. She's never had a contract broken or an assignment failed. When on field missions with other operators, she rigorously abides by schedules and even raises her own views, all to ensure the mission succeeds perfectly. When on break from field work, she remains aboard Rhodes Island, where she'll assist the instructors by sharing her combat experiences with the reserve operators. Or perhaps she'll take part in some recon and solo operation training, either way keeping her itinerary full. The Kroos of today is a cheerful, good-humored, and self-disciplining woman; she's discarded her bad habits, and strived to excel at what she does. You've long since known that Kroos was worth trusting, but now you can rest easy while she's on almost any assignment, because you know she'll never betray your confidence.\n\nThe facts have proven as much.`,
+        },
+        {
+          title: 'Archive File 4',
+          content: `At this point, how long has Kroos gone without rest?\n\nIt all depends on how you define "rest." If it means closing her eyes and sleeping, she isn't much different from back then. But if rest means unloading her burdens and falling deep in dreamland without a care in the world?\n\nIn that case, it's been a very long time now.\n\nBecause of her mistake.\n\nOr put another way– what she's fixated on as her mistake.\n\nIn Rim Billiton, when Reserve Op Team A1 still operated together, a bolt skewered the body of a squadmate, and it left its eternal scar on Kroos' spirit too.\n\nIf only she hadn't been nervous, if only her shot hadn't strayed, if only she'd kept tighter aim, none of it would've happened.\n\nThis is what she tells herself.\n\nAgain and again.\n\nOn the battlefield, everything changes in the blink of an eye, and she'd already done the best she could. Everyone told her that.\n\nBut, after seeing that scar in front of her, she still can't forgive herself.\n\nShe should've done better.\n\nShe has to do better.\n\n......\n\nEver since then, her sleep's become unusually light.\n\nShe confirms the rustle of every blade of grass, every sound on the pavement, one by one.\n\nShe's scared.\n\nScared of her own negligence, of allowing another crisis to befall a comrade.\n\nShe's long since been unable to sleep soundly, even aboard Rhodes Island.\n\nAnd the reward she most hopes for at the end of a hard day's work has changed too, from a neverending dream, to a simple breather on a bench.\n\nThis, for her and her alone,\nis the price of maturity.`,
+        },
+        {
+          title: 'Promotion Record',
+          content: `Rhodes Island Workshop Armament Remodel Record\nClient Operator: Kroos\nClient Armament: Rhodes Island Standardized Crossbow\n\nRemodeling Entry 1\nDetails of remodeling: personalization adjustments\nResults of remodeling: added trinketry in every known color\nReason for remodeling: personal operator preference\n\nRemodeling Entry 2\nDetails of remodeling: sights\nResults of remodeling: removed optical sights, switched for iron sights\nReason for remodeling: personal operator use habit, (speculation) optical possibly obstructing field of view\n\nRemodeling Entry 3\nDetails of remodeling: personalization adjustments\nResults of remodeling: removed trinketry, added new trinketry onto crossbow body, used high friction material by operator request\nReason for remodeling: (speculation) personal operator preference changed\n\nRemodeling Entry 4\nDetails of remodeling: whole body\nResults of remodeling: used newest materials to increase strength of entire crossbow, improved load method, further boosting operator rate of rapid-fire\nReason for remodeling: operator proposed adjustments based on near-future fieldwork and change in style of weapon use\n\nRemodeling Entry 5\nDetails of remodeling: foregrip attachment\nResults of remodeling: installed bayonet on foregrip\nReason for remodeling: unclear, (speculation) for extreme cases where sniper operator has close combat needs`,
+        },
+      ],
       classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/kroos/alter/base.png', chibiSrc: '/operators/kroos/alter/chibi.webm', illustrator: 'm9nokuro' },
@@ -704,7 +970,26 @@ export const OPERATORS = ([
     talents: [{ name: 'Quick Skill Usage', desc: 'Immediately obtains 30 Skill Points after deployment', elite: 'E1' }],
     skills: [{ name: 'Tactical Chant α', icon: '/operators/lava/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ASPD +50', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    story: `Lava is a Sarkaz Caster from Victoria and the younger sister of Operator Hibiscus. Her fiery temper matches her Arts, which deal devastating area-of-effect damage. She gains skill points on deployment, letting her cast quickly.`,
+    story: `The younger twin sister of Hibiscus, the Victorian Sarkaz Lava grew up in the same middle-class family in Londinium. While sharing the same sense of compassion as her sister, Lava takes things to her own way as she firmly believes in acting against injustice rather than standing still, a mindset influenced by her time helping her poor and orphaned neighbors back in Londinium.\n\nLava and Hibiscus joined Rhodes Island together to treat their Oripathy. In Lava's case she quickly mastered spacial Originium Arts which she utilizes offensively in the battlefield as part of Op Reserve A1. At the same time, she seems to have a chūnibyō behaviour that eventually led her production of a concept B-movie written together with Nian where she acted as the protagonist.\n\nThe aforementioned movie would eventually inspire Lava's further development upon reaching maturity over the years of her service in Rhodes Island; thanks to the intense training under Pith's guidance and the morale support from Hibiscus, she could now unleash her hidden, outstanding potential in Originium Arts. Adopting the outfit she wore in the movie and utilizing "revolutionary" fire-based Arts, Lava is no longer the same as she were used to be; she is now a formidable caster operative that is on par with R.I.'s other veteran casters.`,
+    profile: `Born in Londinium in Victoria, Lava is the younger twin sister of her fellow Operator, Hibiscus. After contracting Oripathy, she came to Rhodes Island for treatment. She found the idea of saving lives appealing, and so volunteered for training.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 9.4%\nShe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.25 u/L\nDegree of infection is minor and has not had any physical impact.`,
+      },
+      {
+        title: 'Originium Arts Rating',
+        content: `Under the guidance of her Originium Arts instructor, Lava learned how to control basic Arts in less than a month despite never touching Originium before. Her methods are still rudimentary, and at present she can still only use simple flame conversions, but her stability and learning speed are astounding. If she trains for a long period of time, she may be able to reach a very high level.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Unlike other stray children hiding in dark alleys, Lava was born into a relatively normal middle-class Victorian family. Lava believes that one must personally put in effort to help others, rather than stand at a distance. When she was young, she enjoyed working with the poor and the orphaned. She was very aware how much pain they suffered, which planted in her heart the seeds of compassion and justice.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Lava is tough and ignores the advice of others when she moves into action. In fact, she is gentle and childlike at heart but prefers not to admit it to herself. Whenever anyone brings this up, she immediately changes the subject and tries to play it cool.`,
+      },
+    ],
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png', factionIcon: '/icons/factions/op-reserve-a1.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/lava/base.png', chibiSrc: '/operators/lava/chibi.webm', illustrator: '下野宏铭' },
@@ -739,7 +1024,34 @@ export const OPERATORS = ([
           { stage: 3, hp: '+165', atk: '+62', effect: 'Spell Formation improved: Immediately obtains 35 SP after the first deployment' },
         ]},
       },
-      story: `After parting ways with Reserve Op Team A1, Lava traveled the world honing her Originium Arts. Her fiery temper found focus in combat, and her devastating area attacks earned her the title "the Purgatory."\n\nWith her Arts immensely stronger since when she was fresh aboard Rhodes Island, Lava now skillfully creates space with outstanding Originium Arts. She taught Arts to slum children, forged daggers for the curious, and slowly changed things her own way.\n\n"Less regrets this way," she laughed.`,
+      story: `The younger twin sister of Hibiscus, the Victorian Sarkaz Lava grew up in the same middle-class family in Londinium. While sharing the same sense of compassion as her sister, Lava takes things to her own way as she firmly believes in acting against injustice rather than standing still, a mindset influenced by her time helping her poor and orphaned neighbors back in Londinium.\n\nLava and Hibiscus joined Rhodes Island together to treat their Oripathy. In Lava's case she quickly mastered spacial Originium Arts which she utilizes offensively in the battlefield as part of Op Reserve A1. At the same time, she seems to have a chūnibyō behaviour that eventually led her production of a concept B-movie written together with Nian where she acted as the protagonist.\n\nThe aforementioned movie would eventually inspire Lava's further development upon reaching maturity over the years of her service in Rhodes Island; thanks to the intense training under Pith's guidance and the morale support from Hibiscus, she could now unleash her hidden, outstanding potential in Originium Arts. Adopting the outfit she wore in the movie and utilizing "revolutionary" fire-based Arts, Lava is no longer the same as she were used to be; she is now a formidable caster operative that is on par with R.I.'s other veteran casters.`,
+      profile: `Born in Londinium, Victoria, Lava is the younger twin sister of her fellow Operator, Hibiscus. It has been a few years since she contracted Oripathy and came to Rhodes Island for treatment. She has remained ever diligent during her time in Rhodes Island and never wasted even a moment in her quest to hone her Originium Arts prowess.`,
+      records: [
+        {
+          title: 'Clinical Analysis',
+          content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 12%\nMild crystallization visible on her left arm.\n[Blood Originium-Crystal Density] 0.28u/L\nThe extended, high-intensity training; high-risk Originium Arts research; and the frequent field operations that Purgatory has taken part in have naturally taken their toll on her condition. Thanks to the meticulous care of her instructor, Pith, and Medic Operator Hibiscus, Purgatory's condition, though deteriorating, is still kept at manageable levels.`,
+        },
+        {
+          title: 'Archive File 1',
+          content: `Ever since our Originium Arts instructors took note of Lava's unparalleled talent for Arts, the instructors have formulated a full-fledged curriculum to allow Lava to master her Originium Arts more efficiently and systematically. The results were remarkable, and Lava herself has also become obsessed with her studies in Originium Arts and being able to put them into actual use, to the point that she neglects rest during her own free time. She has had the opportunity to study under the tutelage of many of our casters, including some particularly exceptional elite operators. This has been a source of pride to Lava, and it has given her all the more reason to spend time to improve her skills.\n\nLava has slowly come to realize that there is much more to Originium Arts than the physical damage you inflict on the surface; and they go much deeper than damage alone. Originium Arts is an academic discipline that is constantly being studied by casters, be it the research of the myriad of Arts there is or their origins. Operator Lava is particularly talented in this field of study, and she sought to seek out the truth and the meaning of this power by taking on the calamities that plague our world herself. During her pursuit and her participation of the neutralization of those countless crises, she slowly discovered her destiny, hidden behind the tragedies of Oripathy and war, and she is trying to take control of it.`,
+        },
+        {
+          title: 'Archive File 2',
+          content: `Although she may seem to be a rebellious young woman, ignorant of world affairs, Operator Lava is actually very scrupulous. She empathizes with society's underdogs and the insignificant yet most important wishes they have, and she takes it upon herself to help them. As she becomes more powerful, the responsibility she shoulders also becomes greater – This is not limited to the missions that she must complete as a Rhodes Island operator, but also what she asks from herself, her refusal to turn her back on those in need, and her strong desire to correct society's injustices. As Lava was raised in a normal family, poverty and unfairness were never on Lava's mind, yet after she started to live on her own, as a Sarkaz and an Infected, Lava gradually came to be aware of the immense, uncalled-for hatred that society has toward the "oppressed."\n\nBecause there are limits to her power, there are bound to be those who seek her aid that she cannot save. Because of her status as a Sarkaz and an Infected, she will always be antagonized by certain intolerant strangers. In her pursuit of justice, Lava has gradually come to understand that the "right way" she has read in books is nothing like the reality she faces. Having gone through so many incidents during her time at Rhodes Island, she has slowly come to understand its ideals, even choosing to firmly stand on its side. This is a choice that she has made herself – Rhodes Island showed her the way, and she has long become an inseparable member as she continued to grow. In the future, she will undoubtedly be an important key to Rhodes Island's growth and leadership.`,
+        },
+        {
+          title: 'Archive File 3',
+          content: `Just as Operator Lava's power continued to improve, so too did her combat equipment. Along with the gradual improvement in its performance, the appearance of her combat uniform is one of the aspects that she pays the most attention to. As can be seen in her language and the way she interacts with others, Lava has become much more mature and approachable. Perhaps this is why she's become somewhat apprehensive about revealing her interests.\n\n"What's that? You're kidding! Lava spent her pay on tweaking her combat outfit again? She always spends her allowance on weird stuff like this, but I really just don't see the difference. Well... Now that you mention it, compared to when she just started out, her outfit's changed quite a bit. She changes it little by little, though. How is anyone supposed to notice?! Last time, she got so mad just because of this, saying I didn't care about her as a sister. That I forced all those healthy meals on her, but I never paid attention to her hairstyle and how she changes her outfit... Sheesh, of course I care about her. I care about her so much, I know what kinds of food she eats, how many times she goes to the bathroom, and when exactly she goes to bed and wakes up each and every day," said Operator Hibiscus, her arms confidently crossed as she unwittingly confessed to abusing her privileges to our record keeping personnel.\n\n"That 'costume?' Eh, that's no costume in the first place, and I definitely didn't make her wear it. That's just what girls like to do. We want to know if anyone notices what's changed about us. That's why she went through all that trouble putting that movie together all while not leaving even a trace. She wanted to show all that off to everyone. It turned out okay. Everyone seemed to like the way she looked. That's why she keeps all those outfits and works on her hair, adding new elements she comes up with bit by bit. Don't you think Lava was boring when she spent all her time picking up those simple Arts tricks? Hobbies like this are what make girls cute," quipped a certain laid-back operator as she waved her fan around, joining in on the message's recording on her own accord.`,
+        },
+        {
+          title: 'Archive File 4',
+          content: `Having demonstrated her prowess in our evaluations, Lava left Reserve Op Team A1 she was assigned to after she became a full-fledged member. To Lava, her time as an on-the-job trainee is irreplaceable. She had a group of kind and caring partners she could open her heart to; the effect this has had on her growth is simply beyond measure. Her relationship with Hibiscus has also finally been repaired, and the two sisters have learned to tolerate and understand each other. What a great ending.\n\n"What do you mean, 'what a great ending?' Do you know how what she did right after I 'compromised' with her? Healthy meals, healthy meals, and healthy meals! Not only that, she even gets in the way of my training and makes me go to bed before it's even dark out so to keep me from pulling all-nighters! Hmph, I'm not gonna let her push me around anymore. We get along better than we used to, but I'm not gonna spend any more than time her than I have to."\n\nAhem... After that, Lava began to take part in operations of greater importance, becoming a powerful and dependable Caster.\n\nWe must take care to not underestimate the dangers and ploys that may harm us as we battle the many injustices in our world. This applies not only to Lava, but also Rhodes Island as a whole. Both have faced many seemingly unsurmountable dangers, and often sacrifices had to be made. During the ■■■■ Incident—\n\n[Log Partially Missing]\n\n—Having worked together for so long, this was undoubtedly the most difficult part of the whole incident to those teammates. After the ■■■■ Incident, it was as though Lava became a mature, full-grown adult in the span of a night, having learned to remain calm when it's time to part ways and to treasure the moments when we meet.\n\nI just wish that... the children who grew up in such difficulties and hardships would know how to cherish their own lives after they come to understand the pain of loss.\n\n[Addendum 1]\nPermission has not been granted to access information on related incidents.\n\n[Addendum 2]\nOut of respect for the wishes of the parties involved, access to certain information pertaining to the operator and the pertinent incidents has been restricted.\n\n[Addendum 3]\nCurrently, Operator Lava's psychological condition remains mostly stable.`,
+        },
+        {
+          title: 'Promotion Record',
+          content: `As with all Rhodes Island operators, Lava is required to regularly undergo psychological evaluations and counseling. One point worthy of note is that Lava's mental health values are not particularly stable. After she finds herself involved in sudden, unexpected major incidents, Operator Lava always comes out demonstrating a stronger resolve and determination. In contrast, her mental health also deteriorates by a demonstrable degree. The value she sees in her own life decreases after each incident, just as the sacrificing herself to protect others becomes more and more of a viable strategy to her. The braver and stronger she gets, the higher the price she has to pay for her power.\n\nThis has been a source of concern to Medical Operator Hibiscus, who frequently misuses her permissions to retrieve the relevant data.`,
+        },
+      ],
       classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/lava/alter/base.png', chibiSrc: '/operators/lava/alter/chibi.webm', illustrator: 'Skade' },
@@ -763,7 +1075,30 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/melantha/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    story: `Melantha is a Feline Guard from Victoria who serves in Op Reserve A4. She possesses outstanding attack power for a 3-star operator and excels at assassinating high-value targets with her blade.`,
+    story: `Melantha is a young Feline from an upper-class family in Victoria, her family's background led to her involvement with spices at a very young age, often assisting her parents in developing new aromatherapy products. She was an intelligent but frail girl with a penchant for arts and literature until she was struck by Oripathy. She came to Rhodes Island for treatment and is now the captain of Op Reserve A4. Although shy and withdrawn, she has a good grasp of how her teammates in A4 behave and how to deal with them, making her an attentive and efficient leader.`,
+    profile: `Melantha is the captain of Reserve Op Team A4 and a citizen of Victoria. Before she took up her current post, she was a typical jobless Infected. After an exceptional performance on her tests, she received an offer to join Rhodes Island.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 2%\nSubject is mildly infected. There is a lesion upon the subject's left shoulder, though the infection has largely been contained and is in stable condition.\n[Blood Originium-Crystal Density] 0.25u/L\nResults of internal circulation tests have been positive. Strength training is recommended as part of the course of treatment.\n\n"Melantha is still growing and needs to eat food high in nutrients."\n– Medic Team Intern Hibiscus`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Melantha was born in Londinium, the capital of the Kingdom of Victoria. Her father is a trader engaged in the bulk spice trade. He runs several spice mills of his own. Her mother is the head of the family's aromatherapy flagship store in the heart of Londinium.\n\nFollowing in the footsteps of her parents, Melantha got involved in spices at a very young age, often assisting them in developing new aromatherapy productions. Melantha's experiences have been heavily influenced by her parents.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Melantha was a student of the Wessex Private Middle School when she was young. She received exceptional marks in all her classes, but because she was soft spoken and lacked communication skills, she was never the center of attention or very popular.\n\nHer lack of friends remains due to her unwillingness to change her personality. With her parents' help, she immersed herself into upper-class academic activities, including art, literature, and poetry. In traditional Victorian society, the arts are an important part of a woman's formal education.\n\nIn addition, in order to strengthen her weak constitution, Melantha's parents arranged for her to study swordsmanship and other popular upper-class sports.\n\nAfter the Infected crisis broke out, Melantha was herself Infected. Her parents arranged for her to receive treatment from Rhodes Island Pharmaceutical's. And before long, she was on the way to the company for treatment.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Melantha has a close relationship with all the other members of Op Reserve Team A4. Introverted by nature, she initially worried about whether she would be able to serve well in her role as Op Reserve Team A4's captain, but with the help of her companions on the team, she broke through her inner obstacles.\n\nThe lively and cheerful Cardigan is her inseparable friend. In both life and on the battlefield, they maintain a strong and complementary relationship.\n\nMelantha also has great respect for the mature and dependable Operator Steward. She feels both guilty and grateful to Ansel, who is in charge of maintaining her health records as well as providing her with daily treatment. Finally, Adnachiel is the Operator that Melantha understands the least. Since the beginning, she has struggled to figure out what this kid from Laterano might be thinking. Nevertheless, Adnachiel hasn't caused any problems in battle.\n\nDuring her tenure as captain, her subordinates have all spoken highly of her attentive and careful nature. Her serious and disciplined qualities have enabled her to complete all the missions Rhodes Island has entrusted to her.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `So far, both existing archives and the observations of her fellow Operators have failed to grasp just what kind of swordsmanship Melantha employs. This is one of Melantha's few mysteries.\n\nJudging from test records and daily battle videos, her swordsmanship appears to have originated from the Victorian traditional duelist's style, but at some point during her training, she must have picked up some heavy influences from Eastern sword arts.\n\nMelantha's weapon can also be looked at as a kind of circumstantial evidence for this. She uses an exceptionally fine yet extremely sharp straight sword. Current data makes clear that this weapon is only used in Yan and some parts of the Far East.\n\nMelantha's swordsmanship is agile and her skills are outstanding. In terms of combat techniques, Melantha is skilled in tactical assault. Even without support, she can rely upon her mobility to move about the battlefield and hide when necessary.\n\nOn the other hand, Melantha lacks the ability for effective direct confrontation and she displays certain deficiencies in stability during high-intensity operations.\n\nUp until now, Melantha has trained under the guidance of Franka.`,
+      },
+    ],
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/dreadnought-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/melantha/base.png', chibiSrc: '/operators/melantha/chibi.webm', illustrator: '一立里子' },
@@ -785,7 +1120,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Targeting - Primary', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 150%', elite: 'E1' }],
     skills: [{ name: 'Enchant Weapon α', icon: '/operators/midnight/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +35%; Damage dealt by Normal Attacks turn into Arts Damage', spInit: 30, sp: 70, rank: 'Rank 7', dur: '40s' }],
     modules: {},
-    story: `Midnight is a Sarkaz Guard from the Far East who joined Op Reserve A6. Despite having no prior combat experience, his swordsmanship is surprisingly refined. His skill enchants his blade to deal Arts damage, bypassing enemy armor.`,
+    story: `A former Sarkaz host from Higashi, Yoru used to be very popular among the ladies — as a host — back in the day, earning him monikers like "the Demon King of Higashi". After contracting Oripathy thanks to a jealous rival host's machinations, he left the nightlife and went to Rhodes Island for treatment, eventually becoming a combat operator. As a member of Op Reserve A6 under the codename "Midnight", Yoru has proved himself to be a surprisingly competent combatant through his impressive swordsmanship skills. Amusingly, Yoru's charm has little effect on his fellow R.I. operators, especially not his team captain Orchid. However, despite his outward suave and laid-back attitude, he genuinely cares for others more than he lets on. His mother has been asking him to return home and visit his sick father, despite his father saying otherwise.`,
+    profile: `Initially a patient at Rhodes Island, volunteered to become an Operator. He was assigned to Op Reserve Team A6 after completing his examination battery.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in his circulation, indicating signs of infection and confirming him as infected at this stage.\n\n[Cell-Originium Assimilation] 8%\nMedical readings indicate subject has many symptoms of Oripathy. Oddly, subject has no visible crystallization on body.\n[Blood Originium-Crystal Density] 0.30u/L\nInfection is spreading at a constant rate. Regular observation and treatment mandatory.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `A former host now assigned to Op Reserve Team A6.\n\nMidnight was the most popular producer at a prominent host club in the Far East. He broke earnings record several years in a row, and was known as the Devil of the Eastern Night.\n\nHe tends to speak boldly, even claiming he's here as God's gift to women.\n\nWhile he has never caused any real problems, he is still often a headache.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Midnight doesn't know how he got infected. According to his own words, he was very quick to retire after his diagnosis.\n\nAfter retiring, he found Rhodes Island through prior connections and came for treatment.\n\nThen, after being in the program for a while, he made a peculiar request: He wanted work at Rhodes Island.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Midnight finally became a member of A6.\n\nAt first, even in eccentric A6, Midnight was widely considered the most difficult person to get along with. But after a while, everyone realized he was actually kind and hardworking.\n\nEven then, there are still many people, such as Orchid, who can't handle his wild boasts.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `When Midnight cares about someone, he gives his whole heart, but that means only a few people can reciprocate on the same level.\n\nSince everyone is used to his hard work, they don't notice his exhaustion, which he wouldn't want them to notice, anyway. But it would be best for someone to check up on him once in a while.`,
+      },
+    ],
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/lord-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/midnight/base.png', chibiSrc: '/operators/midnight/chibi.webm', illustrator: '竜崎いち' },
@@ -807,7 +1165,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Casting Speed Up', desc: 'ASPD +9', elite: 'E1' }],
     skills: [{ name: 'Swift Strike α', icon: '/operators/orchid/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +25%; ASPD +25', spInit: 0, sp: 45, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    story: `Orchid is a Liberi Supporter from Columbia who joined Op Reserve A6. A former office worker, she uses her Originium Arts to slow enemies on the battlefield. She insists every second of her work time be properly recorded.`,
+    story: `Orchid once worked as an editor for a Columbian fashion magazine before her sudden infection. As a matter of fact, she always wears an elaborate and expensive designer outfit despite being a field operative. She originally joined Rhodes Island as a desk worker, but now Orchid acts as the captain of Reserve Op Team A6 where she provides battlefield support to others with her Originium Arts. She has the reputation of being the "nagging mother" of her team since Orchid has to deal with her teammates' eccentricities all the time.`,
+    profile: `Former editor of a Columbian fashion magazine, Orchid began treatment at Rhodes Island following Oripathy. She expressed her desire to become an Operator, passed the examination battery and was assigned to Reserve Op Team A6 as the squad leader. She manages the team and provides support with her Arts in combat.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in her circulation, indicating signs of infection and confirming her as infected at this stage.\n\n[Cell-Originium Assimilation] 6%\nInfection is expected to spread given the current course. Regular observation and management required.\n[Blood Originium-Crystal Density] 0.23 u/L\nOperator Orchid displays conspicuous symptoms, but has cooperated with the treatment plan and has minimized the spread of the infection.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Captain of Reserve Op Team A6, yearning to return to a normal life.\n\nHaving previously been an office worker, Orchid is one of the most "ordinary" Rhodes Islanders, but finds herself constantly troubled by the more colorful characters on her team. Her title might be captain, but she's more like the squad nanny.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `The former fashion magazine editor still has a nose for the trendy. She never bandwagons onto a fad, preferring to keep to her own vision. The way she dresses usually sets the style for the season at Rhodes Island.\n\nMore importantly, she knows all the tricks to cover up all the superficial symptoms of Oripathy, keeping the Infected looking the same as they ever did, and even bringing out their individual charms--just as she did for herself. She has been a godsend to many Oripathy sufferers, especially the ladies.\n\nAs such, Miss Orchid has become an icon to some of the girls on the island.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `A modern city girl like Orchid would have never volunteered herself for a highly dangerous job like that of an Operator.\n\nBut treatment at Rhodes Island isn't free (though there are discounts and payment plans), and she did lose her job. Ultimately, after a battery of exams, she decided to accept the position.\n\nOf course, if she knew she was to lead the freaks on A6, she probably would have had second thoughts.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `But when all is said and done, Orchid knows better than anyone that even though A6 is a freak show, they all have their hearts in the right place.\n\nHer egotistical but sincere Midnight, her deadly but well-meaning Popukar, her icy but caring Spot, and... then there's Catapult... Right, let's not talk about her. In any case, Orchid treasures her squadmates.`,
+      },
+    ],
     classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/decel-binder-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/orchid/base.png', chibiSrc: '/operators/orchid/chibi.webm', illustrator: 'Skade' },
@@ -829,7 +1210,26 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Swift Strike α', icon: '/operators/plume/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +25%; ASPD +25', spInit: 0, sp: 45, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    story: `Plume is a Liberi Vanguard and a guard from Laterano who always maintains a serious expression. She earns DP by defeating enemies and can be retreated for a full DP refund, making her an efficient early-game assassin.`,
+    story: `Leia the Lateran Liberi was once a heroic and grateful soldier of the Pontifica Cohors Lateran. However, an Oripathy-related incident surrounding her coworker Backfire forced her to disobey her seniors, which led to her termination from the Pontifica. Leia has since enlisted herself to Rhodes Island in exchange for Backfire's treatment under the codename "Plume" as a security guard as well as one of the Doctor's personal bodyguards.`,
+    profile: `Plume is a Liberi from Laterano, and former member of the Laterano Guard who bumbled her way out of Laterano and into Rhodes Island. She performs security, inspection, and loss prevention duties.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging tests on this Operator show clear outlines of internal organs, with no abnormal dark spots or shadows. No unusual traces of Originium particles present in the circulatory system, no signs of infection, confirming this operator as uninfected.\n\n[Cell-Originium Assimilation] 0%\nNo Oripathy.\n[Blood Originium-Crystal Density] 0.09 u/L\nSubject is rarely exposed to Originium.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Any Liberi wanting to join the Laterano Guard needs to learn the art of the standard battle axe.\n\nPlume has speed but lacks strength, so swinging an axe was a challenge for her.\n\nWhen she joined the Defense Squad, she tried to build up her strength with regular training. Unfortunately, these exercises didn't make her strong enough for the hefty battle-axe tactics demanded of her. Not only did she fail to earn good marks in her training, she made many high-profile mistakes in her practical lessons, such as mishandling her weapon and destroying public property.\n\nPlume did not let these setbacks get to her. She calmly analyzed her performance to find out where she went wrong. After seeking guidance from other members of the Guard, she took their advice and started doing exercises focused on battle axe technique and attack speed.\n\nAfter abandoning the brute force route and focusing on technique, Plume worked hard to create a simple but effective battle style. She darts swiftly around the battlefield, launching quick offensive strikes, downing her targets just as quickly.\n\nAlthough she is not strong enough for head-on assault missions, Plume can fulfill all the basic duties of an Operator. Whether on offense or defense, Plume can hold her own, all while keeping high spirits and a strong will.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Plume has no life outside of work. It may be that she is still adjusting to life at Rhodes Island. Either way, she is working hard to reconcile herself as both a Laterano guard and a Rhodes Islander.\n\nIn the former role, she is serious, determined, loyal, and proud. With no distinction between her work and private lives. She could even see her work as a form of entertainment.\n\nBut after joining Rhodes Island, she began to see the appeal of having a life outside of work.\n\nAccording to Plume, Rhodes Island doesn't have some aloof aristocracy she needs to put her life on the line to protect (though she believes such people don't actually need protection), and life is not as regimented and ritualized as she is used to. Diverse individuals with all personality types can fill the halls, and there's no distinguishing rank among them. Everyone has their own lifestyle--this has had a tremendous impact on her.\n\nPlume tried to maintain her Laterano Guard ways of thinking, but her sharp eye is dazzled by all of the colorful characters around her. She has been unable to ignore this diversity.\n\nIn fact, Plume has said she is considering changing her image. We see this sort of thing whenever a new Operator is starting to integrate themselves into Rhodes Island life.\n\nPerhaps she could start by smiling more?`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `But why did Plume leave Laterano for Rhodes Island?\n\nShe has never explained why, saying only that she "is not authorized to disclose that information for the time being."\n\nParticularly right before and right after the incident, it seemed she was still involved with two senior Operators who had left Laterano.\n\nAt present, only part of the eyewitness testimony has been provided by those who were working that day. It seems she was dragged along by the two Laterano staffers, and it was purely coincidental.\n\nShe might not have known where she was.\n\nPlume may be acting out of caution or convenience, but no one knows the details of the situation. Her reason for leaving Laterano remains unclear, and no one knows where Laterano stands regarding her story, either.\n\nSometimes she will stand stiffly by the edge of the bridge of Rhodes Island and look out anxiously in Laterano's direction.`,
+      },
+    ],
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/charger-branch.png', factionIcon: '/icons/factions/laterano.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/plume/base.png', chibiSrc: '/operators/plume/chibi.webm', illustrator: 'deel' },
@@ -851,7 +1251,30 @@ export const OPERATORS = ([
     talents: [{ name: 'HP Up', desc: 'Max HP +6%; ATK +6%', elite: 'E1' }],
     skills: [{ name: 'ATK Up α', icon: '/operators/popukar/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%', spInit: 0, sp: 40, rank: 'Rank 7', dur: '20s' }],
     modules: {},
-    story: `Popukar is a young Cautus Guard from Rim Billiton who wields a chainsaw nearly as big as herself. She is a good girl when calm, but terrifyingly effective when she loses control. Her attacks hit all blocked enemies simultaneously.`,
+    story: `The youngest in Reserve Team A6 with tremendous destructive capabilities thanks to her chainsaw. The young Rim Billitonian could have had a good childhood, but she was sold by her parents to a lumber factory and had been working there without education or even safety precautions. She met Kal'tsit who personally brought her to Rhodes Island for treatment, which Ansel noted to be the first time he saw Kal'tsit visibly upset. Popukar became a member of Op Reserve A6 despite having failed her operator exam. Although she seems like a well-behaved child, Popukar can go berserk and exhibit destructive behavior, to the point that she could overpower the adults.`,
+    profile: `Initially a patient at Rhodes Island, Popukar requested and passed the trial to become an Operator for Rhodes Island. She was assigned to Op Reserve Team A6.\nShe possesses tremendous destructive power, becoming the team's heavy.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in her circulation, indicating signs of infection and confirming her as infected at this stage.\n\n[Cell-Originium Assimilation] 3%\nCrystallization visible on surface of body, with many symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.2u/L\nSubject is currently stabilized, but regular observation and treatment are required.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `A member of Op Reserve Team A6. Although not capable of complex reasoning, her infection bestowed on her an ability that made her a suitable Operator.\n\nThe source of a lot of problems for Team A6, most of these are unintentional. Because of her sincerity, she is also the easiest to forgive.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Unlike most other members, Popukar was taken in by Dr. Kal'tsit personally.\n\nDr. Kal'tsit did not explain why she made this choice, only saying Popukar would stay on as a full-time member of Rhodes Island.\n\nHowever, Dr. Ansel said that was the first time he had ever seen Dr. Kal'tsit visibly upset.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Although Popukar failed her Operator exam, she was allowed to work in logistics, rather than being cast out.\n\nAnd as it is so rare for an infection to make a patient stronger, even rarer to the extent of Popukar's infection, she is a very valuable case study.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Popukar has gradually become one of the mascots of Rhodes Island. After all, no one could hate such an energetic little cutie — even if she occasionally engages in "minor" vandalism.\n\nMoreover, since joining A6, she has a much bigger family. Their shenanigans are just part of the Rhodes Island color nowadays.`,
+      },
+    ],
     classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/centurion-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/popukar/base.png', chibiSrc: '/operators/popukar/chibi.webm', illustrator: '下野宏铭' },
@@ -873,7 +1296,30 @@ export const OPERATORS = ([
     talents: [{ name: 'Smoke Installation', desc: 'Heals an ally and then provides 20% Physical Dodge for 3 seconds', elite: 'E1' }],
     skills: [{ name: 'Secondary Healing Mode', icon: '/operators/spot/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +45%; Stops attacking and focuses on healing surrounding allies', spInit: 25, sp: 40, rank: 'Rank 7', dur: '25s' }],
     modules: {},
-    story: `Spot is a Rebbah Defender from Sargon who joined Op Reserve A6. He appears polite and gentle until he opens his mouth. As a Guardian Defender, he can switch to healing nearby allies, providing both defense and support.`,
+    story: `Bukar Bornu was previously a member of a stoic Sargonian military family, with his father being a strict and unforgiving general. Bornu deserted his squad during a sudden ambush after he became unable to bear his superior's criticisms of his lax character, and his father punishing him for his love of reading comics. He contracted Oripathy after escaping into the wilderness, and after joining Rhodes Island to treat his illness, Bornu has since become a member of the Op Reserve A6 under the codename "Spot" who utilizes his previous combat experience to serve as a Defender. While he feels like he could never become a true hero, like those in his favorite comics, he has become one for his team at R.I., where he found his new home and family. Taciturn and straightforward, Bornu could amusingly be seen as relatively "normal" compared to the other members of A6.`,
+    profile: `Originally a Sargon soldier, Spot took the initiative and came to Rhodes Island seeking employment himself. After passing the examination battery, he was assigned to Op Reserve Team A6.\nHe has a lot of experience as guard; and serves as the defensive specialist on the team.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed blurry outline of internal organs with visible unusual dark spots. Unusually high concentration of Originium particles were present in his circulation, indicating signs of infection and confirming him as infected at this stage.\n\n[Cell-Originium Assimilation] 3%\nCrystallization visible on surface of body, with many symptoms of Oripathy difficult to spot due to skin and hair color.\n[Blood Originium-Crystal Density] 0.30u/L\nInfection is currently spreading at a constant rate. Regular observation and treatment required.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `A member of Op Reserve Team A6 who used to be a Sargon soldier.\n\nHe rarely speaks and has little reason to. On the rare occasion he does open his mouth, he tends to be brutally direct. Among the ostentatious members of Team A6, he is truly the odd man out.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `A fan of superheroes and pulp action, Spot loves to read comics and has an impressive collection.\n\nHe has filled a whole shelf with his comic books, and other Operators often borrow them from him.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Although Sargon is a developed country with no shortage of modern entertainment in its cities, the Sargonians always seem a bit withdrawn.\n\nSpot himself seemingly has no interest in anything other than comics and fashion. Every once in a while, he will ask Orchid to give him a Sargonian hairstyle.`,
+      },
+      {
+        title: 'Archive File 4',
+        content: `Spot's personality is largely the product of a stoic family.\n\nSargonian military families have no patience for laziness. Unwilling to conform to his family's wishes, he became closed off, aggressive, and eventually ran away from home.`,
+      },
+    ],
     classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/guardian-branch.png', factionIcon: '/icons/factions/op-reserve-a6.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/spot/base.png', chibiSrc: '/operators/spot/chibi.webm', illustrator: '阿鬼' },
@@ -895,7 +1341,26 @@ export const OPERATORS = ([
     talents: [{ name: 'Armor Break', desc: 'ATK +6%; Attacks enemies with the highest DEF first', elite: 'E1' }],
     skills: [{ name: 'Power Strike α', icon: '/operators/steward/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'Increases the ATK of next attack to 190%', spInit: 0, sp: 4, rank: 'Rank 7' }],
     modules: {},
-    story: `Steward is a Vulpo Caster from Kjerag and the nice guy of Op Reserve A4. His talent causes him to prioritize attacking enemies with the highest DEF, making his Arts damage especially effective against armored foes.`,
+    story: `Born in the southern territory of Kjerag to a family with the same surname as his codename, Steward's talent for Originium Arts was left buried in the snow. When the Silverash clan declared a new economic policy that brought merchants from various countries to Kjerag, Steward freelanced as a guide and local servicer, as well as a model to help market goods. It is mentioned that he learned Arts from a psychic whose casting method is similar to Lava's. At one point, he befriended Adnachiel and Cardigan, but contracted Oripathy along with the former while traveling in Leithanien. Cardigan's desperate search for medical aid led them to receive help from a Rhodes Island Operator. After an exceptional performance on his tests, he joined Rhodes Island and now serves on a reserve team, Op Reserve A4.`,
+    profile: `Steward is a member of Op Reserve Team A4 and a citizen of Kjerag. Before he officially took the position, he worked as a freelancer. After an exceptional performance on his tests, he received permission to join Rhodes Island and now serves on the reserve team.\nHe shows promise in the areas of Arts support, navigation, and combat support.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Medical tests have shown the outlines of his internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in his circulatory system, confirming him to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 9%\nHe presents no obvious external symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.3u/L\nInfection has progressed to middle-term. Currently there is no evidence of spreading.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Steward was born in the southern territory of Kjerag and spent his childhood being educated at home. He has a calm temperament that stands out amongst his peers and has a certain talent for Originium Arts. However, given the snowy environment and the high cost of studying Arts, this talent went uncultivated and was left buried among the heavy snow of Kjerag.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `The southern territory of Kjerag has long acted as the exit point for all of Kjerag. When the Silverash family declared a new economic policy, merchants from Columbia, Leithanien, and RIM Billiton launched several investment plans. During this period, Steward took the initiative to become a guide and local servicer for the business activities of merchants from all over the world. He also worked part-time as a model to help market goods. The brand new goods coming out of Columbia left a deep impression on Steward, and Steward's excellent service has garnered the praise of many merchants.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Snow Blue Wand\nQuality Guaranteed by: Supervisor of the Leithanien Arts Society\nManufacturer: Rudolf Bros. Wand Workshop\nProduct Number: ADD-143.\n\nThe Snow Blue wand used by Steward.\n\nProof of a Caster's mastery of Arts. Its handle has been engraved with the words "Legendary Future."\n\nWhen you use it, you can hear the whistling of snow.`,
+      },
+    ],
     classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/op-reserve-a4.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/steward/base.png', chibiSrc: '/operators/steward/chibi.webm', illustrator: '一立里子' },
@@ -917,7 +1382,26 @@ export const OPERATORS = ([
     talents: [{ name: 'ATK Up', desc: 'ATK +8%', elite: 'E1' }],
     skills: [{ name: 'Command - Reinforcement', icon: '/operators/vanilla/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Gain 6 Deployment Points; ATK +35%', spInit: 6, sp: 20, rank: 'Rank 7', dur: '10s' }],
     modules: {},
-    story: `Vanilla is a Vouivre Vanguard from the Blacksteel corporation. She is a professional soldier who generates DP through her skill while providing a solid attack boost. She has a well-known fear of wild animals despite her combat prowess.`,
+    story: `A Blacksteel trainee Operator, the Vouivre codenamed Vanilla was assigned to Rhodes Island as part of their partnership, where she now fights on the frontlines with her halberd. Outside the battlefield, Vanilla is better known as an ardent pet keeper who raises various Originium slugs. She has a trio of slugs named Puffball, Tiny, and Kuro, plus a Sargon Desert Metal Crab named Stout. Her hometown in Sargon was a poor place with few resources where children were raised to be great hunters. Vanilla eventually joined Blacksteel as a mercenary to earn money. Vanilla respects her Blacksteel seniors, Liskarm and Franka, and is also friends with Jessica.`,
+    profile: `Vanilla is a Blacksteel trainee, currently training and studying as part of exchange program with Rhodes Island.\nShe has learned to use her race's combat abilities to her advantage, and performs well as a Vanguard.`,
+    records: [
+      {
+        title: 'Clinical Analysis',
+        content: `Imaging test for this Operator showed clear outline of internal organs without any unusual dark spot. No unusual traces of Originium particles present in her system, no signs of infection, confirming her as Non-infected.\n\n[Cell-Originium Assimilation] 0%\nOperator Vanilla showed no symptoms of Oripathy.\n[Blood Originium-Crystal Density] 0.12u/L\nOperator Vanilla rarely comes into contact with Originium.`,
+      },
+      {
+        title: 'Archive File 1',
+        content: `Vanilla is a rather naive and inexperienced Operator sent to us from Blacksteel Worldwide.\n\nEven though she's only been with Blacksteel for a short time, her dedication impressed the executives enough for them to send her to Rhodes Island for additional training.\n\nShe stands much taller than Liskarm or Franka, but the three are often seen together.`,
+      },
+      {
+        title: 'Archive File 2',
+        content: `Vanilla is very protective of animals. A conversation about animals will always gets her out of her normally very thick shell. It may also be a reason she left home.\n\nBut because the animals she strives to protect include icky things like the Originium snail, her affection can unnerve some people.`,
+      },
+      {
+        title: 'Archive File 3',
+        content: `Because Vanilla was born in an isolated tribe, Blacksteel added a special common knowledge to her training regimen.\n\nAccording to Franka, Vanilla was at first startled by the automatic doors at the base.\n\nIn fact, Vanilla is not yet used to most of the technological equipment at Rhodes Island.`,
+      },
+    ],
     classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/blacksteel.png',
     portraitFocus: { y: -5, x: 88, zoom:250 },
     skins: [
@@ -957,7 +1441,13 @@ export const OPERATORS = ([
     ],
     skills: [
       { name: 'Shadow Tentacle', icon: '/operators/deepcolor/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: "All Tentacles' ATK and DEF +60%; Restores 70 HP per second", spInit: 0, sp: 30, dur: '30s', rank: 'M3', note: 'The HP regeneration is unaffected by healing effect modifiers.' },
-      { name: 'Visual Trap', icon: '/operators/deepcolor/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Range expands; Allies within range obtain 50% Physical Dodge', spInit: 60, sp: 80, dur: '55s', rank: 'M3' },
+      { name: 'Visual Trap', icon: '/operators/deepcolor/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Range expands; Allies within range obtain 50% Physical Dodge', spInit: 60, sp: 80, dur: '55s', rank: 'M3', range: [
+        [1,1,1,0],
+        [1,1,1,1],
+        [2,1,1,1],
+        [1,1,1,1],
+        [1,1,1,0],
+      ] },
     ],
     modules: {
       original: { code: 'Original', name: "Deepcolor's Badge", desc: 'Appointed as Supporter Operator to exercise Summoner responsibilities' },
@@ -1303,9 +1793,13 @@ export const OPERATORS = ([
       { name: 'Nourish the Blood', desc: 'Increases Max HP by 120 and ATK by 30 after defeating an enemy, stacking up to 9 times; other [Abyssal Hunter] Operators gain 50% of this boost effect', elite: 'E2' },
     ],
     skills: [
-      { name: 'Contact Must Be Made', icon: '/operators/ulpianus/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 270% of ATK as Physical damage', spInit: 0, sp: 4, rank: 'M3', note: 'The pull effect has a force of 1 and a hitbox of 0.8 tiles.' },
+      { name: 'Contact Must Be Made', icon: '/operators/ulpianus/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 270% of ATK as Physical damage', spInit: 0, sp: 4, rank: 'M3', range: [
+        [2,1,1,1],
+      ], note: 'The pull effect has a force of 1 and a hitbox of 0.8 tiles.' },
       { name: 'Boundaries Must Be Kept', icon: '/operators/ulpianus/skill-2.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Talent 1 effect increases to 2x, Block +1, Max HP +60%, ATK +160%', spInit: 0, sp: 70, rank: 'M3', note: 'Unlimited duration.' },
-      { name: 'Paths Must Be Opened', icon: '/operators/ulpianus/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Max HP +80%, ATK +260%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 160% of ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile', spInit: 20, sp: 25, dur: '25s', rank: 'M3', note: 'Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position.' },
+      { name: 'Paths Must Be Opened', icon: '/operators/ulpianus/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Max HP +80%, ATK +260%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 160% of ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile', spInit: 20, sp: 25, dur: '25s', rank: 'M3', range: [
+        [2,1,1,1,1,1,1],
+      ], note: 'Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position.' },
     ],
     modules: {
       original: { code: 'Original', name: "Ulpianus's Badge", desc: 'Appointed as Guard Operator to exercise Crusher responsibilities' },
