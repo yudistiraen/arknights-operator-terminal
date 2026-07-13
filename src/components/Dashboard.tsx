@@ -1,11 +1,13 @@
 'use client'
 
 import { useRef, useMemo } from 'react'
+import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { useApp } from './AppShell'
 import { Footer } from './Footer'
+import { OngoingEvents } from './OngoingEvents'
 import { WorldMap } from './WorldMap'
 
 gsap.registerPlugin(useGSAP)
@@ -46,11 +48,19 @@ export function Dashboard() {
 
   useGSAP(() => {
     if (!hasEntered) {
-      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.mission-schedule', '.world-map-panel', '.dashboard-cta', '.dashboard-footer', '.hud-ambient', '.hud-rail'], { opacity: 0 })
+      gsap.set(['.dashboard-logo', '.dashboard-title', '.dashboard-subtitle', '.dashboard-divider', '.stat-card', '.ongoing-events', '.mission-schedule', '.world-map-panel', '.dashboard-cta', '.dashboard-footer', '.hud-ambient', '.hud-rail'], { opacity: 0 })
       return
     }
 
     const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
+
+    // Ongoing Events and Supply Schedule read as one HUD update, so they
+    // share a nested timeline anchored at position 0 to enter in lockstep.
+    const panelsTl = gsap.timeline()
+      .fromTo('.ongoing-events', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 0)
+      .fromTo('.event-card', { opacity: 0, y: 15, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.07 }, 0.2)
+      .fromTo('.mission-schedule', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 0)
+      .fromTo('.mission-row', { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.2, stagger: 0.04 }, 0.2)
 
     timeline
       .fromTo('.dashboard-logo', { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.7 })
@@ -58,8 +68,7 @@ export function Dashboard() {
       .fromTo('.dashboard-subtitle', { opacity: 0, letterSpacing: '0.5em' }, { opacity: 1, letterSpacing: '0.2em', duration: 0.5, ease: 'power2.out' }, '-=0.25')
       .fromTo('.dashboard-divider', { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: 'power2.out' }, '-=0.3')
       .fromTo('.stat-card', { opacity: 0, y: 20, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, stagger: 0.08 }, '-=0.2')
-      .fromTo('.mission-schedule', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.15')
-      .fromTo('.mission-row', { opacity: 0, x: -10 }, { opacity: 1, x: 0, duration: 0.3, stagger: 0.04 }, '-=0.3')
+      .add(panelsTl, '-=0.15')
       .fromTo('.world-map-panel', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.1')
       .fromTo('.dashboard-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.15')
       .fromTo('.dashboard-footer', { opacity: 0 }, { opacity: 1, duration: 0.3 }, '-=0.2')
@@ -121,9 +130,12 @@ export function Dashboard() {
         </div>
         {/* Hero section */}
         <div className="dashboard-logo mb-5 md:mb-6">
-          <img
+          <Image
             src="/Arknights_logo.webp"
             alt="Arknights"
+            width={415}
+            height={116}
+            priority
             className="h-16 md:h-24 w-auto object-contain drop-shadow-[0_0_30px_rgba(59,164,201,0.12)]"
           />
         </div>
@@ -156,6 +168,9 @@ export function Dashboard() {
             </div>
           ))}
         </div>
+
+        {/* Ongoing Events */}
+        <OngoingEvents />
 
         {/* Supply Operations */}
         <div className="mission-schedule w-full max-w-[960px]">
@@ -194,10 +209,13 @@ export function Dashboard() {
 
                     {/* Image */}
                     <div className="aspect-[225/497] relative">
-                      <img
+                      <Image
                         src={mission.image}
                         alt={mission.name}
-                        className={`w-full h-full object-cover ${
+                        fill
+                        sizes="(max-width: 768px) 30vw, 15vw"
+                        loading="lazy"
+                        className={`object-cover ${
                           isOpenToday ? 'opacity-90' : 'opacity-25 grayscale'
                         }`}
                       />

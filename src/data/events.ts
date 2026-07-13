@@ -1,0 +1,53 @@
+import type { GameEvent } from '../types'
+
+// Dates follow the Global server schedule (UTC-7), sourced from
+// https://arknights.wiki.gg/wiki/Event. Colors are hand-picked from each
+// event's banner art to drive the accent used on Dashboard cards and the
+// Calendar's date-range bars.
+export const EVENTS: GameEvent[] = [
+  {
+    id: 'reunion-rerun',
+    name: 'Such is the Joy of Our Reunion',
+    tag: 'Rerun',
+    banner: '/events/reunion-rerun/banner.png',
+    color: [168, 47, 51],
+    startDate: '2026-07-06',
+    endDate: '2026-07-16',
+  },
+  {
+    id: 'languid-sentiment',
+    name: 'Languid Sentiment',
+    tag: 'Crossover',
+    banner: '/events/languid-sentiment/banner.png',
+    color: [230, 174, 61],
+    startDate: '2026-07-06',
+    endDate: '2026-07-27',
+  },
+  {
+    id: 'suis-garden',
+    name: "Sui's Garden of Grotesqueries",
+    tag: 'Mission Event',
+    banner: '/events/suis-garden/banner.png',
+    color: [42, 122, 102],
+    startDate: '2026-07-06',
+    endDate: '2026-07-20',
+  },
+  {
+    id: 'first-of-a-thousand-autumns',
+    name: 'First of A Thousand Autumns',
+    tag: 'Side Story',
+    banner: '/events/first-of-a-thousand-autumns/banner.png',
+    color: [222, 128, 40],
+    startDate: '2026-07-16',
+    endDate: '2026-08-06',
+  },
+  {
+    id: 'vector-breakthrough-2',
+    name: 'Vector Breakthrough #2: Night of Witchcraft',
+    tag: 'Seasonal',
+    banner: '/events/vector-breakthrough-2/banner.png',
+    color: [130, 66, 189],
+    startDate: '2026-07-30',
+    endDate: '2026-08-20',
+  },
+]

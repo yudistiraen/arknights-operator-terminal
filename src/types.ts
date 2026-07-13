@@ -1,3 +1,13 @@
+export interface GameEvent {
+  id: string
+  name: string
+  tag: string
+  banner: string
+  color: [number, number, number]
+  startDate: string
+  endDate: string
+}
+
 export interface OperatorCV {
   JP: string
   CN: string

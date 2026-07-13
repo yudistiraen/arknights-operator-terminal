@@ -3,6 +3,7 @@
 import { useState, useRef, useMemo, useCallback, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useApp } from './AppShell'
 import { Footer } from './Footer'
@@ -16,10 +17,30 @@ import {
 } from '../lib/calendar'
 import type { BirthdayEntry } from '../lib/calendar'
 import { toSlug } from '../lib/operators'
+import {
+  getEventLanesForMonth,
+  getOngoingEvents,
+  getUpcomingEvents,
+  getDaysUntil,
+  formatEventDateRange,
+} from '../lib/events'
+import type { EventLaneSlot } from '../lib/events'
 
 gsap.registerPlugin(useGSAP)
 
-function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day: number; isToday: boolean }) {
+function DayCell({
+  entries,
+  eventSlots,
+  day,
+  isToday,
+}: {
+  entries: BirthdayEntry[]
+  eventSlots: (EventLaneSlot | null)[]
+  day: number
+  isToday: boolean
+}) {
+  const hasEvents = eventSlots.some(Boolean)
+
   return (
     <div
       className={`
@@ -54,10 +75,13 @@ function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day
               style={{ transition: 'border-color 0.2s, transform 0.15s' }}
               title={entry.operator.name}
             >
-              <img
+              <Image
                 src={entry.portrait}
                 alt={entry.operator.name}
-                className="w-full h-full object-cover object-center"
+                fill
+                sizes="32px"
+                loading="lazy"
+                className="object-cover object-center"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
             </Link>
@@ -70,6 +94,26 @@ function BirthdayCell({ entries, day, isToday }: { entries: BirthdayEntry[]; day
           <p className="font-display text-xs text-ak-gold-bright/90 tracking-wider truncate">
             {entries.map(e => e.operator.name).join(', ')}
           </p>
+        </div>
+      )}
+
+      {hasEvents && (
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col-reverse gap-[1.5px] pb-[1px] z-10">
+          {eventSlots.map((slot, laneIndex) => {
+            if (!slot) return <div key={laneIndex} className="h-[2.5px] md:h-[3px]" />
+            const [colorR, colorG, colorB] = slot.event.color
+            return (
+              <div
+                key={laneIndex}
+                title={slot.event.name}
+                className={`h-[2.5px] md:h-[3px] ${slot.isStart ? 'rounded-l-full' : ''} ${slot.isEnd ? 'rounded-r-full' : ''}`}
+                style={{
+                  backgroundColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.85)`,
+                  boxShadow: `0 0 4px rgba(${colorR}, ${colorG}, ${colorB}, 0.45)`,
+                }}
+              />
+            )
+          })}
         </div>
       )}
     </div>
@@ -115,10 +159,13 @@ function UpcomingList() {
             style={{ transition: 'background-color 0.25s, border-color 0.25s, transform 0.15s' }}
           >
             <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-ak-gold/30 shrink-0">
-              <img
+              <Image
                 src={entry.portrait}
                 alt={entry.operator.name}
-                className="w-full h-full object-cover object-center"
+                fill
+                sizes="40px"
+                loading="lazy"
+                className="object-cover object-center"
               />
             </div>
             <div className="flex-1 min-w-0">
@@ -140,6 +187,144 @@ function UpcomingList() {
             </div>
           </Link>
         ))}
+      </div>
+    </div>
+  )
+}
+
+function OngoingEventsList() {
+  const [today, setToday] = useState<Date | null>(null)
+  useEffect(() => { setToday(new Date()) }, [])
+
+  const ongoing = useMemo(() => {
+    if (!today) return []
+    return getOngoingEvents(today)
+  }, [today])
+
+  if (!today || ongoing.length === 0) return null
+
+  return (
+    <div className="upcoming-section w-full max-w-4xl mt-6 md:mt-10">
+      <div className="flex items-center gap-3 mb-3 md:mb-4">
+        <div className="w-1 h-4 bg-ak-gold/50" />
+        <h2 className="font-display text-xs md:text-sm text-white/40 tracking-[0.15em] uppercase">
+          Ongoing Events
+        </h2>
+      </div>
+      <div className="grid gap-1.5 md:gap-2">
+        {ongoing.map((event) => {
+          const [colorR, colorG, colorB] = event.color
+          const accentColor = `rgb(${colorR}, ${colorG}, ${colorB})`
+          const daysLeft = getDaysUntil(event.endDate, today)
+
+          return (
+            <div
+              key={event.id}
+              className="group flex items-center gap-3 md:gap-4 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-3 md:px-4 py-2 md:py-2.5"
+              style={{ transition: 'background-color 0.25s, border-color 0.25s' }}
+            >
+              <div
+                className="relative w-12 h-8 md:w-14 md:h-9 overflow-hidden border shrink-0"
+                style={{ borderColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.4)` }}
+              >
+                <Image
+                  src={event.banner}
+                  alt={event.name}
+                  fill
+                  sizes="56px"
+                  loading="lazy"
+                  className="object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `linear-gradient(to top, rgba(${colorR}, ${colorG}, ${colorB}, 0.5), transparent 70%)`, mixBlendMode: 'multiply' }}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
+                  {event.name}
+                </p>
+                <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
+                  {formatEventDateRange(event)}
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <span className="font-display text-[10px] md:text-xs tracking-wider" style={{ color: accentColor }}>
+                  {daysLeft}d
+                </span>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function UpcomingEventsList() {
+  const [today, setToday] = useState<Date | null>(null)
+  useEffect(() => { setToday(new Date()) }, [])
+
+  const upcoming = useMemo(() => {
+    if (!today) return []
+    return getUpcomingEvents(today).slice(0, 5)
+  }, [today])
+
+  if (!today || upcoming.length === 0) return null
+
+  return (
+    <div className="upcoming-section w-full max-w-4xl mt-6 md:mt-10">
+      <div className="flex items-center gap-3 mb-3 md:mb-4">
+        <div className="w-1 h-4 bg-ak-gold/50" />
+        <h2 className="font-display text-xs md:text-sm text-white/40 tracking-[0.15em] uppercase">
+          Upcoming Events
+        </h2>
+      </div>
+      <div className="grid gap-1.5 md:gap-2">
+        {upcoming.map((event) => {
+          const [colorR, colorG, colorB] = event.color
+          const accentColor = `rgb(${colorR}, ${colorG}, ${colorB})`
+          const daysUntil = getDaysUntil(event.startDate, today)
+
+          return (
+            <div
+              key={event.id}
+              className="group flex items-center gap-3 md:gap-4 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-3 md:px-4 py-2 md:py-2.5"
+              style={{ transition: 'background-color 0.25s, border-color 0.25s' }}
+            >
+              <div
+                className="relative w-12 h-8 md:w-14 md:h-9 overflow-hidden border shrink-0"
+                style={{ borderColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.4)` }}
+              >
+                <Image
+                  src={event.banner}
+                  alt={event.name}
+                  fill
+                  sizes="56px"
+                  loading="lazy"
+                  className="object-cover object-center"
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{ background: `linear-gradient(to top, rgba(${colorR}, ${colorG}, ${colorB}, 0.5), transparent 70%)`, mixBlendMode: 'multiply' }}
+                />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
+                  {event.name}
+                </p>
+                <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
+                  {formatEventDateRange(event)}
+                </p>
+              </div>
+              <div className="shrink-0 text-right">
+                <span className="font-display text-[10px] md:text-xs tracking-wider" style={{ color: accentColor }}>
+                  {daysUntil}d
+                </span>
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
   )
@@ -168,6 +353,7 @@ export function Calendar() {
   const birthdays = useMemo(() => getBirthdaysForMonth(currentMonth), [currentMonth])
   const daysInMonth = useMemo(() => getDaysInMonth(currentYear, currentMonth), [currentYear, currentMonth])
   const firstDay = useMemo(() => getFirstDayOfWeek(currentYear, currentMonth), [currentYear, currentMonth])
+  const eventLanes = useMemo(() => getEventLanesForMonth(currentYear, currentMonth), [currentYear, currentMonth])
 
   const isToday = useCallback((day: number) => {
     if (!today) return false
@@ -218,8 +404,9 @@ export function Calendar() {
   }
   for (let day = 1; day <= daysInMonth; day++) {
     const entries = birthdays.get(day) ?? []
+    const eventSlots = eventLanes.lanesByDay.get(day) ?? []
     cells.push(
-      <BirthdayCell key={day} entries={entries} day={day} isToday={isToday(day)} />
+      <DayCell key={day} entries={entries} eventSlots={eventSlots} day={day} isToday={isToday(day)} />
     )
   }
 
@@ -247,15 +434,25 @@ export function Calendar() {
                   Calendar
                 </h1>
                 <p className="font-display text-[9px] md:text-[10px] text-white/50 tracking-[0.15em] uppercase mt-0.5">
-                  Operator Birthdays
+                  Birthdays &amp; Events
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
-              <div className="w-1.5 h-1.5 bg-ak-gold/60 rounded-full" />
-              <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
-                {birthdayCount} {birthdayCount === 1 ? 'BIRTHDAY' : 'BIRTHDAYS'} THIS MONTH
-              </span>
+            <div className="flex flex-wrap items-center justify-end gap-1.5 md:gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
+                <div className="w-1.5 h-1.5 bg-ak-gold/60 rounded-full" />
+                <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
+                  {birthdayCount} {birthdayCount === 1 ? 'BIRTHDAY' : 'BIRTHDAYS'}
+                </span>
+              </div>
+              {eventLanes.laneCount > 0 && (
+                <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
+                  <div className="w-1.5 h-1.5 bg-ak-accent/60 rounded-full" />
+                  <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
+                    {eventLanes.laneCount} {eventLanes.laneCount === 1 ? 'EVENT' : 'EVENTS'}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -308,6 +505,12 @@ export function Calendar() {
         <div className="cal-grid w-full max-w-4xl grid grid-cols-7 gap-px md:gap-1">
           {cells}
         </div>
+
+        {/* Ongoing Events */}
+        <OngoingEventsList />
+
+        {/* Upcoming Events */}
+        <UpcomingEventsList />
 
         {/* Upcoming Birthdays */}
         <UpcomingList />

@@ -3,6 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import Image from 'next/image'
 import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
 import { toSlug, getRosterEntries, type RosterEntry } from '../lib/operators'
@@ -85,7 +86,7 @@ function FilterDropdown({ label, value, options, onChange }: {
         }}
       >
         {selected?.icon && (
-          <img src={selected.icon} alt="" className="w-3.5 h-3.5 object-contain opacity-60 shrink-0" />
+          <Image src={selected.icon} alt="" width={14} height={14} className="w-3.5 h-3.5 object-contain opacity-60 shrink-0" />
         )}
         <span className="truncate">{selected?.label ?? 'All'}</span>
       </button>
@@ -104,7 +105,7 @@ function FilterDropdown({ label, value, options, onChange }: {
               style={{ transition: 'background-color 0.15s, color 0.15s' }}
             >
               {option.icon ? (
-                <img src={option.icon} alt="" className="w-3.5 h-3.5 object-contain shrink-0 opacity-65" />
+                <Image src={option.icon} alt="" width={14} height={14} className="w-3.5 h-3.5 object-contain shrink-0 opacity-65" />
               ) : (
                 <span className="w-3.5 shrink-0" />
               )}
@@ -114,6 +115,46 @@ function FilterDropdown({ label, value, options, onChange }: {
         </div>
       )}
     </div>
+  )
+}
+
+// The roster grid crops each portrait to a custom zoom/focal point per operator
+// (`portraitFocus`), which needs `background-size: auto <zoom>%` — a sizing mode
+// `next/image`'s `fill`/`object-fit` can't express. We keep the background-image
+// technique but route it through Next's image optimizer endpoint for automatic
+// WebP/AVIF + resizing, and only set the URL once the card is near the viewport
+// so off-screen cards in this 100+ operator grid don't all fetch immediately.
+function OperatorCardArt({ src, zoom, x, y }: { src: string; zoom: number; x: number; y: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '600px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      className="absolute inset-0 bg-no-repeat opacity-75 group-hover:opacity-95 group-hover:scale-[1.06]"
+      style={{
+        backgroundImage: isVisible ? `url(/_next/image?url=${encodeURIComponent(src)}&w=828&q=75)` : undefined,
+        backgroundSize: `auto ${zoom}%`,
+        backgroundPosition: `${x}% ${y}%`,
+        transition: 'transform 0.4s ease, opacity 0.3s',
+      }}
+    />
   )
 }
 
@@ -343,14 +384,11 @@ export function OperatorList() {
                     >
                       <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[entry.operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
 
-                      <div
-                        className="absolute inset-0 bg-no-repeat opacity-75 group-hover:opacity-95 group-hover:scale-[1.06]"
-                        style={{
-                          backgroundImage: `url(${entry.operator.skins[0].src})`,
-                          backgroundSize: `auto ${entry.operator.portraitFocus?.zoom ?? 250}%`,
-                          backgroundPosition: `${entry.operator.portraitFocus?.x ?? 50}% ${entry.operator.portraitFocus?.y ?? 0}%`,
-                          transition: 'transform 0.4s ease, opacity 0.3s',
-                        }}
+                      <OperatorCardArt
+                        src={entry.operator.skins[0].src}
+                        zoom={entry.operator.portraitFocus?.zoom ?? 250}
+                        x={entry.operator.portraitFocus?.x ?? 50}
+                        y={entry.operator.portraitFocus?.y ?? 0}
                       />
 
                       <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/35 to-transparent" />
@@ -365,9 +403,11 @@ export function OperatorList() {
 
                       <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 z-10">
                         <div className="flex items-center gap-1 md:gap-1.5">
-                          <img
+                          <Image
                             src={entry.operator.classIcon}
                             alt={entry.operator.class}
+                            width={20}
+                            height={20}
                             className="w-3 h-3 md:w-5 md:h-5 object-contain opacity-70 shrink-0"
                           />
                           <p className="font-display text-xs md:text-sm font-bold text-white/90 tracking-wide leading-none truncate">
