@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useLayoutEffect, useEffect, useMemo } from 'react'
+import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
@@ -18,6 +19,15 @@ import { NavigationArrows } from './NavigationArrows'
 import { Footer } from './Footer'
 
 gsap.registerPlugin(useGSAP)
+
+function preloadImage(src: string): Promise<void> {
+  return new Promise((resolve) => {
+    const img = new window.Image()
+    img.onload = () => resolve()
+    img.onerror = () => resolve()
+    img.src = src
+  })
+}
 
 interface OperatorTerminalProps {
   initialOperatorIndex: number
@@ -81,25 +91,40 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const isAnimating = useRef(false)
   const isSkinAnimating = useRef(false)
 
+  // Fades the art out, waits for `nextSrc` to actually finish loading (large source
+  // images can take longer than the glitch animation), then applies the state change
+  // and plays the reveal. Without the wait, the reveal could finish while the browser
+  // is still painting the previous image, showing stale art for the new state.
+  const playArtTransition = useCallback((nextSrc: string, applyState: () => void) => {
+    const artImage = artRef.current
+    if (!artImage) { applyState(); return }
+    isSkinAnimating.current = true
+    gsap.timeline()
+      .to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
+      .call(() => {
+        applyState()
+        preloadImage(nextSrc).then(() => {
+          gsap.set(artImage, { scale: 0.97 })
+          gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
+            .to(artImage, { opacity: 0.15, duration: 0.04 })
+            .to(artImage, { opacity: 0, duration: 0.03 })
+            .to(artImage, { opacity: 0.5, duration: 0.05 })
+            .to(artImage, { opacity: 0.1, duration: 0.03 })
+            .to(artImage, { opacity: 0.8, duration: 0.06 })
+            .to(artImage, { opacity: 0.4, duration: 0.03 })
+            .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
+        })
+      })
+  }, [])
+
   const switchSkin = useCallback((targetIndex: number) => {
     if (targetIndex === skinIndex || isSkinAnimating.current || !artRef.current) return
-    isSkinAnimating.current = true
     const transitionSound = new Audio('/audio/glitch_transition.mp3')
     transitionSound.volume = 0.6
     transitionSound.play().catch(() => {})
-    const artImage = artRef.current
-    const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
-    timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
-      .call(() => setSkinIndex(targetIndex))
-      .set(artImage, { scale: 0.97 })
-      .to(artImage, { opacity: 0.15, duration: 0.04 })
-      .to(artImage, { opacity: 0, duration: 0.03 })
-      .to(artImage, { opacity: 0.5, duration: 0.05 })
-      .to(artImage, { opacity: 0.1, duration: 0.03 })
-      .to(artImage, { opacity: 0.8, duration: 0.06 })
-      .to(artImage, { opacity: 0.4, duration: 0.03 })
-      .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
-  }, [skinIndex])
+    const nextSrc = activeOperator.skins[targetIndex]?.src ?? activeOperator.skins[0].src
+    playArtTransition(nextSrc, () => setSkinIndex(targetIndex))
+  }, [skinIndex, activeOperator, playArtTransition])
 
   const expandPanel = useCallback((panelId: string) => {
     const buttonElement = panelRefs.current[panelId]
@@ -187,90 +212,49 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     clickSound.volume = 0.5
     clickSound.play().catch(() => {})
     setExpandedPanelId(null)
-    isSkinAnimating.current = true
     const currentEntryIndex = rosterEntries.findIndex(
       entry => entry.operatorIndex === operatorIndex && entry.isAlter === isAlterActive
     )
     const nextEntry = rosterEntries[(currentEntryIndex + direction + rosterEntries.length) % rosterEntries.length]
     const nextIndex = nextEntry.operatorIndex
     const nextIsAlter = nextEntry.isAlter
-    const nextSlug = toSlug(OPERATORS[nextIndex].name)
+    const nextOperator = OPERATORS[nextIndex]
+    const nextSlug = toSlug(nextOperator.name)
     const nextUrl = nextIsAlter ? `/operator?operator=${nextSlug}&alter=true` : `/operator?operator=${nextSlug}`
-    const artImage = artRef.current
-    if (artImage) {
-      const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
-      timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
-        .call(() => {
-          setOperatorIndex(nextIndex)
-          setSkinIndex(0)
-          setVariantIndex(-1)
-          setIsAlterActive(nextIsAlter)
-          window.history.replaceState(null, '', nextUrl)
-        })
-        .set(artImage, { scale: 0.97 })
-        .to(artImage, { opacity: 0.15, duration: 0.04 })
-        .to(artImage, { opacity: 0, duration: 0.03 })
-        .to(artImage, { opacity: 0.5, duration: 0.05 })
-        .to(artImage, { opacity: 0.1, duration: 0.03 })
-        .to(artImage, { opacity: 0.8, duration: 0.06 })
-        .to(artImage, { opacity: 0.4, duration: 0.03 })
-        .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
-    } else {
+    const nextSrc = (nextIsAlter ? nextOperator.alter?.skins[0]?.src : undefined) ?? nextOperator.skins[0].src
+    playArtTransition(nextSrc, () => {
       setOperatorIndex(nextIndex)
       setSkinIndex(0)
       setVariantIndex(-1)
       setIsAlterActive(nextIsAlter)
       window.history.replaceState(null, '', nextUrl)
-      isSkinAnimating.current = false
-    }
-  }, [operatorIndex, isAlterActive, rosterEntries])
+    })
+  }, [operatorIndex, isAlterActive, rosterEntries, playArtTransition])
 
   const switchVariant = useCallback((targetVariant: number) => {
     if (isSkinAnimating.current || !artRef.current) return
-    isSkinAnimating.current = true
     const transitionSound = new Audio('/audio/glitch_transition.mp3')
     transitionSound.volume = 0.6
     transitionSound.play().catch(() => {})
-    const artImage = artRef.current
-    const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
-    timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
-      .call(() => { setVariantIndex(targetVariant); setSkinIndex(0); setExpandedPanelId(null) })
-      .set(artImage, { scale: 0.97 })
-      .to(artImage, { opacity: 0.15, duration: 0.04 })
-      .to(artImage, { opacity: 0, duration: 0.03 })
-      .to(artImage, { opacity: 0.5, duration: 0.05 })
-      .to(artImage, { opacity: 0.1, duration: 0.03 })
-      .to(artImage, { opacity: 0.8, duration: 0.06 })
-      .to(artImage, { opacity: 0.4, duration: 0.03 })
-      .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
-  }, [])
+    const nextSrc = baseOperator.variants?.[targetVariant]?.skins?.[0]?.src ?? baseOperator.skins[0].src
+    playArtTransition(nextSrc, () => { setVariantIndex(targetVariant); setSkinIndex(0); setExpandedPanelId(null) })
+  }, [baseOperator, playArtTransition])
 
   const switchAlter = useCallback((activate: boolean) => {
     if (isSkinAnimating.current || !artRef.current) return
-    isSkinAnimating.current = true
     const transitionSound = new Audio('/audio/glitch_transition.mp3')
     transitionSound.volume = 0.6
     transitionSound.play().catch(() => {})
-    const artImage = artRef.current
     const slug = toSlug(OPERATORS[operatorIndex].name)
-    const timeline = gsap.timeline({ onComplete: () => { isSkinAnimating.current = false } })
-    timeline.to(artImage, { opacity: 0, scale: 1.03, duration: 0.15, ease: 'power2.in' })
-      .call(() => {
-        setIsAlterActive(activate)
-        setVariantIndex(-1)
-        setSkinIndex(0)
-        setExpandedPanelId(null)
-        window.history.replaceState(null, '', activate ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`)
-      })
-      .set(artImage, { scale: 0.97 })
-      .to(artImage, { opacity: 0.15, duration: 0.04 })
-      .to(artImage, { opacity: 0, duration: 0.03 })
-      .to(artImage, { opacity: 0.5, duration: 0.05 })
-      .to(artImage, { opacity: 0.1, duration: 0.03 })
-      .to(artImage, { opacity: 0.8, duration: 0.06 })
-      .to(artImage, { opacity: 0.4, duration: 0.03 })
-      .to(artImage, { opacity: 1, scale: 1, duration: 0.2, ease: 'power2.out' })
-  }, [operatorIndex])
+    const nextSrc = (activate ? baseOperator.alter?.skins[0]?.src : undefined) ?? baseOperator.skins[0].src
+    playArtTransition(nextSrc, () => {
+      setIsAlterActive(activate)
+      setVariantIndex(-1)
+      setSkinIndex(0)
+      setExpandedPanelId(null)
+      window.history.replaceState(null, '', activate ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`)
+    })
+  }, [operatorIndex, baseOperator, playArtTransition])
 
   useGSAP(() => {
     gsap.set(['.char-art', '.bottom-info', '.lobby-btn', '.hud-item', '.skin-btn', '.section-label', '.section-divider'], { opacity: 0 })
@@ -385,7 +369,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === -1 ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
                   title={baseOperator.class}
                 >
-                  <img src={baseOperator.classIcon} alt={baseOperator.class} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === -1 ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                  <Image src={baseOperator.classIcon} alt={baseOperator.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === -1 ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
                 </button>
                 {baseOperator.variants.map((variant, index) => (
                   <button
@@ -394,7 +378,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                     className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === index ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
                     title={variant.class}
                   >
-                    <img src={variant.classIcon} alt={variant.class} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                    <Image src={variant.classIcon} alt={variant.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
                   </button>
                 ))}
               </div>
@@ -420,7 +404,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                       </div>
                     </div>
                     <div className={`absolute inset-0 border backdrop-blur-sm overflow-hidden ${btn.active ? 'border-ak-accent/60 bg-ak-accent/10 shadow-[0_0_14px_rgba(59,164,201,0.25)]' : 'border-white/[0.12] bg-ak-panel/60 hover:border-white/[0.25]'}`} style={{ transition: 'border-color 0.3s, background-color 0.3s, box-shadow 0.3s' }}>
-                      <img src={btn.src} alt={btn.alt} className={`w-full h-full object-cover ${btn.active ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'}`} style={{ transition: 'opacity 0.3s' }} />
+                      <Image src={btn.src} alt={btn.alt} fill sizes="44px" className={`object-cover ${btn.active ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'}`} style={{ transition: 'opacity 0.3s' }} />
                     </div>
                     <div className={`absolute w-2.5 h-2.5 border-t border-l ${btn.active ? 'top-0.5 left-0.5 border-ak-accent/70' : '-top-1 -left-1 border-transparent group-hover:top-0.5 group-hover:left-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, left 0.3s, border-color 0.3s' }} />
                     <div className={`absolute w-2.5 h-2.5 border-t border-r ${btn.active ? 'top-0.5 right-0.5 border-ak-accent/70' : '-top-1 -right-1 border-transparent group-hover:top-0.5 group-hover:right-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, right 0.3s, border-color 0.3s' }} />
@@ -453,7 +437,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                   </div>
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
-                  <img src={activeOperator.branchIcon} alt="" aria-hidden="true" className="absolute right-0 top-0 w-13 h-13 md:w-22 md:h-22 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
+                  <Image src={activeOperator.branchIcon} alt="" aria-hidden="true" width={88} height={88} className="absolute right-0 top-0 w-13 h-13 md:w-22 md:h-22 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
                   <div className="relative">
                     <div className="flex items-start justify-between">
                       <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
@@ -474,11 +458,11 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
                     <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Skills</h2>
                     <div className="flex gap-1.5 md:gap-2 mt-1 md:mt-1.5">
                       {activeOperator.skills.map((skill) => (
-                        <img key={skill.name} src={skill.icon} alt={skill.name} className="w-7 h-7 md:w-10 md:h-10 rounded object-contain bg-white/[0.06]" />
+                        <Image key={skill.name} src={skill.icon} alt={skill.name} width={40} height={40} className="w-7 h-7 md:w-10 md:h-10 rounded object-contain bg-white/[0.06]" />
                       ))}
                     </div>
                   </div>
-                  <span className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator.skills[0].rank}</span>
+                  <span className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator?.skills[0]?.rank}</span>
                 </>)}
                 {renderCard('talents', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Talents</h2>

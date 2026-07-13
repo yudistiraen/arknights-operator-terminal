@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Operator } from '../types'
 import { Stars } from './ui/Stars'
 
@@ -14,7 +15,7 @@ export function OperatorHud({ operator }: OperatorHudProps) {
       </div>
       <div className="flex items-center gap-2 mb-1.5 md:mb-3 flex-wrap">
         <div className="flex items-center gap-1 md:gap-1.5 bg-ak-panel/80 backdrop-blur-sm px-1.5 md:px-2 py-0.5 md:py-1 border border-ak-border/40">
-          <img src={operator.classIcon} alt={operator.class} className="w-3 h-3 md:w-4 md:h-4 object-contain" />
+          <Image src={operator.classIcon} alt={operator.class} width={16} height={16} className="w-3 h-3 md:w-4 md:h-4 object-contain" />
           <span className="font-display text-[8px] md:text-[12px] text-ak-accent-bright tracking-wider">{operator.class.toUpperCase()}</span>
         </div>
         {operator.tags.map((tag) => (

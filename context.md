@@ -732,6 +732,40 @@ Alter diakses via URL query param: `/operator?operator=amiya&alter=true`
 
 ---
 
+## Riwayat Penambahan Operator
+
+### Batch terbaru (in progress, belum di-commit)
+
+- **1-star**: Lancet-2, PhonoR-0
+- **2-star**: 12F, Durin, Noir Corne, Rangers, Yato
+- **4-star**: Luo Xiaohei, Akkord, Contrail, Dobermann
+- **6-star**: Aak, Angelina, Archetto
+
+Semua sudah lengkap data + asset (artwork, skill icon, chibi webm) mengikuti alur scraping standar di atas.
+
+---
+
+## Rencana Pengembangan: Asset Pipeline dari ArknightsResource
+
+**Repo referensi**: [github.com/fexli/ArknightsResource](https://github.com/fexli/ArknightsResource) — berisi raw asset hasil extract dari game (termasuk file Spine chibi: `.skel`/`.json` skeleton, `.atlas`, dan texture `.png`) yang **belum ter-assemble** menjadi video seperti `chibi.webm` yang dipakai sekarang.
+
+**Kapan dipakai:** sebagai sumber alternatif untuk chibi/asset operator yang tidak tersedia (belum di-render jadi webm) di Gallery `arknights.wiki.gg`. Sumber utama tetap wiki.gg (lihat langkah scraping di atas) — repo ini hanya fallback.
+
+**Rencana pipeline (belum diimplementasikan, masih tahap rencana):**
+
+1. Ambil raw spine files (skeleton + atlas + texture) dari repo untuk operator yang chibi-nya belum ada di wiki
+2. Render lewat Spine runtime (`spine-ts`) di headless browser (Puppeteer) → capture tiap frame animasi ke canvas dengan background transparan
+3. Encode frame-frame tsb ke `.webm` (codec VP9 + alpha channel `yuva420p`) pakai ffmpeg, resolusi/fps disamakan dengan chibi existing
+4. Output akhir tetap format `.webm` — drop-in ke `public/operators/{nama}/chibi.webm` tanpa perlu ubah kode (`CharacterArt.tsx` dan konvensi lain di project ini tidak berubah)
+
+**Tooling tambahan yang dibutuhkan (belum ada di project):**
+- ffmpeg — belum terinstall di environment
+- Puppeteer + `spine-ts` runtime — belum jadi dependency, akan ditambahkan sebagai dev-only tooling untuk script one-off (bukan masuk bundle production)
+
+**Catatan penting:** hasil render sendiri tidak dijamin identik byte-per-byte dengan file wiki (beda encoder/setting), tapi harus identik secara format dan perilaku — transparan, loop, resolusi/kualitas konsisten, dan berfungsi sama persis di `CharacterArt.tsx` seperti chibi webm yang sudah ada.
+
+---
+
 ## Coding Rules
 
 ### Naming Convention
@@ -778,6 +812,29 @@ operators.filter(operator => operator.rarity > 4)
 - Export named, bukan default
 - `forwardRef` untuk component yang perlu expose DOM ref
 - Client components harus ditandai `'use client'` di baris pertama
+
+### Image Optimization
+
+**Selalu gunakan komponen `Image` dari `next/image`, jangan pakai tag `<img>` biasa** — supaya dapat optimasi otomatis dari Next.js (lazy loading, resize/srcset responsif, konversi ke format modern seperti WebP/AVIF, mencegah layout shift).
+
+```tsx
+// JANGAN
+<img src={operator.factionIcon} alt={operator.faction} className="w-6 h-6" />
+
+// LAKUKAN
+import Image from 'next/image'
+<Image src={operator.factionIcon} alt={operator.faction} width={24} height={24} className="w-6 h-6 object-contain" />
+```
+
+**Kapan pakai `fill` vs `width`/`height`:**
+- Container dengan ukuran dinamis/responsive (artwork operator, background) → `fill` + `sizes` (lihat `CharacterArt.tsx`)
+- Icon/asset ukuran tetap (class icon, faction icon, skill icon) → `width` + `height` eksplisit
+
+**Tambahan:**
+- `priority` hanya untuk gambar above-the-fold yang langsung terlihat (contoh: artwork utama di `CharacterArt.tsx`)
+- Selalu isi `alt` — string kosong (`alt=""`) hanya untuk icon dekoratif yang tidak butuh deskripsi
+
+**Status migrasi:** Mayoritas komponen (`OperatorList`, `OperatorHud`, `SkillsPanel`, `TalentsPanel`, `Calendar`, `Dashboard`, `SplashScreen`, `OperatorTerminal`, `CharacterArt`, sebagian `SideMenu`) sudah pakai `next/image`. **Belum dimigrasi:** `OperatorRoster.tsx` (legacy, kandidat dihapus) dan 2 icon SVG kecil di `SideMenu.tsx` (`Base_icon.svg`, `Operator_icon.svg`) — masih pakai `<img>` biasa, perlu diganti ke `next/image` saat disentuh berikutnya.
 
 ### File Organization
 

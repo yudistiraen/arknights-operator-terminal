@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useApp } from './AppShell'
@@ -193,9 +194,11 @@ export function SideMenu() {
         <div className="flex items-start justify-between px-4 pt-5 pb-4">
           <div>
             <Link href="/" onClick={closeMobile} className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright">
-              <img
+              <Image
                 src="/Arknights_logo.webp"
                 alt="Arknights"
+                width={415}
+                height={116}
                 className="h-8 w-auto object-contain opacity-70"
               />
             </Link>

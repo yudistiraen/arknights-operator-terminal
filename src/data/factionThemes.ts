@@ -6,6 +6,7 @@ export interface FactionTheme {
 const FACTION_THEMES: Record<string, FactionTheme> = {
   'Rhodes Island': { accent: [59, 164, 201], secondary: [100, 140, 200] },
   'Elite Op': { accent: [50, 110, 200], secondary: [80, 70, 180] },
+  'Op A4': { accent: [60, 100, 170], secondary: [80, 90, 160] },
   'Op Team A4': { accent: [60, 100, 170], secondary: [80, 90, 160] },
   'Reserve Op Team A1': { accent: [70, 130, 190], secondary: [90, 110, 170] },
   'Reserve Op Team A4': { accent: [70, 130, 190], secondary: [90, 110, 170] },

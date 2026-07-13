@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Operator } from '../../types'
 import { RangeGrid } from '../ui/RangeGrid'
 
@@ -21,7 +22,7 @@ export function SkillsPanel({ operator }: { operator: Operator }) {
         return (
         <div key={skill.name} className="bg-white/[0.06] border border-white/[0.08] p-4">
           <div className="flex items-start gap-3">
-            <img src={skill.icon} alt={skill.name} className="w-12 h-12 md:w-15 md:h-15 shrink-0 rounded object-contain bg-white/[0.04] border border-white/[0.08] p-1" />
+            <Image src={skill.icon} alt={skill.name} width={60} height={60} className="w-12 h-12 md:w-15 md:h-15 shrink-0 rounded object-contain bg-white/[0.04] border border-white/[0.08] p-1" />
             <div className="flex-1 min-w-0">
               <div className="flex max-sm:flex-col max-sm:items-start items-center gap-2 mb-1.5">
                 <h4 className="font-display text-sm font-semibold text-white/85">{skill.name}</h4>
