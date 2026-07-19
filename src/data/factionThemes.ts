@@ -66,6 +66,7 @@ const FACTION_THEMES: Record<string, FactionTheme> = {
   'Tara': { accent: [40, 130, 70], secondary: [30, 100, 50] },
 
   'Yan': { accent: [190, 90, 40], secondary: [160, 70, 30] },
+  'Sui': { accent: [190, 160, 60], secondary: [160, 130, 40] },
   'Yan-Sui': { accent: [190, 160, 60], secondary: [160, 130, 40] },
   'Lungmen': { accent: [40, 170, 190], secondary: [30, 140, 160] },
   'Yan-Lungmen': { accent: [40, 170, 190], secondary: [30, 140, 160] },

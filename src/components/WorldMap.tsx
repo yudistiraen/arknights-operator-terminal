@@ -280,10 +280,10 @@ export function WorldMap() {
   }
 
   return (
-    <div className="world-map-panel w-full max-w-[960px]">
+    <div className="world-map-panel w-full max-w-[960px] md:zoom-[1.3]">
       <div className="flex items-center gap-3 mb-5">
         <div className="w-1 h-3.5 bg-ak-accent/60" />
-        <span className="font-display text-md md:text-xs text-white/40 tracking-[0.15em] uppercase">
+      <span className="font-display text-md text-white/40 tracking-[0.15em] uppercase">
           Terra
         </span>
         <div className="flex-1 h-px bg-white/[0.06]" />

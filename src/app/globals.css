@@ -34,6 +34,34 @@
   }
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 164, 201, 0.35) rgba(8, 12, 20, 0.5);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(17, 24, 39, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(212, 168, 67, 0.3), rgba(59, 164, 201, 0.5), rgba(212, 168, 67, 0.3));
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(240, 201, 92, 0.45), rgba(94, 196, 230, 0.65), rgba(240, 201, 92, 0.45));
+}
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, rgba(240, 201, 92, 0.6), rgba(94, 196, 230, 0.8), rgba(240, 201, 92, 0.6));
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 .ak-scroll {
   scrollbar-width: thin;
   scrollbar-color: rgba(59, 164, 201, 0.25) transparent;
@@ -44,9 +72,11 @@
 .ak-scroll::-webkit-scrollbar-track {
   background: transparent;
   margin: 8px 0;
+  border-left: none;
 }
 .ak-scroll::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, rgba(59, 164, 201, 0.15), rgba(59, 164, 201, 0.35), rgba(59, 164, 201, 0.15));
+  border: none;
   border-radius: 2px;
 }
 .ak-scroll::-webkit-scrollbar-thumb:hover {
@@ -88,10 +118,121 @@
 
 @keyframes sidemenu-scan {
   0% { transform: translateX(-100%); }
-  100% { transform: translateX(calc(220px + 100%)); }
+  100% { transform: translateX(calc(286px + 100%)); }
 }
 
 .sidemenu-item:hover .sidemenu-scan-line {
   animation: sidemenu-scan 2s linear infinite;
+}
+
+@keyframes urgent-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Rotating red alert border for events ending in <= 1 day.
+   Masked overlay: only the 1.5px edge zone is visible, the conic
+   gradient beneath it spins via transform. */
+.urgent-ring {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  padding: 2px;
+  pointer-events: none;
+  overflow: hidden;
+  background: rgba(196, 64, 64, 0.12);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+/* Soft luminous arc: alpha rises and falls symmetrically so there is
+   no hard edge anywhere on the wheel — reads as a glow drifting along
+   the border rather than a spinning shard. */
+.urgent-ring::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 150%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%) rotate(0deg);
+  will-change: transform;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(196, 64, 64, 0.04) 70deg,
+    rgba(203, 82, 74, 0.14) 140deg,
+    rgba(212, 100, 88, 0.32) 210deg,
+    rgba(219, 118, 102, 0.48) 250deg,
+    rgba(212, 100, 88, 0.32) 290deg,
+    rgba(203, 82, 74, 0.14) 330deg,
+    transparent 360deg
+  );
+  animation: urgent-spin 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .urgent-ring { background: rgba(196, 64, 64, 0.4); }
+  .urgent-ring::before { animation: none; }
+}
+
+/* Terminal-style name reveal on roster card hover: the name wipes in from
+   the left while a cursor bar tracks the reveal edge, blinks twice at the
+   end of the text, then goes dark. The cursor is a full-width box whose
+   right border is the visible bar — translateX(-100%..0) resolves against
+   the text's own width, so the bar always lands exactly at the last glyph. */
+.op-name-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.op-name-cursor {
+  position: absolute;
+  inset: 0;
+  border-right: 2px solid rgba(94, 196, 230, 0.85);
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes op-name-reveal {
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes op-name-cursor {
+  0% { transform: translateX(-100%); opacity: 1; }
+  30% { transform: translateX(0); opacity: 1; }
+  44% { opacity: 1; }
+  45% { opacity: 0; }
+  59% { opacity: 0; }
+  60% { opacity: 1; }
+  74% { opacity: 1; }
+  75% { opacity: 0; }
+  89% { opacity: 0; }
+  90% { opacity: 1; }
+  100% { transform: translateX(0); opacity: 0; }
+}
+
+.op-card:hover .op-name-text,
+.op-card:focus-visible .op-name-text {
+  animation: op-name-reveal 0.48s ease-out both;
+}
+
+.op-card:hover .op-name-cursor,
+.op-card:focus-visible .op-name-cursor {
+  animation: op-name-cursor 1.6s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .op-card:hover .op-name-text,
+  .op-card:focus-visible .op-name-text,
+  .op-card:hover .op-name-cursor,
+  .op-card:focus-visible .op-name-cursor {
+    animation: none;
+  }
 }
 

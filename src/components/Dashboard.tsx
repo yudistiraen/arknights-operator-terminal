@@ -173,19 +173,19 @@ export function Dashboard() {
         <OngoingEvents />
 
         {/* Supply Operations */}
-        <div className="mission-schedule w-full max-w-[960px]">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="w-1 h-3.5 bg-ak-accent/60" />
-            <span className="font-display text-md md:text-xs text-white/40 tracking-[0.15em] uppercase">
+        <div className="mission-schedule w-full max-w-[1250px]">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-1.5 h-5 bg-ak-accent/60" />
+            <span className="font-display text-lg text-white/40 tracking-[0.15em] uppercase">
               Supply Schedule
             </span>
             <div className="flex-1 h-px bg-white/[0.06]" />
-            <span className="font-display text-md text-ak-accent/40 tracking-wider uppercase">
+            <span className="font-display text-lg text-ak-accent/40 tracking-wider uppercase">
               {['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][today]}
             </span>
           </div>
 
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-3 md:gap-3.5">
+          <div className="grid grid-cols-4 md:grid-cols-8 gap-4 md:gap-5">
             {DAILY_MISSIONS.map((mission) => {
               const isOpenToday = mission.days.includes(today)
               const isAlwaysOpen = mission.days.length === 7
@@ -202,10 +202,10 @@ export function Dashboard() {
                       : 'border-white/[0.06]'
                   }`}>
                     {/* Corner marks */}
-                    <div className={`absolute top-0 left-0 w-2 h-2 border-t border-l z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
-                    <div className={`absolute top-0 right-0 w-2 h-2 border-t border-r z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
-                    <div className={`absolute bottom-0 left-0 w-2 h-2 border-b border-l z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
-                    <div className={`absolute bottom-0 right-0 w-2 h-2 border-b border-r z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
+                    <div className={`absolute top-0 left-0 w-2.5 h-2.5 border-t border-l z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
+                    <div className={`absolute top-0 right-0 w-2.5 h-2.5 border-t border-r z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
+                    <div className={`absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
+                    <div className={`absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r z-10 ${isOpenToday ? 'border-ak-accent/50' : 'border-white/10'}`} />
 
                     {/* Image */}
                     <div className="aspect-[225/497] relative">
@@ -233,20 +233,20 @@ export function Dashboard() {
 
                       {/* Status badge */}
                       {isOpenToday && (
-                        <div className="absolute top-1.5 right-1.5 z-10">
-                          <div className="w-1.5 h-1.5 rounded-full bg-ak-accent shadow-[0_0_6px_rgba(59,164,201,0.6)] animate-[pulse-glow_2s_ease-in-out_infinite]" />
+                        <div className="absolute top-2 right-2 z-10">
+                          <div className="w-2 h-2 rounded-full bg-ak-accent shadow-[0_0_6px_rgba(59,164,201,0.6)] animate-[pulse-glow_2s_ease-in-out_infinite]" />
                         </div>
                       )}
 
                       {/* Mission name overlay */}
-                      <div className="absolute inset-x-0 bottom-0 px-1.5 pb-1.5 z-10">
-                        <p className={`font-display text-sm leading-tight tracking-wide ${
+                      <div className="absolute inset-x-0 bottom-0 px-2 pb-2 z-10">
+                        <p className={`font-display text-base leading-tight tracking-wide ${
                           isOpenToday ? 'text-white/90' : 'text-white/35'
                         }`}>
                           {mission.name}
                         </p>
                         {isAlwaysOpen && (
-                          <span className="font-display text-xs text-ak-gold/50 tracking-widest uppercase">
+                          <span className="font-display text-sm text-ak-gold/50 tracking-widest uppercase">
                             Always
                           </span>
                         )}
@@ -260,7 +260,7 @@ export function Dashboard() {
                   </div>
 
                   {/* Day dots */}
-                  <div className="flex justify-center gap-1 mt-2">
+                  <div className="flex justify-center gap-1.5 mt-2.5">
                     {DAY_INDICES.map((dayIdx, i) => {
                       const isActive = mission.days.includes(dayIdx)
                       const isDayToday = dayIdx === today
@@ -272,7 +272,7 @@ export function Dashboard() {
                           title={['Mon','Tue','Wed','Thu','Fri','Sat','Sun'][i]}
                         >
                           <div
-                            className={`w-[5px] h-[5px] md:w-[7px] md:h-[7px] ${
+                            className={`w-1.5 h-1.5 md:w-2 md:h-2 ${
                               isActive && isDayToday
                                 ? 'bg-ak-accent shadow-[0_0_4px_rgba(59,164,201,0.5)]'
                                 : isActive

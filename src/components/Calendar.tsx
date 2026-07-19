@@ -17,6 +17,7 @@ import {
 } from '../lib/calendar'
 import type { BirthdayEntry } from '../lib/calendar'
 import { toSlug } from '../lib/operators'
+import { playClick } from '../lib/sound'
 import {
   getEventLanesForMonth,
   getOngoingEvents,
@@ -33,18 +34,22 @@ function DayCell({
   eventSlots,
   day,
   isToday,
+  hoveredEventId,
+  onHoverEvent,
 }: {
   entries: BirthdayEntry[]
   eventSlots: (EventLaneSlot | null)[]
   day: number
   isToday: boolean
+  hoveredEventId: string | null
+  onHoverEvent: (eventId: string | null) => void
 }) {
   const hasEvents = eventSlots.some(Boolean)
 
   return (
     <div
       className={`
-        group relative aspect-square p-1.5 md:p-2 border overflow-hidden
+        group relative aspect-square p-2 md:p-2.5 border overflow-hidden hover:z-30 hover:overflow-visible
         ${isToday
           ? 'bg-ak-accent/[0.08] border-ak-accent/30 shadow-[0_0_20px_rgba(59,164,201,0.08),inset_0_0_12px_rgba(59,164,201,0.04)]'
           : entries.length > 0
@@ -59,19 +64,19 @@ function DayCell({
       )}
 
       <span className={`
-        font-display text-[10px] md:text-xs leading-none block
+        font-display text-xs md:text-sm leading-none block
         ${isToday ? 'text-ak-accent-bright font-semibold' : 'text-white/50'}
       `}>
         {day}
       </span>
 
       {entries.length > 0 && (
-        <div className="mt-1 md:mt-1.5 flex flex-wrap gap-0.5 md:gap-1">
+        <div className="mt-1.5 md:mt-2 flex flex-wrap gap-1 md:gap-1.5">
           {entries.map((entry) => (
             <Link
               key={entry.operator.name}
               href={`/operator/${toSlug(entry.operator.name)}`}
-              className="relative block w-6 h-6 md:w-8 md:h-8 rounded-full overflow-hidden border border-ak-gold/40 hover:border-ak-gold-bright/70 active:scale-[0.93] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ak-accent-bright"
+              className="relative block w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-ak-gold/40 hover:border-ak-gold-bright/70 active:scale-[0.93] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ak-accent-bright"
               style={{ transition: 'border-color 0.2s, transform 0.15s' }}
               title={entry.operator.name}
             >
@@ -79,7 +84,7 @@ function DayCell({
                 src={entry.portrait}
                 alt={entry.operator.name}
                 fill
-                sizes="32px"
+                sizes="40px"
                 loading="lazy"
                 className="object-cover object-center"
               />
@@ -89,29 +94,45 @@ function DayCell({
         </div>
       )}
 
-      {entries.length > 0 && (
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent px-1 pb-0.5 pt-2 opacity-0 group-hover:opacity-100 pointer-events-none hidden md:block" style={{ transition: 'opacity 0.2s' }}>
-          <p className="font-display text-xs text-ak-gold-bright/90 tracking-wider truncate">
-            {entries.map(e => e.operator.name).join(', ')}
-          </p>
-        </div>
-      )}
-
       {hasEvents && (
-        <div className="absolute bottom-0 left-0 right-0 flex flex-col-reverse gap-[1.5px] pb-[1px] z-10">
+        <div className="absolute bottom-0 left-0 right-0 flex flex-col-reverse gap-0.5 pb-[1.5px] z-10">
           {eventSlots.map((slot, laneIndex) => {
-            if (!slot) return <div key={laneIndex} className="h-[2.5px] md:h-[3px]" />
+            if (!slot) return <div key={laneIndex} className="h-[3.5px] md:h-1" />
             const [colorR, colorG, colorB] = slot.event.color
+            const isDimmed = hoveredEventId !== null && hoveredEventId !== slot.event.id
             return (
               <div
                 key={laneIndex}
-                title={slot.event.name}
-                className={`h-[2.5px] md:h-[3px] ${slot.isStart ? 'rounded-l-full' : ''} ${slot.isEnd ? 'rounded-r-full' : ''}`}
-                style={{
-                  backgroundColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.85)`,
-                  boxShadow: `0 0 4px rgba(${colorR}, ${colorG}, ${colorB}, 0.45)`,
-                }}
-              />
+                className="relative group/eventline"
+                onMouseEnter={() => onHoverEvent(slot.event.id)}
+                onMouseLeave={() => onHoverEvent(null)}
+              >
+                <div
+                  className={`h-[3.5px] md:h-1 cursor-help ${slot.isStart ? 'rounded-l-full' : ''} ${slot.isEnd ? 'rounded-r-full' : ''}`}
+                  style={{
+                    backgroundColor: `rgba(${colorR}, ${colorG}, ${colorB}, ${isDimmed ? 0.2 : 0.85})`,
+                    boxShadow: isDimmed ? 'none' : `0 0 4px rgba(${colorR}, ${colorG}, ${colorB}, 0.45)`,
+                    transition: 'background-color 0.2s, box-shadow 0.2s',
+                  }}
+                />
+                <div
+                  className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-52 px-3.5 py-2 bg-[#0a0f1a] border opacity-0 scale-95 group-hover/eventline:opacity-100 group-hover/eventline:scale-100 pointer-events-none z-30 shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
+                  style={{
+                    borderColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.35)`,
+                    transition: 'opacity 0.15s, transform 0.15s',
+                  }}
+                >
+                  <div className="flex items-center gap-2 justify-center">
+                    <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: `rgb(${colorR}, ${colorG}, ${colorB})` }} />
+                    <p className="font-display text-[11px] md:text-sm font-semibold text-white/90 leading-tight text-center">
+                      {slot.event.name}
+                    </p>
+                  </div>
+                  <p className="font-display text-sm text-white/35 tracking-wider text-center mt-1.5">
+                    {formatEventDateRange(slot.event)}
+                  </p>
+                </div>
+              </div>
             )
           })}
         </div>
@@ -143,44 +164,44 @@ function UpcomingList() {
   }, [today])
 
   return (
-    <div className="upcoming-section w-full max-w-4xl mt-6 md:mt-10">
-      <div className="flex items-center gap-3 mb-3 md:mb-4">
-        <div className="w-1 h-4 bg-ak-accent/50" />
-        <h2 className="font-display text-xs md:text-sm text-white/40 tracking-[0.15em] uppercase">
+    <div className="upcoming-section w-full max-w-6xl mt-8 md:mt-12">
+      <div className="flex items-center gap-4 mb-4 md:mb-5">
+        <div className="w-1.5 h-5 bg-ak-accent/50" />
+        <h2 className="font-display text-sm md:text-base text-white/40 tracking-[0.15em] uppercase">
           Upcoming Birthdays
         </h2>
       </div>
-      <div className="grid gap-1.5 md:gap-2">
+      <div className="grid gap-2 md:gap-2.5">
         {upcoming.map((entry) => (
           <Link
             key={entry.operator.name}
             href={`/operator/${toSlug(entry.operator.name)}`}
-            className="group flex items-center gap-3 md:gap-4 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-ak-accent/20 px-3 md:px-4 py-2 md:py-2.5 active:scale-[0.995] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
+            className="group flex items-center gap-4 md:gap-5 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-ak-accent/20 px-4 md:px-5 py-2.5 md:py-3 active:scale-[0.995] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
             style={{ transition: 'background-color 0.25s, border-color 0.25s, transform 0.15s' }}
           >
-            <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border border-ak-gold/30 shrink-0">
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden border border-ak-gold/30 shrink-0">
               <Image
                 src={entry.portrait}
                 alt={entry.operator.name}
                 fill
-                sizes="40px"
+                sizes="48px"
                 loading="lazy"
                 className="object-cover object-center"
               />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
+              <p className="font-display text-sm md:text-base text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
                 {entry.operator.name}
               </p>
-              <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
+              <p className="font-body text-[11px] md:text-[13px] text-white/35 tracking-wide">
                 {MONTH_LABELS[entry.month]} {entry.day}
               </p>
             </div>
             <div className="shrink-0 text-right">
               {entry.daysUntil === 0 ? (
-                <span className="font-display text-[10px] md:text-xs text-ak-gold-bright tracking-wider">TODAY</span>
+                <span className="font-display text-xs md:text-sm text-ak-gold-bright tracking-wider">TODAY</span>
               ) : (
-                <span className="font-display text-[10px] md:text-xs text-white/20 tracking-wider">
+                <span className="font-display text-xs md:text-sm text-white/20 tracking-wider">
                   {entry.daysUntil}d
                 </span>
               )}
@@ -204,34 +225,36 @@ function OngoingEventsList() {
   if (!today || ongoing.length === 0) return null
 
   return (
-    <div className="upcoming-section w-full max-w-4xl mt-6 md:mt-10">
-      <div className="flex items-center gap-3 mb-3 md:mb-4">
-        <div className="w-1 h-4 bg-ak-gold/50" />
-        <h2 className="font-display text-xs md:text-sm text-white/40 tracking-[0.15em] uppercase">
+    <div className="upcoming-section w-full max-w-6xl mt-8 md:mt-12">
+      <div className="flex items-center gap-4 mb-4 md:mb-5">
+        <div className="w-1.5 h-5 bg-ak-gold/50" />
+        <h2 className="font-display text-sm md:text-base text-white/40 tracking-[0.15em] uppercase">
           Ongoing Events
         </h2>
       </div>
-      <div className="grid gap-1.5 md:gap-2">
+      <div className="grid gap-2 md:gap-2.5">
         {ongoing.map((event) => {
           const [colorR, colorG, colorB] = event.color
           const accentColor = `rgb(${colorR}, ${colorG}, ${colorB})`
           const daysLeft = getDaysUntil(event.endDate, today)
+          const isUrgent = daysLeft <= 1
 
           return (
             <div
               key={event.id}
-              className="group flex items-center gap-3 md:gap-4 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-3 md:px-4 py-2 md:py-2.5"
+              className="group relative flex items-center gap-4 md:gap-5 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-4 md:px-5 py-2.5 md:py-3"
               style={{ transition: 'background-color 0.25s, border-color 0.25s' }}
             >
+              {isUrgent && <div className="urgent-ring" aria-hidden />}
               <div
-                className="relative w-12 h-8 md:w-14 md:h-9 overflow-hidden border shrink-0"
+                className="relative w-16 h-10 md:w-20 md:h-12 overflow-hidden border shrink-0"
                 style={{ borderColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.4)` }}
               >
                 <Image
                   src={event.banner}
                   alt={event.name}
                   fill
-                  sizes="56px"
+                  sizes="80px"
                   loading="lazy"
                   className="object-cover object-center"
                 />
@@ -241,16 +264,19 @@ function OngoingEventsList() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
+                <p className="font-display text-sm md:text-base text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
                   {event.name}
                 </p>
-                <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
+                <p className="font-body text-[11px] md:text-[13px] text-white/35 tracking-wide">
                   {formatEventDateRange(event)}
                 </p>
               </div>
               <div className="shrink-0 text-right">
-                <span className="font-display text-[10px] md:text-xs tracking-wider" style={{ color: accentColor }}>
-                  {daysLeft}d
+                <span
+                  className={`font-display text-xs md:text-sm tracking-wider ${isUrgent ? 'animate-[pulse-glow_2.4s_ease-in-out_infinite]' : ''}`}
+                  style={{ color: isUrgent ? '#d97a6e' : accentColor }}
+                >
+                  {daysLeft <= 0 ? 'LAST DAY' : `${daysLeft}d`}
                 </span>
               </div>
             </div>
@@ -273,14 +299,14 @@ function UpcomingEventsList() {
   if (!today || upcoming.length === 0) return null
 
   return (
-    <div className="upcoming-section w-full max-w-4xl mt-6 md:mt-10">
-      <div className="flex items-center gap-3 mb-3 md:mb-4">
-        <div className="w-1 h-4 bg-ak-gold/50" />
-        <h2 className="font-display text-xs md:text-sm text-white/40 tracking-[0.15em] uppercase">
+    <div className="upcoming-section w-full max-w-6xl mt-8 md:mt-12">
+      <div className="flex items-center gap-4 mb-4 md:mb-5">
+        <div className="w-1.5 h-5 bg-ak-gold/50" />
+        <h2 className="font-display text-sm md:text-base text-white/40 tracking-[0.15em] uppercase">
           Upcoming Events
         </h2>
       </div>
-      <div className="grid gap-1.5 md:gap-2">
+      <div className="grid gap-2 md:gap-2.5">
         {upcoming.map((event) => {
           const [colorR, colorG, colorB] = event.color
           const accentColor = `rgb(${colorR}, ${colorG}, ${colorB})`
@@ -289,18 +315,18 @@ function UpcomingEventsList() {
           return (
             <div
               key={event.id}
-              className="group flex items-center gap-3 md:gap-4 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-3 md:px-4 py-2 md:py-2.5"
+              className="group flex items-center gap-4 md:gap-5 bg-white/[0.025] border border-white/[0.06] hover:bg-white/[0.05] hover:border-white/[0.12] px-4 md:px-5 py-2.5 md:py-3"
               style={{ transition: 'background-color 0.25s, border-color 0.25s' }}
             >
               <div
-                className="relative w-12 h-8 md:w-14 md:h-9 overflow-hidden border shrink-0"
+                className="relative w-16 h-10 md:w-20 md:h-12 overflow-hidden border shrink-0"
                 style={{ borderColor: `rgba(${colorR}, ${colorG}, ${colorB}, 0.4)` }}
               >
                 <Image
                   src={event.banner}
                   alt={event.name}
                   fill
-                  sizes="56px"
+                  sizes="80px"
                   loading="lazy"
                   className="object-cover object-center"
                 />
@@ -310,15 +336,15 @@ function UpcomingEventsList() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-display text-xs md:text-sm text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
+                <p className="font-display text-sm md:text-base text-white/80 group-hover:text-white/95 tracking-wider truncate" style={{ transition: 'color 0.25s' }}>
                   {event.name}
                 </p>
-                <p className="font-body text-[9px] md:text-[10px] text-white/35 tracking-wide">
+                <p className="font-body text-[11px] md:text-[13px] text-white/35 tracking-wide">
                   {formatEventDateRange(event)}
                 </p>
               </div>
               <div className="shrink-0 text-right">
-                <span className="font-display text-[10px] md:text-xs tracking-wider" style={{ color: accentColor }}>
+                <span className="font-display text-xs md:text-sm tracking-wider" style={{ color: accentColor }}>
                   {daysUntil}d
                 </span>
               </div>
@@ -339,6 +365,7 @@ export function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(now.getMonth())
   const [currentYear, setCurrentYear] = useState(now.getFullYear())
   const [mounted, setMounted] = useState(false)
+  const [hoveredEventId, setHoveredEventId] = useState<string | null>(null)
 
   useEffect(() => {
     const clientNow = new Date()
@@ -361,6 +388,7 @@ export function Calendar() {
   }, [currentMonth, currentYear, today])
 
   const prevMonth = useCallback(() => {
+    playClick()
     if (currentMonth === 0) {
       setCurrentMonth(11)
       setCurrentYear(y => y - 1)
@@ -370,6 +398,7 @@ export function Calendar() {
   }, [currentMonth])
 
   const nextMonth = useCallback(() => {
+    playClick()
     if (currentMonth === 11) {
       setCurrentMonth(0)
       setCurrentYear(y => y + 1)
@@ -406,7 +435,15 @@ export function Calendar() {
     const entries = birthdays.get(day) ?? []
     const eventSlots = eventLanes.lanesByDay.get(day) ?? []
     cells.push(
-      <DayCell key={day} entries={entries} eventSlots={eventSlots} day={day} isToday={isToday(day)} />
+      <DayCell
+        key={day}
+        entries={entries}
+        eventSlots={eventSlots}
+        day={day}
+        isToday={isToday(day)}
+        hoveredEventId={hoveredEventId}
+        onHoverEvent={setHoveredEventId}
+      />
     )
   }
 
@@ -423,32 +460,32 @@ export function Calendar() {
       <div className="fixed inset-0 pointer-events-none z-40 shadow-[inset_0_0_150px_rgba(0,0,0,0.5)]" />
 
       {/* Content */}
-      <div className="flex-1 relative z-10 flex flex-col items-center px-3 md:px-6 pt-14 md:pt-20 pb-8">
+      <div className="flex-1 relative z-10 flex flex-col items-center px-4 md:px-8 pt-16 md:pt-24 pb-10">
         {/* Header */}
-        <div className="cal-header w-full max-w-4xl mb-6 md:mb-8">
+        <div className="cal-header w-full max-w-6xl mb-8 md:mb-10">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 md:gap-4">
-              <div className="w-1 h-6 md:h-8 bg-ak-accent/40" />
+            <div className="flex items-center gap-4 md:gap-5">
+              <div className="w-1.5 h-8 md:h-10 bg-ak-accent/40" />
               <div>
-                <h1 className="font-display text-lg md:text-2xl font-bold text-white/85 tracking-wider uppercase leading-none">
+                <h1 className="font-display text-xl md:text-3xl font-bold text-white/85 tracking-wider uppercase leading-none">
                   Calendar
                 </h1>
-                <p className="font-display text-[9px] md:text-[10px] text-white/50 tracking-[0.15em] uppercase mt-0.5">
+                <p className="font-display text-[11px] md:text-[13px] text-white/50 tracking-[0.15em] uppercase mt-1">
                   Birthdays &amp; Events
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap items-center justify-end gap-1.5 md:gap-2">
-              <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
-                <div className="w-1.5 h-1.5 bg-ak-gold/60 rounded-full" />
-                <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
+            <div className="flex flex-wrap items-center justify-end gap-2 md:gap-2.5">
+              <div className="flex items-center gap-2 md:gap-2.5 bg-white/[0.03] border border-white/[0.07] px-2.5 md:px-4 py-1.5 md:py-2">
+                <div className="w-2 h-2 bg-ak-gold/60 rounded-full" />
+                <span className="font-display text-[11px] md:text-[13px] text-white/70 tracking-wider">
                   {birthdayCount} {birthdayCount === 1 ? 'BIRTHDAY' : 'BIRTHDAYS'}
                 </span>
               </div>
               {eventLanes.laneCount > 0 && (
-                <div className="flex items-center gap-1.5 md:gap-2 bg-white/[0.03] border border-white/[0.07] px-2 md:px-3 py-1 md:py-1.5">
-                  <div className="w-1.5 h-1.5 bg-ak-accent/60 rounded-full" />
-                  <span className="font-display text-[9px] md:text-[10px] text-white/70 tracking-wider">
+                <div className="flex items-center gap-2 md:gap-2.5 bg-white/[0.03] border border-white/[0.07] px-2.5 md:px-4 py-1.5 md:py-2">
+                  <div className="w-2 h-2 bg-ak-accent/60 rounded-full" />
+                  <span className="font-display text-[11px] md:text-[13px] text-white/70 tracking-wider">
                     {eventLanes.laneCount} {eventLanes.laneCount === 1 ? 'EVENT' : 'EVENTS'}
                   </span>
                 </div>
@@ -458,43 +495,43 @@ export function Calendar() {
         </div>
 
         {/* Month Navigation */}
-        <div className="cal-header w-full max-w-4xl flex items-center justify-between mb-4 md:mb-6">
+        <div className="cal-header w-full max-w-6xl flex items-center justify-between mb-5 md:mb-8">
           <button
             onClick={prevMonth}
-            className="flex items-center gap-1.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] px-3 py-1.5 md:px-4 md:py-2 active:scale-[0.96] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
+            className="flex items-center gap-2 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] px-4 py-2 md:px-5 md:py-2.5 active:scale-[0.96] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
             style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
           >
-            <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 fill-none stroke-white/40 stroke-2">
+            <svg viewBox="0 0 24 24" className="w-4 h-4 md:w-5 md:h-5 fill-none stroke-white/40 stroke-2">
               <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            <span className="font-display text-[10px] md:text-xs text-white/70 tracking-wider hidden md:block">PREV</span>
+            <span className="font-display text-xs md:text-sm text-white/70 tracking-wider hidden md:block">PREV</span>
           </button>
 
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="w-6 md:w-10 h-px bg-gradient-to-r from-transparent to-ak-accent/20" />
-            <h2 className="font-display text-base md:text-xl font-bold text-white/80 tracking-[0.12em] uppercase">
+          <div className="flex items-center gap-4 md:gap-5">
+            <div className="w-8 md:w-12 h-px bg-gradient-to-r from-transparent to-ak-accent/20" />
+            <h2 className="font-display text-lg md:text-2xl font-bold text-white/80 tracking-[0.12em] uppercase">
               {MONTH_LABELS[currentMonth]} {currentYear}
             </h2>
-            <div className="w-6 md:w-10 h-px bg-gradient-to-l from-transparent to-ak-accent/20" />
+            <div className="w-8 md:w-12 h-px bg-gradient-to-l from-transparent to-ak-accent/20" />
           </div>
 
           <button
             onClick={nextMonth}
-            className="flex items-center gap-1.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] px-3 py-1.5 md:px-4 md:py-2 active:scale-[0.96] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
+            className="flex items-center gap-2 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] px-4 py-2 md:px-5 md:py-2.5 active:scale-[0.96] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
             style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
           >
-            <span className="font-display text-[10px] md:text-xs text-white/70 tracking-wider hidden md:block">NEXT</span>
-            <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 fill-none stroke-white/40 stroke-2">
+            <span className="font-display text-xs md:text-sm text-white/70 tracking-wider hidden md:block">NEXT</span>
+            <svg viewBox="0 0 24 24" className="w-4 h-4 md:w-5 md:h-5 fill-none stroke-white/40 stroke-2">
               <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>
 
         {/* Day Labels */}
-        <div className="w-full max-w-4xl grid grid-cols-7 gap-px md:gap-1 mb-px md:mb-1">
+        <div className="w-full max-w-6xl grid grid-cols-7 gap-px md:gap-1.5 mb-px md:mb-1.5">
           {DAY_LABELS.map((label) => (
-            <div key={label} className="cal-day-label text-center py-1.5 md:py-2">
-              <span className="font-display text-[9px] md:text-[10px] text-white/50 tracking-[0.2em]">
+            <div key={label} className="cal-day-label text-center py-2 md:py-2.5">
+              <span className="font-display text-[11px] md:text-[13px] text-white/50 tracking-[0.2em]">
                 {label}
               </span>
             </div>
@@ -502,7 +539,7 @@ export function Calendar() {
         </div>
 
         {/* Calendar Grid */}
-        <div className="cal-grid w-full max-w-4xl grid grid-cols-7 gap-px md:gap-1">
+        <div className="cal-grid w-full max-w-6xl grid grid-cols-7 gap-px md:gap-1.5">
           {cells}
         </div>
 
