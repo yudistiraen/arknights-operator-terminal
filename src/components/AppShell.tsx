@@ -112,7 +112,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
       <SideMenu />
       <div
-        className={sidebarOpen ? 'md:ml-[220px]' : ''}
+        className={sidebarOpen ? 'md:ml-[286px]' : ''}
         style={{ transition: 'margin-left 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
       >
         {children}

@@ -7,6 +7,7 @@ import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { getFactionTheme } from '../data/factionThemes'
 import { toSlug, getRosterEntries } from '../lib/operators'
+import { playClick, playTransition } from '../lib/sound'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
 import { PANEL_CONFIGS } from './panels'
 import { CharacterArt } from './CharacterArt'
@@ -119,9 +120,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
   const switchSkin = useCallback((targetIndex: number) => {
     if (targetIndex === skinIndex || isSkinAnimating.current || !artRef.current) return
-    const transitionSound = new Audio('/audio/glitch_transition.mp3')
-    transitionSound.volume = 0.6
-    transitionSound.play().catch(() => {})
+    playTransition()
     const nextSrc = activeOperator.skins[targetIndex]?.src ?? activeOperator.skins[0].src
     playArtTransition(nextSrc, () => setSkinIndex(targetIndex))
   }, [skinIndex, activeOperator, playArtTransition])
@@ -130,9 +129,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     const buttonElement = panelRefs.current[panelId]
     const gridElement = gridRef.current
     if (!buttonElement || !gridElement || expandedPanelId || isAnimating.current) return
-    const clickSound = new Audio('/audio/futuristic_click.mp3')
-    clickSound.volume = 0.5
-    clickSound.play().catch(() => {})
+    playClick()
     pendingExpansion.current = { id: panelId, rect: buttonElement.getBoundingClientRect() }
     setExpandedPanelId(panelId)
   }, [expandedPanelId])
@@ -208,9 +205,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
   const switchOperator = useCallback((direction: -1 | 1) => {
     if (isSkinAnimating.current) return
-    const clickSound = new Audio('/audio/futuristic_click.mp3')
-    clickSound.volume = 0.5
-    clickSound.play().catch(() => {})
+    playClick()
     setExpandedPanelId(null)
     const currentEntryIndex = rosterEntries.findIndex(
       entry => entry.operatorIndex === operatorIndex && entry.isAlter === isAlterActive
@@ -233,18 +228,14 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
   const switchVariant = useCallback((targetVariant: number) => {
     if (isSkinAnimating.current || !artRef.current) return
-    const transitionSound = new Audio('/audio/glitch_transition.mp3')
-    transitionSound.volume = 0.6
-    transitionSound.play().catch(() => {})
+    playTransition()
     const nextSrc = baseOperator.variants?.[targetVariant]?.skins?.[0]?.src ?? baseOperator.skins[0].src
     playArtTransition(nextSrc, () => { setVariantIndex(targetVariant); setSkinIndex(0); setExpandedPanelId(null) })
   }, [baseOperator, playArtTransition])
 
   const switchAlter = useCallback((activate: boolean) => {
     if (isSkinAnimating.current || !artRef.current) return
-    const transitionSound = new Audio('/audio/glitch_transition.mp3')
-    transitionSound.volume = 0.6
-    transitionSound.play().catch(() => {})
+    playTransition()
     const slug = toSlug(OPERATORS[operatorIndex].name)
     const nextSrc = (activate ? baseOperator.alter?.skins[0]?.src : undefined) ?? baseOperator.skins[0].src
     playArtTransition(nextSrc, () => {

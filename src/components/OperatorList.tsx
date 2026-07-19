@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
 import { toSlug, getRosterEntries, type RosterEntry } from '../lib/operators'
+import { playHover } from '../lib/sound'
 import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
 
@@ -30,9 +31,41 @@ const RARITY_BAR: Record<number, string> = {
   1: 'from-white/30 to-white/10',
 }
 
+// Roster-card corner ribbon. "both" covers an alter form that is itself
+// crossover content (e.g. Kirin R Yato) — distinct from a plain alter or a
+// plain crossover so the two statuses don't collapse into one label.
+const CARD_BADGES = {
+  alter: {
+    label: 'ALTER',
+    gradient: 'from-[#f0954f] to-[#c05018]',
+    box: '-left-7 w-24 md:-left-9 md:w-32',
+    text: 'text-[7px] md:text-[9px] tracking-widest',
+  },
+  crossover: {
+    label: 'CROSSOVER',
+    gradient: 'from-[#4f9d67] to-[#265c37]',
+    box: '-left-9 w-32 md:-left-12 md:w-40',
+    text: 'text-[6px] md:text-[9px] tracking-wider -ml-3',
+  },
+  both: {
+    label: 'XOVER ALT',
+    gradient: 'from-[#a06ff0] to-[#5a2fa8]',
+    box: '-left-9 w-32 md:-left-12 md:w-40',
+    text: 'text-[6px] md:text-[9px] tracking-wider -ml-3',
+  },
+} as const satisfies Record<string, { label: string, gradient: string, box: string, text: string }>
+
+function getCardBadge(entry: RosterEntry): typeof CARD_BADGES[keyof typeof CARD_BADGES] | null {
+  const isCrossover = entry.operator.tags?.includes('Crossover') ?? false
+  if (entry.isAlter && isCrossover) return CARD_BADGES.both
+  if (entry.isAlter) return CARD_BADGES.alter
+  if (isCrossover) return CARD_BADGES.crossover
+  return null
+}
+
 const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='rgba(255,255,255,0.3)'%3E%3Cpath fill-rule='evenodd' d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E")`
 
-const selectBase = "appearance-none bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-[11px] tracking-wider pl-3 pr-8 py-1.5 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer"
+const selectBase = "appearance-none bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-sm tracking-wider pl-4 pr-10 py-2 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer"
 const optionBase = "bg-[#0e1624] text-[#c8d0dc]"
 
 interface FilterOption {
@@ -71,33 +104,33 @@ function FilterDropdown({ label, value, options, onChange }: {
   const selected = options.find(option => option.value === value)
 
   return (
-    <div className="flex flex-col gap-1 relative" ref={dropdownRef}>
-      <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">{label}</label>
+    <div className="flex flex-col gap-1.5 relative" ref={dropdownRef}>
+      <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">{label}</label>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-[11px] tracking-wider pl-2.5 pr-7 py-1.5 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer text-left"
+        className="flex items-center gap-2 bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-sm tracking-wider pl-3.5 pr-9 py-2 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer text-left"
         style={{
           backgroundImage: SELECT_CHEVRON,
-          backgroundPosition: 'right 6px center',
+          backgroundPosition: 'right 8px center',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '16px',
+          backgroundSize: '20px',
           transition: 'border-color 0.2s',
         }}
       >
         {selected?.icon && (
-          <Image src={selected.icon} alt="" width={14} height={14} className="w-3.5 h-3.5 object-contain opacity-60 shrink-0" />
+          <Image src={selected.icon} alt="" width={18} height={18} className="w-4.5 h-4.5 object-contain opacity-60 shrink-0" />
         )}
         <span className="truncate">{selected?.label ?? 'All'}</span>
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 min-w-full w-max max-h-56 overflow-y-auto bg-[#0c1220] border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 ak-scroll">
+        <div className="absolute top-full left-0 mt-1.5 min-w-full w-max max-h-72 overflow-y-auto bg-[#0c1220] border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 ak-scroll">
           {options.map(option => (
             <button
               key={option.value}
               type="button"
               onClick={() => { onChange(option.value); setIsOpen(false) }}
-              className={`flex items-center gap-2 w-full px-2.5 py-1.5 text-left font-display text-[11px] tracking-wider cursor-pointer ${
+              className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-left font-display text-sm tracking-wider cursor-pointer ${
                 option.value === value
                   ? 'bg-[#3ba4c9]/15 text-[#5ec4e6]'
                   : 'text-white/50 hover:bg-white/[0.06] hover:text-white/75'
@@ -105,9 +138,9 @@ function FilterDropdown({ label, value, options, onChange }: {
               style={{ transition: 'background-color 0.15s, color 0.15s' }}
             >
               {option.icon ? (
-                <Image src={option.icon} alt="" width={14} height={14} className="w-3.5 h-3.5 object-contain shrink-0 opacity-65" />
+                <Image src={option.icon} alt="" width={18} height={18} className="w-4.5 h-4.5 object-contain shrink-0 opacity-65" />
               ) : (
-                <span className="w-3.5 shrink-0" />
+                <span className="w-4.5 shrink-0" />
               )}
               <span className="truncate">{option.label}</span>
             </button>
@@ -238,9 +271,9 @@ export function OperatorList() {
 
   const selectStyle = {
     backgroundImage: SELECT_CHEVRON,
-    backgroundPosition: 'right 6px center',
+    backgroundPosition: 'right 8px center',
     backgroundRepeat: 'no-repeat' as const,
-    backgroundSize: '16px',
+    backgroundSize: '20px',
   }
 
   const buildOperatorHref = (entry: RosterEntry) => {
@@ -293,11 +326,11 @@ export function OperatorList() {
 
       {/* Filters */}
       <div className="roster-filter relative z-20 border-b border-white/[0.04] bg-white/[0.015]">
-        <div className="flex flex-wrap items-end gap-2.5 md:gap-4 px-4 md:px-8 py-3 md:py-4">
-          <div className="flex flex-col gap-1">
-            <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">Search</label>
+        <div className="flex flex-wrap items-end gap-3.5 md:gap-5 px-5 md:px-10 py-4 md:py-5">
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">Search</label>
             <div className="relative">
-              <svg viewBox="0 0 24 24" className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 fill-white/25 pointer-events-none">
+              <svg viewBox="0 0 24 24" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 fill-white/25 pointer-events-none">
                 <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
               </svg>
               <input
@@ -305,15 +338,15 @@ export function OperatorList() {
                 value={searchQuery}
                 onChange={event => setSearchQuery(event.target.value)}
                 placeholder="Operator name..."
-                className="bg-[#0e1624] border border-white/[0.08] text-white/70 font-display text-[11px] tracking-wider pl-7 pr-3 py-1.5 w-36 md:w-44 placeholder:text-white/20 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none"
+                className="bg-[#0e1624] border border-white/[0.08] text-white/70 font-display text-sm tracking-wider pl-9 pr-4 py-2 w-44 md:w-56 placeholder:text-white/20 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="w-px h-6 bg-white/[0.06] hidden md:block" />
+          <div className="w-px h-8 bg-white/[0.06] hidden md:block" />
 
-          <div className="flex flex-col gap-1">
-            <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">Rarity</label>
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">Rarity</label>
             <select
               value={rarityFilter}
               onChange={event => setRarityFilter(event.target.value)}
@@ -334,10 +367,10 @@ export function OperatorList() {
           {activeFilterCount > 0 && (
             <button
               onClick={clearFilters}
-              className="flex items-center gap-1 text-[#3ba4c9]/60 hover:text-[#5ec4e6] font-display text-[10px] tracking-wider uppercase pb-0.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+              className="flex items-center gap-1.5 text-[#3ba4c9]/60 hover:text-[#5ec4e6] font-display text-xs tracking-wider uppercase pb-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
               style={{ transition: 'color 0.2s' }}
             >
-              <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
               Clear ({activeFilterCount})
@@ -375,10 +408,13 @@ export function OperatorList() {
                 </div>
 
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-1.5 md:gap-3">
-                  {entries.map(entry => (
+                  {entries.map(entry => {
+                    const badge = getCardBadge(entry)
+                    return (
                     <Link
                       key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
                       href={buildOperatorHref(entry)}
+                      onMouseEnter={playHover}
                       className="op-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] text-left aspect-[0.60] w-full hover:border-[#3ba4c9]/25 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
                       style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s' }}
                     >
@@ -393,16 +429,26 @@ export function OperatorList() {
 
                       <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/35 to-transparent" />
 
-                      {(entry.isAlter || entry.operator.tags?.includes('Crossover')) && (
-                        <div className="absolute top-1 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[8px] md:text-[10px] tracking-[0.15em] uppercase text-[#f07830]/70 bg-[#f07830]/10 px-1 py-0.5 border border-[#f07830]/20">
-                            {entry.isAlter ? 'ALTER' : 'CROSSOVER'}
+                      {badge && (
+                        <div
+                          className={`absolute top-2 md:top-2.5 -rotate-45 z-20 pointer-events-none flex items-center justify-center h-4 md:h-5 shadow-[0_2px_6px_rgba(0,0,0,0.35)] bg-gradient-to-r ${badge.box} ${badge.gradient}`}
+                        >
+                          <span className={`font-display font-bold uppercase text-white leading-none whitespace-nowrap ${badge.text}`}>
+                            {badge.label}
                           </span>
                         </div>
                       )}
 
                       <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 z-10">
                         <div className="flex items-center gap-1 md:gap-1.5">
+                          <p className="font-display text-xs md:text-sm font-bold text-white/90 tracking-wide leading-none min-w-0">
+                            <span className="op-name-wrap truncate">
+                              <span className="op-name-text">{entry.operator.name}</span>
+                              <span className="op-name-cursor" aria-hidden />
+                            </span>
+                          </p>
+                        </div>
+                        <div className="flex gap-1 pt-1">
                           <Image
                             src={entry.operator.classIcon}
                             alt={entry.operator.class}
@@ -410,13 +456,11 @@ export function OperatorList() {
                             height={20}
                             className="w-3 h-3 md:w-5 md:h-5 object-contain opacity-70 shrink-0"
                           />
-                          <p className="font-display text-xs md:text-sm font-bold text-white/90 tracking-wide leading-none truncate">
-                            {entry.operator.name}
+                          <p className="text-xs md:text-[11px] text-white/35 font-display tracking-wider truncate mt-1">
+                            {entry.operator.class} · {entry.operator.branch}
                           </p>
                         </div>
-                        <p className="text-xs md:text-[11px] text-white/35 font-display tracking-wider truncate mt-1 pl-4 md:pl-6.5">
-                          {entry.operator.class} · {entry.operator.branch}
-                        </p>
+                        
                       </div>
 
                       <div
@@ -424,7 +468,7 @@ export function OperatorList() {
                         style={{ transition: 'opacity 0.3s', boxShadow: 'inset 0 0 40px rgba(59,164,201,0.06)' }}
                       />
                     </Link>
-                  ))}
+                  )})}
                 </div>
               </section>
             ))}

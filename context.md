@@ -740,8 +740,46 @@ Alter diakses via URL query param: `/operator?operator=amiya&alter=true`
 - **2-star**: 12F, Durin, Noir Corne, Rangers, Yato
 - **4-star**: Luo Xiaohei, Akkord, Contrail, Dobermann
 - **6-star**: Aak, Angelina, Archetto
+- **5-star**: Cantabile, Gracebearer
+- **5-star alter**: Fang the Fire-Sharpened (alter dari Fang, assets di `public/operators/fang/alter/`)
 
-Semua sudah lengkap data + asset (artwork, skill icon, chibi webm) mengikuti alur scraping standar di atas.
+Semua sudah lengkap data + asset (artwork, skill icon, chibi webm) mengikuti alur scraping standar di atas. Gracebearer belum punya Operator Modules di wiki (operator baru), jadi `modules: {}`. Halaman Story Gracebearer masih stub (belum ada overview), jadi field `story` sengaja tidak diisi.
+
+---
+
+## Automated Events Sync (Vercel Cron)
+
+Data event di `src/data/events.ts` awalnya diisi manual, tapi sekarang ada pipeline otomatis yang menjaga tanggal & event baru tetap fresh tanpa perlu scrape manual tiap kali.
+
+### Cara kerja
+
+1. **Vercel Cron** ([vercel.json](vercel.json)) memanggil `GET /api/cron/scrape-events` sekali sehari (`0 3 * * *` UTC). Vercel otomatis mengirim header `Authorization: Bearer $CRON_SECRET` — route ini menolak request yang secret-nya tidak cocok.
+2. **[src/lib/events/scrapeArknightsEvents.ts](src/lib/events/scrapeArknightsEvents.ts)** fetch `https://arknights.wiki.gg/wiki/Event`, parse tabel "Ongoing" dan "Upcoming" (via `cheerio`), ambil nama, tag (dari bracket `[Tag]` di judul), dan rentang tanggal **Global** saja (event yang belum punya jadwal Global diskip).
+3. **[src/lib/events/mergeEvents.ts](src/lib/events/mergeEvents.ts)** membandingkan hasil scrape dengan `EVENTS` yang sedang running (di-import langsung dari `src/data/events.ts`, bukan baca ulang dari GitHub):
+   - Event yang namanya cocok (case-insensitive) dengan entry existing → hanya `startDate`/`endDate` yang di-refresh; `id`, `tag`, `banner`, `color` hasil kurasi manual tidak pernah ditimpa.
+   - Event yang belum ada → banner-nya didownload dari wiki, warna accent dihitung otomatis (average color via `sharp`, resize ke 1×1 px), lalu ditambahkan sebagai entry baru dengan `id` hasil slugify dari nama.
+   - Tidak pernah menghapus event lama yang sudah tidak muncul di tabel wiki (aman dari false negative kalau format halaman berubah).
+4. **[src/lib/events/githubEventsRepository.ts](src/lib/events/githubEventsRepository.ts)** — karena site ini statis (tanpa database) dan Vercel serverless function filesystem-nya read-only saat runtime, hasil merge di-commit langsung ke branch `main` lewat GitHub Git Data API (`@octokit/rest`): regenerate `src/data/events.ts` ([generateEventsFileSource.ts](src/lib/events/generateEventsFileSource.ts)) + commit banner PNG baru ke `public/events/{id}/banner.png` dalam satu commit. Vercel otomatis redeploy begitu ada push baru.
+5. Kalau tidak ada perubahan (tidak ada event baru/tanggal berubah), route return early tanpa commit — tidak ada commit/deploy sia-sia tiap hari.
+
+### Env vars yang dibutuhkan (lihat [.env.example](.env.example))
+
+| Var | Keterangan |
+| --- | --- |
+| `CRON_SECRET` | String random, harus sama persis dengan yang di-set di Vercel Project Settings → Environment Variables (Vercel otomatis kirim ini sebagai Bearer token ke cron request). |
+| `EVENTS_SYNC_GITHUB_TOKEN` | GitHub PAT (fine-grained, scope `Contents: Read and write` khusus repo ini) supaya cron job bisa commit. |
+| `EVENTS_SYNC_GITHUB_OWNER` / `EVENTS_SYNC_GITHUB_REPO` | Default `yudistiraen` / `arknights-operator-terminal`, override kalau fork/rename repo. |
+| `EVENTS_SYNC_TARGET_BRANCH` | Default `main`. |
+
+### Batasan yang perlu diketahui
+
+- **Vercel Hobby plan**: cron job hanya jalan sekitar 1x/hari dan waktu eksekusinya bisa meleset dari jadwal persis — cukup untuk kebutuhan sync harian, tapi jangan andalkan untuk sesuatu yang butuh presisi jam.
+- **Warna accent event baru dihitung otomatis** (average color banner), bukan hand-picked seperti event lama — kalau hasilnya kurang pas secara visual, boleh diedit manual di `src/data/events.ts` (edit manual pada field `color` **aman**, tidak akan ditimpa lagi selama `name` event tetap sama).
+- Kalau butuh trigger manual (bukan nunggu jadwal cron) untuk testing, panggil endpoint-nya langsung dengan header `Authorization: Bearer <CRON_SECRET>`.
+
+### Rencana migrasi ke database (belum diimplementasikan)
+
+Struktur sengaja dipisah: `scrapeArknightsEvents.ts` (scraping murni) dan `mergeEvents.ts` (diff logic) tidak tahu-menahu soal GitHub — keduanya cuma menerima `GameEvent[]` yang sedang berjalan dan mengembalikan hasil merge. Publishing-nya diisolasi di `GitHubEventsRepository`. Kalau nanti pindah ke database (misalnya Supabase), cukup buat `SupabaseEventsRepository` baru dengan method `publish` yang sama, ganti pemanggilannya di [route.ts](src/app/api/cron/scrape-events/route.ts), dan ubah komponen (`OngoingEvents.tsx`, `Calendar.tsx`) supaya baca dari database alih-alih import statis `EVENTS` dari `src/data/events.ts` — logic scraping & merge tidak perlu disentuh sama sekali.
 
 ---
 
