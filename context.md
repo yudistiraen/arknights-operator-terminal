@@ -202,12 +202,21 @@ interface Skill {
   icon: string     // "/operators/{nama}/skill-1.png"
   activation: string  // "Manual" | "Auto"
   recovery: string    // "Auto" | "Offensive" | "Defensive" | "Auto Recovery" | "Offensive Recovery"
-  desc: string
+  desc: string      // Deskripsi pada level maksimum (M3 untuk 4-star+, Rank 7 untuk 3-star)
   spInit: number
   sp: number
   rank: string     // "M3" | "Rank 7"
   dur?: string     // "30s" (opsional)
   note?: string    // Catatan tambahan (opsional)
+  levels?: SkillLevelData[]  // Opsional — breakdown per level (Lv1-7, M1-M3) untuk fitur preview level, lihat bagian di bawah
+}
+
+interface SkillLevelData {
+  level: '1' | '2' | '3' | '4' | '5' | '6' | '7' | 'M1' | 'M2' | 'M3'
+  desc: string
+  spInit: number
+  sp: number
+  dur?: string
 }
 
 interface ModuleStage {
@@ -387,21 +396,22 @@ Array objek dengan format:
 ```
 
 #### 6. Ambil skills
-Setiap skill membutuhkan:
-```typescript
-{
-  name: "Nama Skill",
-  icon: "/operators/{nama}/skill-N.png",
-  activation: "Manual" | "Auto",
-  recovery: "Auto" | "Offensive" | "Defensive" | "Auto Recovery" | "Offensive Recovery",
-  desc: "Deskripsi efek skill pada rank target",
-  spInit: number,
-  sp: number,
-  rank: "M3" | "Rank 7",      // M3 untuk 4-star+, Rank 7 untuk 3-star
-  dur?: "30s",                 // Opsional jika skill punya durasi
-  note?: "Catatan tambahan"    // Opsional
-}
-```
+
+**Sumber utama: raw JSON dari `ArknightsGameData_YoStar`, BUKAN wiki.** Jangan scrape/paraphrase wiki buat data skill sama sekali — dulu alurnya scrape wiki dulu buat `desc`/`spInit`/`sp` (nilai max level), lalu scrape lagi terpisah ke JSON buat data per-level (`levels[]`), padahal keduanya ada di sumber yang sama. Sekarang cukup **sekali ambil JSON**, langsung dapat nilai max level (buat field top-level skill) sekaligus breakdown semua level (buat field `levels[]`, dipakai fitur "Preview Level" di SkillsPanel). Alasan kenapa nggak boleh wiki-scrape/AI-paraphrase buat angka ini: nilai SP cost/init/durasi/angka-di-deskripsi berubah tiap level, dan gampang salah kalau ditebak atau diringkas AI dari halaman wiki — beda sama raw JSON yang deterministik (langsung dari file yang dibaca game itu sendiri).
+
+Langkah:
+1. Download `character_table.json` dan `skill_table.json` dari raw GitHub (`https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData_YoStar/main/en_US/gamedata/excel/{file}.json`) — ukurannya besar (~10MB), simpan di scratchpad, jangan commit.
+2. Di `character_table.json`, cari entry operator berdasarkan field `name`, catat array `skills[].skillId` (contoh `skchr_folnic_1`). Beberapa operator (terutama yang skill-nya mengikuti template umum, misalnya Vanguard DP-recovery atau Guard quickattack) pakai skill ID generik berformat `skcom_xxx[N]` alih-alih `skchr_{id}_N` — tetap valid, cari langsung di `skill_table.json`.
+3. Di `skill_table.json`, tiap `skillId` punya array `levels` (biasanya 10 entri: Lv1-7 lalu M1-M3, atau 7 entri untuk 3-star tanpa mastery). Tiap level punya `name`, `description` (template dengan placeholder `{key}` atau `{key:0%}`), `blackboard` (array `{key, value}` isi angka aktual), `spData.{initSp,spCost}`, dan `duration`.
+4. Render deskripsi final dengan substitusi placeholder dari blackboard: strip markup `<@ba.xxx>...</>`, ganti `{key:0%}` dengan `(value*100).toFixed(decimals) + '%'`, `{key:0}`/`{key}` dengan integer, dan `{-key}` berarti negasi nilai (dipakai untuk hal seperti Movement Speed decrease yang di-blackboard sebagai angka negatif). Key kadang berformat `sumber@key` (contoh `attack@heal_scale`) — bagian setelah `@` yang jadi nama key aslinya di blackboard.
+5. Isi field top-level skill (`desc`, `spInit`, `sp`, `dur`, `rank`) dari entri **level terakhir** di array (`M3` kalau operator punya mastery / 4-star+, atau level `7` kalau 3-star tanpa mastery — `rank` diisi `"M3"` atau `"Rank 7"` sesuai itu).
+6. Isi `levels: SkillLevelData[]` dari **semua** entri array `levels`, urut dari `'1'` sampai `'M3'` (skip M1-M3 kalau 3-star).
+7. `icon` (`/operators/{nama}/skill-N.png`) dan `note` (opsional, insight tambahan yang nggak keliatan dari raw data) tetap perlu dicek dari wiki — dua field ini yang nggak ada di JSON.
+8. **Kalau ada data skill lama yang cuma diisi dari wiki (belum ada `levels[]`)**, boleh divalidasi balik: ambil dari JSON, cocokkan level terakhirnya ke `desc`/`spInit`/`sp`/`dur` yang sudah ada — kalau cocok persis berarti sumbernya konsisten dan `levels[]` bisa langsung ditambahkan tanpa perlu ragu ulang data lama.
+
+Field `levels` di tipe `Skill` bersifat opsional (backward-compat untuk entri lama) — SkillsPanel otomatis fallback ke tampilan single-value kalau field ini kosong. Tapi untuk operator baru, isi selalu sekalian karena datanya didapat gratis dari langkah yang sama, nggak ada alasan buat skip.
+
+**Status rollout:** Baru diisi lengkap (`levels[]`) untuk: Folinic, Leto, Myrtle, Nightmare, Podenco, Purestream (batch operator baru), dan 6 operator teratas di array `OPERATORS` — Amiya (base Caster + variant Guard + variant Medic, total 7 skill), Rosmontis, Mon3tr, Logos, Młynar, Adnachiel (Juli 2026). Adnachiel adalah contoh kasus 3-star: `levels[]`-nya cuma 7 entri (`'1'`-`'7'`, tanpa M1-M3) karena operator itu nggak pernah promosi ke Elite 2 — SkillsPanel otomatis menyembunyikan tombol mastery kalau `levels[]` skill itu nggak punya entri `'M1'`. Operator lain di luar daftar ini masih belum punya `levels[]` — backfill menyusul bertahap (lanjutkan dari array `OPERATORS`, urutan berikutnya setelah Adnachiel: Ansel, Beagle, Cardigan, ...), bukan dikerjakan sekaligus.
 
 #### 7. Ambil modules
 Format module ada 2 tipe:
@@ -715,7 +725,7 @@ Alter diakses via URL query param: `/operator?operator=amiya&alter=true`
 - [ ] Attack range base dan E1/E2 benar
 - [ ] Physical exam 6 parameter terisi
 - [ ] Semua talent tercatat
-- [ ] Semua skill dengan detail SP, durasi, deskripsi
+- [ ] Semua skill dengan detail SP, durasi, deskripsi, dan `levels[]` per-level (Lv1-7 + M1-M3) — semua dari `ArknightsGameData_YoStar` dalam satu langkah, lihat step 6
 - [ ] Modules (original + upgrade) terisi (atau `{}` untuk 3-star)
 - [ ] Profile (Profile section dari halaman File) sudah di-copy
 - [ ] Story (overview dari halaman Story) sudah di-copy (opsional)
