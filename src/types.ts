@@ -38,6 +38,17 @@ export interface Talent {
   elite: string
 }
 
+// Skill level label: '1'..'7' are normal skill levels, 'M1'..'M3' are Elite 2 masteries.
+export type SkillLevelLabel = '1' | '2' | '3' | '4' | '5' | '6' | '7' | 'M1' | 'M2' | 'M3'
+
+export interface SkillLevelData {
+  level: SkillLevelLabel
+  desc: string
+  spInit: number
+  sp: number
+  dur?: string
+}
+
 export interface Skill {
   name: string
   icon: string
@@ -50,6 +61,10 @@ export interface Skill {
   dur?: string
   range?: number[][]
   note?: string
+  // Optional per-level breakdown (Level 1-7, Mastery 1-3) so the UI can preview
+  // skill values at levels other than the max (which the fields above represent).
+  // Operators without this field fall back to the single max-level values above.
+  levels?: SkillLevelData[]
 }
 
 export interface ModuleStage {
