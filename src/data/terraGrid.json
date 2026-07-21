@@ -2003,16 +2003,16 @@
     {
       "col": 9,
       "row": 26,
-      "type": "land",
-      "color": "#99ccd2",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 9,
       "row": 27,
-      "type": "land",
-      "color": "#68c7c8",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 9,
@@ -2024,9 +2024,9 @@
     {
       "col": 9,
       "row": 29,
-      "type": "land",
-      "color": "#7ec6cb",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 9,
@@ -2286,9 +2286,9 @@
     {
       "col": 10,
       "row": 27,
-      "type": "sea",
-      "color": "#3b438e",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 10,
@@ -2300,9 +2300,9 @@
     {
       "col": 10,
       "row": 29,
-      "type": "land",
-      "color": "#64c3c2",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 10,
@@ -2583,23 +2583,21 @@
       "row": 27,
       "type": "country",
       "nationId": "bolivar",
-      "color": "#3cc4c0",
-      "uncertain": true
+      "color": "#3cc4c0"
     },
     {
       "col": 11,
       "row": 28,
       "type": "country",
       "nationId": "bolivar",
-      "color": "#3cc4c0",
-      "uncertain": true
+      "color": "#3cc4c0"
     },
     {
       "col": 11,
       "row": 29,
-      "type": "land",
-      "color": "#77c9cc",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 11,
@@ -2679,9 +2677,9 @@
     {
       "col": 11,
       "row": 41,
-      "type": "sea",
-      "color": "#1f537c",
-      "uncertain": true
+      "type": "country",
+      "nationId": "sargon",
+      "color": "#ceb25d"
     },
     {
       "col": 11,
@@ -2778,9 +2776,8 @@
     {
       "col": 11,
       "row": 57,
-      "type": "void",
-      "color": "#1e4d72",
-      "uncertain": true
+      "type": "land",
+      "color": "#b3c7d3"
     },
     {
       "col": 11,
@@ -2964,9 +2961,9 @@
     {
       "col": 12,
       "row": 31,
-      "type": "land",
-      "color": "#8ac8ce",
-      "uncertain": true
+      "type": "country",
+      "nationId": "bolivar",
+      "color": "#3cc4c0"
     },
     {
       "col": 12,
@@ -3831,15 +3828,15 @@
     {
       "col": 14,
       "row": 46,
-      "type": "sea",
-      "color": "#1f5682",
+      "type": "desert",
+      "color": "#75675e",
       "uncertain": true
     },
     {
       "col": 14,
       "row": 47,
-      "type": "sea",
-      "color": "#205884",
+      "type": "desert",
+      "color": "#75675e",
       "uncertain": true
     },
     {
@@ -4131,15 +4128,14 @@
       "row": 31,
       "type": "country",
       "nationId": "columbia",
-      "color": "#3c448d",
-      "uncertain": true
+      "color": "#3c448d"
     },
     {
       "col": 15,
       "row": 32,
-      "type": "sea",
-      "color": "#3b438e",
-      "uncertain": true
+      "type": "country",
+      "nationId": "columbia",
+      "color": "#3c448d"
     },
     {
       "col": 15,
@@ -4177,9 +4173,9 @@
     {
       "col": 15,
       "row": 38,
-      "type": "desert",
-      "color": "#ceb35e",
-      "uncertain": true
+      "type": "country",
+      "nationId": "sargon",
+      "color": "#ceb25d"
     },
     {
       "col": 15,
@@ -4229,8 +4225,8 @@
     {
       "col": 15,
       "row": 46,
-      "type": "sea",
-      "color": "#1f5b8a",
+      "type": "desert",
+      "color": "#75675e",
       "uncertain": true
     },
     {
@@ -4551,9 +4547,9 @@
     {
       "col": 16,
       "row": 36,
-      "type": "desert",
-      "color": "#cfb25a",
-      "uncertain": true
+      "type": "country",
+      "nationId": "sargon",
+      "color": "#ceb25d"
     },
     {
       "col": 16,
@@ -4570,9 +4566,9 @@
     {
       "col": 16,
       "row": 39,
-      "type": "desert",
-      "color": "#cdb260",
-      "uncertain": true
+      "type": "country",
+      "nationId": "sargon",
+      "color": "#ceb25d"
     },
     {
       "col": 16,
@@ -8368,9 +8364,8 @@
     {
       "col": 26,
       "row": 16,
-      "type": "sea",
-      "color": "#1e5178",
-      "uncertain": true
+      "type": "ice",
+      "color": "#fafbfb"
     },
     {
       "col": 26,
@@ -11227,9 +11222,9 @@
     {
       "col": 34,
       "row": 24,
-      "type": "desert",
-      "color": "#d83a38",
-      "uncertain": true
+      "type": "country",
+      "nationId": "ursus",
+      "color": "#d63b39"
     },
     {
       "col": 34,
