@@ -17,7 +17,6 @@ import { SkinSelector } from './SkinSelector'
 import { TopBar } from './TopBar'
 import { useApp } from './AppShell'
 import { NavigationArrows } from './NavigationArrows'
-import { Footer } from './Footer'
 
 gsap.registerPlugin(useGSAP)
 
@@ -41,6 +40,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const [skinIndex, setSkinIndex] = useState(0)
   const [variantIndex, setVariantIndex] = useState(-1)
   const [isAlterActive, setIsAlterActive] = useState(initialAlter)
+  const [showL2D, setShowL2D] = useState(false)
   const { hasEntered } = useApp()
   const isFirstMount = useRef(true)
 
@@ -66,6 +66,12 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
     setIsAlterActive(initialAlter)
     setExpandedPanelId(null)
   }, [initialOperatorIndex, initialAlter])
+
+  // L2D is tied to a specific skin, so always default back to the static image
+  // whenever the operator, skin, variant, or alter form changes.
+  useEffect(() => {
+    setShowL2D(false)
+  }, [operatorIndex, skinIndex, variantIndex, isAlterActive])
 
   const rosterEntries = useMemo(() => getRosterEntries(), [])
 
@@ -350,9 +356,38 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
         <div className="relative flex flex-col md:block min-h-screen md:min-h-0 md:h-full">
           <div className="relative h-[50vh] w-full shrink-0 md:absolute md:inset-y-0 md:left-0 md:w-[58%] md:h-auto overflow-hidden">
-            <CharacterArt ref={artRef} operator={activeOperator} skinSrc={activeOperator.skins[skinIndex].src} chibiSrc={activeOperator.skins[skinIndex].chibiSrc} />
+            <CharacterArt
+              ref={artRef}
+              operator={activeOperator}
+              skinSrc={activeOperator.skins[skinIndex].src}
+              chibiSrc={activeOperator.skins[skinIndex].chibiSrc}
+              l2d={activeOperator.skins[skinIndex].l2d}
+              showL2D={showL2D}
+            />
             <OperatorHud operator={activeOperator} />
             <IllustratorCredit illustrator={activeOperator.skins[skinIndex].illustrator} triggerKey={`${activeOperator.name}-${variantIndex}-${isAlterActive}-${activeOperator.skins[skinIndex].id}`} />
+            {activeOperator.skins[skinIndex].l2d && (
+              <button
+                type="button"
+                onClick={() => setShowL2D(value => !value)}
+                aria-label={showL2D ? 'Switch to static artwork' : 'Switch to dynamic illustration'}
+                aria-pressed={showL2D}
+                title={showL2D ? 'Static artwork' : 'Dynamic illustration'}
+                className={`hud-item absolute bottom-1 md:bottom-2 right-[calc(50%+70px)] md:right-[calc(50%+84px)] z-30 group w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full border cursor-pointer active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6] ${
+                  showL2D
+                    ? 'bg-ak-accent/25 border-ak-accent/60 shadow-[0_0_10px_rgba(59,164,201,0.35),inset_0_1px_0_rgba(255,255,255,0.08)]'
+                    : 'bg-ak-panel border-white/[0.2] hover:border-white/35 hover:bg-white/[0.1]'
+                }`}
+                style={{ transition: 'transform 0.15s cubic-bezier(0.34,1.56,0.64,1), background-color 0.2s, border-color 0.2s, box-shadow 0.2s' }}
+              >
+                <svg viewBox="0 0 24 24" fill="none" className={`w-3 h-3 md:w-3.5 md:h-3.5 ${showL2D ? 'text-ak-accent-bright' : 'text-white/70 group-hover:text-white'}`} style={{ transition: 'color 0.2s' }}>
+                  <path d="M17 2.5l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M3 12.5v-2a4 4 0 0 1 4-4h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M7 21.5l-4-4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M21 11.5v2a4 4 0 0 1-4 4H3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            )}
             {baseOperator.variants && baseOperator.variants.length > 0 && (
               <div className="absolute bottom-28 md:bottom-52 left-4 md:left-8 z-30 flex items-center gap-1.5">
                 <button
@@ -535,8 +570,6 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
 
         <div className="fixed md:absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
       </div>
-
-      <Footer />
     </div>
   )
 }

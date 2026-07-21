@@ -101,12 +101,29 @@ export interface OperatorSummon {
   note?: string
 }
 
+export interface SkinL2D {
+  skel: string
+  atlas: string
+  /** Slot name prefix identifying the operator's own body, e.g. 'w_' or 'W_'. Scenes with
+   * other characters or elaborate backdrops name every group's slots with a distinct prefix
+   * ("BG_", "H_", "Y_", ...) — this narrows camera framing to just the operator herself
+   * instead of zooming out to fit the whole cast. Defaults to everything but "bg_"-prefixed
+   * slots when omitted. */
+  characterSlotPrefix?: string
+  /** Manual camera fine-tuning layered on top of the auto-computed framing, same idea as
+   * {@link Operator.portraitFocus} for static art. Offsets are in skeleton world units (not
+   * pixels — scale varies per asset); zoom multiplies the auto viewport, so >1 zooms out and
+   * <1 zooms in. Reach for this only when the automatic bounds don't center well. */
+  focus?: { offsetX?: number; offsetY?: number; zoom?: number }
+}
+
 export interface OperatorSkin {
   id: string
   label: string
   src: string
   chibiSrc: string
   illustrator: string
+  l2d?: SkinL2D
 }
 
 export interface OperatorVariant {
