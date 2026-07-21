@@ -382,7 +382,7 @@ export const OPERATORS = ([
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/flinger-branch.png', factionIcon: '/icons/factions/elite-op.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/rosmontis/base.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W' },
-      { id: 'e2', label: 'Elite 2', src: '/operators/rosmontis/e2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/rosmontis/e2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W', l2d: { skel: '/operators/rosmontis/l2d/rosmontis-e2.skel', atlas: '/operators/rosmontis/l2d/rosmontis-e2.atlas',focus: { zoom: 0.53, offsetY: -600, offsetX: -700 } } },
       { id: 'skin1', label: 'Become Anew', src: '/operators/rosmontis/skin1.png', chibiSrc: '/operators/rosmontis/chibi-skin1.webm', illustrator: '唯@W' },
       { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎' },
     ],
@@ -1119,8 +1119,39 @@ export const OPERATORS = ([
         { name: 'Lightweight Gambit', desc: 'Initial DP Cost -3; after retreating, the next Operator has DP Cost -1.', elite: 'E2' },
       ],
       skills: [
-        { name: 'Impaler Lance', icon: '/operators/fang/alter/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Next attack strikes twice with 180% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 3 charges.', spInit: 0, sp: 5, rank: 'M3' },
-        { name: 'Stand Your Ground', icon: '/operators/fang/alter/skill-2.png', activation: 'Passive', recovery: 'Passive', desc: 'ATK +120%, DEF +40%, Blocked enemies +1, attacks all blocked enemies', spInit: 0, sp: 0, dur: '20s', rank: 'M3', note: 'Contrary to the wording, Fang the Fire-Sharpened does not need to block the enemies for her attacks with Stand Your Ground to hit them. Rather, the Fire-Sharpened\'s attacks hit multiple targets in range equal to her block count.' },
+        {
+          name: 'Impaler Lance', icon: '/operators/fang/alter/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+          desc: 'Next attack strikes twice with 180% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 3 charges.', spInit: 0, sp: 5, rank: 'M3',
+          levels: [
+            { level: '1', desc: `Next attack strikes twice with 120% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 7 },
+            { level: '2', desc: `Next attack strikes twice with 125% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 7 },
+            { level: '3', desc: `Next attack strikes twice with 130% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 7 },
+            { level: '4', desc: `Next attack strikes twice with 135% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 6 },
+            { level: '5', desc: `Next attack strikes twice with 140% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 6 },
+            { level: '6', desc: `Next attack strikes twice with 145% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 1 charges.`, spInit: 0, sp: 6 },
+            { level: '7', desc: `Next attack strikes twice with 150% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 2 charges.`, spInit: 0, sp: 5 },
+            { level: 'M1', desc: `Next attack strikes twice with 160% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 2 charges.`, spInit: 0, sp: 5 },
+            { level: 'M2', desc: `Next attack strikes twice with 170% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 2 charges.`, spInit: 0, sp: 5 },
+            { level: 'M3', desc: `Next attack strikes twice with 180% ATK. If it defeats an enemy, restore +1 DP.\nCan store up to 3 charges.`, spInit: 0, sp: 5 },
+          ],
+        },
+        {
+          name: 'Stand Your Ground', icon: '/operators/fang/alter/skill-2.png', activation: 'Passive', recovery: 'Passive',
+          desc: 'ATK +120%, DEF +40%, Blocked enemies +1, attacks all blocked enemies', spInit: 0, sp: 0, dur: '20s', rank: 'M3',
+          note: 'Contrary to the wording, Fang the Fire-Sharpened does not need to block the enemies for her attacks with Stand Your Ground to hit them. Rather, the Fire-Sharpened\'s attacks hit multiple targets in range equal to her block count.',
+          levels: [
+            { level: '1', desc: 'ATK +70%, DEF +20%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '10s' },
+            { level: '2', desc: 'ATK +75%, DEF +20%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '12s' },
+            { level: '3', desc: 'ATK +80%, DEF +25%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '12s' },
+            { level: '4', desc: 'ATK +85%, DEF +25%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '14s' },
+            { level: '5', desc: 'ATK +85%, DEF +30%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '14s' },
+            { level: '6', desc: 'ATK +90%, DEF +30%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '16s' },
+            { level: '7', desc: 'ATK +95%, DEF +30%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '18s' },
+            { level: 'M1', desc: 'ATK +100%, DEF +40%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '19s' },
+            { level: 'M2', desc: 'ATK +110%, DEF +40%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '20s' },
+            { level: 'M3', desc: 'ATK +120%, DEF +40%, Blocked enemies +1, attack all blocked enemies', spInit: 0, sp: 0, dur: '20s' },
+          ],
+        },
       ],
       modules: {
         original: { code: 'Original', name: "Fang the Fire-Sharpened's Badge", desc: 'Appointed as Vanguard Operator to exercise Charger responsibilities' },
@@ -1240,8 +1271,38 @@ export const OPERATORS = ([
         { name: 'Dusk and Dawn', desc: 'Attacks inflict 12% Arts Fragility to the target for 5 seconds', elite: 'E2' },
       ],
       skills: [
-        { name: 'ATK Up γ', icon: '/operators/hibiscus/alter/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3' },
-        { name: 'Nurturing Touch', icon: '/operators/hibiscus/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Reduces the Movement Speed of 2 enemies within range by -45% and deals 170% ATK as Arts damage to them per second', spInit: 10, sp: 18, dur: '8s', rank: 'M3' },
+        {
+          name: 'ATK Up γ', icon: '/operators/hibiscus/alter/skill-1.png', activation: 'Manual', recovery: 'Auto',
+          desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'ATK +30%', spInit: 0, sp: 40, dur: '30s' },
+            { level: '2', desc: 'ATK +35%', spInit: 0, sp: 40, dur: '30s' },
+            { level: '3', desc: 'ATK +40%', spInit: 0, sp: 40, dur: '30s' },
+            { level: '4', desc: 'ATK +45%', spInit: 5, sp: 37, dur: '30s' },
+            { level: '5', desc: 'ATK +50%', spInit: 5, sp: 37, dur: '30s' },
+            { level: '6', desc: 'ATK +55%', spInit: 5, sp: 37, dur: '30s' },
+            { level: '7', desc: 'ATK +60%', spInit: 10, sp: 35, dur: '30s' },
+            { level: 'M1', desc: 'ATK +75%', spInit: 10, sp: 34, dur: '30s' },
+            { level: 'M2', desc: 'ATK +90%', spInit: 10, sp: 33, dur: '30s' },
+            { level: 'M3', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s' },
+          ],
+        },
+        {
+          name: 'Nurturing Touch', icon: '/operators/hibiscus/alter/skill-2.png', activation: 'Manual', recovery: 'Auto',
+          desc: 'Reduces the Movement Speed of 2 enemies within range by -45% and deals 170% ATK as Arts damage to them per second', spInit: 10, sp: 18, dur: '8s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'Reduces the Movement Speed of 2 enemies within range by -25% and deals 80% ATK as Arts damage to them per second', spInit: 10, sp: 25, dur: '8s' },
+            { level: '2', desc: 'Reduces the Movement Speed of 2 enemies within range by -25% and deals 90% ATK as Arts damage to them per second', spInit: 10, sp: 24, dur: '8s' },
+            { level: '3', desc: 'Reduces the Movement Speed of 2 enemies within range by -25% and deals 100% ATK as Arts damage to them per second', spInit: 10, sp: 23, dur: '8s' },
+            { level: '4', desc: 'Reduces the Movement Speed of 2 enemies within range by -30% and deals 110% ATK as Arts damage to them per second', spInit: 10, sp: 22, dur: '8s' },
+            { level: '5', desc: 'Reduces the Movement Speed of 2 enemies within range by -30% and deals 120% ATK as Arts damage to them per second', spInit: 10, sp: 21, dur: '8s' },
+            { level: '6', desc: 'Reduces the Movement Speed of 2 enemies within range by -30% and deals 130% ATK as Arts damage to them per second', spInit: 10, sp: 20, dur: '8s' },
+            { level: '7', desc: 'Reduces the Movement Speed of 2 enemies within range by -35% and deals 140% ATK as Arts damage to them per second', spInit: 10, sp: 19, dur: '8s' },
+            { level: 'M1', desc: 'Reduces the Movement Speed of 2 enemies within range by -40% and deals 150% ATK as Arts damage to them per second', spInit: 10, sp: 19, dur: '8s' },
+            { level: 'M2', desc: 'Reduces the Movement Speed of 2 enemies within range by -40% and deals 160% ATK as Arts damage to them per second', spInit: 10, sp: 18, dur: '8s' },
+            { level: 'M3', desc: 'Reduces the Movement Speed of 2 enemies within range by -45% and deals 170% ATK as Arts damage to them per second', spInit: 10, sp: 18, dur: '8s' },
+          ],
+        },
       ],
       modules: {
         original: { code: 'Original', name: "Hibiscus the Purifier's Badge", desc: 'Appointed as Medic Operator to exercise Incantation Medic responsibilities' },
@@ -1356,8 +1417,38 @@ export const OPERATORS = ([
         { name: 'Bullseye', desc: 'When attacking, has a 20% chance to deal 150% damage and Stun the target for 0.2 seconds', elite: 'E2' },
       ],
       skills: [
-        { name: 'Traceless', icon: '/operators/kroos/alter/skill-1.png', activation: 'Manual', recovery: 'Offensive', desc: 'ATK +40%, attacks hit 2 times in a row and gain Camouflage', spInit: 10, sp: 15, dur: '15s', rank: 'M3' },
-        { name: 'Silencer', icon: '/operators/kroos/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack Interval reduces greatly and attacks hit 2 times in a row. After hitting a target 32 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 25, sp: 35, dur: '30s', rank: 'M3' },
+        {
+          name: 'Traceless', icon: '/operators/kroos/alter/skill-1.png', activation: 'Manual', recovery: 'Offensive',
+          desc: 'ATK +40%, attacks hit 2 times in a row and gain Camouflage', spInit: 10, sp: 15, dur: '15s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'ATK +10%, attacks hit 2 times in a row and gain Camouflage', spInit: 3, sp: 20, dur: '11s' },
+            { level: '2', desc: 'ATK +13%, attacks hit 2 times in a row and gain Camouflage', spInit: 3, sp: 20, dur: '11s' },
+            { level: '3', desc: 'ATK +16%, attacks hit 2 times in a row and gain Camouflage', spInit: 3, sp: 20, dur: '11s' },
+            { level: '4', desc: 'ATK +20%, attacks hit 2 times in a row and gain Camouflage', spInit: 5, sp: 17, dur: '12s' },
+            { level: '5', desc: 'ATK +23%, attacks hit 2 times in a row and gain Camouflage', spInit: 5, sp: 17, dur: '12s' },
+            { level: '6', desc: 'ATK +26%, attacks hit 2 times in a row and gain Camouflage', spInit: 5, sp: 17, dur: '12s' },
+            { level: '7', desc: 'ATK +30%, attacks hit 2 times in a row and gain Camouflage', spInit: 7, sp: 15, dur: '13s' },
+            { level: 'M1', desc: 'ATK +33%, attacks hit 2 times in a row and gain Camouflage', spInit: 8, sp: 15, dur: '14s' },
+            { level: 'M2', desc: 'ATK +36%, attacks hit 2 times in a row and gain Camouflage', spInit: 9, sp: 15, dur: '14s' },
+            { level: 'M3', desc: 'ATK +40%, attacks hit 2 times in a row and gain Camouflage', spInit: 10, sp: 15, dur: '15s' },
+          ],
+        },
+        {
+          name: 'Silencer', icon: '/operators/kroos/alter/skill-2.png', activation: 'Manual', recovery: 'Auto',
+          desc: 'Attack Interval reduces greatly and attacks hit 2 times in a row. After hitting a target 32 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 25, sp: 35, dur: '30s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'Attack Interval reduces slightly and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 10, sp: 50, dur: '22s' },
+            { level: '2', desc: 'Attack Interval reduces slightly and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 11, sp: 49, dur: '22s' },
+            { level: '3', desc: 'Attack Interval reduces slightly and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 12, sp: 48, dur: '22s' },
+            { level: '4', desc: 'Attack Interval reduces and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 15, sp: 45, dur: '24s' },
+            { level: '5', desc: 'Attack Interval reduces and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 16, sp: 44, dur: '24s' },
+            { level: '6', desc: 'Attack Interval reduces and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 17, sp: 43, dur: '24s' },
+            { level: '7', desc: 'Attack Interval reduces moderately and attacks hit 2 times in a row. After hitting a target 40 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 20, sp: 40, dur: '26s' },
+            { level: 'M1', desc: 'Attack Interval reduces moderately and attacks hit 2 times in a row. After hitting a target 36 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 20, sp: 40, dur: '28s' },
+            { level: 'M2', desc: 'Attack Interval reduces moderately and attacks hit 2 times in a row. After hitting a target 32 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 25, sp: 40, dur: '28s' },
+            { level: 'M3', desc: 'Attack Interval reduces greatly and attacks hit 2 times in a row. After hitting a target 32 times, attacks hit 4 times in a row for the remainder of the skill duration', spInit: 25, sp: 35, dur: '30s' },
+          ],
+        },
       ],
       modules: {
         original: { code: 'Original', name: "Kroos the Keen Glint's Badge", desc: 'Appointed as Sniper Operator to exercise Marksman responsibilities' },
@@ -1473,8 +1564,38 @@ export const OPERATORS = ([
         { name: 'Spell Formation', desc: 'Immediately obtains 30 SP after first deployment. On each deployment, grants SP +4 to other Caster allies on the field. When deployed, other Caster allies obtain +4 SP after deployment', elite: 'E2' },
       ],
       skills: [
-        { name: 'Flame Quenched Dagger', icon: '/operators/lava/alter/skill-1.png', activation: 'Manual', recovery: 'Auto', desc: 'Attack Range +1 tile, ATK +20%, and attack up to 2 targets simultaneously', spInit: 10, sp: 50, dur: '35s', rank: 'M3' },
-        { name: 'Ring of Hellfire', icon: '/operators/lava/alter/skill-2.png', activation: 'Manual', recovery: 'Auto', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 50% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 70, dur: '40s', rank: 'M3' },
+        {
+          name: 'Flame Quenched Dagger', icon: '/operators/lava/alter/skill-1.png', activation: 'Manual', recovery: 'Auto',
+          desc: 'Attack Range +1 tile, ATK +20%, and attack up to 2 targets simultaneously', spInit: 10, sp: 50, dur: '35s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'Attack Range +1 tile, ATK +2%, and attack up to 2 targets simultaneously', spInit: 10, sp: 60, dur: '25s' },
+            { level: '2', desc: 'Attack Range +1 tile, ATK +4%, and attack up to 2 targets simultaneously', spInit: 10, sp: 59, dur: '26s' },
+            { level: '3', desc: 'Attack Range +1 tile, ATK +6%, and attack up to 2 targets simultaneously', spInit: 10, sp: 58, dur: '27s' },
+            { level: '4', desc: 'Attack Range +1 tile, ATK +8%, and attack up to 2 targets simultaneously', spInit: 10, sp: 57, dur: '28s' },
+            { level: '5', desc: 'Attack Range +1 tile, ATK +10%, and attack up to 2 targets simultaneously', spInit: 10, sp: 56, dur: '29s' },
+            { level: '6', desc: 'Attack Range +1 tile, ATK +12%, and attack up to 2 targets simultaneously', spInit: 10, sp: 55, dur: '30s' },
+            { level: '7', desc: 'Attack Range +1 tile, ATK +14%, and attack up to 2 targets simultaneously', spInit: 10, sp: 54, dur: '31s' },
+            { level: 'M1', desc: 'Attack Range +1 tile, ATK +16%, and attack up to 2 targets simultaneously', spInit: 10, sp: 53, dur: '32s' },
+            { level: 'M2', desc: 'Attack Range +1 tile, ATK +18%, and attack up to 2 targets simultaneously', spInit: 10, sp: 52, dur: '33s' },
+            { level: 'M3', desc: 'Attack Range +1 tile, ATK +20%, and attack up to 2 targets simultaneously', spInit: 10, sp: 50, dur: '35s' },
+          ],
+        },
+        {
+          name: 'Ring of Hellfire', icon: '/operators/lava/alter/skill-2.png', activation: 'Manual', recovery: 'Auto',
+          desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 50% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 70, dur: '40s', rank: 'M3',
+          levels: [
+            { level: '1', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 30% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 80, dur: '30s' },
+            { level: '2', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 30% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 79, dur: '31s' },
+            { level: '3', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 30% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 78, dur: '32s' },
+            { level: '4', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 35% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 77, dur: '33s' },
+            { level: '5', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 35% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 76, dur: '34s' },
+            { level: '6', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 35% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 75, dur: '35s' },
+            { level: '7', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 40% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 74, dur: '36s' },
+            { level: 'M1', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 40% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 73, dur: '37s' },
+            { level: 'M2', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 40% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 72, dur: '38s' },
+            { level: 'M3', desc: 'Stops attacking and targets the ally with the highest HP within range, enveloping them and herself within a ring of fire. Each ring of fire deals 50% ATK as Arts damage every second to all enemies in the surrounding 8 tiles', spInit: 30, sp: 70, dur: '40s' },
+          ],
+        },
       ],
       modules: {
         original: { code: 'Original', name: "Lava the Purgatory's Badge", desc: 'Appointed as Caster Operator to exercise Splash Caster responsibilities' },
@@ -2195,26 +2316,103 @@ export const OPERATORS = ([
     ],
     skills: [
       {
-        name: 'New Moon Awakening',
-        icon: '/operators/togawa-sakiko/skill-1.png',
-        activation: 'Manual', recovery: 'Offensive Recovery',
-        desc: 'Performs 8 notes; the Arts damage dealt by each note starts at 100% ATK but gradually reduces to 5%; Can store 2 charges; releases 1 charge automatically when charges are full',
-        spInit: 0, sp: 3, rank: 'M3',
+        name: 'New Moon Awakening', icon: '/operators/togawa-sakiko/skill-1.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Performs 8 notes; the Arts damage dealt by each note starts at 100% ATK but gradually reduces to 5%; Can store 2 charges; releases 1 charge automatically when charges are full', spInit: 0, sp: 3, rank: 'M3',
         note: 'During Fever, this skill is continuously activated.',
+        levels: [
+          { level: '1', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 50% of ATK but gradually reduces to 3%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 5 },
+          { level: '2', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 55% of ATK but gradually reduces to 3%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 5 },
+          { level: '3', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 60% of ATK but gradually reduces to 3%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 5 },
+          { level: '4', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 65% of ATK but gradually reduces to 4%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 4 },
+          { level: '5', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 70% of ATK but gradually reduces to 4%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 4 },
+          { level: '6', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 75% of ATK but gradually reduces to 4%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 4 },
+          { level: '7', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 80% of ATK but gradually reduces to 4%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 4 },
+          { level: 'M1', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 85% of ATK but gradually reduces to 5%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 3 },
+          { level: 'M2', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 90% of ATK but gradually reduces to 5%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 3 },
+          { level: 'M3', desc: `Performs 8 notes; the Arts damage dealt by each note starts at 100% of ATK but gradually reduces to 5%;
+Can store 2 charges; releases 1 charge automatically when charges are full`, spInit: 0, sp: 3 },
+        ],
       },
       {
-        name: 'Full Moon Masquerade',
-        icon: '/operators/togawa-sakiko/skill-2.png',
-        activation: 'Manual', recovery: 'Offensive Recovery',
-        desc: 'Swaps between performing on the piano (starting) and organ timbres. Piano: ATK +110%, notes fly faster, notes pierce enemies, dealing Physical damage. Organ: ASPD +140, notes deal Arts damage and fly slower. During Fever, the current timbre deals double strikes',
-        spInit: 0, sp: 5, rank: 'M3',
+        name: 'Full Moon Masquerade', icon: '/operators/togawa-sakiko/skill-2.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Swaps between performing on the piano (starting) and organ timbres. Piano: ATK +110%, notes fly faster, notes pierce enemies, dealing Physical damage. Organ: ASPD +140, notes deal Arts damage and fly slower. During Fever, the current timbre deals double strikes', spInit: 0, sp: 5, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +40%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +60, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '2', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +45%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +65, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '3', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +50%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +70, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '4', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +60%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +80, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '5', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +65%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +90, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '6', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +70%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +100, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: '7', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +75%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +110, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: 'M1', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +80%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +120, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: 'M2', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +95%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +130, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+          { level: 'M3', desc: `Swap between performing on the piano (starting) and organ timbres.
+Piano: ATK +110%, notes fly faster; notes pierce enemies, dealing Physical damage
+Organ: ASPD +140, notes deal Arts damage and fly slower
+During Fever, the current timbre deals double strikes`, spInit: 0, sp: 5 },
+        ],
       },
       {
-        name: 'Crescent Moon Echoes',
-        icon: '/operators/togawa-sakiko/skill-3.png',
-        activation: 'Manual', recovery: 'Offensive Recovery',
-        desc: 'Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 220% of ATK as Physical and Arts damage respectively, which homes in on the enemy with the highest RES and DEF respectively. During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over',
-        spInit: 34, sp: 42, dur: '25s', rank: 'M3',
+        name: 'Crescent Moon Echoes', icon: '/operators/togawa-sakiko/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 220% of ATK as Physical and Arts damage respectively, which homes in on the enemy with the highest RES and DEF respectively. During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over', spInit: 34, sp: 42, dur: '25s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 140% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 28, sp: 48, dur: '25s' },
+          { level: '2', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 145% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 28, sp: 48, dur: '25s' },
+          { level: '3', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 150% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 28, sp: 48, dur: '25s' },
+          { level: '4', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 155% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 28, sp: 47, dur: '25s' },
+          { level: '5', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 160% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 29, sp: 47, dur: '25s' },
+          { level: '6', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 170% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 29, sp: 47, dur: '25s' },
+          { level: '7', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 180% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 30, sp: 46, dur: '25s' },
+          { level: 'M1', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 190% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 31, sp: 45, dur: '25s' },
+          { level: 'M2', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 205% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 32, sp: 44, dur: '25s' },
+          { level: 'M3', desc: `Attack Range expands, performs on both piano and organ timbres at once, each timbre creating 2 notes that deal 220% of ATK as Physical and Arts damage respectively, which home in on the enemy with the highest RES or DEF respectively
+During Fever, Ave Mujica members who receive fatal damage will not retreat until Fever is over`, spInit: 34, sp: 42, dur: '25s' },
+        ],
       },
     ],
     modules: {
@@ -2279,9 +2477,64 @@ export const OPERATORS = ([
       { name: 'Wreathed in Thorns', desc: 'Each time this unit is attacked while under the effect of her own Barrier, deals 50% ATK as Arts damage to the attacker', elite: 'E2' },
     ],
     skills: [
-      { name: 'Last Word', icon: '/operators/penance/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'The next attack deals an additional instance of Arts damage equal to 200% ATK; Charged effect: The next attack deals 200% damage and Stuns the target for 5 seconds', spInit: 0, sp: 3, rank: 'M3' },
-      { name: 'Stoic Atonement', icon: '/operators/penance/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Stops attacking and gains 60% Sanctuary; deals 140% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Guardian of the Law by 100%', spInit: 20, sp: 30, dur: '20s', rank: 'M3' },
-      { name: 'Trial of Thorns', icon: '/operators/penance/skill-3.png', activation: 'Manual', recovery: 'Defensive Recovery', desc: 'Immediately gains a Barrier equal to 130% Max HP; Attack Interval increases, ATK +400%, and makes enemies more likely to attack this unit', spInit: 0, sp: 20, dur: '30s', rank: 'M3' },
+      {
+        name: 'Last Word', icon: '/operators/penance/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'The next attack deals an additional instance of Arts damage equal to 200% ATK; Charged effect: The next attack deals 200% damage and Stuns the target for 5 seconds', spInit: 0, sp: 3, rank: 'M3',
+        levels: [
+          { level: '1', desc: `The next attack deals an additional instance of Arts damage equal to 140% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 6 },
+          { level: '2', desc: `The next attack deals an additional instance of Arts damage equal to 145% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 6 },
+          { level: '3', desc: `The next attack deals an additional instance of Arts damage equal to 150% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 6 },
+          { level: '4', desc: `The next attack deals an additional instance of Arts damage equal to 160% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 5 },
+          { level: '5', desc: `The next attack deals an additional instance of Arts damage equal to 165% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 5 },
+          { level: '6', desc: `The next attack deals an additional instance of Arts damage equal to 170% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 5 },
+          { level: '7', desc: `The next attack deals an additional instance of Arts damage equal to 180% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 3 seconds`, spInit: 0, sp: 4 },
+          { level: 'M1', desc: `The next attack deals an additional instance of Arts damage equal to 190% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 4 seconds`, spInit: 0, sp: 4 },
+          { level: 'M2', desc: `The next attack deals an additional instance of Arts damage equal to 195% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 4 seconds`, spInit: 0, sp: 4 },
+          { level: 'M3', desc: `The next attack deals an additional instance of Arts damage equal to 200% ATK
+Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} damage and Stuns the target for 5 seconds`, spInit: 0, sp: 3 },
+        ],
+      },
+      {
+        name: 'Stoic Atonement', icon: '/operators/penance/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Stops attacking and gains 60% Sanctuary; deals 140% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Guardian of the Law by 100%', spInit: 20, sp: 30, dur: '20s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Stops attacking and gains 30% Sanctuary; deals 70% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 40%', spInit: 10, sp: 40, dur: '20s' },
+          { level: '2', desc: 'Stops attacking and gains 30% Sanctuary; deals 75% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 40%', spInit: 10, sp: 39, dur: '20s' },
+          { level: '3', desc: 'Stops attacking and gains 30% Sanctuary; deals 80% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 40%', spInit: 10, sp: 38, dur: '20s' },
+          { level: '4', desc: 'Stops attacking and gains 40% Sanctuary; deals 90% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 60%', spInit: 12, sp: 37, dur: '20s' },
+          { level: '5', desc: 'Stops attacking and gains 40% Sanctuary; deals 95% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 60%', spInit: 12, sp: 36, dur: '20s' },
+          { level: '6', desc: 'Stops attacking and gains 40% Sanctuary; deals 100% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 60%', spInit: 12, sp: 35, dur: '20s' },
+          { level: '7', desc: 'Stops attacking and gains 50% Sanctuary; deals 110% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 80%', spInit: 14, sp: 34, dur: '20s' },
+          { level: 'M1', desc: 'Stops attacking and gains 55% Sanctuary; deals 120% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 80%', spInit: 16, sp: 32, dur: '20s' },
+          { level: 'M2', desc: 'Stops attacking and gains 55% Sanctuary; deals 130% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 80%', spInit: 18, sp: 31, dur: '20s' },
+          { level: 'M3', desc: 'Stops attacking and gains 60% Sanctuary; deals 140% Arts damage to all nearby Ground enemies every second; While this skill is active, increases the Barrier effect of Talent 1 by 100%', spInit: 20, sp: 30, dur: '20s' },
+        ],
+      },
+      {
+        name: 'Trial of Thorns', icon: '/operators/penance/skill-3.png', activation: 'Manual', recovery: 'Defensive Recovery',
+        desc: 'Immediately gains a Barrier equal to 130% Max HP; Attack Interval increases, ATK +400%, and makes enemies more likely to attack this unit', spInit: 0, sp: 20, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Immediately gains a Barrier equal to 40% Max HP; Attack Interval increases, ATK +200%, and makes enemies more likely to attack this unit', spInit: 0, sp: 30, dur: '30s' },
+          { level: '2', desc: 'Immediately gains a Barrier equal to 50% Max HP; Attack Interval increases, ATK +220%, and makes enemies more likely to attack this unit', spInit: 0, sp: 29, dur: '30s' },
+          { level: '3', desc: 'Immediately gains a Barrier equal to 60% Max HP; Attack Interval increases, ATK +240%, and makes enemies more likely to attack this unit', spInit: 0, sp: 28, dur: '30s' },
+          { level: '4', desc: 'Immediately gains a Barrier equal to 70% Max HP; Attack Interval increases, ATK +260%, and makes enemies more likely to attack this unit', spInit: 0, sp: 27, dur: '30s' },
+          { level: '5', desc: 'Immediately gains a Barrier equal to 80% Max HP; Attack Interval increases, ATK +280%, and makes enemies more likely to attack this unit', spInit: 0, sp: 26, dur: '30s' },
+          { level: '6', desc: 'Immediately gains a Barrier equal to 90% Max HP; Attack Interval increases, ATK +300%, and makes enemies more likely to attack this unit', spInit: 0, sp: 25, dur: '30s' },
+          { level: '7', desc: 'Immediately gains a Barrier equal to 100% Max HP; Attack Interval increases, ATK +320%, and makes enemies more likely to attack this unit', spInit: 0, sp: 24, dur: '30s' },
+          { level: 'M1', desc: 'Immediately gains a Barrier equal to 110% Max HP; Attack Interval increases, ATK +350%, and makes enemies more likely to attack this unit', spInit: 0, sp: 22, dur: '30s' },
+          { level: 'M2', desc: 'Immediately gains a Barrier equal to 120% Max HP; Attack Interval increases, ATK +370%, and makes enemies more likely to attack this unit', spInit: 0, sp: 21, dur: '30s' },
+          { level: 'M3', desc: 'Immediately gains a Barrier equal to 130% Max HP; Attack Interval increases, ATK +400%, and makes enemies more likely to attack this unit', spInit: 0, sp: 20, dur: '30s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Penance's Badge", desc: 'Appointed as Defender Operator to exercise Juggernaut responsibilities' },
@@ -2352,9 +2605,56 @@ export const OPERATORS = ([
       { name: 'Subjective Time Dilation', desc: "Slows the movement speed of enemies within this unit's attack range by 15%", elite: 'E2' },
     ],
     skills: [
-      { name: 'ATK Up γ', icon: '/operators/mostima/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3' },
-      { name: 'Lock of Shattered Time', icon: '/operators/mostima/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Stuns all enemies within Attack Range and deals 140% ATK as Arts damage to them every second', spInit: 30, sp: 50, dur: '7s', rank: 'M3', note: 'The skill actually changes Mostima to attack once every second, hitting all enemies in range with the specified ATK ratio, and Stunning for 1 second.' },
-      { name: 'Key of Chronology', icon: '/operators/mostima/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +170%, increases the effect of Subjective Time Dilation by 3x, and attacks knock targets back slightly', spInit: 80, sp: 110, dur: '27s', rank: 'M3', note: 'The knockback has a force of 0.' },
+      {
+        name: 'ATK Up γ', icon: '/operators/mostima/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +30%', spInit: 0, sp: 40, dur: '30s' },
+          { level: '2', desc: 'ATK +35%', spInit: 0, sp: 40, dur: '30s' },
+          { level: '3', desc: 'ATK +40%', spInit: 0, sp: 40, dur: '30s' },
+          { level: '4', desc: 'ATK +45%', spInit: 5, sp: 37, dur: '30s' },
+          { level: '5', desc: 'ATK +50%', spInit: 5, sp: 37, dur: '30s' },
+          { level: '6', desc: 'ATK +55%', spInit: 5, sp: 37, dur: '30s' },
+          { level: '7', desc: 'ATK +60%', spInit: 10, sp: 35, dur: '30s' },
+          { level: 'M1', desc: 'ATK +75%', spInit: 10, sp: 34, dur: '30s' },
+          { level: 'M2', desc: 'ATK +90%', spInit: 10, sp: 33, dur: '30s' },
+          { level: 'M3', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Lock of Shattered Time', icon: '/operators/mostima/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Stuns all enemies within Attack Range and deals 140% ATK as Arts damage to them every second', spInit: 30, sp: 50, dur: '7s', rank: 'M3',
+        note: 'The skill actually changes Mostima to attack once every second, hitting all enemies in range with the specified ATK ratio, and Stunning for 1 second.',
+        levels: [
+          { level: '1', desc: 'Stuns all enemies within Attack Range and deals 80% ATK as Arts damage to them every second', spInit: 5, sp: 65, dur: '4s' },
+          { level: '2', desc: 'Stuns all enemies within Attack Range and deals 90% ATK as Arts damage to them every second', spInit: 7, sp: 64, dur: '4s' },
+          { level: '3', desc: 'Stuns all enemies within Attack Range and deals 100% ATK as Arts damage to them every second', spInit: 9, sp: 63, dur: '4s' },
+          { level: '4', desc: 'Stuns all enemies within Attack Range and deals 100% ATK as Arts damage to them every second', spInit: 11, sp: 61, dur: '5s' },
+          { level: '5', desc: 'Stuns all enemies within Attack Range and deals 110% ATK as Arts damage to them every second', spInit: 13, sp: 59, dur: '5s' },
+          { level: '6', desc: 'Stuns all enemies within Attack Range and deals 120% ATK as Arts damage to them every second', spInit: 15, sp: 58, dur: '5s' },
+          { level: '7', desc: 'Stuns all enemies within Attack Range and deals 120% ATK as Arts damage to them every second', spInit: 17, sp: 56, dur: '6s' },
+          { level: 'M1', desc: 'Stuns all enemies within Attack Range and deals 130% ATK as Arts damage to them every second', spInit: 20, sp: 54, dur: '6s' },
+          { level: 'M2', desc: 'Stuns all enemies within Attack Range and deals 130% ATK as Arts damage to them every second', spInit: 23, sp: 52, dur: '7s' },
+          { level: 'M3', desc: 'Stuns all enemies within Attack Range and deals 140% ATK as Arts damage to them every second', spInit: 30, sp: 50, dur: '7s' },
+        ],
+      },
+      {
+        name: 'Key of Chronology', icon: '/operators/mostima/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +170%, increases the effect of Subjective Time Dilation by 3x, and attacks knock targets back slightly', spInit: 80, sp: 110, dur: '27s', rank: 'M3',
+        note: 'The knockback has a force of 0.',
+        levels: [
+          { level: '1', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +60%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 50, sp: 110, dur: '20s' },
+          { level: '2', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +70%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 52, sp: 110, dur: '20s' },
+          { level: '3', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +80%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 54, sp: 110, dur: '20s' },
+          { level: '4', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +90%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 56, sp: 110, dur: '22s' },
+          { level: '5', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +100%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 58, sp: 110, dur: '22s' },
+          { level: '6', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +110%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 60, sp: 110, dur: '22s' },
+          { level: '7', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +120%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 62, sp: 110, dur: '24s' },
+          { level: 'M1', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +135%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 68, sp: 110, dur: '25s' },
+          { level: 'M2', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +150%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 74, sp: 110, dur: '26s' },
+          { level: 'M3', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +170%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 80, sp: 110, dur: '27s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Mostima's Badge", desc: 'Appointed as Caster Operator to exercise Splash Caster responsibilities' },
@@ -2404,13 +2704,83 @@ export const OPERATORS = ([
       { name: 'Nourish the Blood', desc: 'Increases Max HP by 120 and ATK by 30 after defeating an enemy, stacking up to 9 times; other [Abyssal Hunter] Operators gain 50% of this boost effect', elite: 'E2' },
     ],
     skills: [
-      { name: 'Contact Must Be Made', icon: '/operators/ulpianus/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 270% of ATK as Physical damage', spInit: 0, sp: 4, rank: 'M3', range: [
-        [2,1,1,1],
-      ], note: 'The pull effect has a force of 1 and a hitbox of 0.8 tiles.' },
-      { name: 'Boundaries Must Be Kept', icon: '/operators/ulpianus/skill-2.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Talent 1 effect increases to 2x, Block +1, Max HP +60%, ATK +160%', spInit: 0, sp: 70, rank: 'M3', note: 'Unlimited duration.' },
-      { name: 'Paths Must Be Opened', icon: '/operators/ulpianus/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Max HP +80%, ATK +260%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 160% of ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile', spInit: 20, sp: 25, dur: '25s', rank: 'M3', range: [
-        [2,1,1,1,1,1,1],
-      ], note: 'Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position.' },
+      {
+        name: 'Contact Must Be Made', icon: '/operators/ulpianus/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 270% of ATK as Physical damage', spInit: 0, sp: 4, rank: 'M3',
+        range: [
+          [2,1,1,1],
+        ],
+        note: 'The pull effect has a force of 1 and a hitbox of 0.8 tiles.',
+        levels: [
+          { level: '1', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 170% ATK as Physical damage', spInit: 0, sp: 7 },
+          { level: '2', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 175% ATK as Physical damage', spInit: 0, sp: 7 },
+          { level: '3', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 180% ATK as Physical damage', spInit: 0, sp: 7 },
+          { level: '4', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 185% ATK as Physical damage', spInit: 0, sp: 6 },
+          { level: '5', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 190% ATK as Physical damage', spInit: 0, sp: 6 },
+          { level: '6', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 195% ATK as Physical damage', spInit: 0, sp: 6 },
+          { level: '7', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 210% ATK as Physical damage', spInit: 0, sp: 5 },
+          { level: 'M1', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 230% ATK as Physical damage', spInit: 0, sp: 5 },
+          { level: 'M2', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 250% ATK as Physical damage', spInit: 0, sp: 5 },
+          { level: 'M3', desc: 'Throws an anchor forward, dragging 2 enemies caught by it towards this unit moderately, dealing 270% ATK as Physical damage', spInit: 0, sp: 4 },
+        ],
+      },
+      {
+        name: 'Boundaries Must Be Kept', icon: '/operators/ulpianus/skill-2.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'Talent 1 effect increases to 2x, Block +1, Max HP +60%, ATK +160%', spInit: 0, sp: 70, rank: 'M3',
+        note: 'Unlimited duration.',
+        levels: [
+          { level: '1', desc: `Talent 1's effect increases to 1.5x, Block +1, Max HP +20%, ATK +100%
+Unlimited duration`, spInit: 0, sp: 90, dur: '∞' },
+          { level: '2', desc: `Talent 1's effect increases to 1.5x, Block +1, Max HP +20%, ATK +105%
+Unlimited duration`, spInit: 0, sp: 88, dur: '∞' },
+          { level: '3', desc: `Talent 1's effect increases to 1.5x, Block +1, Max HP +20%, ATK +110%
+Unlimited duration`, spInit: 0, sp: 86, dur: '∞' },
+          { level: '4', desc: `Talent 1's effect increases to 1.6x, Block +1, Max HP +30%, ATK +115%
+Unlimited duration`, spInit: 0, sp: 84, dur: '∞' },
+          { level: '5', desc: `Talent 1's effect increases to 1.6x, Block +1, Max HP +30%, ATK +120%
+Unlimited duration`, spInit: 0, sp: 82, dur: '∞' },
+          { level: '6', desc: `Talent 1's effect increases to 1.6x, Block +1, Max HP +30%, ATK +125%
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '7', desc: `Talent 1's effect increases to 1.8x, Block +1, Max HP +40%, ATK +130%
+Unlimited duration`, spInit: 0, sp: 78, dur: '∞' },
+          { level: 'M1', desc: `Talent 1's effect increases to 1.8x, Block +1, Max HP +45%, ATK +140%
+Unlimited duration`, spInit: 0, sp: 76, dur: '∞' },
+          { level: 'M2', desc: `Talent 1's effect increases to 1.8x, Block +1, Max HP +50%, ATK +150%
+Unlimited duration`, spInit: 0, sp: 74, dur: '∞' },
+          { level: 'M3', desc: `Talent 1's effect increases to 2x, Block +1, Max HP +60%, ATK +160%
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+        ],
+      },
+      {
+        name: 'Paths Must Be Opened', icon: '/operators/ulpianus/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Max HP +80%, ATK +260%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 160% of ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile', spInit: 20, sp: 25, dur: '25s', rank: 'M3',
+        range: [
+          [2,1,1,1,1,1,1],
+        ],
+        note: 'Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position.',
+        levels: [
+          { level: '1', desc: `Max HP +20%, ATK +170%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 130% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 0, sp: 30, dur: '25s' },
+          { level: '2', desc: `Max HP +20%, ATK +180%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 130% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 0, sp: 30, dur: '25s' },
+          { level: '3', desc: `Max HP +20%, ATK +190%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 130% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 0, sp: 30, dur: '25s' },
+          { level: '4', desc: `Max HP +40%, ATK +200%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 135% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 10, sp: 29, dur: '25s' },
+          { level: '5', desc: `Max HP +40%, ATK +210%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 135% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 10, sp: 29, dur: '25s' },
+          { level: '6', desc: `Max HP +40%, ATK +220%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 135% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 10, sp: 29, dur: '25s' },
+          { level: '7', desc: `Max HP +60%, ATK +230%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 140% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 15, sp: 28, dur: '25s' },
+          { level: 'M1', desc: `Max HP +60%, ATK +240%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 145% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 16, sp: 27, dur: '25s' },
+          { level: 'M2', desc: `Max HP +60%, ATK +250%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 150% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 18, sp: 26, dur: '25s' },
+          { level: 'M3', desc: `Max HP +80%, ATK +260%. Immediately throws an anchor forward, stopping when hitting a target or reaching the max distance, dealing 160% ATK as Physical damage to all nearby enemies and Stunning them for 6 seconds. If the anchor stops on a tile he can deploy on, Ulpianus will Move to that tile
+Skill can be manually deactivated; when skill ends, Ulpianus returns to his original position`, spInit: 20, sp: 25, dur: '25s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Ulpianus's Badge", desc: 'Appointed as Guard Operator to exercise Crusher responsibilities' },
@@ -2641,9 +3011,56 @@ export const OPERATORS = ([
       { name: 'Pharmaceutical Diffusion', desc: 'Increases healing effects on this unit by 20%', elite: 'E2' },
     ],
     skills: [
-      { name: 'Rapid Fire', icon: '/operators/aak/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ASPD +100', spInit: 20, sp: 30, dur: '30s', rank: 'M3' },
-      { name: 'Type-γ Stimpack', icon: '/operators/aak/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times with 500 ATK, and then increases the Max HP and DEF of self and that unit by +80% for the remaining duration of this skill', spInit: 25, sp: 30, dur: '30s', rank: 'M3', note: 'Target priority: frontal row/column closest-to-furthest prioritizing highest aggression, then side row/column closest-to-furthest. The buff applies after Aak finishes attacking the target.' },
-      { name: 'Durian-Flavored Stimpack', icon: '/operators/aak/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times with 500 ATK, and then increases ATK by +50% and ASPD by +50 of self and that unit for the remaining duration of this skill', spInit: 30, sp: 35, dur: '20s', rank: 'M3', note: 'Target priority: frontal row/column closest-to-furthest prioritizing highest aggression, then side row/column closest-to-furthest. The buff applies after Aak finishes attacking the target.' },
+      {
+        name: 'Rapid Fire', icon: '/operators/aak/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ASPD +100', spInit: 20, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ASPD +30', spInit: 15, sp: 30, dur: '20s' },
+          { level: '2', desc: 'ASPD +35', spInit: 15, sp: 30, dur: '21s' },
+          { level: '3', desc: 'ASPD +40', spInit: 15, sp: 30, dur: '22s' },
+          { level: '4', desc: 'ASPD +50', spInit: 16, sp: 30, dur: '23s' },
+          { level: '5', desc: 'ASPD +55', spInit: 16, sp: 30, dur: '24s' },
+          { level: '6', desc: 'ASPD +60', spInit: 16, sp: 30, dur: '25s' },
+          { level: '7', desc: 'ASPD +70', spInit: 17, sp: 30, dur: '26s' },
+          { level: 'M1', desc: 'ASPD +80', spInit: 18, sp: 30, dur: '27s' },
+          { level: 'M2', desc: 'ASPD +90', spInit: 19, sp: 30, dur: '28s' },
+          { level: 'M3', desc: 'ASPD +100', spInit: 20, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Type-γ Stimpack', icon: '/operators/aak/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times with 500 ATK, and then increases the Max HP and DEF of self and that unit by +80% for the remaining duration of this skill', spInit: 25, sp: 30, dur: '30s', rank: 'M3',
+        note: 'Target priority: frontal row/column closest-to-furthest prioritizing highest aggression, then side row/column closest-to-furthest. The buff applies after Aak finishes attacking the target.',
+        levels: [
+          { level: '1', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +30% for the remaining duration of this skill', spInit: 20, sp: 40, dur: '30s' },
+          { level: '2', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +30% for the remaining duration of this skill', spInit: 20, sp: 39, dur: '30s' },
+          { level: '3', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +30% for the remaining duration of this skill', spInit: 20, sp: 38, dur: '30s' },
+          { level: '4', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +40% for the remaining duration of this skill', spInit: 21, sp: 37, dur: '30s' },
+          { level: '5', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +40% for the remaining duration of this skill', spInit: 21, sp: 36, dur: '30s' },
+          { level: '6', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +40% for the remaining duration of this skill', spInit: 21, sp: 35, dur: '30s' },
+          { level: '7', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +50% for the remaining duration of this skill', spInit: 22, sp: 34, dur: '30s' },
+          { level: 'M1', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +60% for the remaining duration of this skill', spInit: 23, sp: 33, dur: '30s' },
+          { level: 'M2', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +70% for the remaining duration of this skill', spInit: 24, sp: 32, dur: '30s' },
+          { level: 'M3', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases the Max HP and DEF of self and that unit by +80% for the remaining duration of this skill', spInit: 25, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Durian-Flavored Stimpack', icon: '/operators/aak/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times with 500 ATK, and then increases ATK by +50% and ASPD by +50 of self and that unit for the remaining duration of this skill', spInit: 30, sp: 35, dur: '20s', rank: 'M3',
+        note: 'Target priority: frontal row/column closest-to-furthest prioritizing highest aggression, then side row/column closest-to-furthest. The buff applies after Aak finishes attacking the target.',
+        levels: [
+          { level: '1', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +25% and ASPD by +25 of self and that unit for the remaining duration of this skill', spInit: 25, sp: 47, dur: '20s' },
+          { level: '2', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +25% and ASPD by +25 of self and that unit for the remaining duration of this skill', spInit: 25, sp: 46, dur: '20s' },
+          { level: '3', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +25% and ASPD by +25 of self and that unit for the remaining duration of this skill', spInit: 25, sp: 45, dur: '20s' },
+          { level: '4', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +30% and ASPD by +30 of self and that unit for the remaining duration of this skill', spInit: 26, sp: 44, dur: '20s' },
+          { level: '5', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +30% and ASPD by +30 of self and that unit for the remaining duration of this skill', spInit: 26, sp: 43, dur: '20s' },
+          { level: '6', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +30% and ASPD by +30 of self and that unit for the remaining duration of this skill', spInit: 26, sp: 42, dur: '20s' },
+          { level: '7', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +35% and ASPD by +35 of self and that unit for the remaining duration of this skill', spInit: 27, sp: 41, dur: '20s' },
+          { level: 'M1', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +40% and ASPD by +40 of self and that unit for the remaining duration of this skill', spInit: 28, sp: 39, dur: '20s' },
+          { level: 'M2', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +45% and ASPD by +45 of self and that unit for the remaining duration of this skill', spInit: 29, sp: 37, dur: '20s' },
+          { level: 'M3', desc: 'Attacks an ally within range (prioritizes allies directly in front of this unit) 15 times for 500 damage, and then increases ATK by +50% and ASPD by +50 of self and that unit for the remaining duration of this skill', spInit: 30, sp: 35, dur: '20s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Aak's Badge", desc: 'Appointed as Specialist Operator to exercise Geek responsibilities' },
@@ -2697,15 +3114,92 @@ export const OPERATORS = ([
       { name: 'Part-time Job', desc: 'Restores the HP of all allies by 20 per second when the skill is not activated', elite: 'E2' },
     ],
     skills: [
-      { name: 'Arcane Staff - Quick Charge Mode', icon: '/operators/angelina/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'ATK +110%\nAutomatically activated', spInit: 0, sp: 10, dur: '35s', rank: 'M3' },
-      { name: 'Arcane Staff - Particle Mode', icon: '/operators/angelina/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 45% of ATK\nCannot use Normal Attack when the skill is not activated', spInit: 10, sp: 15, dur: '30s', rank: 'M3', note: "Arcane Staff - Particle Mode multiplies Angelina's attack interval by 0.15, reducing it to 0.285 seconds (before modifiers)." },
-      { name: 'Arcane Staff - Anti-Gravity Mode', icon: '/operators/angelina/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Applies Weightless to all enemies on the battlefield, expands Attack Range, ATK +150%, and can attack 5 enemies\nCannot use normal attacks while skill is inactive', spInit: 10, sp: 25, dur: '25s', rank: 'M3', range: [
-        [1,1,1,0,0],
-        [1,1,1,1,0],
-        [1,2,1,1,1],
-        [1,1,1,1,0],
-        [1,1,1,0,0],
-      ] },
+      {
+        name: 'Arcane Staff - Quick Charge Mode', icon: '/operators/angelina/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery',
+        desc: 'ATK +110%\nAutomatically activated', spInit: 0, sp: 10, dur: '35s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +40%
+Automatically activated`, spInit: 0, sp: 10, dur: '20s' },
+          { level: '2', desc: `ATK +45%
+Automatically activated`, spInit: 0, sp: 10, dur: '21s' },
+          { level: '3', desc: `ATK +50%
+Automatically activated`, spInit: 0, sp: 10, dur: '22s' },
+          { level: '4', desc: `ATK +60%
+Automatically activated`, spInit: 0, sp: 10, dur: '25s' },
+          { level: '5', desc: `ATK +65%
+Automatically activated`, spInit: 0, sp: 10, dur: '26s' },
+          { level: '6', desc: `ATK +70%
+Automatically activated`, spInit: 0, sp: 10, dur: '27s' },
+          { level: '7', desc: `ATK +80%
+Automatically activated`, spInit: 0, sp: 10, dur: '30s' },
+          { level: 'M1', desc: `ATK +90%
+Automatically activated`, spInit: 0, sp: 10, dur: '31s' },
+          { level: 'M2', desc: `ATK +100%
+Automatically activated`, spInit: 0, sp: 10, dur: '33s' },
+          { level: 'M3', desc: `ATK +110%
+Automatically activated`, spInit: 0, sp: 10, dur: '35s' },
+        ],
+      },
+      {
+        name: 'Arcane Staff - Particle Mode', icon: '/operators/angelina/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 45% of ATK\nCannot use Normal Attack when the skill is not activated', spInit: 10, sp: 15, dur: '30s', rank: 'M3',
+        note: "Arcane Staff - Particle Mode multiplies Angelina's attack interval by 0.15, reducing it to 0.285 seconds (before modifiers).",
+        levels: [
+          { level: '1', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 30% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 0, sp: 20, dur: '20s' },
+          { level: '2', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 30% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 1, sp: 20, dur: '21s' },
+          { level: '3', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 30% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 2, sp: 20, dur: '22s' },
+          { level: '4', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 35% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 3, sp: 20, dur: '23s' },
+          { level: '5', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 35% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 4, sp: 20, dur: '24s' },
+          { level: '6', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 35% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 5, sp: 20, dur: '25s' },
+          { level: '7', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 40% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 6, sp: 20, dur: '26s' },
+          { level: 'M1', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 40% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 7, sp: 19, dur: '27s' },
+          { level: 'M2', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 40% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 8, sp: 18, dur: '28s' },
+          { level: 'M3', desc: `Attack Interval reduces dramatically, but the Arts damage dealt by every attack is only 45% of ATK
+Cannot use Normal Attack when the skill is not activated`, spInit: 10, sp: 15, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Arcane Staff - Anti-Gravity Mode', icon: '/operators/angelina/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Applies Weightless to all enemies on the battlefield, expands Attack Range, ATK +150%, and can attack 5 enemies\nCannot use normal attacks while skill is inactive', spInit: 10, sp: 25, dur: '25s', rank: 'M3',
+        range: [
+          [1,1,1,0,0],
+          [1,1,1,1,0],
+          [1,2,1,1,1],
+          [1,1,1,1,0],
+          [1,1,1,0,0],
+        ],
+        levels: [
+          { level: '1', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +75% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 0, sp: 25, dur: '10s' },
+          { level: '2', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +80% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 0, sp: 25, dur: '11s' },
+          { level: '3', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +85% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 0, sp: 25, dur: '12s' },
+          { level: '4', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +90% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 3, sp: 25, dur: '14s' },
+          { level: '5', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +95% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 3, sp: 25, dur: '15s' },
+          { level: '6', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +100% ATK, and can attack 4 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 3, sp: 25, dur: '16s' },
+          { level: '7', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +105% ATK, and can attack 5 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 6, sp: 25, dur: '18s' },
+          { level: 'M1', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +120% ATK, and can attack 5 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 7, sp: 25, dur: '20s' },
+          { level: 'M2', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +135% ATK, and can attack 5 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 8, sp: 25, dur: '22s' },
+          { level: 'M3', desc: `Applies Weightless to all enemies on the battlefield, expands Attack Range, +150% ATK, and can attack 5 enemies
+Cannot use normal attacks while skill is inactive`, spInit: 10, sp: 25, dur: '25s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Angelina's Badge", desc: 'Appointed as Supporter Operator to exercise Decel Binder responsibilities' },
@@ -2763,9 +3257,56 @@ export const OPERATORS = ([
       { name: 'Iron Bowstring', desc: 'When deployed, this unit gains 1 Shield. Restores 7 Skill Points after the Shield breaks', elite: 'E2' },
     ],
     skills: [
-      { name: 'Dispersing Arrows', icon: '/operators/archetto/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'The next attack deals 230% ATK as Physical damage to the target and 180% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 3, rank: 'M3', note: 'Dispersing Arrows has a ricochet range of 1.5 tiles and prioritizes the closest enemies to the target.' },
-      { name: 'Pursuing Arrows', icon: '/operators/archetto/skill-2.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'Immediately fire an arrow that deals 140% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 3 charges', spInit: 0, sp: 9, rank: 'M3', note: 'Ricochet range of 1.5 tiles, prioritizing the closest enemies, with a delay of 0.15 seconds between each ricochet. Can ricochet up to 4 enemies other than the primary target, with each (including the primary target) taking hits equal to the number of remaining ricochets + 1.' },
-      { name: 'Thundering Arrows', icon: '/operators/archetto/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'ATK +30%, attack range +1 tile, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 30, dur: '20s', rank: 'M3' },
+      {
+        name: 'Dispersing Arrows', icon: '/operators/archetto/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery',
+        desc: 'The next attack deals 230% ATK as Physical damage to the target and 180% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 3, rank: 'M3',
+        note: 'Dispersing Arrows has a ricochet range of 1.5 tiles and prioritizes the closest enemies to the target.',
+        levels: [
+          { level: '1', desc: 'The next attack deals 170% ATK as Physical damage to the target and 120% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 5 },
+          { level: '2', desc: 'The next attack deals 175% ATK as Physical damage to the target and 125% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 5 },
+          { level: '3', desc: 'The next attack deals 180% ATK as Physical damage to the target and 130% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 5 },
+          { level: '4', desc: 'The next attack deals 185% ATK as Physical damage to the target and 135% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: '5', desc: 'The next attack deals 190% ATK as Physical damage to the target and 140% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: '6', desc: 'The next attack deals 195% ATK as Physical damage to the target and 145% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: '7', desc: 'The next attack deals 200% ATK as Physical damage to the target and 150% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: 'M1', desc: 'The next attack deals 210% ATK as Physical damage to the target and 160% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: 'M2', desc: 'The next attack deals 220% ATK as Physical damage to the target and 170% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 4 },
+          { level: 'M3', desc: 'The next attack deals 230% ATK as Physical damage to the target and 180% ATK as Physical damage to up to 3 other nearby enemies', spInit: 0, sp: 3 },
+        ],
+      },
+      {
+        name: 'Pursuing Arrows', icon: '/operators/archetto/skill-2.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Immediately fire an arrow that deals 140% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 3 charges', spInit: 0, sp: 9, rank: 'M3',
+        note: 'Ricochet range of 1.5 tiles, prioritizing the closest enemies, with a delay of 0.15 seconds between each ricochet. Can ricochet up to 4 enemies other than the primary target, with each (including the primary target) taking hits equal to the number of remaining ricochets + 1.',
+        levels: [
+          { level: '1', desc: 'Immediately fire an arrow that deals 108% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 14 },
+          { level: '2', desc: 'Immediately fire an arrow that deals 110% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 14 },
+          { level: '3', desc: 'Immediately fire an arrow that deals 112% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 14 },
+          { level: '4', desc: 'Immediately fire an arrow that deals 114% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 13 },
+          { level: '5', desc: 'Immediately fire an arrow that deals 116% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 13 },
+          { level: '6', desc: 'Immediately fire an arrow that deals 118% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 1 charges', spInit: 0, sp: 13 },
+          { level: '7', desc: 'Immediately fire an arrow that deals 120% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 2 charges', spInit: 0, sp: 12 },
+          { level: 'M1', desc: 'Immediately fire an arrow that deals 125% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 2 charges', spInit: 0, sp: 11 },
+          { level: 'M2', desc: 'Immediately fire an arrow that deals 130% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 3 charges', spInit: 0, sp: 10 },
+          { level: 'M3', desc: 'Immediately fire an arrow that deals 140% ATK damage 5 times in a row. The arrow can repeatedly ricochet to nearby enemies that have not been targeted yet (each ricochet reduces available ricochets by 1); Can store 3 charges', spInit: 0, sp: 9 },
+        ],
+      },
+      {
+        name: 'Thundering Arrows', icon: '/operators/archetto/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'ATK +30%, attack range +1 tile, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 30, dur: '20s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +5%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 40, dur: '20s' },
+          { level: '2', desc: 'ATK +5%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 39, dur: '20s' },
+          { level: '3', desc: 'ATK +5%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 38, dur: '20s' },
+          { level: '4', desc: 'ATK +10%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 37, dur: '20s' },
+          { level: '5', desc: 'ATK +10%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 36, dur: '20s' },
+          { level: '6', desc: 'ATK +10%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 35, dur: '20s' },
+          { level: '7', desc: 'ATK +15%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 34, dur: '20s' },
+          { level: 'M1', desc: 'ATK +20%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 33, dur: '20s' },
+          { level: 'M2', desc: 'ATK +25%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 32, dur: '20s' },
+          { level: 'M3', desc: 'ATK +30%, attack range +1, attacks hit 3 times in a row and target 2 enemies simultaneously', spInit: 15, sp: 30, dur: '20s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Archetto's Badge", desc: 'Appointed as Sniper Operator to exercise Marksman responsibilities' },
@@ -2904,8 +3445,38 @@ export const OPERATORS = ([
       { name: 'Pulse Isomorphism', desc: 'When there is at least 1 other Operator within range, +15% ATK', elite: 'E2' },
     ],
     skills: [
-      { name: 'Backbeat Stress', icon: '/operators/akkord/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'The next attack deals 200% ATK as Arts damage\nCan store 2 charges', spInit: 0, sp: 8, rank: 'M3' },
-      { name: 'Explosive Tuning', icon: '/operators/akkord/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: '+60% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 25% ATK as AoE Arts damage', spInit: 32, sp: 48, dur: '32s', rank: 'M3' },
+      {
+        name: 'Backbeat Stress', icon: '/operators/akkord/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'The next attack deals 200% ATK as Arts damage\nCan store 2 charges', spInit: 0, sp: 8, rank: 'M3',
+        levels: [
+          { level: '1', desc: `The next attack deals 130% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 12 },
+          { level: '2', desc: `The next attack deals 135% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 12 },
+          { level: '3', desc: `The next attack deals 140% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 11 },
+          { level: '4', desc: `The next attack deals 145% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 11 },
+          { level: '5', desc: `The next attack deals 150% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 10 },
+          { level: '6', desc: `The next attack deals 160% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 10 },
+          { level: '7', desc: `The next attack deals 170% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 9 },
+          { level: 'M1', desc: `The next attack deals 180% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 9 },
+          { level: 'M2', desc: `The next attack deals 190% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 8 },
+          { level: 'M3', desc: `The next attack deals 200% ATK as Arts damage\nCan store 2 charges`, spInit: 0, sp: 8 },
+        ],
+      },
+      {
+        name: 'Explosive Tuning', icon: '/operators/akkord/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: '+60% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 25% ATK as AoE Arts damage', spInit: 32, sp: 48, dur: '32s', rank: 'M3',
+        levels: [
+          { level: '1', desc: '+30% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 10% ATK as AoE Arts damage', spInit: 12, sp: 64, dur: '32s' },
+          { level: '2', desc: '+30% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 10% ATK as AoE Arts damage', spInit: 16, sp: 64, dur: '32s' },
+          { level: '3', desc: '+35% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 10% ATK as AoE Arts damage', spInit: 16, sp: 60, dur: '32s' },
+          { level: '4', desc: '+35% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 15% ATK as AoE Arts damage', spInit: 20, sp: 60, dur: '32s' },
+          { level: '5', desc: '+40% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 15% ATK as AoE Arts damage', spInit: 20, sp: 56, dur: '32s' },
+          { level: '6', desc: '+45% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 15% ATK as AoE Arts damage', spInit: 24, sp: 56, dur: '32s' },
+          { level: '7', desc: '+45% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 20% ATK as AoE Arts damage', spInit: 24, sp: 52, dur: '32s' },
+          { level: 'M1', desc: '+50% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 20% ATK as AoE Arts damage', spInit: 28, sp: 52, dur: '32s' },
+          { level: 'M2', desc: '+55% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 20% ATK as AoE Arts damage', spInit: 32, sp: 52, dur: '32s' },
+          { level: 'M3', desc: '+60% ATK, every attack triggers a sonic boom at the location of other Operators within attack range, dealing 25% ATK as AoE Arts damage', spInit: 32, sp: 48, dur: '32s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Akkord's Badge", desc: 'Appointed as Caster Operator to exercise Blast responsibilities' },
@@ -3150,8 +3721,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Normal', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
     talents: [{ name: 'Protean', desc: 'ASPD +12 when not blocking an enemy, ATK +12% when blocking an enemy', elite: 'E2' }],
     skills: [
-      { name: 'Penetrating Gaze', icon: '/operators/cantabile/skill-1.png', activation: 'Passive', recovery: 'Passive', desc: 'After deployment, ATK +100%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '20s', rank: 'M3' },
-      { name: 'Specular Reflection', icon: '/operators/cantabile/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +40%, ASPD +50, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 18 ammo and the skill ends when all ammo is used (can manually deactivate skill)', spInit: 20, sp: 25, rank: 'M3' },
+      {
+        name: 'Penetrating Gaze', icon: '/operators/cantabile/skill-1.png', activation: 'Passive', recovery: 'Passive',
+        desc: 'After deployment, ATK +100%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '20s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'After deployment, ATK +35%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '13s' },
+          { level: '2', desc: 'After deployment, ATK +40%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '13s' },
+          { level: '3', desc: 'After deployment, ATK +45%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '13s' },
+          { level: '4', desc: 'After deployment, ATK +50%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '14s' },
+          { level: '5', desc: 'After deployment, ATK +55%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '15s' },
+          { level: '6', desc: 'After deployment, ATK +60%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '16s' },
+          { level: '7', desc: 'After deployment, ATK +70%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '17s' },
+          { level: 'M1', desc: 'After deployment, ATK +80%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '18s' },
+          { level: 'M2', desc: 'After deployment, ATK +90%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '19s' },
+          { level: 'M3', desc: 'After deployment, ATK +100%. Generates 1 DP after each attack', spInit: 0, sp: 0, dur: '20s' },
+        ],
+      },
+      {
+        name: 'Specular Reflection', icon: '/operators/cantabile/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +40%, ASPD +50, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 18 ammo and the skill ends when all ammo is used (can manually deactivate skill)', spInit: 20, sp: 25, rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +10%, ASPD +10, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 13 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 10, sp: 34 },
+          { level: '2', desc: `ATK +13%, ASPD +14, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 13 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 10, sp: 33 },
+          { level: '3', desc: `ATK +16%, ASPD +18, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 13 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 10, sp: 32 },
+          { level: '4', desc: `ATK +19%, ASPD +22, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 15, sp: 31 },
+          { level: '5', desc: `ATK +22%, ASPD +26, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 15, sp: 30 },
+          { level: '6', desc: `ATK +25%, ASPD +30, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 15, sp: 29 },
+          { level: '7', desc: `ATK +28%, ASPD +34, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 15 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 20, sp: 28 },
+          { level: 'M1', desc: `ATK +32%, ASPD +38, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 16 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 20, sp: 27 },
+          { level: 'M2', desc: `ATK +36%, ASPD +44, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 17 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 20, sp: 26 },
+          { level: 'M3', desc: `ATK +40%, ASPD +50, gains Camouflage. Generates 1 DP after each attack.\nSkill activation grants 18 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 20, sp: 25 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Cantabile's Badge", desc: 'Appointed as Vanguard Operator to exercise Agent responsibilities' },
@@ -3211,8 +3812,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
     talents: [{ name: 'Opportune Mercy', desc: 'ATK +10%, which becomes +15% ATK after defeating an enemy under the burst effect of Nervous Impairment', elite: 'E2' }],
     skills: [
-      { name: 'Skullcracking Elegy', icon: '/operators/gracebearer/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Attacks hit twice, every attack deals 150% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 15, sp: 30, dur: '30s', rank: 'M3' },
-      { name: 'Disemboweling Mass', icon: '/operators/gracebearer/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'The next attack deals 250% of ATK as Physical damage three times, to up to 6 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead.\nCan store 2 charges', spInit: 0, sp: 15, rank: 'M3', range: [[1,1,1],[1,2,1],[1,1,1]] },
+      {
+        name: 'Skullcracking Elegy', icon: '/operators/gracebearer/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attacks hit twice, every attack deals 150% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 15, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Attacks hit twice, every attack deals 100% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 0, sp: 40, dur: '30s' },
+          { level: '2', desc: 'Attacks hit twice, every attack deals 105% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 1, sp: 40, dur: '30s' },
+          { level: '3', desc: 'Attacks hit twice, every attack deals 110% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 2, sp: 40, dur: '30s' },
+          { level: '4', desc: 'Attacks hit twice, every attack deals 115% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 4, sp: 37, dur: '30s' },
+          { level: '5', desc: 'Attacks hit twice, every attack deals 120% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 6, sp: 37, dur: '30s' },
+          { level: '6', desc: 'Attacks hit twice, every attack deals 125% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 8, sp: 37, dur: '30s' },
+          { level: '7', desc: 'Attacks hit twice, every attack deals 130% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 10, sp: 35, dur: '30s' },
+          { level: 'M1', desc: 'Attacks hit twice, every attack deals 135% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 11, sp: 33, dur: '30s' },
+          { level: 'M2', desc: 'Attacks hit twice, every attack deals 140% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 12, sp: 32, dur: '30s' },
+          { level: 'M3', desc: 'Attacks hit twice, every attack deals 150% of ATK as Physical damage, and an additional 10% of damage as Nervous Impairment', spInit: 15, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Disemboweling Mass', icon: '/operators/gracebearer/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'The next attack deals 250% of ATK as Physical damage three times, to up to 6 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead.\nCan store 2 charges', spInit: 0, sp: 15, rank: 'M3', range: [[1,1,1],[1,2,1],[1,1,1]],
+        levels: [
+          { level: '1', desc: `The next attack deals 180% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 20 },
+          { level: '2', desc: `The next attack deals 185% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 20 },
+          { level: '3', desc: `The next attack deals 190% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 20 },
+          { level: '4', desc: `The next attack deals 200% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 19 },
+          { level: '5', desc: `The next attack deals 205% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 19 },
+          { level: '6', desc: `The next attack deals 210% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 1 charge(s)`, spInit: 0, sp: 19 },
+          { level: '7', desc: `The next attack deals 220% of ATK as Physical damage three times, to up to 5 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 2 charge(s)`, spInit: 0, sp: 18 },
+          { level: 'M1', desc: `The next attack deals 230% of ATK as Physical damage three times, to up to 6 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 2 charge(s)`, spInit: 0, sp: 17 },
+          { level: 'M2', desc: `The next attack deals 240% of ATK as Physical damage three times, to up to 6 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 2 charge(s)`, spInit: 0, sp: 16 },
+          { level: 'M3', desc: `The next attack deals 250% of ATK as Physical damage three times, to up to 6 nearby ground enemies; if target is under the burst effect of Nervous Impairment, this deals Elemental damage instead\nCan store 2 charge(s)`, spInit: 0, sp: 15 },
+        ],
+      },
     ],
     modules: {},
     profile: `A nun from Bolívar who joined Rhodes Island at Sankta Miksaparato's recommendation. She has returned to Bolívar and serves as guard operator at the local branch.`,
@@ -3266,8 +3897,38 @@ export const OPERATORS = ([
       { name: 'Symphaticus Simulation', desc: "When healing an allied unit, any healing in excess of that unit's Max HP will be converted into a decaying Barrier", elite: 'E2' },
     ],
     skills: [
-      { name: 'Violent Response', icon: '/operators/doc/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Immediately heals self for 400% ATK; afterwards, Attack Interval greatly reduces.\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment', spInit: 15, sp: 25, rank: 'M3' },
-      { name: 'Stim Pistol', icon: '/operators/doc/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 750% of ATK.\nCan only be used 3 times per deployment', spInit: 15, sp: 20, rank: 'M3', range: [[2,1,1,1,1]] },
+      {
+        name: 'Violent Response', icon: '/operators/doc/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Immediately heals self for 400% ATK; afterwards, Attack Interval greatly reduces.\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment', spInit: 15, sp: 25, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Immediately heals self by 100% of ATK; afterwards, Attack Interval slightly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 5, sp: 35 },
+          { level: '2', desc: `Immediately heals self by 130% of ATK; afterwards, Attack Interval slightly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 5, sp: 34 },
+          { level: '3', desc: `Immediately heals self by 170% of ATK; afterwards, Attack Interval slightly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 7, sp: 33 },
+          { level: '4', desc: `Immediately heals self by 200% of ATK; afterwards, Attack Interval reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 7, sp: 32 },
+          { level: '5', desc: `Immediately heals self by 230% of ATK; afterwards, Attack Interval reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 9, sp: 32 },
+          { level: '6', desc: `Immediately heals self by 270% of ATK; afterwards, Attack Interval reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 9, sp: 31 },
+          { level: '7', desc: `Immediately heals self by 300% of ATK; afterwards, Attack Interval greatly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 11, sp: 30 },
+          { level: 'M1', desc: `Immediately heals self by 350% of ATK; afterwards, Attack Interval greatly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 11, sp: 28 },
+          { level: 'M2', desc: `Immediately heals self by 380% of ATK; afterwards, Attack Interval greatly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 13, sp: 26 },
+          { level: 'M3', desc: `Immediately heals self by 400% of ATK; afterwards, Attack Interval greatly reduces\nSkill activation grants 31 ammo and the skill ends when all ammo is used (Can manually deactivate skill); Can only be used 3 times per deployment`, spInit: 15, sp: 25 },
+        ],
+      },
+      {
+        name: 'Stim Pistol', icon: '/operators/doc/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 750% of ATK.\nCan only be used 3 times per deployment', spInit: 15, sp: 20, rank: 'M3', range: [[2,1,1,1,1]],
+        levels: [
+          { level: '1', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 300% of ATK\nCan only be used 3 times per deployment`, spInit: 0, sp: 30 },
+          { level: '2', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 350% of ATK\nCan only be used 3 times per deployment`, spInit: 1, sp: 28 },
+          { level: '3', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 400% of ATK\nCan only be used 3 times per deployment`, spInit: 3, sp: 27 },
+          { level: '4', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 450% of ATK\nCan only be used 3 times per deployment`, spInit: 5, sp: 25 },
+          { level: '5', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 500% of ATK\nCan only be used 3 times per deployment`, spInit: 7, sp: 23 },
+          { level: '6', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 550% of ATK\nCan only be used 3 times per deployment`, spInit: 8, sp: 21 },
+          { level: '7', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 600% of ATK\nCan only be used 3 times per deployment`, spInit: 9, sp: 20 },
+          { level: 'M1', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 650% of ATK\nCan only be used 3 times per deployment`, spInit: 11, sp: 20 },
+          { level: 'M2', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 700% of ATK\nCan only be used 3 times per deployment`, spInit: 13, sp: 20 },
+          { level: 'M3', desc: `Immediately fires an Epinephrine Shot forward; healing the first allied Operator it hits by 750% of ATK\nCan only be used 3 times per deployment`, spInit: 15, sp: 20 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Doc's Badge", desc: 'Appointed as Guard Operator to exercise Instructor responsibilities' },
@@ -3326,8 +3987,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Excellent', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
     talents: [{ name: 'Sniper Support', desc: "When deployed, all [Sniper] Operators have -2 DP Cost and gain +20 ASPD when Elysium's skill is active", elite: 'E2' }],
     skills: [
-      { name: 'Support γ', icon: '/operators/elysium/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 15, sp: 26, dur: '8s', rank: 'M3' },
-      { name: 'Monitor', icon: '/operators/elysium/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -35% DEF, and lose Invisibility', spInit: 16, sp: 30, dur: '15s', rank: 'M3', range: [[0,1,1,1,0],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[0,1,1,1,0]] },
+      {
+        name: 'Support γ', icon: '/operators/elysium/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 15, sp: 26, dur: '8s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 10, sp: 35, dur: '8s' },
+          { level: '2', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 10, sp: 34, dur: '8s' },
+          { level: '3', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 10, sp: 33, dur: '8s' },
+          { level: '4', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 11, sp: 32, dur: '8s' },
+          { level: '5', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 11, sp: 31, dur: '8s' },
+          { level: '6', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 11, sp: 30, dur: '8s' },
+          { level: '7', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 12, sp: 29, dur: '8s' },
+          { level: 'M1', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 13, sp: 28, dur: '8s' },
+          { level: 'M2', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 14, sp: 27, dur: '8s' },
+          { level: 'M3', desc: 'Stops attacking and recovers 18 DP over the skill duration', spInit: 15, sp: 26, dur: '8s' },
+        ],
+      },
+      {
+        name: 'Monitor', icon: '/operators/elysium/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -35% DEF, and lose Invisibility', spInit: 16, sp: 30, dur: '15s', rank: 'M3', range: [[0,1,1,1,0],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[0,1,1,1,0]],
+        levels: [
+          { level: '1', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -20% DEF, and lose Invisibility`, spInit: 6, sp: 40, dur: '15s' },
+          { level: '2', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -20% DEF, and lose Invisibility`, spInit: 6, sp: 39, dur: '15s' },
+          { level: '3', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -20% DEF, and lose Invisibility`, spInit: 6, sp: 38, dur: '15s' },
+          { level: '4', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -22% DEF, and lose Invisibility`, spInit: 8, sp: 37, dur: '15s' },
+          { level: '5', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -22% DEF, and lose Invisibility`, spInit: 8, sp: 36, dur: '15s' },
+          { level: '6', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 3 nearby enemies.\nLocked enemies have -60% Movement Speed, -22% DEF, and lose Invisibility`, spInit: 8, sp: 35, dur: '15s' },
+          { level: '7', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -25% DEF, and lose Invisibility`, spInit: 10, sp: 34, dur: '15s' },
+          { level: 'M1', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -28% DEF, and lose Invisibility`, spInit: 12, sp: 33, dur: '15s' },
+          { level: 'M2', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -31% DEF, and lose Invisibility`, spInit: 14, sp: 32, dur: '15s' },
+          { level: 'M3', desc: `Stops attacking and recovers 20 DP over the skill duration. While this skill is active, Locks up to 4 nearby enemies.\nLocked enemies have -60% Movement Speed, -35% DEF, and lose Invisibility`, spInit: 16, sp: 30, dur: '15s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Elysium's Badge", desc: 'Appointed as Vanguard Operator to exercise Standard Bearer responsibilities' },
@@ -3387,8 +4078,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
     talents: [{ name: 'Precise Aim', desc: 'Ignores 180 DEF when attacking enemies with a weight greater than or equal to 3', elite: 'E2' }],
     skills: [
-      { name: 'Deterring Shot', icon: '/operators/enforcer/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'The next attack pushes the target towards the attack direction greatly, stunning it for 2 seconds if the target collides with High Ground.', spInit: 0, sp: 5, rank: 'M3' },
-      { name: 'Staggering Shot', icon: '/operators/enforcer/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Immediately pushes back all enemies within range significantly in the direction this unit is facing, additionally stunning them for 2.5 seconds (the stun duration is increased to 4 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.5 seconds.', spInit: 0, sp: 17, rank: 'M3', range: [[2,1,1]] },
+      {
+        name: 'Deterring Shot', icon: '/operators/enforcer/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'The next attack pushes the target towards the attack direction greatly, stunning it for 2 seconds if the target collides with High Ground.', spInit: 0, sp: 5, rank: 'M3',
+        levels: [
+          { level: '1', desc: 'The next attack pushes the target towards the attack direction slightly, stunning it for 1.2 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '2', desc: 'The next attack pushes the target towards the attack direction slightly, stunning it for 1.3 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '3', desc: 'The next attack pushes the target towards the attack direction slightly, stunning it for 1.4 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '4', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.4 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '5', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.5 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '6', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.6 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: '7', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.7 seconds if the target collides with High Ground.', spInit: 0, sp: 6 },
+          { level: 'M1', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.8 seconds if the target collides with High Ground.', spInit: 0, sp: 5 },
+          { level: 'M2', desc: 'The next attack pushes the target towards the attack direction moderately, stunning it for 1.9 seconds if the target collides with High Ground.', spInit: 0, sp: 5 },
+          { level: 'M3', desc: 'The next attack pushes the target towards the attack direction greatly, stunning it for 2 seconds if the target collides with High Ground.', spInit: 0, sp: 5 },
+        ],
+      },
+      {
+        name: 'Staggering Shot', icon: '/operators/enforcer/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Immediately pushes back all enemies within range significantly in the direction this unit is facing, additionally stunning them for 2.5 seconds (the stun duration is increased to 4 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.5 seconds.', spInit: 0, sp: 17, rank: 'M3', range: [[2,1,1]],
+        levels: [
+          { level: '1', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 1.6 seconds (the stun duration is increased to 2.7 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 1.6 seconds.', spInit: 0, sp: 22 },
+          { level: '2', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 1.7 seconds (the stun duration is increased to 2.8 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 1.7 seconds.', spInit: 0, sp: 22 },
+          { level: '3', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 1.8 seconds (the stun duration is increased to 2.9 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 1.8 seconds.', spInit: 0, sp: 22 },
+          { level: '4', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 1.9 seconds (the stun duration is increased to 3 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 1.9 seconds.', spInit: 0, sp: 21 },
+          { level: '5', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 2 seconds (the stun duration is increased to 3.1 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2 seconds.', spInit: 0, sp: 21 },
+          { level: '6', desc: 'Immediately pushes back all enemies within range moderately in the direction this unit is facing, additionally stunning them for 2.1 seconds (the stun duration is increased to 3.2 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.1 seconds.', spInit: 0, sp: 21 },
+          { level: '7', desc: 'Immediately pushes back all enemies within range greatly in the direction this unit is facing, additionally stunning them for 2.2 seconds (the stun duration is increased to 3.4 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.2 seconds.', spInit: 0, sp: 20 },
+          { level: 'M1', desc: 'Immediately pushes back all enemies within range greatly in the direction this unit is facing, additionally stunning them for 2.3 seconds (the stun duration is increased to 3.6 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.3 seconds.', spInit: 0, sp: 19 },
+          { level: 'M2', desc: 'Immediately pushes back all enemies within range greatly in the direction this unit is facing, additionally stunning them for 2.4 seconds (the stun duration is increased to 3.8 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.4 seconds.', spInit: 0, sp: 18 },
+          { level: 'M3', desc: 'Immediately pushes back all enemies within range significantly in the direction this unit is facing, additionally stunning them for 2.5 seconds (the stun duration is increased to 4 seconds if the target collides with High Ground). If the target collides with another enemy, the enemy will also be stunned for 2.5 seconds.', spInit: 0, sp: 17 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Enforcer's Badge", desc: 'Appointed as Specialist Operator to exercise Push Stroker responsibilities' },
@@ -3447,8 +4168,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Flawed' },
     talents: [{ name: 'Captivating Delicacy', desc: 'Enemies within Attack Range take 120% of ATK as Elemental damage when they trigger Paralysis', elite: 'E2' }],
     skills: [
-      { name: 'Mealtime Manners', icon: '/operators/miss-christine/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +50%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 15, sp: 30, dur: '25s', rank: 'M3' },
-      { name: 'Bacchanalia', icon: '/operators/miss-christine/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Stops attacking, calling a Sensory Spirit at the target\'s location; the Spirit deals 115% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 115% of ATK as Elemental damage', spInit: 15, sp: 35, dur: '20s', rank: 'M3' },
+      {
+        name: 'Mealtime Manners', icon: '/operators/miss-christine/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +50%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 15, sp: 30, dur: '25s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +10%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 0, sp: 50, dur: '25s' },
+          { level: '2', desc: 'ATK +10%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 0, sp: 48, dur: '25s' },
+          { level: '3', desc: 'ATK +10%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 0, sp: 46, dur: '25s' },
+          { level: '4', desc: 'ATK +15%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 5, sp: 43, dur: '25s' },
+          { level: '5', desc: 'ATK +15%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 5, sp: 41, dur: '25s' },
+          { level: '6', desc: 'ATK +15%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 5, sp: 39, dur: '25s' },
+          { level: '7', desc: 'ATK +20%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 10, sp: 37, dur: '25s' },
+          { level: 'M1', desc: 'ATK +30%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 10, sp: 34, dur: '25s' },
+          { level: 'M2', desc: 'ATK +40%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 10, sp: 32, dur: '25s' },
+          { level: 'M3', desc: 'ATK +50%, attacks 2 targets at once, and attacks deal an additional 15% of Arts damage as Nervous Impairment', spInit: 15, sp: 30, dur: '25s' },
+        ],
+      },
+      {
+        name: 'Bacchanalia', icon: '/operators/miss-christine/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Stops attacking, calling a Sensory Spirit at the target\'s location; the Spirit deals 115% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 115% of ATK as Elemental damage', spInit: 15, sp: 35, dur: '20s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 65% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 50% of ATK as Elemental damage`, spInit: 0, sp: 45, dur: '20s' },
+          { level: '2', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 65% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 50% of ATK as Elemental damage`, spInit: 0, sp: 44, dur: '20s' },
+          { level: '3', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 65% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 50% of ATK as Elemental damage`, spInit: 0, sp: 43, dur: '20s' },
+          { level: '4', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 75% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 60% of ATK as Elemental damage`, spInit: 5, sp: 42, dur: '20s' },
+          { level: '5', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 75% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 60% of ATK as Elemental damage`, spInit: 5, sp: 41, dur: '20s' },
+          { level: '6', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 75% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 60% of ATK as Elemental damage`, spInit: 5, sp: 40, dur: '20s' },
+          { level: '7', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 85% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 75% of ATK as Elemental damage`, spInit: 10, sp: 39, dur: '20s' },
+          { level: 'M1', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 95% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 85% of ATK as Elemental damage`, spInit: 10, sp: 37, dur: '20s' },
+          { level: 'M2', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 105% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 100% of ATK as Elemental damage`, spInit: 10, sp: 36, dur: '20s' },
+          { level: 'M3', desc: `Stops attacking, calling a Sensory Spirit at the target's location; the Spirit deals 115% of ATK as Arts damage to all nearby enemies every second; if target is under the burst effect of Nervous Impairment, they are dealt an additional 115% of ATK as Elemental damage`, spInit: 15, sp: 35, dur: '20s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Miss.Christine's Badge", desc: 'Appointed as Caster Operator to exercise Primal Caster responsibilities' },
@@ -3509,8 +4260,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Excellent', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Excellent', 'Originium Arts': 'Excellent' },
     talents: [{ name: 'I Am the Camp', desc: 'Targets within Attack Range that have taken more than 50% Elemental Injury take 15% less Elemental Injury', elite: 'E2' }],
     skills: [
-      { name: 'Healing Up γ', icon: '/operators/harold/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +90%', spInit: 20, sp: 30, dur: '30s', rank: 'M3' },
-      { name: 'Triage', icon: '/operators/harold/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ASPD +100, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 250%', spInit: 18, sp: 30, dur: '25s', rank: 'M3' },
+      {
+        name: 'Healing Up γ', icon: '/operators/harold/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +90%', spInit: 20, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +40%', spInit: 20, sp: 40, dur: '30s' },
+          { level: '2', desc: 'ATK +45%', spInit: 20, sp: 40, dur: '30s' },
+          { level: '3', desc: 'ATK +50%', spInit: 20, sp: 40, dur: '30s' },
+          { level: '4', desc: 'ATK +55%', spInit: 20, sp: 35, dur: '30s' },
+          { level: '5', desc: 'ATK +60%', spInit: 20, sp: 35, dur: '30s' },
+          { level: '6', desc: 'ATK +65%', spInit: 20, sp: 35, dur: '30s' },
+          { level: '7', desc: 'ATK +70%', spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M1', desc: 'ATK +75%', spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M2', desc: 'ATK +80%', spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M3', desc: 'ATK +90%', spInit: 20, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Triage', icon: '/operators/harold/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ASPD +100, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 250%', spInit: 18, sp: 30, dur: '25s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ASPD +40, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 120%', spInit: 10, sp: 40, dur: '25s' },
+          { level: '2', desc: 'ASPD +45, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 130%', spInit: 10, sp: 40, dur: '25s' },
+          { level: '3', desc: 'ASPD +50, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 140%', spInit: 10, sp: 40, dur: '25s' },
+          { level: '4', desc: 'ASPD +55, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 160%', spInit: 13, sp: 37, dur: '25s' },
+          { level: '5', desc: 'ASPD +60, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 180%', spInit: 13, sp: 37, dur: '25s' },
+          { level: '6', desc: 'ASPD +70, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 190%', spInit: 13, sp: 37, dur: '25s' },
+          { level: '7', desc: 'ASPD +80, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 200%', spInit: 15, sp: 35, dur: '25s' },
+          { level: 'M1', desc: 'ASPD +90, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 220%', spInit: 15, sp: 34, dur: '25s' },
+          { level: 'M2', desc: 'ASPD +90, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 230%', spInit: 15, sp: 32, dur: '25s' },
+          { level: 'M3', desc: 'ASPD +100, prioritize healing the target that has taken the most Elemental Injury. When healing targets with more than 50% Elemental Injury, Elemental Injury healed is increased to 250%', spInit: 18, sp: 30, dur: '25s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Harold's Badge", desc: 'Appointed as Medic Operator to exercise Wandering Medic responsibilities' },
@@ -3572,8 +4353,38 @@ export const OPERATORS = ([
     physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
     talents: [{ name: 'Fire Support', desc: "After being deployed for 20 seconds, increases the ammo capacity for this unit's skills by +3, and increases the ammo cap for a random Laterano Operator's ammo-based skill by +1", elite: 'E2' }],
     skills: [
-      { name: '"Don\'t Invite Trouble"', icon: '/operators/insider/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'Each attack deals 230% of ATK as Physical damage.\nSkill activation grants 4 ammo and the skill ends when all ammo are used (Can manually deactivate skill)', spInit: 0, sp: 12, rank: 'M3' },
-      { name: '"Problem Solver"', icon: '/operators/insider/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +130%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies.\nSkill activation grants 14 ammo and the skill ends when all ammo are used (Can manually deactivate skill)', spInit: 14, sp: 20, rank: 'M3' },
+      {
+        name: '"Don\'t Invite Trouble"', icon: '/operators/insider/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery',
+        desc: 'Each attack deals 230% of ATK as Physical damage.\nSkill activation grants 4 ammo and the skill ends when all ammo are used (Can manually deactivate skill)', spInit: 0, sp: 12, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Each attack deals 170% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 15 },
+          { level: '2', desc: `Each attack deals 175% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 15 },
+          { level: '3', desc: `Each attack deals 180% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 15 },
+          { level: '4', desc: `Each attack deals 185% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 14 },
+          { level: '5', desc: `Each attack deals 190% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 14 },
+          { level: '6', desc: `Each attack deals 195% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 14 },
+          { level: '7', desc: `Each attack deals 200% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 13 },
+          { level: 'M1', desc: `Each attack deals 210% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 13 },
+          { level: 'M2', desc: `Each attack deals 220% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 13 },
+          { level: 'M3', desc: `Each attack deals 230% of ATK as Physical damage\nSkill activation grants 4 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 0, sp: 12 },
+        ],
+      },
+      {
+        name: '"Problem Solver"', icon: '/operators/insider/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +130%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies.\nSkill activation grants 14 ammo and the skill ends when all ammo are used (Can manually deactivate skill)', spInit: 14, sp: 20, rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +60%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 6, sp: 28 },
+          { level: '2', desc: `ATK +65%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 6, sp: 28 },
+          { level: '3', desc: `ATK +70%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 6, sp: 28 },
+          { level: '4', desc: `ATK +80%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 8, sp: 24 },
+          { level: '5', desc: `ATK +85%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 8, sp: 24 },
+          { level: '6', desc: `ATK +90%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 8, sp: 24 },
+          { level: '7', desc: `ATK +100%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 10, sp: 20 },
+          { level: 'M1', desc: `ATK +110%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 11, sp: 20 },
+          { level: 'M2', desc: `ATK +120%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 12, sp: 20 },
+          { level: 'M3', desc: `ATK +130%, Attack Interval shortens slightly, attacks prioritize enemies with long-ranged weapons, and becomes less likely to be targeted by enemies\nSkill activation grants 14 ammo and the skill ends when all ammo is used (Can manually deactivate skill)`, spInit: 14, sp: 20 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Insider's Badge", desc: 'Appointed as Sniper Operator to exercise Marksman responsibilities' },
@@ -4166,9 +4977,80 @@ export const OPERATORS = ([
       { name: 'All Are Guests', desc: 'Chongyue recovers 3 SP if he defeats at least one enemy with a skill', elite: 'E2' },
     ],
     skills: [
-      { name: 'Abundant', icon: '/operators/chongyue/skill-1.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'Deals 400% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed.\nMax 3 charges', spInit: 0, sp: 3, rank: 'M3' },
-      { name: 'Whisk', icon: '/operators/chongyue/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: "Deals 450% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 650% ATK as Physical damage.\nMax 2 charges", spInit: 9, sp: 10, rank: 'M3', range: [[1,1,1],[1,2,1],[1,1,1]] },
-      { name: 'Anatta', icon: '/operators/chongyue/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: "Deals 380% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times, Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time", spInit: 0, sp: 8, rank: 'M3', range: [[0,0,1,0,0],[0,0,1,0,0],[1,1,2,1,1],[0,0,1,0,0],[0,0,1,0,0]] },
+      {
+        name: 'Abundant', icon: '/operators/chongyue/skill-1.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Deals 400% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed.\nMax 3 charges', spInit: 0, sp: 3, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Deals 210% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 6 },
+          { level: '2', desc: `Deals 220% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 6 },
+          { level: '3', desc: `Deals 230% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 6 },
+          { level: '4', desc: `Deals 250% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 5 },
+          { level: '5', desc: `Deals 260% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 5 },
+          { level: '6', desc: `Deals 270% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 5 },
+          { level: '7', desc: `Deals 290% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 4 },
+          { level: 'M1', desc: `Deals 320% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 4 },
+          { level: 'M2', desc: `Deals 350% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 4 },
+          { level: 'M3', desc: `Deals 400% ATK as Physical damage to the target. When at maximum charges, removes all charges and deals damage for each charge removed
+Max 3 charges`, spInit: 0, sp: 3 },
+        ],
+      },
+      {
+        name: 'Whisk', icon: '/operators/chongyue/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Deals 450% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 650% ATK as Physical damage.\nMax 2 charges", spInit: 9, sp: 10, rank: 'M3',
+        range: [
+          [1,1,1],[1,2,1],[1,1,1]
+        ],
+        levels: [
+          { level: '1', desc: `Deals 250% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 350% ATK as Physical damage
+Max 2 charges`, spInit: 5, sp: 13 },
+          { level: '2', desc: `Deals 260% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 370% ATK as Physical damage
+Max 2 charges`, spInit: 5, sp: 13 },
+          { level: '3', desc: `Deals 270% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 390% ATK as Physical damage
+Max 2 charges`, spInit: 5, sp: 13 },
+          { level: '4', desc: `Deals 290% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 410% ATK as Physical damage
+Max 2 charges`, spInit: 6, sp: 12 },
+          { level: '5', desc: `Deals 310% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 430% ATK as Physical damage
+Max 2 charges`, spInit: 6, sp: 12 },
+          { level: '6', desc: `Deals 330% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 450% ATK as Physical damage
+Max 2 charges`, spInit: 6, sp: 12 },
+          { level: '7', desc: `Deals 350% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 480% ATK as Physical damage
+Max 2 charges`, spInit: 7, sp: 11 },
+          { level: 'M1', desc: `Deals 380% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 530% ATK as Physical damage
+Max 2 charges`, spInit: 7, sp: 11 },
+          { level: 'M2', desc: `Deals 410% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 580% ATK as Physical damage
+Max 2 charges`, spInit: 7, sp: 11 },
+          { level: 'M3', desc: `Deals 450% ATK as Physical damage to up to 4 enemies and causes targets affected by Talent 1 to Levitate, then removes Levitate from all enemies with Levitate, activates Talent 1 on them with 100% chance, and deals 650% ATK as Physical damage
+Max 2 charges`, spInit: 9, sp: 10 },
+        ],
+      },
+      {
+        name: 'Anatta', icon: '/operators/chongyue/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: "Deals 380% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times, Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time", spInit: 0, sp: 8, rank: 'M3',
+        range: [
+          [0,0,1,0,0],[0,0,1,0,0],[1,1,2,1,1],[0,0,1,0,0],[0,0,1,0,0]
+        ],
+        levels: [
+          { level: '1', desc: `Deals 180% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 12 },
+          { level: '2', desc: `Deals 200% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 12 },
+          { level: '3', desc: `Deals 220% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 12 },
+          { level: '4', desc: `Deals 240% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 11 },
+          { level: '5', desc: `Deals 260% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 11 },
+          { level: '6', desc: `Deals 280% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 11 },
+          { level: '7', desc: `Deals 300% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 10 },
+          { level: 'M1', desc: `Deals 320% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 10 },
+          { level: 'M2', desc: `Deals 350% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 10 },
+          { level: 'M3', desc: `Deals 380% ATK as Physical damage to the target and nearby enemies; after this skill has been used 5 times: Chongyue's attack range increases and attacks hit twice; this skill becomes auto-activated and deals damage an extra time.`, spInit: 0, sp: 8 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Chongyue's Badge", desc: 'Appointed as Guard Operator to exercise Fighter responsibilities' },
@@ -4239,9 +5121,67 @@ export const OPERATORS = ([
       { name: 'The Echo of Kings', desc: 'When deployed, all allied units take 10% less damage from [Sarkaz] enemies.', elite: 'E2' },
     ],
     skills: [
-      { name: 'The Past Lingering', icon: '/operators/civilight-eterna/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'Trait effect increases to 35% and Particle generation speed is increased.\nUnlimited duration', spInit: 0, sp: 65, dur: '∞', rank: 'M3' },
-      { name: 'The Future Elusive', icon: '/operators/civilight-eterna/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: "Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 275% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3.5s.", spInit: 20, sp: 35, dur: '35s', rank: 'M3' },
-      { name: 'The Present Reconstructed', icon: '/operators/civilight-eterna/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: "Attack range expands and Trait effect increases to 90%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.", spInit: 35, sp: 55, dur: '30s', rank: 'M3', range: [[0,1,1,1,0],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[0,1,1,1,0]] },
+      {
+        name: 'The Past Lingering', icon: '/operators/civilight-eterna/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'Trait effect increases to 35% and Particle generation speed is increased.\nUnlimited duration', spInit: 0, sp: 65, dur: '∞', rank: 'M3',
+        levels: [
+          { level: '1', desc: `Trait effect increases to 12% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 90, dur: '∞' },
+          { level: '2', desc: `Trait effect increases to 15% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 90, dur: '∞' },
+          { level: '3', desc: `Trait effect increases to 18% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 90, dur: '∞' },
+          { level: '4', desc: `Trait effect increases to 20% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '5', desc: `Trait effect increases to 22% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '6', desc: `Trait effect increases to 25% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '7', desc: `Trait effect increases to 28% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 75, dur: '∞' },
+          { level: 'M1', desc: `Trait effect increases to 30% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+          { level: 'M2', desc: `Trait effect increases to 32% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 68, dur: '∞' },
+          { level: 'M3', desc: `Trait effect increases to 35% and Particle generation speed is increased.
+Unlimited duration`, spInit: 0, sp: 65, dur: '∞' },
+        ],
+      },
+      {
+        name: 'The Future Elusive', icon: '/operators/civilight-eterna/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 275% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3.5s.", spInit: 20, sp: 35, dur: '35s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 50% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 200% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 0, sp: 35, dur: '35s' },
+          { level: '2', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 55% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 210% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 0, sp: 35, dur: '35s' },
+          { level: '3', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 60% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 215% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 0, sp: 35, dur: '35s' },
+          { level: '4', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 65% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 220% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 5, sp: 35, dur: '35s' },
+          { level: '5', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 70% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 235% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 5, sp: 35, dur: '35s' },
+          { level: '6', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 75% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 250% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 5, sp: 35, dur: '35s' },
+          { level: '7', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 80% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 260% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 10, sp: 35, dur: '35s' },
+          { level: 'M1', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 85% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 265% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 15, sp: 35, dur: '35s' },
+          { level: 'M2', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 90% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 270% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3s.`, spInit: 18, sp: 35, dur: '35s' },
+          { level: 'M3', desc: `Particle limit +3 and immediately gains 6 Particles. Particle orbit radius expands, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's ATK. Particles no longer collide with allied Operators, and instead deal 275% of Civilight Eterna's ATK as True damage when colliding with an enemy unit, and also Binding them for 3.5s.`, spInit: 20, sp: 35, dur: '35s' },
+        ],
+      },
+      {
+        name: 'The Present Reconstructed', icon: '/operators/civilight-eterna/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Attack range expands and Trait effect increases to 90%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.", spInit: 35, sp: 55, dur: '30s', rank: 'M3',
+        range: [
+          [0,1,1,1,0],[1,1,1,1,1],[1,1,2,1,1],[1,1,1,1,1],[0,1,1,1,0]
+        ],
+        levels: [
+          { level: '1', desc: `Attack range expands and Trait effect increases to 50%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 50% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 90, dur: '30s' },
+          { level: '2', desc: `Attack range expands and Trait effect increases to 55%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 55% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 90, dur: '30s' },
+          { level: '3', desc: `Attack range expands and Trait effect increases to 60%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 60% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 90, dur: '30s' },
+          { level: '4', desc: `Attack range expands and Trait effect increases to 65%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 65% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 80, dur: '30s' },
+          { level: '5', desc: `Attack range expands and Trait effect increases to 70%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 70% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 75, dur: '30s' },
+          { level: '6', desc: `Attack range expands and Trait effect increases to 72%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 75% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 75, dur: '30s' },
+          { level: '7', desc: `Attack range expands and Trait effect increases to 75%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 80% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 70, dur: '30s' },
+          { level: 'M1', desc: `Attack range expands and Trait effect increases to 80%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 85% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 65, dur: '30s' },
+          { level: 'M2', desc: `Attack range expands and Trait effect increases to 85%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 90% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 60, dur: '30s' },
+          { level: 'M3', desc: `Attack range expands and Trait effect increases to 90%. Particles no longer disappear, and all allies in attack range gain Inspiration equal to 100% of Civilight Eterna's max HP. Redistribute HP of all allies in attack range every 2s.`, spInit: 35, sp: 55, dur: '30s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Civilight Eterna's Badge", desc: "This program has been left within Civilight Eterna by Theresa's auspices. The data borne of deep simulation recreating the abilities by which she was known. In light of the never-ending reach of her gentle Originium Arts, and their restorative and inspirational effect on persons concerned, a symbolic following of the procedural evaluation has sufficed for her qualification as a Supporter Operator." },
@@ -4307,9 +5247,64 @@ export const OPERATORS = ([
       { name: 'Herald of Revelations', desc: 'While this unit has no skill active, ASPD +27', elite: 'E2' },
     ],
     skills: [
-      { name: '"Provocate"', icon: '/operators/fiammetta/skill-1.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'Attack Range +1 tile, ATK +100%', spInit: 5, sp: 10, dur: '30s', rank: 'M3' },
-      { name: '"Paenitete"', icon: '/operators/fiammetta/skill-2.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'Fires scorching bullets that leaves incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum Attack Range, dealing 400% Physical damage and causing incendiary marks to explode in sequence, dealing 200% Physical damage', spInit: 0, sp: 7, rank: 'M3' },
-      { name: '"Reponite"', icon: '/operators/fiammetta/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery', desc: 'Continuously barrages a fixed area in front of this unit at max Range, expanding explosion area and increasing ATK to 125%. Enemies closer to the impact site in a smaller area will instead take 220% ATK as damage.\nUnlimited duration, can manually deactivate skill', spInit: 0, sp: 15, rank: 'M3' },
+      {
+        name: '"Provocate"', icon: '/operators/fiammetta/skill-1.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Attack Range +1 tile, ATK +100%', spInit: 5, sp: 10, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Attack range +1, ATK +30%', spInit: 5, sp: 20, dur: '30s' },
+          { level: '2', desc: 'Attack range +1, ATK +35%', spInit: 5, sp: 19, dur: '30s' },
+          { level: '3', desc: 'Attack range +1, ATK +40%', spInit: 5, sp: 18, dur: '30s' },
+          { level: '4', desc: 'Attack range +1, ATK +45%', spInit: 5, sp: 17, dur: '30s' },
+          { level: '5', desc: 'Attack range +1, ATK +50%', spInit: 5, sp: 16, dur: '30s' },
+          { level: '6', desc: 'Attack range +1, ATK +55%', spInit: 5, sp: 15, dur: '30s' },
+          { level: '7', desc: 'Attack range +1, ATK +60%', spInit: 5, sp: 14, dur: '30s' },
+          { level: 'M1', desc: 'Attack range +1, ATK +75%', spInit: 5, sp: 13, dur: '30s' },
+          { level: 'M2', desc: 'Attack range +1, ATK +90%', spInit: 5, sp: 12, dur: '30s' },
+          { level: 'M3', desc: 'Attack range +1, ATK +100%', spInit: 5, sp: 10, dur: '30s' },
+        ],
+      },
+      {
+        name: '"Paenitete"', icon: '/operators/fiammetta/skill-2.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Fires scorching bullets that leaves incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum Attack Range, dealing 400% Physical damage and causing incendiary marks to explode in sequence, dealing 200% Physical damage', spInit: 0, sp: 7, rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 200% Physical Damage and causing incendiary marks to explode in sequence, dealing 100% Physical Damage', spInit: 0, sp: 12 },
+          { level: '2', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 220% Physical Damage and causing incendiary marks to explode in sequence, dealing 110% Physical Damage', spInit: 0, sp: 12 },
+          { level: '3', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 240% Physical Damage and causing incendiary marks to explode in sequence, dealing 120% Physical Damage', spInit: 0, sp: 12 },
+          { level: '4', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 260% Physical Damage and causing incendiary marks to explode in sequence, dealing 130% Physical Damage', spInit: 0, sp: 11 },
+          { level: '5', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 280% Physical Damage and causing incendiary marks to explode in sequence, dealing 140% Physical Damage', spInit: 0, sp: 11 },
+          { level: '6', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 300% Physical Damage and causing incendiary marks to explode in sequence, dealing 150% Physical Damage', spInit: 0, sp: 11 },
+          { level: '7', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 320% Physical Damage and causing incendiary marks to explode in sequence, dealing 160% Physical Damage', spInit: 0, sp: 10 },
+          { level: 'M1', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 340% Physical Damage and causing incendiary marks to explode in sequence, dealing 170% Physical Damage', spInit: 0, sp: 9 },
+          { level: 'M2', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 360% Physical Damage and causing incendiary marks to explode in sequence, dealing 180% Physical Damage', spInit: 0, sp: 8 },
+          { level: 'M3', desc: 'Fires scorching bullets that leave incendiary marks at fixed distances as they travel. The bullets explode upon reaching maximum attack range, dealing 400% Physical Damage and causing incendiary marks to explode in sequence, dealing 200% Physical Damage', spInit: 0, sp: 7 },
+        ],
+      },
+      {
+        name: '"Reponite"', icon: '/operators/fiammetta/skill-3.png', activation: 'Manual', recovery: 'Offensive Recovery',
+        desc: 'Continuously barrages a fixed area in front of this unit at max Range, expanding explosion area and increasing ATK to 125%. Enemies closer to the impact site in a smaller area will instead take 220% ATK as damage.\nUnlimited duration, can manually deactivate skill', spInit: 0, sp: 15, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 105%. Enemies closer to the impact site in a smaller area will instead take 150% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 25, dur: '∞' },
+          { level: '2', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 105%. Enemies closer to the impact site in a smaller area will instead take 155% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 24, dur: '∞' },
+          { level: '3', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 105%. Enemies closer to the impact site in a smaller area will instead take 160% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 23, dur: '∞' },
+          { level: '4', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 110%. Enemies closer to the impact site in a smaller area will instead take 170% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 22, dur: '∞' },
+          { level: '5', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 110%. Enemies closer to the impact site in a smaller area will instead take 175% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 21, dur: '∞' },
+          { level: '6', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 110%. Enemies closer to the impact site in a smaller area will instead take 180% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 20, dur: '∞' },
+          { level: '7', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 115%. Enemies closer to the impact site in a smaller area will instead take 185% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 19, dur: '∞' },
+          { level: 'M1', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 115%. Enemies closer to the impact site in a smaller area will instead take 190% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 18, dur: '∞' },
+          { level: 'M2', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 115%. Enemies closer to the impact site in a smaller area will instead take 200% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 17, dur: '∞' },
+          { level: 'M3', desc: `Continuously barrages a fixed area in front of this unit at max range, expanding explosion area and increasing ATK to 125%. Enemies closer to the impact site in a smaller area will instead take 220% ATK as damage.
+Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 15, dur: '∞' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Fiammetta's Badge", desc: 'Appointed as Sniper Operator to exercise Artilleryman responsibilities' },
@@ -4380,9 +5375,96 @@ export const OPERATORS = ([
       { name: 'Precise Redirection', desc: "Goldenglow and her Drones' attacks ignore 15 RES", elite: 'E2' },
     ],
     skills: [
-      { name: 'Scattering Sparks', icon: '/operators/goldenglow/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: "Drone +1, ATK +40% and ASPD +50. Releases Drones to attack enemies", spInit: 20, sp: 35, dur: '25s', rank: 'M3', note: 'The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs, or until the skill is over, then returns to the Operator.' },
-      { name: 'Surging Current', icon: '/operators/goldenglow/skill-2.png', activation: 'Passive', recovery: 'Auto Recovery', desc: 'Drone +1, ATK +60% and Attack Range expands. Releases Drones to attack enemies', spInit: 0, sp: 70, rank: 'M3', note: 'The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs, or until the skill is over, then returns to the Operator.' },
-      { name: 'Crystalline Shine', icon: '/operators/goldenglow/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: "Stops attacking; Drone +2, ATK +80% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds", spInit: 17, sp: 35, dur: '30s', rank: 'M3' },
+      {
+        name: 'Scattering Sparks', icon: '/operators/goldenglow/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Drone +1, ATK +40% and ASPD +50. Releases Drones to attack enemies", spInit: 20, sp: 35, dur: '25s', rank: 'M3',
+        note: 'The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs, or until the skill is over, then returns to the Operator.',
+        levels: [
+          { level: '1', desc: `Drone +1, ATK +20% and ASPD +20. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '25s' },
+          { level: '2', desc: `Drone +1, ATK +22% and ASPD +23. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '25s' },
+          { level: '3', desc: `Drone +1, ATK +24% and ASPD +26. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '25s' },
+          { level: '4', desc: `Drone +1, ATK +26% and ASPD +29. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 40, dur: '25s' },
+          { level: '5', desc: `Drone +1, ATK +28% and ASPD +32. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 40, dur: '25s' },
+          { level: '6', desc: `Drone +1, ATK +30% and ASPD +35. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 40, dur: '25s' },
+          { level: '7', desc: `Drone +1, ATK +32% and ASPD +38. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 35, dur: '25s' },
+          { level: 'M1', desc: `Drone +1, ATK +34% and ASPD +42. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 20, sp: 35, dur: '25s' },
+          { level: 'M2', desc: `Drone +1, ATK +36% and ASPD +46. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 20, sp: 35, dur: '25s' },
+          { level: 'M3', desc: `Drone +1, ATK +40% and ASPD +50. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 20, sp: 35, dur: '25s' },
+        ],
+      },
+      {
+        name: 'Surging Current', icon: '/operators/goldenglow/skill-2.png', activation: 'Passive', recovery: 'Auto Recovery',
+        desc: 'Drone +1, ATK +60% and Attack Range expands. Releases Drones to attack enemies', spInit: 0, sp: 70, rank: 'M3',
+        note: 'The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs, or until the skill is over, then returns to the Operator.',
+        levels: [
+          { level: '1', desc: `Drone +1, ATK +20% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '2', desc: `Drone +1, ATK +24% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '3', desc: `Drone +1, ATK +28% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 80, dur: '∞' },
+          { level: '4', desc: `Drone +1, ATK +32% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 75, dur: '∞' },
+          { level: '5', desc: `Drone +1, ATK +36% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 75, dur: '∞' },
+          { level: '6', desc: `Drone +1, ATK +40% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 75, dur: '∞' },
+          { level: '7', desc: `Drone +1, ATK +45% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+          { level: 'M1', desc: `Drone +1, ATK +50% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+          { level: 'M2', desc: `Drone +1, ATK +55% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+          { level: 'M3', desc: `Drone +1, ATK +60% and Attack Range expands. Releases Drones to attack enemies
+The Drone locks onto an enemy until the enemy is defeated or the Drone self-destructs, then returns to the Operator
+Unlimited duration`, spInit: 0, sp: 70, dur: '∞' },
+        ],
+      },
+      {
+        name: 'Crystalline Shine', icon: '/operators/goldenglow/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Stops attacking; Drone +2, ATK +80% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds", spInit: 17, sp: 35, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `Stops attacking; Drone +2, ATK +25% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 5, sp: 50, dur: '30s' },
+          { level: '2', desc: `Stops attacking; Drone +2, ATK +30% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 5, sp: 50, dur: '30s' },
+          { level: '3', desc: `Stops attacking; Drone +2, ATK +35% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 5, sp: 50, dur: '30s' },
+          { level: '4', desc: `Stops attacking; Drone +2, ATK +40% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '30s' },
+          { level: '5', desc: `Stops attacking; Drone +2, ATK +45% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '30s' },
+          { level: '6', desc: `Stops attacking; Drone +2, ATK +50% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 10, sp: 45, dur: '30s' },
+          { level: '7', desc: `Stops attacking; Drone +2, ATK +55% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 40, dur: '30s' },
+          { level: 'M1', desc: `Stops attacking; Drone +2, ATK +60% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 15, sp: 35, dur: '30s' },
+          { level: 'M2', desc: `Stops attacking; Drone +2, ATK +70% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 17, sp: 35, dur: '30s' },
+          { level: 'M3', desc: `Stops attacking; Drone +2, ATK +80% and Attack Range becomes global. Releases Drones to attack enemies and the Drones' attacks Slow the target for 0.5 seconds
+The Drone locks onto an enemy until the enemy is defeated, the Drone self-destructs or until the skill is over, then returns to the Operator`, spInit: 17, sp: 35, dur: '30s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Goldenglow's Badge", desc: 'Appointed as Caster Operator to exercise Mech-Accord Caster responsibilities' },
@@ -4432,9 +5514,54 @@ export const OPERATORS = ([
       { name: 'Ingenious Strategist', desc: 'Regenerate 60 HP per second when this unit is not blocking an enemy', elite: 'E2' },
     ],
     skills: [
-      { name: 'Crescent Moon', icon: '/operators/hellagur/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery', desc: 'The ATK of next attack increases to 175%, attacking twice consecutively', spInit: 0, sp: 2, rank: 'M3' },
-      { name: 'Half Moon', icon: '/operators/hellagur/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +80%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 15, sp: 25, dur: '13s', rank: 'M3' },
-      { name: 'Full Moon', icon: '/operators/hellagur/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'ATK +100%, attack range +2 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 35, dur: '15s', rank: 'M3' },
+      {
+        name: 'Crescent Moon', icon: '/operators/hellagur/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery',
+        desc: 'The ATK of next attack increases to 175%, attacking twice consecutively', spInit: 0, sp: 2, rank: 'M3',
+        levels: [
+          { level: '1', desc: 'The ATK of next attack increases to 110%, attacking twice consecutively', spInit: 0, sp: 4 },
+          { level: '2', desc: 'The ATK of next attack increases to 115%, attacking twice consecutively', spInit: 0, sp: 4 },
+          { level: '3', desc: 'The ATK of next attack increases to 120%, attacking twice consecutively', spInit: 0, sp: 4 },
+          { level: '4', desc: 'The ATK of next attack increases to 125%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: '5', desc: 'The ATK of next attack increases to 130%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: '6', desc: 'The ATK of next attack increases to 135%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: '7', desc: 'The ATK of next attack increases to 145%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: 'M1', desc: 'The ATK of next attack increases to 155%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: 'M2', desc: 'The ATK of next attack increases to 165%, attacking twice consecutively', spInit: 0, sp: 3 },
+          { level: 'M3', desc: 'The ATK of next attack increases to 175%, attacking twice consecutively', spInit: 0, sp: 2 },
+        ],
+      },
+      {
+        name: 'Half Moon', icon: '/operators/hellagur/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +80%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 15, sp: 25, dur: '13s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +20%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 0, sp: 35, dur: '10s' },
+          { level: '2', desc: 'ATK +25%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 0, sp: 34, dur: '10s' },
+          { level: '3', desc: 'ATK +30%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 0, sp: 33, dur: '10s' },
+          { level: '4', desc: 'ATK +35%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 5, sp: 32, dur: '11s' },
+          { level: '5', desc: 'ATK +40%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 5, sp: 31, dur: '11s' },
+          { level: '6', desc: 'ATK +45%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 5, sp: 30, dur: '11s' },
+          { level: '7', desc: 'ATK +50%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 10, sp: 29, dur: '12s' },
+          { level: 'M1', desc: 'ATK +60%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 11, sp: 28, dur: '12s' },
+          { level: 'M2', desc: 'ATK +70%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 12, sp: 27, dur: '12s' },
+          { level: 'M3', desc: 'ATK +80%, changes attack to twice attack, obtaining 75% Physical Dodge', spInit: 15, sp: 25, dur: '13s' },
+        ],
+      },
+      {
+        name: 'Full Moon', icon: '/operators/hellagur/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +100%, attack range +2 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 35, dur: '15s', rank: 'M3',
+        levels: [
+          { level: '1', desc: 'ATK +40%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 45, dur: '12s' },
+          { level: '2', desc: 'ATK +45%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 45, dur: '12s' },
+          { level: '3', desc: 'ATK +50%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 45, dur: '12s' },
+          { level: '4', desc: 'ATK +55%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 43, dur: '13s' },
+          { level: '5', desc: 'ATK +60%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 43, dur: '13s' },
+          { level: '6', desc: 'ATK +65%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 43, dur: '13s' },
+          { level: '7', desc: 'ATK +70%, attack range +1 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 41, dur: '14s' },
+          { level: 'M1', desc: 'ATK +80%, attack range +2 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 39, dur: '14s' },
+          { level: 'M2', desc: 'ATK +90%, attack range +2 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 37, dur: '14s' },
+          { level: 'M3', desc: 'ATK +100%, attack range +2 tiles, can attack up to 3 targets simultaneously', spInit: 15, sp: 35, dur: '15s' },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "Hellagur's Badge", desc: 'Appointed as Guard Operator to exercise Soloblade responsibilities' },
@@ -4486,9 +5613,54 @@ export const OPERATORS = ([
       { name: 'Insult to Injury', desc: 'Enemies in range take +18% Physical damage when Stunned', elite: 'E2' },
     ],
     skills: [
-      { name: 'King of Hearts', icon: '/operators/w/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Immediately launches a grenade, dealing 350% ATK as Physical Damage to all enemies hit and Stunning them for 3 seconds', spInit: 0, sp: 16, rank: 'M3' },
-      { name: 'Jack in the Box', icon: '/operators/w/skill-2.png', activation: 'Auto', recovery: 'Auto Recovery', desc: 'The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit\'s Attack Range; the mine detonates when an enemy passes by it, dealing 280% Physical Damage to all nearby enemies and Stunning them for 2.2 seconds', spInit: 0, sp: 8, rank: 'M3' },
-      { name: 'D12', icon: '/operators/w/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery', desc: 'Places bombs on up to 4 enemies within Attack Range, prioritizing enemies with the highest HP; after a delay, the bombs detonate, each dealing 310% ATK as Physical Damage to nearby enemies and Stunning them for 5 seconds', spInit: 20, sp: 33, rank: 'M3' },
+      {
+        name: 'King of Hearts', icon: '/operators/w/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Immediately launches a grenade, dealing 350% ATK as Physical Damage to all enemies hit and Stunning them for 3 seconds', spInit: 0, sp: 16, rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Immediately launches a grenade, dealing 230% ATK as Physical damage to all enemies hit and Stunning them for 1.5 seconds', spInit: 0, sp: 25 },
+          { level: '2', desc: 'Immediately launches a grenade, dealing 240% ATK as Physical damage to all enemies hit and Stunning them for 1.5 seconds', spInit: 0, sp: 24 },
+          { level: '3', desc: 'Immediately launches a grenade, dealing 250% ATK as Physical damage to all enemies hit and Stunning them for 1.5 seconds', spInit: 0, sp: 23 },
+          { level: '4', desc: 'Immediately launches a grenade, dealing 270% ATK as Physical damage to all enemies hit and Stunning them for 1.8 seconds', spInit: 0, sp: 22 },
+          { level: '5', desc: 'Immediately launches a grenade, dealing 280% ATK as Physical damage to all enemies hit and Stunning them for 1.8 seconds', spInit: 0, sp: 21 },
+          { level: '6', desc: 'Immediately launches a grenade, dealing 290% ATK as Physical damage to all enemies hit and Stunning them for 1.8 seconds', spInit: 0, sp: 20 },
+          { level: '7', desc: 'Immediately launches a grenade, dealing 310% ATK as Physical damage to all enemies hit and Stunning them for 2.1 seconds', spInit: 0, sp: 19 },
+          { level: 'M1', desc: 'Immediately launches a grenade, dealing 320% ATK as Physical damage to all enemies hit and Stunning them for 2.4 seconds', spInit: 0, sp: 18 },
+          { level: 'M2', desc: 'Immediately launches a grenade, dealing 330% ATK as Physical damage to all enemies hit and Stunning them for 2.7 seconds', spInit: 0, sp: 17 },
+          { level: 'M3', desc: 'Immediately launches a grenade, dealing 350% ATK as Physical damage to all enemies hit and Stunning them for 3 seconds', spInit: 0, sp: 16 },
+        ],
+      },
+      {
+        name: 'Jack in the Box', icon: '/operators/w/skill-2.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit\'s Attack Range; the mine detonates when an enemy passes by it, dealing 280% Physical Damage to all nearby enemies and Stunning them for 2.2 seconds', spInit: 0, sp: 8, rank: 'M3',
+        levels: [
+          { level: '1', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 190% Physical damage to all nearby enemies and Stunning them for 1.4 seconds`, spInit: 0, sp: 12 },
+          { level: '2', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 200% Physical damage to all nearby enemies and Stunning them for 1.4 seconds`, spInit: 0, sp: 12 },
+          { level: '3', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 210% Physical damage to all nearby enemies and Stunning them for 1.4 seconds`, spInit: 0, sp: 12 },
+          { level: '4', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 220% Physical damage to all nearby enemies and Stunning them for 1.6 seconds`, spInit: 0, sp: 11 },
+          { level: '5', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 230% Physical damage to all nearby enemies and Stunning them for 1.6 seconds`, spInit: 0, sp: 11 },
+          { level: '6', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 240% Physical damage to all nearby enemies and Stunning them for 1.6 seconds`, spInit: 0, sp: 11 },
+          { level: '7', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 250% Physical damage to all nearby enemies and Stunning them for 1.8 seconds`, spInit: 0, sp: 10 },
+          { level: 'M1', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 260% Physical damage to all nearby enemies and Stunning them for 1.8 seconds`, spInit: 0, sp: 9 },
+          { level: 'M2', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 270% Physical damage to all nearby enemies and Stunning them for 2 seconds`, spInit: 0, sp: 9 },
+          { level: 'M3', desc: `The next attack buries a mine (lasts for 120 seconds) in a deployable tile within this unit's Attack Range; The mine will detonate when an enemy passes by it, dealing 280% Physical damage to all nearby enemies and Stunning them for 2.2 seconds`, spInit: 0, sp: 8 },
+        ],
+      },
+      {
+        name: 'D12', icon: '/operators/w/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Places bombs on up to 4 enemies within Attack Range, prioritizing enemies with the highest HP; after a delay, the bombs detonate, each dealing 310% ATK as Physical Damage to nearby enemies and Stunning them for 5 seconds', spInit: 20, sp: 33, rank: 'M3',
+        levels: [
+          { level: '1', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 220% ATK as Physical damage to nearby enemies and Stunning them for 3 seconds', spInit: 11, sp: 45 },
+          { level: '2', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 230% ATK as Physical damage to nearby enemies and Stunning them for 3 seconds', spInit: 12, sp: 44 },
+          { level: '3', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 240% ATK as Physical damage to nearby enemies and Stunning them for 3 seconds', spInit: 13, sp: 43 },
+          { level: '4', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 250% ATK as Physical damage to nearby enemies and Stunning them for 3.5 seconds', spInit: 14, sp: 42 },
+          { level: '5', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 260% ATK as Physical damage to nearby enemies and Stunning them for 3.5 seconds', spInit: 15, sp: 41 },
+          { level: '6', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 270% ATK as Physical damage to nearby enemies and Stunning them for 3.5 seconds', spInit: 16, sp: 40 },
+          { level: '7', desc: 'Places bombs on up to 3 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 280% ATK as Physical damage to nearby enemies and Stunning them for 4 seconds', spInit: 17, sp: 39 },
+          { level: 'M1', desc: 'Places bombs on up to 4 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 290% ATK as Physical damage to nearby enemies and Stunning them for 4 seconds', spInit: 18, sp: 37 },
+          { level: 'M2', desc: 'Places bombs on up to 4 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 300% ATK as Physical damage to nearby enemies and Stunning them for 4.5 seconds', spInit: 19, sp: 35 },
+          { level: 'M3', desc: 'Places bombs on up to 4 enemies within Attack Range, prioritizing enemies with the highest HP; After a delay, the bombs will detonate, each dealing 310% ATK as Physical damage to nearby enemies and Stunning them for 5 seconds', spInit: 20, sp: 33 },
+        ],
+      },
     ],
     modules: {
       original: { code: 'Original', name: "W's Badge", desc: 'Appointed as Sniper Operator to exercise Artilleryman responsibilities' },
@@ -4515,8 +5687,8 @@ export const OPERATORS = ([
     classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/babel.png',
     skins: [
       { id: 'base', label: 'Base', src: '/operators/w/base.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke' },
-      { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke' },
-      { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-e2.skel', atlas: '/operators/w/l2d/w-e2.atlas' } },
+      { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', characterSlotPrefix: 'W_', focus: { zoom: 0.62, offsetY: 30, offsetX: 750 } } },
     ],
     portrait: '/operators/w/portrait.png',
     portraitFocus: { y: -5, x: 50, zoom: 250 },
@@ -5195,7 +6367,464 @@ export const OPERATORS = ([
       { id: 'skin2', label: 'The Ferry Girl', src: '/operators/nightmare/skin2.png', chibiSrc: '/operators/nightmare/chibi-skin2.webm', illustrator: 'Yukuso' },
     ],
     portrait: '/operators/nightmare/portrait.png',
-    portraitFocus: { y: 0, x: 60, zoom: 250 },
+    portraitFocus: { y: -2, x: 63, zoom: 220 },
+  },
+  {
+    name: 'Almond', fileNo: 'BS05', class: 'Specialist', branch: 'Hookmaster', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Blacksteel', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Columbia',
+    birthday: 'February 27th', height: '140 cm', combatExp: '1 year', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '直立行走',
+    cv: { JP: 'Yū Serizawa', CN: 'Erjiao', EN: 'Eden Riegel', KR: 'Kim Ye-rim' },
+    trait: 'Can Shift enemies by using skills\nCan be deployed on Ranged Tiles',
+    tags: ['Shift'],
+    stats: { hp: 2330, atk: 695, def: 455, res: 0, block: 2, cost: 13, aspd: '1.8s', rdp: '70s' },
+    range: { base: [[2, 1, 1]], e1: [[2, 1, 1, 1]] },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Normal' },
+    talents: [
+      { name: "Engineer's Backpack", desc: 'Immediately restores 4 SP after activating a skill for the first time each battle', elite: 'E1' },
+      { name: "Engineer's Backpack", desc: 'Immediately restores 8 SP after activating a skill for the first time each battle', elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Magnetic Grab', icon: '/operators/almond/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'The next attack drags the target towards this unit moderately, dealing 170% of ATK as Physical damage\nCan store 3 charge(s)', spInit: 4, sp: 4, rank: 'M3',
+        note: 'The pull has a force of 0 before Level 8, and a force of 1 from Level 8 onward.',
+        levels: [
+          { level: '1', desc: `The next attack drags the target towards this unit slightly, dealing 110% of ATK as Physical damage\nCan store 1 charge(s)`, spInit: 0, sp: 7 },
+          { level: '2', desc: `The next attack drags the target towards this unit slightly, dealing 115% of ATK as Physical damage\nCan store 1 charge(s)`, spInit: 0, sp: 7 },
+          { level: '3', desc: `The next attack drags the target towards this unit slightly, dealing 120% of ATK as Physical damage\nCan store 1 charge(s)`, spInit: 1, sp: 7 },
+          { level: '4', desc: `The next attack drags the target towards this unit slightly, dealing 125% of ATK as Physical damage\nCan store 2 charge(s)`, spInit: 1, sp: 6 },
+          { level: '5', desc: `The next attack drags the target towards this unit slightly, dealing 130% of ATK as Physical damage\nCan store 2 charge(s)`, spInit: 2, sp: 6 },
+          { level: '6', desc: `The next attack drags the target towards this unit slightly, dealing 135% of ATK as Physical damage\nCan store 2 charge(s)`, spInit: 2, sp: 6 },
+          { level: '7', desc: `The next attack drags the target towards this unit moderately, dealing 140% of ATK as Physical damage\nCan store 2 charge(s)`, spInit: 3, sp: 5 },
+          { level: 'M1', desc: `The next attack drags the target towards this unit moderately, dealing 150% of ATK as Physical damage\nCan store 2 charge(s)`, spInit: 3, sp: 5 },
+          { level: 'M2', desc: `The next attack drags the target towards this unit moderately, dealing 160% of ATK as Physical damage\nCan store 3 charge(s)`, spInit: 4, sp: 5 },
+          { level: 'M3', desc: `The next attack drags the target towards this unit moderately, dealing 170% of ATK as Physical damage\nCan store 3 charge(s)`, spInit: 4, sp: 4 },
+        ],
+      },
+      {
+        name: 'Power Traction', icon: '/operators/almond/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Immediately launches a traction hook that Binds its target, then deals 180% of ATK as Physical damage to the target and drags it towards this unit greatly every 1.5 seconds until this skill ends', spInit: 15, sp: 25, dur: '4s', rank: 'M3',
+        note: 'Power Traction inflicts 3 damage and pull instances throughout its duration, so it actually lasts 4.5 seconds. Ends early if the target leaves the map.',
+        levels: [
+          { level: '1', desc: `Immediately launches a traction hook that Binds its target, then deals 110% of ATK as Physical damage to the target and drags it towards this unit slightly every 1.5 seconds until this skill ends`, spInit: 5, sp: 35, dur: '4s' },
+          { level: '2', desc: `Immediately launches a traction hook that Binds its target, then deals 120% of ATK as Physical damage to the target and drags it towards this unit slightly every 1.5 seconds until this skill ends`, spInit: 5, sp: 34, dur: '4s' },
+          { level: '3', desc: `Immediately launches a traction hook that Binds its target, then deals 130% of ATK as Physical damage to the target and drags it towards this unit slightly every 1.5 seconds until this skill ends`, spInit: 7, sp: 33, dur: '4s' },
+          { level: '4', desc: `Immediately launches a traction hook that Binds its target, then deals 130% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 7, sp: 32, dur: '4s' },
+          { level: '5', desc: `Immediately launches a traction hook that Binds its target, then deals 140% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 9, sp: 31, dur: '4s' },
+          { level: '6', desc: `Immediately launches a traction hook that Binds its target, then deals 150% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 9, sp: 30, dur: '4s' },
+          { level: '7', desc: `Immediately launches a traction hook that Binds its target, then deals 150% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 11, sp: 29, dur: '4s' },
+          { level: 'M1', desc: `Immediately launches a traction hook that Binds its target, then deals 160% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 13, sp: 28, dur: '4s' },
+          { level: 'M2', desc: `Immediately launches a traction hook that Binds its target, then deals 170% of ATK as Physical damage to the target and drags it towards this unit moderately every 1.5 seconds until this skill ends`, spInit: 13, sp: 27, dur: '4s' },
+          { level: 'M3', desc: `Immediately launches a traction hook that Binds its target, then deals 180% of ATK as Physical damage to the target and drags it towards this unit greatly every 1.5 seconds until this skill ends`, spInit: 15, sp: 25, dur: '4s' },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Almond's Badge", desc: 'Appointed as Specialist Operator to exercise Hookmaster responsibilities' },
+      hokx: { code: 'HOK-X', name: '"Capstone Project"', stages: [
+        { stage: 1, hp: '+130', def: '+17', effect: 'New trait: While being pulled, enemies take Arts damage proportional to the distance traveled' },
+        { stage: 2, hp: '+220', def: '+22', effect: "Engineer's Backpack improved: Immediately restores 10 SP after activating a skill for the first time each battle" },
+        { stage: 3, hp: '+280', def: '+25', effect: "Engineer's Backpack improved: Immediately restores 12 SP after activating a skill for the first time each battle" },
+      ]},
+    },
+    story: `A talkative Bolívarian Perro engineer employed by Blacksteel, Laura Arias came from an impoverished family who struggled to make a living after emigrating to Columbia. Laura contracted Oripathy at some point after graduating from college and joined BSW due to its tolerance towards the Infected under the callsign Almond, where she befriended Jessica, Franka, and Liskarm, and made a name for herself in the private military company for providing crucial technical assistance during their operations.\n\nAs part of a technical exchange between BSW and Rhodes Island at some point after the Davistown bank heist, Almond was contracted to R.I. and worked alongside the Engineering Department as a consultant.`,
+    profile: `Laura Arias, an engineering expert from Blacksteel Worldwide. She possesses remarkable technical acumen for her age and has rich, practical experience in fields such as mechanical engineering and automation. She's provided critical technical support to numerous Blacksteel operations.\nDuring the latest round of exchange projects between the two companies, Laura personally applied to be deployed to Rhodes Island as a dispatch operator. Now, she works with Engineering on its research and development projects as a special technology consultant, and she's no slouch either.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 4%\nSmall traces of crystallization are visible on Operator Almond's body surface.\n\n[Blood Originium-Crystal Density] 0.19u/L\nOperator Almond's BOCD is trending upwards. Fortunately, her condition has not worsened.\nConsidering how often she goes into the engine layer of nomadic plates, ventures deep inside energy towers, and even hangs out in front of active power plants, she should consider herself lucky that she's as healthy as she is.` },
+      { title: 'Archive File 1', content: `When it comes to engineering experts, Almond is a rare breed: the kind that talks way too much.\nMany Engineering operators still remember how, the moment she set foot in Engineering, Almond started expressing her opinions on every project and prototype she spotted, as well as joining in on the engineers' discussions with no reservations whatsoever. Rather than putting her head down to work, she'd much rather talk it out in a group and facilitate teamwork. By lucky coincidence, this is exactly how Rhodes Island tends to work. Aside from helping her fit in right away, her bottomless blabbermouth quickly dispelled the image of a young, accomplished engineer everyone had of her, and without attracting any animosity.\nAlmond talks fast, but her words are clear and distinct, and she is confident in the way she expresses herself. When discussing things such as budget and safety, her conversations balloon to double the normal length (and when talking about useless crap, quadruple the length). When expressing her opinions, she starts with her conclusion before going into each individual issue, such that everyone can clearly understand what she has to say. She always gets straight to the point. Surprisingly, however, her look of concentration while talking has also become a topic of interest among certain operators.\n\n"Did you see that?! After just five minutes of talking, she figured out how the Type I02 Originium internal combustion engine works, and even arranged for the follow-up work right after. Amazing how quickly she solved the explosion risk."\n"Oh... Laura's cheeks look so red when she's talking. I wanna pinch them so much—"\n—The private conversation of two Engineering Department operators` },
+      { title: 'Archive File 2', content: `It's worth noting that money—or more accurately, funding—holds a very important position in Almond's way of life.\nIf she sees life as a large engineering project, then currency must be its energy source, the key to the entire system's operation. In which case, her keen nose for and stubborn pursuit of funding must have some kind of hard-to-explain connection to her outstanding insight as an engineer. "Funding doesn't solve every engineering problem, but you can't get anything done without funding." Almond has proven through her actions that she takes this mantra to heart. Her total number of budget applications each quarter is consistently number one within the department, and she always provides the most diverse reasons in them:\n—"The tensile strength is way below standards. We gotta change the entire outer shell to Fuscous Fiber!"\n—"This is an emergency! We need to add a new sewage system to the control room!"\n—"The technicians are passing out! We need a new filtration system as soon as possible!"\nAlthough the amount of funding she seeks is truly terrifying, and she often falls behind on progress milestones, Almond's need for funding is by no means baseless or unfounded. She gives each and every line item in her budget careful consideration, and has clear entries in her accounts to back everything up. As for her seemingly absurd reasons, the vast majority of them are a testament to her hard work at pushing boundaries.\nAs it turns out, all of her research results are proof of her talent and how forward-thinking she is.\n\n[Voice Log]\n"My mom's a doctor, my grandma's an engineer, and my dad's a househusband. When we first moved to Columbia, it was hard to find work. My family was very poor, and my dad had to figure out how to stretch a single loaf of rye bread to feed the whole family for a day."\n"My grandma made my tools, and the money I spent on my equipment came from my mom working night shifts. The only parts I could use were scraps from the workshops..."\n"I'm sure you know, but people who grew up like me never waste a cent. Please... just a little more funding. Just a teensy bit."\n"How many times have you given us that same sob story? But the problem here isn't the budget... Why don't you take another look at the reason you put on the form?\n"The pink paintjob looks so lame..."\n"No duh it does! That's a special suspension arm! We need to paint it neon green to suit the needs of nighttime work!"` },
+      { title: 'Archive File 3', content: `Of all her coworkers from Blacksteel, Jessica is the one that Laura worries about the most. From a bystander's point of view, perhaps "Jessica's family is loaded" is reason enough for Laura to befriend her, but interestingly enough, it was Jessica who laid the groundwork for their friendship.\nLaura was infected with Oripathy after graduating from college, and was forced to give up on a job offer from a tech company and join Blacksteel Worldwide instead, known for its tolerance of the Infected. Yet before this, Laura had no experience getting along with mercenaries. As to be expected, on her first mission, the mercenaries already had strong doubts about the green engineer's unusual ideas. And when Laura found herself in that difficult position, it was Jessica who stepped forward to support her plan as well as persuade the other mercenaries to trust her.\nWhen questioned about this afterward, Jessica noted that she saw a bit of her old self in Laura, from back when no one believed in her. It was through the trust of Liskarm and Franka that she finally mustered her confidence. But regardless, she thought that Laura also deserved a chance to be believed in, and Laura responded to her trust with results. This is how their friendship began.\n\n[Blacksteel Worldwide - Operational Records]\nInquiry Scope: Laura Arias, Jessica Brynley\nControl Clearance: Liskarm\n......\n"Jessica, why didn't you follow the plan and use the equipment I set up?! Do you know how bad things can get if you don't follow regulations?!"\n"You see that big wheel spinning really fast? Your hand almost got caught in it! You see all this sweat? That's how anxious you made me!"\n"You're always like this. Last time, and the time before that, and the time before... Don't give me that teary-eyed look. I'm not falling for it! Don't think I'm gonna go easy on you!"\n"You... You said that would buy the workers more time. B-But, have you considered how dangerous of a situation that would put you in?"\n......\n"*sob*... What do I even do with you, Jessica? I've talked to you about this so many times already..."\n"Leave me alone. I'm not crying. Go away!"\n"Waah... Go away. I'm not eating any dessert you're buying me..."\n"*sob*... You say we're going to that restaurant you need to reserve a year in advance?"\n"...What're you laughing at? I'm gonna eat till I drop! Hmph.. Don't you look at me with those teary eyes then!"` },
+      { title: 'Archive File 4', content: `"There's a flame burning in Almond's eyes."\nAn Engineering operator described the scene she saw that night. She remembers Almond working overtime in the laboratory, and that she was bringing her a cup of hot cystymilk, but when she opened the door, she found Almond frowning as she stared intently at the computational model running on the screen, the simulated flame reflected right in her eyes. The operator was shocked, as she had never seen such an expression on her face, but when Almond turned around and started chatting with her, that expression was nowhere to be seen.\nThen, as she spent more and more time onboard Rhodes Island, more and more people started to realize that her petite body packed a huge amount of energy, as though at a moment's notice she could leap high into the sky to snatch something. Almond's lively personality may give the impression that "she's very laid-back." But in reality, the amount of effort she puts in has reached a level her coworkers could only dream of. She is able to lock herself in the laboratory all day, repeatedly work out the projects' most minute details with her team members, or run all over the place to secure the funding she needs. Motor systems and safety are two of her top concerns, and to obtain perfect performance numbers, she is willing to pull multiple all-nighters testing in the lab. Once, she was even found passed out in front of a work table.\nYet, when others ask her why she's willing to go to such lengths, she always answers evasively with excuses like "my career" and "dreams," but no amount of questioning can get her to elaborate on those dreams. Some were worried that, as a Blacksteel employee, perhaps her participation in Rhodes Island R&D projects implied some kind of ulterior motive, though these rumors were quickly dispelled after her projects kept yielding results, while her attitude toward work remained unchanged.\nEven after her cystymilk had gone cold, she continued to stare at the screen. Compared to what she had lost, she thought she had yet to achieve enough, to jump high enough.\n\n[Voice Log]\nSometimes, I still dream of that morning we left Bolívar. The sky was pretty dark, and the shocked fowlbeasts were flying in circles above us. Mom loaded the last crate onto the car, I sat down on the crate, and then the engine started to roar under my butt.\nThe car started to move, and it got faster and faster. There was a loud boom. My dad covered my ears. I could make out where the fireball had landed. That was where our house used to be. My mom's medical certificate, my grandma's workshop, and all the dolls I couldn't bring with me were all still there.\nI looked at it again, and all I could see was a firelight soaring up into the sky. There was nothing left.` },
+      { title: 'Promotion Record', content: `Under normal circumstances, Almond is very easy to get along with. There is, however, one special exception.\nSimply put, you shouldn't overdo it when you tease her. Say, when you give her apple wedges, don't sneak in a slice of onion. Or when she's focused on her work, don't suddenly hug her and hold her up, lifting her feet off the ground.\nWhenever similar situations occur, all the anger that's welled up in the bottom of her heart is immediately unleashed.\nTrust me, you don't want to know what it's like.` },
+    ],
+    classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/hookmaster-branch.png', factionIcon: '/icons/factions/blacksteel.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/almond/base.png', chibiSrc: '/operators/almond/chibi.webm', illustrator: '直立行走' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/almond/e2.png', chibiSrc: '/operators/almond/chibi.webm', illustrator: '直立行走' },
+      { id: 'skin1', label: 'Almond Platter', src: '/operators/almond/skin1.png', chibiSrc: '/operators/almond/chibi-skin1.webm', illustrator: '直立行走' },
+    ],
+    portrait: '/operators/almond/portrait.png',
+    portraitFocus: { y: -7, x: 60, zoom: 230 },
+  },
+  {
+    name: 'Astesia', fileNo: 'RR01', class: 'Guard', branch: 'Arts Fighter', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Columbia', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
+    birthday: 'July 10th', height: '165 cm', combatExp: 'None', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'YUJI',
+    cv: { JP: 'Kaori Nazuka', CN: 'KIYO', EN: 'Lexi Fontaine', KR: 'Kang Eun-ae' },
+    trait: 'Deals Arts damage',
+    tags: ['DPS', 'Defense'],
+    stats: { hp: 2523, atk: 690, def: 448, res: 15, block: 1, cost: 21, aspd: '1.25s', rdp: '70s' },
+    range: { base: [[2, 1]], e1: [[2, 1]] },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
+    talents: [
+      { name: 'Celestial Globe', desc: 'For every 20 seconds Astesia stays on the battlefield, ASPD +3, stacking up to 5 times', elite: 'E1' },
+      { name: 'Celestial Globe', desc: 'For every 20 seconds Astesia stays on the battlefield, ASPD +5, stacking up to 5 times', elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Astral Protection', icon: '/operators/astesia/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +50%, DEF +80%', spInit: 10, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +20%, DEF +30%`, spInit: 0, sp: 40, dur: '30s' },
+          { level: '2', desc: `ATK +20%, DEF +35%`, spInit: 0, sp: 39, dur: '30s' },
+          { level: '3', desc: `ATK +20%, DEF +40%`, spInit: 0, sp: 38, dur: '30s' },
+          { level: '4', desc: `ATK +30%, DEF +45%`, spInit: 3, sp: 37, dur: '30s' },
+          { level: '5', desc: `ATK +30%, DEF +50%`, spInit: 3, sp: 36, dur: '30s' },
+          { level: '6', desc: `ATK +30%, DEF +55%`, spInit: 3, sp: 35, dur: '30s' },
+          { level: '7', desc: `ATK +40%, DEF +60%`, spInit: 6, sp: 34, dur: '30s' },
+          { level: 'M1', desc: `ATK +43%, DEF +65%`, spInit: 7, sp: 33, dur: '30s' },
+          { level: 'M2', desc: `ATK +46%, DEF +70%`, spInit: 8, sp: 32, dur: '30s' },
+          { level: 'M3', desc: `ATK +50%, DEF +80%`, spInit: 10, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Astral Sword', icon: '/operators/astesia/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +80%, DEF +80%, Blocked enemies +1, attack all blocked enemies', spInit: 10, sp: 20, dur: '15s', rank: 'M3',
+        note: "Contrary to the wording, Astesia does not need to block the enemies for her attacks with Astral Sword to hit them. Rather, Astesia's attacks hit multiple targets in range equal to her block count.",
+        levels: [
+          { level: '1', desc: `ATK +30%, DEF +30%, Blocked enemies +1, attack all blocked enemies`, spInit: 0, sp: 30, dur: '10s' },
+          { level: '2', desc: `ATK +35%, DEF +35%, Blocked enemies +1, attack all blocked enemies`, spInit: 1, sp: 30, dur: '10s' },
+          { level: '3', desc: `ATK +40%, DEF +40%, Blocked enemies +1, attack all blocked enemies`, spInit: 2, sp: 30, dur: '10s' },
+          { level: '4', desc: `ATK +45%, DEF +45%, Blocked enemies +1, attack all blocked enemies`, spInit: 3, sp: 27, dur: '11s' },
+          { level: '5', desc: `ATK +50%, DEF +50%, Blocked enemies +1, attack all blocked enemies`, spInit: 4, sp: 27, dur: '11s' },
+          { level: '6', desc: `ATK +55%, DEF +55%, Blocked enemies +1, attack all blocked enemies`, spInit: 5, sp: 27, dur: '11s' },
+          { level: '7', desc: `ATK +60%, DEF +60%, Blocked enemies +1, attack all blocked enemies`, spInit: 6, sp: 24, dur: '12s' },
+          { level: 'M1', desc: `ATK +65%, DEF +65%, Blocked enemies +1, attack all blocked enemies`, spInit: 7, sp: 23, dur: '13s' },
+          { level: 'M2', desc: `ATK +70%, DEF +70%, Blocked enemies +1, attack all blocked enemies`, spInit: 8, sp: 22, dur: '14s' },
+          { level: 'M3', desc: `ATK +80%, DEF +80%, Blocked enemies +1, attack all blocked enemies`, spInit: 10, sp: 20, dur: '15s' },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Astesia's Badge", desc: 'Appointed as Guard Operator to exercise Arts Fighter responsibilities' },
+      afty: { code: 'AFT-Y', name: 'Unpredictable Star Chart', stages: [
+        { stage: 1, atk: '+25', def: '+25', effect: 'New trait: Enemies blocked by this unit receive 10% Arts Fragility' },
+        { stage: 2, atk: '+36', def: '+36', effect: 'Celestial Globe improved: Gains +6 ASPD and +3% DEF for every 20s this unit remains on the battlefield, stacking up to 5 times' },
+        { stage: 3, atk: '+42', def: '+42', effect: 'Celestial Globe improved: Gains +7 ASPD and +4% DEF for every 20s this unit remains on the battlefield, stacking up to 5 times' },
+      ]},
+    },
+    story: `Astesia Urbica is the older twin sister of Astgenne Urbica, born from a family of Gaulish Liberi astrologers who emigrated to Columbia after being denounced in their homeland, unwittingly sparing themselves from the aftermath of the Battle of the Four Emperors. She followed her parents' footsteps by becoming an astrologer and joined a Columbian occult group partnered with Rhine Lab.\n\nAstesia accidentally contracted Oripathy while taking care of Astgenne, who got caught in an Originium leak accident after joining Rhine Lab, prompting both to go to Rhodes Island for treatment. After their condition stabilized, Astesia, under her sister's recommendation, decided to lend her service to Rhodes Island, using her Arts swordplay on the battlefield and sharing her extensive knowledge of astronomy with Rhodes Island's researchers.`,
+    profile: `Astesia is a member of a Columbian occult organization, serving as a philology consultant for Rhine Lab as part of a cooperation agreement. After contracting Oripathy, she and her sister came to Rhodes Island for treatment, where she qualified to become an operator. She uses unique sword skills to execute close range Arts attacks.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests have shown the outlines of her internal organs to be indistinct with abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 4%\nAstesia's lower right ankle shows signs of infection.\n\n[Blood Originium-Crystal Density] 0.2u/L\nPatient has an early stage infection at this point. Originium Crystals have not yet appeared on the surface of her body.\n\nThorough investigation reveals that this operator's expression of Oripathy is special, with very few similar cases. It is recommended that qualified medics perform treatment on a regular basis. Additionally, considering the bigger picture, Warfarin is strictly forbidden from accessing this operator's file and from participating in this operator's treatment.\n—Kal'tsit` },
+      { title: 'Archive File 1', content: `Astesia's family has a long history of occult study, with particularly notable skill in astrology. So it's only natural she was invited to join an occult society long ago. That group entered into a cooperation agreement with Rhine Lab, who then took her on as a consultant responsible for facilitating communication and various philology-related projects. In her free time, Astesia uses her own talents and knowledge to enlighten those more skeptical Rhine Lab colleagues. Over time, Astesia has become something of a professional astrologer and master of other occult arts. One fact known only to a few: the agreement between Astesia's occult society and Rhine Lab was of her own making, and due to one very important thing: her younger sister Elena, who works for Rhine Lab.` },
+      { title: 'Archive File 2', content: `Astrology is one of the oldest forms of divination. Like all divination arts, it gives insight into the present and can even provide a peek at the future. Astesia spent most of her time studying astrology, accepting its lessons and its burden of responsibility. So when she came face to face with Oripathy, she was frustrated to find this ancient art was of no use. She failed to divine that her own sister would contract the disease in an accident during an experiment, nor did she see that she herself would be infected during contact with that same twin sister. In that moment, all the plans she had laid for her future were smashed to pieces by the cruelty of fate. What she had seen as a shining future as bright as the midday sun was now too cloudy to accurately divine.` },
+      { title: 'Archive File 3', content: `Astesia and her sister were quickly taken to Rhodes Island for treatment. Diagnosis showed that while Oripathy had indeed manifested, it was still in early stages, and had not yet caused much damage to their bodies. The psychological damage to Astesia, however, had been quite severe. She began to doubt the stars themselves, and no longer had faith in the abilities she was once so proud of. During the course of treatment, Astesia took her sister's advice to join Rhodes Island.\nAstesia is quite skilled with a sword. Her family has passed down a form of ceremonial swordplay: a ritual in which one hand holds a celestial orb, while the other holds an Originium sword. The dazzling process of advancing, retreating, parrying, and riposting with these items creates the illusion of a starry sky fading in and out of view. This unique style of swordplay combines fencing, astronomy, and Originium Arts into a form usable only by those capable of mastering all three disciplines. She has never before set foot on the battlefield, but with her unique skill set, she is confident she can serve as an effective Guard.` },
+      { title: 'Archive File 4', content: `"Over the course of our tests of Astesia's powers, one thing has become clear: her abilities are indeed an expression of originium Arts, as is clear from the readings on most of our instruments. And yet this expression remains quite different from most originium Arts. As far as we know, the connection between astrology and originium Arts is very weak, despite most illustrious astrologers in recent years all agreeing with a level of certainty on a close link between the expression of originium Arts and the celestial bodies. At this point we still have no evidence to support a direct or indirect connection, but we speculate that the emergence of these originium Arts that appear to be linked to the celestial bodies will further convince the common people of these beliefs. Were it not for these techniques, most people would likely return to the scientific explanations for orginium Arts, turning away from astrology.\nBack to Astesia, she has reported that she feels her own abilities are weakening. Our observations show that contracting Oripathy has had an effect on the originium Arts she already possessed. These effects will persist for quite some time, but we cannot say what the outcome will be, and whether it will be good or bad for Astesia. We need more time for observation and research. End of report."\n—A medic operator's report to Dr. Kal'tsit\n\n"There is theoretical value in this stargazing idea, but it has no practical application in modern science. The days when we could see the stars are long gone, and every twinkle of starlight we do get is like a stab in the gut."\n—Appears to be Dr. Kal'tsit's handwriting.` },
+      { title: 'Promotion Record', content: `[Excerpts from an anonymous communication channel — Regarding Astesia]\n"Getting a reading from Astesia is great. You're surrounded by all these pretty stars. I could sit there all day."\n"I asked her once how her readings are always so accurate. She said she's just been lucky enough not to run into anyone she read wrong yet. Hm. Is that what all fortune tellers say?"\n"The first time I went to train with Astesia, I thought she was gonna float like a ton of bricks. Boy was I wrong... she's definitely trained before!"\n"Her fighting style, what can I even say about it, she closes the distance with you, then pierces you with those eyes that see straight into your soul... I'm not the kind of person who thinks much of fortune telling, but she definitely has something going on in there."\n"I heard Warfarin's all in a huff since she can't get her hands on Astesia? Is that true? Wild."\n"Her astrology reading pairs well with aromatherapy. I'd like to get her to spend some more time in the Convalescence Garden."\n"How does she do it? How can I make my Originium Arts look as pretty as hers?!"\n"My sister's dumb as a sack of hammers!"` },
+    ],
+    classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/arts-fighter-branch.png', factionIcon: '/icons/factions/columbia.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/astesia/base.png', chibiSrc: '/operators/astesia/chibi.webm', illustrator: 'YUJI' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/astesia/e2.png', chibiSrc: '/operators/astesia/chibi.webm', illustrator: 'YUJI' },
+      { id: 'skin1', label: 'Starseeker', src: '/operators/astesia/skin1.png', chibiSrc: '/operators/astesia/chibi-skin1.webm', illustrator: 'YUJI' },
+      { id: 'skin2', label: 'Frlibe on the Palace', src: '/operators/astesia/skin2.png', chibiSrc: '/operators/astesia/chibi-skin2.webm', illustrator: 'YUJI' },
+      { id: 'skin3', label: 'Fantastic Crafts', src: '/operators/astesia/skin3.png', chibiSrc: '/operators/astesia/chibi-skin3.webm', illustrator: 'YUJI' },
+    ],
+    portrait: '/operators/astesia/portrait.png',
+    portraitFocus: { y: -7, x: 50, zoom: 230 },
+  },
+  {
+    name: 'Astgenne', fileNo: 'RL08', class: 'Caster', branch: 'Chain', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Rhine Lab', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
+    birthday: 'July 10th', height: '166 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'YUJI',
+    cv: { JP: 'Saho Shirasu', CN: 'Cheng Li', EN: 'Maya Aoki Tuttle', KR: 'Kim Yi-an (credited as "Kim Ian")' },
+    trait: 'Attacks deal Arts damage and jump between 4 enemies. Each jump deals 15% less damage and inflicts a brief (0.5 seconds) Slow',
+    tags: ['DPS'],
+    stats: { hp: 1440, atk: 705, def: 122, res: 20, block: 1, cost: 34, aspd: '2.3s', rdp: '80s' },
+    range: { base: [[1, 1, 1], [2, 1, 1], [1, 1, 1]], e1: [[1, 1, 1, 0], [2, 1, 1, 1], [1, 1, 1, 0]] },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
+    talents: [
+      { name: 'Passion for Research', desc: 'Gains +3 ASPD for every 15 seconds this unit remains on the battlefield, stacking up to 5 times', elite: 'E1' },
+      { name: 'Passion for Research', desc: 'Gains +4 ASPD for every 15 seconds this unit remains on the battlefield, stacking up to 5 times', elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Double Diversion', icon: '/operators/astgenne/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+        desc: 'Increases the ATK of the next attack to 125%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 3 charges', spInit: 0, sp: 7, rank: 'M3',
+        levels: [
+          { level: '1', desc: `Increases the ATK of the next attack to 104%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 9 },
+          { level: '2', desc: `Increases the ATK of the next attack to 105%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 9 },
+          { level: '3', desc: `Increases the ATK of the next attack to 106%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 9 },
+          { level: '4', desc: `Increases the ATK of the next attack to 107%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 8 },
+          { level: '5', desc: `Increases the ATK of the next attack to 108%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 8 },
+          { level: '6', desc: `Increases the ATK of the next attack to 109%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 1 charges`, spInit: 0, sp: 8 },
+          { level: '7', desc: `Increases the ATK of the next attack to 110%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 2 charges`, spInit: 0, sp: 8 },
+          { level: 'M1', desc: `Increases the ATK of the next attack to 115%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 3 charges`, spInit: 0, sp: 8 },
+          { level: 'M2', desc: `Increases the ATK of the next attack to 120%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 3 charges`, spInit: 0, sp: 8 },
+          { level: 'M3', desc: `Increases the ATK of the next attack to 125%; The attack will target 2 targets, and each attack will jump between at most 4 enemies\nCan store 3 charges`, spInit: 0, sp: 7 },
+        ],
+      },
+      {
+        name: 'Starlight Intersection', icon: '/operators/astgenne/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attack Range expands, ATK +40%, and attack up to 2 targets simultaneously', spInit: 20, sp: 40, dur: '25s', rank: 'M3', range: [[1, 1, 1, 1], [2, 1, 1, 1], [1, 1, 1, 1]],
+        levels: [
+          { level: '1', desc: `Attack Range expands, ATK +12%, and attack up to 2 targets simultaneously`, spInit: 10, sp: 55, dur: '25s' },
+          { level: '2', desc: `Attack Range expands, ATK +14%, and attack up to 2 targets simultaneously`, spInit: 11, sp: 55, dur: '25s' },
+          { level: '3', desc: `Attack Range expands, ATK +16%, and attack up to 2 targets simultaneously`, spInit: 12, sp: 55, dur: '25s' },
+          { level: '4', desc: `Attack Range expands, ATK +18%, and attack up to 2 targets simultaneously`, spInit: 13, sp: 50, dur: '25s' },
+          { level: '5', desc: `Attack Range expands, ATK +20%, and attack up to 2 targets simultaneously`, spInit: 14, sp: 50, dur: '25s' },
+          { level: '6', desc: `Attack Range expands, ATK +22%, and attack up to 2 targets simultaneously`, spInit: 15, sp: 50, dur: '25s' },
+          { level: '7', desc: `Attack Range expands, ATK +25%, and attack up to 2 targets simultaneously`, spInit: 16, sp: 40, dur: '25s' },
+          { level: 'M1', desc: `Attack Range expands, ATK +30%, and attack up to 2 targets simultaneously`, spInit: 17, sp: 40, dur: '25s' },
+          { level: 'M2', desc: `Attack Range expands, ATK +35%, and attack up to 2 targets simultaneously`, spInit: 18, sp: 40, dur: '25s' },
+          { level: 'M3', desc: `Attack Range expands, ATK +40%, and attack up to 2 targets simultaneously`, spInit: 20, sp: 40, dur: '25s' },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Astgenne's Badge", desc: 'Appointed as Caster Operator to exercise Chain Caster responsibilities' },
+      chay: { code: 'CHA-Y', name: 'Unassembled Clock', stages: [
+        { stage: 1, hp: '+50', atk: '+45', effect: 'New trait: Attacks deal Arts damage and jump between 4 enemies. Each jump no longer deals less damage and inflicts a brief (0.5 seconds) Slow' },
+        { stage: 2, hp: '+70', atk: '+62', effect: 'Passion for Research improved: Gains +4 ASPD for every 10 seconds this unit remains on the battlefield, stacking up to 6 times' },
+        { stage: 3, hp: '+120', atk: '+74', effect: 'Passion for Research improved: Gains +4 ASPD for every 10 seconds this unit remains on the battlefield, stacking up to 7 times' },
+      ]},
+    },
+    story: `Astgenne Urbica is the younger twin sister of Astesia Urbica, born from a family of Gaulish Liberi astrologers who emigrated to Columbia after being denounced in their homeland, unwittingly sparing themselves from the aftermath of the Battle of the Four Emperors. Her parents pressured Astgenne to study astrology over her preferred field of science, causing her to lose any interest in astrology and leave the Urbica household to pursue her studies under the name Elena Urbica, eventually earning two Ph.D. degrees.\n\nAstgenne joined Rhine Lab after previously interning in the R.L. Energy Section under Ferdinand Clooney's oversight, who made her his protégé. At some point, Astgenne contracted Oripathy while rescuing her colleagues from a liquid Originium leak in a laboratory and unwittingly infected Astesia while being treated by her. Subsequently, the sisters went to Rhodes Island for treatment, but Astgenne returned to R.L. after her condition was stable.\n\nAfter being caught in the Test Site 359 incident involving her mentor, Astgenne cuts off her ties with Ferdinand out of disgust towards his involvement and requested to be transferred to Rhodes Island, reuniting her and Astesia as the two provide their services as an engineering staff and astrologer, respectively. After living and working on Rhodes Island for a period of time, Astgenne was invited to a project regarding Kjerag's observation station. She sent her application and later became Energy Team Leader while also taking part in setting up the station.`,
+    profile: `Rhine Lab Energy Section Researcher Dr. Elena Urbica. While aboard Rhodes Island, she will use her original name as her codename.\nWhile she is more than capable of keeping her enemies at bay with her handmade staff and unique Originium Arts, rather than fighting on the frontlines, she prefers to provide support from the rear by working on research and machinery maintenance.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 4%\nSigns of infection are present in Astgenne's lower right leg, near her ankle.\n\n[Blood Originium-Crystal Density] 0.2u/L\nOnly a minor infection; no visible surface crystallization detected.\n\nThis operator's medical files have been granted heightened confidentiality as requested, and are filed together with Operator Astesia's files. Staff members should take extra care when modifying these files. –Anonymous high-clearance Medical operator` },
+      { title: 'Archive File 1', content: `This isn't Astgenne's first time aboard Rhodes Island. She contracted Oripathy when she was caught in an accident during one of Rhine Lab's experiments. She then came to Rhodes Island with her sister and they became operators together. After a period of rest, it was found she was in stable condition, so she went back to work at Rhine Lab's Energy Section. On the surface, Astgenne was the one who requested to be sent to Rhodes Island again, but it seems to have been related to another accident at Rhine Lab, as well as a staff change at the Energy Section. She won't be returning to Rhine Lab for some time, and will instead be working and living aboard Rhodes Island. With PhDs in both electrical engineering and engineering, she had already worked with the Rhodes Island workshop and our Logistics operators during her last stint, and so it took her hardly any time to readjust to life here. From this, it's obvious that HR's concerns about her mental state are completely unnecessary.\n"I know she's run into a bit of trouble at Rhine lately, but she dropped by to say hello the moment she came back, and the next day she brought the designs for a bunch of custom lab equipment she wanted to order. She's got a big project, from the looks of it. Heh, with that kinda momentum, give her half a day and she'll have finished what'd take me an entire year. I'd bet my hammer on that." –Anonymous Elite Artificer` },
+      { title: 'Archive File 2', content: `The Urbicas descend from a long line of Gaulish astrologers who emigrated to the Columbian South after being ostracized by the orthodox astrologers there, and thus unwittingly escaped the destruction of Gaul. They are now an enormous family that possesses significant social prestige, and the sisters Astesia and Astgenne are among the family's newest generation.\nTheir parents had an arranged marriage, but nonetheless loved each other deeply, and it wasn't long after their marriage before their mother became pregnant. Their father then used his astrological research to predict their future, and found that they might only have a single child in this lifetime. As such, he picked a grandiloquent name for their only daughter: Astesia.\nWhich is why he was completely blindsided when on the day his wife gave birth, they ended up with two baby girls. Regardless, he was overjoyed, and named his unexpected younger daughter Astgenne in the hopes that, just like the stars, she would come to be the genesis of the family's good fortune.\nAstgenne has been fond of learning from a young age. Although she does not possess her sister's ability to intuit and learn by inference, she made up for it with hard work and diligence. Because of this, even during their childhood her Originium Arts were far more radiant than her sister's, and her mastery of astrological lore flabbergasted even their father. In his words, she "could've become a pillar of the family's bright future alongside her sister."\nBut she didn't.\nAstgenne first started to change because of a broken astrolabe. She came upon her parents, two experienced astrologers, throwing out an astrolabe that could still be repaired in favor of buying a new one. That was when she discovered how impractical the knowledge she had been studying truly was. She couldn't tell her parents, "we can still use this if we get it fixed," so instead she brought it back to her room, poured over a few instruction manuals and assembly guides, took it apart, talked to the craftsman who made it, and finally repaired it after tinkering with it for a few months. She then showed the globe to her sister, who happily took it, praised her handiwork, and shared candy with her. But when she showed it to her parents, she was met with only cold, harsh responses:\n"Why did you waste your time on this hunk of junk?"\n"Astgenne, I want you to spend your time on things that matter."\nShe quietly went back to her room and looked at the rows and rows of astrological literature on her shelf. Then, she looked out the window at the endless nomadic city plates, and that was when she finally realized.\nIt didn't matter how well she knew the stars' periods, or how confidently she could tell those around her about their distant, impractical changes. This field of study does not benefit the lands whatsoever. If she continued to study her family's pointless chicanery, she would simply become a stargazing con artist who couldn't even fix her own equipment. What she really wanted to master was the thing that could truly make the world a better place. What her father saw as useless trash.\nScience.\nFrom that day forward, Astgenne lost interest in the astrology lessons from her parents and teachers. Instead, she shifted her focus to her classes at school. She tried to use her good grades to prove that she made the right choice, but her parents' disdain toward this only made her more stubborn. Considering her temperament, if it weren't for Astesia calming her down, she probably would've immediately left home without a second thought. In the end, after she received an acceptance letter from a university and made sure that she had enough savings and a stable source of income, she moved out for good, never to return to the home that had tormented her for so long. To prepare herself for a new life, she also gave herself a new name when she enrolled at college: Elena.\nShe didn't want to be an illusory, insignificant star. She wanted to become a shining light.` },
+      { title: 'Archive File 3', content: `As the land's leading tech company, Rhine Lab's hiring standards are stringent enough to discourage most would-be applicants. Even Elena, with her double degrees, wouldn't be worth mentioning in that corporation full of people with master's degrees and PhDs doing odd jobs. Fortunately–or at least some would say so–she had a good teacher. Even in college, she had already been participating in Rhine Lab Energy Section Director Ferdinand's experiments. Seizing this opportunity, Elena worked and studied under the industry groundbreaker for years, at last becoming his proud protégé. It goes without saying how painstaking and laborious this process was. Ferdinand had several dozen researchers working under him, and the students he taught as a guest lecturer likely numbered in the thousands. Naturally, Ferdinand took notice of Elena due to her academic accomplishments, but what really made him take a liking to her was her decisiveness and quick response under extreme circumstances.\nA few years prior, a disastrous liquid Originium leak occurred in the Energy Section's laboratories. At the time, the main Energy Section members were working away from Rhine HQ, and the Defense Section dealt with the incident according to their contingency plan. However, the leak affected other departments, and there were multiple experiments that, once shut down, had to have their materials disposed of lest they become an even more dangerous problem, which greatly slowed the rescue process. If it weren't for Elena, who was merely an intern at the time, taking on the responsibility to explain to Defense Director Saria the situation at the accident site and even leading the rescue, Ferdinand would likely have had an even greater mess on his hands. Of course, thinking only of saving others, Elena headed into the high-risk environment without a full set of safety equipment, and this left her infected with Oripathy. As for her sister Astesia, Elena brought her into a safe house when the accident occurred, but after they made physical contact, Astesia began to show signs of developing Oripathy. They were then transported to Rhodes Island for treatment together.\n\n"We have yet to understand the specific causes of developing Oripathy. It's only in recent years that we've even identified cases of this exceedingly rare form of infection. We have managed to narrow down a few commonalities though: the patients are all the identical twins of an already infected patient, with whom they've learned and used the same kind of Originium Arts since childhood. They also all shared a close emotional bond, and experienced a strong emotional fluctuation when they came into physical contact with their newly infected twin. And, speculatively, time and space may also play a factor, as in all cases the patients had physical contact with their twins within hours of their infection. So far, we have not found any cases where this occurred after more time had passed, or where a patient suddenly became infected from afar."\n"How many cases have there been?"\n"Just one on the landship, and two reported from our branches across the lands."\n"That's way too few. Even trying to speculate based on that sample size may be overzealous."\n"This sort of infection is rare to begin with. We can only work with the data we have."\n"I know you're in a hurry to get results, and to give the people suffering out there a treatment plan, but please. You're not usually this reckless. Look, we have plenty of cases where an Infected infects others with Originium Arts because of their emotional outbursts, and we also have cases of patients becoming infected after prolonged exposure to their family members."\n"Well, that just lends credence–"\n"It means that every single guess of yours can be accounted for by other special cases."\n"...... (Annoyed sigh)"\n"Oripathy is not a normal disease. The kind of logic that works with other diseases doesn't apply here."\n"...I won't give up."\n"Of course you won't, but before that, I want you to come up with a treatment plan for these patients."\n"All done. Three files on your desk, all ready to go."\n"Thanks, good work."\n......\n"Anything else?"\n"I'm just thinking that if science and logic can't explain these patients' Oripathy, then maybe it's time for a different approach."\n"What do you mean?"\n"I heard the Rhodes Island case comes from a family of astrologers. Maybe common logic won't work here, maybe we need to appeal to the supernatural. Their father once predicted that he would only have one daughter. What if his prophecy wasn't wrong?"\n"You're still just making wild guesses... but if you're so sure about this, do as you please."\n–Selected excerpts from a meeting between high-clearance medic operators, Medical Department Meeting Room` },
+      { title: 'Archive File 4', content: `Elena used to think of her mentor, Ferdinand, as a strict teacher who nonetheless respected people's autonomy. However, during the "Site 359 Incident" she began to see her parents in him–a distrusting control freak who uses his position to harass others. Once, she'd done everything she could to escape from people like that, and now, after drifting about for over a decade, she found herself in the same hole as before. Which is why, at that very moment, she decided to cut ties with her boss/mentor and later requested a transfer to Rhodes Island, back to where her sister was. Only here could she calm down and think about her future. She is very lost right now. Her research had all come to nothing thanks to Ferdinand's sudden disappearance and the changes happening to the Energy Section. Her ten years of hard work have been frozen with no hopes of restarting anytime soon. She must feel like an Originium slug breeder who opened the door one day to find all the slugs missing. She may remember all the technical details, but even if it's replicable, Rhodes Island simply does not have the resources she would need. Besides, she is an operator now. She has new responsibilities and missions, and so much more to do...\nBut from another perspective, Elena also feels that life isn't as painful as it used to be. Her new life, new encounters, and the diverse array of personnel aboard Rhodes Island will support her in her many insignificant but productive research projects. Rhodes Island's administrator also seems very efficient and professional. This time, she's made sure that this Doctor is trustworthy. And most importantly, she gets to live right by her sister in the dorms now.\nShe's finally home.` },
+      { title: 'Promotion Record', content: `As everyone knows, Astgenne is quite critical of her family's astrological traditions. Sometimes, she can be so critical that she gets flicked in the forehead by her sister. Yet there is one thing she has to admit. The training she received as a child did benefit her a little.\nThe Urbica twins' Originium Arts may originate from the same source, but nonetheless unfold quite differently. Astesia's Arts emphasize complexity, while Astgenne's focus on simplicity. Sometimes, all she has to do is wave her staff a little, and the silk-like energy beams can lift your spirits for an entire day. With such a flashy baseline, naturally they can also paralyze wrongdoers. What's less obvious is that as long as she adjusts the parameters correctly, even the seemingly harmless energy beams can immediately become intensely focused, enough to send a stalwart Forte to the hospital for half a month.\nAstgenne loves hanging out at the workshop. She may not be a professional artificer, but as someone who often makes use of their services, her professionalism is beyond doubt. Sometimes, she also uses the workshop to tinker with her own things. If she's not fixing her own staff, she's usually adjusting her sister's astrolabe. In the past, she used to do this for her in exchange for pocket money, but now it is a symbol of their close relationship. They may walk different paths, but the sisters continue to encourage and depend on each other. Without Astesia's prudence and thoroughness, Astgenne can be reckless. But without Astgenne's decisiveness and perseverance, Astesia can be quite indecisive, too. They are different, and they depend on each other. Perhaps that's the best way to sum up these twins' relationship.` },
+    ],
+    classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/chain-branch.png', factionIcon: '/icons/factions/rhine-lab.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/astgenne/base.png', chibiSrc: '/operators/astgenne/chibi.webm', illustrator: 'YUJI' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/astgenne/e2.png', chibiSrc: '/operators/astgenne/chibi.webm', illustrator: 'YUJI' },
+      { id: 'skin1', label: 'Her Aspiration', src: '/operators/astgenne/skin1.png', chibiSrc: '/operators/astgenne/chibi-skin1.webm', illustrator: 'YUJI' },
+    ],
+    portrait: '/operators/astgenne/portrait.png',
+    portraitFocus: { y: -7, x: 50, zoom: 230 },
+  },
+  {
+    name: 'Breeze', fileNo: 'R132', class: 'Medic', branch: 'Multi-target', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Victoria', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Victoria',
+    birthday: 'June 24th', height: '162 cm', combatExp: '1 year', infectionStatus: 'Infection confirmed by medical examination.', illustrator: '藻',
+    cv: { JP: 'Haruna Ikezawa', CN: 'Chen Yujin (credited as "Jinni" in EN)', EN: 'Felecia Angelle', KR: 'Yoo Hye-ji' },
+    trait: 'Restores the HP of 3 allies simultaneously',
+    tags: ['Healing', 'Support'],
+    stats: { hp: 1795, atk: 373, def: 153, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },
+    range: { base: [[1, 1, 1, 0], [1, 2, 1, 1], [1, 1, 1, 0]], e1: [[1, 1, 1, 1], [1, 2, 1, 1], [1, 1, 1, 1]] },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Flawed', 'Originium Arts': 'Excellent' },
+    talents: [
+      { name: 'Medic Squad Protection', desc: "When this unit's skill is active, all Medic Operators gain status resistance", elite: 'E1' },
+      { name: 'Medic Squad Protection', desc: "When this unit's skill is active, all Medic and Supporter Operators gain status resistance", elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Cluster Therapy', icon: '/operators/breeze/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +140%, targets healed -1', spInit: 20, sp: 30, dur: '35s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +70%, targets healed -1`, spInit: 20, sp: 40, dur: '25s' },
+          { level: '2', desc: `ATK +75%, targets healed -1`, spInit: 20, sp: 39, dur: '25s' },
+          { level: '3', desc: `ATK +80%, targets healed -1`, spInit: 20, sp: 38, dur: '25s' },
+          { level: '4', desc: `ATK +85%, targets healed -1`, spInit: 20, sp: 37, dur: '28s' },
+          { level: '5', desc: `ATK +90%, targets healed -1`, spInit: 20, sp: 36, dur: '28s' },
+          { level: '6', desc: `ATK +95%, targets healed -1`, spInit: 20, sp: 35, dur: '28s' },
+          { level: '7', desc: `ATK +100%, targets healed -1`, spInit: 20, sp: 34, dur: '31s' },
+          { level: 'M1', desc: `ATK +110%, targets healed -1`, spInit: 20, sp: 33, dur: '32s' },
+          { level: 'M2', desc: `ATK +120%, targets healed -1`, spInit: 20, sp: 32, dur: '33s' },
+          { level: 'M3', desc: `ATK +140%, targets healed -1`, spInit: 20, sp: 30, dur: '35s' },
+        ],
+      },
+      {
+        name: 'Widespread Therapy', icon: '/operators/breeze/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +250%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)', spInit: 60, sp: 80, dur: '45s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +110%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 40, sp: 80, dur: '35s' },
+          { level: '2', desc: `ATK +120%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 40, sp: 80, dur: '36s' },
+          { level: '3', desc: `ATK +130%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 40, sp: 80, dur: '37s' },
+          { level: '4', desc: `ATK +150%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 44, sp: 80, dur: '38s' },
+          { level: '5', desc: `ATK +160%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 44, sp: 80, dur: '39s' },
+          { level: '6', desc: `ATK +170%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 44, sp: 80, dur: '40s' },
+          { level: '7', desc: `ATK +190%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 48, sp: 80, dur: '41s' },
+          { level: 'M1', desc: `ATK +210%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 52, sp: 80, dur: '42s' },
+          { level: 'M2', desc: `ATK +230%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 56, sp: 80, dur: '43s' },
+          { level: 'M3', desc: `ATK +250%, switch attack mode to firing a healing round to a friendly unit in range, healing the target and friendly units on the surrounding 8 tiles (healing amount is halved to surrounding units)`, spInit: 60, sp: 80, dur: '45s' },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Breeze's Badge", desc: 'Appointed as Medic Operator to exercise Multi-target Medic responsibilities' },
+      rinx: { code: 'RIN-X', name: 'Surgical Instrument Kit', stages: [
+        { stage: 1, hp: '+60', atk: '+30', effect: 'Trait improved: Attack Range expands' },
+        { stage: 2, hp: '+80', atk: '+40', effect: "Medic Squad Protection improved: When this unit's skill is active, all Medic and Supporter Operators gain +10% Max HP and status resistance" },
+        { stage: 3, hp: '+100', atk: '+47', effect: "Medic Squad Protection improved: When this unit's skill is active, all Medic and Supporter Operators gain +15% Max HP and status resistance" },
+      ]},
+    },
+    story: `Grace Arizona, the only daughter of Henry and Beatrix Arizona, Victorian nobles based in County Toron, went against her parents' will out of her desire to help others and left the Arizona household after finishing her medical studies. She worked as the resident doctor for a band of Leithanian refugees, where she contracted Oripathy yet continued to help them. After encountering Rhodes Island, who later helped the refugees find a better place in their homeland, Grace joined them under the codename "Breeze," now acting as a field medic and skilled herbalist.`,
+    profile: `Grace Arizona, the only daughter of a noble branch family in Victoria. She came into contact with Rhodes Island during the course of her advanced medical techniques study, and applied for a job at Rhodes Island. She excels in pharmacology and clinical theory, and now provides emergency battlefield medic services for Rhodes Island.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests reveal blurry outlines of this operator's internal organs, clouded with abnormal dark spots. Her circulatory system shows an abnormally high rate of Originium particulate matter, with other signs of Oripathy infection, we can confirm that the operator is indeed Infected.\n\n[Somatic Cell-Originium Fusion Rate] 3%\nThe level of infection remains low, and has not yet had an effect on the body.\n\n[Blood Originium-Crystal Density] 0.21u/L\nAt this point, spread of the infection is steadily increasing, and we will need to proceed with a period of observation and control treatments.` },
+      { title: 'Archive File 1', content: `Operator Breeze was born in one of Victoria's small border counties, to an ancient aristocratic family. Her clan was particularly rigid in their adherance to ancient rules of nobility, meaning they were left behind by the waves of development that swept over Victoria, giving Breeze certain ideas about leaving home. Like many young people looking for better lives, Breeze left Victoria to travel alone, against the fervent objections of her parents. Once she was free of her hometown, she began to realize the degree to which she had been shackled by aristocratic dogma. Little by little, Breeze began to experience what life truly was. And her talent for medicine taught her to focus on the present, pushing her to save more and more of the displaced innocents of the world.` },
+      { title: 'Archive File 2', content: `Thanks to a period of foreign study in her early years, Breeze's medical prowess has not been limited in either clinical or theoretical respects. The young girl with the jet black staff strides through refugee camps and shelters all the year round. Although she is often mistaken for some kind of missionary cultist and sent away, her excellent healing Arts have saved many lives. Breeze does not rely too much on Originium Arts, nor does she rely too much on pharmacology or equipment. On the contrary, she does what she can on the fringes of the art, making especially good use of herbal medicines. She can often be seen out in the fields picking herbs with a big smile on her face, making her famous in many towns and villages. In a way, Breeze, who never considered herself part of the nobility, is fulfilling an aristocratic duty to the people. Maybe.` },
+      { title: 'Archive File 3', content: `Wh- while it may not be right to compare her to Miss Franka, I think Miss Breeze is also something of a mischievous Vulpo girl. Since becoming friendly with me, she never misses an opportunity to tease or taunt me. Could this be some racial aptitude of the Vulpo? Addendum: While Miss Breeze will indeed tease her friends, it is only after they return fire, so to speak, that she considers it truly open season. Yes, although it can be hard to shoot back, after getting used to it, I think Miss Breeze is actually quite nice? I'm not sure if Liskarm actually needs this information...\n—Record of an anonymous operator.` },
+      { title: 'Archive File 4', content: `The mighty oak will be felled by the storm, while only the little grass will remain.\nIn such times, it does not matter where Breeze's staff comes from. It may be the correct choice for her and her family to stay as they are. The world has little need of more strongmen or conspirators. It is unfortunate that she became Infected, but Breeze is still doing what she can for those common people who have yet to be crushed by the Catastrophes.\nI have nothing against people like Breeze. Not at all. She has chosen the object of her faith. She believes in hope, light, Rhodes Island, and you, Doctor. You cannot let such people down.` },
+      { title: 'Promotion Record', content: `The truth is, when I left home, Dad slipped a "eulogy" into my bag, thinking I didn't know. Of course I knew. As big as my bag is, and that "eulogy" can't even be folded... But if I think about it, it's because of all those rules and traditions that I abandoned Dad and left the family to begin with, so how is it that I end up carrying around this family heirloom, our symbol of aristocratic dogma, right here on my person? That Dad, he really is a...` },
+    ],
+    classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/multi-target-medic-branch.png', factionIcon: '/icons/factions/victoria.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/breeze/base.png', chibiSrc: '/operators/breeze/chibi.webm', illustrator: '藻' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/breeze/e2.png', chibiSrc: '/operators/breeze/chibi.webm', illustrator: '藻' },
+      { id: 'skin1', label: 'Half-sweet Strawberry', src: '/operators/breeze/skin1.png', chibiSrc: '/operators/breeze/chibi.webm', illustrator: 'Studio Montagne' },
+    ],
+    portrait: '/operators/breeze/portrait.png',
+    portraitFocus: { y: -7, x: 55, zoom: 230 },
+  },
+  {
+    name: 'Nowell', fileNo: 'VC29', class: 'Medic', branch: 'Therapist', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Victoria', position: 'Ranged', race: 'Vulpo', gender: 'Male', birthplace: 'Victoria',
+    birthday: 'December 25th', height: '175 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '板板',
+    cv: { JP: 'Tarusuke Shingaki', CN: 'Liu Yao', EN: 'Benjamin Lhommas', KR: 'Kwon Sung-hyuk' },
+    trait: 'Has a large healing range, but the healing amount on farther targets is reduced to 80%',
+    tags: ['Healing'],
+    stats: { hp: 1567, atk: 556, def: 108, res: 10, block: 1, cost: 20, aspd: '2.85s', rdp: '70s' },
+    range: { base: [[1, 1, 1, 1], [2, 1, 1, 1], [1, 1, 1, 1]], e1: [[1, 1, 1, 0], [1, 1, 1, 1], [2, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 0]] },
+    physicalExam: { 'Physical Strength': 'Normal', Mobility: 'Normal', Endurance: 'Normal', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Normal', 'Originium Arts': 'Normal' },
+    talents: [
+      { name: 'Precise Prescription', desc: 'Healing increases to 110% when healing an ally affected by negative status', elite: 'E1' },
+      { name: 'Precise Prescription', desc: 'Healing increases to 120% when healing an ally affected by negative status', elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Ceaseless Steps', icon: '/operators/nowell/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ATK +40%, ASPD +40, and prioritizes healing allied units with Negative Status', spInit: 20, sp: 30, dur: '30s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ATK +15%, ASPD +15, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 40, dur: '30s' },
+          { level: '2', desc: `ATK +20%, ASPD +20, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 40, dur: '30s' },
+          { level: '3', desc: `ATK +20%, ASPD +25, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 40, dur: '30s' },
+          { level: '4', desc: `ATK +25%, ASPD +25, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 35, dur: '30s' },
+          { level: '5', desc: `ATK +25%, ASPD +30, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 35, dur: '30s' },
+          { level: '6', desc: `ATK +30%, ASPD +30, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 35, dur: '30s' },
+          { level: '7', desc: `ATK +30%, ASPD +35, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M1', desc: `ATK +35%, ASPD +35, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M2', desc: `ATK +35%, ASPD +40, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 32, dur: '30s' },
+          { level: 'M3', desc: `ATK +40%, ASPD +40, and prioritizes healing allied units with Negative Status`, spInit: 20, sp: 30, dur: '30s' },
+        ],
+      },
+      {
+        name: 'Unending Life', icon: '/operators/nowell/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: "Immediately buffs three friendly Operators within range (prioritizing units with Negative Status), healing them equal to 45% of Nowell's ATK every second for 12s and granting them status resistance", spInit: 12, sp: 20, rank: 'M3',
+        note: 'The skill can target allies with full HP, but cannot target allies that cannot be directly healed.',
+        levels: [
+          { level: '1', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 25% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 30 },
+          { level: '2', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 25% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 29 },
+          { level: '3', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 25% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 28 },
+          { level: '4', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 30% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 27 },
+          { level: '5', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 30% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 26 },
+          { level: '6', desc: `Immediately buffs two friendly Operators within range (prioritizing units with Negative Status), healing them equal to 30% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 25 },
+          { level: '7', desc: `Immediately buffs three friendly Operators within range (prioritizing units with Negative Status), healing them equal to 30% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 24 },
+          { level: 'M1', desc: `Immediately buffs three friendly Operators within range (prioritizing units with Negative Status), healing them equal to 35% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 23 },
+          { level: 'M2', desc: `Immediately buffs three friendly Operators within range (prioritizing units with Negative Status), healing them equal to 40% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 22 },
+          { level: 'M3', desc: `Immediately buffs three friendly Operators within range (prioritizing units with Negative Status), healing them equal to 45% of Nowell's ATK every second for 12s and granting them status resistance`, spInit: 12, sp: 20 },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Nowell's Badge", desc: 'Appointed as Medic Operator to exercise Therapist responsibilities' },
+      wahy: { code: 'WAH-Y', name: 'To Grandpa', stages: [
+        { stage: 1, hp: '+100', atk: '+25', effect: 'Trait improved: Has a large healing range and healing is no longer reduced for distant targets' },
+        { stage: 2, hp: '+125', atk: '+33', effect: 'Precise Prescription improved: Healing increases to 130% when healing an ally affected by negative status' },
+        { stage: 3, hp: '+145', atk: '+38', effect: 'Precise Prescription improved: Healing increases to 135% when healing an ally affected by negative status' },
+      ]},
+    },
+    story: `Nowell, a seemingly ordinary Vulpo, is an Ageless who claims having no special ability other than his immortality;  He perceives himself as a a simple man who runs a small store.  Hailing from Gaulish territory, presumably modern-day northern Victoria, Nowell's memories about his background or how did he become an Ageless are fuzzy. However, he had a family at some point 150 years ago, which he had to cut ties with after feeling like a stranger towards them as they grew older. For hundreds of years, Nowell has been studying the Ageless to better comprehend his own nature. At the same time, he tried to sharpen his Arts, became a beneficiary of the local nobility system, and even tried to accumulate wealth as an information broker, in exchange for secrets and other sensitive information. At one point he even worked as an optometrist in the Gaulish capital of Lingones, with one of his most popular clients being Comte Ousmane, who was in charge of the city's relocation. During his time as an apprentice in Lingones he learned a few lessons of Gaulish pugilism for self-defense, though he thinks he couldn't even match Guard.\n\nNowell is known for his dispirited attitude and suicidal tendencies, as he considers his immortality to be a "curse" that he will never break free from. His only goal is to find the source of his curse, which he believes to be controlling Victoria from behind the scenes amidst the current crisis. After an encounter with the source of his curse, his blessing of immortality was taken and he became mortal again.`,
+    profile: `Before his brief stint with Nine's new New Reunion movement, the Victorian optician Nowell traveled across Terra in search of someone, making a living with his optician skills. After the Londinium incident, Nowell was reunited with a former customer who introduced him to Rhodes Island.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n\n[Cell-Originium Assimilation] 0%\n\nOperator Nowell shows no signs of Originium infection.\n\n[Blood Originium-Crystal Density] 0.08u/L\n\nOperator Nowell scored full marks on Medical's standard Oripathy prevention quiz, and demonstrates a degree of understanding of applied Arts theory. His cautious and logical approach towards knowledge is also to be commended.\n\n'He can take over the Introduction to Oripathy seminar for new operators as far as I'm concerned.'\n—Warfarin` },
+      { title: 'Archive File 1', content: `Operator Nowell was born in Victoria, though he does not remember exactly where. Based on his Gaulish accent, we speculate that it was somewhere in the northern regions.\n\nRemarks:\nThis is merely a hypothesis, and has not been verified.\nRemarks on remarks:\nForget the hypotheses and standard practice for background checks. Would anyone still use those brass glasses things with gradation marks he's got in his box? The only other place you'd find something like that is in a museum.\n...That doesn't mean he's lying! No optician has used the Gaulish style ever since the fall of Lingones and the sacking of the Imperial Academy of Sciences. Besides, the Royal Victorian Academy of Sciences soon established new regulations that defined optometrists and opticians as separate professions. No matter where he was born, someone who mixes up the two definitely does NOT have an optometrist's license!\n\n[Internal Medical Department Memo]\nAfter discussions with Operator Nowell concerning his lack of an optometrist's license, we have arrived at the following solution:\n1. Operator Nowell will go through training and receive formal education on modern optometry and lens fitting theory.\n2. Operator Nowell will undergo formal optometry accreditation, pursuant to his progress in training.\n3. Until he obtains optometrist accreditation, Operator Nowell will no longer conduct eye examinations, and focus solely on fitting and dispensing.\n\n'I would say that Mr. Nowell is not so much an optometrist or optician as a craftsman. Even after learning how to use more convenient instruments, he still prefers to make the lenses and frames by hand.\n'It may take more time, but every pair of glasses he makes is unique. The other patients say they envy my sister for the poem he engraved on her glasses frame: 'Under the blue sky the river flows / And by its banks sway the willows.' It's about what a bedridden child sees after walking out of the door for the first time in a long time.\n—Family member of a patient` },
+      { title: 'Archive File 2', content: `Nowell was the first client who came to seek my assistance at the Londinium office after the war, not for himself, but for the child he was accompanying.\nI was surprised to find him looking exactly the same as he did thirty years ago, when he passed through my village and made me a pair of glasses. I was around the same age as the child at the time. He didn't recognize me, and I didn't say anything. He was anxious at the boy's stubborn refusal to cooperate with medical personnel, but never lost his patience, just like how he listened to a farmer's child thirty years ago, before producing a pair of glasses like a magician and saying that he would collect payment once I graduated from university. Does he still remember those few pounds he has yet to collect?\nWe proceeded with the registration process. Nowell had brought the boy here at the request of his parents—whom he had assisted during the evacuation—in order to examine him for Oripathy. The boy had calmed down by then, and Nowell knelt down to speak to him in a low and serious tone. From what he said, I gathered that he understood quite well the tragedy that had occurred here in Londinium.\nHe was unsurprised by the results of the examination.\nThe child had finally stopped struggling and sat on the stool. As I was drawing his blood, I kept waiting for the words to come out of Nowell's mouth.\nBut he did not ask the question, even when all the tests had concluded. Had he stopped searching for that certain someone? The invisible shadow behind history, whose identity no one in town knew? Were they ever even a real person?\nHe never asked, so I could only guess. Perhaps he had already found them, or perhaps he had simply stopped obsessing over it. Regardless of the reason, he was there, standing, waiting in silence... As though he finally had unlimited time to spend at his leisure, without having to hurry to the next village, asking the question few knew the answer to.\n\n[Addendum]\nOperator Nowell entered Londinium and assisted the Self-Salvation Corps in evacuating the survivors. Reports about his agelessness and his search for the 'Unicorn' are to be archived with no immediate action at this time.\nExpenses incurred by Operator Price of the Londinium office in purchasing corrective lenses have been reimbursed by the Medical Department as an employment benefit.\n—HR Department Archive` },
+      { title: 'Archive File 3', content: `Mr. Miltner admitted he had low expectations when he first reached out to Rhodes Island, particularly as we had already turned down several visitation requests for various reasons.\nHe did not give up, however, attributing the previous failures to bad timing, such as the landship being too far away, or the subject of his visit being away from the ship at the time. Far from being frustrated, he continued to submit his requests to meet with Operator Nowell.\nWhen his eighth request finally went through, the rest of the process went surprisingly smoothly. Even though Norwell claimed not to know any middle-aged men by the name of Georgia Miltner, and showed clear reluctance regarding this 'family visit', and even though Mr. Miltner himself admitted having doubts about whether this Nowell of Rhodes Island was really the one he was looking for... the meeting came to pass, at long last.\n\n[Audio Log]\n'I've lost track of how many leads came out empty. Middle-aged Vulpo optician by the name of Nowell... there were three who fit all the criteria, in Victoria alone.\n'But none were the one Grandma Madeline was looking for. None were... my great-grandfather.\n'My father had already passed away, but I'd always hoped to tell Grandma Madeline that I found Great-Grandpa Nowell, while she could still see and hear.\n'Do you know, she isn't even that concerned with being able to see him one last time. She just wanted to ask him a question, and hear the answer.\n'That was the one thought keeping her going for a century. To me, she's always been a healthy, happy, and well-to-do old woman, which made me even more curious about this Great-Grandpa Nowell.\n'And at long last, I'll get to see him with my own two eyes.\n'I hope it's really him.'\n\nAfter the meeting, Operator Nowell escorted Mr. Miltner all the way outside the ship. They bid each other farewell with a smile.\nIt seems Mr. Miltner had finally found his man.\n\n[Addendum]\n'Have you found peace?'\n'I will. Someday.'\n'Then...\n'That's all Grandma Madeline wanted to ask, and all I need to know.'` },
+      { title: 'Archive File 4', content: `'The words I say often feel like they're coming out of somebody else's mouth.\n'It's like a distorted voice coming from a telephone left on a table, asking if there's someone on the other end. That's the feeling some of the voices in the dream give me, a feeling that extends to reality, making it difficult to distinguish them.'\n'Sounds like something out of a movie.'\n'...I haven't watched many movies. I'm just describing what it feels like.'\n'Sorry. The words just came out of my mouth...'\n'It's alright. Do you like movies?'\n'They briefly immerse me in somebody else's life and story, because my own is so easily forgotten against my will.'\n'...I'm sorry.'\n'It's okay, sir.'\n'...Here, the coated non-corrective glasses you wanted. The lightweight frame should make them easy to wear for long periods. I suppose this is what young people want these days?'\n'Wow, they're so light! Thank you.'\n'Then I'll take my leave—'\n'Do you want to come to this Friday's movie screening, Nowell?'\n'What?'\n'It's where we all get together watch a movie and talk about it.'\n'Even if I won't have much to say?'\n'But you described the voices in your dream so beautifully. We're showing an Ursine children's movie this week, and there'll be a lot of young operators there.'\n'...Very well. Let me know the time and place.'\n\n[A Prominent Memo]\nMon 9am, Eyewear Fitting Room, Medical Department. After work—Drink in moderation with Hellagur and Mountain at the bar.\nTue Morning—Repairing glasses. Totter comes for pickup at 3pm.\nWed 9am, Eyewear Fitting Room, Medical Department. 5pm—Training Room.\nThu—Day off. Pick up package. Check location on terminal.\nFri Morning—Prepare glasses. Afternoon—Prepare glasses. 7am—Movie screening (no doubleheaders if working the next day)\nSat/Sun—Off if no field assignment.` },
+      { title: 'Promotion Record', content: `Dear Doctor,\nI am currently on a field mission. This letter is not urgent, and you may read it in your spare time.\nAs we returned to our vehicles, one of the other operators picked up a few white hairs from my shoulder. After I put them away, I heard that sound like joints creaking in my ear again, which I'd heard while boarding the vehicle.\nIt made me start searching for signs, tracing it back to my increasingly frequent dreams. Fragments of memory float to the surface even during the day, making it difficult to make up for the restless nights with a nap.\nIn my dreams, I sit in a workshop by the Lingones River, or walk through the marshes in southern Victoria. I see flashbacks of all my journeys across Terra. There is only one thing that I am sure of, no matter how blurred the fragments are: my heart is at peace. I am waiting.\nBut what am I waiting for? What CAN I wait for?\nPerhaps I have saved enough lives. I have tasted happiness. Perhaps this ember will be scattered to the winds. Perhaps...\nPerhaps that day is near.\nIf so, I ask for your blessings, friend.\n\nThere is no need to reply or hold on to this letter. Do with it as you please.\nI will see you soon if all goes well with the mission. Take care.\n\n(There is no signature)` },
+    ],
+    classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/therapist-branch.png', factionIcon: '/icons/factions/victoria.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/nowell/base.png', chibiSrc: '/operators/nowell/chibi.webm', illustrator: '板板' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/nowell/e2.png', chibiSrc: '/operators/nowell/chibi.webm', illustrator: '板板' },
+      { id: 'skin1', label: 'The Spirit-Farer', src: '/operators/nowell/skin1.png', chibiSrc: '/operators/nowell/chibi-skin1.webm', illustrator: '板板' },
+    ],
+    portrait: '/operators/nowell/portrait.png',
+    portraitFocus: { y: -3, x: 60, zoom: 280 }
+  },
+  {
+    name: 'Tequila', fileNo: 'BV12', class: 'Guard', branch: 'Liberator', rarity: 5, level: 80, elite: 2, trust: 200,
+    faction: 'Bolívar', position: 'Melee', race: 'Perro', gender: 'Male', birthplace: 'Bolívar',
+    birthday: 'May 15th', height: '182 cm', combatExp: '3 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '一千',
+    cv: { JP: 'Nobunaga Shimazaki', CN: 'Zhengwu Wenjie (credited as "Javen Zheng" in EN)', EN: 'Diego Becerril', KR: 'Kim Sin-woo' },
+    trait: 'Normally does not attack and has 0 Block; When skill is inactive, ATK gradually increases up to +200% over 40 seconds. ATK is reset when the skill ends',
+    tags: ['Nuker'],
+    stats: { hp: 3987, atk: 352, def: 501, res: 15, block: 3, cost: 13, aspd: '1.2s', rdp: '80s' },
+    range: { base: [[1, 0], [2, 1], [1, 0]], e1: [[1, 0], [2, 1], [1, 0]] },
+    physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Normal', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Standard', 'Originium Arts': 'Normal' },
+    talents: [
+      { name: 'Waiting Game', desc: "When skill is inactive, deal 10% of Tequila's ATK as Arts damage to the attacker when Tequila is attacked", elite: 'E1' },
+      { name: 'Waiting Game', desc: "When skill is inactive, deal 20% of Tequila's ATK as Arts damage to the attacker when Tequila is attacked", elite: 'E2' },
+    ],
+    skills: [
+      {
+        name: 'Decisive Action', icon: '/operators/tequila/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'ASPD +50 and every attack deals 170% of ATK as Physical damage', spInit: 0, sp: 20, dur: '20s', rank: 'M3',
+        levels: [
+          { level: '1', desc: `ASPD +20 and every attack deals 120% of ATK as Physical damage`, spInit: 0, sp: 30, dur: '20s' },
+          { level: '2', desc: `ASPD +23 and every attack deals 125% of ATK as Physical damage`, spInit: 0, sp: 30, dur: '20s' },
+          { level: '3', desc: `ASPD +26 and every attack deals 130% of ATK as Physical damage`, spInit: 0, sp: 30, dur: '20s' },
+          { level: '4', desc: `ASPD +29 and every attack deals 135% of ATK as Physical damage`, spInit: 0, sp: 25, dur: '20s' },
+          { level: '5', desc: `ASPD +32 and every attack deals 140% of ATK as Physical damage`, spInit: 0, sp: 25, dur: '20s' },
+          { level: '6', desc: `ASPD +35 and every attack deals 145% of ATK as Physical damage`, spInit: 0, sp: 25, dur: '20s' },
+          { level: '7', desc: `ASPD +38 and every attack deals 150% of ATK as Physical damage`, spInit: 0, sp: 20, dur: '20s' },
+          { level: 'M1', desc: `ASPD +42 and every attack deals 155% of ATK as Physical damage`, spInit: 0, sp: 20, dur: '20s' },
+          { level: 'M2', desc: `ASPD +46 and every attack deals 160% of ATK as Physical damage`, spInit: 0, sp: 20, dur: '20s' },
+          { level: 'M3', desc: `ASPD +50 and every attack deals 170% of ATK as Physical damage`, spInit: 0, sp: 20, dur: '20s' },
+        ],
+      },
+      {
+        name: 'Esoteric Bladework', icon: '/operators/tequila/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+        desc: 'Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 230% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)', spInit: 12, sp: 20, dur: '15s', rank: 'M3', range: [[1, 1, 0], [2, 1, 1], [1, 1, 0]],
+        levels: [
+          { level: '1', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 140% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 0, sp: 30, dur: '15s' },
+          { level: '2', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 150% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 0, sp: 30, dur: '15s' },
+          { level: '3', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 160% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 0, sp: 30, dur: '15s' },
+          { level: '4', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 170% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 5, sp: 25, dur: '15s' },
+          { level: '5', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 180% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 5, sp: 25, dur: '15s' },
+          { level: '6', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 190% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 5, sp: 25, dur: '15s' },
+          { level: '7', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 200% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 10, sp: 20, dur: '15s' },
+          { level: 'M1', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 210% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 10, sp: 20, dur: '15s' },
+          { level: 'M2', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 220% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 12, sp: 20, dur: '15s' },
+          { level: 'M3', desc: `Attack Range expands and attacks 2 enemies simultaneously. Every attack deals 230% of ATK as Physical damage. Charged effect: Changes to attacking 3 enemies simultaneously and skill duration is extended to 30 seconds\nCan manually deactivate skill (skill can be deactivated at will)`, spInit: 12, sp: 20, dur: '15s' },
+        ],
+      },
+    ],
+    modules: {
+      original: { code: 'Original', name: "Tequila's Badge", desc: 'Appointed as Guard Operator to exercise Liberator responsibilities' },
+      libx: { code: 'LIB-X', name: 'Two Faces', stages: [
+        { stage: 1, hp: '+178', atk: '+13', def: '+13', effect: 'New trait: Directly gains +100% charge after deployment' },
+        { stage: 2, hp: '+215', atk: '+19', def: '+19', effect: "Waiting Game improved: When skill is inactive, deal 25% of Tequila's ATK as Arts damage to the attacker when Tequila or the unit behind is attacked" },
+        { stage: 3, hp: '+260', atk: '+25', def: '+25', effect: "Waiting Game improved: When skill is inactive, deal 35% of Tequila's ATK as Arts damage to the attacker when Tequila or the unit behind is attacked" },
+      ]},
+    },
+    story: `Ernesto Salas is the only son of Pancho Salas who once served as the deputy director of Dossoles's International Trade Management Department and the assistant for the city's mayor Candela Sanchez. However, he was secretly plotting a terrorist attack alongside his father and step-sister Rafaela in order to wake the people up of the harsh reality in Bolívar.\n\nBorn to a military family, Ernesto's mother passed away due to illness while Pancho was away from home fighting for the True Bolívarians, whom he was later sent to receive professional military training. But after a failed operation that resulted in the death of three thousand guerrilla fighters eight years ago, Ernesto and Rafaela were taken by Pancho and wandered through the country until eventually moving to Dossoles, where they remained in stand-by until they were ready to finally strike back.\n\nDuring the 8th season of the Dossoles Warrior Championship, he acted as a guide for Ch'en and Lin Yühsia, who were initially unaware of his involvement. The attack was thwarted in the end and both Ernesto and Rafaela were miraculously pardoned by Candela, although it came with a price of losing his job and their father's incarceration. Wanting to find a new life, Ernesto accepted Ch'en's invitation to join Rhodes Island, where he becomes a combatant under the codename "Tequila".`,
+    profile: `The former deputy director of the International Trade Management Department of Dossoles, real name Ernesto Salas, was dismissed during the riots in Dossoles City. After that, he was recommended to Rhodes Island by Operator Ch'en, and joined after passing the test.\nHe was taken to Rhodes Island by a person who had clashed with him just a few days prior. Even in the face of such an embarrassing situation, he still behaved as if nothing had happened, maintaining a friendly and jovial social atmosphere along the way. Truly, Operator Tequila is a rare diplomatic talent fitting for one who serves the Mayor of Dossoles.`,
+    records: [
+      { title: 'Clinical Analysis', content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n\n[Cell-Originium Assimilation] 0%\nOperator Tequila shows no signs of Originium infection.\n\n[Blood Originium-Crystal Density] 0.15 u/L\nOperator Tequila frequently comes in contact with Originium... or something related to Originium, and this may be related to his prior job. There is a certain risk of infection, and will require careful follow-up observations.\n\n"The way this one tries to fool his way through everything with a smile makes me concerned for his safety. In every way a person can be, he is very unsafe."\n–Sussurro` },
+      { title: 'Archive File 1', content: `After arriving at Rhodes Island, Operator Tequila seemed to adapt to his new lifestyle quickly and easily.\nLeveraging his excellent interpersonal skills, he can insert himself into any conversation without breaking the flow, and is able to communicate smoothly and amicably with everyone. Operator Tequila even mediated in some disputes, to remarkable results. He always uses a disarming attitude, cleverly proposing solutions that are amenable to everyone.\nHis outstanding communication abilities seem innate and do not seem to burden him. Some operators compared Tequila to other operators who are good communicators and were surprised to find that Operator Tequila always seems to have a hearty smile and a friendly attitude. Nobody seems to have ever seen Operator Tequila display any negative emotions.\nHowever, there is no such thing as a person who never experiences negative emotions, and some of the operators who've been in contact with him are persistently worried about this.` },
+      { title: 'Archive File 2', content: `The young Perro named Ernesto Salas was born into a military family in Bolívar. His father, Pancho Salas, joined the "True Bolívarians" local resistance force because of his patriotic ideals, leaving behind his wife and his son.\nDuring the long years during which his father never came home, fighting for Bolívar's independence, Mrs. Salas suffered from a vicious illness that claimed her life after a prolonged struggle that almost lasted a year, leaving the young Ernesto alone. It was not until Ernesto had finished taking care of his mother's funeral that Pancho Salas suddenly appeared at his doorstep.\nAfter that, his father took Ernesto away from his hometown and followed the army through Bolívar. He was sent to join a True Bolívarians prep team, receiving professional military training along with a group of similarly-aged youths. After suffering defeat on the battlefield eight years ago, the old soldier brought Ernesto and Rafaela to Dossoles after three years of drifting and laid dormant within the city, hoping to stage a comeback.\nCompared to Operator La Pluma, who is more pure-hearted, Ernesto has a substantially deeper and more complex view on many things. His five years of living in Dossoles allowed the young man to fully integrate into the city, and the ideas of indulging in freedom and the supremacy of hedonism have had a profound influence upon him. His experiences working under the Mayor have undoubtedly changed his viewpoints regarding various matters.` },
+      { title: 'Archive File 3', content: `Operator Tequila quickly accomplished two things at Rhodes Island:\nFirst, he improved the wine-tasting ability of many operators. In his spare time, he occasionally appears in the bar to introduce various wines to the other operators, finding something suiting their tastes. When a bartender is present, his sister La Pluma in particular, he demonstrates his knowledge of mixed drinks as well and introduces them to other patrons. After all, it is well known that though La Pluma is an excellent bartender, she seldom takes the initiative to talk.\nSecond, after joining Rhodes Island, he found that the company does not object to operators maintaining their own interests outside of work, and as such, he planned to continue operating his weapons shop on the ship – unlike the situation in Dossoles, the mobility of the Rhodes Island landship makes it easier to purchase high-quality equipment from various places. In front of the operators who come to his doorstep as customers, Tequila provides serious recommendations to each guest depending on their actual circumstances and needs. Furthermore, Tequila seems to have made significant inroads with the skilled craftspeople of Rhodes Island, and perhaps the modification and customization of weapons will soon be on the agenda.\n\nFrom the two things above, Operator Tequila clearly demonstrated an adept and ingenious ability to leverage his social skills, bringing his entrepreneurial temperament along with him, well-deserving of his former job as the deputy director of the Dossoles International Trade Management Department.\nHowever, there are certain individuals in Rhodes Island who he struggles to get along with, and Dobermann, an operator from Bolívar, is one such individual. The atmosphere between Tequila and Dobermann was rather tense when they first met. However, Dobermann, who hailed from the same country as him, had more convoluted experiences there than he did, and had a more profound understanding of Bolívar, ironically may have understood Tequila, who hides all kinds of complex thoughts behind a smile, better than anyone else at Rhodes Island. In fact, Dobermann easily saw through his facade and came to regard him as a young man from the same motherland, worthy of nurturing, and keeps a close eye on him. This makes Dobermann one of the few people who can make Tequila visibly squirm.` },
+      { title: 'Archive File 4', content: `[Classified Log]\nRegarding the events that occurred during the Dossoles championship, Operator Ch'en has already briefly explained the causes and consequences to us in a report, specifically mentioning why she would recommend Tequila and Rafaela to Rhodes Island.\nPancho Salas's long-planned plot fell short, and he will spend a long time in prison as a result. However, Mayor Candela Sanchez saw the championship as a great boon for viewership, and as a result, granted amnesty to all the people participating in the plot with the exception of Pancho, instead removing them from their posts and exiling them, an irony not lost upon us.\nThe siblings, Tequila and La Pluma, were faced with an uncertain future, and Operator Ch'en, after great deliberation, finally decided to recommend the two of them to Rhodes Island. Ch'en believed that she was in no position to pass judgment on Tequila's actions, and also recognized that Tequila was undergoing his own internal struggle. As such, she gave Ernesto the option of trying to apply to Rhodes Island through the newly-established regional branch in Dossoles. In the end, Tequila and La Pluma came to Rhodes Island together.\nWhat must be noted is that if Ernesto was the type of person who could disregard the lives of civilians in order to further his own ends, Rhodes Island absolutely would have turned him down.\nHowever, we can rely on Ch'en's pieced-together account of the incident to understand some of Ernesto's thought process. Old Pancho's plan was very difficult to execute, and in order to enable him to smoothly coordinate with the available outside forces, Ernesto, who was in placed in charge of directing the operation, had to attract the attention of the Mayor as well as that of other unexpected players. He had to instigate a certain degree of panic within Dossoles, and also needed to apply sufficient psychological duress on Mayor Candela. To accomplish these ends, Ernesto commanded his subordinates to place a considerable amount of explosives in residential areas... Ch'en's views on these actions are as follows: At that time, the residential area had been temporarily expropriated due to the championship being held, and all residents had been evacuated before the games. In theory, that area would've been the least populated place in Dossoles during that time.\nOf course, this is not to say that Ernesto's guilt should be lessened in any capacity, nor is this to defend him. However, after taking stock of the situation after the fact, we can at least make a definite conclusion:\nErnesto Salas was not interested in creating a moving heap of rubble. Nor did he want corpses strewn everywhere.\nPerhaps as a result of the wars he had seen in his youth and his knowledge of their cruelty, Ernesto did not want to become like the armies in his memories, treating corpses and destruction as trophies to be shown off.` },
+      { title: 'Promotion Record', content: `The personality that we observed in this young man is not quite as sunny and hearty as the side he displays. We were able to discover this without much difficulty when he didn't try to cover it up from us too much.\nOperator Tequila thinks about both his own experiences and also the experiences of the people around him to a great extent, and to be able to maintain this is rare indeed. Obviously, Ernesto disagrees with some of Old Pancho's ideas, but nevertheless, chose to aid his father throughout the Dossoles incident.\nAs for Ernesto Salas, the turmoil of Dossoles and the failure of Pancho Salas was a turning point that helped him make up his mind. Now, the youth have convinced themselves that they've freed themselves from the will and control of the previous generation, and are determined to pave their own way.\nThis way may branch off in a completely different direction than the last generation, but Ernesto has always admitted that he belongs to Bolívar and will likely return there in the future. If there are more young people like him, the situation in Bolívar may experience new change as well.\nThis young man is trying to grasp his own destiny, and we are keenly interested in seeing where this leads him.` },
+    ],
+    classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/liberator-branch.png', factionIcon: '/icons/factions/bolivar.png',
+    skins: [
+      { id: 'base', label: 'Base', src: '/operators/tequila/base.png', chibiSrc: '/operators/tequila/chibi.webm', illustrator: '一千' },
+      { id: 'e2', label: 'Elite 2', src: '/operators/tequila/e2.png', chibiSrc: '/operators/tequila/chibi.webm', illustrator: '一千' },
+      { id: 'skin1', label: 'Cardwinner', src: '/operators/tequila/skin1.png', chibiSrc: '/operators/tequila/chibi-skin1.webm', illustrator: '一千' },
+      { id: 'skin2', label: 'Top Tier Live', src: '/operators/tequila/skin2.png', chibiSrc: '/operators/tequila/chibi-skin2.webm', illustrator: '一千' },
+    ],
+    portrait: '/operators/tequila/portrait.png',
+    portraitFocus: { y: 3, x: 50, zoom: 290 }
   },
 ] as Operator[]).sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 
