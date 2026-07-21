@@ -107,6 +107,8 @@ interface Shape {
   fill: string
   nationId: string | null
   depth: number
+  col: number
+  row: number
 }
 
 export function WorldMap() {
@@ -192,6 +194,8 @@ export function WorldMap() {
         fill,
         nationId,
         depth: topDepth,
+        col: tile.col,
+        row: tile.row,
       })
 
       if (tileElevation === 0) continue
@@ -215,6 +219,8 @@ export function WorldMap() {
           fill: darken(tile.color, WALL_SHADE),
           nationId,
           depth: (topDepth + projectDepth(cx, cy, 0)) / 2,
+          col: tile.col,
+          row: tile.row,
         })
       }
     }
@@ -310,6 +316,8 @@ export function WorldMap() {
                 key={shape.key}
                 points={shape.points}
                 fill={shape.fill}
+                data-col={shape.col}
+                data-row={shape.row}
                 stroke={isActive ? 'rgba(255,255,255,0.75)' : 'none'}
                 strokeWidth={isActive ? 3 : 0}
                 opacity={isDimmed ? 0.55 : 1}
@@ -356,7 +364,13 @@ export function WorldMap() {
               }}
             >
               {nationShapes.map(shape => (
-                <polygon key={`${shape.key}-hit`} points={shape.points} fill="transparent" />
+                <polygon
+                  key={`${shape.key}-hit`}
+                  points={shape.points}
+                  fill="transparent"
+                  data-col={shape.col}
+                  data-row={shape.row}
+                />
               ))}
             </g>
           ))}
