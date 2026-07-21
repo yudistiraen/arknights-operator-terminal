@@ -72,21 +72,23 @@ function LevelSelector({ availableLevels, previewLevel, onSelectLevel }: LevelSe
 }
 
 export function SkillsPanel({ operator }: { operator: Operator }) {
-  const [previewLevel, setPreviewLevel] = useState<SkillLevelLabel>('M3')
+  const [previewLevel, setPreviewLevel] = useState<SkillLevelLabel | null>(null)
 
   const skillWithLevelData = operator.skills.find(skill => (skill.levels?.length ?? 0) > 0)
   const availableLevels = new Set(skillWithLevelData?.levels?.map(levelData => levelData.level) ?? [])
   const hasLevelPreview = availableLevels.size > 0
+  const maxLevel = skillWithLevelData?.levels?.at(-1)?.level
+  const effectiveLevel = previewLevel && availableLevels.has(previewLevel) ? previewLevel : maxLevel
 
   return (
     <div className="grid gap-3">
-      {hasLevelPreview && (
-        <LevelSelector availableLevels={availableLevels} previewLevel={previewLevel} onSelectLevel={setPreviewLevel} />
+      {hasLevelPreview && effectiveLevel && (
+        <LevelSelector availableLevels={availableLevels} previewLevel={effectiveLevel} onSelectLevel={setPreviewLevel} />
       )}
       {operator.skills.map((skill) => {
         const recoveryType = getRecoveryType(skill.recovery)
         const recoveryTagStyle = RECOVERY_TAG_STYLES[recoveryType] ?? 'bg-white/10 text-white/40 border-white/20'
-        const activeLevelData = skill.levels?.find(levelData => levelData.level === previewLevel)
+        const activeLevelData = skill.levels?.find(levelData => levelData.level === effectiveLevel)
         const displayDesc = activeLevelData?.desc ?? skill.desc
         const displaySpInit = activeLevelData?.spInit ?? skill.spInit
         const displaySp = activeLevelData?.sp ?? skill.sp
