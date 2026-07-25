@@ -4,64 +4,15 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import Image from 'next/image'
-import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
-import { toSlug, getRosterEntries, type RosterEntry } from '../lib/operators'
-import { playHover } from '../lib/sound'
+import { toSlug, getRosterEntries, getWalkableChibis, type RosterEntry } from '../lib/operators'
+import { getChibiId, MAX_WALKING_CHIBIS } from '../lib/chibiSelection'
 import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
+import { RosterCard } from './ui/RosterCard'
+import { RARITY_GRADIENT } from '../constants'
 
 gsap.registerPlugin(useGSAP)
-
-const RARITY_GRADIENT: Record<number, string> = {
-  6: 'from-[#f07830]/60 to-[#c05018]/20',
-  5: 'from-[#f0c95c]/40 to-[#d4a843]/15',
-  4: 'from-[#c9a0f0]/40 to-[#9060c0]/15',
-  3: 'from-[#5ec4e6]/40 to-[#3ba4c9]/15',
-  2: 'from-[#8ce6a0]/30 to-[#50b068]/10',
-  1: 'from-white/20 to-white/5',
-}
-
-const RARITY_BAR: Record<number, string> = {
-  6: 'from-[#f07830] to-[#c05018]',
-  5: 'from-[#f0c95c]/70 to-[#d4a843]/50',
-  4: 'from-[#c9a0f0]/70 to-[#9060c0]/50',
-  3: 'from-[#5ec4e6]/60 to-[#3ba4c9]/40',
-  2: 'from-[#8ce6a0]/50 to-[#50b068]/30',
-  1: 'from-white/30 to-white/10',
-}
-
-// Roster-card corner ribbon. "both" covers an alter form that is itself
-// crossover content (e.g. Kirin R Yato) — distinct from a plain alter or a
-// plain crossover so the two statuses don't collapse into one label.
-const CARD_BADGES = {
-  alter: {
-    label: 'ALTER',
-    gradient: 'from-[#f0954f] to-[#c05018]',
-    box: '-left-7 w-24 md:-left-9 md:w-32',
-    text: 'text-[7px] md:text-[9px] tracking-widest',
-  },
-  crossover: {
-    label: 'CROSSOVER',
-    gradient: 'from-[#4f9d67] to-[#265c37]',
-    box: '-left-9 w-32 md:-left-12 md:w-40',
-    text: 'text-[6px] md:text-[9px] tracking-wider -ml-3',
-  },
-  both: {
-    label: 'XOVER ALT',
-    gradient: 'from-[#a06ff0] to-[#5a2fa8]',
-    box: '-left-9 w-32 md:-left-12 md:w-40',
-    text: 'text-[6px] md:text-[9px] tracking-wider -ml-3',
-  },
-} as const satisfies Record<string, { label: string, gradient: string, box: string, text: string }>
-
-function getCardBadge(entry: RosterEntry): typeof CARD_BADGES[keyof typeof CARD_BADGES] | null {
-  const isCrossover = entry.operator.tags?.includes('Crossover') ?? false
-  if (entry.isAlter && isCrossover) return CARD_BADGES.both
-  if (entry.isAlter) return CARD_BADGES.alter
-  if (isCrossover) return CARD_BADGES.crossover
-  return null
-}
 
 const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='rgba(255,255,255,0.3)'%3E%3Cpath fill-rule='evenodd' d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E")`
 
@@ -151,49 +102,21 @@ function FilterDropdown({ label, value, options, onChange }: {
   )
 }
 
-// The roster grid crops each portrait to a custom zoom/focal point per operator
-// (`portraitFocus`), which needs `background-size: auto <zoom>%` — a sizing mode
-// `next/image`'s `fill`/`object-fit` can't express. We keep the background-image
-// technique but route it through Next's image optimizer endpoint for automatic
-// WebP/AVIF + resizing, and only set the URL once the card is near the viewport
-// so off-screen cards in this 100+ operator grid don't all fetch immediately.
-function OperatorCardArt({ src, zoom, x, y }: { src: string; zoom: number; x: number; y: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
-      },
-      { rootMargin: '600px' }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <div
-      ref={ref}
-      className="absolute inset-0 bg-no-repeat opacity-75 group-hover:opacity-95 group-hover:scale-[1.06]"
-      style={{
-        backgroundImage: isVisible ? `url(/_next/image?url=${encodeURIComponent(src)}&w=828&q=75)` : undefined,
-        backgroundSize: `auto ${zoom}%`,
-        backgroundPosition: `${x}% ${y}%`,
-        transition: 'transform 0.4s ease, opacity 0.3s',
-      }}
-    />
-  )
-}
-
 export function OperatorList() {
-  const { hasEntered } = useApp()
+  const { hasEntered, selectedChibiIds, toggleChibiSelection } = useApp()
   const containerRef = useRef<HTMLDivElement>(null)
+
+  // Default walkable skin per operator card (its first skin that has gone through the
+  // multi-state chibi render pipeline) — used when the card's toggle is clicked and this
+  // operator has no skin selected yet. Picking a specific skin instead is done from the
+  // operator detail page; each operator still only occupies one walking slot at a time.
+  const defaultChibiIdByOperator = useMemo(() => {
+    const map = new Map<string, string>()
+    for (const chibi of getWalkableChibis()) {
+      if (!map.has(chibi.operatorName)) map.set(chibi.operatorName, getChibiId(chibi))
+    }
+    return map
+  }, [])
   const [searchQuery, setSearchQuery] = useState('')
   const [rarityFilter, setRarityFilter] = useState('all')
   const [classFilter, setClassFilter] = useState('all')
@@ -409,66 +332,24 @@ export function OperatorList() {
 
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-1.5 md:gap-3">
                   {entries.map(entry => {
-                    const badge = getCardBadge(entry)
+                    const defaultChibiId = defaultChibiIdByOperator.get(entry.operator.name)
+                    // The operator's active walking skin, if any — may differ from defaultChibiId
+                    // when a specific skin was picked from the detail page instead of the default.
+                    const activeChibiId = selectedChibiIds.find(id => id.startsWith(`${entry.operator.name}::`))
+                    const idToToggle = activeChibiId ?? defaultChibiId
                     return (
-                    <Link
-                      key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
-                      href={buildOperatorHref(entry)}
-                      onMouseEnter={playHover}
-                      className="op-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] text-left aspect-[0.60] w-full hover:border-[#3ba4c9]/25 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
-                      style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s' }}
-                    >
-                      <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${RARITY_BAR[entry.operator.rarity] ?? 'from-white/20 to-white/5'} z-10`} />
-
-                      <OperatorCardArt
-                        src={entry.operator.skins[0].src}
-                        zoom={entry.operator.portraitFocus?.zoom ?? 250}
-                        x={entry.operator.portraitFocus?.x ?? 50}
-                        y={entry.operator.portraitFocus?.y ?? 0}
+                      <RosterCard
+                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        entry={entry}
+                        href={buildOperatorHref(entry)}
+                        walkingToggle={idToToggle ? {
+                          isSelected: Boolean(activeChibiId),
+                          disabled: !activeChibiId && selectedChibiIds.length >= MAX_WALKING_CHIBIS,
+                          onToggle: () => toggleChibiSelection(idToToggle),
+                        } : undefined}
                       />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/35 to-transparent" />
-
-                      {badge && (
-                        <div
-                          className={`absolute top-2 md:top-2.5 -rotate-45 z-20 pointer-events-none flex items-center justify-center h-4 md:h-5 shadow-[0_2px_6px_rgba(0,0,0,0.35)] bg-gradient-to-r ${badge.box} ${badge.gradient}`}
-                        >
-                          <span className={`font-display font-bold uppercase text-white leading-none whitespace-nowrap ${badge.text}`}>
-                            {badge.label}
-                          </span>
-                        </div>
-                      )}
-
-                      <div className="absolute bottom-0 left-0 right-0 p-1.5 md:p-2 z-10">
-                        <div className="flex items-center gap-1 md:gap-1.5">
-                          <p className="font-display text-xs md:text-sm font-bold text-white/90 tracking-wide leading-none min-w-0">
-                            <span className="op-name-wrap truncate">
-                              <span className="op-name-text">{entry.operator.name}</span>
-                              <span className="op-name-cursor" aria-hidden />
-                            </span>
-                          </p>
-                        </div>
-                        <div className="flex gap-1 pt-1">
-                          <Image
-                            src={entry.operator.classIcon}
-                            alt={entry.operator.class}
-                            width={20}
-                            height={20}
-                            className="w-3 h-3 md:w-5 md:h-5 object-contain opacity-70 shrink-0"
-                          />
-                          <p className="text-xs md:text-[11px] text-white/35 font-display tracking-wider truncate mt-1">
-                            {entry.operator.class} · {entry.operator.branch}
-                          </p>
-                        </div>
-                        
-                      </div>
-
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
-                        style={{ transition: 'opacity 0.3s', boxShadow: 'inset 0 0 40px rgba(59,164,201,0.06)' }}
-                      />
-                    </Link>
-                  )})}
+                    )
+                  })}
                 </div>
               </section>
             ))}

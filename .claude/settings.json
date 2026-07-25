@@ -168,7 +168,16 @@
       "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Rhine_Lab&format=json\")",
       "Bash(identify \"c:/Users/Yudis/Documents/Workspace/arknights-portfolio/public/operators/nightmare/portrait.png\")",
       "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Nightmare&format=json\")",
-      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(s\\);console.log\\(j.query.allimages.map\\(i=>i.name\\)\\)}\\)\")"
+      "Bash(node -e \"let s='';process.stdin.on\\('data',d=>s+=d\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(s\\);console.log\\(j.query.allimages.map\\(i=>i.name\\)\\)}\\)\")",
+      "Bash(curl -sL https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/character_table.json -o /tmp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/7fb7463e-ae7c-44a0-bbc7-5b40427a356d/scratchpad/character_table.json -w 'character_table HTTP:%{http_code} SIZE:%{size_download}\\\\n')",
+      "Bash(curl -sL https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/skill_table.json -o /tmp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/7fb7463e-ae7c-44a0-bbc7-5b40427a356d/scratchpad/skill_table.json -w 'skill_table HTTP:%{http_code} SIZE:%{size_download}\\\\n')",
+      "Bash(node /tmp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/7fb7463e-ae7c-44a0-bbc7-5b40427a356d/scratchpad/extract_skill.js skchr_caper_1 skchr_caper_2)",
+      "Bash(node /tmp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/7fb7463e-ae7c-44a0-bbc7-5b40427a356d/scratchpad/extract_skill.js skchr_cutter_1 skchr_cutter_2)",
+      "Bash(node /tmp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/7fb7463e-ae7c-44a0-bbc7-5b40427a356d/scratchpad/extract_skill.js skchr_spikes_1 skchr_spikes_2)",
+      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Loopshooter&format=json\")",
+      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Swordmaster&format=json\")",
+      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Skill-P2&format=json\")",
+      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/images/Skill-P2.png\" -o public/operators/caper/skill-1.png -w \"caper skill-1 %{http_code} %{size_download}\\\\n\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\Yudis\\Documents\\Workspace\\arknights-portfolio\\public\\operators\\kroos",
