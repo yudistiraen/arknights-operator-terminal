@@ -5,6 +5,9 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { SplashScreen } from './SplashScreen'
 import { SideMenu } from './SideMenu'
+import { WalkingChibi } from './WalkingChibi'
+import { getWalkableChibis } from '../lib/operators'
+import { MAX_WALKING_CHIBIS, getChibiId, readChibiSelectionCookie, writeChibiSelectionCookie, applyChibiSelectionToggle } from '../lib/chibiSelection'
 
 gsap.registerPlugin(useGSAP)
 
@@ -14,6 +17,8 @@ interface AppContextType {
   hasEntered: boolean
   sidebarOpen: boolean
   toggleSidebar: () => void
+  selectedChibiIds: string[]
+  toggleChibiSelection: (id: string) => void
 }
 
 const AppContext = createContext<AppContextType>({
@@ -22,6 +27,8 @@ const AppContext = createContext<AppContextType>({
   hasEntered: false,
   sidebarOpen: true,
   toggleSidebar: () => {},
+  selectedChibiIds: [],
+  toggleChibiSelection: () => {},
 })
 
 export function useApp() {
@@ -35,6 +42,37 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const toggleSidebar = useCallback(() => setSidebarOpen(prev => !prev), [])
   const audioRef = useRef<HTMLAudioElement>(null)
   const splashRef = useRef<HTMLDivElement>(null)
+
+  const [selectedChibiIds, setSelectedChibiIds] = useState<string[]>([])
+  useEffect(() => {
+    const cookieSelection = readChibiSelectionCookie()
+    if (cookieSelection !== null) {
+      setSelectedChibiIds(cookieSelection)
+      writeChibiSelectionCookie(cookieSelection) // persist in case readChibiSelectionCookie healed a stale/corrupt value
+      return
+    }
+    // One default skin per distinct operator, up to the cap — getWalkableChibis() can list
+    // several skins for the same operator, and picking straight from it without deduping would
+    // violate the one-walking-slot-per-operator rule right out of the gate.
+    const defaultIds: string[] = []
+    const seenOperators = new Set<string>()
+    for (const chibi of getWalkableChibis()) {
+      if (defaultIds.length >= MAX_WALKING_CHIBIS) break
+      if (seenOperators.has(chibi.operatorName)) continue
+      seenOperators.add(chibi.operatorName)
+      defaultIds.push(getChibiId(chibi))
+    }
+    setSelectedChibiIds(defaultIds)
+    writeChibiSelectionCookie(defaultIds)
+  }, [])
+
+  const toggleChibiSelection = useCallback((id: string) => {
+    setSelectedChibiIds(prev => {
+      const next = applyChibiSelectionToggle(prev, id)
+      writeChibiSelectionCookie(next)
+      return next
+    })
+  }, [])
 
   const handleEnter = useCallback(() => {
     if (hasEntered) return
@@ -108,7 +146,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   }, [isMuted])
 
   return (
-    <AppContext.Provider value={{ isMuted, toggleMute, hasEntered, sidebarOpen, toggleSidebar }}>
+    <AppContext.Provider value={{ isMuted, toggleMute, hasEntered, sidebarOpen, toggleSidebar, selectedChibiIds, toggleChibiSelection }}>
       <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
       <SideMenu />
       <div
@@ -117,6 +155,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       >
         {children}
       </div>
+      {hasEntered && <WalkingChibi />}
       {!hasEntered && <SplashScreen ref={splashRef} onEnter={handleEnter} />}
     </AppContext.Provider>
   )

@@ -122,6 +122,31 @@ export interface OperatorSkin {
   label: string
   src: string
   chibiSrc: string
+  /** Walk-cycle chibi render, sourced separately from `chibiSrc` (see "Sub-rencana: Multi-state
+   * chibi" in context.md). Only present once a skin has been through the render pipeline —
+   * absent for the vast majority of skins, which just show `chibiSrc` as a static idle loop. */
+  chibiMoveSrc?: string
+  /** Chibi framing calibration for the WALKING MASCOT specifically (WalkingChibi.tsx). All three
+   * values (`scale`, `offsetXPercent`, `offsetYPercent`) are applied together to the shared
+   * wrapper around BOTH the idle and move layers — never to either video individually — so idle
+   * and move always stay sized and positioned identically no matter what this is tuned to; there
+   * is no separate per-layer correction to keep in sync by hand. This only works because idle and
+   * move are rendered through the same pipeline/convention (see "Rencana Pengembangan: Asset
+   * Pipeline dari ArknightsResource" in context.md), so their natural framing already roughly
+   * matches — this field is a shared cosmetic nudge/size on top of that, not a fix for two
+   * differently-cropped sources. If idle and move ever come from genuinely different pipelines
+   * again (e.g. a raw wiki.gg idle paired with a re-rendered move), a shared transform can't
+   * reconcile that — idle would need to be re-rendered to match move's convention instead (see
+   * Togawa Sakiko / Amiya's history in context.md for exactly that fix). Percentage-based
+   * (relative to the display box, not raw px), same idea as {@link SkinL2D.focus}. Do NOT
+   * repurpose this for how the chibi looks in other contexts (e.g. the operator detail HUD box)
+   * — that's a different, independent concern with its own field, {@link chibiDetailFraming}. */
+  chibiFraming?: { scale: number; offsetXPercent: number; offsetYPercent: number }
+  /** Chibi framing for the operator detail page's HUD preview box (CharacterArt.tsx) — purely
+   * cosmetic centering within that specific box, unrelated to {@link chibiFraming}'s job of
+   * matching the walking mascot's idle video to its move video. Falls back to the shared generic
+   * default (calibrated for the old wiki.gg-style landscape videos) if unset. */
+  chibiDetailFraming?: { scale: number; offsetXPercent: number; offsetYPercent: number }
   illustrator: string
   l2d?: SkinL2D
 }
@@ -150,6 +175,7 @@ export interface OperatorAlter {
   level: number
   elite: number
   trust: number
+  how_to_get: string[]
   position: string
   trait: string
   tags: string[]
@@ -190,6 +216,7 @@ export interface Operator {
   level: number
   elite: number
   trust: number
+  how_to_get: string[]
   faction: string
   position: string
   race: string

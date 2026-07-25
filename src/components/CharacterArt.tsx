@@ -1,18 +1,21 @@
 import { forwardRef, useState, useEffect } from 'react'
 import Image from 'next/image'
-import type { Operator, SkinL2D } from '../types'
+import type { Operator, OperatorSkin, SkinL2D } from '../types'
+import type { WalkingToggleProps } from '../lib/chibiSelection'
 import { SpineViewer } from './SpineViewer'
 
 interface CharacterArtProps {
   operator: Operator
   skinSrc: string
   chibiSrc: string
+  chibiDetailFraming?: OperatorSkin['chibiDetailFraming']
+  walkingToggle?: WalkingToggleProps
   l2d?: SkinL2D
   showL2D: boolean
 }
 
 export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
-  function CharacterArt({ operator, skinSrc, chibiSrc, l2d, showL2D }, ref) {
+  function CharacterArt({ operator, skinSrc, chibiSrc, chibiDetailFraming, walkingToggle, l2d, showL2D }, ref) {
     const [chibiError, setChibiError] = useState(false)
     useEffect(() => { setChibiError(false) }, [chibiSrc])
 
@@ -49,6 +52,29 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
             <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-ak-accent/40" />
             <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-ak-accent/40" />
             <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-ak-accent/40" />
+            {walkingToggle && (
+              <button
+                type="button"
+                onClick={walkingToggle.onToggle}
+                disabled={walkingToggle.disabled}
+                title={walkingToggle.isSelected ? 'Remove from walking chibi' : 'Set this skin as walking chibi'}
+                aria-pressed={walkingToggle.isSelected}
+                className={`absolute top-1 left-1 z-20 flex items-center justify-center w-5 h-5 md:w-6 md:h-6 border backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright ${
+                  walkingToggle.isSelected
+                    ? 'bg-ak-accent/80 border-ak-accent-bright text-white'
+                    : 'bg-black/40 border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                } ${walkingToggle.disabled && !walkingToggle.isSelected ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}`}
+                style={{ transition: 'background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s' }}
+              >
+                <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current">
+                  <ellipse cx="12" cy="15.5" rx="4.5" ry="6.5" />
+                  <circle cx="9" cy="4.2" r="1.3" />
+                  <circle cx="12.2" cy="3.2" r="1.5" />
+                  <circle cx="15.2" cy="4.2" r="1.3" />
+                  <circle cx="17.2" cy="6.8" r="1" />
+                </svg>
+              </button>
+            )}
             {chibiError ? (
               <div className="relative z-10 w-full h-full flex items-center justify-center">
                 <span className="font-display text-xs text-white/20 tracking-wider">-Data Not Found-</span>
@@ -62,7 +88,12 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
                 muted
                 playsInline
                 onError={() => setChibiError(true)}
-                className="relative z-10 w-full h-full object-cover scale-110 drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] -translate-y-2 md:-translate-y-4"
+                style={chibiDetailFraming ? {
+                  transform: `scale(${chibiDetailFraming.scale}) translate(${chibiDetailFraming.offsetXPercent}%, ${chibiDetailFraming.offsetYPercent}%)`,
+                } : undefined}
+                className={`relative z-10 w-full h-full object-cover drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] ${
+                  chibiDetailFraming ? '' : 'scale-110 -translate-y-2 md:-translate-y-4'
+                }`}
               />
             )}
           </div>

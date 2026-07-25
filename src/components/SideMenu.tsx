@@ -40,9 +40,11 @@ const NAV_ITEMS: NavItem[] = [
     ),
   },
   {
-    href: '#',
-    label: '????',
-    icon: (''),
+    href: '/recruit',
+    label: 'Recruit',
+    icon: (
+      <img src="/Recruit_icon.svg" alt="" className="w-5 h-5 opacity-80" />
+    ),
   },
 ]
 
@@ -236,8 +238,8 @@ export function SideMenu() {
         </div>
 
         <div className="px-5 pb-5 pt-1.5">
-          <p className="font-display text-[10px] text-white/10 tracking-wider leading-relaxed">
-            RHODES ISLAND<br />TERMINAL v2.0
+          <p className="font-display text-[10px] text-white/50 tracking-wider leading-relaxed">
+            RHODES ISLAND<br />TERMINAL v0.5
           </p>
         </div>
       </aside>

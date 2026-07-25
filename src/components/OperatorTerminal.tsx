@@ -7,6 +7,7 @@ import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
 import { getFactionTheme } from '../data/factionThemes'
 import { toSlug, getRosterEntries } from '../lib/operators'
+import { getChibiId, MAX_WALKING_CHIBIS } from '../lib/chibiSelection'
 import { playClick, playTransition } from '../lib/sound'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
 import { PANEL_CONFIGS } from './panels'
@@ -41,7 +42,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const [variantIndex, setVariantIndex] = useState(-1)
   const [isAlterActive, setIsAlterActive] = useState(initialAlter)
   const [showL2D, setShowL2D] = useState(false)
-  const { hasEntered } = useApp()
+  const { hasEntered, selectedChibiIds, toggleChibiSelection } = useApp()
   const isFirstMount = useRef(true)
 
   useEffect(() => {
@@ -87,6 +88,20 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
   const [accentR, accentG, accentB] = factionTheme.accent
   const [secR, secG, secB] = factionTheme.secondary
   const hasModules = Object.keys(activeOperator.modules).length > 0
+
+  const currentSkin = activeOperator.skins[skinIndex]
+  // Variant skins (Guard/Medic, ...) reuse plain ids like 'base' across forms, so they need the
+  // same class-namespaced id getWalkableChibis() uses, or they'd collide with the primary form's.
+  const currentSkinNamespacedId = activeVariant ? `${activeVariant.class.toLowerCase()}:${currentSkin.id}` : currentSkin.id
+  const currentSkinChibiId = currentSkin.chibiMoveSrc && currentSkin.chibiFraming
+    ? getChibiId({ operatorName: activeOperator.name, skinId: currentSkinNamespacedId })
+    : undefined
+  const activeChibiIdForOperator = selectedChibiIds.find(id => id.startsWith(`${activeOperator.name}::`))
+  const currentSkinWalkingToggle = currentSkinChibiId ? {
+    isSelected: currentSkinChibiId === activeChibiIdForOperator,
+    disabled: currentSkinChibiId !== activeChibiIdForOperator && !activeChibiIdForOperator && selectedChibiIds.length >= MAX_WALKING_CHIBIS,
+    onToggle: () => toggleChibiSelection(currentSkinChibiId),
+  } : undefined
 
   const artRef = useRef<HTMLImageElement>(null)
 
@@ -361,6 +376,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlter = false }:
               operator={activeOperator}
               skinSrc={activeOperator.skins[skinIndex].src}
               chibiSrc={activeOperator.skins[skinIndex].chibiSrc}
+              chibiDetailFraming={activeOperator.skins[skinIndex].chibiDetailFraming}
+              walkingToggle={currentSkinWalkingToggle}
               l2d={activeOperator.skins[skinIndex].l2d}
               showL2D={showL2D}
             />
