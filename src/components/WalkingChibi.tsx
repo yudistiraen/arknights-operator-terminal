@@ -92,7 +92,7 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-0 left-0 z-99 pointer-events-none w-19.25 h-19.25 md:w-21.5 md:h-21.5"
+      className="fixed bottom-0.5 left-0 z-99 pointer-events-none w-19.25 h-19.25 md:w-21.5 md:h-21.5"
     >
       {/* The full chibi.framing transform (scale + offset) lives on this one plain wrapper div
           (not containerRef/flipRef, which GSAP owns for x-position and the walk-direction flip
