@@ -71,6 +71,18 @@ export function getRecruitableEntries(): RecruitableEntry[] {
     })
 }
 
+// 'Senior Operator' (5★) and 'Top Operator' (6★) are mutually exclusive on any
+// single operator, so plain AND-across-all-selected-tags would make selecting
+// both of them together match nothing. Picking both is meant to widen the
+// rarity filter to "5★ or 6★", not narrow it — so this pair is matched as OR
+// against each other while every other selected tag still needs to be a
+// straight AND match, same as the base game's recruitment tag rules.
+const RARITY_QUALIFICATION_NORMS = new Set(['Senior Operator', 'Top Operator'].map(normalizeTag))
+
 export function matchesAllTags(tagSet: Set<string>, selected: RecruitTag[]): boolean {
-  return selected.every(tag => tagSet.has(tag.norm))
+  const rarityTags = selected.filter(tag => RARITY_QUALIFICATION_NORMS.has(tag.norm))
+  const otherTags = selected.filter(tag => !RARITY_QUALIFICATION_NORMS.has(tag.norm))
+  if (!otherTags.every(tag => tagSet.has(tag.norm))) return false
+  if (rarityTags.length === 0) return true
+  return rarityTags.some(tag => tagSet.has(tag.norm))
 }

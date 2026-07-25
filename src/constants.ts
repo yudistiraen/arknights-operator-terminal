@@ -24,6 +24,15 @@ export const RARITY_BAR: Record<number, string> = {
   1: 'from-white/30 to-white/10',
 }
 
+export const RARITY_SOLID: Record<number, string> = {
+  6: '#f07830',
+  5: '#f0c95c',
+  4: '#c9a0f0',
+  3: '#5ec4e6',
+  2: '#8ce6a0',
+  1: '#d8d8d8',
+}
+
 export const PHYSICAL_EXAM_RATINGS: Record<string, number> = {
   Flawed: 1,
   Normal: 2,

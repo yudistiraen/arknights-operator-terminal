@@ -8,6 +8,7 @@ import { playClick } from '../lib/sound'
 import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
 import { RosterCard } from './ui/RosterCard'
+import { RosterListRow } from './ui/RosterListRow'
 import { RARITY_GRADIENT } from '../constants'
 import {
   AFFIX_TAGS,
@@ -22,7 +23,7 @@ import {
 
 gsap.registerPlugin(useGSAP)
 
-const MAX_TAGS = 3
+const MAX_TAGS = 6
 
 const CATEGORY_STYLE: Record<RecruitCategory, {
   label: string
@@ -110,10 +111,45 @@ function TagGroup({ title, tags, selected, onToggle, isFull }: {
   )
 }
 
+type ViewMode = 'card' | 'list'
+
+function ViewModeToggle({ mode, onChange }: { mode: ViewMode; onChange: (mode: ViewMode) => void }) {
+  const options: { mode: ViewMode; label: string; path: string }[] = [
+    { mode: 'card', label: 'Card view', path: 'M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z' },
+    { mode: 'list', label: 'List view', path: 'M4 5h5v5H4V5zm7 1h9v1h-9V6zM4 14h5v5H4v-5zm7 1h9v1h-9v-1z' },
+  ]
+  return (
+    <div className="flex items-center gap-0.5 border border-white/[0.08] p-0.5">
+      {options.map(option => {
+        const isActive = mode === option.mode
+        return (
+          <button
+            key={option.mode}
+            type="button"
+            title={option.label}
+            aria-label={option.label}
+            aria-pressed={isActive}
+            onClick={() => { if (!isActive) { playClick(); onChange(option.mode) } }}
+            className={`flex items-center justify-center w-6 h-6 md:w-7 md:h-7 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright ${
+              isActive ? 'bg-ak-accent/20 text-ak-accent-bright' : 'text-white/35 hover:text-white/65'
+            }`}
+            style={{ transition: 'background-color 0.2s, color 0.2s' }}
+          >
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current">
+              <path d={option.path} />
+            </svg>
+          </button>
+        )
+      })}
+    </div>
+  )
+}
+
 export function Recruit() {
   const { hasEntered } = useApp()
   const containerRef = useRef<HTMLDivElement>(null)
   const [selected, setSelected] = useState<RecruitTag[]>([])
+  const [viewMode, setViewMode] = useState<ViewMode>('card')
 
   const recruitable = useMemo(() => getRecruitableEntries(), [])
   const isFull = selected.length >= MAX_TAGS
@@ -188,11 +224,15 @@ export function Recruit() {
               Recruitment
             </h1>
           </div>
-          <div className="flex items-center gap-2.5">
-            <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
-              {selected.length}<span className="text-white/15"> / {MAX_TAGS} TAGS</span>
-            </span>
-            <div className={`w-1.5 h-1.5 rounded-full ${selected.length > 0 ? 'bg-ak-accent/50 animate-[pulse-glow_2s_ease-in-out_infinite]' : 'bg-white/10'}`} />
+          <div className="flex items-center gap-3 md:gap-4">
+            <ViewModeToggle mode={viewMode} onChange={setViewMode} />
+            <div className="w-px h-4 bg-white/[0.08]" />
+            <div className="flex items-center gap-2.5">
+              <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
+                {selected.length}<span className="text-white/15"> / {MAX_TAGS} TAGS</span>
+              </span>
+              <div className={`w-1.5 h-1.5 rounded-full ${selected.length > 0 ? 'bg-ak-accent/50 animate-[pulse-glow_2s_ease-in-out_infinite]' : 'bg-white/10'}`} />
+            </div>
           </div>
         </div>
       </header>
@@ -285,13 +325,27 @@ export function Recruit() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-1.5 md:gap-3">
+                <div
+                  className={
+                    viewMode === 'card'
+                      ? 'grid grid-cols-[repeat(auto-fill,minmax(6.5rem,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(7.5rem,1fr))] md:grid-cols-[repeat(auto-fill,minmax(9rem,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(10rem,1fr))] gap-1.5 md:gap-3'
+                      : 'grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] gap-1.5 md:gap-2'
+                  }
+                >
                   {entries.map(({ entry }) => (
-                    <RosterCard
-                      key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
-                      entry={entry}
-                      href={buildHref(entry.isAlter, entry.operator.name)}
-                    />
+                    viewMode === 'card' ? (
+                      <RosterCard
+                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        entry={entry}
+                        href={buildHref(entry.isAlter, entry.operator.name)}
+                      />
+                    ) : (
+                      <RosterListRow
+                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        entry={entry}
+                        href={buildHref(entry.isAlter, entry.operator.name)}
+                      />
+                    )
                   ))}
                 </div>
               </section>
