@@ -64,4 +64,13 @@ export const EVENTS: GameEvent[] = [
     startDate: '2026-07-06',
     endDate: '2026-07-20',
   },
+  {
+    id: 'vector-breakthrough-2-trial-from-misery',
+    name: 'Vector Breakthrough #2: Trial from Misery',
+    tag: 'Event',
+    banner: '/events/vector-breakthrough-2-trial-from-misery/banner.png',
+    color: [125, 107, 126],
+    startDate: '2026-07-30',
+    endDate: '2026-08-20',
+  },
 ]
