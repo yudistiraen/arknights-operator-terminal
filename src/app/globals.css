@@ -119,7 +119,7 @@ html {
 
 @keyframes sidemenu-scan {
   0% { transform: translateX(-100%); }
-  100% { transform: translateX(calc(286px + 100%)); }
+  100% { transform: translateX(calc(264px + 100%)); }
 }
 
 .sidemenu-item:hover .sidemenu-scan-line {

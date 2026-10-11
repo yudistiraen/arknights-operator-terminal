@@ -1,5 +1,5 @@
-import { GrowthPlanner } from '../../components/GrowthPlanner'
+import { OperatorTraining } from '../../components/OperatorTraining'
 
-export default function PlannerPage() {
-  return <GrowthPlanner />
+export default function OperatorTrainingPage() {
+  return <OperatorTraining />
 }

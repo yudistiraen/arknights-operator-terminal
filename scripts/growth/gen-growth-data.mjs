@@ -1,6 +1,6 @@
 // Builds the Growth Planner's data from the EN gamedata (ArknightsAssets/ArknightsGamedata):
 //   src/data/operatorGrowth.ts   — EXP / LMD per level, level caps, promotion LMD, Battle Records
-//   src/data/promotionCosts.json — Elite 1 / Elite 2 promotion materials per roster operator
+//   src/data/operatorCosts.json  — per roster operator: promotion, skill level, mastery and module materials
 //
 // Operators are matched to character_table by display name, collected from every `name:` string
 // in src/data/operators/*.ts (alters included); names that aren't a playable character are skipped.
@@ -37,10 +37,11 @@ function collectRosterNames() {
   return names
 }
 
-const [gameConst, characterTable, itemTable] = await Promise.all([
+const [gameConst, characterTable, itemTable, uniequipTable] = await Promise.all([
   fetchTable('gamedata_const'),
   fetchTable('character_table'),
   fetchTable('item_table'),
+  fetchTable('uniequip_table'),
 ])
 
 // --- operatorGrowth.ts ---
@@ -87,18 +88,42 @@ ${battleRecords.join('\n')}
 ]
 `)
 
-// --- promotionCosts.json ---
+// --- operatorCosts.json ---
+// evolveCost / levelUpCostCond / allSkillLvlup come back as `{}` instead of an array when empty
+// (e.g. 3★ Elite 1 costs only LMD, 3★ skills have no masteries).
+const asArray = value => Array.isArray(value) ? value : []
+const toCosts = costs => asArray(costs).map(({ id, count }) => ({ id, count }))
+
+// Modules by character id. Original (default) modules have no cost and are skipped.
+const modulesByCharId = {}
+for (const equip of Object.values(uniequipTable.equipDict)) {
+  if (!equip.itemCost) continue
+  const stages = Object.keys(equip.itemCost).sort().map(stage => toCosts(equip.itemCost[stage]))
+  ;(modulesByCharId[equip.charId] ??= []).push({
+    code: [equip.typeName1, equip.typeName2].filter(Boolean).join('-'),
+    unlockLevel: equip.unlockLevel,
+    stages,
+  })
+}
+
 const rosterNames = collectRosterNames()
-const promotionCosts = {}
-for (const character of Object.values(characterTable)) {
+const operatorCosts = {}
+for (const [charId, character] of Object.entries(characterTable)) {
   const rosterName = ROSTER_NAME_BY_TABLE_NAME[character.name] ?? character.name
   if (NON_OPERATOR_PROFESSIONS.has(character.profession) || !rosterNames.has(rosterName)) continue
   // First entry wins for duplicate names — the original character precedes later re-releases.
-  if (promotionCosts[rosterName]) continue
-  // evolveCost is `{}` (not an array) for promotions that only cost LMD, e.g. 3★ Elite 1.
-  promotionCosts[rosterName] = character.phases.slice(1).map(phase =>
-    (Array.isArray(phase.evolveCost) ? phase.evolveCost : []).map(({ id, count }) => ({ id, count })))
+  if (operatorCosts[rosterName]) continue
+  operatorCosts[rosterName] = {
+    // [Elite 1, Elite 2]
+    promotion: character.phases.slice(1).map(phase => toCosts(phase.evolveCost)),
+    // [Lv1→2, …, Lv6→7], shared by all of the operator's skills
+    skillLevel: asArray(character.allSkillLvlup).map(step => toCosts(step.lvlUpCost)),
+    // Per skill: [M1, M2, M3]
+    mastery: asArray(character.skills).map(skill => asArray(skill.levelUpCostCond).map(step => toCosts(step.levelUpCost))),
+    // Per module: code (e.g. MAR-X), Elite 2 level it unlocks at, and [Stage 1, Stage 2, Stage 3] costs
+    modules: modulesByCharId[charId] ?? [],
+  }
 }
-writeFileSync(path.join(projectRoot, 'src/data/promotionCosts.json'), JSON.stringify(promotionCosts, null, 1) + '\n')
+writeFileSync(path.join(projectRoot, 'src/data/operatorCosts.json'), JSON.stringify(operatorCosts) + '\n')
 
-console.log(`operatorGrowth.ts written; promotion costs for ${Object.keys(promotionCosts).length} operators`)
+console.log(`operatorGrowth.ts written; costs for ${Object.keys(operatorCosts).length} operators`)

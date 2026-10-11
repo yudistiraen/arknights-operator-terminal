@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation'
 import { useApp } from './AppShell'
 import { playClick } from '../lib/sound'
 
+const SPRING_EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
+
 interface NavItem {
   href: string
   label: string
@@ -55,32 +57,73 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     href: '/planner',
-    label: 'Growth Planner',
+    label: 'Operator Training',
     icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-        <path d="M12 3l7 7-1.41 1.41L12 5.83l-5.59 5.58L5 10l7-7zm0 8l7 7-1.41 1.41L12 13.83l-5.59 5.58L5 18l7-7z" />
-      </svg>
+      <img src="/Training_icon.png" alt="" className="w-5 h-5 object-contain opacity-80" />
     ),
   },
 ]
 
-function MuteButton() {
+const ROW_CLASSES = `
+  sidemenu-item group relative flex items-center w-full h-12 overflow-hidden cursor-pointer
+  focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ak-accent-bright
+`
+
+function RowLabel({ isCollapsed, children }: { isCollapsed: boolean; children: React.ReactNode }) {
+  return (
+    <span
+      className={`relative z-10 font-display text-sm tracking-widest uppercase whitespace-nowrap ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
+      style={{ transition: 'opacity 0.2s' }}
+    >
+      {children}
+    </span>
+  )
+}
+
+function RowIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="relative z-10 shrink-0 flex items-center justify-center w-[72px] h-full group-active:scale-[0.9]" style={{ transition: 'transform 0.15s' }}>
+      {children}
+    </span>
+  )
+}
+
+function HoverScan() {
+  return (
+    <div className="sidemenu-scan absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 overflow-hidden" style={{ transition: 'opacity 0.15s' }}>
+      <div className="absolute inset-0 bg-white/[0.03]" />
+      <div
+        className="sidemenu-scan-line absolute top-0 w-[2px] h-full"
+        style={{ left: '-2px', background: 'linear-gradient(to bottom, transparent, rgba(94,196,230,0.5), transparent)' }}
+      />
+    </div>
+  )
+}
+
+function Divider({ isCollapsed }: { isCollapsed: boolean }) {
+  // Insets match the icon column's padding in both states: 16px each side of the 72px rail when collapsed.
+  return (
+    <div
+      className={`h-px mx-4 bg-white/[0.07] origin-left ${isCollapsed ? 'md:scale-x-[0.1724]' : 'scale-x-100'}`}
+      style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
+    />
+  )
+}
+
+function MuteButton({ isCollapsed }: { isCollapsed: boolean }) {
   const { isMuted, toggleMute } = useApp()
+  const label = isMuted ? 'Unmute' : 'Mute'
 
   return (
     <button
       onClick={() => { playClick(); toggleMute() }}
-      className="sidemenu-item group relative flex items-center gap-4 w-full px-5 py-4 overflow-hidden text-white/35 hover:text-white/70 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ak-accent-bright"
+      className={`${ROW_CLASSES} text-white/35 hover:text-white/70`}
       style={{ transition: 'color 0.25s' }}
+      title={isCollapsed ? label : undefined}
+      aria-label={label}
     >
-      <div className="sidemenu-scan absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 overflow-hidden" style={{ transition: 'opacity 0.15s' }}>
-        <div className="absolute inset-0 bg-white/[0.03]" />
-        <div
-          className="sidemenu-scan-line absolute top-0 w-[2px] h-full"
-          style={{ left: '-2px', background: 'linear-gradient(to bottom, transparent, rgba(94,196,230,0.5), transparent)' }}
-        />
-      </div>
-      <span className="relative z-10 shrink-0">
+      <HoverScan />
+      <RowIcon>
         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
           {isMuted ? (
             <path d="M16.5 12A4.5 4.5 0 0014 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.796 8.796 0 0021 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 003.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
@@ -88,45 +131,60 @@ function MuteButton() {
             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-3.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
           )}
         </svg>
-      </span>
-      <span className="relative z-10 font-display text-sm tracking-widest uppercase">
-        {isMuted ? 'Unmute' : 'Mute'}
-      </span>
+      </RowIcon>
+      <RowLabel isCollapsed={isCollapsed}>{label}</RowLabel>
     </button>
   )
 }
 
-function NavLink({ item, isActive, onClick }: { item: NavItem; isActive: boolean; onClick?: () => void }) {
+function CollapseButton({ isCollapsed, onToggle }: { isCollapsed: boolean; onToggle: () => void }) {
+  const label = isCollapsed ? 'Expand' : 'Collapse'
+
+  return (
+    <button
+      onClick={() => { playClick(); onToggle() }}
+      className={`${ROW_CLASSES} hidden md:flex text-white/35 hover:text-white/70`}
+      style={{ transition: 'color 0.25s' }}
+      title={isCollapsed ? label : undefined}
+      aria-label={label}
+      aria-expanded={!isCollapsed}
+    >
+      <HoverScan />
+      <RowIcon>
+        <svg
+          viewBox="0 0 24 24"
+          className={`w-5 h-5 fill-none stroke-current stroke-2 ${isCollapsed ? 'rotate-180' : 'rotate-0'}`}
+          style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
+        >
+          <path d="M11 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M18 5h2v14h-2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </RowIcon>
+      <RowLabel isCollapsed={isCollapsed}>{label}</RowLabel>
+    </button>
+  )
+}
+
+function NavLink({ item, isActive, isCollapsed, onClick }: { item: NavItem; isActive: boolean; isCollapsed: boolean; onClick?: () => void }) {
   return (
     <Link
       href={item.href}
       onClick={() => { playClick(); onClick?.() }}
-      className={`
-        sidemenu-item group relative flex items-center gap-4 w-full px-5 py-4 overflow-hidden
-        ${isActive
-          ? 'text-ak-accent-bright'
-          : 'text-white/35 hover:text-white/70'
-        }
-        focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ak-accent-bright
-      `}
+      className={`${ROW_CLASSES} ${isActive ? 'text-ak-accent-bright' : 'text-white/35 hover:text-white/70'}`}
       style={{ transition: 'color 0.25s' }}
+      title={isCollapsed ? item.label : undefined}
+      aria-label={item.label}
+      aria-current={isActive ? 'page' : undefined}
     >
       {isActive && (
-        <div className="absolute left-0 top-0 w-[2.5px] h-full bg-ak-accent-bright shadow-[0_0_8px_rgba(94,196,230,0.4)]" />
+        <>
+          <div className="absolute left-0 top-2 bottom-2 w-[2.5px] bg-ak-accent-bright shadow-[0_0_8px_rgba(94,196,230,0.4)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ak-accent-bright/[0.08] to-transparent pointer-events-none" />
+        </>
       )}
-
-      <div className="sidemenu-scan absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 overflow-hidden" style={{ transition: 'opacity 0.15s' }}>
-        <div className="absolute inset-0 bg-white/[0.03]" />
-        <div
-          className="sidemenu-scan-line absolute top-0 w-[2px] h-full"
-          style={{ left: '-2px', background: 'linear-gradient(to bottom, transparent, rgba(94,196,230,0.5), transparent)' }}
-        />
-      </div>
-
-      <span className="relative z-10 shrink-0">{item.icon}</span>
-      <span className="relative z-10 font-display text-sm tracking-widest uppercase whitespace-nowrap">
-        {item.label}
-      </span>
+      <HoverScan />
+      <RowIcon>{item.icon}</RowIcon>
+      <RowLabel isCollapsed={isCollapsed}>{item.label}</RowLabel>
     </Link>
   )
 }
@@ -135,6 +193,7 @@ export function SideMenu() {
   const pathname = usePathname()
   const { hasEntered, sidebarOpen, toggleSidebar } = useApp()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const isCollapsed = !sidebarOpen
 
   const closeMobile = useCallback(() => setMobileOpen(false), [])
 
@@ -160,103 +219,115 @@ export function SideMenu() {
         onClick={() => setMobileOpen(true)}
         className="fixed top-3 left-3 z-50 md:hidden w-10 h-10 flex items-center justify-center bg-white/[0.08] backdrop-blur-md border border-white/[0.12] shadow-[0_2px_12px_rgba(0,0,0,0.2)] hover:bg-white/[0.14] active:scale-[0.95] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
         style={{ transition: 'background-color 0.2s, transform 0.15s' }}
+        aria-label="Open menu"
       >
         <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/50">
           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
         </svg>
       </button>
 
-      {/* Desktop toggle (visible when sidebar is hidden) */}
-      {!sidebarOpen && (
-        <button
-          onClick={toggleSidebar}
-          className="fixed top-4 left-4 z-50 hidden md:flex w-10 h-10 items-center justify-center bg-white/[0.06] backdrop-blur-md border border-white/[0.1] shadow-[0_2px_12px_rgba(0,0,0,0.2)] hover:bg-white/[0.12] hover:border-white/[0.18] active:scale-[0.95] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
-          style={{ transition: 'background-color 0.2s, border-color 0.2s, transform 0.15s' }}
-        >
-          <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/50">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-          </svg>
-        </button>
-      )}
-
       {/* Backdrop (mobile) */}
       {mobileOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm md:hidden"
           onClick={closeMobile}
-          style={{ transition: 'opacity 0.3s' }}
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar — 264px expanded, 72px icon rail collapsed. Collapsing slides the panel left by 192px
+          and its content back right by the same amount, so the icon column never moves. */}
       <aside
         className={`
-          fixed top-0 left-0 h-full z-50 w-[286px]
+          fixed top-0 left-0 h-full z-50 w-[264px] overflow-hidden
           bg-ak-bg/95 backdrop-blur-md border-r border-white/[0.06]
           shadow-[4px_0_24px_rgba(0,0,0,0.4)]
-          flex flex-col
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
-          ${sidebarOpen ? 'md:translate-x-0' : 'md:-translate-x-full'}
+          ${isCollapsed ? 'md:-translate-x-[192px]' : 'md:translate-x-0'}
         `}
-        style={{ transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)' }}
+        style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
       >
-        {/* Header */}
-        <div className="flex items-start justify-between px-5 pt-6 pb-5">
-          <div>
-            <Link href="/" onClick={closeMobile} className="block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright">
-              <Image
-                src="/Arknights_logo.webp"
-                alt="Arknights"
-                width={415}
-                height={116}
-                className="h-10 w-auto object-contain opacity-70"
-              />
-            </Link>
-            <div className="flex items-center gap-2.5 mt-3">
-              <div className="w-2 h-2 bg-ak-accent rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
-              <span className="font-display text-[11px] text-white/20 tracking-[0.15em] uppercase">
-                Operator Terminal
-              </span>
+        <div
+          className={`flex flex-col h-full w-full ${isCollapsed ? 'md:translate-x-[192px]' : 'translate-x-0'}`}
+          style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
+        >
+          {/* Header — logo and monogram share the same 88px slot so nav rows never shift */}
+          <div className="relative h-[88px] shrink-0">
+            <div
+              className={`absolute inset-0 flex flex-col justify-center pl-[26px] ${isCollapsed ? 'md:opacity-0 md:pointer-events-none' : 'opacity-100'}`}
+              style={{ transition: 'opacity 0.2s' }}
+            >
+              <Link href="/" onClick={closeMobile} className="block w-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright" tabIndex={isCollapsed ? -1 : undefined}>
+                <Image
+                  src="/Arknights_logo.webp"
+                  alt="Arknights"
+                  width={415}
+                  height={116}
+                  className="h-9 w-auto object-contain opacity-70"
+                />
+              </Link>
+              <div className="flex items-center gap-2.5 mt-2.5">
+                <div className="w-1.5 h-1.5 bg-ak-accent rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
+                <span className="font-display text-[11px] text-white/25 tracking-[0.15em] uppercase">
+                  Operator Terminal
+                </span>
+              </div>
+            </div>
+
+            <div
+              className={`absolute top-0 left-0 w-[72px] h-full hidden md:flex items-center justify-center ${isCollapsed ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+              style={{ transition: 'opacity 0.2s' }}
+            >
+              <Link
+                href="/"
+                className="relative w-10 h-10 flex items-center justify-center border border-white/[0.12] hover:border-ak-accent-bright/50 active:scale-[0.94] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
+                style={{ transition: 'border-color 0.2s, transform 0.15s' }}
+                title="Command Center"
+                aria-label="Command Center"
+                tabIndex={isCollapsed ? undefined : -1}
+              >
+                <span className="font-display text-xs text-white/60 tracking-[0.1em]">RI</span>
+                <span className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 bg-ak-accent rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
+              </Link>
             </div>
           </div>
 
-          {/* Collapse button (desktop) */}
-          <button
-            onClick={toggleSidebar}
-            className="hidden md:flex mt-0.5 w-8 h-8 items-center justify-center text-white/20 hover:text-white/50 cursor-pointer active:scale-[0.9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
-            style={{ transition: 'color 0.2s, transform 0.15s' }}
-            title="Hide sidebar"
-          >
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-none stroke-current stroke-2">
-              <path d="M11 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M18 5h2v14h-2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
+          <Divider isCollapsed={isCollapsed} />
 
-        <div className="h-px bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent mx-2" />
+          {/* Navigation */}
+          <nav className="flex-1 py-3 flex flex-col gap-1">
+            {NAV_ITEMS.map((item) => {
+              const isActive = item.matchExact
+                ? pathname === item.href
+                : pathname.startsWith(item.href)
+              return <NavLink key={item.href} item={item} isActive={isActive} isCollapsed={isCollapsed} onClick={closeMobile} />
+            })}
+          </nav>
 
-        {/* Navigation */}
-        <nav className="flex-1 py-3 flex flex-col gap-0.5">
-          {NAV_ITEMS.map((item) => {
-            const isActive = item.matchExact
-              ? pathname === item.href
-              : pathname.startsWith(item.href)
-            return <NavLink key={item.href} item={item} isActive={isActive} onClick={closeMobile} />
-          })}
-        </nav>
+          <Divider isCollapsed={isCollapsed} />
 
-        <div className="h-px bg-gradient-to-r from-white/[0.06] via-white/[0.03] to-transparent mx-2" />
+          {/* Bottom section */}
+          <div className="py-3 flex flex-col gap-1">
+            <MuteButton isCollapsed={isCollapsed} />
+            <CollapseButton isCollapsed={isCollapsed} onToggle={toggleSidebar} />
+          </div>
 
-        {/* Bottom section */}
-        <div className="py-2">
-          <MuteButton />
-        </div>
-
-        <div className="px-5 pb-5 pt-1.5">
-          <p className="font-display text-[10px] text-white/50 tracking-wider leading-relaxed">
-            RHODES ISLAND<br />TERMINAL v0.5
-          </p>
+          {/* Footer — full label and short version cross-fade in the same slot */}
+          <div className="relative h-14 shrink-0">
+            <p
+              className={`absolute inset-0 flex flex-col justify-center pl-[26px] font-display text-[10px] text-white/40 tracking-wider leading-relaxed ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
+              style={{ transition: 'opacity 0.2s' }}
+            >
+              <span>RHODES ISLAND</span>
+              <span>TERMINAL v0.5</span>
+            </p>
+            <p
+              className={`absolute top-0 left-0 w-[72px] h-full hidden md:flex items-center justify-center font-display text-[10px] text-white/40 tracking-wider ${isCollapsed ? 'opacity-100' : 'opacity-0'}`}
+              style={{ transition: 'opacity 0.2s' }}
+              aria-hidden
+            >
+              v0.5
+            </p>
+          </div>
         </div>
       </aside>
     </>

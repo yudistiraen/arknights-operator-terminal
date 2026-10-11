@@ -1,4 +1,6 @@
 import amiya from './amiya'
+import ascalon from './ascalon'
+import ash from './ash'
 import bagpipe from './bagpipe'
 import blaze from './blaze'
 import rosmontis from './rosmontis'
@@ -165,6 +167,7 @@ import thrmEx from './thrm-ex'
 import justiceKnight from './justice-knight'
 import friston3 from './friston-3'
 import confess47 from './confess-47'
+import bellone from './bellone'
 import blemishine from './blemishine'
 import carnelian from './carnelian'
 import ceobe from './ceobe'
@@ -193,6 +196,8 @@ import weedy from './weedy'
 
 export const OPERATORS = [
   amiya,
+  ascalon,
+  ash,
   bagpipe,
   blaze,
   rosmontis,
@@ -359,6 +364,7 @@ export const OPERATORS = [
   justiceKnight,
   friston3,
   confess47,
+  bellone,
   blemishine,
   carnelian,
   ceobe,
