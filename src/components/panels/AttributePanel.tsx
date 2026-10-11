@@ -14,47 +14,47 @@ export function AttributePanel({ operator }: { operator: Operator }) {
   return (
     <>
       <div className="flex items-center justify-between mb-4">
-        <span className="text-xs text-white/40 font-display">E{operator.elite} LV{operator.level}</span>
-        <span className="text-xs text-white/40 font-display">Trust {operator.trust} / 200</span>
+        <span className="font-data text-[11px] text-gc-ink tracking-[0.14em] uppercase">E{operator.elite} · LV {operator.level}</span>
+        <span className="font-data text-[11px] text-gc-dim tracking-[0.14em] uppercase">Trust {operator.trust} / 200</span>
       </div>
       <div className="grid gap-3">
-        <StatBar label="HP" value={operator.stats.hp} max={3000} color="bg-gradient-to-r from-[#22c55e] to-[#4ade80]" delay={0.1} />
-        <StatBar label="ATK" value={operator.stats.atk} max={1000} color="bg-gradient-to-r from-[#ef4444] to-[#f87171]" delay={0.2} />
-        <StatBar label="DEF" value={operator.stats.def} max={800} color="bg-gradient-to-r from-ak-accent to-ak-accent-bright" delay={0.3} />
-        <StatBar label="RES" value={operator.stats.res} max={30} color="bg-gradient-to-r from-ak-infected to-[#c084fc]" delay={0.4} />
+        <StatBar label="HP" value={operator.stats.hp} max={3000} color="bg-gc-text" delay={0.1} />
+        <StatBar label="ATK" value={operator.stats.atk} max={1000} color="bg-gc-text" delay={0.2} />
+        <StatBar label="DEF" value={operator.stats.def} max={800} color="bg-gc-text" delay={0.3} />
+        <StatBar label="RES" value={operator.stats.res} max={30} color="bg-gc-text" delay={0.4} />
       </div>
-      <div className="grid grid-cols-4 gap-3 mt-5 pt-4 border-t border-white/[0.08]">
+      <div className="grid grid-cols-4 gap-px mt-5 bg-gc-line border border-gc-line">
         {secondaryStats.map(([statLabel, statValue]) => (
-          <div key={statLabel} className="text-center">
-            <div className="font-display text-[10px] text-white/40 uppercase tracking-wider mb-1">{statLabel}</div>
-            <div className="font-display text-base text-white/80 font-bold">{statValue}</div>
+          <div key={statLabel} className="text-center bg-gc-base py-3">
+            <div className="font-data text-[10px] text-gc-dim uppercase tracking-[0.14em] mb-1">{statLabel}</div>
+            <div className="font-data text-base text-gc-ink font-medium tabular-nums">{statValue}</div>
           </div>
         ))}
       </div>
-      <div className="mt-5 pt-4 border-t border-white/[0.08]">
+      <div className="mt-5 pt-4 border-t border-gc-line">
         <div className="flex items-center justify-between mb-3">
-          <span className="font-display text-[11px] text-white/40 uppercase tracking-wider">Attack Range</span>
+          <span className="font-data text-[10px] text-gc-dim uppercase tracking-[0.14em]">Attack Range</span>
         </div>
         <div className="flex items-start justify-center gap-10">
           <div className="flex flex-col items-center gap-2">
             <RangeGrid grid={operator.range.base} />
-            <span className="font-display text-[10px] text-white/30 tracking-wider">Base</span>
+            <span className="font-data text-[10px] text-gc-dim tracking-wider">Base</span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <RangeGrid grid={operator.range.e1} />
-            <span className="font-display text-[10px] text-white/30 tracking-wider">E1</span>
+            <span className="font-data text-[10px] text-gc-dim tracking-wider">E1</span>
           </div>
           {operator.rarity >= 4 && operator.range.e2 && (
             <div className="flex flex-col items-center gap-2">
               <RangeGrid grid={operator.range.e2} />
-              <span className="font-display text-[10px] text-white/30 tracking-wider">E2</span>
+              <span className="font-data text-[10px] text-gc-dim tracking-wider">E2</span>
             </div>
           )}
         </div>
       </div>
-      <div className="mt-5 pt-4 border-t border-white/[0.08]">
+      <div className="mt-5 pt-4 border-t border-gc-line">
         <div className="flex items-center justify-between mb-3">
-          <span className="font-display text-[11px] text-white/40 uppercase tracking-wider">Physical Exam</span>
+          <span className="font-data text-[10px] text-gc-dim uppercase tracking-[0.14em]">Physical Exam</span>
         </div>
         <PhysicalExamPanel operator={operator} />
       </div>

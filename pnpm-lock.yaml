@@ -26,6 +26,9 @@ importers:
       next:
         specifier: ^15.3.4
         version: 15.5.23(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      particles.js:
+        specifier: 2.0.0
+        version: 2.0.0
       react:
         specifier: ^19.2.7
         version: 19.2.8
@@ -1259,6 +1262,9 @@ packages:
   parse5@7.3.0:
     resolution: {integrity: sha512-IInvU7fabl34qmi9gY8XOVxhYyMyuH2xUNpb2q8/Y+7552KlejkRvqvD19nMoUW/uQGGbqNpA6Tufu5FL5BZgw==}
 
+  particles.js@2.0.0:
+    resolution: {integrity: sha512-8e0JIqkRbMMPlFBnF9f+92hX1s07jdkd3tqB8uHE9L+cwGGjIYjQM7QLgt0FQ5MZp6SFFYYDm/Y48pqK3ZvJOQ==}
+
   pend@1.2.0:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==}
 
@@ -2423,6 +2429,8 @@ snapshots:
   parse5@7.3.0:
     dependencies:
       entities: 6.0.1
+
+  particles.js@2.0.0: {}
 
   pend@1.2.0: {}
 

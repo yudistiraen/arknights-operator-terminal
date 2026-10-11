@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Operator } from '../../types'
+import { FOCUS_RING } from '../ui/Console'
 
 export function ProfilePanel({ operator }: { operator: Operator }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -23,15 +24,15 @@ export function ProfilePanel({ operator }: { operator: Operator }) {
     <div className="space-y-5">
       <div className="grid grid-cols-2 gap-x-8 gap-y-3">
         {profileFields.map(([fieldLabel, fieldValue]) => (
-          <div key={fieldLabel} className="flex justify-between items-baseline border-b border-white/[0.06] pb-2">
-            <span className="text-[10px] font-display text-white/40 uppercase tracking-wider">{fieldLabel}</span>
-            <span className={`text-xs font-display font-semibold ${fieldLabel === 'Infection' ? fieldValue === 'Infected' ? 'text-ak-infected' : 'text-ak-non-infected' : 'text-white/80'}`}>{fieldValue}</span>
+          <div key={fieldLabel} className="flex justify-between items-baseline border-b border-gc-line-soft pb-2">
+            <span className="text-[10px] font-data text-gc-dim uppercase tracking-[0.14em]">{fieldLabel}</span>
+            <span className={`text-xs font-data font-medium ${fieldLabel === 'Infection' ? fieldValue === 'Infected' ? 'text-ak-infected' : 'text-ak-non-infected' : 'text-gc-ink'}`}>{fieldValue}</span>
           </div>
         ))}
       </div>
 
-      <div className="bg-white/[0.04] border border-white/[0.06] p-5">
-        <p className="text-xs leading-[1.8] text-white/50 whitespace-pre-line italic">{operator.profile}</p>
+      <div className="bg-gc-base border border-gc-line p-5">
+        <p className="font-body text-[13px] leading-[1.7] text-gc-text whitespace-pre-line">{operator.profile}</p>
       </div>
 
       {operator.records && operator.records.length > 0 && (
@@ -39,14 +40,15 @@ export function ProfilePanel({ operator }: { operator: Operator }) {
           {operator.records.map((record, index) => {
             const isOpen = openIndex === index
             return (
-              <div key={record.title} className="border border-white/[0.06] overflow-hidden">
+              <div key={record.title} className="border border-gc-line overflow-hidden">
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full flex items-center justify-between px-4 py-3 bg-white/[0.03] hover:bg-white/[0.06] transition-colors duration-200"
+                  aria-expanded={isOpen}
+                  className={`w-full flex items-center justify-between px-4 py-3 cursor-pointer ${isOpen ? 'bg-gc-invert' : 'bg-gc-base hover:bg-gc-raised active:bg-gc-panel'} ${FOCUS_RING}`}
                 >
-                  <span className="text-[11px] font-display font-semibold text-white/70 uppercase tracking-wider">{record.title}</span>
+                  <span className={`text-[11px] font-data font-medium uppercase tracking-[0.12em] ${isOpen ? 'text-gc-void' : 'text-gc-ink'}`}>{record.title}</span>
                   <svg
-                    className={`w-3.5 h-3.5 text-white/30 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-3.5 h-3.5 transition-transform duration-300 ${isOpen ? 'rotate-180 text-gc-void' : 'text-gc-dim'}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -60,8 +62,8 @@ export function ProfilePanel({ operator }: { operator: Operator }) {
                   style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-4 py-4 bg-white/[0.02]">
-                      <p className="text-xs leading-[1.8] text-white/50 whitespace-pre-line">{record.content}</p>
+                    <div className="px-4 py-4 bg-gc-panel">
+                      <p className="font-body text-[13px] leading-[1.7] text-gc-text whitespace-pre-line">{record.content}</p>
                     </div>
                   </div>
                 </div>

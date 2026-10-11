@@ -4,6 +4,7 @@ import type { Operator, OperatorSkin, SkinL2D } from '../types'
 import type { WalkingToggleProps } from '../lib/chibiSelection'
 import { SpineViewer } from './SpineViewer'
 import { useArtZoom } from '../lib/useArtZoom'
+import { BracketCorners, FOCUS_RING, NoImage } from './ui/Console'
 
 const ZOOM_HINT_STORAGE_KEY = 'ak-art-zoom-hint-seen'
 const ZOOM_HINT_DELAY_MS = 1400
@@ -48,8 +49,8 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
         {...viewportHandlers}
         className={`absolute inset-0 overflow-hidden select-none ${isZoomed ? 'touch-none' : 'touch-pan-y'} ${isZoomed ? (isGesturing ? 'cursor-grabbing' : 'cursor-grab') : 'cursor-zoom-in'}`}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-ak-bg z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-ak-bg via-ak-bg/70 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-gc-void z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-gc-void via-gc-void/70 to-transparent z-10" />
         <div className="char-art absolute inset-0 z-0 flex items-center justify-center">
           <div
             ref={contentRef}
@@ -73,42 +74,39 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
               draggable={false}
               // Zoomed in, ask for the biggest srcset candidate so the art stays sharp.
               sizes={isZoomed ? '(max-width: 768px) 360vw, 220vw' : '(max-width: 768px) 90vw, 55vw'}
-              className={`object-contain drop-shadow-[0_0_40px_rgba(59,164,201,0.1)] ${l2d && showL2D ? 'invisible' : ''}`}
+              className={`object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] ${l2d && showL2D ? 'invisible' : ''}`}
             />
             {l2d && showL2D && (
-              <SpineViewer l2d={l2d} className="absolute inset-0 w-full h-full drop-shadow-[0_0_40px_rgba(59,164,201,0.1)]" />
+              <SpineViewer l2d={l2d} className="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]" />
             )}
           </div>
         </div>
         <div
           aria-hidden={!showZoomHint}
-          className={`absolute top-14 left-1/2 -translate-x-1/2 z-30 pointer-events-none flex items-center gap-2 px-3 py-1.5 bg-ak-panel/75 backdrop-blur-md border border-ak-accent/30 shadow-[0_4px_16px_rgba(0,0,0,0.3),0_0_12px_rgba(59,164,201,0.12),inset_0_1px_0_rgba(255,255,255,0.06)] ${
+          className={`absolute top-14 left-1/2 -translate-x-1/2 z-30 pointer-events-none flex items-center gap-2 px-3 py-1.5 bg-gc-float border border-gc-line-strong shadow-[0_24px_48px_-16px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.5)] ${
             showZoomHint ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1.5'
           }`}
           style={{ transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), translate 0.5s cubic-bezier(0.22,1,0.36,1)' }}
         >
           {isTouchDevice ? (
-            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-ak-accent-bright stroke-2">
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-gc-signal stroke-2">
               <path d="M4 4l5 5M4 4v4M4 4h4M20 20l-5-5M20 20v-4M20 20h-4" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-ak-accent-bright stroke-2">
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-gc-signal stroke-2">
               <rect x="6" y="3" width="12" height="18" rx="6" />
               <path d="M12 7v3" strokeLinecap="round" />
             </svg>
           )}
-          <span className="font-display text-[10px] md:text-[11px] tracking-[0.15em] uppercase text-white/75 whitespace-nowrap">
+          <span className="font-data text-[10px] md:text-[11px] tracking-[0.14em] uppercase text-gc-text whitespace-nowrap">
             {isTouchDevice ? 'Pinch to zoom · Double-tap to reset' : 'Scroll to zoom · Double-click to reset'}
           </span>
         </div>
         <div data-zoom-ignore className="hud-item absolute bottom-4 right-4 md:bottom-8 md:right-20 z-20 flex flex-col items-center gap-2 md:gap-5">
           <div className="relative w-20 h-20 md:w-35 md:h-35 flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0 bg-ak-panel/40 backdrop-blur-sm border border-ak-border/30 shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(59,164,201,0.06)_0%,transparent_70%)]" />
-            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-ak-accent/40" />
-            <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-ak-accent/40" />
-            <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-ak-accent/40" />
-            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-ak-accent/40" />
+            <div className="absolute inset-0 bg-gc-frame/80 border border-gc-line shadow-[0_12px_32px_-12px_rgba(0,0,0,0.7)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(var(--color-gc-line-soft)_1px,transparent_1px),linear-gradient(90deg,var(--color-gc-line-soft)_1px,transparent_1px)] bg-[size:12px_12px]" />
+            <BracketCorners size={12} className="border-gc-line-strong" />
             {walkingToggle && (
               <button
                 type="button"
@@ -116,12 +114,12 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
                 disabled={walkingToggle.disabled}
                 title={walkingToggle.isSelected ? 'Remove from walking chibi' : 'Set this skin as walking chibi'}
                 aria-pressed={walkingToggle.isSelected}
-                className={`absolute top-1 left-1 z-20 flex items-center justify-center w-5 h-5 md:w-6 md:h-6 border backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright ${
+                className={`absolute top-1 left-1 z-20 flex items-center justify-center w-5 h-5 md:w-6 md:h-6 border active:scale-[0.92] ${FOCUS_RING} ${
                   walkingToggle.isSelected
-                    ? 'bg-ak-accent/80 border-ak-accent-bright text-white'
-                    : 'bg-black/40 border-white/20 text-white/50 hover:border-white/40 hover:text-white/80'
+                    ? 'bg-gc-invert border-gc-invert text-gc-void'
+                    : 'bg-gc-void/70 border-gc-line-strong text-gc-dim hover:bg-gc-raised hover:text-gc-ink'
                 } ${walkingToggle.disabled && !walkingToggle.isSelected ? 'opacity-30 cursor-not-allowed' : 'cursor-pointer'}`}
-                style={{ transition: 'background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s' }}
+                style={{ transition: 'transform 0.15s, opacity 0.2s' }}
               >
                 <svg viewBox="0 0 24 24" className="w-2.5 h-2.5 md:w-3 md:h-3 fill-current">
                   <ellipse cx="12" cy="15.5" rx="4.5" ry="6.5" />
@@ -133,9 +131,7 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
               </button>
             )}
             {chibiError ? (
-              <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <span className="font-display text-xs text-white/20 tracking-wider">-Data Not Found-</span>
-              </div>
+              <NoImage label="No chibi data" className="relative z-10 w-full h-full !bg-transparent !border-0" />
             ) : (
               <video
                 key={chibiSrc}

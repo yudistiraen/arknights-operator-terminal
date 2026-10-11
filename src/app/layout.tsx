@@ -1,19 +1,25 @@
 import type { Metadata } from 'next'
-import { Rajdhani, Inter } from 'next/font/google'
+import { Michroma, IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AppShell } from '../components/AppShell'
 import './globals.css'
 
-const rajdhani = Rajdhani({
+const michroma = Michroma({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-rajdhani',
+  weight: ['400'],
+  variable: '--font-michroma',
 })
 
-const inter = Inter({
+const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600'],
+  variable: '--font-plex',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-jetbrains',
 })
 
 export const metadata: Metadata = {
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${rajdhani.variable} ${inter.variable}`}>
+    <html lang="en" className={`${michroma.variable} ${plexSans.variable} ${jetbrainsMono.variable}`}>
       <body>
         <AppShell>{children}</AppShell>
         <Analytics />

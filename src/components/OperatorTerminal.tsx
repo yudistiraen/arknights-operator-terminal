@@ -10,6 +10,7 @@ import { toSlug, getRosterEntries, altersOf } from '../lib/operators'
 import { getChibiId, MAX_WALKING_CHIBIS } from '../lib/chibiSelection'
 import { playClick, playTransition } from '../lib/sound'
 import { BUTTON_BASE, BUTTON_HOVER, BUTTON_CYAN_BASE, BUTTON_CYAN_HOVER, PHYSICAL_EXAM_RATINGS } from '../constants'
+import { BracketCorners, FOCUS_RING, SignalTriangle } from './ui/Console'
 import { PANEL_CONFIGS } from './panels'
 import { CharacterArt } from './CharacterArt'
 import { OperatorHud } from './OperatorHud'
@@ -88,7 +89,6 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
       : baseOperator
   const factionTheme = getFactionTheme(activeOperator.faction)
   const [accentR, accentG, accentB] = factionTheme.accent
-  const [secR, secG, secB] = factionTheme.secondary
   const hasModules = Object.keys(activeOperator.modules).length > 0
 
   const currentSkin = activeOperator.skins[skinIndex]
@@ -297,10 +297,8 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
       .fromTo('.lobby-btn', { opacity: 0, y: 25, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, stagger: 0.06 }, '-=0.5')
       .fromTo('.hud-item', { opacity: 0, y: -10 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.05 }, '-=0.3')
       .fromTo('.skin-btn', { opacity: 0, x: -15 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.06 }, '-=0.4')
-      .fromTo('.section-label', { opacity: 0, x: 10, letterSpacing: '0.5em' }, { opacity: 1, x: 0, letterSpacing: '0.2em', duration: 0.6, stagger: 0.15, ease: 'power2.out' }, '-=0.6')
+      .fromTo('.section-label', { opacity: 0, x: 10 }, { opacity: 1, x: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out' }, '-=0.6')
       .fromTo('.section-divider', { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: 'power2.out' }, '-=0.5')
-    gsap.to('.scanline', { y: '100vh', duration: 8, repeat: -1, ease: 'none' })
-    gsap.to('.glow-orb', { opacity: 0.3, scale: 1.1, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' })
   }, { scope: containerRef, dependencies: [hasEntered] })
 
   const renderCard = (panelId: string, baseClassName: string, hoverClassName: string, previewContent: React.ReactNode, disabled = false) => {
@@ -320,9 +318,9 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
         <div className="btn-preview flex flex-col justify-between h-full">{previewContent}</div>
         {isExpanded && (
           <div className="btn-expanded absolute inset-0 flex flex-col">
-            <div className="flex items-center gap-2 md:gap-3 px-4 md:px-6 pt-3 md:pt-5 pb-2 md:pb-4 border-b border-white/[0.1] shrink-0">
-              <div className={`w-1 h-4 md:h-5 ${panelConfig.accent} rounded-full`} />
-              <h2 className="font-display text-base md:text-lg font-bold text-white/90 tracking-wider uppercase">{panelConfig.title}</h2>
+            <div className="flex items-center gap-3 px-4 md:px-6 h-11 md:h-14 border-b border-gc-line shrink-0">
+              <span className="w-1.5 h-1.5 bg-gc-signal" />
+              <h2 className="font-display text-[12px] md:text-[14px] text-gc-text tracking-[0.18em] uppercase leading-none">{panelConfig.title}</h2>
             </div>
             <div className="flex-1 overflow-y-auto p-4 md:p-6 ak-scroll">
               <PanelComponent operator={activeOperator} />
@@ -334,40 +332,16 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
   }
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-ak-bg flex flex-col">
+    <div ref={containerRef} className="relative w-full min-h-screen md:h-screen overflow-x-hidden overflow-y-auto md:overflow-hidden bg-gc-void flex flex-col">
       <div className="flex-1 min-h-0 relative overflow-hidden">
+        {/* Neutral graphite stage behind the art; the faction tint survives only as a faint wash */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_28%_45%,#2a2b2e_0%,transparent_70%),radial-gradient(ellipse_50%_50%_at_90%_10%,#1f2022_0%,transparent_60%)]" />
         <div
-          className="absolute inset-0 transition-[background-color] duration-1000 ease-in-out"
-          style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.04)` }}
+          className="absolute inset-0 opacity-100"
+          style={{ background: `radial-gradient(ellipse at 25% 50%, rgba(${accentR}, ${accentG}, ${accentB}, 0.04) 0%, transparent 60%)` }}
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: `radial-gradient(ellipse at 25% 50%, rgba(${accentR}, ${accentG}, ${accentB}, 0.1) 0%, transparent 60%)` }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{ background: `radial-gradient(ellipse at 80% 20%, rgba(${secR}, ${secG}, ${secB}, 0.05) 0%, transparent 50%)` }}
-        />
-        {/* Faint hex grid, echoing the Terra map's hex mosaic on the Dashboard;
-            tinted to the operator's faction accent. Scoped to the character art side only —
-            matches the art panel's own bounds (h-[50vh] top strip on mobile, left 58% on desktop)
-            so the button-dense combat data panel on the right stays plain. */}
-        <div
-          className="absolute top-0 left-0 w-full h-[50vh] md:inset-y-0 md:h-auto md:w-[58%] opacity-[0.03] mask-[radial-gradient(ellipse_90%_70%_at_50%_0%,black,transparent_75%)] transition-opacity duration-1000 ease-in-out"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='28' height='49' viewBox='0 0 28 49' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z' fill='%23${[accentR, accentG, accentB].map(channel => channel.toString(16).padStart(2, '0')).join('')}' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-            backgroundSize: '56px 98px',
-          }}
-        />
-        <div
-          className="glow-orb absolute top-1/3 left-1/5 w-[500px] h-[500px] rounded-full blur-[120px] opacity-20 transition-[background-color] duration-1000 ease-in-out"
-          style={{ backgroundColor: `rgba(${accentR}, ${accentG}, ${accentB}, 0.08)` }}
-        />
-        <div
-          className="scanline absolute left-0 w-full h-px pointer-events-none z-50"
-          style={{ top: '-1px', background: `linear-gradient(to right, transparent, rgba(${accentR}, ${accentG}, ${accentB}, 0.2), transparent)` }}
-        />
-        <div className="absolute inset-0 opacity-[0.025] pointer-events-none z-40" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
+        {/* Survey-grid backdrop on the art side only */}
+        <div className="absolute top-0 left-0 w-full h-[50vh] md:inset-y-0 md:h-auto md:w-[58%] pointer-events-none opacity-60 bg-[linear-gradient(var(--color-gc-line-soft)_1px,transparent_1px),linear-gradient(90deg,var(--color-gc-line-soft)_1px,transparent_1px)] bg-[size:48px_48px] mask-[radial-gradient(ellipse_70%_70%_at_45%_45%,black,transparent_80%)]" />
 
         <TopBar />
 
@@ -392,14 +366,14 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
                 aria-label={showL2D ? 'Switch to static artwork' : 'Switch to dynamic illustration'}
                 aria-pressed={showL2D}
                 title={showL2D ? 'Static artwork' : 'Dynamic illustration'}
-                className={`hud-item absolute bottom-1 md:bottom-2 right-[calc(50%+70px)] md:right-[calc(50%+84px)] z-30 group w-6 h-6 md:w-7 md:h-7 flex items-center justify-center rounded-full border cursor-pointer active:scale-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6] ${
+                className={`hud-item absolute bottom-1 md:bottom-2 right-[calc(50%+70px)] md:right-[calc(50%+84px)] z-30 group w-6 h-6 md:w-7 md:h-7 flex items-center justify-center border cursor-pointer active:scale-90 ${FOCUS_RING} ${
                   showL2D
-                    ? 'bg-ak-accent/25 border-ak-accent/60 shadow-[0_0_10px_rgba(59,164,201,0.35),inset_0_1px_0_rgba(255,255,255,0.08)]'
-                    : 'bg-ak-panel border-white/[0.2] hover:border-white/35 hover:bg-white/[0.1]'
+                    ? 'bg-gc-invert border-gc-invert'
+                    : 'bg-gc-frame border-gc-line-strong hover:bg-gc-raised'
                 }`}
-                style={{ transition: 'transform 0.15s cubic-bezier(0.34,1.56,0.64,1), background-color 0.2s, border-color 0.2s, box-shadow 0.2s' }}
+                style={{ transition: 'transform 0.15s cubic-bezier(0.22,1.2,0.36,1)' }}
               >
-                <svg viewBox="0 0 24 24" fill="none" className={`w-3 h-3 md:w-3.5 md:h-3.5 ${showL2D ? 'text-ak-accent-bright' : 'text-white/70 group-hover:text-white'}`} style={{ transition: 'color 0.2s' }}>
+                <svg viewBox="0 0 24 24" fill="none" className={`w-3 h-3 md:w-3.5 md:h-3.5 ${showL2D ? 'text-gc-void' : 'text-gc-text group-hover:text-gc-ink'}`}>
                   <path d="M17 2.5l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M3 12.5v-2a4 4 0 0 1 4-4h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   <path d="M7 21.5l-4-4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -411,19 +385,21 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
               <div className="absolute bottom-28 md:bottom-52 left-4 md:left-8 z-30 flex items-center gap-1.5">
                 <button
                   onClick={() => switchVariant(-1)}
-                  className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === -1 ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
+                  className={`group relative w-9 h-9 md:w-10 md:h-10 flex items-center justify-center border active:scale-95 ${FOCUS_RING} ${variantIndex === -1 ? 'bg-gc-invert border-gc-invert' : 'bg-gc-frame border-gc-line hover:bg-gc-raised hover:border-gc-line-strong'}`}
+                  style={{ transition: 'transform 0.15s' }}
                   title={baseOperator.class}
                 >
-                  <Image src={baseOperator.classIcon} alt={baseOperator.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === -1 ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                  <Image src={baseOperator.classIcon} alt={baseOperator.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === -1 ? 'opacity-100 invert' : 'opacity-50 group-hover:opacity-80'} transition-opacity`} />
                 </button>
                 {baseOperator.variants.map((variant, index) => (
                   <button
                     key={variant.class}
                     onClick={() => switchVariant(index)}
-                    className={`group relative w-9 h-9 md:w-10 md:h-10 rounded flex items-center justify-center transition-all duration-200 ${variantIndex === index ? 'bg-white/15 ring-1 ring-white/40' : 'bg-white/4 hover:bg-white/10'}`}
+                    className={`group relative w-9 h-9 md:w-10 md:h-10 flex items-center justify-center border active:scale-95 ${FOCUS_RING} ${variantIndex === index ? 'bg-gc-invert border-gc-invert' : 'bg-gc-frame border-gc-line hover:bg-gc-raised hover:border-gc-line-strong'}`}
+                  style={{ transition: 'transform 0.15s' }}
                     title={variant.class}
                   >
-                    <Image src={variant.classIcon} alt={variant.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'} transition-opacity`} />
+                    <Image src={variant.classIcon} alt={variant.class} width={24} height={24} className={`w-5 h-5 md:w-6 md:h-6 ${variantIndex === index ? 'opacity-100 invert' : 'opacity-50 group-hover:opacity-80'} transition-opacity`} />
                   </button>
                 ))}
               </div>
@@ -439,25 +415,22 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
                   <button
                     key={btn.alt}
                     onClick={btn.onClick}
-                    className="group relative w-10 h-10 md:w-11 md:h-11 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+                    className={`group relative w-10 h-10 md:w-11 md:h-11 cursor-pointer active:scale-95 ${FOCUS_RING}`}
                     style={{ transition: 'transform 0.15s' }}
                   >
                     <div className="absolute bottom-full left-0 mb-1.5 pointer-events-none overflow-hidden h-0 group-hover:h-6 opacity-0 group-hover:opacity-100" style={{ transition: 'height 0.2s cubic-bezier(0.16,1,0.3,1), opacity 0.15s' }}>
                       <div
-                        className="max-w-0 group-hover:max-w-48 overflow-hidden whitespace-nowrap h-full bg-ak-panel/90 backdrop-blur-sm border border-ak-border/40 flex items-center px-0 group-hover:px-2.5"
+                        className="max-w-0 group-hover:max-w-48 overflow-hidden whitespace-nowrap h-full bg-gc-float border border-gc-line-strong flex items-center px-0 group-hover:px-2.5"
                         style={{ transition: 'max-width 0.35s cubic-bezier(0.16,1,0.3,1) 0.1s, padding 0.25s ease 0.1s' }}
                       >
-                        <span className="font-display text-[10px] tracking-wider text-white/70 opacity-0 group-hover:opacity-100" style={{ transition: 'opacity 0.15s ease 0.25s' }}>{btn.alt}</span>
+                        <span className="font-data text-[10px] tracking-wider text-gc-ink opacity-0 group-hover:opacity-100" style={{ transition: 'opacity 0.15s ease 0.25s' }}>{btn.alt}</span>
                       </div>
                     </div>
-                    <div className={`absolute inset-0 border backdrop-blur-sm overflow-hidden ${btn.active ? 'border-ak-accent/60 bg-ak-accent/10 shadow-[0_0_14px_rgba(59,164,201,0.25)]' : 'border-white/[0.12] bg-ak-panel/60 hover:border-white/[0.25]'}`} style={{ transition: 'border-color 0.3s, background-color 0.3s, box-shadow 0.3s' }}>
-                      <Image src={btn.src} alt={btn.alt} fill sizes="44px" className={`object-cover ${btn.active ? 'opacity-90' : 'opacity-40 group-hover:opacity-70'}`} style={{ transition: 'opacity 0.3s' }} />
+                    <div className={`absolute inset-0 border overflow-hidden ${btn.active ? 'border-gc-invert bg-gc-raised' : 'border-gc-line bg-gc-frame hover:border-gc-line-strong'}`}>
+                      <Image src={btn.src} alt={btn.alt} fill sizes="44px" className={`object-cover ${btn.active ? 'opacity-100' : 'opacity-40 group-hover:opacity-70'}`} style={{ transition: 'opacity 0.2s' }} />
                     </div>
-                    <div className={`absolute w-2.5 h-2.5 border-t border-l ${btn.active ? 'top-0.5 left-0.5 border-ak-accent/70' : '-top-1 -left-1 border-transparent group-hover:top-0.5 group-hover:left-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, left 0.3s, border-color 0.3s' }} />
-                    <div className={`absolute w-2.5 h-2.5 border-t border-r ${btn.active ? 'top-0.5 right-0.5 border-ak-accent/70' : '-top-1 -right-1 border-transparent group-hover:top-0.5 group-hover:right-0.5 group-hover:border-white/30'}`} style={{ transition: 'top 0.3s, right 0.3s, border-color 0.3s' }} />
-                    <div className={`absolute w-2.5 h-2.5 border-b border-l ${btn.active ? 'bottom-0.5 left-0.5 border-ak-accent/70' : '-bottom-1 -left-1 border-transparent group-hover:bottom-0.5 group-hover:left-0.5 group-hover:border-white/30'}`} style={{ transition: 'bottom 0.3s, left 0.3s, border-color 0.3s' }} />
-                    <div className={`absolute w-2.5 h-2.5 border-b border-r ${btn.active ? 'bottom-0.5 right-0.5 border-ak-accent/70' : '-bottom-1 -right-1 border-transparent group-hover:bottom-0.5 group-hover:right-0.5 group-hover:border-white/30'}`} style={{ transition: 'bottom 0.3s, right 0.3s, border-color 0.3s' }} />
-                    {btn.active && <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-ak-accent rounded-full shadow-[0_0_8px_rgba(59,164,201,0.6)]" />}
+                    {btn.active && <BracketCorners size={6} className="border-gc-signal" />}
+                    {btn.active && <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-gc-signal" />}
                   </button>
                 ))}
               </div>
@@ -469,22 +442,22 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
           </div>
 
           <div className="relative w-full md:absolute md:right-0 md:top-0 md:w-[46%] md:h-full z-20">
-            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-ak-bg/70 via-ak-bg/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-gc-void/90 via-gc-void/60 to-transparent pointer-events-none" />
             <div ref={gridRef} className="relative z-10 md:h-full flex flex-col justify-start md:justify-center gap-1.5 md:gap-2 px-3 md:pr-6 md:pl-4 py-4 md:pt-16 md:pb-6">
-              <span className="section-label text-[8px] md:text-[10px] text-white/35 font-display tracking-[0.2em] uppercase pl-1">Combat Data</span>
+              <span className="section-label flex items-center gap-2 text-[9px] md:text-[10px] text-gc-dim font-data tracking-[0.18em] uppercase pl-1"><span className="w-1.5 h-1.5 bg-gc-signal" />Combat Data</span>
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {renderCard('attribute', `${BUTTON_BASE} w-[38%] p-2 md:p-3`, BUTTON_HOVER, <>
                   <div>
-                    <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide leading-none mb-0.5 md:mb-1">Attribute</h2>
-                    <span className="font-display text-[10px] md:text-xs text-white/40 tracking-wider">Trust {activeOperator.trust} / 200</span>
+                    <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none mb-0.5 md:mb-1">Attribute</h2>
+                    <span className="font-data text-[10px] md:text-xs text-gc-dim tracking-wider">Trust {activeOperator.trust} / 200</span>
                   </div>
                   {(() => {
                     const examValues = Object.values(activeOperator.physicalExam)
                     const maxRating = Math.max(...examValues.map(v => PHYSICAL_EXAM_RATINGS[v] || 3))
                     return <div className="mt-1">
                       <div className="flex gap-2 md:gap-3">
-                        <span className="text-[10px] md:text-xs text-white/30 font-display">HP {activeOperator.stats.hp}</span>
-                        <span className="text-[10px] md:text-xs text-white/30 font-display">ATK {activeOperator.stats.atk}</span>
+                        <span className="text-[10px] md:text-xs text-gc-dim font-data">HP {activeOperator.stats.hp}</span>
+                        <span className="text-[10px] md:text-xs text-gc-dim font-data">ATK {activeOperator.stats.atk}</span>
                       </div>
                       <div className="flex gap-0.5 mt-1 md:mt-1.5">
                         {examValues.map((examValue, examIndex) => {
@@ -492,7 +465,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
                           const isHighest = rating === maxRating
                           return <div
                             key={examIndex}
-                            className={`h-1 flex-1 rounded-full ${rating >= 4 ? 'bg-ak-accent/60' : 'bg-white/15'}`}
+                            className={`h-1 flex-1 ${rating >= 4 ? 'bg-gc-text' : 'bg-gc-raised'} ${isHighest && maxRating > 4 ? '!bg-gc-signal' : ''}`}
                             style={isHighest && maxRating > 4 ? { animation: 'exam-blink 1.5s ease-in-out infinite' } : undefined}
                           />
                         })}
@@ -501,17 +474,18 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
                   })()}
                 </>)}
                 {renderCard('trait', `${BUTTON_CYAN_BASE} flex-1 p-2 md:p-3`, BUTTON_CYAN_HOVER, <>
+                  <SignalTriangle corner="bottom-left" />
                   <Image src={activeOperator.branchIcon} alt="" aria-hidden="true" width={88} height={88} className="absolute right-0 top-0 w-13 h-13 md:w-22 md:h-22 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
                   <div className="relative">
                     <div className="flex items-start justify-between">
-                      <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Trait</h2>
+                      <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Trait</h2>
                     </div>
-                    <div className="flex items-center gap-2 mb-2 md:mb-4">
-                      <span className="font-display text-[10px] md:text-sm text-ak-accent-bright">{activeOperator.branch}</span>
-                      <span className="text-[10px] md:text-sm text-white/40">&middot; {activeOperator.position}</span>
+                    <div className="flex items-center gap-2 mt-2 mb-2 md:mb-4">
+                      <span className="font-data text-[10px] md:text-[13px] text-gc-ink">{activeOperator.branch}</span>
+                      <span className="font-data text-[10px] md:text-[13px] text-gc-dim">&middot; {activeOperator.position}</span>
                     </div>
-                    <div className="relative z-10 bg-white/[0.06] border border-white/[0.08] p-2 md:p-4">
-                      <p className="text-[10px] md:text-xs leading-relaxed text-white/80">{activeOperator.trait}</p>
+                    <div className="relative z-10 bg-gc-base/40 border border-gc-line/70 p-2 md:p-4">
+                      <p className="font-body text-[11px] md:text-[13px] leading-[1.6] text-gc-text">{activeOperator.trait}</p>
                     </div>
                   </div>
                 </>, true)}
@@ -519,22 +493,22 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2.5]">
                 {renderCard('skills', `${BUTTON_BASE} w-[42%] p-2 md:p-3`, BUTTON_HOVER, <>
                   <div>
-                    <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Skills</h2>
-                    <div className="flex gap-1.5 md:gap-2 mt-1 md:mt-1.5">
+                    <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Skills</h2>
+                    <div className="flex gap-1.5 md:gap-2 mt-2 md:mt-3">
                       {activeOperator.skills.map((skill) => (
-                        <Image key={skill.name} src={skill.icon} alt={skill.name} width={40} height={40} className="w-7 h-7 md:w-10 md:h-10 rounded object-contain bg-white/[0.06]" />
+                        <Image key={skill.name} src={skill.icon} alt={skill.name} width={40} height={40} className="w-7 h-7 md:w-10 md:h-10 object-contain bg-gc-base border border-gc-line" />
                       ))}
                     </div>
                   </div>
-                  <span className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator?.skills[0]?.rank}</span>
+                  <span className="text-[8px] md:text-[9px] text-gc-dim font-data tracking-wider mt-1">{activeOperator.skills.length} Equipped &middot; {activeOperator?.skills[0]?.rank}</span>
                 </>)}
                 {renderCard('talents', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                  <h2 className="font-display text-sm md:text-xl font-bold text-white/90 tracking-wide">Talents</h2>
-                  <ul className="mt-1 md:mt-1.5 flex flex-col gap-1 md:gap-1.5">
+                  <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Talents</h2>
+                  <ul className="mt-2 md:mt-3 flex flex-col gap-1 md:gap-1.5">
                     {[...new Set(activeOperator.talents.map((talent) => talent.name))].map((talentName) => (
                       <li key={talentName} className="flex items-center gap-1.5 md:gap-2 min-w-0">
-                        <span aria-hidden="true" className="w-[3px] h-3 md:h-3.5 shrink-0 bg-ak-accent/60" />
-                        <span className="text-[10px] md:text-sm text-white/45 font-display tracking-wide truncate">{talentName}</span>
+                        <span aria-hidden="true" className="w-1 h-1 shrink-0 bg-gc-dim" />
+                        <span className="text-[10px] md:text-[13px] text-gc-text font-body truncate">{talentName}</span>
                       </li>
                     ))}
                   </ul>
@@ -543,49 +517,49 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {hasModules ? renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <div className="flex items-center justify-between">
-                    <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Modules</h2>
+                    <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Modules</h2>
                     <div className="flex gap-1">
                       {Object.values(activeOperator.modules).filter(mod => 'stages' in mod).map(mod => (
-                        <span key={mod.code} className="text-[10px] md:text-xs px-1 md:px-1.5 py-0.5 bg-ak-gold/20 text-ak-gold-bright border border-ak-gold/30 font-display rounded-sm">{mod.code}</span>
+                        <span key={mod.code} className="text-[9px] md:text-[11px] px-1 md:px-1.5 py-0.5 border border-gc-line-strong text-gc-ink font-data tracking-[0.06em]">{mod.code}</span>
                       ))}
                     </div>
                   </div>
-                  <span className="text-[10px] md:text-xs text-white/30 font-display">{Object.keys(activeOperator.modules).length} Equipped</span>
+                  <span className="text-[10px] md:text-xs text-gc-dim font-data">{Object.keys(activeOperator.modules).length} Equipped</span>
                 </>) : renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3 opacity-40`, BUTTON_HOVER, <>
                   <div className="flex items-center gap-2">
-                    <h2 className="font-display text-sm md:text-xl font-bold text-white/30 tracking-wide">Modules</h2>
+                    <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Modules</h2>
                   </div>
                   <div className="display-flex w-full">
-                    <svg className="w-7 h-7 md:w-10 md:h-10 text-white/20 shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <svg className="w-7 h-7 md:w-10 md:h-10 text-gc-ghost shrink-0 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636" />
                     </svg>
-                    <div className="text-[10px] md:text-xs text-white/15 font-display italic w-full text-center mt-1">— Module not available —</div>
+                    <div className="text-[9px] md:text-[10px] text-gc-ghost font-data uppercase tracking-[0.14em] w-full text-center mt-1">No module</div>
                   </div>
                 </>, true)}
                 {renderCard('growth', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                  <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Growth Materials</h2>
-                  <span className="text-[10px] md:text-xs text-white/35 font-display mt-0.5 md:mt-1">Coming Soon</span>
+                  <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Growth Materials</h2>
+                  <span className="text-[10px] md:text-xs text-gc-dim font-data mt-0.5 md:mt-1">Coming Soon</span>
                 </>)}
               </div>
 
-              <div className="section-divider h-px bg-gradient-to-r from-transparent via-white/[0.08] to-transparent my-0.5 md:my-1 origin-left" />
+              <div className="section-divider h-px bg-gc-line my-0.5 md:my-1 origin-left" />
 
-              <span className="section-label text-[8px] md:text-[10px] text-white/35 font-display tracking-[0.2em] uppercase pl-1">Operator Info</span>
+              <span className="section-label flex items-center gap-2 text-[9px] md:text-[10px] text-gc-dim font-data tracking-[0.18em] uppercase pl-1"><span className="w-1.5 h-1.5 bg-gc-ghost" />Operator Info</span>
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {renderCard('profile', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
                   <Image src={activeOperator.factionIcon} alt="" aria-hidden="true" width={88} height={88} className="absolute right-0 top-0 w-13 h-13 md:w-22 md:h-22 object-contain opacity-[0.12] pointer-events-none select-none" style={{ zIndex: 0 }} />
-                  <h2 className="relative font-display text-sm md:text-xl font-bold text-white/90 tracking-wide leading-none">Profile</h2>
-                  <span className="relative font-display text-[10px] md:text-xs text-ak-gold-bright tracking-wider font-semibold mt-1">{activeOperator.faction}</span>
+                  <h2 className="relative font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Profile</h2>
+                  <span className="relative font-data text-[10px] md:text-xs text-gc-ink tracking-[0.08em] uppercase mt-2">{activeOperator.faction}</span>
                 </>)}
                 {renderCard('voice', `${BUTTON_BASE} flex-[0.7] p-2 md:p-3`, BUTTON_HOVER, <>
-                  <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Voice Actors</h2>
-                  <span className="text-[10px] md:text-xs text-white/35 font-display mt-0.5 md:mt-1">4 Lang</span>
+                  <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Voice Actors</h2>
+                  <span className="text-[10px] md:text-xs text-gc-dim font-data mt-0.5 md:mt-1">4 Lang</span>
                 </>)}
                 {renderCard('story', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                  <h2 className="font-display text-sm md:text-xl font-bold text-white/85 tracking-wide">Story</h2>
+                  <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Story</h2>
                   {activeOperator.story
-                    ? <p className="text-[10px] md:text-xs text-white/30 font-display leading-relaxed italic mt-0.5 md:mt-1">This section might contain spoiler</p>
-                    : <span className="text-[10px] md:text-xs text-white/35 font-display mt-0.5 md:mt-1">Coming Soon</span>
+                    ? <p className="text-[9px] md:text-[10px] text-gc-signal-dim font-data uppercase tracking-[0.12em] leading-relaxed mt-0.5 md:mt-1">Contains spoilers</p>
+                    : <span className="text-[10px] md:text-xs text-gc-dim font-data mt-0.5 md:mt-1">Coming Soon</span>
                   }
                 </>)}
               </div>
@@ -593,7 +567,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
           </div>
         </div>
 
-        <div className="fixed md:absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_150px_rgba(0,0,0,0.4)]" />
+        <div className="fixed md:absolute inset-0 pointer-events-none z-40 shadow-[inset_0_0_120px_rgba(0,0,0,0.35)]" />
       </div>
     </div>
   )

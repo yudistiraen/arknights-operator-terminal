@@ -73,11 +73,11 @@ export const SplashScreen = forwardRef<HTMLDivElement, SplashScreenProps>(
     return (
       <div
         ref={ref}
-        className="group fixed inset-0 z-100 bg-ak-bg flex flex-col items-center justify-center cursor-pointer overflow-hidden"
+        className="group fixed inset-0 z-100 bg-gc-void flex flex-col items-center justify-center cursor-pointer overflow-hidden"
         onClick={onEnter}
         onMouseMove={handleMouseMove}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(59,164,201,0.04)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_40%,#26282b_0%,transparent_70%),radial-gradient(ellipse_50%_40%_at_100%_100%,#1a1b1d_0%,transparent_70%)]" />
         <div
           ref={glowRef}
           className="absolute w-135 h-135 rounded-full pointer-events-none"
@@ -86,26 +86,26 @@ export const SplashScreen = forwardRef<HTMLDivElement, SplashScreenProps>(
             top: '50%',
             marginLeft: '-270px',
             marginTop: '-270px',
-            background: 'radial-gradient(circle, rgba(59,164,201,0.10) 0%, transparent 60%)',
+            background: 'radial-gradient(circle, rgba(255,255,255,0.045) 0%, transparent 60%)',
           }}
         />
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }} />
 
         <div ref={contentRef} className="relative flex flex-col items-center gap-6">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-ak-accent/40 to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-gc-line-strong to-transparent" />
           <Image src="/Arknights_logo.webp" alt="Arknights" width={415} height={116} priority className="h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.08)]" />
           <div className="flex items-center gap-3">
-            <div className="w-8 h-px bg-ak-accent/30" />
-            <span className="font-display text-[11px] text-ak-accent-bright/60 tracking-[0.3em] uppercase">Operator Terminal</span>
-            <div className="w-8 h-px bg-ak-accent/30" />
+            <span className="w-1.5 h-1.5 bg-gc-signal" />
+            <span className="font-display text-[11px] text-gc-dim tracking-[0.3em] uppercase">Operator Terminal</span>
+            <span className="w-1.5 h-1.5 bg-gc-scan-dim" />
           </div>
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-ak-accent/40 to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-gc-line-strong to-transparent" />
           <span
-            className={`flex items-center gap-2.5 font-display text-[10px] text-white/25 tracking-[0.2em] uppercase ${bootDone ? 'opacity-100 animate-[pulse-glow_2s_ease-in-out_infinite]' : 'opacity-0'}`}
+            className={`flex items-center gap-2.5 font-data text-[10px] text-gc-dim tracking-[0.2em] uppercase ${bootDone ? 'opacity-100 animate-[pulse-glow_2s_ease-in-out_infinite]' : 'opacity-0'}`}
             style={{ transition: 'opacity 0.6s' }}
           >
             <span
-              className="text-ak-accent-bright/50 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+              className="text-gc-signal opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
               style={{ transition: 'opacity 0.25s, transform 0.25s' }}
               aria-hidden
             >
@@ -113,7 +113,7 @@ export const SplashScreen = forwardRef<HTMLDivElement, SplashScreenProps>(
             </span>
             Click or Press Enter
             <span
-              className="text-ak-accent-bright/50 opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+              className="text-gc-signal opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
               style={{ transition: 'opacity 0.25s, transform 0.25s' }}
               aria-hidden
             >
@@ -127,11 +127,11 @@ export const SplashScreen = forwardRef<HTMLDivElement, SplashScreenProps>(
           {BOOT_LINES.slice(0, lineCount).map((line, index) => {
             const isLastVisible = index === lineCount - 1
             return (
-              <p key={line} className="font-display text-[9px] md:text-[10px] tracking-[0.15em] text-ak-accent/45 leading-relaxed">
-                <span className="text-ak-accent/25">&gt; </span>
+              <p key={line} className="font-data text-[9px] md:text-[10px] tracking-[0.15em] text-gc-dim leading-relaxed">
+                <span className="text-gc-ghost">&gt; </span>
                 {line}
                 {isLastVisible && !bootDone && (
-                  <span className="inline-block w-1.5 h-2.5 ml-1 bg-ak-accent/60 align-middle animate-[exam-blink_0.8s_step-end_infinite]" />
+                  <span className="inline-block w-1.5 h-2.5 ml-1 bg-gc-signal align-middle animate-[exam-blink_0.8s_step-end_infinite]" />
                 )}
               </p>
             )
