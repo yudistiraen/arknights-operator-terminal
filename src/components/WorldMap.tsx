@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useId, useMemo, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
@@ -41,6 +41,7 @@ const PITCH_DEG = 30
 const YAW_DEG = 0
 const ELEVATION_FACTOR = 1.6 // raised-tile height, as a multiple of one hex's vertical spacing
 const WALL_SHADE = 0.55 // side walls render as this fraction of the tile's own top color
+const DIM_SHADE = 0.6 // unfocused nations while another one is hovered/pinned
 
 const PITCH_RAD = (PITCH_DEG * Math.PI) / 180
 const YAW_RAD = (YAW_DEG * Math.PI) / 180
@@ -142,6 +143,8 @@ interface Shape {
   points: string
   fill: string
   activeFill: string
+  dimFill: string
+  isSea: boolean
   nationId: string | null
   depth: number
   col: number
@@ -153,7 +156,7 @@ interface Shape {
 // sequenced with delays; remounted per nation (key) so the sequence replays on every hover.
 const CALLOUT_LINE_HEIGHT = 'h-14 md:h-20'
 
-function RegionCallout({ label, icon, xPercent, yPercent }: { label: string; icon: string | null; xPercent: number; yPercent: number }) {
+function RegionCallout({ label, icon, accent, xPercent, yPercent }: { label: string; icon: string | null; accent: string; xPercent: number; yPercent: number }) {
   // Near the right edge the tag would leave the panel, so it opens leftward instead.
   const opensLeft = xPercent > 85
   return (
@@ -163,12 +166,13 @@ function RegionCallout({ label, icon, xPercent, yPercent }: { label: string; ico
       <span className="absolute -left-[3px] -top-[3px] w-1.5 h-1.5 bg-gc-signal" />
 
       {/* Leader line, drawn upward from the marker */}
-      <span className={`absolute left-0 bottom-0 w-px -translate-x-1/2 ${CALLOUT_LINE_HEIGHT} bg-gradient-to-t from-gc-signal to-gc-invert origin-bottom motion-safe:animate-[callout-line_0.24s_cubic-bezier(0.22,1,0.36,1)_0.08s_both]`} />
+      <span className={`absolute left-0 bottom-0 w-px -translate-x-1/2 ${CALLOUT_LINE_HEIGHT} bg-gradient-to-t from-gc-signal to-gc-invert origin-bottom will-change-transform motion-safe:animate-[callout-line_0.24s_cubic-bezier(0.22,1,0.36,1)_0.08s_both]`} />
 
       {/* Tag: opens sideways from the top of the line */}
       <div className={`absolute bottom-0 ${CALLOUT_LINE_HEIGHT} ${opensLeft ? 'right-0' : 'left-0'}`}>
         <div
-          className={`absolute top-0 -translate-y-1/2 flex items-center gap-2.5 whitespace-nowrap bg-gc-float/95 border border-gc-line-strong ${opensLeft ? 'right-0 border-r-2 border-r-gc-signal origin-right' : 'left-0 border-l-2 border-l-gc-signal origin-left'} pl-2.5 pr-3 h-8 md:h-9 shadow-[0_24px_48px_-16px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.5)] motion-safe:animate-[callout-tag_0.32s_cubic-bezier(0.22,1.2,0.36,1)_0.3s_both]`}
+          style={{ '--region-accent': accent } as CSSProperties}
+          className={`absolute top-0 -translate-y-1/2 flex items-center gap-2.5 whitespace-nowrap bg-gc-float/95 border border-gc-line-strong ${opensLeft ? '-right-px border-r-2 border-r-(--region-accent) origin-right' : '-left-px border-l-2 border-l-(--region-accent) origin-left'} pl-2.5 pr-3 h-8 md:h-9 shadow-[0_6px_16px_-6px_rgba(0,0,0,0.8)] will-change-transform motion-safe:animate-[callout-tag_0.32s_cubic-bezier(0.22,1.2,0.36,1)_0.3s_both]`}
         >
           {icon ? (
             <Image
@@ -179,7 +183,7 @@ function RegionCallout({ label, icon, xPercent, yPercent }: { label: string; ico
               className="w-5 h-5 md:w-[22px] md:h-[22px] object-contain shrink-0 opacity-90 motion-safe:animate-[callout-text_0.2s_ease-out_0.5s_both]"
             />
           ) : (
-            <span className="w-1.5 h-1.5 bg-gc-signal shrink-0 motion-safe:animate-[callout-text_0.2s_ease-out_0.5s_both]" />
+            <span className="w-1.5 h-1.5 bg-(--region-accent) shrink-0 motion-safe:animate-[callout-text_0.2s_ease-out_0.5s_both]" />
           )}
           <span className="font-display text-[11px] md:text-[13px] text-gc-ink uppercase tracking-[0.16em] leading-none motion-safe:animate-[callout-text_0.24s_ease-out_0.52s_both]">
             {label}
@@ -249,10 +253,12 @@ export function WorldMap() {
       const nationId = tile.type === 'country' ? tile.nationId ?? null : null
       // Sea tiles keep their sampled per-tile variation but are toned down
       // toward the page's dark palette — still clearly ocean, but no longer a
-      // bright plate that fights the page background; the radial mask on the
+      // bright plate that fights the page background; the sea-only radial mask in the
       // <svg> below fades its outer edge the rest of the way into the page.
       const fill = toConsoleTone(tile.color, isSea ? 'sea' : nationId ? 'nation' : 'terrain')
       const activeFill = nationId ? toConsoleTone(tile.color, 'nation-active') : fill
+      // Unfocused nations darken instead of fading, so the map stays fully opaque.
+      const dimFill = nationId ? shadeTone(fill, DIM_SHADE) : fill
 
       if (nationId) {
         const acc = nationCentroids.get(nationId) ?? { sumX: 0, sumY: 0, count: 0 }
@@ -273,6 +279,8 @@ export function WorldMap() {
         points: polygonPoints(topProjected),
         fill,
         activeFill,
+        dimFill,
+        isSea,
         nationId,
         depth: topDepth,
         col: tile.col,
@@ -299,6 +307,8 @@ export function WorldMap() {
           points: polygonPoints([topA, topB, botB, botA]),
           fill: shadeTone(fill, WALL_SHADE),
           activeFill: shadeTone(activeFill, WALL_SHADE),
+          dimFill: shadeTone(dimFill, WALL_SHADE),
+          isSea: false,
           nationId,
           depth: (topDepth + projectDepth(cx, cy, 0)) / 2,
           col: tile.col,
@@ -322,7 +332,7 @@ export function WorldMap() {
 
     // Generous margin so the mask's fade (below) has room to vignette the
     // empty space around the landmass without eating into real tiles.
-    const margin = elevation * 3
+    const margin = elevation * 1.5
     const box = {
       minX: round(minX - margin),
       minY: round(minY - margin),
@@ -349,6 +359,63 @@ export function WorldMap() {
     }
     return Array.from(groups.entries())
   }, [shapes])
+
+  const svgIdPrefix = `terra${useId().replace(/[^a-zA-Z0-9]/g, '')}`
+
+  // Render cost on hover is what makes the callout stutter, so the geometry is built once:
+  // a static base SVG (sea + unclaimed land) that never re-renders, and per-nation polygon
+  // lists whose idle/active/dim fills live in CSS variables. Hovering then only flips a
+  // `data-state` attribute on ~18 nation groups instead of re-rendering ~2k polygons.
+  const baseLayer = useMemo(() => (
+    <>
+      {/* Only the flat sea fades out into the panel; land is always fully opaque. */}
+      <defs>
+        <radialGradient id={`${svgIdPrefix}-sea-fade`} cx="50%" cy="50%" r="62%">
+          <stop offset="48%" stopColor="#fff" />
+          <stop offset="92%" stopColor="#000" />
+        </radialGradient>
+        <mask id={`${svgIdPrefix}-sea-mask`} maskUnits="userSpaceOnUse" x={viewBox.minX} y={viewBox.minY} width={viewBox.width} height={viewBox.height}>
+          <rect x={viewBox.minX} y={viewBox.minY} width={viewBox.width} height={viewBox.height} fill={`url(#${svgIdPrefix}-sea-fade)`} />
+        </mask>
+      </defs>
+      <g mask={`url(#${svgIdPrefix}-sea-mask)`}>
+        {shapes.filter(shape => shape.isSea).map(shape => (
+          <polygon key={shape.key} points={shape.points} fill={shape.fill} data-col={shape.col} data-row={shape.row} />
+        ))}
+      </g>
+      {shapes.filter(shape => !shape.isSea && shape.nationId === null).map(shape => (
+        <polygon key={shape.key} points={shape.points} fill={shape.fill} data-col={shape.col} data-row={shape.row} />
+      ))}
+    </>
+  ), [shapes, viewBox, svgIdPrefix])
+
+  const nationPolygons = useMemo(() => new Map(nationHitGroups.map(([nationId, nationShapes]) => [
+    nationId,
+    nationShapes.map(shape => (
+      <polygon
+        key={shape.key}
+        points={shape.points}
+        data-col={shape.col}
+        data-row={shape.row}
+        strokeWidth={2}
+        style={{ '--tone-idle': shape.fill, '--tone-active': shape.activeFill, '--tone-dim': shape.dimFill } as CSSProperties}
+        className="[fill:var(--tone-idle)] [stroke:none] group-data-[state=dim]/nation:[fill:var(--tone-dim)] group-data-[state=active]/nation:[fill:var(--tone-active)] group-data-[state=active]/nation:[stroke:#e8d23c]"
+      />
+    )),
+  ])), [nationHitGroups])
+
+  // The focused nation is drawn last so its lifted tiles are never overlapped by a
+  // neighbor further south.
+  const nationDrawOrder = useMemo(() => {
+    const nationIds = nationHitGroups.map(([nationId]) => nationId)
+    return activeNation ? [...nationIds.filter(nationId => nationId !== activeNation), activeNation] : nationIds
+  }, [nationHitGroups, activeNation])
+
+  // One representative color per nation (its first top face's lifted tone) for the callout accent.
+  const nationAccents = useMemo(() => new Map(nationHitGroups.map(([nationId, nationShapes]) => [
+    nationId,
+    (nationShapes.find(shape => shape.key.endsWith('-top')) ?? nationShapes[0]).activeFill,
+  ])), [nationHitGroups])
 
   const activeLabel = activeNation ? NATION_LABELS[activeNation] : null
   const activeOperators = activeNation ? operatorsByNation[activeNation] ?? [] : []
@@ -394,90 +461,100 @@ export function WorldMap() {
       <div aria-hidden className="absolute top-0 inset-x-6 h-1.5 bg-[repeating-linear-gradient(90deg,var(--color-gc-line)_0_1px,transparent_1px_8px)] max-md:hidden" />
       {/* Ambient particles sit on the bottom layer so they never cover tiles or callouts */}
       <ParticleField className="absolute inset-0 z-0 overflow-hidden" />
-      <div className="relative z-10 w-full max-w-3xl mx-auto py-4">
+      <div className="relative z-10 w-full max-w-5xl mx-auto py-2">
+        <div className="relative">
+          {/* Static ground shadow — a blurred layer rasterized once, instead of a drop-shadow
+              filter on the SVG that would repaint on every hover. */}
+          <div aria-hidden className="pointer-events-none absolute inset-x-[14%] top-[35%] bottom-[12%] bg-black/45 blur-3xl" />
 
-        <svg
-          viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`}
-          className="relative w-full h-auto block drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)] mask-[radial-gradient(ellipse_62%_62%_at_50%_50%,black_48%,transparent_92%)]"
-          onClick={() => setPinnedNation(null)}
-        >
-          {shapes.map(shape => {
-            const isActive = shape.nationId !== null && shape.nationId === activeNation
-            const isDimmed = activeNation !== null && shape.nationId !== null && !isActive
-            return (
-              <polygon
-                key={shape.key}
-                points={shape.points}
-                fill={isActive ? shape.activeFill : shape.fill}
-                data-col={shape.col}
-                data-row={shape.row}
-                stroke={isActive ? '#e8d23c' : 'none'}
-                strokeWidth={isActive ? 2 : 0}
-                opacity={isDimmed ? 0.45 : 1}
-                className={shape.nationId !== null
-                  ? 'pointer-events-none [transition:transform_0.15s_ease-out,opacity_0.2s_ease] motion-reduce:transition-none'
-                  : undefined}
-                style={shape.nationId !== null && isActive ? { transform: `translateY(-${liftOffset}px)` } : undefined}
-              />
-            )
-          })}
-          {nationHitGroups.map(([nationId, nationShapes]) => (
-            <g
-              key={`hit-${nationId}`}
-              role="button"
-              tabIndex={0}
-              aria-label={`${NATION_LABELS[nationId]} — ${(operatorsByNation[nationId] ?? []).length} operators`}
-              aria-pressed={pinnedNation === nationId}
-              className="cursor-pointer outline-none [pointer-events:all]"
-              onPointerEnter={event => {
-                if (event.pointerType === 'mouse') setHoveredNation(nationId)
-              }}
-              onPointerLeave={event => {
-                if (event.pointerType === 'mouse') {
-                  setHoveredNation(prev => (prev === nationId ? null : prev))
-                }
-              }}
-              onClick={event => {
-                event.stopPropagation()
-                playClick()
-                togglePinned(nationId)
-              }}
-              onFocus={() => setHoveredNation(nationId)}
-              onBlur={() => setHoveredNation(prev => (prev === nationId ? null : prev))}
-              onKeyDown={event => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault()
+          <svg
+            aria-hidden
+            viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`}
+            className="relative w-full h-auto block"
+          >
+            {baseLayer}
+          </svg>
+
+          <svg
+            viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`}
+            className="absolute inset-0 w-full h-full block"
+            onClick={() => setPinnedNation(null)}
+          >
+            {nationDrawOrder.map(nationId => {
+              const nationState = activeNation === null ? 'idle' : nationId === activeNation ? 'active' : 'dim'
+              return (
+                <g
+                  key={nationId}
+                  data-state={nationState}
+                  className="group/nation pointer-events-none [transition:transform_0.18s_cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+                  style={nationState === 'active' ? { transform: `translateY(-${liftOffset}px)` } : undefined}
+                >
+                  {nationPolygons.get(nationId)}
+                </g>
+              )
+            })}
+
+            {/* Hit areas stay at ground level so lifting a nation never moves them under the cursor */}
+            {nationHitGroups.map(([nationId, nationShapes]) => (
+              <g
+                key={`hit-${nationId}`}
+                role="button"
+                tabIndex={0}
+                aria-label={`${NATION_LABELS[nationId]} — ${(operatorsByNation[nationId] ?? []).length} operators`}
+                aria-pressed={pinnedNation === nationId}
+                className="cursor-pointer outline-none [pointer-events:all]"
+                onPointerEnter={event => {
+                  if (event.pointerType === 'mouse') setHoveredNation(nationId)
+                }}
+                onPointerLeave={event => {
+                  if (event.pointerType === 'mouse') {
+                    setHoveredNation(prev => (prev === nationId ? null : prev))
+                  }
+                }}
+                onClick={event => {
+                  event.stopPropagation()
                   playClick()
                   togglePinned(nationId)
-                }
-                if (event.key === 'Escape') {
-                  setPinnedNation(null)
-                  setHoveredNation(null)
-                }
-              }}
-            >
-              {nationShapes.map(shape => (
-                <polygon
-                  key={`${shape.key}-hit`}
-                  points={shape.points}
-                  fill="transparent"
-                  data-col={shape.col}
-                  data-row={shape.row}
-                />
-              ))}
-            </g>
-          ))}
-        </svg>
-        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-4 bottom-4">
-          {activeNation && activeLabel && activeAnchor && (
-            <RegionCallout
-              key={activeNation}
-              label={activeLabel}
-              icon={getNationIcon(activeNation)}
-              xPercent={activeAnchor.xPercent}
-              yPercent={activeAnchor.yPercent}
-            />
-          )}
+                }}
+                onFocus={() => setHoveredNation(nationId)}
+                onBlur={() => setHoveredNation(prev => (prev === nationId ? null : prev))}
+                onKeyDown={event => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    playClick()
+                    togglePinned(nationId)
+                  }
+                  if (event.key === 'Escape') {
+                    setPinnedNation(null)
+                    setHoveredNation(null)
+                  }
+                }}
+              >
+                {nationShapes.map(shape => (
+                  <polygon
+                    key={`${shape.key}-hit`}
+                    points={shape.points}
+                    fill="transparent"
+                    data-col={shape.col}
+                    data-row={shape.row}
+                  />
+                ))}
+              </g>
+            ))}
+          </svg>
+
+          <div aria-hidden className="pointer-events-none absolute inset-0">
+            {activeNation && activeLabel && activeAnchor && (
+              <RegionCallout
+                key={activeNation}
+                label={activeLabel}
+                icon={getNationIcon(activeNation)}
+                accent={nationAccents.get(activeNation) ?? 'var(--color-gc-signal)'}
+                xPercent={activeAnchor.xPercent}
+                yPercent={activeAnchor.yPercent}
+              />
+            )}
+          </div>
         </div>
       </div>
 
@@ -503,7 +580,9 @@ export function WorldMap() {
                       aria-hidden
                       className="relative w-7 h-7 shrink-0 bg-no-repeat bg-gc-panel opacity-85 group-hover:opacity-100 [transition:opacity_0.2s] motion-reduce:transition-none"
                       style={{
-                        backgroundImage: `url(${op.skins[0].src})`,
+                        // 256px optimizer variant, not the multi-MB source art — decoding full
+                        // art for every chip was what stalled the hover callout.
+                        backgroundImage: `url(/_next/image?url=${encodeURIComponent(op.skins[0].src)}&w=256&q=75)`,
                         backgroundSize: `auto ${op.portraitFocus?.zoom ?? 250}%`,
                         backgroundPosition: `${op.portraitFocus?.x ?? 50}% ${op.portraitFocus?.y ?? 0}%`,
                       }}
