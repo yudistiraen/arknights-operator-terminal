@@ -8,12 +8,16 @@ import { OperatorTerminal } from './OperatorTerminal'
 export function OperatorRouter() {
   const searchParams = useSearchParams()
   const slug = searchParams.get('operator')
-  const isAlter = searchParams.get('alter') === 'true'
+  const alterParam = searchParams.get('alter')
+  // `alter=true` is the legacy form (operators with a single alter) and means the first one;
+  // `alter=<n>` (1-based) selects the nth alter for operators with more than one.
+  const initialAlterIndex = alterParam === 'true' ? 0 : alterParam ? Number(alterParam) - 1 : null
+  const validInitialAlterIndex = initialAlterIndex !== null && Number.isInteger(initialAlterIndex) && initialAlterIndex >= 0 ? initialAlterIndex : null
 
   if (slug) {
     const index = findOperatorIndexBySlug(slug)
     if (index !== -1) {
-      return <OperatorTerminal initialOperatorIndex={index} initialAlter={isAlter} />
+      return <OperatorTerminal initialOperatorIndex={index} initialAlterIndex={validInitialAlterIndex} />
     }
   }
 

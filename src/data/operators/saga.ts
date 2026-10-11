@@ -1,0 +1,107 @@
+import type { Operator } from '../../types'
+
+const saga: Operator = {
+  name: 'Saga', fileNo: 'HK13', class: 'Vanguard', branch: 'Pioneer', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
+  faction: 'Higashi', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Higashi',
+  birthday: 'December 31st', height: '164 cm', combatExp: '2 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '多元菌',
+  cv: { JP: 'Sanae Kobayashi', CN: 'Lü Qi (credited as "Ruth" in EN)', EN: 'Yu Kousaka', KR: 'Soyeon' },
+  trait: 'Blocks 2 enemies',
+  tags: ['DP-Recovery', 'DPS'],
+  stats: { hp: 2205, atk: 615, def: 372, res: 0, block: 2, cost: 14, aspd: '1.05s', rdp: '70s' },
+  range: {
+    base: [[0, 0, 2, 1, 0, 0]],
+    e1: [[0, 0, 2, 1, 0, 0]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
+  talents: [
+    { name: 'Preaching', desc: 'When dealing lethal damage, leave the enemy with 1 HP and inflict Critically Wounded (gives +1 SP to the attacker when killed); Saga will not attack Critically Wounded targets', elite: 'E0' },
+    { name: 'Preaching', desc: 'When dealing lethal damage, leave the enemy with 1 HP and inflict Critically Wounded (gives +2 SP to the attacker when killed); Saga will not attack Critically Wounded targets', elite: 'E1' },
+    { name: 'Clear Mind', desc: 'When HP falls below 40%, gains 70% Physical Dodge and restores 5% of Max HP per second, lasting for 15 seconds. Can only activate once', elite: 'E2' },
+    { name: 'Clear Mind', desc: 'When HP falls below 40%, gains 70% Physical Dodge and restores 6% (+1%) of Max HP per second, lasting for 17 (+2) seconds. Can only activate once', elite: 'E2 (Potential 5)' },
+  ],
+  skills: [
+    {
+      name: 'Charge γ', icon: '/operators/saga/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+      desc: 'Instantly gains 12 Deployment Points.', spInit: 20, sp: 35, rank: 'M3',
+      levels: [
+        { level: '1', desc: 'Instantly gains 12 Deployment Points.', spInit: 10, sp: 44 },
+        { level: '2', desc: 'Instantly gains 12 Deployment Points.', spInit: 10, sp: 43 },
+        { level: '3', desc: 'Instantly gains 12 Deployment Points.', spInit: 12, sp: 42 },
+        { level: '4', desc: 'Instantly gains 12 Deployment Points.', spInit: 12, sp: 41 },
+        { level: '5', desc: 'Instantly gains 12 Deployment Points.', spInit: 12, sp: 40 },
+        { level: '6', desc: 'Instantly gains 12 Deployment Points.', spInit: 12, sp: 39 },
+        { level: '7', desc: 'Instantly gains 12 Deployment Points.', spInit: 14, sp: 38 },
+        { level: 'M1', desc: 'Instantly gains 12 Deployment Points.', spInit: 16, sp: 37 },
+        { level: 'M2', desc: 'Instantly gains 12 Deployment Points.', spInit: 18, sp: 36 },
+        { level: 'M3', desc: 'Instantly gains 12 Deployment Points.', spInit: 20, sp: 35 },
+      ],
+    },
+    {
+      name: 'Cleansing Evil', icon: '/operators/saga/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Instantly generates 4 DP; Deals 400% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 3 charge(s)', spInit: 10, sp: 13, rank: 'M3',
+      range: [[0, 0, 1, 0, 0], [0, 0, 1, 0, 0], [1, 1, 2, 1, 1], [0, 0, 1, 0, 0], [0, 0, 1, 0, 0]],
+      note: 'Enemies that are Critically Wounded by Cleansing Evil will be instantly defeated after 0.7 seconds with Saga being credited as the attacker.',
+      levels: [
+        { level: '1', desc: 'Instantly generates 4 DP; Deals 250% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 1 charge(s)', spInit: 8, sp: 20 },
+        { level: '2', desc: 'Instantly generates 4 DP; Deals 260% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 1 charge(s)', spInit: 8, sp: 20 },
+        { level: '3', desc: 'Instantly generates 4 DP; Deals 270% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 1 charge(s)', spInit: 8, sp: 20 },
+        { level: '4', desc: 'Instantly generates 4 DP; Deals 280% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 2 charge(s)', spInit: 9, sp: 18 },
+        { level: '5', desc: 'Instantly generates 4 DP; Deals 290% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 2 charge(s)', spInit: 9, sp: 18 },
+        { level: '6', desc: 'Instantly generates 4 DP; Deals 300% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 2 charge(s)', spInit: 9, sp: 18 },
+        { level: '7', desc: 'Instantly generates 4 DP; Deals 320% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 2 charge(s)', spInit: 10, sp: 16 },
+        { level: 'M1', desc: 'Instantly generates 4 DP; Deals 340% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 3 charge(s)', spInit: 10, sp: 15 },
+        { level: 'M2', desc: 'Instantly generates 4 DP; Deals 370% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 3 charge(s)', spInit: 10, sp: 14 },
+        { level: 'M3', desc: 'Instantly generates 4 DP; Deals 400% ATK as Physical damage to at most 6 ground enemies within a cross area, then eliminates any of the enemies that are Critically Wounded. Can store 3 charge(s)', spInit: 10, sp: 13 },
+      ],
+    },
+    {
+      name: 'Fierce Glare', icon: '/operators/saga/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +130%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 28, sp: 40, dur: '20s', rank: 'M3',
+      note: "Fierce Glare increases Saga's attack interval by 0.5 seconds. Contrary to the wording, Saga does not need to block the enemies for her attacks with Fierce Glare to hit them. Rather, Saga's attacks hit multiple targets in range equal to her block count. Saga checks the enemy's HP before her attacks damage them to perform the second attack.",
+      levels: [
+        { level: '1', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +40%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 25, sp: 50, dur: '20s' },
+        { level: '2', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +50%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 25, sp: 49, dur: '20s' },
+        { level: '3', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +60%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 25, sp: 48, dur: '20s' },
+        { level: '4', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +70%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 26, sp: 47, dur: '20s' },
+        { level: '5', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +80%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 26, sp: 46, dur: '20s' },
+        { level: '6', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +90%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 26, sp: 45, dur: '20s' },
+        { level: '7', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +100%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 27, sp: 44, dur: '20s' },
+        { level: 'M1', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +110%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 28, sp: 43, dur: '20s' },
+        { level: 'M2', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +120%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 28, sp: 42, dur: '20s' },
+        { level: 'M3', desc: 'Gradually gains 20 DP over the skill duration. Attack Interval slightly increases, Attack Range +1 tile, ATK +130%, attacks all blocked enemies and performs an additional attack against targets with less than 50% HP', spInit: 28, sp: 40, dur: '20s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Saga's Badge", desc: 'Appointed as Vanguard Operator to exercise Pioneer responsibilities' },
+    solx: { code: 'SOL-X', name: 'Where to Find the Burdenbeast?', stages: [
+      { stage: 1, atk: '+50', def: '+28', effect: 'Trait improved: Blocks 2 enemies; Gains +8% ATK and DEF while blocking enemies' },
+      { stage: 2, atk: '+62', def: '+38', effect: 'Preaching improved: Increases damage dealt to enemies below half HP by 10%; when dealing lethal damage, leaves the target with 1 HP and inflicts Critically Wounded (gives +2 SP to the attacker when killed); Saga will not attack Critically Wounded targets' },
+      { stage: 3, atk: '+70', def: '+44', effect: 'Preaching improved: Increases damage dealt to enemies below half HP by 15%; when dealing lethal damage, leaves the target with 1 HP and inflicts Critically Wounded (gives +2 SP to the attacker when killed); Saga will not attack Critically Wounded targets' },
+    ]},
+    soly: { code: 'SOL-Y', name: 'Walk The World', stages: [
+      { stage: 1, hp: '+75', atk: '+45', def: '+15', effect: 'New trait: The first Deployment Cost -4' },
+      { stage: 2, hp: '+105', atk: '+50', def: '+18', effect: 'Clear Mind improved: When HP falls below 40%, gain 70% Physical Dodge and restore 5.5% Max HP per second, lasting for 17 seconds. Can only activate once' },
+      { stage: 3, hp: '+125', atk: '+55', def: '+20', effect: 'Clear Mind improved: When HP falls below 40%, gain 70% Physical Dodge and restore 6% Max HP per second, lasting for 18 seconds. Can only activate once' },
+    ]},
+  },
+  story: `A wandering Perro from Higashi, Saga spent most of her life in a monastery but never formally became a monk. She chose to descend the mountain to journey across Terra and see the world with her own eyes. During her travels in Yan, she hoped to meet an artist who had once saved the head priest's life and gifted him an awe-inspiring scroll painting, but she instead ended up accidentally trapped in a "painted world." She remained imprisoned there for quite a long time before encountering Kroos, Lava, and Mr. Nothing.\n\nAfter the incident on Mount Hui-ch'i, Saga parted ways with Lava's group but somehow ended up at the same Rhodes Island office and chose to lend her aid, proving to be a capable combatant adept at wielding the naginata. Despite having been isolated from the outside world for a very long time, Saga is outgoing and quick to adapt to modern machinery and culture. Her piercing words often give her an intimidating aura, although the fear she evokes is hardly the terrible sort.`,
+  profile: `A wandering monk from Higashi. Some holes in her background. Originally entered a Rhodes Island office by mistake; once inquiries showed she was interested in employment, she passed the exams and joined the company. Seems to have previously made links with Rhodes Island Operator Lava.\nMakes ample use of the naginata she carries with vigorous skill, and is active as a Vanguard Operator on the frontlines.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n[Cell-Originium Assimilation] 0%\nOperator Saga shows no signs of Originium infection.\n[Blood Originium-Crystal Density] 0.12u/L\nOperator Saga rarely comes into contact with Originium. Furthermore, her lifestyle and work-rest balance are very healthy. We hope a few other operators can learn from her.` },
+    { title: 'Archive File 1', content: `A lively Higashi errant monk. She claims that she never shaved her head as she is not in any way a formal monk.\nHer character is also unlike the image of an eastern monk, she's supremely outgoing. Unable to resist joining a crowd to see the hubbub, it hasn't taken too long for her to give regards to most Operators.\nMoreover, as someone previously cut off from modern-day life, she has an intense capacity for learning and taking up new and novel things. Though she might make a few jokes when obtaining something fresh, you'll see her making proficient use of it not long after, and she seems to endlessly enjoy learning how to use every sort of machine.` },
+    { title: 'Archive File 2', content: `Since the cradle, Saga grew up in a monastery. For as long as she could remember, she would follow her master and the other apprentices in practicing martial arts and chanting the sutras.\nWhen she had grown and left, the monastery was situated on a nameless mountain in the north of Higashi, but that was not its original place; the monastery relocated there to avoid a Catastrophe when she was seven. It was fortunate a Catastrophe Messenger alerted them in time, and they didn't bear the Catastrophe's direct brunt.\nAdditionally, she recounts that even as many mountain monasteries resisted incorporating into cities, most mastered their own rapid dismantlement and reestablishment in contrast.\nBeyond that one relocation, she'd never once descended the mountain before, having always lived a frugal life in the monastery. It's thus that life below the mountain was entirely unknown and unfamiliar to her.\nSaga says that at the start, her old head priest was opposed to her descending, for a very simple reason: Saga was too pure, and were she to enter worldly society, he feared there would be much problem.\nHowever, Saga further says that late the night of his refusal, he roused her awake, and the two of them went to the monastery's square. Master and disciple – forefather and descendant – they took a staff to each one, an answer to each question, from the moon true overhead until first light in the east, when ultimately, the head priest allowed her to descend.\nSaga states she still doesn't understand to this day why the head priest would fight her and then let her go, but Saga has close to forgotten about what they asked and answered on that night, to the point we are unable to unearth the full picture. But perhaps it was within Saga's answers that the head priest confirmed something, and so could allow her to embark on her practice with full confidence.` },
+    { title: 'Archive File 3', content: `While she's plenty eager to come to grips with modern machinery and trendy culture, Saga still gives people a sense of era mismatch most of the time.\nThis isn't to say there's any problem with her. Just the opposite: compared to her, many people might notice problems with themselves.\nWhen unscheduled for missions, she's guaranteed to get up at 6 o'clock, do an hour of morning exercise, an hour of meditation, and then get down to work for the day. After work's over, if all is as usual, she'll go to sleep at 9 on the dot.\nShe has great interest in machinery, and will watch screened programs or play games with some other operators; she enjoys herself tremendously, but is also able to set it all aside without any hesitation.\nShe'll also question injustices that many nowadays would even call natural or given, and these will distress her.\nThis isn't Saga's first year off the mountain by a long shot. She's already lived out here for a long while, but still continues on this way; this is the very way she lives.\nSaga is very lively, kindhearted, and endearing, but at times stands out greatly, and other times her voice can feel piercing.\nTo put it bluntly, Saga's presence makes people afraid at times.\nOf course, this fear is nothing of a bad sort.` },
+    { title: 'Archive File 4', content: `Concerning how Saga and Lava came to know each other, both seem to intentionally avoid this topic. All we know is that in her time in Yan, Saga coincided with Lava and Rhodes Island by chance. That said, after joining Rhodes Island, Saga's first act was to immediately find Lava and Kroos in the middle of training. They all regarded their chance reunion with pleasant surprise. However, Saga only learned afterwards that the course she took while "lost" happened to fall right behind Lava's team – in other words, at almost the exact same time, both parties made it to the office, and arrived at the Rhodes Island landship, which struck a particularly ironic note.\nSaga knows of many things. So many that her age seems at odds with her experiences. People have asked Saga out of curiosity where she'd travelled before, and Saga always recounts it piece by piece without reservation. Occasionally, you might hear some profound philosophy fall from the young monk's mouth, though she doesn't make any note of it in the least. The problem is, Saga's age suggests her leaving Higashi to wander the map couldn't have been any more than ten years ago. Just where had she seen so many people and walked so many roads?\nSaga says, it was in pictures.\n"I do not tell lies. Good sir, thou faceth me now, and I respect thee just as I ought. I am unable to speak in more definite terms, so I ask: fault me not for talking in riddles!" —Saga\n"Quit bothering Saga. You can go ask our friendly little stay-at-home Dusk all about it. If you dare, anyway." —Lava` },
+    { title: 'Promotion Record', content: `Saga's bewilderment is starkly plain, so much that it makes people wonder how this world of ours could still hold people so untarnished. With all the doubts surrounding her, we soon had answers.\nThe mature may say: you should learn to reconcile, understand you can't settle it all yourself, then strive to do all you can.\nThe sly may say: you should follow the flow, that resistance makes pains, and it's more worth it just to dive in.\nThe wrathful may say: you should go forth with head held high, eternally unsurrendering, and fight to your life's last end.\nThe timid may say: you should seclude back in the mountains and forests, return to your own monastery, and forget all such tumult.\nThe right answer? There is no right answer. What there are are only choices.\nWe look forward to the choices Saga makes.` },
+  ],
+  classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/higashi.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/saga/base.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/saga/e2.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+    { id: 'skin1', label: 'There They Be', src: '/operators/saga/skin1.png', chibiSrc: '/operators/saga/chibi-skin1.webm', chibiMoveSrc: '/operators/saga/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+  ],
+  portrait: '/operators/saga/portrait.png',
+}
+
+export default saga

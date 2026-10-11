@@ -1,0 +1,113 @@
+import type { Operator } from '../../types'
+
+const eunectes: Operator = {
+  name: 'Eunectes', fileNo: 'SG03', class: 'Defender', branch: 'Duelist', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
+  faction: 'Sargon', position: 'Melee', race: 'Phidia', gender: 'Female', birthplace: 'Sargon',
+  birthday: 'October 30th', height: '171 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Liduke',
+  cv: { JP: 'Houko Kuwashima', CN: 'Zhang Xiaodou', EN: 'Jesse Vilinsky', KR: 'Bae Jeong-mi' },
+  trait: 'Only restores SP when blocking enemies',
+  tags: ['DPS', 'Survival', 'Defense'],
+  stats: { hp: 4468, atk: 1077, def: 685, res: 0, block: 1, cost: 33, aspd: '1.6s', rdp: '70s' },
+  range: {
+    base: [[2, 1]],
+    e1: [[2, 1]],
+    e2: [[2, 1]],
+  },
+  physicalExam: { 'Physical Strength': 'Excellent', Mobility: 'Standard', Endurance: 'Excellent', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
+  talents: [
+    { name: 'Peerless Bravery', desc: 'When HP is above 50%, attacks deal 108% damage; When HP is 50% or lower, gains 10% Sanctuary effect', elite: 'E1' },
+    { name: 'Peerless Bravery', desc: 'When HP is above 50%, attacks deal 110% (+2%) damage; When HP is 50% or lower, gains 12% (+2%) Sanctuary effect', elite: 'E1 (Potential 5)' },
+    { name: 'Peerless Bravery', desc: 'When HP is above 50%, attacks deal 115% damage; When HP is 50% or lower, gains 20% Sanctuary effect', elite: 'E2' },
+    { name: 'Peerless Bravery', desc: 'When HP is above 50%, attacks deal 117% (+2%) damage; When HP is 50% or lower, gains 22% (+2%) Sanctuary effect', elite: 'E2 (Potential 5)' },
+    { name: 'Resilience', desc: "Increases this unit's SP recovery by +0.2/sec when blocking enemies", elite: 'E2' },
+  ],
+  skills: [
+    {
+      name: 'Tomahawk', icon: '/operators/eunectes/skill-1.png', activation: 'Passive', recovery: 'Passive',
+      desc: 'ATK +25%, DEF +25%', spInit: 0, sp: 0, rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +10%, DEF +10%', spInit: 0, sp: 0 },
+        { level: '2', desc: 'ATK +11%, DEF +11%', spInit: 0, sp: 0 },
+        { level: '3', desc: 'ATK +12%, DEF +12%', spInit: 0, sp: 0 },
+        { level: '4', desc: 'ATK +14%, DEF +14%', spInit: 0, sp: 0 },
+        { level: '5', desc: 'ATK +15%, DEF +15%', spInit: 0, sp: 0 },
+        { level: '6', desc: 'ATK +16%, DEF +16%', spInit: 0, sp: 0 },
+        { level: '7', desc: 'ATK +18%, DEF +18%', spInit: 0, sp: 0 },
+        { level: 'M1', desc: 'ATK +20%, DEF +20%', spInit: 0, sp: 0 },
+        { level: 'M2', desc: 'ATK +22%, DEF +22%', spInit: 0, sp: 0 },
+        { level: 'M3', desc: 'ATK +25%, DEF +25%', spInit: 0, sp: 0 },
+      ],
+    },
+    {
+      name: 'Menacing Slash', icon: '/operators/eunectes/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Attack Interval increases a bit, ATK +180%. Stuns all blocked targets for the duration of the skill', spInit: 15, sp: 28, dur: '18s', rank: 'M3',
+      note: "Menacing Slash increases Eunectes' attack interval by 0.4 seconds. The Stun inflicted by Menacing Slash is unaffected by modifiers including Status Resistance and remains even if the target becomes invulnerable or untargetable.",
+      levels: [
+        { level: '1', desc: 'Attack Interval increases a bit, ATK +70%. Stuns all blocked targets for the duration of the skill', spInit: 10, sp: 38, dur: '15s' },
+        { level: '2', desc: 'Attack Interval increases a bit, ATK +80%. Stuns all blocked targets for the duration of the skill', spInit: 10, sp: 37, dur: '15s' },
+        { level: '3', desc: 'Attack Interval increases a bit, ATK +90%. Stuns all blocked targets for the duration of the skill', spInit: 10, sp: 36, dur: '15s' },
+        { level: '4', desc: 'Attack Interval increases a bit, ATK +100%. Stuns all blocked targets for the duration of the skill', spInit: 11, sp: 35, dur: '16s' },
+        { level: '5', desc: 'Attack Interval increases a bit, ATK +110%. Stuns all blocked targets for the duration of the skill', spInit: 11, sp: 34, dur: '16s' },
+        { level: '6', desc: 'Attack Interval increases a bit, ATK +120%. Stuns all blocked targets for the duration of the skill', spInit: 11, sp: 33, dur: '16s' },
+        { level: '7', desc: 'Attack Interval increases a bit, ATK +130%. Stuns all blocked targets for the duration of the skill', spInit: 12, sp: 32, dur: '17s' },
+        { level: 'M1', desc: 'Attack Interval increases a bit, ATK +145%. Stuns all blocked targets for the duration of the skill', spInit: 13, sp: 31, dur: '17s' },
+        { level: 'M2', desc: 'Attack Interval increases a bit, ATK +160%. Stuns all blocked targets for the duration of the skill', spInit: 14, sp: 30, dur: '17s' },
+        { level: 'M3', desc: 'Attack Interval increases a bit, ATK +180%. Stuns all blocked targets for the duration of the skill', spInit: 15, sp: 28, dur: '18s' },
+      ],
+    },
+    {
+      name: 'Iron Will', icon: '/operators/eunectes/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +230%, DEF +160%, Block +2, Restores 6% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 25, sp: 45, dur: '35s', rank: 'M3',
+      note: "Iron Will's HP regeneration is unaffected by healing effect modifiers and can still heal Eunectes even if she becomes unable to be healed.",
+      levels: [
+        { level: '1', desc: 'ATK +110%, DEF +60%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 20, sp: 55, dur: '30s' },
+        { level: '2', desc: 'ATK +120%, DEF +70%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 20, sp: 54, dur: '30s' },
+        { level: '3', desc: 'ATK +130%, DEF +80%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 20, sp: 53, dur: '30s' },
+        { level: '4', desc: 'ATK +140%, DEF +90%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 21, sp: 52, dur: '31s' },
+        { level: '5', desc: 'ATK +150%, DEF +100%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 21, sp: 51, dur: '31s' },
+        { level: '6', desc: 'ATK +160%, DEF +110%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 21, sp: 50, dur: '31s' },
+        { level: '7', desc: 'ATK +170%, DEF +120%, Block +2, Restores 3% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 22, sp: 49, dur: '32s' },
+        { level: 'M1', desc: 'ATK +190%, DEF +130%, Block +2, Restores 4% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 23, sp: 48, dur: '33s' },
+        { level: 'M2', desc: 'ATK +210%, DEF +140%, Block +2, Restores 5% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 24, sp: 47, dur: '34s' },
+        { level: 'M3', desc: 'ATK +230%, DEF +160%, Block +2, Restores 6% HP every second\nThis unit is Stunned for 5 seconds after the skill duration', spInit: 25, sp: 45, dur: '35s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Eunectes's Badge", desc: 'Appointed as Defender Operator to exercise Duelist responsibilities' },
+    hesx: { code: 'HES-X', name: "Zumama's Tool Box", stages: [
+      { stage: 1, atk: '+80', def: '+70', effect: 'Trait improved: SP recovery is slowed except when blocking enemies' },
+      { stage: 2, atk: '+95', def: '+80', effect: "Resilience improved: Increases this unit's SP recovery by +0.4/sec when blocking enemies" },
+      { stage: 3, atk: '+105', def: '+85', effect: "Resilience improved: Increases this unit's SP recovery by +0.55/sec when blocking enemies" },
+    ]},
+    hesy: { code: 'HES-Y', name: 'The Little Ugly Thing', stages: [
+      { stage: 1, atk: '+70', def: '+80', effect: 'Trait improved: SP does not recover when not blocking an enemy. When blocking an enemy, gain SP recovery, ATK +15%, and DEF +15%' },
+      { stage: 2, atk: '+80', def: '+95', effect: 'Peerless Bravery improved: When HP is above 50%, attacks deal 120% damage; When HP is 50% or lower, gain 25% Sanctuary' },
+      { stage: 3, atk: '+85', def: '+110', effect: 'Peerless Bravery improved: When HP is above 50%, attacks deal 123% damage; When HP is 50% or lower, gain 28% Sanctuary' },
+    ]},
+    raalpha: { code: 'RA-α', name: "Eunectes's Specialized Badge", stages: [
+      { stage: 1, hp: '+280', atk: '+80', effect: "New trait: In Reclamation Algorithm, able to recover SP while under the effect of food; attracts enemies over a wide area to this unit's position when skill is activated" },
+      { stage: 2, hp: '+340', atk: '+110', effect: "Resilience improved: Increases this unit's SP recovery by +0.2/sec when blocking enemies; in Reclamation Algorithm, increases this unit's SP recovery rate by 0.4/sec when blocking enemies, Block +1, and attacks all blocked enemies when skill is active; enemies blocked by this unit receive 20% Physical Fragility" },
+      { stage: 3, hp: '+380', atk: '+130', effect: "Resilience improved: Increases this unit's SP recovery by +0.2/sec when blocking enemies; in Reclamation Algorithm, increases this unit's SP recovery rate by 0.4/sec when blocking enemies, Block +2, and attacks all blocked enemies when skill is active; enemies blocked by this unit receive 40% Physical Fragility" },
+    ]},
+  },
+  story: `A rough, technomaniac Phidia from the Sargonian jungle Acahualla, Zumama is the chieftain of the Eunectes tribe and with the High Priest, the creator of a giant robot nicknamed "The Big Ugly Thing." Intending to bring modernization to the primitive Acahuallans, Zumama dared to challenge her childhood friend and rival Gavial upon her return to Acahualla and defeated her in ease with the robot, thus claiming the throne of the Great Chief. However, everything ended up in a mess after the two had to work together to stop the rampaging Big Ugly that almost destroyed her village.\n\nOut of her fascination with Lancet-2, Zumama chose to join Rhodes Island in the aftermath. She hopes to one day build her own "talking robot." Adopting the codename "Eunectes" after her tribe, Zumama has since become a frontline Operator along with the High Priest, who pilots the rebuilt and improved Big Ugly, with the new name "Raging Ironhide." Her craze over modern machinery also paves her future to become the next head of the Engineering Department.`,
+  profile: `The leader of a certain tribe that resides in Acahualla—Gavial's hometown. She was admitted into Rhodes Island after passing the operator examination and began receiving treatment at the same time.\nHer physical qualities are no less impressive than Gavial's. Currently active in the battlefields with her trusted companion, the Raging Ironhide.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n[Cell-Originium Assimilation] 7%\nSmall traces of infection are visible on the surface of the body.\n[Blood Originium-Crystal Density] 0.22u/L\nOperator Eunectes was infected at a relatively early age, and her condition is somewhat severe as it was never really kept in check. However, thanks to her excellent physical condition, the spread of the disease in her body has slowed down by a considerable degree, and it has further stabilized after receiving treatment. Further observation and regular treatment are required.\nWell, look what we have here! Your body's pretty well built!\n— Gavial` },
+    { title: 'Archive File 1', content: `Eunectes is a Pythian girl whose interests can be described as somewhat peculiar.\nShe isn't the type to actively raise conversations, nor is she the kind of person to keep quiet to herself. In many ways, her views and ideologies are much more normal compared to Gavial, who'd left home years ago, but she can be pretty stubborn when it comes to all matters machinery-related.\nWhen she first joined Rhodes Island, for a period of time, she opted to use her real name, "Zumama", as her codename just as Tomimi before her did. However, when Closure christened the newly rebuilt Big Ugly "the Raging Ironhide", she took the opportunity to give herself a new codename based on her tribe's name—"Eunectes".\nThat being said, a sizable number of our operators, such as Gavial, still call her by her name.\nBased on her own personal account, she rarely ever picks fights with anyone, her frequent bouts with Gavial during their childhoods notwithstanding. As such, this will not be accounted for in her combat experience evaluation.` },
+    { title: 'Archive File 2', content: `According to Eunectes's own personal account, her knowledge of anything not related to her tribe can be attributed entirely to her book collection.\nThis explains how even though she was able to hit it off with Closure the moment she joined the Engineering Department—she also tore Closure's bag of chips from her hands and tossed it across the room out of rage just as quickly—her common sense and knowledge about our day-to-day lives are peculiar to say the least.\nNonetheless, how she was able to pick up foreign languages and robotics just by flipping through a few books goes to show her learning ability is remarkable.\nIt wasn't long before her learning ability led to an impressive development: after just a few months, Closure personally approved her request to be assigned to Engineering.\nSadly, even though she was able to learn how to operate all sorts of machinery in no time, to this day she has shown no noticeable improvement when it comes to life outside her tribe.` },
+    { title: 'Archive File 3', content: `After Eunectes joined Rhodes Island, she has become somewhat of a laughingstock thanks to her lack of understanding regarding anything she's unfamiliar with, and the funniest thing about her has to be her relationship with Lancet-2.\nThe sight of Eunectes calling Lancet-2 her sister never fails to catch operators oblivious to this relationship by surprise. Of course, Lancet-2 is fairly popular amongst operators thanks to her personality, but Eunectes's passion for her is on another level.\nIt isn't hard to fathom why, of course.\nMost of us have probably been so awestruck by something we've never so much as heard of that it sent chills down our spines at some point in our lives. The kind of moment that feels as though you flung open a whole new door, like discovering new untrodden lands. To Eunectes, that moment came as a child when she witnessed a nomadic city just passing through by chance. The gigantic machine, colored in its icy machinery colors, struck her with amazement like never before. That moment came again when she first heard Lancet-2 talk. This time, it was the possibilities that robotics has that struck her with amazement.\nWouldn't most operators be just as surprised when they first come across operations platforms that talk? The difference here is that most operators aren't all that interested in robots and therefore don't react the same way Eunectes does.\nOn the other hand, while Eunectes shows extraordinary respect to other operations platforms as well, Lancet-2 is particularly dear to her. This is actually a glimpse of her normalcy.\nHer special treatment for Lancet-2 can be described as ritualistic and as a sort of emotional sustenance. This is a beacon she picked for herself in her new life, and it can be even be seen as the manifestation of what she has always dreamt of achieving herself.\nWhich is why, even though she's the developer of all the operations platforms and the person that Eunectes has come to look up to as her master, Closure has never tried to put a stop to her so-called "stupid apprentice's" behavior. She probably knows exactly how Eunectes feels.` },
+    { title: 'Archive File 4', content: `Although the Doctor's trip to Acahualla had a happy, almost comedic ending, there is still a point worthy of discussion.\nEven though Eunectes's true goal has always been to build gigantic robots and nothing more, had this series of events not transpired, she would have become the Great Chieftain, and under her rule, the Acahuallan tribes would likely advance into a strange but nonetheless robotic era. By its very essence, it's an idea that runs against their traditions—a breakthrough.\nFrom this point of view, you could say Gavial was the manifestation of tradition itself. She believed in her own strength and didn't seek any outside help. Having abided by this principle for years, this has become one of the most exemplar examples of Acahuallan tradition.\nIn other words, by its very essence, this series of events can be seen as a conflict between traditions and breakthroughs. If it wasn't for Gavial's relationship with Eunectes, if it wasn't for the region's lax sense of tradition to begin with, and if it wasn't for how modest the Acahuallan people were, history tells us all this would have ended very badly.\nOf course, that is simply conjecture, and this isn't to say that we were lucky things turned out the way they did. Rather, I wanted to pose an interesting question:\nIf Gavial and Eunectes each represented a different lifestyle—Gavial's being the primitive yet free lifestyle while Eunectes represented a more orderly lifestyle that relied upon tools—would we be able to say for sure that one is more correct and would lead to a better life?\nTo take this question one step further, what makes a good lifestyle?\nThere isn't a single correct answer to this question, but if you look at how Gavial and Eunectes are such polar opposites yet alike in some ways, I believe this would be a interesting question to ponder over.` },
+    { title: 'Promotion Record', content: `Regarding the partner of Eunectes, it is actually not the one that the Doctor and co. encountered in the rainforest. The name of that machine is "Huge Ugly Thing", nicknamed Big Ugly.\nHowever, due to the prototype of Big Ugly being too large, the aircraft could not fit all of it, and it was also destroyed at that time, so when returning to Rhodes Island, the aircraft did not carry many leftover parts of Big Ugly.\nThe current one was completed with the joint efforts of the entire Engineering Department, and the second-generation machine was named by chief engineer Closure—"Grumpy Ironhide".\nOn the surface, this machine is very similar to Big Ugly, but the inside of the machine is no longer ugly and messy; it contains the wisdom of the Rhodes Island Engineering Department.\nFor Eunectes, this must be the most solid first step for her dream to become a reality.\nAdditionally, after the completion of Grumpy Ironhide, the driver for Big Ugly that Eunectes occasionally mentioned, a creature named High Priest also began to appear frequently in Rhodes Island, and after learning about it, Dr Kal'tsit told operators not to care about it. Although this is somewhat of a concern, the High Priest's personality is joyful, and overtime, operators gradually got used to his existence.` },
+  ],
+  classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/duelist-branch.png', factionIcon: '/icons/factions/sargon.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/eunectes/base.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/eunectes/e2.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'skin1', label: 'Forgemaster', src: '/operators/eunectes/skin1.png', chibiSrc: '/operators/eunectes/chibi-skin1.webm', chibiMoveSrc: '/operators/eunectes/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+  ],
+  portrait: '/operators/eunectes/portrait.png',
+}
+
+export default eunectes

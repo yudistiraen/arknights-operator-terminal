@@ -16,6 +16,20 @@ dist-ssr
 .next
 out
 
+# Chibi/Spine render pipeline scratch data
+scripts/chibi-pipeline/runtime-cache
+scripts/chibi-pipeline/out
+
+# Firecrawl scrape scratch data (raw HTML/JSON/markdown, not source of truth)
+.firecrawl/
+
+# Claude Flow / swarm tooling state
+.claude-flow/
+.swarm/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

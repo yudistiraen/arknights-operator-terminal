@@ -1,0 +1,106 @@
+import type { Operator } from '../../types'
+
+const mostima: Operator = {
+  name: 'Mostima', fileNo: 'LT77', class: 'Caster', branch: 'Splash Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
+  faction: 'Laterano', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Laterano',
+  birthday: 'December 12th', height: '170 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: '幻象黑兔',
+  cv: { JP: 'Nana Mizuki', CN: 'Ruo Wu', EN: 'Kira Buckland', KR: 'Park Seon-young' },
+  trait: 'Deals AOE Arts damage',
+  tags: ['AoE', 'Support', 'Crowd-Control'],
+  stats: { hp: 1831, atk: 939, def: 132, res: 20, block: 1, cost: 34, aspd: '2.9s', rdp: '70s' },
+  range: {
+    base: [[0,1,1],[2,0,1],[0,1,1]],
+    e1: [[0,1,1,1],[2,0,1,1],[0,1,1,1]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Standard', Endurance: 'Standard', 'Tactical Acumen': 'Standard', 'Combat Skill': 'Excellent', 'Originium Arts': 'Excellent' },
+  talents: [
+    { name: 'Skill Aura - Caster', desc: 'When deployed, increases the SP recovery rate of all Casters by +0.4/second (only the highest effect of this type takes place)', elite: 'E2' },
+    { name: 'Subjective Time Dilation', desc: "Slows the movement speed of enemies within this unit's attack range by 15%", elite: 'E2' },
+  ],
+  skills: [
+    {
+      name: 'ATK Up γ', icon: '/operators/mostima/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +30%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '2', desc: 'ATK +35%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '3', desc: 'ATK +40%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '4', desc: 'ATK +45%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '5', desc: 'ATK +50%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '6', desc: 'ATK +55%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '7', desc: 'ATK +60%', spInit: 10, sp: 35, dur: '30s' },
+        { level: 'M1', desc: 'ATK +75%', spInit: 10, sp: 34, dur: '30s' },
+        { level: 'M2', desc: 'ATK +90%', spInit: 10, sp: 33, dur: '30s' },
+        { level: 'M3', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s' },
+      ],
+    },
+    {
+      name: 'Lock of Shattered Time', icon: '/operators/mostima/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Stuns all enemies within Attack Range and deals 140% ATK as Arts damage to them every second', spInit: 30, sp: 50, dur: '7s', rank: 'M3',
+      note: 'The skill actually changes Mostima to attack once every second, hitting all enemies in range with the specified ATK ratio, and Stunning for 1 second.',
+      levels: [
+        { level: '1', desc: 'Stuns all enemies within Attack Range and deals 80% ATK as Arts damage to them every second', spInit: 5, sp: 65, dur: '4s' },
+        { level: '2', desc: 'Stuns all enemies within Attack Range and deals 90% ATK as Arts damage to them every second', spInit: 7, sp: 64, dur: '4s' },
+        { level: '3', desc: 'Stuns all enemies within Attack Range and deals 100% ATK as Arts damage to them every second', spInit: 9, sp: 63, dur: '4s' },
+        { level: '4', desc: 'Stuns all enemies within Attack Range and deals 100% ATK as Arts damage to them every second', spInit: 11, sp: 61, dur: '5s' },
+        { level: '5', desc: 'Stuns all enemies within Attack Range and deals 110% ATK as Arts damage to them every second', spInit: 13, sp: 59, dur: '5s' },
+        { level: '6', desc: 'Stuns all enemies within Attack Range and deals 120% ATK as Arts damage to them every second', spInit: 15, sp: 58, dur: '5s' },
+        { level: '7', desc: 'Stuns all enemies within Attack Range and deals 120% ATK as Arts damage to them every second', spInit: 17, sp: 56, dur: '6s' },
+        { level: 'M1', desc: 'Stuns all enemies within Attack Range and deals 130% ATK as Arts damage to them every second', spInit: 20, sp: 54, dur: '6s' },
+        { level: 'M2', desc: 'Stuns all enemies within Attack Range and deals 130% ATK as Arts damage to them every second', spInit: 23, sp: 52, dur: '7s' },
+        { level: 'M3', desc: 'Stuns all enemies within Attack Range and deals 140% ATK as Arts damage to them every second', spInit: 30, sp: 50, dur: '7s' },
+      ],
+    },
+    {
+      name: 'Key of Chronology', icon: '/operators/mostima/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +170%, increases the effect of Subjective Time Dilation by 3x, and attacks knock targets back slightly', spInit: 80, sp: 110, dur: '27s', rank: 'M3',
+      note: 'The knockback has a force of 0.',
+      levels: [
+        { level: '1', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +60%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 50, sp: 110, dur: '20s' },
+        { level: '2', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +70%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 52, sp: 110, dur: '20s' },
+        { level: '3', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +80%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 54, sp: 110, dur: '20s' },
+        { level: '4', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +90%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 56, sp: 110, dur: '22s' },
+        { level: '5', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +100%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 58, sp: 110, dur: '22s' },
+        { level: '6', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +110%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 60, sp: 110, dur: '22s' },
+        { level: '7', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +120%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 62, sp: 110, dur: '24s' },
+        { level: 'M1', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +135%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 68, sp: 110, dur: '25s' },
+        { level: 'M2', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +150%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 74, sp: 110, dur: '26s' },
+        { level: 'M3', desc: 'Attack Range increases, attacks turn into ripples that spread outward, ATK +170%, increases the effect of the second talent to 3, and attacks knock targets back slightly', spInit: 80, sp: 110, dur: '27s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Mostima's Badge", desc: 'Appointed as Caster Operator to exercise Splash Caster responsibilities' },
+    spcx: { code: 'SPC-X', name: "Veteran Legatus' Customized Cloak", stages: [
+      { stage: 1, hp: '+120', atk: '+55', effect: 'New trait: Attack Range expands' },
+      { stage: 2, hp: '+165', atk: '+68', effect: "Skill Aura - Caster improved: When deployed, increases the SP recovery rate of all Casters by +0.5/second, while own SP recovery rate increases by +0.7/second (only the highest effect of this type will be applied)" },
+      { stage: 3, hp: '+190', atk: '+80', effect: "Skill Aura - Caster improved: When deployed, increases the SP recovery rate of all Casters by +0.6/second, while own SP recovery rate increases by +0.9/second (only the highest effect of this type will be applied)" },
+    ]},
+    spcy: { code: 'SPC-Y', name: 'Home of "Black Lock" and "White Key"', stages: [
+      { stage: 1, atk: '+51', aspd: '+5', effect: 'Cost -8; New trait: Reduces Deployment Cost' },
+      { stage: 2, atk: '+68', aspd: '+6', effect: "Cost -8; Subjective Time Dilation improved: Slows the movement speed of enemies within this unit's attack range by 25%; Slows the movement speed of enemies outside this unit's attack range by 10% (unaffected by skill)" },
+      { stage: 3, atk: '+82', aspd: '+7', effect: "Cost -8; Subjective Time Dilation improved: Slows the movement speed of enemies within this unit's attack range by 30%; Slows the movement speed of enemies outside this unit's attack range by 18% (unaffected by skill)" },
+    ]},
+  },
+  profile: `An employee of Penguin Logistics who always acts alone. Nothing is known about her previous work history.`,
+  story: `A Lateran Legatus (Nuntia Apostolici) currently under "sanctioned" employment with Penguin Logistics. A fallen Sankta with a dimmed halo and wings, as well as Sarkaz traits: black horns and a tail. Mostima maintains a cheerful demeanor but keeps her distance from both friends and strangers, making her difficult to contact or approach. When Penguin Logistics partnered with Rhodes Island, Mostima lent her support, wielding a pair of ancient Kazdelian staves known as the "Black Lock" and "White Key" to channel temporal Arts that slow the perception of time. This power carries its own risks, as the Lock and Key house the preserved consciousness of a long-dead Feranmut called the "Lifebone", capable of spatial and limited temporal manipulation. Currently, only Mostima can control the Lifebone's relic.\n\nMostima is Lemuen's sister-in-arms and was close with Lemuen's sister Lemuel (Exusiai) since childhood. An altercation in Kazdel forced her to shoot Andoain, leading to her fall. Despite her status as an outcast, Mostima continues to watch over Lemuen and Exusiai from a distance.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there are no other signs of infection. At this time, this operator can be confirmed to be uninfected.\n\n[Cell-Originium Assimilation] 0%\nOperator Mostima shows no signs of Oripathy infection.\n\n[Blood Originium-Crystal Density] 0.12u/L\nAs a transporter, Operator Mostima frequently enters dangerous environments. However, it goes without saying that she knows how to protect herself.` },
+    { title: 'Archive File 1', content: `A transporter who always wears a smile on her face.\nShe is well-informed and well-traveled, having a good understanding of the geography and customs of most countries in Terra. She often drops facts about various places that would be considered secrets to outsiders. However, tracking her down can be as hard as chasing a ghost, and no one seems to be able to find her when she's needed.\nShe can get along with just about everyone, but also seems to keep her distance at the same time.` },
+    { title: 'Archive File 2', content: `Many consider Ms. Mostima to be a black box.\nFirst of all, just being able to find her is no small feat.\nSecond, even if they manage to talk to her, some say that they feel as if they are talking to the air. Regardless of if they're thanking her, admiring her, swearing at her, or piling hatred upon her, she seems to only respond by curling the corners of her lips into a wry smile, answering with a normal demeanor as if she felt no emotions.\nAnd Ms. Mostima herself made it clear that regarding emotions, she "doesn't hate them, but has no need for them." Her words reflect a remarkable nonchalance. This is an important reason why many consider her to be more terrifying than even less personable colleagues. Whether her personality is a result of her past, or simply a numbness derived from many long years of work as a transporter, we may perhaps never know.` },
+    { title: 'Archive File 3', content: `As a veteran transporter, Ms. Mostima often has some logistics commissions that require her to go to remote or even dangerous places, so she will often not be aboard the Rhodes Island ship - terms that have been specified in her onboarding contract.\nIn fact, very few Operators are actually standing by on the ship at all times. Once the Rhodes Island ship has docked at a certain location, Operators are free to carry out activities in the locale as long as they maintain contact with the ship and do not act in a way that would damage the interests of Rhodes Island.\nBeyond this point, however, Ms. Mostima also has a few peculiarities. According to the application she submitted, Ms. Mostima often proactively seeks out delivery orders that would require her to travel abroad. Usually, Rhodes Island couriers will only operate in a local vicinity, because the time and risk involved in long-distance travel is a serious consideration for even the most experienced in the industry. Yet it doesn't seem to concern Ms. Mostima.\nDoes this mean that she has a special reason for doing so?` },
+    { title: 'Archive File 4', content: `According to the resume submitted by Ms. Mostima, she worked as a transporter throughout all of Terra, but mentioned nothing else beyond that.\nWhy would she provide her services for Penguin Logistics, why did she already know Ms. Exusiai, and most importantly, why did she become a fallen angel? Even though Ms. Mostima seems to have integrated well into Rhodes Island and has even established trust with the Doctor, she is still a complete mystery in the eyes of many.\nFollowing the guideline that, outside of extraordinary situations, we are not to pry excessively into the history of our Operators, Rhodes Island has no plans to seek answers to each and every one of these questions. However, one truth is very clear.\nThe Law is absolute. From the moment she aimed her gun at another of her kind, her fate was already decided.\nThis is a publicly known secret.` },
+    { title: 'Promotion Record', content: `In addition to her past experience, there is another noteworthy thing about Ms. Mostima, and that is her ability. Her two staves, known as "Black Lock" and "White Key" respectively, can cast very different spells. This is an extremely rare phenomenon, and her explanation of this is preliminary at best.\nThere is no doubt that Ms. Mostima's powers are unfathomable. According to the judgment of Chief Engineer Kal'tsit at the time she tested Ms. Mostima's abilities, Rhodes Island's training facilities would have been destroyed if she had put more effort into the testing. Such is the terrifying scale of her power.\nMore importantly, though, what was the monstrosity that appeared behind her at the moment the two forces within her hands overlapped?` },
+  ],
+  classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png', factionIcon: '/icons/factions/laterano.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/mostima/base.png', chibiSrc: '/operators/mostima/chibi.webm', illustrator: '幻象黑兔' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/mostima/e2.png', chibiSrc: '/operators/mostima/chibi.webm', illustrator: '幻象黑兔' },
+    { id: 'skin1', label: 'Spellbreaker', src: '/operators/mostima/skin1.png', chibiSrc: '/operators/mostima/chibi-skin1.webm', illustrator: '幻象黑兔' },
+    { id: 'skin2', label: 'Ethereal Harmony', src: '/operators/mostima/skin2.png', chibiSrc: '/operators/mostima/chibi-skin2.webm', illustrator: '三目YYB' },
+  ],
+  portrait: '/operators/mostima/portrait.png',
+  portraitFocus: { y: -4, x: 55, zoom: 250 },
+}
+
+export default mostima

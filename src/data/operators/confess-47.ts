@@ -1,0 +1,26 @@
+import type { Operator } from '../../types'
+
+const confess47: Operator = {
+  name: 'CONFESS-47', fileNo: 'LT47', class: 'Vanguard', branch: 'Pioneer', rarity: 1, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment'],
+  faction: 'Laterano', position: 'Melee', race: 'Robot', gender: 'Masculine', birthplace: 'Laterano',
+  birthday: 'December 24th', height: '230 cm', combatExp: '4 years', infectionStatus: 'No damage on outer shell. Structure intact. Engine and chassis in good condition. ECU in good condition. External firearm loaded. Confessional database is up to date. Minor malfunction with language module. Core function is unaffected.', illustrator: '抽象Rotate',
+  cv: { JP: 'Ken Narita', CN: 'Zhao Ming', EN: 'Chan Woo Lim', KR: 'Jang Seo-hwa' },
+  trait: 'Blocks 2 enemies and ignores Deployment Limit, but has a long Redeployment Time',
+  tags: ['Robot', 'Crowd-Control'],
+  stats: { hp: 870, atk: 192, def: 184, res: 0, block: 2, cost: 3, aspd: '1.05s', rdp: '200s' },
+  range: { base: [[2,1]], e1: [[2,1]] },
+  physicalExam: { 'Top Speed': '16 km/h', Climb: 'Normal', Brake: 'Normal', Mobility: 'Normal', Endurance: 'Excellent', 'Structural Integrity': 'Standard' },
+  talents: [{ name: 'Pay-Per-Confession VI', desc: 'The first time blocking an enemy, gains 4 DP and puts the blocked enemy to Sleep for 8s', elite: 'E0' }],
+  skills: [],
+  modules: {},
+  profile: `1st-gen automated confessional developed by the Laterano Faith Assistive Engineering Design Bureau. It began as a stationary confessional fitted with a smart voice system, modified and fitted to a mobile chassis allowing it to move through Laterano and respond to the confession requests of citizens on the intercity net.\nThe classic form is the designer's taste, and gives the user an impression of simplicity and honesty.\nThe accuracy and response of the voice recognition system were improved, and new customization options were added, including voice types, cognition scope, and response tendencies, providing a more personalized confession experience.\nThe automated confessional CONFESS-47 (full serial in Curia records: LATERANO AUTOMATED CONFESSIONAL 047) joined Rhodes Island as a gift from the Lateran Curia and currently serves as an operator providing confession and other services to members of Rhodes Island.`,
+  records: [
+    { title: 'Archive File', content: `'Confession' is a concept unique to the Lateran faith, and unfamiliar to most Rhodes Island operators. People understand it in many different ways: some imagine it as a way to seek comfort by confessing one's sins and asking for forgiveness, while others see it as a way to build trust with God by dissecting one's own sins and seeking punishment. Most agreed, however, that this gift from the Lateran Curia was likely to end up as little more than an accessory in the reception room.\nSurprisingly, it took only a few days before long queues started forming in front of CONFESS-47's cabin door, and most of the people lining up were not Laterans. A Lateran Messenger visiting Rhodes Island wrote a 300-page report on this remarkable phenomenon, bringing it back to Laterano to be studied by the priests.\nAfter several months of study and discussion, the priests published a 600-page thesis arguing that confession (specifically as it pertains to confessions conducted with a confessional) is applicable to all of humanity, whether they believe in the Lateran faith or not. In the paper, they wrote:\nIt is human nature to give things meaning. We give any external stimulus we encounter some sort of positive or negative meaning, using it as a guide for subsequent action. The interaction between human beings is also a catalyst for the creation of such meaning. In particular, the opinions of others significantly influence the direction of such additional meaning. These additional meanings typically remain with an individual for the rest of their life, significantly shaping their views and character...Confession forms a way to eliminate additional meanings that are unnecessary.\n'That's way too complicated. The truth is much simpler. Imagine that you put a grain of sand in a clam. It'll begin to secrete nacre and wrap it around the sand, until it no longer stings. But the confessional is a machine. It doesn't secrete anything; all it does is scoop the sand out for the clam and throw it away.'\n'In other words, the confessional doesn't judge, whether you're bringing it joy or worry. Talk with it for a while, and you'll realize that whatever's bothering you wasn't that important after all—especially when you're trying to stifle a laugh because of a bad pun CONFESS-47 just made.'\n—Exusiai, to operators whose heads were hurting after reading the aforementioned thesis` },
+  ],
+  classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/laterano.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/confess-47/base.png', chibiSrc: '/operators/confess-47/chibi.webm', chibiMoveSrc: '/operators/confess-47/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '抽象Rotate' },
+  ],
+}
+
+export default confess47

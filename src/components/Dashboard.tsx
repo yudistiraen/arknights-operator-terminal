@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { OPERATORS } from '../data/operators'
+import { altersOf } from '../lib/operators'
 import { useApp } from './AppShell'
 import { Footer } from './Footer'
 import { OngoingEvents } from './OngoingEvents'
@@ -37,7 +38,7 @@ export function Dashboard() {
     for (const op of OPERATORS) {
       classes.add(op.class)
       factions.add(op.faction)
-      if (op.alter) totalEntries++
+      totalEntries += altersOf(op).length
     }
     return {
       totalOperators: totalEntries,

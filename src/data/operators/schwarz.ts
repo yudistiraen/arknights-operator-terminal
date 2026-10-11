@@ -1,0 +1,108 @@
+import type { Operator } from '../../types'
+
+const schwarz: Operator = {
+  name: 'Schwarz', fileNo: 'SS02', class: 'Sniper', branch: 'Heavyshooter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
+  faction: 'Siesta', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Rim Billiton',
+  birthday: 'Individual exhibits memory loss regarding this information', height: '169 cm', combatExp: '20 years', infectionStatus: 'Originium crystals have appeared on her body. Medical tests have confirmed her infection.', illustrator: 'Liduke',
+  cv: { JP: 'Shizuka Itou', CN: 'Liangshang Feimao (credited as "Gino" in EN)', EN: 'Katelyn Gault', KR: 'Park Shin-hee' },
+  trait: 'High accuracy point-blank shot',
+  tags: ['DPS'],
+  stats: { hp: 1833, atk: 940, def: 225, res: 0, block: 1, cost: 20, aspd: '1.6s', rdp: '70s' },
+  range: {
+    base: [[1, 1, 0], [2, 1, 1], [1, 1, 0]],
+    e1: [[1, 1, 1], [2, 1, 1], [1, 1, 1]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
+  talents: [
+    { name: 'Sharp Arrow', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 130%', elite: 'E0' },
+    { name: 'Armor Penetration Arrow', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 130% and reduce the DEF of the target hit by 10% for 5 seconds', elite: 'E1' },
+    { name: 'Armor Penetration Arrow', desc: 'When attacking, has a 20% chance to increase the current damage of that attack to 160% and reduce the DEF of the target hit by 20% for 5 seconds', elite: 'E2' },
+    { name: 'Crossfire', desc: "When Schwarz and at least one more [Sniper] Operator are on the battlefield, all [Sniper] Operators' ATK +8%", elite: 'E2' },
+    { name: 'Crossfire', desc: "When Schwarz and at least one more [Sniper] Operator are on the battlefield, all [Sniper] Operators' ATK +10%(+2%)", elite: 'E2 (Potential 6)' },
+  ],
+  skills: [
+    {
+      name: 'Charged Shot', icon: '/operators/schwarz/skill-1.png', activation: 'Auto', recovery: 'Offensive Recovery',
+      desc: "The next attack deals 220% damage, and increases the chance of triggering this unit's Talent to 80%", spInit: 0, sp: 3, rank: 'M3',
+      levels: [
+        { level: '1', desc: "The next attack deals 160% damage, and increases the chance of triggering this unit's Talent to 50%", spInit: 0, sp: 5 },
+        { level: '2', desc: "The next attack deals 165% damage, and increases the chance of triggering this unit's Talent to 50%", spInit: 0, sp: 5 },
+        { level: '3', desc: "The next attack deals 170% damage, and increases the chance of triggering this unit's Talent to 50%", spInit: 0, sp: 5 },
+        { level: '4', desc: "The next attack deals 175% damage, and increases the chance of triggering this unit's Talent to 60%", spInit: 0, sp: 4 },
+        { level: '5', desc: "The next attack deals 180% damage, and increases the chance of triggering this unit's Talent to 60%", spInit: 0, sp: 4 },
+        { level: '6', desc: "The next attack deals 185% damage, and increases the chance of triggering this unit's Talent to 60%", spInit: 0, sp: 4 },
+        { level: '7', desc: "The next attack deals 190% damage, and increases the chance of triggering this unit's Talent to 70%", spInit: 0, sp: 4 },
+        { level: 'M1', desc: "The next attack deals 200% damage, and increases the chance of triggering this unit's Talent to 73%", spInit: 0, sp: 4 },
+        { level: 'M2', desc: "The next attack deals 210% damage, and increases the chance of triggering this unit's Talent to 76%", spInit: 0, sp: 4 },
+        { level: 'M3', desc: "The next attack deals 220% damage, and increases the chance of triggering this unit's Talent to 80%", spInit: 0, sp: 3 },
+      ],
+    },
+    {
+      name: 'Sharp Eye', icon: '/operators/schwarz/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +130%, and increases the chance to activate the Talent to 50%', spInit: 20, sp: 30, dur: '40s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +70%, and increases the chance to activate the Talent to 35%', spInit: 10, sp: 40, dur: '30s' },
+        { level: '2', desc: 'ATK +75%, and increases the chance to activate the Talent to 35%', spInit: 10, sp: 39, dur: '31s' },
+        { level: '3', desc: 'ATK +80%, and increases the chance to activate the Talent to 35%', spInit: 10, sp: 38, dur: '32s' },
+        { level: '4', desc: 'ATK +85%, and increases the chance to activate the Talent to 40%', spInit: 13, sp: 37, dur: '33s' },
+        { level: '5', desc: 'ATK +90%, and increases the chance to activate the Talent to 40%', spInit: 13, sp: 36, dur: '34s' },
+        { level: '6', desc: 'ATK +95%, and increases the chance to activate the Talent to 40%', spInit: 13, sp: 35, dur: '35s' },
+        { level: '7', desc: 'ATK +100%, and increases the chance to activate the Talent to 45%', spInit: 16, sp: 34, dur: '36s' },
+        { level: 'M1', desc: 'ATK +110%, and increases the chance to activate the Talent to 45%', spInit: 17, sp: 33, dur: '37s' },
+        { level: 'M2', desc: 'ATK +120%, and increases the chance to activate the Talent to 45%', spInit: 18, sp: 32, dur: '38s' },
+        { level: 'M3', desc: 'ATK +130%, and increases the chance to activate the Talent to 50%', spInit: 20, sp: 30, dur: '40s' },
+      ],
+    },
+    {
+      name: 'Final Tactics', icon: '/operators/schwarz/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Changes attack range to frontal 4 tiles, Attack Interval increases a bit, ATK +180%, increasing Talent triggering chance to 100%', spInit: 12, sp: 25, dur: '25s', rank: 'M3',
+      range: [[2, 1, 1, 1, 1]],
+      note: "Final Tactics increases Schwarz's attack interval by 0.4 seconds.",
+      levels: [
+        { level: '1', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +100%, increasing Talent triggering chance to 100%', spInit: 5, sp: 35, dur: '15s' },
+        { level: '2', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +105%, increasing Talent triggering chance to 100%', spInit: 5, sp: 34, dur: '16s' },
+        { level: '3', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +110%, increasing Talent triggering chance to 100%', spInit: 5, sp: 33, dur: '17s' },
+        { level: '4', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +120%, increasing Talent triggering chance to 100%', spInit: 7, sp: 32, dur: '18s' },
+        { level: '5', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +125%, increasing Talent triggering chance to 100%', spInit: 7, sp: 31, dur: '18s' },
+        { level: '6', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +130%, increasing Talent triggering chance to 100%', spInit: 7, sp: 30, dur: '20s' },
+        { level: '7', desc: 'Changes attack range to frontal 3 tiles, Attack Interval increases a bit, ATK +140%, increasing Talent triggering chance to 100%', spInit: 9, sp: 29, dur: '21s' },
+        { level: 'M1', desc: 'Changes attack range to frontal 4 tiles, Attack Interval increases a bit, ATK +150%, increasing Talent triggering chance to 100%', spInit: 10, sp: 28, dur: '22s' },
+        { level: 'M2', desc: 'Changes attack range to frontal 4 tiles, Attack Interval increases a bit, ATK +160%, increasing Talent triggering chance to 100%', spInit: 11, sp: 27, dur: '23s' },
+        { level: 'M3', desc: 'Changes attack range to frontal 4 tiles, Attack Interval increases a bit, ATK +180%, increasing Talent triggering chance to 100%', spInit: 12, sp: 25, dur: '25s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Schwarz's Badge", desc: 'Appointed as Sniper Operator to exercise Heavyshooter responsibilities' },
+    arcx: { code: 'ARC-X', name: 'Customized Crossbow Accessory Suit', stages: [
+      { stage: 1, hp: '+130', atk: '+55', effect: 'New trait: Redeployment Time reduced (Rdp. -25 sec.)' },
+      { stage: 2, hp: '+150', atk: '+65', effect: "Rdp. -25 sec.; Crossfire improved: When Schwarz and at least one more Sniper Operator are in the squad, all Sniper Operators gain +11% ATK" },
+      { stage: 3, hp: '+170', atk: '+75', effect: "Rdp. -25 sec.; Crossfire improved: When Schwarz and at least one more Sniper Operator are in the squad, all Sniper Operators gain +13% ATK" },
+    ]},
+    arcy: { code: 'ARC-Y', name: 'Old Razor', stages: [
+      { stage: 1, atk: '+80', def: '+10', effect: "New trait: Increases ATK to 105% when attacking enemies directly in front, and ignores their Physical Dodge" },
+      { stage: 2, atk: '+100', def: '+13', effect: "Armor Penetration Arrow improved: Attacks have a 20% chance to deal 165% damage and reduce the target's DEF by 25% for 5 seconds" },
+      { stage: 3, atk: '+120', def: '+16', effect: "Armor Penetration Arrow improved: Attacks have a 20% chance to deal 170% damage and reduce the target's DEF by 25% for 5 seconds" },
+    ]},
+  },
+  story: `A Feline markswoman and former mercenary assassin, Schwarz is both the personal bodyguard of Ceylon Doykos and the head of Siesta's Urban Public Security Bureau. The normally cold and reserved killer somehow shows an unabated devotion for Ceylon, whom she would protect with her life if she has to. During the Obsidian Festival fiasco, Schwarz initially opposed Rhodes Island but finally decided to join them to uncover Cronin's crimes, a decision made out of Ceylon's wishes. In the aftermath, she followed Ceylon's footsteps to R.I. where she is enlisted as the Doctor's bodyguard and a sniper instructor.`,
+  profile: `Formerly both SP for the Mayor of Siesta and the Bureau Chief of the Urban Public Security Bureau, Schwarz joined Rhodes Island at the same time as Ceylon.\nShe has outstanding achievements in covert operations, reconnaissance and anti-reconnaissance, survival, and crossbow usage. She is in charge of protecting the Doctor and is responsible for the training of basic level Rhodes Island operators.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests have shown the outlines of her internal organs to be indistinct due to abnormal shadows. Originium granules have been detected in her circulatory system, confirming her to be infected with Oripathy.\n[Cell-Originium Assimilation] 6%\nPatient's disease is under control.\n[Blood Originium-Crystal Density] 0.29u/L\nPatient's oripathy is mild and currently shows no indications of spreading.\nSubject was exposed to Oripathy quite early on. However, due to receiving timely, excellent treatment before joining Rhodes Island, the patient's Oripathy is effectively stable.\n— Medic Warfarin` },
+    { title: 'Archive File 1', content: `She makes for a stern and severe bodyguard.\nWhen needed, she acts as guardian for the Doctor. In addition, she can often be found in the vicinity of Ceylon.\nShe does not like to interact with others. Even when someone wants to interact with her, they usually receive a cold response.\nHowever, she can sometimes be seen accompanying mercenaries and bounty hunters at the bar.` },
+    { title: 'Archive File 2', content: `Schwarz has two faces.\nIn combat, she often displays a cold-hearted side. Although she mainly uses a crossbow for a weapon, even an object as seemingly benign as a pen, a book, or a rope can become a lethal weapon in her hands. Moreover, unlike an ordinary person, she doesn't value her own life or well-being. In various exercises, her methods of attack are often unpredictable. However, these methods often come at considerable cost to herself.\nPerhaps Schwarz does not have as much experience in dealing with monsters as other operators do, but she is uniquely capable among Rhodes Island operators at dealing with human and humanoid foes. In the words of one operator, "She is like a machine designed specifically to ruthlessly kill humans."\nHowever, in the presence of Ceylon, she may still be cold, but she betrays a softer side. Her relationship with Ceylon is less a simple master-servant relationship, and more of a relationship between sisters on equal-footing. She dotes heavily upon her younger sister and will satisfy any of her requests, no matter how unreasonable. She shows tolerance even for her most whimsical notions, and her normally cold voice possesses a certain pampering tone.\nIt is only in these moments that she appears to transform from a machine to a person, in the eyes of spectators. It is because of this side of her that many operators who used to fear her have been gradually changing their opinion.` },
+    { title: 'Archive File 3', content: `During the Siesta incident, there is a detail that is easily overlooked: We already know that Schwarz has an abiding love for Ceylon. However, during the event, she chose to stand on the other side. Though she was forgiven, this has still ultimately been taken as a betrayal, and has caused a chain reaction of events.\nIn the analysis of the incident, we can see that the real reason she took the other side was because that she has an inclination toward the city's Mayor, Herman. It is true that she deeply loves Ceylon, but she is not just her puppet. Theoretically, as the mayor's agent, she ought to be the one who understands him the most. Her quote, "When it's time to shed blood, do not send Lady Ceylon to do it, send someone who lives amongst the shadows," is likely an accurate representation of her mentality on this.\nDespite bearing witness to the event, after joining Rhodes Island, Ceylon has still shown some idealistic tendencies. This is normal. She witnessed some of the cruelty that this world is capable of, but the relatively neat resolution to this incident has lightened some of the shock of it. Moreover, not everyone needs to have a deep understanding of this so-called cruel reality.\nHowever, this brings us to the salient point of this discussion: What position should Rhodes Island take on this issue?\nPeople like Ceylon are not a minority in Rhodes Island. Rhodes Island is not purely a research institution and thus our nature determines that we will sometimes come face-to-face with unsavory situations. Do we have an obligation or necessity to expose these members to cruelties they've never experienced before? Or is it enough to abide by Schwarz's quote and "Send someone who lives amongst the shadows?"\nThis is a topic worth discussing in more detail.\n— Archivist R.F.` },
+    { title: 'Archive File 4', content: `"......Actually, since I've gotten used to it, I don't really feel anything when I kill people. Especially when the people I kill are my enemies.\nAs for how I specifically wiped out that entire clan all by myself, you don't want to know, Doctor. Actually, aside from giving you a detailed description of the bushes and shrubs I hid in, there isn't much I can tell you. Wait, and then attack - it really is that simple.\nI was born into a family of Rim Billiton merchants. Both of my parents were traders. When I was six years old, they were involved in a deal in which they were tricked into collecting a number of Originium Stones disguised as ordinary gems. I was infected with Oripathy when I stole some of these stones to play with them.\nAfter my parents found out, they went to confront those who had tricked them, but were ambushed and killed en route. I was treated like a slave and sold. In the end, I was selected by a mercenary unit to become their newest member.\nIn addition to carrying out war operations, this mercenary unit was also responsible for carrying out tasks for important men, mostly their dirty work. After I passed their training, I became a child assassin. After several missions, my organization was tasked with staging some "accidents" in a certain city.\nThat is where my fate changed.\nMy task was to assassinate Lady Ceylon's father, but in the process of getting close to him, he subdued me. You can't even imagine. He was a... Forget it, I won't even bring it up. In short, I helped him eliminate my entire mercenary unit. Afterward, I became part-housekeeper, part-bodyguard. That year, Lady Ceylon was three years old, and I was 12.\nActually, what Lady Ceylon doesn't know is that during those years I was a bodyguard, I also helped her father with other matters... Don't get me wrong, I was willing to. The person I care about most is Lady Ceylon but the person I respect the most was her father. That still hasn't changed after all this time.\n......That day, he called me back to Siesta and told me that he found my enemies. Before I set out, he asked me "Are you sure you want to go? You can live a good life here, Schwarz." Ultimately, I went, but not just for revenge, but also to make a clean break. Also, I knew that somebody was waiting for me."\n—This story was related by the Doctor personally. Because its original telling was replete with vulgarity and drunken rambling, it has undergone substantial editing and abridgment. With the permission of the subject, it will be inserted into her personal record.` },
+    { title: 'Promotion Record', content: `One way of looking at it is, if someone like Schwarz found herself in the light, the darkness within her would gradually dissipate.\nIt must be noted that this is an optimistic and even irresponsible way of thinking.\nA rather cruel fact we have found is that rather than saying Schwarz is her true self when she's around Ceylon, it is better to say that she is hiding her true nature.\nThe coldness and contempt for life she exhibits during battle is closer to her true nature.\nThis is what is engraved into her very soul. It is the branding she would not be able to wash off even if she were to spend the rest of her life in the light.\nSo what we must understand is that her hopes for Ceylon may be hard to achieve, but they are not to be taken lightly. For it is only those who have experienced the darkness that understand just how deeply that coldness runs.\nThe only thing worth celebrating is that she recognizes this.\nOnly in this way, perhaps what she says will come true. That one day, the Doctor will be able to tame the evil within her. I hope that such a day will come.` },
+  ],
+  classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/heavyshooter-branch.png', factionIcon: '/icons/factions/siesta.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/schwarz/base.png', chibiSrc: '/operators/schwarz/chibi.webm', chibiMoveSrc: '/operators/schwarz/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/schwarz/e2.png', chibiSrc: '/operators/schwarz/chibi.webm', chibiMoveSrc: '/operators/schwarz/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'skin1', label: 'Presents', src: '/operators/schwarz/skin1.png', chibiSrc: '/operators/schwarz/chibi-skin1.webm', chibiMoveSrc: '/operators/schwarz/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'skin2', label: 'Skyline', src: '/operators/schwarz/skin2.png', chibiSrc: '/operators/schwarz/chibi-skin2.webm', chibiMoveSrc: '/operators/schwarz/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+  ],
+  portrait: '/operators/schwarz/portrait.png',
+}
+
+export default schwarz

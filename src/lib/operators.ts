@@ -1,5 +1,11 @@
 import { OPERATORS } from '../data/operators'
-import type { Operator, OperatorSkin } from '../types'
+import type { Operator, OperatorAlter, OperatorSkin } from '../types'
+
+// Normalizes `Operator.alter` (single object or array) to an array — empty when absent.
+export function altersOf(op: Operator): OperatorAlter[] {
+  if (!op.alter) return []
+  return Array.isArray(op.alter) ? op.alter : [op.alter]
+}
 
 export interface WalkableChibi {
   operatorName: string
@@ -10,7 +16,7 @@ export interface WalkableChibi {
 }
 
 // Skins that have been through the multi-state chibi render pipeline (see "Sub-rencana:
-// Multi-state chibi" in context.md) — both chibiMoveSrc and chibiFraming are required since
+// Multi-state chibi" in operator_context.md) — both chibiMoveSrc and chibiFraming are required since
 // a walk-cycle video without calibrated framing would mis-align against its idle loop.
 //
 // Class-change variants (e.g. Amiya Guard/Medic) are tagged under their base operator's name
@@ -61,6 +67,9 @@ export interface RosterEntry {
   operator: Operator
   operatorIndex: number
   isAlter: boolean
+  // Index into altersOf(baseOperator) when isAlter is true, null for the base form —
+  // distinguishes which alter this entry is for operators with more than one.
+  alterIndex: number | null
 }
 
 // Canonical roster order (rarity desc, name asc, alters as separate entries) shared
@@ -68,10 +77,10 @@ export interface RosterEntry {
 export function getRosterEntries(): RosterEntry[] {
   const entries: RosterEntry[] = []
   OPERATORS.forEach((op, operatorIndex) => {
-    entries.push({ operator: op, operatorIndex, isAlter: false })
-    if (op.alter) {
-      entries.push({ operator: { ...op, ...op.alter } as Operator, operatorIndex, isAlter: true })
-    }
+    entries.push({ operator: op, operatorIndex, isAlter: false, alterIndex: null })
+    altersOf(op).forEach((alter, alterIndex) => {
+      entries.push({ operator: { ...op, ...alter } as Operator, operatorIndex, isAlter: true, alterIndex })
+    })
   })
   entries.sort((a, b) => {
     if (b.operator.rarity !== a.operator.rarity) return b.operator.rarity - a.operator.rarity

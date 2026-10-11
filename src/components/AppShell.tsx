@@ -11,6 +11,19 @@ import { MAX_WALKING_CHIBIS, getChibiId, readChibiSelectionCookie, writeChibiSel
 
 gsap.registerPlugin(useGSAP)
 
+const MUTE_COOKIE_NAME = 'audio-muted'
+const MUTE_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365
+
+function readMuteCookie(): boolean {
+  if (typeof document === 'undefined') return false
+  return document.cookie.match(new RegExp(`(?:^|; )${MUTE_COOKIE_NAME}=1(?:;|$)`)) !== null
+}
+
+function writeMuteCookie(isMuted: boolean): void {
+  if (typeof document === 'undefined') return
+  document.cookie = `${MUTE_COOKIE_NAME}=${isMuted ? '1' : '0'}; path=/; max-age=${MUTE_COOKIE_MAX_AGE_SECONDS}; samesite=lax`
+}
+
 interface AppContextType {
   isMuted: boolean
   toggleMute: () => void
@@ -39,6 +52,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const [hasEntered, setHasEntered] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
+  useEffect(() => {
+    if (readMuteCookie()) setIsMuted(true)
+  }, [])
   const toggleSidebar = useCallback(() => setSidebarOpen(prev => !prev), [])
   const audioRef = useRef<HTMLAudioElement>(null)
   const splashRef = useRef<HTMLDivElement>(null)
@@ -80,10 +96,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     enterSound.volume = 0.8
     enterSound.play().catch(() => {})
 
+    // Read the cookie directly instead of trusting `isMuted` — the splash screen is
+    // clickable before the mount effect that syncs `isMuted` from the cookie has run,
+    // so a fast click would otherwise start the BGM unmuted despite a muted cookie.
+    const startMuted = readMuteCookie()
+    if (startMuted !== isMuted) setIsMuted(startMuted)
+
     const audioElement = audioRef.current
     if (audioElement) {
       audioElement.volume = 0
+      audioElement.muted = startMuted
       audioElement.play().then(() => {
+        if (startMuted) return
         const volumeFade = { volume: 0 }
         gsap.to(volumeFade, {
           volume: 0.8,
@@ -105,7 +129,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     } else {
       setHasEntered(true)
     }
-  }, [hasEntered])
+  }, [hasEntered, isMuted])
 
   useEffect(() => {
     const audioElement = audioRef.current
@@ -143,6 +167,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       })
     }
     setIsMuted(!isMuted)
+    writeMuteCookie(!isMuted)
   }, [isMuted])
 
   return (

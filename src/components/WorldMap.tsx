@@ -400,11 +400,14 @@ export function WorldMap() {
         </svg>
       </div>
 
-      {/* Nation detail strip: the payoff for selecting a nation. Reserved
-          height so hovering the map never shifts the layout below it. */}
-      <div className="mt-2 min-h-[72px]">
+      {/* Nation detail strip: the payoff for selecting a nation. Fixed height
+          (not min-height) with its own scroll — the dashboard column is
+          vertically centered, so any growth here would re-center everything
+          and drag the map out from under the cursor. Large nations scroll
+          inside the strip instead; the bottom fade hints there's more. */}
+      <div className="mt-2 h-35 overflow-y-auto overscroll-contain scrollbar-thin [scrollbar-color:rgba(255,255,255,0.15)_transparent] mask-[linear-gradient(to_bottom,black_calc(100%-20px),transparent)]">
         {activeNation ? (
-          <div key={activeNation} className="animate-[map-detail-in_0.25s_ease-out] motion-reduce:animate-none">
+          <div key={activeNation} className="pb-5 animate-[map-detail-in_0.25s_ease-out] motion-reduce:animate-none">
             {activeOperators.length > 0 ? (
               <div className="flex flex-wrap justify-center gap-2">
                 {activeOperators.map(op => (

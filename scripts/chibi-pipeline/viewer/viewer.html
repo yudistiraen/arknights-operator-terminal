@@ -1,0 +1,266 @@
+<!doctype html>
+<!--
+  Spine Canvas2D render harness, driven by Puppeteer via capture.mjs. Not meant to be
+  opened by a human — loaded headlessly with query params selecting the model/animation.
+
+  Query params: skel, atlas, png (asset URLs, served by lib/server.mjs), runtime
+  (spine-canvas.js URL), size (canvas width/height in px, square), hide (optional
+  comma-separated slot/attachment names to hide, `*` suffix = prefix match).
+
+  Exposes on `window` for capture.mjs to drive via page.evaluate():
+    __spineInit()                                          -> Promise<void>
+    __spineGetDuration(animName)                            -> number (seconds)
+    __spineComputeFraming(animName, sampleCount, marginPct, boundsMode) -> { minX, minY, maxX, maxY }
+    __spineRenderAt(animName, t)                            -> void (draws one frame to #canvas)
+
+  Bakes in the gotchas documented in operator_context.md's "Pipeline render tervalidasi" section:
+  foot-anchored framing (the drawn box's bottom edge always sits at the canvas's bottom
+  edge, never vertically centered — see step 6), a texture resolver that ignores the
+  `path` argument and always returns the single loaded texture (step 5, single-atlas-page
+  assumption), and a locked camera per clip (computed once from `__spineComputeFraming`,
+  reused for every frame) rather than an auto-fit-per-frame that would make the character
+  visibly zoom/pan across a walk cycle.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>chibi-pipeline viewer</title>
+  </head>
+  <body style="margin: 0; background: transparent">
+    <canvas id="canvas"></canvas>
+    <script>
+      const params = new URLSearchParams(location.search)
+      const SKEL_URL = params.get('skel')
+      const ATLAS_URL = params.get('atlas')
+      const PNG_URL = params.get('png')
+      const RUNTIME_URL = params.get('runtime')
+      const SIZE = Number(params.get('size') || 600)
+      // Comma-separated slot/attachment names to force-hide every frame; a trailing `*`
+      // makes it a prefix match (e.g. "C_*"). For skins whose dorm-scene props sit visible
+      // in the setup pose and aren't keyed off by Relax/Move (Młynar epoque_28's sword).
+      const HIDE_PATTERNS = (params.get('hide') || '')
+        .split(',')
+        .map((p) => p.trim())
+        .filter(Boolean)
+
+      const canvas = document.getElementById('canvas')
+      canvas.width = SIZE
+      canvas.height = SIZE
+      const ctx = canvas.getContext('2d')
+
+      let skeleton, state, skeletonRenderer, skeletonData
+      let framing = null // locked world-space rect for the current animation, set by __spineComputeFraming
+
+      function loadScript(src) {
+        return new Promise((resolve, reject) => {
+          const s = document.createElement('script')
+          s.src = src
+          s.onload = resolve
+          s.onerror = () => reject(new Error('Failed to load runtime: ' + src))
+          document.head.appendChild(s)
+        })
+      }
+
+      window.__spineInit = async function () {
+        await loadScript(RUNTIME_URL)
+
+        const assetManager = new spine.canvas.AssetManager('')
+        assetManager.loadBinary(SKEL_URL)
+        assetManager.loadText(ATLAS_URL)
+        assetManager.loadTexture(PNG_URL)
+
+        await new Promise((resolve, reject) => {
+          const check = () => {
+            if (assetManager.isLoadingComplete()) {
+              if (assetManager.hasErrors && assetManager.hasErrors()) {
+                reject(new Error('Asset load errors: ' + JSON.stringify(assetManager.getErrors())))
+              } else {
+                resolve()
+              }
+            } else {
+              requestAnimationFrame(check)
+            }
+          }
+          check()
+        })
+
+        const atlasText = assetManager.get(ATLAS_URL)
+        // Gotcha (operator_context.md step 5): the atlas file's internal texture-page filename
+        // (its first line) does NOT necessarily match PNG_URL's local filename, so the
+        // resolver must ignore `path` and always hand back the one texture we loaded —
+        // valid because every chibi model here is a single-atlas-page model.
+        const texture = assetManager.get(PNG_URL)
+        const atlas = new spine.TextureAtlas(atlasText, () => texture)
+
+        const atlasLoader = new spine.AtlasAttachmentLoader(atlas)
+        const skeletonBinary = new spine.SkeletonBinary(atlasLoader)
+        skeletonData = skeletonBinary.readSkeletonData(assetManager.get(SKEL_URL))
+
+        skeleton = new spine.Skeleton(skeletonData)
+        skeleton.setToSetupPose()
+        skeleton.updateWorldTransform()
+
+        const stateData = new spine.AnimationStateData(skeletonData)
+        state = new spine.AnimationState(stateData)
+
+        skeletonRenderer = new spine.canvas.SkeletonRenderer(ctx)
+        skeletonRenderer.triangleRendering = true
+
+        window.__spineReady = true
+      }
+
+      window.__spineGetDuration = function (animName) {
+        const anim = skeletonData.findAnimation(animName)
+        if (!anim) {
+          const available = skeletonData.animations.map((a) => a.name).join(', ')
+          throw new Error(`Animation "${animName}" not found. Available: ${available}`)
+        }
+        return anim.duration
+      }
+
+      function poseAt(animName, t) {
+        skeleton.setToSetupPose()
+        state.clearTracks()
+        state.setAnimation(0, animName, false)
+        state.update(t)
+        state.apply(skeleton)
+        hideMatchingSlots()
+        skeleton.updateWorldTransform()
+      }
+
+      function matchesHidePattern(name) {
+        if (!name) return false
+        return HIDE_PATTERNS.some((pattern) =>
+          pattern.endsWith('*') ? name.startsWith(pattern.slice(0, -1)) : name === pattern,
+        )
+      }
+
+      function hideMatchingSlots() {
+        if (HIDE_PATTERNS.length === 0) return
+        for (const slot of skeleton.slots) {
+          const attachment = slot.getAttachment()
+          if (!attachment) continue
+          if (matchesHidePattern(slot.data.name) || matchesHidePattern(attachment.name)) {
+            slot.setAttachment(null)
+          }
+        }
+      }
+
+      function boundsAtGetBounds() {
+        const offset = new spine.Vector2()
+        const size = new spine.Vector2()
+        skeleton.getBounds(offset, size, [])
+        return { minX: offset.x, minY: offset.y, maxX: offset.x + size.x, maxY: offset.y + size.y }
+      }
+
+      // Gotcha (operator_context.md "Gotcha ditemukan dari batch Logos/Mon3tr/Mlynar"): getBounds()
+      // can be fooled by an invisible attachment that's part of the skeleton but never
+      // rendered, producing an identical oversized box regardless of pose. This mode
+      // renders each sampled pose to a large offscreen canvas at a fixed 1:1 world-to-pixel
+      // scale and reads back the alpha channel instead, so only pixels actually drawn count.
+      function boundsAtPixelProbe() {
+        const PROBE = 2400
+        const originX = PROBE / 2
+        const originY = PROBE / 2
+        const probeCanvas = document.createElement('canvas')
+        probeCanvas.width = PROBE
+        probeCanvas.height = PROBE
+        const probeCtx = probeCanvas.getContext('2d')
+        probeCtx.save()
+        probeCtx.translate(originX, originY)
+        probeCtx.scale(1, -1) // Spine world space is Y-up; canvas pixel space is Y-down.
+        const probeRenderer = new spine.canvas.SkeletonRenderer(probeCtx)
+        probeRenderer.triangleRendering = true
+        probeRenderer.draw(skeleton)
+        probeCtx.restore()
+
+        const imageData = probeCtx.getImageData(0, 0, PROBE, PROBE)
+        let minPx = PROBE,
+          minPy = PROBE,
+          maxPx = -1,
+          maxPy = -1
+        for (let y = 0; y < PROBE; y++) {
+          for (let x = 0; x < PROBE; x++) {
+            const alpha = imageData.data[(y * PROBE + x) * 4 + 3]
+            if (alpha > 0) {
+              if (x < minPx) minPx = x
+              if (x > maxPx) maxPx = x
+              if (y < minPy) minPy = y
+              if (y > maxPy) maxPy = y
+            }
+          }
+        }
+        if (maxPx < 0) {
+          return { minX: 0, minY: 0, maxX: 0, maxY: 0 }
+        }
+        return {
+          minX: minPx - originX,
+          maxX: maxPx - originX,
+          minY: -(maxPy - originY),
+          maxY: -(minPy - originY),
+        }
+      }
+
+      // Locks the camera for the whole clip: unions the bounding box across `sampleCount`
+      // points spread through the animation's duration (instead of trusting a single
+      // frame — operator_context.md's "sample tunggal bisa salah" gotcha), then pads by
+      // `marginPercent` on every side (the dangling-prop gotcha — a chain/tail can swing
+      // further between two samples than either sample shows). Passing sampleCount=1
+      // samples only t=0, matching the "t0" calibration mode needed for clips with a fast-
+      // swinging prop where a duration-wide average produces a visible jump on loop.
+      window.__spineComputeFraming = function (animName, sampleCount, marginPercent, boundsMode) {
+        const duration = skeletonData.findAnimation(animName).duration
+        const n = Math.max(1, sampleCount)
+        let union = null
+        for (let i = 0; i < n; i++) {
+          const t = duration <= 0 ? 0 : (i / Math.max(1, n - 1)) * duration
+          poseAt(animName, t)
+          const rect = boundsMode === 'pixel-probe' ? boundsAtPixelProbe() : boundsAtGetBounds()
+          if (!union) {
+            union = { ...rect }
+          } else {
+            union.minX = Math.min(union.minX, rect.minX)
+            union.minY = Math.min(union.minY, rect.minY)
+            union.maxX = Math.max(union.maxX, rect.maxX)
+            union.maxY = Math.max(union.maxY, rect.maxY)
+          }
+        }
+        const width = union.maxX - union.minX
+        const height = union.maxY - union.minY
+        const marginX = width * marginPercent
+        const marginY = height * marginPercent
+        framing = {
+          minX: union.minX - marginX,
+          maxX: union.maxX + marginX,
+          minY: union.minY - marginY,
+          maxY: union.maxY + marginY,
+        }
+        return framing
+      }
+
+      window.__spineRenderAt = function (animName, t) {
+        if (!framing) throw new Error('__spineComputeFraming must be called before __spineRenderAt')
+        poseAt(animName, t)
+
+        const worldWidth = framing.maxX - framing.minX
+        const worldHeight = framing.maxY - framing.minY
+        const scale = Math.min(SIZE / worldWidth, SIZE / worldHeight)
+        const drawWidth = worldWidth * scale
+        const drawHeight = worldHeight * scale
+        const offsetX = (SIZE - drawWidth) / 2
+        // Bottom-anchored, not vertically centered (operator_context.md step 6: anchoring to the
+        // midpoint clips heads/feet since a walk cycle's silhouette isn't vertically
+        // symmetric around its own center).
+        const offsetY = SIZE - drawHeight
+
+        ctx.clearRect(0, 0, SIZE, SIZE)
+        ctx.save()
+        ctx.translate(offsetX, offsetY + drawHeight)
+        ctx.scale(scale, -scale)
+        ctx.translate(-framing.minX, -framing.minY)
+        skeletonRenderer.draw(skeleton)
+        ctx.restore()
+      }
+    </script>
+  </body>
+</html>
