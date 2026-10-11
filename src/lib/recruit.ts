@@ -71,18 +71,52 @@ export function getRecruitableEntries(): RecruitableEntry[] {
     })
 }
 
-// 'Senior Operator' (5★) and 'Top Operator' (6★) are mutually exclusive on any
-// single operator, so plain AND-across-all-selected-tags would make selecting
-// both of them together match nothing. Picking both is meant to widen the
-// rarity filter to "5★ or 6★", not narrow it — so this pair is matched as OR
-// against each other while every other selected tag still needs to be a
-// straight AND match, same as the base game's recruitment tag rules.
-const RARITY_QUALIFICATION_NORMS = new Set(['Senior Operator', 'Top Operator'].map(normalizeTag))
+// A real recruitment slip lets you lock in at most 3 of the offered tags, so
+// results are grouped per possible tag combination (every 1–3 tag subset of
+// the selection) rather than AND-ing everything together — same layout as
+// https://aceship.github.io/AN-EN-Tags/akhr.html. Rarity is left to the card
+// colour coding instead of being its own grouping axis.
+const MAX_COMBINATION_SIZE = 3
 
-export function matchesAllTags(tagSet: Set<string>, selected: RecruitTag[]): boolean {
-  const rarityTags = selected.filter(tag => RARITY_QUALIFICATION_NORMS.has(tag.norm))
-  const otherTags = selected.filter(tag => !RARITY_QUALIFICATION_NORMS.has(tag.norm))
-  if (!otherTags.every(tag => tagSet.has(tag.norm))) return false
-  if (rarityTags.length === 0) return true
-  return rarityTags.some(tag => tagSet.has(tag.norm))
+const TOP_OPERATOR_NORM = normalizeTag('Top Operator')
+
+export interface RecruitCombination {
+  tags: RecruitTag[]
+  entries: RecruitableEntry[]
+  // Lowest rarity the combination can roll — what the combination guarantees.
+  guaranteedRarity: number
+}
+
+function matchesAllTags(tagSet: Set<string>, tags: RecruitTag[]): boolean {
+  return tags.every(tag => tagSet.has(tag.norm))
+}
+
+function getSubsets<T>(items: T[], maxSize: number): T[][] {
+  const subsets: T[][] = []
+  for (let mask = 1; mask < 1 << items.length; mask++) {
+    const subset = items.filter((_, index) => mask & (1 << index))
+    if (subset.length <= maxSize) subsets.push(subset)
+  }
+  return subsets
+}
+
+export function getTagCombinations(recruitable: RecruitableEntry[], selected: RecruitTag[]): RecruitCombination[] {
+  const combinations: RecruitCombination[] = []
+  for (const tags of getSubsets(selected, MAX_COMBINATION_SIZE)) {
+    // 6★ operators only ever roll when the Top Operator tag is locked in.
+    const allowsTopOperator = tags.some(tag => tag.norm === TOP_OPERATOR_NORM)
+    const entries = recruitable
+      .filter(({ entry, tagSet }) => (allowsTopOperator || entry.operator.rarity < 6) && matchesAllTags(tagSet, tags))
+      .sort((left, right) =>
+        right.entry.operator.rarity - left.entry.operator.rarity
+        || left.entry.operator.name.localeCompare(right.entry.operator.name))
+    if (entries.length === 0) continue
+    const guaranteedRarity = Math.min(...entries.map(({ entry }) => entry.operator.rarity))
+    combinations.push({ tags, entries, guaranteedRarity })
+  }
+  // Best guaranteed outcome first; ties favour the narrower (fewer-operator) pool.
+  return combinations.sort((left, right) =>
+    right.guaranteedRarity - left.guaranteedRarity
+    || left.entries.length - right.entries.length
+    || right.tags.length - left.tags.length)
 }

@@ -205,7 +205,9 @@ CAMERA 07       58:30:59:59   ERROR         ← status cell only, gc-alert
   | `nation` | 0.75 / 50% | 40–54% | Idle nations: clearly brighter than terrain — the brightness itself signals "this is interactive" |
   | `nation-active` | 1.0 / 72% | 50–64% | Hovered/pinned nation: lifted to near its real color |
 
-  Side walls use the same tone at 55% lightness. Focus behavior: the active nation lifts (`translateY`), switches to `nation-active` and gets a 2px `gc-signal` outline; other nations drop to 45% opacity. Never show full-saturation source colors, and never tint the sea blue beyond the `sea` band.
+  Side walls use the same tone at 55% lightness. Focus behavior: the active nation lifts (`translateY`), switches to `nation-active` and gets a 2px `gc-signal` outline; other nations darken to 60% of their lightness (`DIM_SHADE`). The map is always fully opaque: never fade land with `opacity` (the particle layer would show through); only the flat sea is vignetted, via an SVG mask on the sea group.
+
+  Performance rules (hover must stay smooth): the sea and unclaimed land live in a static base SVG that never re-renders; nations sit in a second SVG on top, one `<g data-state="idle|active|dim">` per nation, with fills read from CSS variables, so hover only flips ~18 attributes. No `filter`/`drop-shadow` on the SVG (use the static blurred shadow layer behind it). Thumbnails next to the map load through `/_next/image?…&w=256`, never the multi-MB source art. Never show full-saturation source colors, and never tint the sea blue beyond the `sea` band.
 - **Map region callout (hover/pin):** the region name is never printed on the map itself. Focusing a nation plays a sci-fi pin sequence, as an HTML layer over the SVG (`RegionCallout` in `WorldMap.tsx`):
   1. **Marker** (0–200ms): a 16px `gc-signal` square ring + 6px core on the nation's anchor, scaling in from 1.8×.
   2. **Leader line** (80–320ms): 1px line grows upward (`scaleY`, origin bottom), gradient `gc-signal` → `gc-invert`, 56px (80px desktop).

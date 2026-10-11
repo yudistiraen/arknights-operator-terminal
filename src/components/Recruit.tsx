@@ -6,10 +6,8 @@ import gsap from 'gsap'
 import { toSlug } from '../lib/operators'
 import { playClick } from '../lib/sound'
 import { useApp } from './AppShell'
-import { Stars } from './ui/Stars'
 import { RosterCard } from './ui/RosterCard'
 import { RosterListRow } from './ui/RosterListRow'
-import { RARITY_GRADIENT } from '../constants'
 import { FOCUS_RING, GHOST_BUTTON, HoverFill, Label, PageHeader } from './ui/Console'
 import {
   AFFIX_TAGS,
@@ -17,7 +15,7 @@ import {
   POSITION_TAGS,
   QUALIFICATION_TAGS,
   getRecruitableEntries,
-  matchesAllTags,
+  getTagCombinations,
   type RecruitTag,
 } from '../lib/recruit'
 
@@ -135,21 +133,10 @@ export function Recruit() {
 
   const clearTags = () => { playClick(); setSelected([]) }
 
-  const groupedResults = useMemo(() => {
-    if (selected.length === 0) return []
-    const matches = recruitable.filter(({ tagSet }) => matchesAllTags(tagSet, selected))
-    const groups: Record<number, typeof matches> = {}
-    for (const match of matches) {
-      const rarity = match.entry.operator.rarity
-      if (!groups[rarity]) groups[rarity] = []
-      groups[rarity].push(match)
-    }
-    return Object.entries(groups)
-      .sort(([a], [b]) => Number(b) - Number(a))
-      .map(([rarity, entries]) => ({ rarity: Number(rarity), entries }))
-  }, [selected, recruitable])
-
-  const totalMatches = groupedResults.reduce((sum, group) => sum + group.entries.length, 0)
+  const combinations = useMemo(
+    () => (selected.length === 0 ? [] : getTagCombinations(recruitable, selected)),
+    [selected, recruitable],
+  )
 
   const buildHref = (alterIndex: number | null, name: string) => {
     const slug = toSlug(name)
@@ -158,7 +145,7 @@ export function Recruit() {
 
   useGSAP(() => {
     if (!hasEntered) {
-      gsap.set(['.recruit-header', '.recruit-picker', '.recruit-readout', '.rarity-group', '.op-card'], { opacity: 0 })
+      gsap.set(['.recruit-header', '.recruit-picker', '.recruit-readout', '.combo-group', '.op-card'], { opacity: 0 })
       return
     }
     const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -170,9 +157,9 @@ export function Recruit() {
 
   useGSAP(() => {
     if (!hasEntered) return
-    gsap.fromTo('.rarity-group', { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08, ease: 'power3.out' })
+    gsap.fromTo('.combo-group', { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08, ease: 'power3.out' })
     gsap.fromTo('.op-card', { opacity: 0, y: 10, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, stagger: 0.02, ease: 'power3.out' })
-  }, { scope: containerRef, dependencies: [groupedResults.length, hasEntered] })
+  }, { scope: containerRef, dependencies: [combinations, hasEntered] })
 
   return (
     <div ref={containerRef} className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden ak-scroll">
@@ -182,7 +169,7 @@ export function Recruit() {
       <div className="recruit-picker relative z-20 border-b border-gc-line bg-gc-frame">
         <div className="px-5 md:px-10 py-5 md:py-6 flex flex-col gap-5 md:gap-6">
           <p className="font-body text-[13px] md:text-sm text-gc-text leading-[1.7] max-w-2xl">
-            Select up to {MAX_TAGS} tags. Rhodes Island will surface every operator whose profile carries <span className="text-gc-ink font-medium">all</span> selected tags at once — exactly like a live recruitment slip.
+            Select the tags offered on your recruitment slip (up to {MAX_TAGS}). Every combination of up to 3 tags is listed with the operators it can roll, best guaranteed rarity first. 6★ operators only appear in combinations that include <span className="text-gc-ink font-medium">Top Operator</span>.
           </p>
 
           <TagGroup title="Class" tags={CLASS_TAGS} selected={selected} onToggle={toggleTag} isFull={isFull} />
@@ -202,22 +189,20 @@ export function Recruit() {
               {selected.length === 0 ? (
                 <span className="text-gc-ghost">no tags selected</span>
               ) : (
-                selected.map((tag, index) => (
-                  <span key={tag.norm} className="flex items-center gap-2">
-                    {index > 0 && <span className="text-gc-ghost">∩</span>}
-                    <button
-                      type="button"
-                      onClick={() => { playClick(); toggleTag(tag) }}
-                      className={`flex items-center gap-1.5 border px-2.5 h-7 cursor-pointer active:scale-[0.97] ${FOCUS_RING} ${TAG_CHIP}`}
-                      style={{ transition: 'transform 0.15s, opacity 0.15s' }}
-                      aria-label={`Remove ${tag.label} tag`}
-                    >
-                      {tag.label}
-                      <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current opacity-70">
-                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                      </svg>
-                    </button>
-                  </span>
+                selected.map(tag => (
+                  <button
+                    key={tag.norm}
+                    type="button"
+                    onClick={() => { playClick(); toggleTag(tag) }}
+                    className={`flex items-center gap-1.5 border px-2.5 h-7 cursor-pointer active:scale-[0.97] ${FOCUS_RING} ${TAG_CHIP}`}
+                    style={{ transition: 'transform 0.15s, opacity 0.15s' }}
+                    aria-label={`Remove ${tag.label} tag`}
+                  >
+                    {tag.label}
+                    <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current opacity-70">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                  </button>
                 ))
               )}
               <span className="w-[7px] h-3.5 bg-gc-signal motion-safe:animate-[exam-blink_1.1s_step-end_infinite]" aria-hidden />
@@ -251,12 +236,12 @@ export function Recruit() {
             </svg>
             <p className="font-body text-sm text-gc-text">Select a tag above to start the search.</p>
           </div>
-        ) : totalMatches === 0 ? (
+        ) : combinations.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <svg viewBox="0 0 24 24" className="w-10 h-10 text-gc-ghost fill-current mb-3">
               <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
-            <p className="font-body text-sm text-gc-text">No operator has all of these tags. Remove a tag to widen the search.</p>
+            <p className="font-body text-sm text-gc-text">No recruitable operator carries any of these tags.</p>
             <button
               onClick={clearTags}
               className={`${GHOST_BUTTON} mt-4 h-9 px-4`}
@@ -266,14 +251,25 @@ export function Recruit() {
             </button>
           </div>
         ) : (
-          <div className="space-y-7 md:space-y-10">
-            {groupedResults.map(({ rarity, entries }) => (
-              <section key={rarity} className="rarity-group">
-                <div className="flex items-center gap-3 mb-3 md:mb-4">
-                  <Stars count={rarity} />
-                  <div className={`flex-1 h-px bg-gradient-to-r ${RARITY_GRADIENT[rarity] ?? 'from-white/10 to-transparent'}`} />
-                  <span className="text-[10px] md:text-[11px] text-gc-dim font-data tracking-[0.08em] uppercase tabular-nums">
-                    {entries.length}
+          <div className="flex flex-col border-t border-gc-line">
+            {combinations.map(({ tags, entries }) => (
+              <section
+                key={tags.map(tag => tag.norm).join('+')}
+                className="combo-group grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-3 md:gap-5 border-b border-gc-line py-4 md:py-5"
+              >
+                <div className="flex md:flex-col items-start justify-between md:justify-start gap-2">
+                  <div className="flex flex-wrap gap-1.5">
+                    {tags.map(tag => (
+                      <span
+                        key={tag.norm}
+                        className="font-data text-[11px] md:text-xs tracking-[0.04em] px-2.5 h-7 flex items-center border border-gc-line-strong bg-gc-raised text-gc-ink"
+                      >
+                        {tag.label}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="shrink-0 font-data text-[10px] md:text-[11px] text-gc-dim tracking-[0.08em] uppercase tabular-nums">
+                    {entries.length} {entries.length === 1 ? 'operator' : 'operators'}
                   </span>
                 </div>
 
