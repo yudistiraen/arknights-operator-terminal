@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FOCUS_RING, StatusDot } from './ui/Console'
+import { FOCUS_RING } from './ui/Console'
 
 export function TopBar() {
   return (
