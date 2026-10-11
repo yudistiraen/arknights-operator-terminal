@@ -1,6 +1,7 @@
 import type { Operator } from '../../types'
 import { StatBar } from '../ui/StatBar'
 import { RangeGrid } from '../ui/RangeGrid'
+import { PhysicalExamPanel } from './PhysicalExamPanel'
 
 export function AttributePanel({ operator }: { operator: Operator }) {
   const secondaryStats = [
@@ -50,6 +51,12 @@ export function AttributePanel({ operator }: { operator: Operator }) {
             </div>
           )}
         </div>
+      </div>
+      <div className="mt-5 pt-4 border-t border-white/[0.08]">
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-display text-[11px] text-white/40 uppercase tracking-wider">Physical Exam</span>
+        </div>
+        <PhysicalExamPanel operator={operator} />
       </div>
     </>
   )

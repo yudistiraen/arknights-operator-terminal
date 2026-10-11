@@ -180,9 +180,9 @@ export function Recruit() {
 
   const totalMatches = groupedResults.reduce((sum, group) => sum + group.entries.length, 0)
 
-  const buildHref = (isAlter: boolean, name: string) => {
+  const buildHref = (alterIndex: number | null, name: string) => {
     const slug = toSlug(name)
-    return isAlter ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`
+    return alterIndex !== null ? `/operator?operator=${slug}&alter=${alterIndex + 1}` : `/operator?operator=${slug}`
   }
 
   useGSAP(() => {
@@ -291,7 +291,7 @@ export function Recruit() {
       </div>
 
       {/* Results */}
-      <main className="px-4 md:px-8 py-5 md:py-8">
+      <main className="relative z-0 px-4 md:px-8 py-5 md:py-8">
         {selected.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <svg viewBox="0 0 24 24" className="w-10 h-10 text-white/[0.07] fill-current mb-3">
@@ -335,15 +335,15 @@ export function Recruit() {
                   {entries.map(({ entry }) => (
                     viewMode === 'card' ? (
                       <RosterCard
-                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        key={`${entry.operator.name}-${entry.alterIndex ?? 'base'}`}
                         entry={entry}
-                        href={buildHref(entry.isAlter, entry.operator.name)}
+                        href={buildHref(entry.alterIndex, entry.operator.name)}
                       />
                     ) : (
                       <RosterListRow
-                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        key={`${entry.operator.name}-${entry.alterIndex ?? 'base'}`}
                         entry={entry}
-                        href={buildHref(entry.isAlter, entry.operator.name)}
+                        href={buildHref(entry.alterIndex, entry.operator.name)}
                       />
                     )
                   ))}

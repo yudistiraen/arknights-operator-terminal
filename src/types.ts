@@ -123,7 +123,7 @@ export interface OperatorSkin {
   src: string
   chibiSrc: string
   /** Walk-cycle chibi render, sourced separately from `chibiSrc` (see "Sub-rencana: Multi-state
-   * chibi" in context.md). Only present once a skin has been through the render pipeline —
+   * chibi" in operator_context.md). Only present once a skin has been through the render pipeline —
    * absent for the vast majority of skins, which just show `chibiSrc` as a static idle loop. */
   chibiMoveSrc?: string
   /** Chibi framing calibration for the WALKING MASCOT specifically (WalkingChibi.tsx). All three
@@ -132,20 +132,24 @@ export interface OperatorSkin {
    * and move always stay sized and positioned identically no matter what this is tuned to; there
    * is no separate per-layer correction to keep in sync by hand. This only works because idle and
    * move are rendered through the same pipeline/convention (see "Rencana Pengembangan: Asset
-   * Pipeline dari ArknightsResource" in context.md), so their natural framing already roughly
+   * Pipeline dari ArknightsResource" in operator_context.md), so their natural framing already roughly
    * matches — this field is a shared cosmetic nudge/size on top of that, not a fix for two
    * differently-cropped sources. If idle and move ever come from genuinely different pipelines
    * again (e.g. a raw wiki.gg idle paired with a re-rendered move), a shared transform can't
    * reconcile that — idle would need to be re-rendered to match move's convention instead (see
-   * Togawa Sakiko / Amiya's history in context.md for exactly that fix). Percentage-based
+   * Togawa Sakiko / Amiya's history in operator_context.md for exactly that fix). Percentage-based
    * (relative to the display box, not raw px), same idea as {@link SkinL2D.focus}. Do NOT
    * repurpose this for how the chibi looks in other contexts (e.g. the operator detail HUD box)
    * — that's a different, independent concern with its own field, {@link chibiDetailFraming}. */
   chibiFraming?: { scale: number; offsetXPercent: number; offsetYPercent: number }
   /** Chibi framing for the operator detail page's HUD preview box (CharacterArt.tsx) — purely
    * cosmetic centering within that specific box, unrelated to {@link chibiFraming}'s job of
-   * matching the walking mascot's idle video to its move video. Falls back to the shared generic
-   * default (calibrated for the old wiki.gg-style landscape videos) if unset. */
+   * matching the walking mascot's idle video to its move video. If unset, `OperatorTerminal.tsx`
+   * defaults this to {@link chibiFraming} when present (reasonable for self-rendered pipeline
+   * chibi, since both boxes show the same square capture) — only operators with neither field set
+   * (pre-pipeline, wiki.gg-style landscape chibi) fall through to `CharacterArt.tsx`'s hardcoded
+   * generic default. Set this explicitly only when the HUD box genuinely needs a different
+   * value than the walking mascot's framing. */
   chibiDetailFraming?: { scale: number; offsetXPercent: number; offsetYPercent: number }
   illustrator: string
   l2d?: SkinL2D
@@ -187,11 +191,14 @@ export interface OperatorAlter {
   skills: Skill[]
   modules: Record<string, OperatorModule>
   story?: string
+  profile?: string
+  records?: OperatorRecord[]
   classIcon: string
   branchIcon: string
   skins: OperatorSkin[]
   portrait: string
   portraitFocus?: PortraitFocus
+  summon?: OperatorSummon
 }
 
 export interface OperatorRecord {
@@ -244,8 +251,13 @@ export interface Operator {
   factionIcon: string
   skins: OperatorSkin[]
   variants?: OperatorVariant[]
-  alter?: OperatorAlter
+  // A single alter form (most operators), or multiple when an operator has received more
+  // than one official alter over time (e.g. Ch'en the Holungday + Ch'en the Dawnstreak).
+  alter?: OperatorAlter | OperatorAlter[]
   portrait?: string
-  summon?: OperatorSummon
+  // A single fixed unit (e.g. Deepcolor's Tentacle), or multiple when the operator's
+  // summon changes form depending on which skill is active (e.g. Magallan's Soaring
+  // Dragon F/L/A) — TalentsPanel renders one card per entry either way.
+  summon?: OperatorSummon | OperatorSummon[]
   portraitFocus?: PortraitFocus
 }

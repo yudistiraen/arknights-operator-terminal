@@ -1,0 +1,108 @@
+import type { Operator } from '../../types'
+
+const ceobe: Operator = {
+  name: 'Ceobe', fileNo: 'R155', class: 'Caster', branch: 'Core Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
+  faction: 'Rhodes Island', position: 'Ranged', race: 'Perro', gender: 'Female', birthplace: 'Bolívar',
+  birthday: 'March 3rd', height: '153 cm', combatExp: '3 years', infectionStatus: 'Originium crystals are distributed across the surface of her body, confirmed Infected by medical examination.', illustrator: 'LM7',
+  cv: { JP: 'Asami Seto', CN: 'Zi Mao', EN: 'Christina Costello', KR: 'Ryu Jeom-hee' },
+  trait: 'Deals Arts damage',
+  tags: ['DPS', 'Crowd-Control'],
+  stats: { hp: 1565, atk: 757, def: 128, res: 20, block: 1, cost: 21, aspd: '1.6s', rdp: '70s' },
+  range: {
+    base: [[1, 1, 1], [2, 1, 1], [1, 1, 1]],
+    e1: [[1, 1, 1, 0], [2, 1, 1, 1], [1, 1, 1, 0]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Exceptional', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Standard', 'Originium Arts': 'Excellent' },
+  talents: [
+    { name: 'Thresher', desc: "Each attack deals additional Arts damage to the target equal to 25% of its DEF", elite: 'E1' },
+    { name: 'Thresher', desc: "Each attack deals additional Arts damage to the target equal to 29% (+4%) of its DEF", elite: 'E1 (Potential 5)' },
+    { name: 'Thresher', desc: "Each attack deals additional Arts damage to the target equal to 40% of its DEF", elite: 'E2' },
+    { name: 'Thresher', desc: "Each attack deals additional Arts damage to the target equal to 44% (+4%) of its DEF", elite: 'E2 (Potential 5)' },
+    { name: 'Lone Journey', desc: 'When there are no other friendly units in the surrounding 4 tiles, ATK +8% and ASPD +8', elite: 'E2' },
+  ],
+  skills: [
+    {
+      name: 'Really Cold Axe', icon: '/operators/ceobe/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+      desc: 'Increases the ATK of the next attack to 210%, prioritizing enemies that are not blocked and Binding them for 3 seconds\nCan store 3 charge(s)', spInit: 0, sp: 6, rank: 'M3',
+      levels: [
+        { level: '1', desc: 'Increases the ATK of the next attack to 150%, prioritizing enemies that are not blocked and Binding them for 1.5 seconds\nCan store 1 charge(s)', spInit: 0, sp: 8 },
+        { level: '2', desc: 'Increases the ATK of the next attack to 155%, prioritizing enemies that are not blocked and Binding them for 1.5 seconds\nCan store 1 charge(s)', spInit: 0, sp: 8 },
+        { level: '3', desc: 'Increases the ATK of the next attack to 160%, prioritizing enemies that are not blocked and Binding them for 1.5 seconds\nCan store 1 charge(s)', spInit: 0, sp: 8 },
+        { level: '4', desc: 'Increases the ATK of the next attack to 165%, prioritizing enemies that are not blocked and Binding them for 2 seconds\nCan store 1 charge(s)', spInit: 0, sp: 7 },
+        { level: '5', desc: 'Increases the ATK of the next attack to 170%, prioritizing enemies that are not blocked and Binding them for 2 seconds\nCan store 1 charge(s)', spInit: 0, sp: 7 },
+        { level: '6', desc: 'Increases the ATK of the next attack to 175%, prioritizing enemies that are not blocked and Binding them for 2 seconds\nCan store 1 charge(s)', spInit: 0, sp: 7 },
+        { level: '7', desc: 'Increases the ATK of the next attack to 180%, prioritizing enemies that are not blocked and Binding them for 2.5 seconds\nCan store 2 charge(s)', spInit: 0, sp: 7 },
+        { level: 'M1', desc: 'Increases the ATK of the next attack to 190%, prioritizing enemies that are not blocked and Binding them for 2.5 seconds\nCan store 2 charge(s)', spInit: 0, sp: 7 },
+        { level: 'M2', desc: 'Increases the ATK of the next attack to 200%, prioritizing enemies that are not blocked and Binding them for 2.5 seconds\nCan store 3 charge(s)', spInit: 0, sp: 7 },
+        { level: 'M3', desc: 'Increases the ATK of the next attack to 210%, prioritizing enemies that are not blocked and Binding them for 3 seconds\nCan store 3 charge(s)', spInit: 0, sp: 6 },
+      ],
+    },
+    {
+      name: 'Really Hot Knives', icon: '/operators/ceobe/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Attack Interval is reduced greatly, and attacks prioritize enemies with the highest DEF', spInit: 25, sp: 40, dur: '40s', rank: 'M3',
+      note: "\"Really Hot Knives\" multiplies Ceobe's attack interval by 0.7/0.7/0.7/0.6/0.6/0.6/0.4/0.36/0.36/0.33, reducing it to 1.12/1.12/1.12/0.96/0.96/0.96/0.64/0.576/0.576/0.528 seconds (before modifiers).",
+      levels: [
+        { level: '1', desc: 'Attack Interval is reduced slightly, and attacks prioritize enemies with the highest DEF', spInit: 10, sp: 50, dur: '30s' },
+        { level: '2', desc: 'Attack Interval is reduced slightly, and attacks prioritize enemies with the highest DEF', spInit: 11, sp: 49, dur: '31s' },
+        { level: '3', desc: 'Attack Interval is reduced slightly, and attacks prioritize enemies with the highest DEF', spInit: 12, sp: 48, dur: '32s' },
+        { level: '4', desc: 'Attack Interval is reduced, and attacks prioritize enemies with the highest DEF', spInit: 13, sp: 47, dur: '33s' },
+        { level: '5', desc: 'Attack Interval is reduced, and attacks prioritize enemies with the highest DEF', spInit: 14, sp: 46, dur: '34s' },
+        { level: '6', desc: 'Attack Interval is reduced, and attacks prioritize enemies with the highest DEF', spInit: 15, sp: 45, dur: '35s' },
+        { level: '7', desc: 'Attack Interval is reduced moderately, and attacks prioritize enemies with the highest DEF', spInit: 16, sp: 44, dur: '36s' },
+        { level: 'M1', desc: 'Attack Interval is reduced significantly, and attacks prioritize enemies with the highest DEF', spInit: 18, sp: 43, dur: '37s' },
+        { level: 'M2', desc: 'Attack Interval is reduced significantly, and attacks prioritize enemies with the highest DEF', spInit: 20, sp: 42, dur: '38s' },
+        { level: 'M3', desc: 'Attack Interval is reduced greatly, and attacks prioritize enemies with the highest DEF', spInit: 25, sp: 40, dur: '40s' },
+      ],
+    },
+    {
+      name: 'Really Heavy Spear', icon: '/operators/ceobe/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Attack Range expands, ATK +210%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 5 seconds', spInit: 55, sp: 80, dur: '60s', rank: 'M3',
+      range: [[1, 1, 1, 1], [2, 1, 1, 1], [1, 1, 1, 1]],
+      levels: [
+        { level: '1', desc: 'Attack Range expands, ATK +100%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2 seconds', spInit: 35, sp: 80, dur: '55s' },
+        { level: '2', desc: 'Attack Range expands, ATK +110%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2 seconds', spInit: 37, sp: 80, dur: '55s' },
+        { level: '3', desc: 'Attack Range expands, ATK +120%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2 seconds', spInit: 39, sp: 80, dur: '55s' },
+        { level: '4', desc: 'Attack Range expands, ATK +130%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2.5 seconds', spInit: 41, sp: 80, dur: '56s' },
+        { level: '5', desc: 'Attack Range expands, ATK +140%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2.5 seconds', spInit: 43, sp: 80, dur: '56s' },
+        { level: '6', desc: 'Attack Range expands, ATK +150%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 2.5 seconds', spInit: 45, sp: 80, dur: '56s' },
+        { level: '7', desc: 'Attack Range expands, ATK +160%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 3 seconds', spInit: 47, sp: 80, dur: '57s' },
+        { level: 'M1', desc: 'Attack Range expands, ATK +175%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 3.5 seconds', spInit: 49, sp: 80, dur: '58s' },
+        { level: 'M2', desc: 'Attack Range expands, ATK +190%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 4 seconds', spInit: 52, sp: 80, dur: '59s' },
+        { level: 'M3', desc: 'Attack Range expands, ATK +210%, attacks now deal Physical damage, prioritize enemies with the lowest defense, and silence targets for 5 seconds', spInit: 55, sp: 80, dur: '60s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Ceobe's Badge", desc: 'Appointed as Caster Operator to exercise Core Caster responsibilities' },
+    ccrx: { code: 'CCR-X', name: 'Really Dry Bread', stages: [
+      { stage: 1, hp: '+130', atk: '+40', effect: "New trait: Ignore 10 of target's RES" },
+      { stage: 2, hp: '+160', atk: '+55', effect: 'Thresher improved: Each attack deals additional Arts damage to the target equal to 45% of its DEF; percentage increases with repeated attacks against the same target, up to 70%' },
+      { stage: 3, hp: '+180', atk: '+65', effect: 'Thresher improved: Each attack deals additional Arts damage to the target equal to 50% of its DEF; percentage increases with repeated attacks against the same target, up to 75%' },
+    ]},
+    ccry: { code: 'CCR-Y', name: 'Knife, I Made', stages: [
+      { stage: 1, hp: '+80', atk: '+40', def: '+17', effect: 'New trait: Gain 1 SP when normal attacks hit an elite or leader enemy' },
+      { stage: 2, hp: '+105', atk: '+49', def: '+21', effect: 'Lone Journey improved: Gains +12% ATK and +12 ASPD when there are no allied units in the adjacent 4 tiles' },
+      { stage: 3, hp: '+120', atk: '+56', def: '+23', effect: 'Lone Journey improved: Gains +15% ATK and +15 ASPD when there are no allied units in the adjacent 4 tiles' },
+    ]},
+  },
+  story: `Affectionately referred to as "Kay," Ceobe the Bolívarian Cerberus of unknown background spent much of her lifetime traveling across Terra in search of the origins of her first weapon, a Minoan axe with her name carved on it. Ceobe contracted Oripathy during her journey, which made her obsessed with collecting every single weapon she could find and adopt the "shoot first, ask questions later" approach through her latent Originium Arts she often infuses to her arsenal of weapons. While in Leithanien, Ceobe encountered Rhodes Island operators who mistook her for a bandit at first. They later took her to R.I., where she enlisted as their member under Vulcan's care and oversight.\n\nDuring her time in R.I., Ceobe proved to be an airheaded yet adept combatant to the others, utilizing her arms mastery to defeat her enemies. Even though she appears to be in her late teens, Ceobe has an immature mindset and behaves like a child would most of the time, having the mantra of "eat well, drink well, sleep well, and beat up the bad guys!"`,
+  profile: `A wanderer from birth, Ceobe was infected through her prolonged treks through the harsh wilderness. After being rescued by Rhodes Island and successfully passing the Operator exam, she became a member of Rhodes Island.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests reveal blurry outlines of this operator's internal organs, clouded with abnormal dark spots. Her circulatory system shows an abnormally high rate of Originium particulate matter, with other signs of Oripathy infection, we can confirm that the Operator is Infected.\n[Cell-Originium Assimilation] 9%\nOperator Ceobe has clear signs of Infection, with crystals deposited mainly on the trunk perhaps due to blood circulation.\n[Blood Originium-Crystal Density] 0.31u/L\nA long period of wandering has resulted in this Operator never receiving formal treatment, and her infection is quickly getting worse. A significant cause for worry.\nHas she dragged this body around all over the world? This ship is perhaps the last chance she has for a miracle, but her body... I hope there is still something we can do......\n–– J.A., Medic Operator` },
+    { title: 'Archive File 1', content: `Ceobe and Rhodes Island first made contact as enemies on the battlefield. At the time, a hungry Ceobe attacked one of Rhodes Island's reserve squads while they were performing missions in Leithanien. The tired and hungry Ceobe was eventually defeated after a bitter battle. The Rhodes Island Operators then disarmed her and dropped her off at the Leithanian branch of Rhodes Island, but due to the deteriorating living conditions of the Infected in Leithanien, the team finally brought Ceobe back to the vessel. Along the way, Ceobe, who had always kept her distance from civilization, was slightly wary of communicating with others. However, after coming to Rhodes Island, she began to gain a new understanding of the people who had bested her - eat well, drink well, sleep well, and beat up bad people. Coincidentally, these are all things that she likes to do, so upon an Operator's recommendation, she joined Rhodes Island without hesitation.` },
+    { title: 'Archive File 2', content: `Ceobe felt confused – or rather, was mystified by the new world she was able to step into. With the exception of the few familiar faces she had met before, there were far too many people waiting to make her acquaintance. Of course, her priority is not so much becoming acquainted with people, but rather becoming acquainted with food. In the place where everyone gathers to eat, there is a certain door. On the other side is a world of countless edibles, waiting for her to sample. She's not particularly subtle in her efforts to sneak in, resulting in a high probability of being found and shown the way out. However, that doesn't seem to deter her – at least until she's tasted the contents of all the bottles and cans there.\nIn light of the fact that Ceobe is still learning about the norms of civilized life, everyone privately agreed to not punish her when she gets caught, and some people even took the opportunity to feed Ceobe some strange things. Though these people usually fall under one of three categories – the experimenters, the kind-hearted, and those who just wanted to make fun of her, Ceobe generally only has two words to say about the things she eats: "Yummy," or "Good." No one can coax any other words out of Ceobe – naturally, the experimenters can't get the kind of data they're looking for, the kind-hearted pretty much all get the same few responses, and those who try to make fun of Ceobe are undertaking a self-defeating task. Over time, the number of people casually trying to feed Ceobe decreased as well.\nAlthough she has indulged in many foods of all shapes and sizes since coming to Rhodes Island, if asked to pick out the food she loved the most, she would choose honey biscuits. As a matter of fact, honey biscuits are the only thing that she seems to be picky with – currently, she only accepts biscuits baked by Lava, Vulcan, and Matterhorn. She won't touch even a single crumb of the biscuits baked by anyone else – even by the logistics chief.\n**Summary:** She won't eat, but she absolutely can eat just about everything. She loves honey biscuits. If the day comes where she's in the mood to eat the entirety of Rhodes Island, she'll likely do just that.` },
+    { title: 'Archive File 3', content: `Ceobe made many good friends after arriving at Rhodes Island, but the greatest, mightiest, and most reliable person of all in her eyes is the Doctor. Though the Doctor looks a lot weaker than her, she finds the Doctor to be much smarter than even Vulcan, capable of explaining concepts that seem utterly inconceivable to her in just a few simple words so that she can understand the gist of things. When being briefed on missions, she couldn't wrap her head around things like tactical simulations, but the Doctor had a brilliant idea – by giving her simple, concrete commands such as "stand here," "attack this," or "fight until I arrive," she was able to complete her missions. As a result, Ceobe was able to save some brain cells, and the Doctor entered the ranks of the few people who Ceobe would completely set her weapons down around.\nOther than the Doctor, the person who Ceobe respects the most is Vulcan.` },
+    { title: 'Archive File 4', content: `Ceobe's very first weapon was an axe with her name engraved upon it. Her curiosity led her to seek the meaning behind the axe, so she stopped to ask a question to the first person she could find – and thus began her life of wandering. Along the way, when she got hungry, she ate wild fruits. When she was thirsty, she drank water from the rivers. Her journeys took her away from most of civilization. Because she didn't have the ability to discern areas that were contaminated with Originium, Ceobe quickly contracted Oripathy, and what she described as "black crystals" started to appear across some parts of her body. At first, these growths were a source of fear for her, but as she continued to wander, she began to see the power that these crystals had brought her – her weapons had grown stronger. Ceobe's fears were soon replaced with a strong desire to obtain more weapons, an uncontrollable impulse that often drove her to resort to violence to satisfy. Though she tried to suppress these impulses and use peaceful methods to obtain weapons, the outcomes would often differ greatly from her expectations. Sometimes she would rescue others, sometimes she would injure them; Some would reward her with weapons for completing tasks for them, some would use weapons to try to lure her, while others would gift them to her with no strings attached. In any case, her journey took her far to the east, where a well-intentioned person told her that she had taken the wrong way. With her large collection of weapons and tales in tow, she turned around and returned west. Her journey finally came to an end when she attacked a Rhodes Island squad led by Fang while trying to obtain food.\nWhile Ceobe lacked the qualifications to become an Operator, the HR Department finally gave her an opportunity to take the Operator evaluation exam upon Vulcan's recommendation. She had no expectation of becoming an Operator, nor did she know what such a job entailed, but she still demonstrated a great desire to become one. After becoming a fully-fledged member in Rhodes Island, her daily routine of eating, drinking, and fighting, combined with medical treatment of her Oripathy, also alleviated her strange fixation upon collecting weapons. She has grown accustomed to her comfortable lifestyle, and hopes that her time here can last forever if possible...\nAs long as someone can unlock the secret of her axe.` },
+    { title: 'Promotion Record', content: `Ceobe's advanced infection has given her the ability to enchant her weapons. Because the enchanting process requires a suitable weapon to serve as a carrier, each enchantment will instinctively "choose" its own weapon and then, in accordance with the quality of the weapon, the enchantment will confer a different Originium Arts characteristic, such as flames, rocks, or ice. In the past, this ability was a subconscious process that she could not control, and therefore she didn't give much thought into it. Now, under the tutelage of Rhodes Island Operators, she is working hard to understand her unique skill: though she may never be able to master the fundamentals of Originium Arts through studying, she must learn enough to operate her skills on a basic level, which would be enough to help her achieve a baseline level of identification and control and strengthen her abilities all around. Today, Rhodes Island has developed a comprehensive learning plan for Ceobe, and as long as she is willing to sit down in a classroom and begin working on her literacy, we have reason to believe that she can become an excellent Arts user in the future.\n"Feel free to dream." ––Anonymous comments` },
+  ],
+  classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/ceobe/base.png', chibiSrc: '/operators/ceobe/chibi.webm', chibiMoveSrc: '/operators/ceobe/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'LM7' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/ceobe/e2.png', chibiSrc: '/operators/ceobe/chibi.webm', chibiMoveSrc: '/operators/ceobe/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'LM7' },
+    { id: 'skin1', label: 'Summer Flowers FA333', src: '/operators/ceobe/skin1.png', chibiSrc: '/operators/ceobe/chibi-skin1.webm', chibiMoveSrc: '/operators/ceobe/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'LM7' },
+    { id: 'skin2', label: 'Unfettered', src: '/operators/ceobe/skin2.png', chibiSrc: '/operators/ceobe/chibi-skin2.webm', chibiMoveSrc: '/operators/ceobe/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'LM7' },
+  ],
+  portrait: '/operators/ceobe/portrait.png',
+}
+
+export default ceobe

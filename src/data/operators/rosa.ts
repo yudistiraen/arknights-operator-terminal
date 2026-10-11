@@ -1,0 +1,106 @@
+import type { Operator } from '../../types'
+
+const rosa: Operator = {
+  name: 'Rosa', fileNo: 'USS4', class: 'Sniper', branch: 'Besieger', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
+  faction: 'Ursus Student Self-Governing Group', position: 'Ranged', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
+  birthday: 'October 31st', height: '174 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
+  cv: { JP: 'Reina Ueda', CN: 'Ye Zhiqiu', EN: 'Elizabeth Maxwell', KR: 'Choi Ha-ri' },
+  trait: 'Attacks the heaviest enemy first',
+  tags: ['DPS', 'Crowd-Control'],
+  stats: { hp: 1755, atk: 1142, def: 122, res: 0, block: 1, cost: 24, aspd: '2.4s', rdp: '70s' },
+  range: {
+    base: [[0, 0, 1, 1, 1], [2, 0, 1, 1, 1], [0, 0, 1, 1, 1]],
+    e1: [[0, 0, 1, 1, 0], [0, 0, 1, 1, 1], [2, 0, 1, 1, 1], [0, 0, 1, 1, 1], [0, 0, 1, 1, 0]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Normal', Endurance: 'Standard', 'Tactical Acumen': 'Excellent', 'Combat Skill': 'Standard', 'Originium Arts': 'Standard' },
+  talents: [
+    { name: 'Bone Piercer', desc: "When attacking a heavy enemy, ignore 40% of its DEF (enemies with 3 weight or higher count for this effect)", elite: 'E1' },
+    { name: 'Bone Piercer', desc: "When attacking a heavy enemy, ignore 60% of its DEF (enemies with 3 weight or higher count for this effect)", elite: 'E2' },
+    { name: 'Ideal Student', desc: 'When this unit is in the squad, all [Ursus Student Self-Governing Group] Operators gain +8% ATK', elite: 'E2' },
+    { name: 'Ideal Student', desc: 'When this unit is in the squad, all [Ursus Student Self-Governing Group] Operators gain +10% ATK (+2%)', elite: 'E2 (Potential 5)' },
+  ],
+  skills: [
+    {
+      name: 'ATK Up γ', icon: '/operators/rosa/skill-1.png', activation: 'Auto', recovery: 'Auto Recovery',
+      desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +30%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '2', desc: 'ATK +35%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '3', desc: 'ATK +40%', spInit: 0, sp: 40, dur: '30s' },
+        { level: '4', desc: 'ATK +45%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '5', desc: 'ATK +50%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '6', desc: 'ATK +55%', spInit: 5, sp: 37, dur: '30s' },
+        { level: '7', desc: 'ATK +60%', spInit: 10, sp: 35, dur: '30s' },
+        { level: 'M1', desc: 'ATK +75%', spInit: 10, sp: 34, dur: '30s' },
+        { level: 'M2', desc: 'ATK +90%', spInit: 10, sp: 33, dur: '30s' },
+        { level: 'M3', desc: 'ATK +100%', spInit: 15, sp: 30, dur: '30s' },
+      ],
+    },
+    {
+      name: 'Split Shot', icon: '/operators/rosa/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +90%, and attacks hit one additional enemy', spInit: 45, sp: 65, dur: '60s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +30%, and attacks hit one additional enemy', spInit: 39, sp: 80, dur: '60s' },
+        { level: '2', desc: 'ATK +35%, and attacks hit one additional enemy', spInit: 40, sp: 80, dur: '60s' },
+        { level: '3', desc: 'ATK +40%, and attacks hit one additional enemy', spInit: 41, sp: 80, dur: '60s' },
+        { level: '4', desc: 'ATK +45%, and attacks hit one additional enemy', spInit: 42, sp: 80, dur: '60s' },
+        { level: '5', desc: 'ATK +50%, and attacks hit one additional enemy', spInit: 43, sp: 80, dur: '60s' },
+        { level: '6', desc: 'ATK +55%, and attacks hit one additional enemy', spInit: 44, sp: 80, dur: '60s' },
+        { level: '7', desc: 'ATK +60%, and attacks hit one additional enemy', spInit: 45, sp: 80, dur: '60s' },
+        { level: 'M1', desc: 'ATK +70%, and attacks hit one additional enemy', spInit: 45, sp: 75, dur: '60s' },
+        { level: 'M2', desc: 'ATK +80%, and attacks hit one additional enemy', spInit: 45, sp: 70, dur: '60s' },
+        { level: 'M3', desc: 'ATK +90%, and attacks hit one additional enemy', spInit: 45, sp: 65, dur: '60s' },
+      ],
+    },
+    {
+      name: 'Avalanche Breaker', icon: '/operators/rosa/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +25%; Immediately fires harpoons at the 4 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 15, sp: 30, dur: '8s', rank: 'M3',
+      note: 'Avalanche Breaker will prematurely end if Rosa is disabled or affected by Necrosis while it is active, or all targets leave the map. If the target moves out of her range during the skill e.g. because they are immune to Bind, she will keep attacking them for the duration of the skill.',
+      levels: [
+        { level: '1', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 10, sp: 40, dur: '6s' },
+        { level: '2', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 10, sp: 39, dur: '6s' },
+        { level: '3', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 10, sp: 38, dur: '6s' },
+        { level: '4', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 11, sp: 37, dur: '6s' },
+        { level: '5', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 11, sp: 36, dur: '6s' },
+        { level: '6', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 11, sp: 35, dur: '6s' },
+        { level: '7', desc: 'ATK +10%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 12, sp: 34, dur: '7s' },
+        { level: 'M1', desc: 'ATK +15%; Immediately fires harpoons at the 3 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 13, sp: 33, dur: '7s' },
+        { level: 'M2', desc: 'ATK +20%; Immediately fires harpoons at the 4 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 14, sp: 32, dur: '7s' },
+        { level: 'M3', desc: 'ATK +25%; Immediately fires harpoons at the 4 heaviest enemies within range, Binding them and attacking them once each second during the duration of this skill', spInit: 15, sp: 30, dur: '8s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Rosa's Badge", desc: 'Appointed as Sniper Operator to exercise Besieger responsibilities' },
+    siex: { code: 'SIE-X', name: 'Siege Equipment Training Device', stages: [
+      { stage: 1, atk: '+60', def: '+30', effect: 'New trait: When attacking a heavy enemy (weight 3 or greater), ATK increased to 115%' },
+      { stage: 2, atk: '+78', def: '+40', effect: 'Bone Piercer improved: When attacking a heavy enemy, ignore 60% of its DEF and deals an additional 40% ATK as Physical damage (enemies with 3 weight or higher count for this effect)' },
+      { stage: 3, atk: '+90', def: '+45', effect: 'Bone Piercer improved: When attacking a heavy enemy, ignore 60% of its DEF and deals an additional 60% ATK as Physical damage (enemies with 3 weight or higher count for this effect)' },
+    ]},
+    siey: { code: 'SIE-Y', name: '"Сердце"', stages: [
+      { stage: 1, atk: '+70', def: '+20', effect: 'New trait: The further away the enemy, the higher the damage dealt (up to an increase of 12%)' },
+      { stage: 2, atk: '+90', def: '+25', effect: 'Ideal Student improved: When this unit is in the squad, all [Ursus Student Self-government Group] Operators gain +10% ATK; for every [Ursus Student Self-government Group] Operator with an active skill, [Ursus Student Self-government Group] Operators gain an additional +11% ATK (max +33%)' },
+      { stage: 3, atk: '+100', def: '+30', effect: 'Ideal Student improved: When this unit is in the squad, all [Ursus Student Self-government Group] Operators gain +12% ATK; for every [Ursus Student Self-government Group] Operator with an active skill, [Ursus Student Self-government Group] Operators gain an additional +15% ATK (max +45%)' },
+    ]},
+  },
+  story: `The eldest daughter of Count Andrey Rostov of Ursus who attended the #4 Secondary School in Chernobog, Natalya Andreyevna Rostova's good upbringing earned her a place as her school's student council president and an example for other students to follow, titled the "Pearl of #4". However, the Chernobog uprising changed everything. Natalya was forced to make difficult decisions when she and the other students were trapped in their school by Reunion, and she witnessed the plight and bloodshed among both commoners and aristocrats alike. This left a deep guilt inside her and caused Natalya to suffer from depression, self-loathing, and suicidal thoughts.\n\nFortunately, Natalya survived the ordeal and together with Anna Morozova, Lada, Rosalind and Sonya as the figurehead of the Ursus Student Self-Governing Group, she was later rescued by Rhodes Island. Under the codename "Rosa", Natalya lent her aid to R.I.'s Logistics Department and as a field combatant utilizing a "siege equipment" in the form of a harpoon launcher to skewer hostiles from a distance.`,
+  profile: `Prior to the Chernobog incident, Rosa attended a middle school in Chernobog City and served as the student council president.\nShe joined Rhodes Island after the incident, and developed a very good reputation while working for the Logistics Department. She has now applied to be transferred to the front lines as a sniper operator.`,
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests reveal clear, normal outlines of internal organs, and no abnormal shadows have been detected. Originium granules have not been detected in the circulatory system and there is no sign of infection. At this time, this operator is believed to be uninfected.\n[Cell-Originium Assimilation] 0%\nOperator Rosa has no signs of Originium infections.\n[Blood Originium-Crystal Density] 0.15u/L\nOperator Rosa may have had very little exposure to Originium in the past, but is likely to have had significant exposure throughout the Chernobog incident due to the state of the entire city following the Catastrophe. While no symptoms are present as of yet, this indicator is abnormally high and calls for continued follow-up observation.` },
+    { title: 'Archive File 1', content: `A young lady from a pure pedigree of nobles fallen from grace.\nShe quickly integrated into life at Rhodes Island, and is largely indifferent to the question of one's status. She is simply viewed as a polite young lady in the eyes of most operators.\nWhether in work or in leisure, she displays maturity well beyond her years.` },
+    { title: 'Archive File 2', content: `At one point, the once-great nobles could rely on their bloodline to ensure their stable prosperity. After entering the modern era, however, their status has been challenged by emerging business and political elites.\nIn some countries such as Columbia, the status of a well-known business is roughly equivalent to the entire lifeblood of another country, and a lesser noble is certainly not as wealthy as the general manager of a Columbian company. Many nobles who saw the writing on the walls have been trying to convert their land and retainers into financial capital.\nHowever, in more baroque countries such as Ursus, change has been slow and painful. At least before the Great Rebellion, the aristocratic ruling class still controlled the right to speech. Had it not been for a certain incident, Ursus's political structure might not have shifted at all.\nAccording to Rosa's description, the Rostov family she belonged to was one of the new nobility that arose after the Great Rebellion, inheriting everything from a certain Count that they had served under.\nCount Boris, the mayor of Chernobog, was also one of these upstarts. The two families quickly got on good terms, running businesses throughout Chernobog either openly or in secret. This conferred upon Rosa's family a very high status within Chernobog's elites.\nOf course, this all went to naught with the demise of Chernobog.` },
+    { title: 'Archive File 3', content: `After establishing mutual trust with the Doctor, Rosa spoke to the Doctor about her experiences during the Chernobog incident.\nThrough her account, what we now know is that after the Chernobog incident broke out, Mephisto gathered the students from all the schools into a nearby block, and even enlisted a group of noble children into Reunion.\nWith so many students gathered, anxiety and fear continued to ferment, brewing into a series of tragedies in which Rosa took upon a disgraceful role.\nAfter escaping from the school, they struggled to survive in the remnants of Chernobog, which by then had become a half-destroyed city, until Rhodes Island rescued them in a humanitarian relief effort that Amiya had fought hard to secure.\nHer accounts are so appalling that people doubt the authenticity of her words upon hearing them for the first time; however, there are some key points in her description:\nHer group had been trapped inside Peterheim Middle School two days after Reunion gained complete control of Chernobog. The date coincided with the time when Mephisto began to move, in the event now known as the Chernobog incident;\nAfter seizing control of the schools, Mephisto did not interfere with the students' actions within the schools, but would not permit them to leave. From the perspective of outside observers, he intended to exacerbate the brewing anxiety of the students. This ugly behavior is consistent with our perception of him;\nThe time Reunion relaxed their control over the schools corresponded with the time Amiya encountered Mephisto during the mission to rescue the Doctor. Amiya believes that Mephisto received information regarding Rhodes Island's movements and left the schools unsupervised because he had already seen what he wanted to see after setting tragedy into motion;\nThe Peterheim Middle School she described does exist in Chernobog, close to the place where they were rescued, in a block not directly struck by the Catastrophe.\netc, etc.\nAfter considering various factors, we can only conclude that what Rosa described indeed occurred within an event as tragic as the Chernobog incident.\nAs for the experiences of the other members of the Self-Governing Group during this tragedy, Rosa said that she didn't know much because she joined the group late, but she also made it clear that she was unwilling to speak on their behalf. Rosa will take the initiative to speak about her experiences. On one hand, this is a manifestation of her trust in Rhodes Island and in the Doctor; but on the other hand, she fears that among the members of the Self-Governing Group, she is the most appropriate person to "betray" the others and break the silence. She hopes that the Doctor can do the one thing she cannot – help her fellow classmates.` },
+    { title: 'Archive File 4', content: `Rhodes Island is home to many people from various countries and different walks of life. When Rosa joined Rhodes Island along with the other members of the Ursus Student Self-Governing Group, a number of small incidents occurred.\nBecause she was an Ursus noble of pure pedigree.\nWe must confront reality: struggles over politics, economics, land, technology, and war are timeless plagues that have always been tied together by a single thread – nobility.\nAs mentioned in the second file, the old aristocrats largely disappeared from the political arena with the development of nomadic cities; but within Ursus, they did not take their exit from the stage of history.\nOf course, this hardly concerns the average person. It is absolutely impossible for a pure-blooded Ursus aristocrat who has been nurtured at length with an elite education to simply join an organization like Rhodes Island. These nobles sit atop their ivory thrones, governing wealth and land high above the reaches of suffering.\nAfter Rosa officially started working with the Logistics Department, she undeniably did act like she was "trying to seem less like an aristocrat." One can tell that she is still not accustomed to lowering her position, but she is legitimately trying to adapt to such a life.\nWhy? Because a vast majority of people, Infected or non-Infected, harbor no love for nobles – and particularly not Ursus nobles.\nHowever, Rosa no longer pays any heed to the position she once came from. She bore the burden of contempt in silence, only occasionally smiling and shaking her head – however, she never let that get in the way of her work.\n"No person should be judged because of where they came from," said Istina as she stood in front of Rosa, shielding her from an outraged Ursus operator.\nWe agree that nothing like that should never be allowed to happen in Rhodes Island, ever. The same is true for Amiya, and the same is true for that operator who later apologized to Rosa.\nRosa, her frankness, her self-reproach, her confusion... was certainly not a novel case when she joined Rhodes Island.\nToday is yet another day upon Terra.` },
+    { title: 'Promotion Record', content: `The weapon that Rosa uses, strictly speaking, is not even a weapon at all, at least in the sense that no person should be wielding it.\nHer weapon is actually a small-scale siege engine, frequently used to bridge the gap during inter-city warfare. A larger model of such a device could actually be used to maintain a certain distance between the two sides\nAccording to Rosa's account, they found this device after leaving the school to wandering around Chernobog in search of signs of life. Though practically useless at the time, it was still kept around as a form of self-protection through intimidation.\nIt's hard to imagine how an instrument used to lay siege to the city would end up inside its confines, but knowing its story grants a glimpse into the chaotic events in Chernobog at that time.\nHowever, at Rosa's request, Vulcan has modified this device into a long-range offensive weapon suitable for Rosa's use.` },
+  ],
+  classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/besieger-branch.png', factionIcon: '/icons/factions/ursus-student-self-governing-group.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/rosa/base.png', chibiSrc: '/operators/rosa/chibi.webm', chibiMoveSrc: '/operators/rosa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/rosa/e2.png', chibiSrc: '/operators/rosa/chibi.webm', chibiMoveSrc: '/operators/rosa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Masterpiece', src: '/operators/rosa/skin1.png', chibiSrc: '/operators/rosa/chibi-skin1.webm', chibiMoveSrc: '/operators/rosa/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin2', label: 'Forever Together', src: '/operators/rosa/skin2.png', chibiSrc: '/operators/rosa/chibi-skin2.webm', chibiMoveSrc: '/operators/rosa/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+  ],
+  portrait: '/operators/rosa/portrait.png',
+}
+
+export default rosa

@@ -3,7 +3,7 @@ import type { Operator } from '../../types'
 import { RangeGrid } from '../ui/RangeGrid'
 
 export function TalentsPanel({ operator }: { operator: Operator }) {
-  const summon = operator.summon
+  const summons = operator.summon ? (Array.isArray(operator.summon) ? operator.summon : [operator.summon]) : []
 
   return (
     <div className="grid gap-3">
@@ -17,51 +17,55 @@ export function TalentsPanel({ operator }: { operator: Operator }) {
         </div>
       ))}
 
-      {summon && (
+      {summons.length > 0 && (
         <>
           <div className="flex items-center gap-3 mt-2">
             <div className="h-px flex-1 bg-gradient-to-r from-ak-accent/30 to-transparent" />
-            <span className="font-display text-[10px] text-ak-accent/60 uppercase tracking-[0.15em]">Summon Unit</span>
+            <span className="font-display text-[10px] text-ak-accent/60 uppercase tracking-[0.15em]">
+              {summons.length > 1 ? 'Summon Units' : 'Summon Unit'}
+            </span>
             <div className="h-px flex-1 bg-gradient-to-l from-ak-accent/30 to-transparent" />
           </div>
 
-          <div className="bg-white/[0.04] border border-ak-accent/15 p-4">
-            <div className="flex items-center gap-3 mb-3">
-              <Image src={summon.icon} alt={summon.name} width={40} height={40} className="w-10 h-10 rounded bg-white/[0.06] border border-white/[0.08] object-contain p-0.5" />
-              <div>
-                <h4 className="font-display text-sm font-semibold text-white/90">{summon.name}</h4>
-                <span className="text-[10px] text-white/40 font-display">{summon.position} &middot; {summon.trait}</span>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-4 gap-x-3 gap-y-2 mb-3 py-3 border-t border-b border-white/[0.06]">
-              {([
-                ['HP', summon.stats.hp],
-                ['ATK', summon.stats.atk],
-                ['DEF', summon.stats.def],
-                ['RES', summon.stats.res],
-                ['Block', summon.stats.block],
-                ['Cost', summon.stats.cost],
-                ['ASPD', summon.stats.aspd],
-                ['RDP', summon.stats.rdp],
-              ] as const).map(([statLabel, statValue]) => (
-                <div key={statLabel} className="text-center">
-                  <div className="font-display text-[9px] text-white/30 uppercase tracking-wider">{statLabel}</div>
-                  <div className="font-display text-xs text-white/70 font-semibold mt-0.5">{statValue}</div>
+          {summons.map((summon) => (
+            <div key={summon.name} className="bg-white/[0.04] border border-ak-accent/15 p-4">
+              <div className="flex items-center gap-3 mb-3">
+                <Image src={summon.icon} alt={summon.name} width={40} height={40} className="w-10 h-10 rounded bg-white/[0.06] border border-white/[0.08] object-contain p-0.5" />
+                <div>
+                  <h4 className="font-display text-sm font-semibold text-white/90">{summon.name}</h4>
+                  <span className="text-[10px] text-white/40 font-display">{summon.position} &middot; {summon.trait}</span>
                 </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col items-center gap-4">
-              <div className="flex flex-col items-center gap-1">
-                <RangeGrid grid={summon.range} />
-                <span className="font-display text-[9px] text-white/25 tracking-wider">Range</span>
               </div>
-              {summon.note && (
-                <p className="text-[10px] text-white/35 leading-relaxed flex-1">{summon.note}</p>
-              )}
+
+              <div className="grid grid-cols-4 gap-x-3 gap-y-2 mb-3 py-3 border-t border-b border-white/[0.06]">
+                {([
+                  ['HP', summon.stats.hp],
+                  ['ATK', summon.stats.atk],
+                  ['DEF', summon.stats.def],
+                  ['RES', summon.stats.res],
+                  ['Block', summon.stats.block],
+                  ['Cost', summon.stats.cost],
+                  ['ASPD', summon.stats.aspd],
+                  ['RDP', summon.stats.rdp],
+                ] as const).map(([statLabel, statValue]) => (
+                  <div key={statLabel} className="text-center">
+                    <div className="font-display text-[9px] text-white/30 uppercase tracking-wider">{statLabel}</div>
+                    <div className="font-display text-xs text-white/70 font-semibold mt-0.5">{statValue}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-1">
+                  <RangeGrid grid={summon.range} />
+                  <span className="font-display text-[9px] text-white/25 tracking-wider">Range</span>
+                </div>
+                {summon.note && (
+                  <p className="text-[10px] text-white/35 leading-relaxed flex-1">{summon.note}</p>
+                )}
+              </div>
             </div>
-          </div>
+          ))}
         </>
       )}
     </div>

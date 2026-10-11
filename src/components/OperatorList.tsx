@@ -201,7 +201,7 @@ export function OperatorList() {
 
   const buildOperatorHref = (entry: RosterEntry) => {
     const slug = toSlug(OPERATORS[entry.operatorIndex].name)
-    return entry.isAlter ? `/operator?operator=${slug}&alter=true` : `/operator?operator=${slug}`
+    return entry.alterIndex !== null ? `/operator?operator=${slug}&alter=${entry.alterIndex + 1}` : `/operator?operator=${slug}`
   }
 
   useGSAP(() => {
@@ -303,7 +303,7 @@ export function OperatorList() {
       </div>
 
       {/* Operator grid */}
-      <main className="px-4 md:px-8 py-5 md:py-8">
+      <main className="relative z-0 px-4 md:px-8 py-5 md:py-8">
         {groupedByRarity.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <svg viewBox="0 0 24 24" className="w-10 h-10 text-white/[0.07] fill-current mb-3">
@@ -323,7 +323,7 @@ export function OperatorList() {
             {groupedByRarity.map(({ rarity, entries }) => (
               <section key={rarity} className="rarity-group">
                 <div className="flex items-center gap-3 mb-3 md:mb-4">
-                  <Stars count={rarity} />
+                  <Stars count={rarity} tilted />
                   <div className={`flex-1 h-px bg-gradient-to-r ${RARITY_GRADIENT[rarity] ?? 'from-white/10 to-transparent'}`} />
                   <span className="text-[9px] md:text-[10px] text-white/20 font-display tracking-[0.2em] uppercase">
                     {entries.length}
@@ -339,7 +339,7 @@ export function OperatorList() {
                     const idToToggle = activeChibiId ?? defaultChibiId
                     return (
                       <RosterCard
-                        key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
+                        key={`${entry.operator.name}-${entry.alterIndex ?? 'base'}`}
                         entry={entry}
                         href={buildOperatorHref(entry)}
                         walkingToggle={idToToggle ? {

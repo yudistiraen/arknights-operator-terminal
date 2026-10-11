@@ -3,6 +3,11 @@ import Image from 'next/image'
 import type { Operator, OperatorSkin, SkinL2D } from '../types'
 import type { WalkingToggleProps } from '../lib/chibiSelection'
 import { SpineViewer } from './SpineViewer'
+import { useArtZoom } from '../lib/useArtZoom'
+
+const ZOOM_HINT_STORAGE_KEY = 'ak-art-zoom-hint-seen'
+const ZOOM_HINT_DELAY_MS = 1400
+const ZOOM_HINT_DURATION_MS = 5000
 
 interface CharacterArtProps {
   operator: Operator
@@ -18,13 +23,42 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
   function CharacterArt({ operator, skinSrc, chibiSrc, chibiDetailFraming, walkingToggle, l2d, showL2D }, ref) {
     const [chibiError, setChibiError] = useState(false)
     useEffect(() => { setChibiError(false) }, [chibiSrc])
+    const { viewportRef, contentRef, transform, isGesturing, viewportHandlers } = useArtZoom(`${operator.name}::${skinSrc}`)
+    const isZoomed = transform.scale > 1
+
+    // One-time discoverability hint; stops showing for good once the viewer has zoomed.
+    const [showZoomHint, setShowZoomHint] = useState(false)
+    const [isTouchDevice, setIsTouchDevice] = useState(false)
+    useEffect(() => {
+      try { if (localStorage.getItem(ZOOM_HINT_STORAGE_KEY)) return } catch { /* storage blocked — still show it */ }
+      setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches)
+      const showTimer = setTimeout(() => setShowZoomHint(true), ZOOM_HINT_DELAY_MS)
+      const hideTimer = setTimeout(() => setShowZoomHint(false), ZOOM_HINT_DELAY_MS + ZOOM_HINT_DURATION_MS)
+      return () => { clearTimeout(showTimer); clearTimeout(hideTimer) }
+    }, [])
+    useEffect(() => {
+      if (!isZoomed) return
+      setShowZoomHint(false)
+      try { localStorage.setItem(ZOOM_HINT_STORAGE_KEY, '1') } catch { /* non-critical */ }
+    }, [isZoomed])
 
     return (
-      <div className="absolute inset-0 overflow-hidden">
+      <div
+        ref={viewportRef}
+        {...viewportHandlers}
+        className={`absolute inset-0 overflow-hidden select-none ${isZoomed ? 'touch-none' : 'touch-pan-y'} ${isZoomed ? (isGesturing ? 'cursor-grabbing' : 'cursor-grab') : 'cursor-zoom-in'}`}
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-ak-bg z-10" />
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-ak-bg via-ak-bg/70 to-transparent z-10" />
         <div className="char-art absolute inset-0 z-0 flex items-center justify-center">
-          <div className="relative w-[90%] h-[92%]">
+          <div
+            ref={contentRef}
+            className="relative w-[90%] h-[92%] will-change-transform"
+            style={{
+              transform: `translate3d(${transform.offsetX}px, ${transform.offsetY}px, 0) scale(${transform.scale})`,
+              transition: isGesturing ? 'none' : 'transform 0.35s cubic-bezier(0.22,1,0.36,1)',
+            }}
+          >
             {/* Image stays mounted even while the L2D layer covers it (just hidden via visibility,
                 not opacity — GSAP's playArtTransition animates this element's inline opacity, which
                 would fight a Tailwind opacity class) — switchSkin/switchOperator in OperatorTerminal
@@ -36,7 +70,9 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
               alt={operator.name}
               fill
               priority
-              sizes="(max-width: 768px) 90vw, 55vw"
+              draggable={false}
+              // Zoomed in, ask for the biggest srcset candidate so the art stays sharp.
+              sizes={isZoomed ? '(max-width: 768px) 360vw, 220vw' : '(max-width: 768px) 90vw, 55vw'}
               className={`object-contain drop-shadow-[0_0_40px_rgba(59,164,201,0.1)] ${l2d && showL2D ? 'invisible' : ''}`}
             />
             {l2d && showL2D && (
@@ -44,7 +80,28 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
             )}
           </div>
         </div>
-        <div className="hud-item absolute bottom-4 right-4 md:bottom-8 md:right-20 z-20 flex flex-col items-center gap-2 md:gap-5">
+        <div
+          aria-hidden={!showZoomHint}
+          className={`absolute top-14 left-1/2 -translate-x-1/2 z-30 pointer-events-none flex items-center gap-2 px-3 py-1.5 bg-ak-panel/75 backdrop-blur-md border border-ak-accent/30 shadow-[0_4px_16px_rgba(0,0,0,0.3),0_0_12px_rgba(59,164,201,0.12),inset_0_1px_0_rgba(255,255,255,0.06)] ${
+            showZoomHint ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1.5'
+          }`}
+          style={{ transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), translate 0.5s cubic-bezier(0.22,1,0.36,1)' }}
+        >
+          {isTouchDevice ? (
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-ak-accent-bright stroke-2">
+              <path d="M4 4l5 5M4 4v4M4 4h4M20 20l-5-5M20 20v-4M20 20h-4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-ak-accent-bright stroke-2">
+              <rect x="6" y="3" width="12" height="18" rx="6" />
+              <path d="M12 7v3" strokeLinecap="round" />
+            </svg>
+          )}
+          <span className="font-display text-[10px] md:text-[11px] tracking-[0.15em] uppercase text-white/75 whitespace-nowrap">
+            {isTouchDevice ? 'Pinch to zoom · Double-tap to reset' : 'Scroll to zoom · Double-click to reset'}
+          </span>
+        </div>
+        <div data-zoom-ignore className="hud-item absolute bottom-4 right-4 md:bottom-8 md:right-20 z-20 flex flex-col items-center gap-2 md:gap-5">
           <div className="relative w-20 h-20 md:w-35 md:h-35 flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 bg-ak-panel/40 backdrop-blur-sm border border-ak-border/30 shadow-[0_4px_20px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.05)]" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(59,164,201,0.06)_0%,transparent_70%)]" />
@@ -96,13 +153,6 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
                 }`}
               />
             )}
-          </div>
-          <div className="w-fit flex items-center gap-1.5 md:gap-3 bg-ak-panel/60 backdrop-blur-sm border border-ak-border/30 px-2 md:px-4 py-1.5 md:py-2.5">
-            <Image src={operator.factionIcon} alt={operator.faction} width={24} height={24} className="w-4 h-4 md:w-6 md:h-6 object-contain drop-shadow-[0_0_4px_rgba(212,168,67,0.4)]" />
-            <div className="flex flex-col">
-              <span className="font-display text-[8px] md:text-sm text-ak-gold-bright tracking-wider font-semibold">{operator.faction}</span>
-              <span className="font-display text-[7px] md:text-xs text-white/35 tracking-wider hidden md:block">{operator.birthplace}</span>
-            </div>
           </div>
         </div>
       </div>

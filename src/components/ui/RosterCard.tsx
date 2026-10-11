@@ -110,7 +110,7 @@ export function RosterCard({ entry, href, walkingToggle }: { entry: RosterEntry;
           walkingToggle.onToggle()
         }}
         disabled={walkingToggle.disabled}
-        title={walkingToggle.isSelected ? 'Remove from walking chibi' : 'Add to walking chibi'}
+        title={walkingToggle.isSelected ? 'Retreat' : 'Deploy operator'}
         aria-pressed={walkingToggle.isSelected}
         className={`absolute top-2 right-2 z-20 flex items-center justify-center w-5.5 h-5.5 md:w-6.5 md:h-6.5 border backdrop-blur-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright ${
           walkingToggle.isSelected

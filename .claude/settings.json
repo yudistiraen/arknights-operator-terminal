@@ -1,4 +1,9 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_FLOW_V3_ENABLED": "true",
+    "CLAUDE_FLOW_HOOKS_ENABLED": "true"
+  },
   "permissions": {
     "allow": [
       "Bash(curl -sL \"https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/zh_CN/gamedata/excel/skin_table.json\" -o .firecrawl/skin_table_cn.json)",
@@ -177,12 +182,356 @@
       "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Loopshooter&format=json\")",
       "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Swordmaster&format=json\")",
       "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/api.php?action=query&list=allimages&aiprefix=Skill-P2&format=json\")",
-      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/images/Skill-P2.png\" -o public/operators/caper/skill-1.png -w \"caper skill-1 %{http_code} %{size_download}\\\\n\")"
+      "Bash(curl -sL -A \"arknights-portfolio-research/1.0\" \"https://arknights.wiki.gg/images/Skill-P2.png\" -o public/operators/caper/skill-1.png -w \"caper skill-1 %{http_code} %{size_download}\\\\n\")",
+      "Bash(npx @claude-flow*)",
+      "Bash(npx claude-flow*)",
+      "Bash(node .claude/*)",
+      "mcp__claude-flow__*",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_148_nearl/build_char_148_nearl_summer_2/Spine --anim Move --out scripts/chibi-pipeline/out/nearl/chibi-move-skin1.webm)",
+      "Bash(cd \"c:\\\\Users\\\\Yudis\\\\Documents\\\\Workspace\\\\arknights-portfolio\" && mkdir -p .firecrawl *)",
+      "Bash(mkdir -p scratchpad_platinum)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/character_table.json\" -o \"C:\\\\Users\\\\Yudis\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Yudis-Documents-Workspace-arknights-portfolio\\\\f0b3d95d-01d8-401e-9ed0-22777f6f5b2b\\\\scratchpad\\\\character_table.json\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/skill_table.json\" -o \"C:\\\\Users\\\\Yudis\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Yudis-Documents-Workspace-arknights-portfolio\\\\f0b3d95d-01d8-401e-9ed0-22777f6f5b2b\\\\scratchpad\\\\skill_table.json\")",
+      "Bash(mkdir -p public/operators/platinum)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Platinum.png\" -o public/operators/platinum/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Platinum_Elite_2.png\" -o public/operators/platinum/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Platinum_Skin_1.png\" -o public/operators/platinum/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Platinum_icon.png\" -o public/operators/platinum/portrait.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_204_platnm\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_204_platnm/build_char_204_platnm\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_204_platnm/build_char_204_platnm/Spine\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_204_platnm/build_char_204_platnm_summer_3\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_204_platnm/build_char_204_platnm/Spine --anim Relax --out scripts/chibi-pipeline/out/platinum/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_204_platnm/build_char_204_platnm/Spine --anim Move --out scripts/chibi-pipeline/out/platinum/chibi-move.webm)",
+      "Bash(ffprobe -v error -show_entries stream_tags=alpha_mode -show_entries format=duration -of default=noprint_wrappers=0 scripts/chibi-pipeline/out/platinum/chibi.webm)",
+      "Bash(ffprobe -v error -show_entries stream_tags=alpha_mode -show_entries format=duration -of default=noprint_wrappers=0 scripts/chibi-pipeline/out/platinum/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_204_platnm/build_char_204_platnm_summer_3/Spine --anim Relax --samples 1 --sample-mode t0 --out scripts/chibi-pipeline/out/platinum/sample-skin1.webm)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/platinum/sample-skin1.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 scripts/chibi-pipeline/out/platinum/sample-skin1-frame0.png)",
+      "Bash(ffprobe -v error -show_entries stream_tags=alpha_mode -show_entries format=duration -of default=noprint_wrappers=0 scripts/chibi-pipeline/out/platinum/sample-skin1.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_204_platnm/build_char_204_platnm_summer_3/Spine --anim Move --out scripts/chibi-pipeline/out/platinum/chibi-move-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/platinum/chibi.webm public/operators/platinum/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/platinum/chibi-move.webm public/operators/platinum/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/platinum/chibi-skin1.webm public/operators/platinum/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/platinum/chibi-move-skin1.webm public/operators/platinum/chibi-move-skin1.webm)",
+      "Bash(mkdir -p public/operators/pramanix)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Pramanix.png\" -o public/operators/pramanix/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Pramanix_Elite_2.png\" -o public/operators/pramanix/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Pramanix_Skin_1.png\" -o public/operators/pramanix/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Skill-Pramanix1.png\" -o public/operators/pramanix/skill-1.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_174_slbell\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_174_slbell/build_char_174_slbell/Spine --anim Relax --out scripts/chibi-pipeline/out/pramanix/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_174_slbell/build_char_174_slbell/Spine --anim Move --out scripts/chibi-pipeline/out/pramanix/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_174_slbell/build_char_174_slbell_snow_1/Spine --anim Relax --out scripts/chibi-pipeline/out/pramanix/chibi-skin1.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_174_slbell/build_char_174_slbell_snow_1/Spine --anim Move --out scripts/chibi-pipeline/out/pramanix/chibi-move-skin1.webm)",
+      "Bash(mkdir -p /c/tmp/pramanix-verify)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/pramanix/chibi.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 /c/tmp/pramanix-verify/chibi-frame0.png -loglevel error)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/pramanix/chibi-skin1.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 /c/tmp/pramanix-verify/chibi-skin1-frame0.png -loglevel error)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/pramanix/chibi-move.webm -vf \"select=eq\\(n\\\\,5\\)\" -vframes 1 /c/tmp/pramanix-verify/chibi-move-frame5.png -loglevel error)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/pramanix/chibi-move-skin1.webm -vf \"select=eq\\(n\\\\,5\\)\" -vframes 1 /c/tmp/pramanix-verify/chibi-move-skin1-frame5.png -loglevel error)",
+      "Bash(cp scripts/chibi-pipeline/out/pramanix/chibi.webm public/operators/pramanix/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/pramanix/chibi-move.webm public/operators/pramanix/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/pramanix/chibi-skin1.webm public/operators/pramanix/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/pramanix/chibi-move-skin1.webm public/operators/pramanix/chibi-move-skin1.webm)",
+      "Bash(ffmpeg -y -f lavfi -i color=c=gray:s=180x256 -i public/icons/branches/hexer-branch.png -filter_complex \"[1:v]scale=180:256[a];[0:v][a]overlay\" -vframes 1 /c/tmp/hexer-branch-check.png -loglevel error)",
+      "Bash(node extract.mjs)",
+      "Bash(node scripts/chibi-pipeline/lib/github.mjs)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_144_red\")",
+      "Bash(grep -o \"How to obtain[^<]*<[^>]*>.\\\\{0,600\\\\}\" .firecrawl/projekt-red-raw.html)",
+      "Bash(mkdir -p public/operators/projekt-red)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Projekt_Red.png\" -o public/operators/projekt-red/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Projekt_Red_Elite_2.png\" -o public/operators/projekt-red/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Projekt_Red_Skin_1.png\" -o public/operators/projekt-red/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Skill-ProjektRed1.png\" -o public/operators/projekt-red/skill-1.png)",
+      "Bash(curl -s \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_144_red\")",
+      "Bash(curl -s \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_144_red/build_char_144_red\")",
+      "Bash(curl -s \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_144_red/build_char_144_red_summer_6\")",
+      "Bash(curl -s \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_144_red/build_char_144_red/Spine\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_144_red/build_char_144_red/Spine --anim Relax --out scripts/chibi-pipeline/out/projekt-red/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_144_red/build_char_144_red/Spine --anim Move --out scripts/chibi-pipeline/out/projekt-red/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_144_red/build_char_144_red_summer_6/Spine --anim Relax --out scripts/chibi-pipeline/out/projekt-red/chibi-skin1.webm --samples 1 --sample-mode t0)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_144_red/build_char_144_red_summer_6/Spine --anim Move --out scripts/chibi-pipeline/out/projekt-red/chibi-move-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/projekt-red/chibi.webm public/operators/projekt-red/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/projekt-red/chibi-move.webm public/operators/projekt-red/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/projekt-red/chibi-skin1.webm public/operators/projekt-red/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/projekt-red/chibi-move-skin1.webm public/operators/projekt-red/chibi-move-skin1.webm)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/character_table.json\" -o \"C:/Users/Yudis/AppData/Local/Temp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/f0b3d95d-01d8-401e-9ed0-22777f6f5b2b/scratchpad/character_table.json\")",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/ArknightsAssets/ArknightsGamedata/master/en/gamedata/excel/skill_table.json\" -o \"C:/Users/Yudis/AppData/Local/Temp/claude/c--Users-Yudis-Documents-Workspace-arknights-portfolio/f0b3d95d-01d8-401e-9ed0-22777f6f5b2b/scratchpad/skill_table.json\")",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Ptilopsis.png\" -o public/operators/ptilopsis/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Ptilopsis_Elite_2.png\" -o public/operators/ptilopsis/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Ptilopsis_Skin_1.png\" -o public/operators/ptilopsis/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Ptilopsis_Skin_2.png\" -o public/operators/ptilopsis/skin2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Skill-man_spd1.png\" -o public/operators/ptilopsis/skill-1-tmp.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Skill-M3.png\" -o public/operators/ptilopsis/skill-1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Ptilopsis_icon.png\" -o public/operators/ptilopsis/portrait.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_128_plosis\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_128_plosis/build_char_128_plosis\")",
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\(0,'utf8'\\)\\).map\\(d=>d.name\\)\\)\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_128_plosis/build_char_128_plosis_epoque_3\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_128_plosis/build_char_128_plosis_yun_4\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis/Spine --anim Relax --out scripts/chibi-pipeline/out/ptilopsis/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis/Spine --anim Move --out scripts/chibi-pipeline/out/ptilopsis/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis_epoque_3/Spine --anim Relax --samples 1 --sample-mode t0 --out scripts/chibi-pipeline/out/ptilopsis_epoque_3_sample/sample.webm)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/ptilopsis_epoque_3_sample/sample.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 scripts/chibi-pipeline/out/epoque_3_frame.png -loglevel error)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/ptilopsis_yun_4_sample/sample.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 scripts/chibi-pipeline/out/yun_4_frame.png -loglevel error)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis_epoque_3/Spine --anim Relax --out scripts/chibi-pipeline/out/ptilopsis/chibi-skin1.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis_epoque_3/Spine --anim Move --out scripts/chibi-pipeline/out/ptilopsis/chibi-move-skin1.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis_yun_4/Spine --anim Relax --out scripts/chibi-pipeline/out/ptilopsis/chibi-skin2.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_128_plosis/build_char_128_plosis_yun_4/Spine --anim Move --out scripts/chibi-pipeline/out/ptilopsis/chibi-move-skin2.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/ptilopsis/chibi.webm public/operators/ptilopsis/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/ptilopsis/chibi-move.webm public/operators/ptilopsis/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/ptilopsis/chibi-skin1.webm public/operators/ptilopsis/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/ptilopsis/chibi-move-skin1.webm public/operators/ptilopsis/chibi-move-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/ptilopsis/chibi-skin2.webm public/operators/ptilopsis/chibi-skin2.webm)",
+      "Bash(node extract_reed.mjs)",
+      "Bash(node extract_skills.mjs)",
+      "Bash(mkdir -p public/operators/reed)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Reed.png\" -o public/operators/reed/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Reed_Elite_2.png\" -o public/operators/reed/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Reed_Skin_1.png\" -o public/operators/reed/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Skill-S3.png\" -o public/operators/reed/skill-1.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_261_sddrag\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_261_sddrag/build_char_261_sddrag\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_261_sddrag/build_char_261_sddrag_ambienceSynesthesia_2\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_261_sddrag/build_char_261_sddrag/Spine --anim Relax --out scripts/chibi-pipeline/out/reed/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_261_sddrag/build_char_261_sddrag/Spine --anim Move --out scripts/chibi-pipeline/out/reed/chibi-move.webm)",
+      "Bash(node extract_reed_skills.mjs)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_261_sddrag/build_char_261_sddrag_ambienceSynesthesia_2/Spine --anim Relax --out scripts/chibi-pipeline/out/reed/chibi-skin1-test.webm --samples 1 --sample-mode t0)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/reed/chibi-skin1-test.webm -vf \"select=eq\\(n\\\\,0\\)\" -vframes 1 scripts/chibi-pipeline/out/reed/skin1-test-frame.png)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream_tags=alpha_mode scripts/chibi-pipeline/out/reed/chibi-skin1-test.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_261_sddrag/build_char_261_sddrag_ambienceSynesthesia_2/Spine --anim Move --out scripts/chibi-pipeline/out/reed/chibi-move-skin1.webm)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream_tags=alpha_mode scripts/chibi-pipeline/out/reed/chibi.webm)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream_tags=alpha_mode scripts/chibi-pipeline/out/reed/chibi-move.webm)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream_tags=alpha_mode scripts/chibi-pipeline/out/reed/chibi-move-skin1.webm)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/reed/chibi-move.webm -update 1 -frames:v 1 scripts/chibi-pipeline/out/reed/base-move-frame.png)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/reed/chibi-move-skin1.webm -update 1 -frames:v 1 scripts/chibi-pipeline/out/reed/skin1-move-frame.png)",
+      "Bash(cp scripts/chibi-pipeline/out/reed/chibi.webm public/operators/reed/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/reed/chibi-move.webm public/operators/reed/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/reed/chibi-skin1-test.webm public/operators/reed/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/reed/chibi-move-skin1.webm public/operators/reed/chibi-move-skin1.webm)",
+      "Bash(mkdir -p \"C:/Users/Yudis/Documents/Workspace/arknights-portfolio/public/operators/sesa\")",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Sesa.png\" -o base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Sesa_Elite_2.png\" -o e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Sesa_Skin_1.png\" -o skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Sesa_icon.png\" -o portrait.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_379_sesa\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_379_sesa/build_char_379_sesa\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_379_sesa/build_char_379_sesa_game_5\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_379_sesa/build_char_379_sesa/Spine\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_379_sesa/build_char_379_sesa_game_5/Spine\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_379_sesa/build_char_379_sesa/Spine --anim Relax --out scripts/chibi-pipeline/out/sesa/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_379_sesa/build_char_379_sesa/Spine --anim Move --out scripts/chibi-pipeline/out/sesa/chibi-move.webm)",
+      "Bash(ffprobe -v error -show_entries stream_tags=alpha_mode -show_entries format=duration -of default=noprint_wrappers=0 chibi.webm)",
+      "Bash(ffprobe -v error -show_entries stream_tags=alpha_mode -show_entries format=duration -of default=noprint_wrappers=0 chibi-move.webm)",
+      "Bash(xargs -I{} grep -l \"talents\" {})",
+      "Bash(curl -sL \"https://api.github.com/search/code?q=repo:fexli/ArknightsResource+vodfox\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_254_vodfox\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/build_char_254_vodfox\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{console.log\\(JSON.parse\\(d\\).map\\(x=>x.name\\).join\\('\\\\n'\\)\\)}\\);\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/build_char_254_vodfox_witch_2\")",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/build_char_254_vodfox_yun_8\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox/Spine --anim Relax --out scripts/chibi-pipeline/out/shamare/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox/Spine --anim Move --out scripts/chibi-pipeline/out/shamare/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox_witch_2/Spine --anim Relax --samples 1 --sample-mode t0 --out scripts/chibi-pipeline/out/shamare-witch/sample.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox_witch_2/Spine --anim Relax --out scripts/chibi-pipeline/out/shamare-witch/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox_witch_2/Spine --anim Move --out scripts/chibi-pipeline/out/shamare-witch/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox_yun_8/Spine --anim Relax --out scripts/chibi-pipeline/out/shamare-yun/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_254_vodfox/build_char_254_vodfox_yun_8/Spine --anim Move --out scripts/chibi-pipeline/out/shamare-yun/chibi-move.webm)",
+      "Bash(mkdir -p .firecrawl/chibi-check)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/shamare-witch/chibi.webm -vf \"select=eq\\(n\\\\,20\\)\" -vframes 1 .firecrawl/chibi-check/witch-frame.png -loglevel error)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/shamare-yun/chibi.webm -vf \"select=eq\\(n\\\\,20\\)\" -vframes 1 .firecrawl/chibi-check/yun-frame.png -loglevel error)",
+      "Bash(cp scripts/chibi-pipeline/out/shamare/chibi.webm public/operators/shamare/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/shamare/chibi-move.webm public/operators/shamare/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/shamare-witch/chibi.webm public/operators/shamare/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/shamare-witch/chibi-move.webm public/operators/shamare/chibi-move-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/shamare-yun/chibi.webm public/operators/shamare/chibi-skin2.webm)",
+      "Bash(curl -sL -o \"C:\\\\Users\\\\Yudis\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Yudis-Documents-Workspace-arknights-portfolio\\\\f0b3d95d-01d8-401e-9ed0-22777f6f5b2b\\\\scratchpad\\\\shamare-icon-test.png\" \"https://arknights.wiki.gg/images/Shamare_icon.png\")",
+      "Bash(node extract-silence.mjs)",
+      "Bash(node extract-silence2.mjs)",
+      "Bash(node extract-silence-skills.mjs)",
+      "Bash(mkdir -p public/operators/silence)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Silence.png\" -o public/operators/silence/base.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Silence_Elite_2.png\" -o public/operators/silence/e2.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Silence_Skin_1.png\" -o public/operators/silence/skin1.png)",
+      "Bash(curl -sL \"https://arknights.wiki.gg/images/Silence_Skin_2.png\" -o public/operators/silence/skin2.png)",
+      "Bash(curl -sL \"https://api.github.com/repos/fexli/ArknightsResource/contents/spine/char_108_silent\")",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent/Spine --anim Relax --out scripts/chibi-pipeline/out/silence/chibi.webm)",
+      "Bash(ffprobe -v error -show_entries format=duration -show_entries stream_tags=alpha_mode -of default=noprint_wrappers=1 scripts/chibi-pipeline/out/silence/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent/Spine --anim Move --out scripts/chibi-pipeline/out/silence/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/capture.mjs --model spine/char_108_silent/build_char_108_silent_sweep_1/Spine --anim Relax --out-dir scripts/chibi-pipeline/out/silence-sweep1-sample --samples 1 --sample-mode t0)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent_sweep_1/Spine --anim Relax --out scripts/chibi-pipeline/out/silence-sweep1/chibi.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent_winter_2/Spine --anim Relax --out scripts/chibi-pipeline/out/silence-winter2/chibi.webm)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/silence-sweep1/chibi.webm -vframes 1 -ss 2 scripts/chibi-pipeline/out/silence-sweep1-frame.png)",
+      "Bash(ffmpeg -y -i scripts/chibi-pipeline/out/silence-winter2/chibi.webm -vframes 1 -ss 2 scripts/chibi-pipeline/out/silence-winter2-frame.png)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent_sweep_1/Spine --anim Move --out scripts/chibi-pipeline/out/silence-sweep1/chibi-move.webm)",
+      "Bash(node scripts/chibi-pipeline/render-chibi.mjs --model spine/char_108_silent/build_char_108_silent_winter_2/Spine --anim Move --out scripts/chibi-pipeline/out/silence-winter2/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/silence/chibi.webm public/operators/silence/chibi.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/silence/chibi-move.webm public/operators/silence/chibi-move.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/silence-sweep1/chibi.webm public/operators/silence/chibi-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/silence-sweep1/chibi-move.webm public/operators/silence/chibi-move-skin1.webm)",
+      "Bash(cp scripts/chibi-pipeline/out/silence-winter2/chibi.webm public/operators/silence/chibi-skin2.webm)"
     ],
     "additionalDirectories": [
       "C:\\Users\\Yudis\\Documents\\Workspace\\arknights-portfolio\\public\\operators\\kroos",
       "C:\\Users\\Yudis\\Documents\\Workspace\\arknights-portfolio",
       "C:\\Users\\Yudis\\Documents\\Workspace\\arknights-portfolio\\public\\operators"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" pre-bash) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" pre-bash)\"",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" pre-edit) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" pre-edit)\"",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" post-edit) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" post-edit)\"",
+            "timeout": 10000
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" post-bash) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" post-bash)\"",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" route) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" route)\"",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" session-restore) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" session-restore)\"",
+            "timeout": 15000
+          },
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\auto-memory-hook.mjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\auto-memory-hook.mjs\" import) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\auto-memory-hook.mjs\" import)\"",
+            "timeout": 8000
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" session-end) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" session-end)\"",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\auto-memory-hook.mjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\auto-memory-hook.mjs\" sync) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\auto-memory-hook.mjs\" sync)\"",
+            "timeout": 10000
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" compact-manual) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" compact-manual)\""
+          },
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" session-end) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" session-end)\"",
+            "timeout": 5000
+          }
+        ]
+      },
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" compact-auto) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" compact-auto)\""
+          },
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" session-end) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" session-end)\"",
+            "timeout": 6000
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" status) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" status)\"",
+            "timeout": 3000
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" post-task) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" post-task)\"",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd /c \"IF EXIST \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" (node \"%CLAUDE_PROJECT_DIR%\\.claude\\helpers\\hook-handler.cjs\" notify) ELSE (node \"%USERPROFILE%\\.claude\\helpers\\hook-handler.cjs\" notify)\"",
+            "timeout": 3000
+          }
+        ]
+      }
     ]
   }
 }
