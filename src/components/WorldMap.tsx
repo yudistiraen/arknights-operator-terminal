@@ -1,12 +1,15 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { OPERATORS } from '../data/operators'
-import { NATION_LABELS, normalizeNationId } from '../lib/nations'
+import { NATION_LABELS, getNationIcon, normalizeNationId } from '../lib/nations'
 import { toSlug } from '../lib/operators'
 import { playClick } from '../lib/sound'
 import type { Operator } from '../types'
+import { FOCUS_RING, Panel, StatusDot } from './ui/Console'
+import { ParticleField } from './ui/ParticleField'
 import terraGridRaw from '../data/terraGrid.json'
 
 interface TerraTile {
@@ -89,12 +92,45 @@ function projectDepth(x: number, y: number, z: number): number {
   return yYaw * Math.cos(PITCH_RAD) + z * Math.sin(PITCH_RAD)
 }
 
-function darken(hex: string, factor: number): string {
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
-  const toHex = (c: number) => Math.max(0, Math.min(255, Math.round(c * factor))).toString(16).padStart(2, '0')
-  return `#${toHex(r)}${toHex(g)}${toHex(b)}`
+// Console tone (design-pattern.md §4.8): every tile keeps its sampled hue so nations,
+// ice, desert and sea still read as themselves, but saturation and lightness are
+// clamped into the graphite band. Terrain sits near-grey, nations carry a muted
+// tint, and the focused nation is lifted back toward its true color.
+type TileTone = 'sea' | 'terrain' | 'nation' | 'nation-active'
+
+const TILE_TONES: Record<TileTone, { saturationScale: number; saturationMax: number; lightMin: number; lightMax: number }> = {
+  sea: { saturationScale: 0.4, saturationMax: 0.22, lightMin: 0.1, lightMax: 0.14 },
+  terrain: { saturationScale: 0.2, saturationMax: 0.08, lightMin: 0.22, lightMax: 0.34 },
+  // Nations are the clickable layer, so they sit clearly brighter than terrain.
+  nation: { saturationScale: 0.75, saturationMax: 0.5, lightMin: 0.4, lightMax: 0.54 },
+  'nation-active': { saturationScale: 1, saturationMax: 0.72, lightMin: 0.5, lightMax: 0.64 },
+}
+
+function hexToHsl(hex: string): [number, number, number] {
+  const r = parseInt(hex.slice(1, 3), 16) / 255
+  const g = parseInt(hex.slice(3, 5), 16) / 255
+  const b = parseInt(hex.slice(5, 7), 16) / 255
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  const lightness = (max + min) / 2
+  if (max === min) return [0, 0, lightness]
+  const delta = max - min
+  const saturation = lightness > 0.5 ? delta / (2 - max - min) : delta / (max + min)
+  const hue = max === r ? (g - b) / delta + (g < b ? 6 : 0) : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4
+  return [hue * 60, saturation, lightness]
+}
+
+function toConsoleTone(hex: string, tone: TileTone): string {
+  const [hue, saturation, lightness] = hexToHsl(hex)
+  const { saturationScale, saturationMax, lightMin, lightMax } = TILE_TONES[tone]
+  const mutedSaturation = Math.min(saturation * saturationScale, saturationMax)
+  const mappedLightness = lightMin + lightness * (lightMax - lightMin)
+  return `hsl(${round(hue)} ${round(mutedSaturation * 100)}% ${round(mappedLightness * 100)}%)`
+}
+
+// Side walls: the tile's own tone with its lightness scaled down.
+function shadeTone(hslColor: string, factor: number): string {
+  return hslColor.replace(/(\d+(?:\.\d+)?)%\)$/, (_, lightness) => `${round(Number(lightness) * factor)}%)`)
 }
 
 function polygonPoints(points: [number, number][]): string {
@@ -105,10 +141,53 @@ interface Shape {
   key: string
   points: string
   fill: string
+  activeFill: string
   nationId: string | null
   depth: number
   col: number
   row: number
+}
+
+// Sci-fi map pin: a marker on the nation, a leader line that grows upward, then a
+// tag that opens to the right with the region name. Pure transform/opacity keyframes,
+// sequenced with delays; remounted per nation (key) so the sequence replays on every hover.
+const CALLOUT_LINE_HEIGHT = 'h-14 md:h-20'
+
+function RegionCallout({ label, icon, xPercent, yPercent }: { label: string; icon: string | null; xPercent: number; yPercent: number }) {
+  // Near the right edge the tag would leave the panel, so it opens leftward instead.
+  const opensLeft = xPercent > 85
+  return (
+    <div className="absolute" style={{ left: `${xPercent}%`, top: `${yPercent}%` }}>
+      {/* Marker: square ring + core on the nation's anchor point */}
+      <span className="absolute -left-2 -top-2 w-4 h-4 border border-gc-signal motion-safe:animate-[callout-marker_0.2s_ease-out_both]" />
+      <span className="absolute -left-[3px] -top-[3px] w-1.5 h-1.5 bg-gc-signal" />
+
+      {/* Leader line, drawn upward from the marker */}
+      <span className={`absolute left-0 bottom-0 w-px -translate-x-1/2 ${CALLOUT_LINE_HEIGHT} bg-gradient-to-t from-gc-signal to-gc-invert origin-bottom motion-safe:animate-[callout-line_0.24s_cubic-bezier(0.22,1,0.36,1)_0.08s_both]`} />
+
+      {/* Tag: opens sideways from the top of the line */}
+      <div className={`absolute bottom-0 ${CALLOUT_LINE_HEIGHT} ${opensLeft ? 'right-0' : 'left-0'}`}>
+        <div
+          className={`absolute top-0 -translate-y-1/2 flex items-center gap-2.5 whitespace-nowrap bg-gc-float/95 border border-gc-line-strong ${opensLeft ? 'right-0 border-r-2 border-r-gc-signal origin-right' : 'left-0 border-l-2 border-l-gc-signal origin-left'} pl-2.5 pr-3 h-8 md:h-9 shadow-[0_24px_48px_-16px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.5)] motion-safe:animate-[callout-tag_0.32s_cubic-bezier(0.22,1.2,0.36,1)_0.3s_both]`}
+        >
+          {icon ? (
+            <Image
+              src={icon}
+              alt=""
+              width={22}
+              height={22}
+              className="w-5 h-5 md:w-[22px] md:h-[22px] object-contain shrink-0 opacity-90 motion-safe:animate-[callout-text_0.2s_ease-out_0.5s_both]"
+            />
+          ) : (
+            <span className="w-1.5 h-1.5 bg-gc-signal shrink-0 motion-safe:animate-[callout-text_0.2s_ease-out_0.5s_both]" />
+          )}
+          <span className="font-display text-[11px] md:text-[13px] text-gc-ink uppercase tracking-[0.16em] leading-none motion-safe:animate-[callout-text_0.24s_ease-out_0.52s_both]">
+            {label}
+          </span>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export function WorldMap() {
@@ -172,7 +251,8 @@ export function WorldMap() {
       // toward the page's dark palette — still clearly ocean, but no longer a
       // bright plate that fights the page background; the radial mask on the
       // <svg> below fades its outer edge the rest of the way into the page.
-      const fill = isSea ? darken(tile.color, 0.55) : tile.color
+      const fill = toConsoleTone(tile.color, isSea ? 'sea' : nationId ? 'nation' : 'terrain')
+      const activeFill = nationId ? toConsoleTone(tile.color, 'nation-active') : fill
 
       if (nationId) {
         const acc = nationCentroids.get(nationId) ?? { sumX: 0, sumY: 0, count: 0 }
@@ -192,6 +272,7 @@ export function WorldMap() {
         key: `${tile.col}-${tile.row}-top`,
         points: polygonPoints(topProjected),
         fill,
+        activeFill,
         nationId,
         depth: topDepth,
         col: tile.col,
@@ -216,7 +297,8 @@ export function WorldMap() {
         allShapes.push({
           key: `${tile.col}-${tile.row}-wall-${ai}${bi}`,
           points: polygonPoints([topA, topB, botB, botA]),
-          fill: darken(tile.color, WALL_SHADE),
+          fill: shadeTone(fill, WALL_SHADE),
+          activeFill: shadeTone(activeFill, WALL_SHADE),
           nationId,
           depth: (topDepth + projectDepth(cx, cy, 0)) / 2,
           col: tile.col,
@@ -241,12 +323,12 @@ export function WorldMap() {
     // Generous margin so the mask's fade (below) has room to vignette the
     // empty space around the landmass without eating into real tiles.
     const margin = elevation * 3
-    const box = [
-      round(minX - margin),
-      round(minY - margin),
-      round(maxX - minX + margin * 2),
-      round(maxY - minY + margin * 2),
-    ].join(' ')
+    const box = {
+      minX: round(minX - margin),
+      minY: round(minY - margin),
+      width: round(maxX - minX + margin * 2),
+      height: round(maxY - minY + margin * 2),
+    }
 
     return { shapes: allShapes, labels, viewBox: box }
   }, [tiles, imageWidth, imageHeight, stepX, stepY, hexWidth, hexHeight, elevation])
@@ -276,35 +358,46 @@ export function WorldMap() {
   // hover without any jank.
   const liftOffset = stepY * 0.5
 
-  // SVG text isn't warped by the polygons' per-vertex projection — placing it
-  // at a projected anchor point renders upright on its own, no extra work
-  // needed to keep nation names horizontal and legible.
-  const labelFontSize = stepY * 1.3
+  // The region callout is HTML layered over the SVG (real fonts, Tailwind motion, and it
+  // escapes the map's radial mask), so its anchor is the nation's label point — lifted with
+  // the tiles — expressed as a percentage of the viewBox.
+  const activeAnchor = (() => {
+    const label = labels.find(candidate => candidate.nationId === activeNation)
+    if (!label) return null
+    return {
+      xPercent: ((label.x - viewBox.minX) / viewBox.width) * 100,
+      yPercent: ((label.y - liftOffset - viewBox.minY) / viewBox.height) * 100,
+    }
+  })()
 
   const togglePinned = (nationId: string) => {
     setPinnedNation(prev => (prev === nationId ? null : nationId))
   }
 
   return (
-    <div className="world-map-panel w-full max-w-[960px] md:zoom-[1.3]">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="w-1 h-3.5 bg-ak-accent/60" />
-      <span className="font-display text-md text-white/40 tracking-[0.15em] uppercase">
-          Terra
-        </span>
-        <div className="flex-1 h-px bg-white/[0.06]" />
-        <span className="font-display text-md text-ak-accent-bright/60 tracking-wider uppercase">
-          {activeLabel
-            ? `${activeLabel} · ${activeOperators.length} Operator${activeOperators.length === 1 ? '' : 's'}`
-            : `${nationHitGroups.length} Nations`}
-        </span>
-      </div>
-
-      <div className="relative w-full max-w-2xl mx-auto py-4">
-        <div className="absolute inset-x-[4%] top-1/2 h-[110%] -translate-y-1/2 rounded-full bg-ak-accent/10 blur-[60px] pointer-events-none" />
+    <Panel
+      title="Terra"
+      rail
+      className="world-map-panel w-full max-w-[1250px]"
+      contentClassName="p-4 md:p-6"
+      headerRight={
+        <StatusDot
+          tone={activeLabel ? 'progress' : 'scan'}
+          blink={false}
+          label={activeLabel
+            ? `${activeLabel} · ${activeOperators.length} operator${activeOperators.length === 1 ? '' : 's'}`
+            : `${nationHitGroups.length} nations`}
+        />
+      }
+    >
+      {/* Ruler ticks along the top edge, as on a survey plot */}
+      <div aria-hidden className="absolute top-0 inset-x-6 h-1.5 bg-[repeating-linear-gradient(90deg,var(--color-gc-line)_0_1px,transparent_1px_8px)] max-md:hidden" />
+      {/* Ambient particles sit on the bottom layer so they never cover tiles or callouts */}
+      <ParticleField className="absolute inset-0 z-0 overflow-hidden" />
+      <div className="relative z-10 w-full max-w-3xl mx-auto py-4">
 
         <svg
-          viewBox={viewBox}
+          viewBox={`${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`}
           className="relative w-full h-auto block drop-shadow-[0_25px_35px_rgba(0,0,0,0.55)] mask-[radial-gradient(ellipse_62%_62%_at_50%_50%,black_48%,transparent_92%)]"
           onClick={() => setPinnedNation(null)}
         >
@@ -315,12 +408,12 @@ export function WorldMap() {
               <polygon
                 key={shape.key}
                 points={shape.points}
-                fill={shape.fill}
+                fill={isActive ? shape.activeFill : shape.fill}
                 data-col={shape.col}
                 data-row={shape.row}
-                stroke={isActive ? 'rgba(255,255,255,0.75)' : 'none'}
-                strokeWidth={isActive ? 3 : 0}
-                opacity={isDimmed ? 0.55 : 1}
+                stroke={isActive ? '#e8d23c' : 'none'}
+                strokeWidth={isActive ? 2 : 0}
+                opacity={isDimmed ? 0.45 : 1}
                 className={shape.nationId !== null
                   ? 'pointer-events-none [transition:transform_0.15s_ease-out,opacity_0.2s_ease] motion-reduce:transition-none'
                   : undefined}
@@ -374,30 +467,18 @@ export function WorldMap() {
               ))}
             </g>
           ))}
-          {labels.map(label => {
-            const isActive = label.nationId === activeNation
-            return (
-              <text
-                key={`label-${label.nationId}`}
-                x={label.x}
-                y={label.y}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize={labelFontSize}
-                fontWeight={600}
-                fill="white"
-                stroke="rgba(0,0,0,0.65)"
-                strokeWidth={labelFontSize * 0.12}
-                paintOrder="stroke"
-                opacity={isActive ? 1 : 0}
-                className="font-display uppercase tracking-wide pointer-events-none [transition:opacity_0.2s_ease,transform_0.15s_ease-out] motion-reduce:transition-none"
-                style={isActive ? { transform: `translateY(-${liftOffset}px)` } : undefined}
-              >
-                {NATION_LABELS[label.nationId]}
-              </text>
-            )
-          })}
         </svg>
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-4 bottom-4">
+          {activeNation && activeLabel && activeAnchor && (
+            <RegionCallout
+              key={activeNation}
+              label={activeLabel}
+              icon={getNationIcon(activeNation)}
+              xPercent={activeAnchor.xPercent}
+              yPercent={activeAnchor.yPercent}
+            />
+          )}
+        </div>
       </div>
 
       {/* Nation detail strip: the payoff for selecting a nation. Fixed height
@@ -405,7 +486,7 @@ export function WorldMap() {
           vertically centered, so any growth here would re-center everything
           and drag the map out from under the cursor. Large nations scroll
           inside the strip instead; the bottom fade hints there's more. */}
-      <div className="mt-2 h-35 overflow-y-auto overscroll-contain scrollbar-thin [scrollbar-color:rgba(255,255,255,0.15)_transparent] mask-[linear-gradient(to_bottom,black_calc(100%-20px),transparent)]">
+      <div className="relative z-10 mt-2 h-35 overflow-y-auto overscroll-contain scrollbar-thin [scrollbar-color:#3a3c40_transparent] mask-[linear-gradient(to_bottom,black_calc(100%-20px),transparent)]">
         {activeNation ? (
           <div key={activeNation} className="pb-5 animate-[map-detail-in_0.25s_ease-out] motion-reduce:animate-none">
             {activeOperators.length > 0 ? (
@@ -415,35 +496,36 @@ export function WorldMap() {
                     key={op.name}
                     href={`/operator?operator=${toSlug(op.name)}`}
                     onClick={playClick}
-                    className="group flex items-center gap-2 border border-white/[0.07] bg-white/[0.03] pl-1 pr-3 py-1 hover:border-ak-accent/30 hover:bg-white/[0.06] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright [transition:border-color_0.2s,background-color_0.2s,transform_0.15s_ease] motion-reduce:transition-none"
+                    className={`group relative flex items-center gap-2 border border-gc-line bg-gc-base pl-1 pr-3 py-1 active:scale-[0.97] ${FOCUS_RING} [transition:transform_0.15s_ease] motion-reduce:transition-none`}
                   >
+                    <span aria-hidden className="absolute inset-0 bg-gc-raised opacity-0 group-hover:opacity-100 [transition:opacity_0.15s_ease-out]" />
                     <span
                       aria-hidden
-                      className="w-7 h-7 shrink-0 bg-no-repeat bg-white/[0.04] opacity-85 group-hover:opacity-100 [transition:opacity_0.2s] motion-reduce:transition-none"
+                      className="relative w-7 h-7 shrink-0 bg-no-repeat bg-gc-panel opacity-85 group-hover:opacity-100 [transition:opacity_0.2s] motion-reduce:transition-none"
                       style={{
                         backgroundImage: `url(${op.skins[0].src})`,
                         backgroundSize: `auto ${op.portraitFocus?.zoom ?? 250}%`,
                         backgroundPosition: `${op.portraitFocus?.x ?? 50}% ${op.portraitFocus?.y ?? 0}%`,
                       }}
                     />
-                    <span className="font-display text-[11px] text-white/55 group-hover:text-white/90 tracking-wide [transition:color_0.2s] motion-reduce:transition-none">
+                    <span className="relative font-data text-[11px] text-gc-text group-hover:text-gc-ink tracking-[0.04em]">
                       {op.name}
                     </span>
                   </Link>
                 ))}
               </div>
             ) : (
-              <p className="pt-6 text-center font-display text-[10px] text-white/25 tracking-[0.2em] uppercase">
+              <p className="pt-6 text-center font-data text-[10px] text-gc-dim tracking-[0.14em] uppercase">
                 No operators on file for {activeLabel}
               </p>
             )}
           </div>
         ) : (
-          <p className="pt-6 text-center font-display text-[10px] text-white/25 tracking-[0.2em] uppercase">
+          <p className="pt-6 text-center font-data text-[10px] text-gc-dim tracking-[0.14em] uppercase">
             Hover to preview · click a nation to pin it
           </p>
         )}
       </div>
-    </div>
+    </Panel>
   )
 }

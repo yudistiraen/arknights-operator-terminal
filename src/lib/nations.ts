@@ -26,3 +26,13 @@ export const NATION_LABELS: Record<string, string> = {
   sargon: 'Sargon',
   iberia: 'Iberia',
 }
+
+// White-on-transparent emblems in public/icons/factions/, named in kebab-case.
+// Kazdel has no emblem asset yet, so callers fall back to a plain marker.
+const NATIONS_WITHOUT_ICON = new Set(['kazdel'])
+const NATION_ICON_FILE_OVERRIDES: Record<string, string> = { rimbilliton: 'rim-billiton' }
+
+export function getNationIcon(nationId: string): string | null {
+  if (NATIONS_WITHOUT_ICON.has(nationId) || !NATION_LABELS[nationId]) return null
+  return `/icons/factions/${NATION_ICON_FILE_OVERRIDES[nationId] ?? nationId}.png`
+}

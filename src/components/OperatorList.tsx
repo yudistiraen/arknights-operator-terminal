@@ -11,13 +11,14 @@ import { useApp } from './AppShell'
 import { Stars } from './ui/Stars'
 import { RosterCard } from './ui/RosterCard'
 import { RARITY_GRADIENT } from '../constants'
+import { GHOST_BUTTON, HoverFill, INPUT_CLASSES, Label, MENU_CLASSES, PageHeader, menuItemClasses } from './ui/Console'
 
 gsap.registerPlugin(useGSAP)
 
-const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='rgba(255,255,255,0.3)'%3E%3Cpath fill-rule='evenodd' d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E")`
+const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%236e7176'%3E%3Cpath fill-rule='evenodd' d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E")`
 
-const selectBase = "appearance-none bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-sm tracking-wider pl-4 pr-10 py-2 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer"
-const optionBase = "bg-[#0e1624] text-[#c8d0dc]"
+const selectBase = `appearance-none ${INPUT_CLASSES} pl-3.5 pr-10 cursor-pointer`
+const optionBase = "bg-gc-float text-gc-text"
 
 interface FilterOption {
   value: string
@@ -56,17 +57,17 @@ function FilterDropdown({ label, value, options, onChange }: {
 
   return (
     <div className="flex flex-col gap-1.5 relative" ref={dropdownRef}>
-      <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">{label}</label>
+      <Label>{label}</Label>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-sm tracking-wider pl-3.5 pr-9 py-2 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer text-left"
+        aria-expanded={isOpen}
+        className={`flex items-center gap-2 ${INPUT_CLASSES} pl-3.5 pr-9 cursor-pointer text-left`}
         style={{
           backgroundImage: SELECT_CHEVRON,
           backgroundPosition: 'right 8px center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: '20px',
-          transition: 'border-color 0.2s',
         }}
       >
         {selected?.icon && (
@@ -75,21 +76,16 @@ function FilterDropdown({ label, value, options, onChange }: {
         <span className="truncate">{selected?.label ?? 'All'}</span>
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1.5 min-w-full w-max max-h-72 overflow-y-auto bg-[#0c1220] border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 ak-scroll">
+        <div className={`absolute top-full left-0 mt-1.5 min-w-full w-max max-h-72 overflow-y-auto z-50 ak-scroll ${MENU_CLASSES}`}>
           {options.map(option => (
             <button
               key={option.value}
               type="button"
               onClick={() => { onChange(option.value); setIsOpen(false) }}
-              className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-left font-display text-sm tracking-wider cursor-pointer ${
-                option.value === value
-                  ? 'bg-[#3ba4c9]/15 text-[#5ec4e6]'
-                  : 'text-white/50 hover:bg-white/[0.06] hover:text-white/75'
-              }`}
-              style={{ transition: 'background-color 0.15s, color 0.15s' }}
+              className={`flex items-center gap-2.5 w-full px-3.5 py-2 text-left font-data text-[13px] tracking-[0.04em] cursor-pointer focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-gc-scan ${menuItemClasses(option.value === value)}`}
             >
               {option.icon ? (
-                <Image src={option.icon} alt="" width={18} height={18} className="w-4.5 h-4.5 object-contain shrink-0 opacity-65" />
+                <Image src={option.icon} alt="" width={18} height={18} className={`w-4.5 h-4.5 object-contain shrink-0 opacity-65 ${option.value === value ? 'invert' : ''}`} />
               ) : (
                 <span className="w-4.5 shrink-0" />
               )}
@@ -218,42 +214,24 @@ export function OperatorList() {
   }, { scope: containerRef, dependencies: [hasEntered] })
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen bg-ak-bg overflow-y-auto overflow-x-hidden ak-scroll">
-      {/* Background */}
-      <div
-        className="fixed inset-0 opacity-[0.025] pointer-events-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
+    <div ref={containerRef} className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden ak-scroll">
+      <PageHeader
+        title="Operator List"
+        className="roster-header"
+        readout={
+          <span className="font-data text-[11px] text-gc-text tracking-[0.08em] tabular-nums">
+            {filteredEntries.length}<span className="text-gc-ghost"> / {allEntries.length}</span>
+          </span>
+        }
       />
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 25% 15%, rgba(59,164,201,0.05) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(212,168,67,0.03) 0%, transparent 50%)' }}
-      />
-
-      {/* Header */}
-      <header className="roster-header sticky top-0 z-40 bg-ak-bg/80 backdrop-blur-xl border-b border-white/[0.06]">
-        <div className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4">
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="w-px h-4 bg-white/[0.08]" />
-            <h1 className="font-display text-sm md:text-base font-bold text-white/80 tracking-[0.12em] uppercase">
-              Operator List
-            </h1>
-          </div>
-          <div className="flex items-center gap-2.5">
-            <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
-              {filteredEntries.length}<span className="text-white/15"> / {allEntries.length}</span>
-            </span>
-            <div className="w-1.5 h-1.5 bg-[#3ba4c9]/50 rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
-          </div>
-        </div>
-      </header>
 
       {/* Filters */}
-      <div className="roster-filter relative z-20 border-b border-white/[0.04] bg-white/[0.015]">
+      <div className="roster-filter relative z-20 border-b border-gc-line bg-gc-frame">
         <div className="flex flex-wrap items-end gap-3.5 md:gap-5 px-5 md:px-10 py-4 md:py-5">
           <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">Search</label>
+            <Label>Search</Label>
             <div className="relative">
-              <svg viewBox="0 0 24 24" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 fill-white/25 pointer-events-none">
+              <svg viewBox="0 0 24 24" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 fill-gc-dim pointer-events-none">
                 <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
               </svg>
               <input
@@ -261,15 +239,15 @@ export function OperatorList() {
                 value={searchQuery}
                 onChange={event => setSearchQuery(event.target.value)}
                 placeholder="Operator name..."
-                className="bg-[#0e1624] border border-white/[0.08] text-white/70 font-display text-sm tracking-wider pl-9 pr-4 py-2 w-44 md:w-56 placeholder:text-white/20 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none"
+                className={`${INPUT_CLASSES} pl-9 pr-4 w-44 md:w-56`}
               />
             </div>
           </div>
 
-          <div className="w-px h-8 bg-white/[0.06] hidden md:block" />
+          <div className="w-px h-9 bg-gc-line hidden md:block" />
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-[10px] md:text-[11px] text-white/20 font-display tracking-[0.15em] uppercase">Rarity</label>
+            <Label>Rarity</Label>
             <select
               value={rarityFilter}
               onChange={event => setRarityFilter(event.target.value)}
@@ -290,13 +268,14 @@ export function OperatorList() {
           {activeFilterCount > 0 && (
             <button
               onClick={clearFilters}
-              className="flex items-center gap-1.5 text-[#3ba4c9]/60 hover:text-[#5ec4e6] font-display text-xs tracking-wider uppercase pb-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
-              style={{ transition: 'color 0.2s' }}
+              className={`${GHOST_BUTTON} h-9 px-3`}
+              style={{ transition: 'transform 0.15s' }}
             >
-              <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+              <HoverFill />
+              <svg viewBox="0 0 24 24" className="relative w-3.5 h-3.5 fill-current">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
-              Clear ({activeFilterCount})
+              <span className="relative">Clear filters ({activeFilterCount})</span>
             </button>
           )}
         </div>
@@ -306,16 +285,17 @@ export function OperatorList() {
       <main className="relative z-0 px-4 md:px-8 py-5 md:py-8">
         {groupedByRarity.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
-            <svg viewBox="0 0 24 24" className="w-10 h-10 text-white/[0.07] fill-current mb-3">
+            <svg viewBox="0 0 24 24" className="w-10 h-10 text-gc-ghost fill-current mb-3">
               <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
-            <p className="font-display text-xs text-white/25 tracking-wider">No operators match current filters</p>
+            <p className="font-body text-sm text-gc-text">No operators match these filters.</p>
             <button
               onClick={clearFilters}
-              className="mt-2 text-[#3ba4c9]/50 hover:text-[#5ec4e6] text-[11px] font-display tracking-wider cursor-pointer"
-              style={{ transition: 'color 0.2s' }}
+              className={`${GHOST_BUTTON} mt-4 h-9 px-4`}
+              style={{ transition: 'transform 0.15s' }}
             >
-              Clear all filters
+              <HoverFill />
+              <span className="relative">Clear filters</span>
             </button>
           </div>
         ) : (
@@ -323,10 +303,10 @@ export function OperatorList() {
             {groupedByRarity.map(({ rarity, entries }) => (
               <section key={rarity} className="rarity-group">
                 <div className="flex items-center gap-3 mb-3 md:mb-4">
-                  <Stars count={rarity} tilted />
+                  <Stars count={rarity} />
                   <div className={`flex-1 h-px bg-gradient-to-r ${RARITY_GRADIENT[rarity] ?? 'from-white/10 to-transparent'}`} />
-                  <span className="text-[9px] md:text-[10px] text-white/20 font-display tracking-[0.2em] uppercase">
-                    {entries.length}
+                  <span className="text-[10px] md:text-[11px] text-gc-dim font-data tracking-[0.14em] uppercase tabular-nums">
+                    {entries.length} ops
                   </span>
                 </div>
 
@@ -357,8 +337,6 @@ export function OperatorList() {
         )}
       </main>
 
-      {/* Vignette */}
-      <div className="fixed inset-0 pointer-events-none z-30 shadow-[inset_0_0_120px_rgba(0,0,0,0.5)]" />
     </div>
   )
 }

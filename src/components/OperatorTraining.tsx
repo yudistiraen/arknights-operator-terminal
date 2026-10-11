@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { getRosterEntries, type RosterEntry } from '../lib/operators'
 import { playClick } from '../lib/sound'
+import { CHAMFER, NoImage, PANEL_SHADOW, PageHeader, SignalTriangle } from './ui/Console'
 import {
   allocateRecords,
   canMaster,
@@ -41,7 +42,7 @@ const MAX_PLANS = 5
 const STORAGE_KEY = 'growth-planner:v1'
 const DEPOT_STORAGE_KEY = 'growth-planner:depot:v1'
 const SEARCH_RESULT_LIMIT = 8
-const FOCUS_RING = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright'
+const FOCUS_RING = 'focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-gc-scan'
 
 interface GrowthPlan {
   key: string
@@ -187,8 +188,8 @@ function OperatorSearch({ plans, onAdd }: { plans: GrowthPlan[]; onAdd: (entry: 
   return (
     <div className="relative max-w-xl">
       <label htmlFor="training-search" className="sr-only">Search operator</label>
-      <div className={`flex items-center gap-3 border bg-black/25 px-4 py-3 ${isFull ? 'border-white/[0.05] opacity-50' : 'border-white/[0.1] focus-within:border-ak-accent/50'}`} style={{ transition: 'border-color 0.2s' }}>
-        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current text-white/55 shrink-0">
+      <div className={`flex items-center gap-3 border bg-gc-base px-4 py-3 ${isFull ? 'border-gc-line-soft opacity-50' : 'border-gc-line focus-within:border-gc-line-strong'}`} style={{ transition: 'border-color 0.2s' }}>
+        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current text-gc-text shrink-0">
           <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
         </svg>
         <input
@@ -205,28 +206,28 @@ function OperatorSearch({ plans, onAdd }: { plans: GrowthPlan[]; onAdd: (entry: 
             if (event.key === 'Enter' && results[0]) select(results[0])
             if (event.key === 'Escape') setIsOpen(false)
           }}
-          className="flex-1 min-w-0 bg-transparent font-display text-sm tracking-wide text-white placeholder:text-white/55 outline-none disabled:cursor-not-allowed"
+          className="flex-1 min-w-0 bg-transparent font-data text-sm tracking-wide text-gc-ink placeholder:text-gc-text outline-none disabled:cursor-not-allowed"
         />
       </div>
 
       {isOpen && query.trim() && (
-        <ul className="absolute z-50 left-0 right-0 mt-1 max-h-80 overflow-y-auto ak-scroll border border-white/[0.1] bg-ak-panel/95 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.45),0_2px_8px_rgba(59,164,201,0.08)]">
+        <ul className="absolute z-50 left-0 right-0 mt-1 max-h-80 overflow-y-auto ak-scroll border border-gc-line bg-gc-float shadow-[0_24px_48px_-16px_rgba(0,0,0,0.8),0_4px_12px_rgba(0,0,0,0.5)]">
           {results.length === 0 ? (
-            <li className="px-4 py-3 font-display text-xs text-white/55 tracking-wider">No operator matches “{query.trim()}”</li>
+            <li className="px-4 py-3 font-data text-xs text-gc-text tracking-wider">No operator matches “{query.trim()}”</li>
           ) : results.map(entry => (
             <li key={entryKey(entry)}>
               <button
                 type="button"
                 onMouseDown={event => event.preventDefault()}
                 onClick={() => select(entry)}
-                className={`flex items-center gap-3 w-full px-3 py-2 text-left cursor-pointer hover:bg-white/[0.06] active:bg-white/[0.03] ${FOCUS_RING} focus-visible:outline-offset-[-2px]`}
+                className={`flex items-center gap-3 w-full px-3 py-2 text-left cursor-pointer hover:bg-gc-raised active:bg-gc-panel ${FOCUS_RING} focus-visible:outline-offset-[-2px]`}
                 style={{ transition: 'background-color 0.15s' }}
               >
                 <span className="relative w-7 h-10 shrink-0 overflow-hidden border" style={{ borderColor: RARITY_SOLID[entry.operator.rarity] }}>
                   <Image src={entry.operator.portrait ?? entry.operator.skins[0].src} alt="" fill sizes="28px" className="object-cover" />
                 </span>
-                <span className="font-display text-sm text-white/95 tracking-wide truncate">{entry.operator.name}</span>
-                {entry.isAlter && <span className="text-[9px] text-ak-orange-bright/70 tracking-widest">ALTER</span>}
+                <span className="font-data text-sm text-gc-ink tracking-wide truncate">{entry.operator.name}</span>
+                {entry.isAlter && <span className="text-[9px] text-[#f0954f] tracking-[0.12em]">ALTER</span>}
                 <span className="ml-auto"><Stars count={entry.operator.rarity} /></span>
               </button>
             </li>
@@ -245,11 +246,11 @@ function PointEditor({ label, rarity, point, onChange }: {
 }) {
   const levelCap = maxLevelsFor(rarity)[point.elite]
   const set = (next: GrowthPoint) => onChange(clampPoint(rarity, next))
-  const stepButton = `flex items-center justify-center w-7 h-8 border border-white/[0.08] text-white/70 cursor-pointer hover:text-white/95 hover:border-white/20 active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`
+  const stepButton = `flex items-center justify-center w-7 h-8 border border-gc-line text-gc-ink cursor-pointer hover:text-gc-ink hover:border-gc-line-strong active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`
 
   return (
     <fieldset className="flex flex-col gap-2 min-w-0">
-      <legend className="font-display text-[10px] text-white/55 tracking-[0.2em] uppercase mb-2">{label}</legend>
+      <legend className="font-data text-[10px] text-gc-text tracking-[0.2em] uppercase mb-2">{label}</legend>
       <div className="flex items-center gap-1" role="group" aria-label={`${label} elite phase`}>
         {Array.from({ length: maxEliteFor(rarity) + 1 }, (_, elite) => {
           const isActive = point.elite === elite
@@ -259,10 +260,10 @@ function PointEditor({ label, rarity, point, onChange }: {
               type="button"
               aria-pressed={isActive}
               onClick={() => { if (!isActive) { playClick(); set({ elite, level: point.level }) } }}
-              className={`font-display text-xs tracking-wider px-2.5 py-1.5 border cursor-pointer active:scale-95 ${FOCUS_RING} ${
+              className={`font-data text-xs tracking-wider px-2.5 py-1.5 border cursor-pointer active:scale-95 ${FOCUS_RING} ${
                 isActive
-                  ? 'border-ak-accent-bright/60 bg-ak-accent/20 text-ak-accent-bright'
-                  : 'border-white/[0.08] text-white/70 hover:text-white/95 hover:border-white/20'
+                  ? 'border-gc-invert bg-gc-invert text-gc-void'
+                  : 'border-gc-line text-gc-ink hover:text-gc-ink hover:border-gc-line-strong'
               }`}
               style={{ transition: 'background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.15s ease' }}
             >
@@ -273,8 +274,8 @@ function PointEditor({ label, rarity, point, onChange }: {
       </div>
       <div className="flex items-center gap-1">
         <button type="button" aria-label={`Lower ${label.toLowerCase()} level`} disabled={point.level <= 1} onClick={() => set({ ...point, level: point.level - 1 })} className={stepButton} style={{ transition: 'color 0.2s, border-color 0.2s, transform 0.15s ease' }}>−</button>
-        <label className="flex items-center gap-1 h-8 px-2 border border-white/[0.08] bg-black/20 focus-within:border-ak-accent/50" style={{ transition: 'border-color 0.2s' }}>
-          <span className="font-display text-[10px] text-white/55 tracking-widest leading-none">LV</span>
+        <label className="flex items-center gap-1 h-8 px-2 border border-gc-line bg-gc-base focus-within:border-gc-line-strong" style={{ transition: 'border-color 0.2s' }}>
+          <span className="font-data text-[10px] text-gc-text tracking-widest leading-none">LV</span>
           <input
             type="number"
             inputMode="numeric"
@@ -283,16 +284,16 @@ function PointEditor({ label, rarity, point, onChange }: {
             value={point.level}
             aria-label={`${label} level`}
             onChange={event => set({ ...point, level: Number(event.target.value) })}
-            className="w-8 h-full bg-transparent text-center font-display text-base font-bold leading-none text-white tabular-nums outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-8 h-full bg-transparent text-center font-data text-base font-medium leading-none text-gc-ink tabular-nums outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
-          <span className="font-display text-[10px] text-white/55 tabular-nums leading-none">/ {levelCap}</span>
+          <span className="font-data text-[10px] text-gc-text tabular-nums leading-none">/ {levelCap}</span>
         </label>
         <button type="button" aria-label={`Raise ${label.toLowerCase()} level`} disabled={point.level >= levelCap} onClick={() => set({ ...point, level: point.level + 1 })} className={stepButton} style={{ transition: 'color 0.2s, border-color 0.2s, transform 0.15s ease' }}>+</button>
         <button
           type="button"
           disabled={point.level >= levelCap}
           onClick={() => { playClick(); set({ ...point, level: levelCap }) }}
-          className={`h-8 px-2 font-display text-[10px] tracking-widest text-white/70 border border-white/[0.08] cursor-pointer hover:text-ak-gold-bright hover:border-ak-gold/40 active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`}
+          className={`h-8 px-2 font-data text-[10px] tracking-widest text-gc-ink border border-gc-line cursor-pointer hover:text-gc-signal hover:border-gc-signal-dim active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`}
           style={{ transition: 'color 0.2s, border-color 0.2s, transform 0.15s ease' }}
         >
           MAX
@@ -375,8 +376,8 @@ function GrowthTrack({ rarity, current, target, onChange }: {
   const motion = dragging ? 'none' : `transform 0.45s ${TRACK_EASING}`
 
   const handles: { handle: TrackHandle; fraction: number; point: GrowthPoint; className: string }[] = [
-    { handle: 'current', fraction: startFraction, point: current, className: 'border border-white/80 bg-ak-bg' },
-    { handle: 'target', fraction: endFraction, point: target, className: 'bg-ak-accent-bright shadow-[0_0_8px_rgba(94,196,230,0.6)]' },
+    { handle: 'current', fraction: startFraction, point: current, className: 'border border-gc-invert bg-gc-void' },
+    { handle: 'target', fraction: endFraction, point: target, className: 'bg-gc-signal' },
   ]
 
   return (
@@ -390,14 +391,14 @@ function GrowthTrack({ rarity, current, target, onChange }: {
     >
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex h-1.5">
         {levelCaps.map((cap, elite) => (
-          <div key={elite} className={`relative h-full bg-white/[0.07] ${elite > 0 ? 'border-l-[3px] border-ak-surface' : ''}`} style={{ flexGrow: segmentGrow(cap, elite) }}>
-            <span className="absolute -top-4 left-1 font-display text-[9px] text-white/55 tracking-widest pointer-events-none">E{elite}</span>
+          <div key={elite} className={`relative h-full bg-gc-raised ${elite > 0 ? 'border-l-[3px] border-gc-frame' : ''}`} style={{ flexGrow: segmentGrow(cap, elite) }}>
+            <span className="absolute -top-4 left-1 font-data text-[9px] text-gc-text tracking-widest pointer-events-none">E{elite}</span>
           </div>
         ))}
       </div>
       {endFraction > startFraction && (
         <div
-          className="absolute top-1/2 -translate-y-1/2 h-1.5 w-full origin-left pointer-events-none bg-gradient-to-r from-ak-accent/70 to-ak-accent-bright shadow-[0_0_10px_rgba(94,196,230,0.45)]"
+          className="absolute top-1/2 -translate-y-1/2 h-1.5 w-full origin-left pointer-events-none bg-gc-text"
           style={{ transform: `translateX(${startFraction * 100}%) scaleX(${endFraction - startFraction})`, transformOrigin: 'left', transition: motion }}
         />
       )}
@@ -416,7 +417,7 @@ function GrowthTrack({ rarity, current, target, onChange }: {
             className={`group absolute top-1/2 left-0 flex items-center justify-center w-7 h-7 -translate-x-1/2 -translate-y-1/2 pointer-events-auto outline-none ${dragging === handle ? 'cursor-grabbing' : 'cursor-grab'}`}
           >
             <span
-              className={`block w-3 h-3 rotate-45 group-hover:scale-125 group-active:scale-110 group-focus-visible:outline-2 group-focus-visible:outline-offset-2 group-focus-visible:outline-ak-accent-bright ${dragging === handle ? 'scale-125' : ''} ${className}`}
+              className={`block w-3 h-3 rotate-45 group-hover:scale-125 group-active:scale-110 group-focus-visible:outline group-focus-visible:outline-1 group-focus-visible:outline-offset-2 group-focus-visible:outline-gc-scan ${dragging === handle ? 'scale-125' : ''} ${className}`}
               style={{ transition: `transform 0.2s ${TRACK_EASING}` }}
             />
           </div>
@@ -436,15 +437,15 @@ function RecordCounts({ allocations, size }: { allocations: RecordAllocation[]; 
           <li
             key={record.id}
             title={`${record.name} — ${formatNumber(record.exp)} EXP each`}
-            className={`flex items-center gap-2 ${isLarge ? `relative overflow-hidden border ${rarityStyle.frame} bg-white/[0.03] p-2.5` : ''} ${count === 0 ? 'opacity-45' : ''}`}
+            className={`flex items-center gap-2 ${isLarge ? `relative overflow-hidden border ${rarityStyle.frame} bg-gc-base p-2.5` : ''} ${count === 0 ? 'opacity-45' : ''}`}
           >
             {isLarge && <div className={`absolute inset-0 pointer-events-none ${rarityStyle.glow}`} />}
             <RecordIcon icon={record.icon} className={`relative shrink-0 ${isLarge ? 'w-11 h-11' : 'w-7 h-7'}`} />
             <div className="relative min-w-0">
-              <p className={`font-display font-bold tabular-nums leading-none ${isLarge ? 'text-xl text-white' : 'text-sm text-white/95'}`}>
-                <span className="text-white/55 font-normal text-[0.7em] mr-0.5">×</span>{formatNumber(count)}
+              <p className={`font-data font-medium tabular-nums leading-none ${isLarge ? 'text-xl text-gc-ink' : 'text-sm text-gc-ink'}`}>
+                <span className="text-gc-text font-normal text-[0.7em] mr-0.5">×</span>{formatNumber(count)}
               </p>
-              {isLarge && <p className={`mt-1 font-display text-[10px] tracking-wider truncate ${rarityStyle.text}`}>{record.name.replace(' Battle Record', '')}</p>}
+              {isLarge && <p className={`mt-1 font-data text-[10px] tracking-wider truncate ${rarityStyle.text}`}>{record.name.replace(' Battle Record', '')}</p>}
             </div>
           </li>
         )
@@ -466,8 +467,8 @@ function MaterialList({ materials, size }: { materials: MaterialCost[]; size: 's
           return (
             <li key={id} title={`${item?.name ?? id} × ${formatNumber(count)}`} className="flex items-center gap-1.5">
               {item?.icon && <RecordIcon icon={item.icon} className="w-7 h-7 shrink-0" />}
-              <span className="font-display text-sm font-bold text-white/95 tabular-nums leading-none">
-                <span className="text-white/55 font-normal text-[0.7em] mr-0.5">×</span>{id === LMD_ITEM_ID ? formatCompact(count) : formatNumber(count)}
+              <span className="font-data text-sm font-medium text-gc-ink tabular-nums leading-none">
+                <span className="text-gc-text font-normal text-[0.7em] mr-0.5">×</span>{id === LMD_ITEM_ID ? formatCompact(count) : formatNumber(count)}
               </span>
             </li>
           )
@@ -481,8 +482,8 @@ function MaterialList({ materials, size }: { materials: MaterialCost[]; size: 's
       {lmd && (
         <div className="flex items-center gap-2.5">
           <RecordIcon icon="GOLD" className="w-8 h-8 shrink-0" />
-          <p className="font-display text-xl font-bold text-white tabular-nums tracking-[-0.03em] leading-none">{formatNumber(lmd.count)}</p>
-          <span className="font-display text-[10px] text-white/55 tracking-[0.2em]">LMD</span>
+          <p className="font-data text-xl font-medium text-gc-ink tabular-nums tracking-[-0.03em] leading-none">{formatNumber(lmd.count)}</p>
+          <span className="font-data text-[10px] text-gc-text tracking-[0.2em]">LMD</span>
         </div>
       )}
       {items.length > 0 && (
@@ -491,11 +492,11 @@ function MaterialList({ materials, size }: { materials: MaterialCost[]; size: 's
             const item = ITEM_BY_ID.get(id)
             const rarityStyle = ITEM_RARITY_STYLE[item?.rarity ?? 1] ?? ITEM_RARITY_STYLE[1]
             return (
-              <li key={id} title={item?.name ?? id} className={`relative flex flex-col items-center gap-1 overflow-hidden border ${rarityStyle.frame} bg-white/[0.03] px-1 pt-1.5 pb-1`}>
+              <li key={id} title={item?.name ?? id} className={`relative flex flex-col items-center gap-1 overflow-hidden border ${rarityStyle.frame} bg-gc-base px-1 pt-1.5 pb-1`}>
                 <div className={`absolute inset-0 pointer-events-none ${rarityStyle.glow}`} />
                 {item?.icon && <RecordIcon icon={item.icon} className="relative w-10 h-10" />}
-                <p className="relative font-display text-sm font-bold text-white tabular-nums leading-none">
-                  <span className="text-white/55 font-normal text-[0.7em] mr-0.5">×</span>{formatNumber(count)}
+                <p className="relative font-data text-sm font-medium text-gc-ink tabular-nums leading-none">
+                  <span className="text-gc-text font-normal text-[0.7em] mr-0.5">×</span>{formatNumber(count)}
                 </p>
                 <span className={`absolute bottom-0 inset-x-0 h-0.5 ${rarityStyle.bar} opacity-70`} />
               </li>
@@ -526,11 +527,11 @@ function NumberStepper({ label, value, min, max, onChange }: {
   max: number
   onChange: (value: number) => void
 }) {
-  const stepButton = `flex items-center justify-center w-6 h-7 border border-white/[0.08] text-white/70 cursor-pointer hover:text-white hover:border-white/20 active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`
+  const stepButton = `flex items-center justify-center w-6 h-7 border border-gc-line text-gc-ink cursor-pointer hover:text-gc-ink hover:border-gc-line-strong active:scale-95 disabled:opacity-25 disabled:cursor-not-allowed ${FOCUS_RING}`
   return (
     <div className="flex items-center gap-1" role="group" aria-label={label}>
       <button type="button" aria-label={`Lower ${label.toLowerCase()}`} disabled={value <= min} onClick={() => onChange(value - 1)} className={stepButton} style={STEP_TRANSITION}>−</button>
-      <span className="flex items-center justify-center w-9 h-7 border border-white/[0.08] bg-black/20 font-display text-sm font-bold text-white tabular-nums leading-none" aria-live="polite">{value}</span>
+      <span className="flex items-center justify-center w-9 h-7 border border-gc-line bg-gc-base font-data text-sm font-medium text-gc-ink tabular-nums leading-none" aria-live="polite">{value}</span>
       <button type="button" aria-label={`Raise ${label.toLowerCase()}`} disabled={value >= max} onClick={() => onChange(value + 1)} className={stepButton} style={STEP_TRANSITION}>+</button>
     </div>
   )
@@ -561,10 +562,10 @@ function RankPicker({ label, labels, rankName, value, max, isDisabled, onChange 
             aria-label={`${label}: ${rank === 0 ? `no ${rankName.toLowerCase()}` : `${rankName} ${rank}`}`}
             disabled={isDisabled}
             onClick={() => { if (!isActive) { playClick(); onChange(rank) } }}
-            className={`w-8 h-7 font-display text-[11px] tracking-wider border cursor-pointer active:scale-95 disabled:cursor-not-allowed ${FOCUS_RING} ${
+            className={`w-8 h-7 font-data text-[11px] tracking-wider border cursor-pointer active:scale-95 disabled:cursor-not-allowed ${FOCUS_RING} ${
               isActive
-                ? 'border-ak-gold-bright/60 bg-ak-gold/20 text-ak-gold-bright'
-                : 'border-white/[0.08] text-white/70 hover:text-white hover:border-white/20'
+                ? 'border-gc-signal bg-gc-signal text-gc-void'
+                : 'border-gc-line text-gc-ink hover:text-gc-ink hover:border-gc-line-strong'
             }`}
             style={STEP_TRANSITION}
           >
@@ -578,7 +579,7 @@ function RankPicker({ label, labels, rankName, value, max, isDisabled, onChange 
 
 function RangeArrow() {
   return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-ak-accent-bright/70" aria-hidden>
+    <svg viewBox="0 0 24 24" className="w-4 h-4 shrink-0 fill-current text-gc-dim" aria-hidden>
       <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
     </svg>
   )
@@ -596,15 +597,15 @@ function PlannerAccordion({ title, children }: { title: string; children: React.
   }, { dependencies: [isExpanded] })
 
   return (
-    <section aria-label={title} className={`border ${isExpanded ? 'border-ak-accent/30 bg-black/20' : 'border-white/[0.08] bg-black/10'}`} style={{ transition: 'border-color 0.2s, background-color 0.2s' }}>
+    <section aria-label={title} className={`border ${isExpanded ? 'border-gc-line-strong bg-gc-base' : 'border-gc-line bg-gc-base/60'}`}>
       <h3>
         <button
           type="button"
           aria-expanded={isExpanded}
           aria-controls={contentId}
           onClick={() => { playClick(); setIsExpanded(previous => !previous) }}
-          className={`flex items-center justify-between w-full px-3 py-2.5 font-display text-xs tracking-[0.2em] uppercase cursor-pointer hover:bg-white/[0.04] active:bg-white/[0.02] ${FOCUS_RING} focus-visible:outline-offset-[-2px] ${
-            isExpanded ? 'text-ak-accent-bright' : 'text-white/80 hover:text-white'
+          className={`flex items-center justify-between w-full px-3 py-2.5 font-data text-xs tracking-[0.2em] uppercase cursor-pointer hover:bg-gc-raised active:bg-gc-panel ${FOCUS_RING} focus-visible:outline-offset-[-2px] ${
+            isExpanded ? 'text-gc-ink' : 'text-gc-text hover:text-gc-ink'
           }`}
           style={{ transition: 'color 0.2s, background-color 0.2s' }}
         >
@@ -616,7 +617,7 @@ function PlannerAccordion({ title, children }: { title: string; children: React.
       </h3>
 
       {isExpanded && (
-        <div id={contentId} ref={panelRef} className="flex flex-col gap-3 border-t border-white/[0.06] px-3 pt-3 pb-3.5">
+        <div id={contentId} ref={panelRef} className="flex flex-col gap-3 border-t border-gc-line-soft px-3 pt-3 pb-3.5">
           {children}
         </div>
       )}
@@ -643,23 +644,23 @@ function SkillPlanner({ plan, onChange }: { plan: GrowthPlan; onChange: (plan: G
   return (
     <PlannerAccordion title="Skill">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <h4 className="font-display text-[10px] text-white/55 tracking-[0.2em] uppercase w-[5.5rem]">Skill level</h4>
+        <h4 className="font-data text-[10px] text-gc-text tracking-[0.2em] uppercase w-[5.5rem]">Skill level</h4>
         <div className="flex items-center gap-3">
           <NumberStepper label="Current skill level" value={plan.skillLevel.current} min={1} max={skillLevelCurrentMax} onChange={current => setSkillLevel({ ...plan.skillLevel, current })} />
           <RangeArrow />
           <NumberStepper label="Target skill level" value={plan.skillLevel.target} min={1} max={skillLevelTargetMax} onChange={target => setSkillLevel({ ...plan.skillLevel, target })} />
         </div>
         {skillLevelTargetMax < MAX_SKILL_LEVEL && (
-          <span className="font-display text-[10px] text-white/55 tracking-wider">Lv 5–7 need Elite 1</span>
+          <span className="font-data text-[10px] text-gc-text tracking-wider">Lv 5–7 need Elite 1</span>
         )}
       </div>
 
       {masterableSkills.length > 0 && (
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <h4 className="font-display text-[10px] text-white/55 tracking-[0.2em] uppercase w-[5.5rem]">Mastery</h4>
+            <h4 className="font-data text-[10px] text-gc-text tracking-[0.2em] uppercase w-[5.5rem]">Mastery</h4>
             {!isMasteryOpen && (
-              <p className="font-display text-[11px] tracking-wide text-ak-orange-bright/85">
+              <p className="font-data text-[11px] tracking-wide text-gc-alert">
                 Set the target to Elite 2 and Skill Level 7 to plan masteries.
               </p>
             )}
@@ -670,11 +671,11 @@ function SkillPlanner({ plan, onChange }: { plan: GrowthPlan; onChange: (plan: G
               return (
                 <li key={skill.name} className="flex flex-wrap items-center gap-x-3 gap-y-2">
                   <div className="flex items-center gap-2 w-full sm:w-48 min-w-0">
-                    <span className="relative w-8 h-8 shrink-0 border border-white/[0.1] bg-black/30">
+                    <span className="relative w-8 h-8 shrink-0 border border-gc-line bg-gc-base">
                       <Image src={skill.icon} alt="" fill sizes="32px" className="object-cover" />
                     </span>
-                    <span className="font-display text-xs text-white/90 tracking-wide truncate" title={skill.name}>
-                      <span className="text-white/55 mr-1">S{skillIndex + 1}</span>{skill.name}
+                    <span className="font-data text-xs text-gc-ink tracking-wide truncate" title={skill.name}>
+                      <span className="text-gc-text mr-1">S{skillIndex + 1}</span>{skill.name}
                     </span>
                   </div>
                   <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3">
@@ -719,10 +720,10 @@ function ModulePlanner({ plan, onChange }: { plan: GrowthPlan; onChange: (plan: 
             <li key={module.code} className="flex flex-col gap-1.5">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <div className="flex items-center gap-2 w-full sm:w-48 min-w-0">
-                  <span className="flex items-center justify-center shrink-0 h-8 px-1.5 min-w-[3.25rem] border border-ak-gold/40 bg-ak-gold/10 font-display text-[11px] font-bold text-ak-gold-bright tracking-wider">
+                  <span className="flex items-center justify-center shrink-0 h-8 px-1.5 min-w-[3.25rem] border border-gc-signal-dim bg-gc-base font-data text-[11px] font-medium text-gc-signal tracking-[0.08em]">
                     {module.code}
                   </span>
-                  <span className="font-display text-xs text-white/90 tracking-wide truncate" title={name}>{name}</span>
+                  <span className="font-data text-xs text-gc-ink tracking-wide truncate" title={name}>{name}</span>
                 </div>
                 <div className={`flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 ${isUnlocked ? '' : 'opacity-40'}`} style={{ transition: 'opacity 0.2s' }}>
                   <RankPicker label={`${module.code} current stage`} labels={MODULE_STAGE_LABELS} rankName="Stage" value={stage.current} max={module.stages.length} isDisabled={!isUnlocked} onChange={current => setModule(moduleIndex, { ...stage, current })} />
@@ -731,7 +732,7 @@ function ModulePlanner({ plan, onChange }: { plan: GrowthPlan; onChange: (plan: 
                 </div>
               </div>
               {!isUnlocked && (
-                <p className="font-display text-[11px] tracking-wide text-ak-orange-bright/85">
+                <p className="font-data text-[11px] tracking-wide text-gc-alert">
                   Set the target to Elite 2 Lv{module.unlockLevel} to plan this module.
                 </p>
               )}
@@ -756,8 +757,8 @@ function PlanCard({ plan, onChange, onRemove }: {
   const hasNeeds = exp > 0 || materials.length > 0
 
   return (
-    <article className="plan-card relative flex gap-4 md:gap-5 border border-white/[0.07] bg-ak-surface/60 p-3 md:p-4 shadow-[0_1px_0_rgba(255,255,255,0.03)_inset,0_8px_24px_rgba(0,0,0,0.25)]">
-      <div className="relative w-16 md:w-24 aspect-[0.6] self-start shrink-0 overflow-hidden border-2 bg-black/30" style={{ borderColor: rarityColor, boxShadow: `0 0 12px ${rarityColor}33` }}>
+    <article className={`plan-card relative flex gap-4 md:gap-5 border border-gc-line bg-gc-frame p-3 md:p-4 ${PANEL_SHADOW}`}>
+      <div className="relative w-16 md:w-24 aspect-[0.6] self-start shrink-0 overflow-hidden border-2 bg-gc-base" style={{ borderColor: rarityColor, boxShadow: `0 0 12px ${rarityColor}33` }}>
         <Image src={operator.portrait ?? operator.skins[0].src} alt={operator.name} fill sizes="96px" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
@@ -765,17 +766,17 @@ function PlanCard({ plan, onChange, onRemove }: {
       <div className="flex-1 min-w-0 flex flex-col gap-4">
         <header className="flex items-start gap-3">
           <div className="min-w-0">
-            <h2 className="font-display text-base md:text-lg font-bold text-white tracking-[0.04em] leading-tight truncate">
+            <h2 className="font-display text-sm md:text-base text-gc-ink uppercase tracking-[0.06em] leading-tight truncate">
               {operator.name}
-              {isAlter && <span className="ml-2 text-[9px] font-normal text-ak-orange-bright/70 tracking-widest align-middle">ALTER</span>}
+              {isAlter && <span className="ml-2 text-[9px] font-normal text-[#f0954f] tracking-[0.12em] align-middle">ALTER</span>}
             </h2>
-            <div className="mt-1"><Stars count={operator.rarity} tilted /></div>
+            <div className="mt-1"><Stars count={operator.rarity} /></div>
           </div>
           <button
             type="button"
             onClick={() => { playClick(); onRemove() }}
             aria-label={`Remove ${operator.name} from the plan`}
-            className={`ml-auto shrink-0 flex items-center justify-center w-7 h-7 text-white/55 border border-transparent cursor-pointer hover:text-ak-danger hover:border-ak-danger/40 active:scale-90 ${FOCUS_RING}`}
+            className={`ml-auto shrink-0 flex items-center justify-center w-7 h-7 text-gc-text border border-transparent cursor-pointer hover:text-gc-alert hover:border-gc-alert/50 active:scale-90 ${FOCUS_RING}`}
             style={{ transition: 'color 0.2s, border-color 0.2s, transform 0.15s ease' }}
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /></svg>
@@ -785,7 +786,7 @@ function PlanCard({ plan, onChange, onRemove }: {
         <div className="grid grid-cols-1 sm:grid-cols-[auto_minmax(2.5rem,1fr)_auto] items-center gap-3 sm:gap-4">
           <PointEditor label="Current" rarity={operator.rarity} point={plan.current} onChange={current => onChange({ ...plan, current })} />
           <div className="flex items-center justify-center self-stretch" aria-hidden>
-            <svg viewBox="0 0 24 24" className="w-5 h-5 rotate-90 sm:rotate-0 fill-current text-ak-accent-bright/70"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg>
+            <svg viewBox="0 0 24 24" className="w-5 h-5 rotate-90 sm:rotate-0 fill-current text-gc-signal"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" /></svg>
           </div>
           <PointEditor label="Target" rarity={operator.rarity} point={plan.target} onChange={target => onChange({ ...plan, target })} />
         </div>
@@ -795,26 +796,26 @@ function PlanCard({ plan, onChange, onRemove }: {
         <SkillPlanner plan={plan} onChange={onChange} />
         <ModulePlanner plan={plan} onChange={onChange} />
 
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/[0.05] pt-3">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-gc-line-soft pt-3">
           {hasNeeds ? (
             <>
               {exp > 0 && (
                 <>
-                  <p className="font-display text-sm tracking-wide text-white/70">
-                    <span className="text-lg font-bold text-white tabular-nums">{formatNumber(exp)}</span> EXP
+                  <p className="font-data text-sm tracking-wide text-gc-ink">
+                    <span className="text-lg font-medium text-gc-ink tabular-nums">{formatNumber(exp)}</span> EXP
                   </p>
                   <RecordCounts allocations={allocations} size="sm" />
                 </>
               )}
               {materials.length > 0 && (
                 <div className="basis-full flex flex-wrap items-center gap-x-6 gap-y-2">
-                  <p className="font-display text-[10px] text-white/55 tracking-[0.2em] uppercase w-[5.5rem]">Materials</p>
+                  <p className="font-data text-[10px] text-gc-text tracking-[0.2em] uppercase w-[5.5rem]">Materials</p>
                   <MaterialList materials={materials} size="sm" />
                 </div>
               )}
             </>
           ) : (
-            <p className="font-display text-xs tracking-wider text-ak-orange-bright/80">
+            <p className="font-data text-xs tracking-wider text-gc-alert">
               Set a target above the current level or skill level to see what this operator needs.
             </p>
           )}
@@ -834,7 +835,7 @@ function DepotInput({ label, value, onChange }: { label: string; value: number; 
       placeholder="0"
       aria-label={`${label} in depot`}
       onChange={event => onChange(Math.max(Math.floor(Number(event.target.value)) || 0, 0))}
-      className="w-full h-8 px-2 border border-white/[0.1] bg-black/30 text-right font-display text-sm font-bold text-white tabular-nums placeholder:text-white/30 outline-none hover:border-white/20 focus:border-ak-accent/60 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      className="w-full h-8 px-2 border border-gc-line bg-gc-base text-right font-data text-sm font-medium text-gc-ink tabular-nums placeholder:text-gc-dim outline-none hover:border-gc-line-strong focus:border-gc-line-strong [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
       style={{ transition: 'border-color 0.2s' }}
     />
   )
@@ -853,17 +854,17 @@ function DepotRow({ icon, name, rarity, needed, owned, toFarm, onOwnedChange }: 
   const isUnneeded = needed === 0 && isCovered
   const rarityStyle = ITEM_RARITY_STYLE[rarity] ?? ITEM_RARITY_STYLE[1]
   return (
-    <li className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem_5.5rem] sm:grid-cols-[2.25rem_minmax(0,1fr)_6rem_7rem_6rem] items-center gap-x-3 gap-y-1 px-3 py-2 border-b border-white/[0.04] last:border-b-0">
-      <span className={`relative flex items-center justify-center w-9 h-9 border ${rarityStyle.frame} bg-black/20`}>
+    <li className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem_5.5rem] sm:grid-cols-[2.25rem_minmax(0,1fr)_6rem_7rem_6rem] items-center gap-x-3 gap-y-1 px-3 py-2 border-b border-gc-line-soft last:border-b-0">
+      <span className={`relative flex items-center justify-center w-9 h-9 border ${rarityStyle.frame} bg-gc-base`}>
         {icon && <RecordIcon icon={icon} className="w-8 h-8" />}
       </span>
       <span className="flex flex-col gap-0.5 min-w-0">
-        <span className="font-display text-xs md:text-[13px] text-white/90 tracking-wide truncate" title={name}>{name}</span>
-        <span className="sm:hidden font-display text-[10px] text-white/55 tracking-wider tabular-nums">Need {formatNumber(needed)}</span>
+        <span className="font-data text-xs md:text-[13px] text-gc-ink tracking-wide truncate" title={name}>{name}</span>
+        <span className="sm:hidden font-data text-[10px] text-gc-text tracking-wider tabular-nums">Need {formatNumber(needed)}</span>
       </span>
-      <span className="hidden sm:block text-right font-display text-sm text-white/70 tabular-nums">{formatNumber(needed)}</span>
+      <span className="hidden sm:block text-right font-data text-sm text-gc-ink tabular-nums">{formatNumber(needed)}</span>
       <DepotInput label={name} value={owned} onChange={onOwnedChange} />
-      <span className={`text-right font-display text-sm font-bold tabular-nums ${isUnneeded ? 'text-white/45' : isCovered ? 'text-ak-non-infected/90' : 'text-ak-gold-bright'}`}>
+      <span className={`text-right font-data text-sm font-medium tabular-nums ${isUnneeded ? 'text-gc-dim' : isCovered ? 'text-gc-ok' : 'text-gc-signal'}`}>
         {isUnneeded ? '—' : isCovered ? 'Done' : formatNumber(toFarm)}
       </span>
     </li>
@@ -894,17 +895,17 @@ function DepotSection({ exp, records, materials, depot, onDepotChange }: {
   const hasDepot = Object.keys(depot).length > 0
 
   return (
-    <section aria-labelledby="depot-heading" className="depot-section border border-white/[0.08] bg-ak-surface/60 shadow-[0_1px_0_rgba(255,255,255,0.03)_inset,0_8px_24px_rgba(0,0,0,0.25)]">
-      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3 border-b border-white/[0.06] bg-black/20">
-        <h2 id="depot-heading" className="font-display text-[11px] text-ak-accent-bright/90 tracking-[0.2em] uppercase">Depot &amp; farming</h2>
-        <span className={`font-display text-[11px] tracking-wider ${remainingCount === 0 ? 'text-ak-non-infected/90' : 'text-ak-gold-bright/90'}`}>
+    <section aria-labelledby="depot-heading" className={`depot-section bg-gc-frame p-2 ${CHAMFER} ${PANEL_SHADOW}`}>
+      <header className="flex flex-wrap items-center gap-x-4 gap-y-2 px-2 h-auto min-h-9 py-1.5">
+        <h2 id="depot-heading" className="font-display text-[11px] md:text-xs text-gc-dim tracking-[0.18em] uppercase">Depot &amp; farming</h2>
+        <span className={`font-data text-[11px] tracking-wider ${remainingCount === 0 ? 'text-gc-ok' : 'text-gc-signal'}`}>
           {remainingCount === 0 ? 'Everything is covered' : `${remainingCount} item${remainingCount === 1 ? '' : 's'} left to farm`}
         </span>
         {hasDepot && (
           <button
             type="button"
             onClick={() => { playClick(); onDepotChange({}) }}
-            className={`ml-auto font-display text-[11px] tracking-wider uppercase text-white/60 cursor-pointer hover:text-ak-danger active:scale-95 ${FOCUS_RING}`}
+            className={`ml-auto font-data text-[11px] tracking-wider uppercase text-gc-text cursor-pointer hover:text-gc-alert active:scale-95 ${FOCUS_RING}`}
             style={{ transition: 'color 0.2s, transform 0.15s ease' }}
           >
             Clear depot
@@ -912,19 +913,19 @@ function DepotSection({ exp, records, materials, depot, onDepotChange }: {
         )}
       </header>
 
-      <p className="px-4 pt-3 font-body text-xs text-white/65 leading-[1.7]">
+      <p className="px-4 pt-3 font-body text-xs text-gc-text leading-[1.7]">
         Enter how many of each item you already have. The last column shows what you still need to farm.
       </p>
 
-      <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem_5.5rem] sm:grid-cols-[2.25rem_minmax(0,1fr)_6rem_7rem_6rem] gap-x-3 px-3 pt-3 pb-1.5 font-display text-[10px] text-white/55 tracking-[0.2em] uppercase">
+      <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem_5.5rem] sm:grid-cols-[2.25rem_minmax(0,1fr)_6rem_7rem_6rem] gap-x-3 px-3 pt-3 pb-1.5 font-data text-[10px] text-gc-text tracking-[0.2em] uppercase">
         <span className="col-span-2">Item</span>
         <span className="hidden sm:block text-right">Needed</span>
         <span className="text-right">You have</span>
         <span className="text-right">To farm</span>
       </div>
 
-      <h3 className="px-3 pt-2 pb-1 font-display text-[10px] text-white/55 tracking-[0.2em] uppercase border-t border-white/[0.05]">
-        Battle Records <span className="normal-case tracking-wide text-white/45">· {formatNumber(missingExp)} EXP still missing</span>
+      <h3 className="px-3 pt-2 pb-1 font-data text-[10px] text-gc-text tracking-[0.2em] uppercase border-t border-gc-line-soft">
+        Battle Records <span className="normal-case tracking-wide text-gc-dim">· {formatNumber(missingExp)} EXP still missing</span>
       </h3>
       <ul>
         {BATTLE_RECORDS.map((record, index) => (
@@ -943,7 +944,7 @@ function DepotSection({ exp, records, materials, depot, onDepotChange }: {
 
       {sortedMaterials.length > 0 && (
         <>
-          <h3 className="px-3 pt-2 pb-1 font-display text-[10px] text-white/55 tracking-[0.2em] uppercase border-t border-white/[0.05]">LMD &amp; materials</h3>
+          <h3 className="px-3 pt-2 pb-1 font-data text-[10px] text-gc-text tracking-[0.2em] uppercase border-t border-gc-line-soft">LMD &amp; materials</h3>
           <ul>
             {sortedMaterials.map(({ id, count }) => {
               const item = ITEM_BY_ID.get(id)
@@ -1033,34 +1034,22 @@ export function OperatorTraining() {
   }, { scope: containerRef, dependencies: [plans.length, hasEntered] })
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen bg-ak-bg overflow-y-auto overflow-x-hidden ak-scroll">
-      <div
-        className="fixed inset-0 opacity-[0.025] pointer-events-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
-      />
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 20% 10%, rgba(59,164,201,0.05) 0%, transparent 55%), radial-gradient(ellipse at 85% 80%, rgba(212,168,67,0.035) 0%, transparent 50%)' }}
+    <div ref={containerRef} className="relative w-full min-h-screen overflow-y-auto overflow-x-hidden ak-scroll">
+      <PageHeader
+        title="Operator Training"
+        className="training-header"
+        readout={
+          <span className="font-data text-[11px] text-gc-text tracking-[0.08em] uppercase tabular-nums">
+            {plans.length}<span className="text-gc-ghost"> / {MAX_PLANS} operators</span>
+          </span>
+        }
       />
 
-      <header className="training-header sticky top-0 z-40 bg-ak-bg/80 backdrop-blur-xl border-b border-white/[0.06]">
-        <div className="flex items-center gap-3 md:gap-4 px-4 md:px-8 py-3 md:py-4">
-          <div className="w-px h-4 bg-white/[0.08]" />
-          <h1 className="font-display text-sm md:text-base font-bold text-white/95 tracking-[0.12em] uppercase">Operator Training</h1>
-        </div>
-      </header>
-
-      <div className="training-picker relative z-30 border-b border-white/[0.04] bg-white/[0.015] px-5 md:px-10 py-5 md:py-6 flex flex-col gap-4">
-        <p className="font-body text-xs md:text-[13px] text-white/65 leading-[1.7] max-w-2xl">
+      <div className="training-picker relative z-30 border-b border-gc-line bg-gc-frame px-5 md:px-10 py-5 md:py-6 flex flex-col gap-4">
+        <p className="font-body text-[13px] md:text-sm text-gc-text leading-[1.7] max-w-2xl">
           Plan up to {MAX_PLANS} operators. Set where each one is now and where you want them, and the planner counts the Battle Records — largest records first — plus the LMD and materials needed. Fill in your depot below to see what's left to farm.
         </p>
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-2.5">
-            <span className="font-display text-[10px] md:text-[11px] text-white/55 tracking-wider">
-              {plans.length}<span className="text-white/45"> / {MAX_PLANS} OPERATORS</span>
-            </span>
-            <div className={`w-1.5 h-1.5 rounded-full ${plans.length > 0 ? 'bg-ak-accent/50 animate-[pulse-glow_2s_ease-in-out_infinite]' : 'bg-white/10'}`} />
-          </div>
           <OperatorSearch plans={plans} onAdd={addPlan} />
         </div>
       </div>
@@ -1068,9 +1057,9 @@ export function OperatorTraining() {
       <main className="relative z-0 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_20rem] gap-5 md:gap-8 px-4 md:px-8 py-5 md:py-8">
         <section aria-label="Operator plans" className="flex flex-col gap-3 md:gap-4 min-w-0">
           {plans.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-24 text-center border border-dashed border-white/[0.07]">
-              <RecordIcon icon="sprite_exp_card_t4" className="w-12 h-12 opacity-25 grayscale mb-3" />
-              <p className="font-display text-xs text-white/55 tracking-wider">Search for an operator above to start a plan</p>
+            <div className="flex flex-col items-center justify-center gap-4 py-20 text-center border border-gc-line-soft bg-gc-base/60">
+              <NoImage label="No plan" className="w-20 h-20" />
+              <p className="font-body text-sm text-gc-text">Search for an operator above to start a plan.</p>
             </div>
           ) : plans.map(plan => (
             <PlanCard key={plan.key} plan={plan} onChange={updatePlan} onRemove={() => removePlan(plan.key)} />
@@ -1080,36 +1069,36 @@ export function OperatorTraining() {
           )}
         </section>
 
-        <aside className="training-summary lg:sticky lg:top-20 self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto ak-scroll border border-ak-accent/20 bg-ak-panel/70 backdrop-blur-md shadow-[0_0_0_1px_rgba(94,196,230,0.04),0_16px_40px_rgba(0,0,0,0.35),0_4px_16px_rgba(59,164,201,0.06)]">
-          <div className="px-4 py-3 border-b border-white/[0.06] bg-black/20">
-            <h2 className="font-display text-[11px] text-ak-accent-bright/90 tracking-[0.2em] uppercase">Battle Records needed</h2>
+        <aside className={`training-summary relative lg:sticky lg:top-20 self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto ak-scroll bg-gc-frame p-2 ${CHAMFER} ${PANEL_SHADOW}`}>
+          <SignalTriangle />
+          <div className="px-2 h-9 flex items-center">
+            <h2 className="font-display text-[11px] md:text-xs text-gc-dim tracking-[0.18em] uppercase">Battle Records needed</h2>
           </div>
-          <div className="p-4 flex flex-col gap-4">
+          <div className="p-4 flex flex-col gap-4 border border-gc-line-strong bg-gc-panel">
             <div>
-              <p className="font-display text-[10px] text-white/55 tracking-[0.2em] uppercase">Total EXP</p>
-              <p className="font-display text-3xl font-bold text-white tabular-nums tracking-[-0.03em] leading-tight">{formatNumber(totals.exp)}</p>
+              <p className="font-data text-[10px] text-gc-text tracking-[0.2em] uppercase">Total EXP</p>
+              <p className="font-data text-3xl font-medium text-gc-ink tabular-nums tracking-[-0.03em] leading-tight mt-1">{formatNumber(totals.exp)}</p>
             </div>
             <RecordCounts allocations={totals.allocations} size="lg" />
             {totals.overflow > 0 && (
-              <p className="font-body text-[11px] text-white/65 leading-[1.7]">
+              <p className="font-body text-[11px] text-gc-text leading-[1.7]">
                 Rounding up to whole Drill Records adds {formatNumber(totals.overflow)} EXP beyond the target.
               </p>
             )}
           </div>
-          <div className="px-4 py-3 border-y border-white/[0.06] bg-black/20">
-            <h2 className="font-display text-[11px] text-ak-accent-bright/90 tracking-[0.2em] uppercase">Materials needed</h2>
+          <div className="px-2 h-9 mt-1 flex items-center">
+            <h2 className="font-display text-[11px] md:text-xs text-gc-dim tracking-[0.18em] uppercase">Materials needed</h2>
           </div>
-          <div className="p-4">
+          <div className="p-4 border border-gc-line-strong bg-gc-panel">
             {totals.materials.length > 0 ? (
               <MaterialList materials={totals.materials} size="lg" />
             ) : (
-              <p className="font-display text-xs text-white/55 tracking-wider">No materials needed yet.</p>
+              <p className="font-body text-[13px] text-gc-text">No materials needed yet.</p>
             )}
           </div>
         </aside>
       </main>
 
-      <div className="fixed inset-0 pointer-events-none z-30 shadow-[inset_0_0_120px_rgba(0,0,0,0.5)]" />
     </div>
   )
 }

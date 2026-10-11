@@ -1,8 +1,10 @@
-export function Stars({ count, tilted = false }: { count: number; tilted?: boolean }) {
+// The one rarity-star style (design-pattern.md §4.12): every star tilted 15° and
+// overlapped so the row reads as a single badge. No per-page variants.
+export function Stars({ count }: { count: number }) {
   return (
-    <div className={tilted ? 'flex -space-x-0.5 md:-space-x-1' : 'flex gap-0.5'}>
+    <div className="flex -space-x-0.5 md:-space-x-1" role="img" aria-label={`${count}-star rarity`}>
       {Array.from({ length: count }, (_, index) => (
-        <svg key={index} viewBox="0 0 24 24" className={`w-3 h-3 md:w-4 md:h-4 fill-ak-gold-bright drop-shadow-[0_0_4px_rgba(212,168,67,0.5)] ${tilted ? 'rotate-15' : ''}`}>
+        <svg key={index} viewBox="0 0 24 24" aria-hidden className="w-3 h-3 md:w-4 md:h-4 rotate-15 fill-ak-gold-bright drop-shadow-[0_0_4px_rgba(232,210,60,0.5)]">
           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
         </svg>
       ))}

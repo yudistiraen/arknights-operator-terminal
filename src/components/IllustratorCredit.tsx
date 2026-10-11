@@ -27,14 +27,14 @@ export function IllustratorCredit({ illustrator, triggerKey }: IllustratorCredit
 
   return (
     <div className="hud-item absolute bottom-1 left-1/2 -translate-x-1/2 md:bottom-2 z-30 flex items-center gap-1.5 md:gap-2">
-      <span className="font-display text-sm text-white/35 tracking-[0.15em] uppercase">Illust.</span>
+      <span className="font-data text-[11px] text-gc-dim tracking-[0.14em] uppercase">Illust.</span>
       <span className="relative inline-block overflow-hidden">
-        <span ref={textRef} className="font-display text-sm text-ak-accent/80 tracking-wider">
+        <span ref={textRef} className="font-data text-[12px] text-gc-ink tracking-[0.06em]">
           {illustrator}
         </span>
         <span
           ref={scanRef}
-          className="absolute top-0 bottom-0 w-px bg-ak-accent shadow-[0_0_6px_rgba(59,164,201,0.8),0_0_12px_rgba(59,164,201,0.4)] opacity-0"
+          className="absolute top-0 bottom-0 w-0.5 bg-gc-signal opacity-0"
         />
       </span>
     </div>

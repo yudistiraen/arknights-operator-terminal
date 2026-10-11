@@ -31,8 +31,8 @@ const RARITY_BAR: Record<number, string> = {
 
 const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='rgba(255,255,255,0.3)'%3E%3Cpath fill-rule='evenodd' d='M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E")`
 
-const selectBase = "appearance-none bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-[11px] tracking-wider pl-3 pr-8 py-1.5 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer"
-const optionBase = "bg-[#0e1624] text-[#c8d0dc]"
+const selectBase = "appearance-none bg-[#141516] border border-white/[0.08] text-white/60 font-data text-[11px] tracking-wider pl-3 pr-8 py-1.5 hover:border-white/[0.16] focus:border-[#4fd6e0]/40 focus:outline-none cursor-pointer"
+const optionBase = "bg-[#141516] text-[#a9acb1]"
 
 interface FilterOption {
   value: string
@@ -71,11 +71,11 @@ function FilterDropdown({ label, value, options, onChange }: {
 
   return (
     <div className="flex flex-col gap-1 relative" ref={dropdownRef}>
-      <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">{label}</label>
+      <label className="text-[8px] md:text-[9px] text-white/20 font-data tracking-[0.15em] uppercase">{label}</label>
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1.5 bg-[#0e1624] border border-white/[0.08] text-white/60 font-display text-[11px] tracking-wider pl-2.5 pr-7 py-1.5 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none cursor-pointer text-left"
+        className="flex items-center gap-1.5 bg-[#141516] border border-white/[0.08] text-white/60 font-data text-[11px] tracking-wider pl-2.5 pr-7 py-1.5 hover:border-white/[0.16] focus:border-[#4fd6e0]/40 focus:outline-none cursor-pointer text-left"
         style={{
           backgroundImage: SELECT_CHEVRON,
           backgroundPosition: 'right 6px center',
@@ -90,15 +90,15 @@ function FilterDropdown({ label, value, options, onChange }: {
         <span className="truncate">{selected?.label ?? 'All'}</span>
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 min-w-full w-max max-h-56 overflow-y-auto bg-[#0c1220] border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 ak-scroll">
+        <div className="absolute top-full left-0 mt-1 min-w-full w-max max-h-56 overflow-y-auto bg-[#1d1e20] border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-50 ak-scroll">
           {options.map(option => (
             <button
               key={option.value}
               type="button"
               onClick={() => { onChange(option.value); setIsOpen(false) }}
-              className={`flex items-center gap-2 w-full px-2.5 py-1.5 text-left font-display text-[11px] tracking-wider cursor-pointer ${
+              className={`flex items-center gap-2 w-full px-2.5 py-1.5 text-left font-data text-[11px] tracking-wider cursor-pointer ${
                 option.value === value
-                  ? 'bg-[#3ba4c9]/15 text-[#5ec4e6]'
+                  ? 'bg-[#4fd6e0]/15 text-[#4fd6e0]'
                   : 'text-white/50 hover:bg-white/[0.06] hover:text-white/75'
               }`}
               style={{ transition: 'background-color 0.15s, color 0.15s' }}
@@ -247,7 +247,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
       />
       <div
         className="fixed inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 25% 15%, rgba(59,164,201,0.05) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(212,168,67,0.03) 0%, transparent 50%)' }}
+        style={{ background: 'radial-gradient(ellipse at 25% 15%, rgba(79,214,224,0.05) 0%, transparent 55%), radial-gradient(ellipse at 80% 85%, rgba(232,210,60,0.03) 0%, transparent 50%)' }}
       />
 
       {/* Header */}
@@ -256,7 +256,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           <div className="flex items-center gap-3 md:gap-4">
             <button
               onClick={onBack}
-              className="flex items-center gap-1.5 text-white/35 hover:text-white/70 active:text-white/25 font-display text-[10px] md:text-[11px] tracking-[0.15em] uppercase cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+              className="flex items-center gap-1.5 text-white/35 hover:text-white/70 active:text-white/25 font-data text-[10px] md:text-[11px] tracking-[0.15em] uppercase cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4fd6e0]"
               style={{ transition: 'color 0.2s' }}
             >
               <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
@@ -265,15 +265,15 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
               Terminal
             </button>
             <div className="w-px h-4 bg-white/[0.08]" />
-            <h1 className="font-display text-sm md:text-base font-bold text-white/80 tracking-[0.12em] uppercase">
+            <h1 className="font-data text-sm md:text-base font-bold text-white/80 tracking-[0.12em] uppercase">
               Operator List
             </h1>
           </div>
           <div className="flex items-center gap-2.5">
-            <span className="font-display text-[10px] md:text-[11px] text-white/25 tracking-wider">
+            <span className="font-data text-[10px] md:text-[11px] text-white/25 tracking-wider">
               {filteredEntries.length}<span className="text-white/15"> / {OPERATORS.length}</span>
             </span>
-            <div className="w-1.5 h-1.5 bg-[#3ba4c9]/50 rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
+            <div className="w-1.5 h-1.5 bg-[#4fd6e0]/50 rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
           </div>
         </div>
       </header>
@@ -282,7 +282,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
       <div className="roster-filter relative z-20 border-b border-white/[0.04] bg-white/[0.015]">
         <div className="flex flex-wrap items-end gap-2.5 md:gap-4 px-4 md:px-8 py-3 md:py-4">
           <div className="flex flex-col gap-1">
-            <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">Search</label>
+            <label className="text-[8px] md:text-[9px] text-white/20 font-data tracking-[0.15em] uppercase">Search</label>
             <div className="relative">
               <svg viewBox="0 0 24 24" className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3 h-3 fill-white/25 pointer-events-none">
                 <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
@@ -292,7 +292,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                 value={searchQuery}
                 onChange={event => setSearchQuery(event.target.value)}
                 placeholder="Operator name..."
-                className="bg-[#0e1624] border border-white/[0.08] text-white/70 font-display text-[11px] tracking-wider pl-7 pr-3 py-1.5 w-36 md:w-44 placeholder:text-white/20 hover:border-white/[0.16] focus:border-[#3ba4c9]/40 focus:outline-none"
+                className="bg-[#141516] border border-white/[0.08] text-white/70 font-data text-[11px] tracking-wider pl-7 pr-3 py-1.5 w-36 md:w-44 placeholder:text-white/20 hover:border-white/[0.16] focus:border-[#4fd6e0]/40 focus:outline-none"
               />
             </div>
           </div>
@@ -300,7 +300,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           <div className="w-px h-6 bg-white/[0.06] hidden md:block" />
 
           <div className="flex flex-col gap-1">
-            <label className="text-[8px] md:text-[9px] text-white/20 font-display tracking-[0.15em] uppercase">Rarity</label>
+            <label className="text-[8px] md:text-[9px] text-white/20 font-data tracking-[0.15em] uppercase">Rarity</label>
             <select
               value={rarityFilter}
               onChange={event => setRarityFilter(event.target.value)}
@@ -321,7 +321,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
           {activeFilterCount > 0 && (
             <button
               onClick={clearFilters}
-              className="flex items-center gap-1 text-[#3ba4c9]/60 hover:text-[#5ec4e6] font-display text-[10px] tracking-wider uppercase pb-0.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+              className="flex items-center gap-1 text-[#4fd6e0]/60 hover:text-[#4fd6e0] font-data text-[10px] tracking-wider uppercase pb-0.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4fd6e0]"
               style={{ transition: 'color 0.2s' }}
             >
               <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current">
@@ -340,10 +340,10 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
             <svg viewBox="0 0 24 24" className="w-10 h-10 text-white/[0.07] fill-current mb-3">
               <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </svg>
-            <p className="font-display text-xs text-white/25 tracking-wider">No operators match current filters</p>
+            <p className="font-data text-xs text-white/25 tracking-wider">No operators match current filters</p>
             <button
               onClick={clearFilters}
-              className="mt-2 text-[#3ba4c9]/50 hover:text-[#5ec4e6] text-[11px] font-display tracking-wider cursor-pointer"
+              className="mt-2 text-[#4fd6e0]/50 hover:text-[#4fd6e0] text-[11px] font-data tracking-wider cursor-pointer"
               style={{ transition: 'color 0.2s' }}
             >
               Clear all filters
@@ -356,7 +356,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                 <div className="flex items-center gap-3 mb-3 md:mb-4">
                   <Stars count={rarity} />
                   <div className={`flex-1 h-px bg-gradient-to-r ${RARITY_GRADIENT[rarity] ?? 'from-white/10 to-transparent'}`} />
-                  <span className="text-[9px] md:text-[10px] text-white/20 font-display tracking-[0.2em] uppercase">
+                  <span className="text-[9px] md:text-[10px] text-white/20 font-data tracking-[0.2em] uppercase">
                     {entries.length}
                   </span>
                 </div>
@@ -366,7 +366,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                     <button
                       key={`${entry.operator.name}-${entry.isAlter ? 'alter' : 'base'}`}
                       onClick={() => handleEntryClick(entry)}
-                      className="operator-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] cursor-pointer text-left aspect-[3/4] hover:border-[#3ba4c9]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5ec4e6]"
+                      className="operator-card group relative overflow-hidden bg-white/[0.03] border border-white/[0.07] cursor-pointer text-left aspect-[3/4] hover:border-[#4fd6e0]/25 hover:bg-white/[0.06] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4fd6e0]"
                       style={{ transition: 'translate 0.25s ease, scale 0.15s ease, border-color 0.3s, background-color 0.3s' }}
                     >
                       {/* Rarity bar top edge */}
@@ -382,9 +382,9 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                       />
 
                       {/* Gradient overlays */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080c14] via-[#080c14]/40 to-[#080c14]/10" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0b0b0c] via-[#0b0b0c]/40 to-[#0b0b0c]/10" />
                       <div
-                        className="absolute inset-0 bg-[#080c14]/15 group-hover:bg-transparent"
+                        className="absolute inset-0 bg-[#0b0b0c]/15 group-hover:bg-transparent"
                         style={{ transition: 'background-color 0.3s' }}
                       />
 
@@ -407,7 +407,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                       {/* Alter badge */}
                       {entry.isAlter && (
                         <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10">
-                          <span className="font-display text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#f0c95c]/70 bg-[#f0c95c]/10 px-1.5 py-0.5 border border-[#f0c95c]/20">
+                          <span className="font-data text-[7px] md:text-[8px] tracking-[0.15em] uppercase text-[#e8d23c]/70 bg-[#e8d23c]/10 px-1.5 py-0.5 border border-[#e8d23c]/20">
                             ALTER
                           </span>
                         </div>
@@ -415,10 +415,10 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
 
                       {/* Info strip */}
                       <div className="absolute bottom-0 left-0 right-0 p-2 md:p-2.5 z-10">
-                        <p className="font-display text-[11px] md:text-xs font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
+                        <p className="font-data text-[11px] md:text-xs font-bold text-white/85 tracking-wide leading-none mb-1 truncate">
                           {entry.operator.name}
                         </p>
-                        <p className="text-[8px] md:text-[9px] text-white/30 font-display tracking-wider truncate">
+                        <p className="text-[8px] md:text-[9px] text-white/30 font-data tracking-wider truncate">
                           {entry.operator.class} · {entry.operator.branch}
                         </p>
                       </div>
@@ -426,7 +426,7 @@ export function OperatorRoster({ onSelectOperator, onBack }: OperatorRosterProps
                       {/* Hover glow overlay */}
                       <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
-                        style={{ transition: 'opacity 0.3s', boxShadow: 'inset 0 0 40px rgba(59,164,201,0.06)' }}
+                        style={{ transition: 'opacity 0.3s', boxShadow: 'inset 0 0 40px rgba(79,214,224,0.06)' }}
                       />
                     </button>
                   ))}

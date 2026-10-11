@@ -6,8 +6,9 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useApp } from './AppShell'
 import { playClick } from '../lib/sound'
+import { DotStrip, FOCUS_RING } from './ui/Console'
 
-const SPRING_EASE = 'cubic-bezier(0.16, 1, 0.3, 1)'
+const SPRING_EASE = 'cubic-bezier(0.22, 1.2, 0.36, 1)'
 
 interface NavItem {
   href: string
@@ -22,14 +23,14 @@ const NAV_ITEMS: NavItem[] = [
     label: 'Command Center',
     matchExact: true,
     icon: (
-      <img src="/Base_icon.svg" alt="" className="w-5 h-5 opacity-80" />
+      <img src="/Base_icon.svg" alt="" className="w-5 h-5 opacity-80 group-aria-[current=page]:opacity-100" />
     ),
   },
   {
     href: '/operator',
     label: 'Operator List',
     icon: (
-      <img src="/Operator_icon.svg" alt="" className="w-5 h-5 opacity-80" />
+      <img src="/Operator_icon.svg" alt="" className="w-5 h-5 opacity-80 group-aria-[current=page]:opacity-100" />
     ),
   },
   {
@@ -45,34 +46,34 @@ const NAV_ITEMS: NavItem[] = [
     href: '/recruit',
     label: 'Recruit',
     icon: (
-      <img src="/Recruit_icon.svg" alt="" className="w-5 h-5 opacity-80" />
+      <img src="/Recruit_icon.svg" alt="" className="w-5 h-5 opacity-80 group-aria-[current=page]:opacity-100" />
     ),
   },
   {
     href: '/items',
     label: 'Items',
     icon: (
-      <img src="/Depot_icon.svg" alt="" className="w-5 h-5 opacity-80" />
+      <img src="/Depot_icon.svg" alt="" className="w-5 h-5 opacity-80 group-aria-[current=page]:opacity-100" />
     ),
   },
   {
     href: '/planner',
     label: 'Operator Training',
     icon: (
-      <img src="/Training_icon.png" alt="" className="w-5 h-5 object-contain opacity-80" />
+      <img src="/Training_icon.png" alt="" className="w-5 h-5 object-contain opacity-80 group-aria-[current=page]:opacity-100" />
     ),
   },
 ]
 
 const ROW_CLASSES = `
-  sidemenu-item group relative flex items-center w-full h-12 overflow-hidden cursor-pointer
-  focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-ak-accent-bright
+  sidemenu-item group relative flex items-center w-full h-11 overflow-hidden cursor-pointer
+  focus-visible:outline focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-gc-scan
 `
 
 function RowLabel({ isCollapsed, children }: { isCollapsed: boolean; children: React.ReactNode }) {
   return (
     <span
-      className={`relative z-10 font-display text-sm tracking-widest uppercase whitespace-nowrap ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
+      className={`relative z-10 font-data text-[12px] tracking-[0.14em] uppercase whitespace-nowrap ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
       style={{ transition: 'opacity 0.2s' }}
     >
       {children}
@@ -88,14 +89,12 @@ function RowIcon({ children }: { children: React.ReactNode }) {
   )
 }
 
+// Hover: raised wash fades in while a cyan scan line sweeps across (sidemenu-scan keyframe, transform only).
 function HoverScan() {
   return (
-    <div className="sidemenu-scan absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 overflow-hidden" style={{ transition: 'opacity 0.15s' }}>
-      <div className="absolute inset-0 bg-white/[0.03]" />
-      <div
-        className="sidemenu-scan-line absolute top-0 w-[2px] h-full"
-        style={{ left: '-2px', background: 'linear-gradient(to bottom, transparent, rgba(94,196,230,0.5), transparent)' }}
-      />
+    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 group-active:opacity-70" style={{ transition: 'opacity 0.15s ease-out' }}>
+      <div className="absolute inset-0 bg-gc-raised/60" />
+      <div className="sidemenu-scan-line absolute top-0 -left-0.5 w-0.5 h-full bg-[linear-gradient(to_bottom,transparent,rgba(79,214,224,0.5),transparent)]" />
     </div>
   )
 }
@@ -104,7 +103,7 @@ function Divider({ isCollapsed }: { isCollapsed: boolean }) {
   // Insets match the icon column's padding in both states: 16px each side of the 72px rail when collapsed.
   return (
     <div
-      className={`h-px mx-4 bg-white/[0.07] origin-left ${isCollapsed ? 'md:scale-x-[0.1724]' : 'scale-x-100'}`}
+      className={`h-px mx-4 bg-gc-line origin-left ${isCollapsed ? 'md:scale-x-[0.1724]' : 'scale-x-100'}`}
       style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
     />
   )
@@ -117,8 +116,7 @@ function MuteButton({ isCollapsed }: { isCollapsed: boolean }) {
   return (
     <button
       onClick={() => { playClick(); toggleMute() }}
-      className={`${ROW_CLASSES} text-white/35 hover:text-white/70`}
-      style={{ transition: 'color 0.25s' }}
+      className={`${ROW_CLASSES} text-gc-dim hover:text-gc-ink`}
       title={isCollapsed ? label : undefined}
       aria-label={label}
     >
@@ -137,30 +135,33 @@ function MuteButton({ isCollapsed }: { isCollapsed: boolean }) {
   )
 }
 
+// Round tab straddling the sidebar's right edge. Lives outside the <aside> (which clips overflow) and
+// follows it with the same 192px translate, so its center always sits on the border line.
 function CollapseButton({ isCollapsed, onToggle }: { isCollapsed: boolean; onToggle: () => void }) {
-  const label = isCollapsed ? 'Expand' : 'Collapse'
-
   return (
     <button
       onClick={() => { playClick(); onToggle() }}
-      className={`${ROW_CLASSES} hidden md:flex text-white/35 hover:text-white/70`}
-      style={{ transition: 'color 0.25s' }}
-      title={isCollapsed ? label : undefined}
-      aria-label={label}
+      className={`
+        group fixed top-[30px] left-[250px] z-[51] hidden md:flex items-center justify-center w-7 h-7 rounded-full
+        bg-gc-raised border border-gc-line-strong text-gc-text hover:text-gc-ink cursor-pointer
+        shadow-[0_0_0_3px_var(--color-gc-frame),0_4px_12px_-2px_rgba(0,0,0,0.6)]
+        ${isCollapsed ? '-translate-x-[192px]' : 'translate-x-0'}
+        ${FOCUS_RING}
+      `}
+      style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
+      aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
       aria-expanded={!isCollapsed}
     >
-      <HoverScan />
-      <RowIcon>
+      <span className="absolute inset-0 rounded-full bg-gc-float opacity-0 group-hover:opacity-100 pointer-events-none" style={{ transition: 'opacity 0.15s ease-out' }} />
+      <span className="relative flex group-active:scale-[0.85]" style={{ transition: 'transform 0.15s' }}>
         <svg
           viewBox="0 0 24 24"
-          className={`w-5 h-5 fill-none stroke-current stroke-2 ${isCollapsed ? 'rotate-180' : 'rotate-0'}`}
+          className={`w-3.5 h-3.5 fill-none stroke-current stroke-[2.5] ${isCollapsed ? 'rotate-180' : 'rotate-0'}`}
           style={{ transition: `transform 0.3s ${SPRING_EASE}` }}
         >
-          <path d="M11 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M18 5h2v14h-2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-      </RowIcon>
-      <RowLabel isCollapsed={isCollapsed}>{label}</RowLabel>
+      </span>
     </button>
   )
 }
@@ -170,18 +171,20 @@ function NavLink({ item, isActive, isCollapsed, onClick }: { item: NavItem; isAc
     <Link
       href={item.href}
       onClick={() => { playClick(); onClick?.() }}
-      className={`${ROW_CLASSES} ${isActive ? 'text-ak-accent-bright' : 'text-white/35 hover:text-white/70'}`}
-      style={{ transition: 'color 0.25s' }}
+      className={`${ROW_CLASSES} ${isActive ? 'text-gc-scan' : 'text-gc-dim hover:text-gc-ink'}`}
       title={isCollapsed ? item.label : undefined}
       aria-label={item.label}
       aria-current={isActive ? 'page' : undefined}
     >
-      {isActive && (
-        <>
-          <div className="absolute left-0 top-2 bottom-2 w-[2.5px] bg-ak-accent-bright shadow-[0_0_8px_rgba(94,196,230,0.4)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ak-accent-bright/[0.08] to-transparent pointer-events-none" />
-        </>
-      )}
+      {/* Active: cyan rail on the left edge + a faint cyan wash fading to the right. */}
+      <div
+        className={`absolute left-0 top-2 bottom-2 w-0.5 bg-gc-scan drop-shadow-[0_0_6px_rgba(79,214,224,0.4)] origin-center pointer-events-none ${isActive ? 'scale-y-100' : 'scale-y-0'}`}
+        style={{ transition: `transform 0.25s ${SPRING_EASE}` }}
+      />
+      <div
+        className={`absolute inset-0 bg-linear-to-r from-gc-scan/8 to-transparent pointer-events-none ${isActive ? 'opacity-100' : 'opacity-0'}`}
+        style={{ transition: 'opacity 0.25s ease-out' }}
+      />
       <HoverScan />
       <RowIcon>{item.icon}</RowIcon>
       <RowLabel isCollapsed={isCollapsed}>{item.label}</RowLabel>
@@ -217,11 +220,11 @@ export function SideMenu() {
       {/* Mobile toggle */}
       <button
         onClick={() => setMobileOpen(true)}
-        className="fixed top-3 left-3 z-50 md:hidden w-10 h-10 flex items-center justify-center bg-white/[0.08] backdrop-blur-md border border-white/[0.12] shadow-[0_2px_12px_rgba(0,0,0,0.2)] hover:bg-white/[0.14] active:scale-[0.95] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
-        style={{ transition: 'background-color 0.2s, transform 0.15s' }}
+        className={`fixed top-3 left-3 z-50 md:hidden w-10 h-10 flex items-center justify-center bg-gc-frame border border-gc-line-strong hover:bg-gc-raised active:scale-[0.95] cursor-pointer ${FOCUS_RING}`}
+        style={{ transition: 'transform 0.15s' }}
         aria-label="Open menu"
       >
-        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white/50">
+        <svg viewBox="0 0 24 24" className="w-5 h-5 fill-gc-text">
           <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
         </svg>
       </button>
@@ -239,8 +242,8 @@ export function SideMenu() {
       <aside
         className={`
           fixed top-0 left-0 h-full z-50 w-[264px] overflow-hidden
-          bg-ak-bg/95 backdrop-blur-md border-r border-white/[0.06]
-          shadow-[4px_0_24px_rgba(0,0,0,0.4)]
+          bg-gc-frame border-r border-gc-line
+          shadow-[1px_0_0_rgba(255,255,255,0.03),8px_0_32px_-8px_rgba(0,0,0,0.7)]
           ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
           ${isCollapsed ? 'md:-translate-x-[192px]' : 'md:translate-x-0'}
         `}
@@ -253,10 +256,10 @@ export function SideMenu() {
           {/* Header — logo and monogram share the same 88px slot so nav rows never shift */}
           <div className="relative h-[88px] shrink-0">
             <div
-              className={`absolute inset-0 flex flex-col justify-center pl-[26px] ${isCollapsed ? 'md:opacity-0 md:pointer-events-none' : 'opacity-100'}`}
+              className={`absolute inset-0 flex flex-col justify-center items-center ${isCollapsed ? 'md:opacity-0 md:pointer-events-none' : 'opacity-100'}`}
               style={{ transition: 'opacity 0.2s' }}
             >
-              <Link href="/" onClick={closeMobile} className="block w-fit focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright" tabIndex={isCollapsed ? -1 : undefined}>
+              <Link href="/" onClick={closeMobile} className={`block w-fit hover:opacity-80 active:scale-[0.98] ${FOCUS_RING}`} style={{ transition: 'opacity 0.15s, transform 0.15s' }} tabIndex={isCollapsed ? -1 : undefined}>
                 <Image
                   src="/Arknights_logo.webp"
                   alt="Arknights"
@@ -265,9 +268,9 @@ export function SideMenu() {
                   className="h-9 w-auto object-contain opacity-70"
                 />
               </Link>
-              <div className="flex items-center gap-2.5 mt-2.5">
-                <div className="w-1.5 h-1.5 bg-ak-accent rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
-                <span className="font-display text-[11px] text-white/25 tracking-[0.15em] uppercase">
+              <div className="flex items-center gap-2 mt-3">
+                <span className="w-1.5 h-1.5 bg-gc-signal" />
+                <span className="font-data text-[10px] text-gc-dim tracking-[0.14em] uppercase">
                   Operator Terminal
                 </span>
               </div>
@@ -279,14 +282,14 @@ export function SideMenu() {
             >
               <Link
                 href="/"
-                className="relative w-10 h-10 flex items-center justify-center border border-white/[0.12] hover:border-ak-accent-bright/50 active:scale-[0.94] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ak-accent-bright"
-                style={{ transition: 'border-color 0.2s, transform 0.15s' }}
+                className={`relative w-10 h-10 flex items-center justify-center border border-gc-line-strong hover:bg-gc-raised active:scale-[0.94] ${FOCUS_RING}`}
+                style={{ transition: 'transform 0.15s' }}
                 title="Command Center"
                 aria-label="Command Center"
                 tabIndex={isCollapsed ? undefined : -1}
               >
-                <span className="font-display text-xs text-white/60 tracking-[0.1em]">RI</span>
-                <span className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 bg-ak-accent rounded-full animate-[pulse-glow_2s_ease-in-out_infinite]" />
+                <span className="font-display text-[11px] text-gc-text tracking-[0.1em]">RI</span>
+                <span className="absolute -top-[3px] -right-[3px] w-1.5 h-1.5 bg-gc-signal" />
               </Link>
             </div>
           </div>
@@ -308,20 +311,19 @@ export function SideMenu() {
           {/* Bottom section */}
           <div className="py-3 flex flex-col gap-1">
             <MuteButton isCollapsed={isCollapsed} />
-            <CollapseButton isCollapsed={isCollapsed} onToggle={toggleSidebar} />
           </div>
 
           {/* Footer — full label and short version cross-fade in the same slot */}
           <div className="relative h-14 shrink-0">
-            <p
-              className={`absolute inset-0 flex flex-col justify-center pl-[26px] font-display text-[10px] text-white/40 tracking-wider leading-relaxed ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
+            <div
+              className={`absolute inset-0 flex flex-col justify-center pl-[26px] gap-2 font-data text-[10px] text-gc-ghost tracking-[0.14em] leading-none ${isCollapsed ? 'md:opacity-0' : 'opacity-100'}`}
               style={{ transition: 'opacity 0.2s' }}
             >
-              <span>RHODES ISLAND</span>
-              <span>TERMINAL v0.5</span>
-            </p>
+              <span>RHODES ISLAND · TERMINAL v0.7</span>
+              <DotStrip count={14} offset={3} />
+            </div>
             <p
-              className={`absolute top-0 left-0 w-[72px] h-full hidden md:flex items-center justify-center font-display text-[10px] text-white/40 tracking-wider ${isCollapsed ? 'opacity-100' : 'opacity-0'}`}
+              className={`absolute top-0 left-0 w-[72px] h-full hidden md:flex items-center justify-center font-data text-[10px] text-gc-ghost tracking-[0.14em] ${isCollapsed ? 'opacity-100' : 'opacity-0'}`}
               style={{ transition: 'opacity 0.2s' }}
               aria-hidden
             >
@@ -330,6 +332,8 @@ export function SideMenu() {
           </div>
         </div>
       </aside>
+
+      <CollapseButton isCollapsed={isCollapsed} onToggle={toggleSidebar} />
     </>
   )
 }
