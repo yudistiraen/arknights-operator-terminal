@@ -77,6 +77,7 @@ const indra: Operator = {
     { id: 'skin1', label: 'Valiant General', src: '/operators/indra/skin1.png', chibiSrc: '/operators/indra/chibi-skin1.webm', chibiMoveSrc: '/operators/indra/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/indra/portrait.png',
+  portraitFocus: { y: -5.4, x: 54.9, zoom: 374 },
 }
 
 export default indra

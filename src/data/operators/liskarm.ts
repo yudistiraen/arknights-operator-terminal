@@ -78,7 +78,7 @@ const liskarm: Operator = {
     { id: 'skin2', label: 'Overload', src: '/operators/liskarm/skin2.png', chibiSrc: '/operators/liskarm/chibi-skin2.webm', chibiMoveSrc: '/operators/liskarm/chibi-move-skin2.webm', chibiFraming: { scale: 1.6, offsetXPercent: 0, offsetYPercent: -15 }, chibiDetailFraming: { scale: 1.5, offsetXPercent: 5, offsetYPercent: -15 }, illustrator: 'Cenm0' },
   ],
   portrait: '/operators/liskarm/portrait.png',
-  portraitFocus: { y: 0, x: 43, zoom: 265 }
+  portraitFocus: { y: -1.7, x: 42.8, zoom: 301 },
 }
 
 export default liskarm

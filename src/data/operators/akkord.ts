@@ -74,7 +74,7 @@ const akkord: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/akkord/e2.png', chibiSrc: '/operators/akkord/chibi.webm', illustrator: 'Chi4' },
   ],
   portrait: '/operators/akkord/portrait.png',
-  portraitFocus: { y: 4, x: 57, zoom: 280 },
+  portraitFocus: { y: 5.4, x: 57, zoom: 367 },
 }
 
 export default akkord

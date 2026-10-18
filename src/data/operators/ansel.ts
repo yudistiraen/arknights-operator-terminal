@@ -52,7 +52,7 @@ const ansel: Operator = {
     { id: 'skin2', label: 'Nighttime Café', src: '/operators/ansel/skin2.png', chibiSrc: '/operators/ansel/chibi-skin2.webm', illustrator: '一立里子' },
   ],
   portrait: '/operators/ansel/portrait.png',
-  portraitFocus: { y: -9, x: 30, zoom: 250 },
+  portraitFocus: { y: -6.5, x: 43.6, zoom: 311 },
 }
 
 export default ansel

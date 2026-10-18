@@ -128,6 +128,7 @@ const passenger: Operator = {
     { id: 'skin1', label: "Dream in a Moment", src: '/operators/passenger/skin1.png', chibiSrc: '/operators/passenger/chibi-skin1.webm', chibiMoveSrc: '/operators/passenger/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
   ],
   portrait: '/operators/passenger/portrait.png',
+  portraitFocus: { y: 1.9, x: 63.9, zoom: 399 },
 }
 
 export default passenger

@@ -55,7 +55,7 @@ const popukar: Operator = {
     { id: 'skin1', label: "Witch's Swing", src: '/operators/popukar/skin1.png', chibiSrc: '/operators/popukar/chibi-skin1.webm', illustrator: '3MO' },
   ],
   portrait: '/operators/popukar/portrait.png',
-  portraitFocus: { y: -10, x: 66, zoom: 190 },
+  portraitFocus: { y: -3.9, x: 64.6, zoom: 253 },
 }
 
 export default popukar

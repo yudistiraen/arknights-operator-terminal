@@ -79,7 +79,7 @@ const bluePoison: Operator = {
     { id: 'skin2', label: 'Nocturne of Elysia', src: '/operators/blue-poison/skin2.png', chibiSrc: '/operators/blue-poison/chibi-skin2.webm', chibiMoveSrc: '/operators/blue-poison/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'YUJI' },
   ],
   portrait: '/operators/blue-poison/portrait.png',
-  portraitFocus: { y: -10, x: 65, zoom: 250 },
+  portraitFocus: { y: -6.9, x: 59.4, zoom: 298 },
 }
 
 export default bluePoison

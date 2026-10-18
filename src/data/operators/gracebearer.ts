@@ -80,7 +80,7 @@ const gracebearer: Operator = {
     { id: 'skin1', label: 'Purification of The Past', src: '/operators/gracebearer/skin1.png', chibiSrc: '/operators/gracebearer/chibi-skin1.webm', illustrator: '水滴鱼' },
   ],
   portrait: '/operators/gracebearer/portrait.png',
-  portraitFocus: { y: -5, x: 43, zoom: 300 },
+  portraitFocus: { y: -3.2, x: 45.8, zoom: 338 },
 }
 
 export default gracebearer

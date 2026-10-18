@@ -74,7 +74,7 @@ const tequila: Operator = {
     { id: 'skin2', label: 'Top Tier Live', src: '/operators/tequila/skin2.png', chibiSrc: '/operators/tequila/chibi-skin2.webm', illustrator: '一千' },
   ],
   portrait: '/operators/tequila/portrait.png',
-  portraitFocus: { y: 5, x: 50, zoom: 350 }
+  portraitFocus: { y: 3.1, x: 50.1, zoom: 388 },
 }
 
 export default tequila

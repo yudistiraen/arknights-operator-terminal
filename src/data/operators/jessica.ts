@@ -75,6 +75,8 @@ const jessica: Operator = {
     { id: 'skin2', label: 'Ash', src: '/operators/jessica/skin2.png', chibiSrc: '/operators/jessica/chibi-skin2.webm', chibiMoveSrc: '/operators/jessica/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
     { id: 'skin3', label: 'Clivia', src: '/operators/jessica/skin3.png', chibiSrc: '/operators/jessica/chibi-skin3.webm', chibiMoveSrc: '/operators/jessica/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
   ],
+  portrait: '/operators/jessica/portrait.png',
+  portraitFocus: { y: -2.4, x: 36.6, zoom: 319 },
 }
 
 export default jessica

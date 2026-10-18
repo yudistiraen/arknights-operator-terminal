@@ -87,7 +87,7 @@ const shaw: Operator = {
     { id: 'skin1', label: 'Cleansweeper in the Castle', src: '/operators/shaw/skin1.png', chibiSrc: '/operators/shaw/chibi-skin1.webm', illustrator: '阿鬼' },
   ],
   portrait: '/operators/shaw/portrait.png',
-  portraitFocus: { y: -17, x: 56, zoom: 160 },
+  portraitFocus: { y: -12.7, x: 49.7, zoom: 201 },
 }
 
 export default shaw

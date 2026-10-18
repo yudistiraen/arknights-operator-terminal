@@ -82,7 +82,7 @@ const asbestos: Operator = {
     { id: 'skin1', label: 'Glen Sonata', src: '/operators/asbestos/skin1.png', chibiSrc: '/operators/asbestos/chibi-skin1.webm', chibiMoveSrc: '/operators/asbestos/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
   ],
   portrait: '/operators/asbestos/portrait.png',
-  portraitFocus: { y: -8, x: 35, zoom: 240 }
+  portraitFocus: { y: -6, x: 38.9, zoom: 304 },
 }
 
 export default asbestos

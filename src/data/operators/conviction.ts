@@ -72,7 +72,7 @@ const conviction: Operator = {
     { id: 'skin1', label: 'Your Superconvicting Friend', src: '/operators/conviction/skin1.png', chibiSrc: '/operators/conviction/chibi-skin1.webm', illustrator: 'TOMATO' },
   ],
   portrait: '/operators/conviction/portrait.png',
-  portraitFocus: { y: -3, x: 46, zoom: 230 }
+  portraitFocus: { y: -2.3, x: 47.1, zoom: 251 },
 }
 
 export default conviction

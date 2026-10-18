@@ -76,7 +76,7 @@ const contrail: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/contrail/e2.png', chibiSrc: '/operators/contrail/chibi.webm', illustrator: '虬墨一型' },
   ],
   portrait: '/operators/contrail/portrait.png',
-  portraitFocus: { y: -5, x: 32, zoom: 270 },
+  portraitFocus: { y: -10, x: 32.9, zoom: 288 },
 }
 
 export default contrail

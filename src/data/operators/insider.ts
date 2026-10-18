@@ -92,7 +92,7 @@ const insider: Operator = {
     { id: 'skin2', label: 'Holiday HDm25', src: '/operators/insider/skin2.png', chibiSrc: '/operators/insider/chibi.webm', illustrator: 'umo_yszx' },
   ],
   portrait: '/operators/insider/portrait.png',
-  portraitFocus: { y: 0, x: 50, zoom: 315 },
+  portraitFocus: { y: 2.3, x: 49.3, zoom: 424 },
 }
 
 export default insider

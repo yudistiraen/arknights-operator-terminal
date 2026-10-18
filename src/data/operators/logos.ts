@@ -128,7 +128,7 @@ const logos: Operator = {
     },
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/elite-op.png',
-  portraitFocus: { x: 42,y: 2, zoom: 310 },
+  portraitFocus: { y: 1.5, x: 43.7, zoom: 450 },
   skins: [
     { id: 'base', label: 'Base', src: '/operators/logos/base.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },
     { id: 'e2', label: 'Elite 2', src: '/operators/logos/e2.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },

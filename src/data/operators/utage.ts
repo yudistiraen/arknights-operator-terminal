@@ -79,6 +79,8 @@ const utage: Operator = {
     { id: 'skin1', label: 'Summer Flowers FA661', src: '/operators/utage/skin1.png', chibiSrc: '/operators/utage/chibi-skin1.webm', chibiMoveSrc: '/operators/utage/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '釜飯轟々丸' },
     { id: 'skin2', label: 'Disguise', src: '/operators/utage/skin2.png', chibiSrc: '/operators/utage/chibi-skin2.webm', chibiMoveSrc: '/operators/utage/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '釜飯轟々丸' },
   ],
+  portrait: '/operators/utage/portrait.png',
+  portraitFocus: { y: -11, x: 48.3, zoom: 244 },
 }
 
 export default utage

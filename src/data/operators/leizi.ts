@@ -75,7 +75,7 @@ const leizi: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/leizi/e2.png', chibiSrc: '/operators/leizi/chibi.webm', chibiMoveSrc: '/operators/leizi/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
     { id: 'skin1', label: 'The Archivist and Her Pilgrimage', src: '/operators/leizi/skin1.png', chibiSrc: '/operators/leizi/chibi-skin1.webm', chibiMoveSrc: '/operators/leizi/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
-  portraitFocus: { y: 10, x: 48, zoom: 290 },
+  portraitFocus: { y: 9.8, x: 48.7, zoom: 350 },
 }
 
 export default leizi

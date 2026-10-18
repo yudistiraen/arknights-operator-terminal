@@ -77,6 +77,7 @@ const ptilopsis: Operator = {
     { id: 'skin2', label: 'Among the Clouds', src: '/operators/ptilopsis/skin2.png', chibiSrc: '/operators/ptilopsis/chibi-skin2.webm', chibiMoveSrc: '/operators/ptilopsis/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/ptilopsis/portrait.png',
+  portraitFocus: { y: -6.4, x: 70.9, zoom: 325 },
 }
 
 export default ptilopsis

@@ -3,6 +3,7 @@
 import { createContext, useContext, useRef, useState, useCallback, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
+import { usePathname } from 'next/navigation'
 import { SplashScreen } from './SplashScreen'
 import { SideMenu } from './SideMenu'
 import { WalkingChibi } from './WalkingChibi'
@@ -11,6 +12,7 @@ import { MAX_WALKING_CHIBIS, getChibiId, readChibiSelectionCookie, writeChibiSel
 
 gsap.registerPlugin(useGSAP)
 
+const STREAM_LAYOUT_PATH = '/stream-layout'
 const MUTE_COOKIE_NAME = 'audio-muted'
 const MUTE_COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365
 
@@ -49,6 +51,8 @@ export function useApp() {
 }
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  const isStreamLayout = pathname === STREAM_LAYOUT_PATH
   const [hasEntered, setHasEntered] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -170,8 +174,16 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     writeMuteCookie(!isMuted)
   }, [isMuted])
 
+  const contextValue = { isMuted, toggleMute, hasEntered, sidebarOpen, toggleSidebar, selectedChibiIds, toggleChibiSelection }
+
+  // The OBS stream layout is a bare greenscreen capture surface — no sidebar, splash, BGM,
+  // or the regular walking-chibi overlay (it renders its own, larger ones).
+  if (isStreamLayout) {
+    return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+  }
+
   return (
-    <AppContext.Provider value={{ isMuted, toggleMute, hasEntered, sidebarOpen, toggleSidebar, selectedChibiIds, toggleChibiSelection }}>
+    <AppContext.Provider value={contextValue}>
       <audio ref={audioRef} src="/audio/Arknights OST.mp3" loop preload="auto" />
       <SideMenu />
       <div

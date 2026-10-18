@@ -91,7 +91,7 @@ const indigo: Operator = {
     { id: 'skin1', label: 'Serene Day', src: '/operators/indigo/skin1.png', chibiSrc: '/operators/indigo/chibi-skin1.webm', illustrator: '织布机loom' },
   ],
   portrait: '/operators/indigo/portrait.png',
-  portraitFocus: { y: 8, x: 40, zoom: 290 },
+  portraitFocus: { y: 7.4, x: 41.7, zoom: 348 },
 }
 
 export default indigo

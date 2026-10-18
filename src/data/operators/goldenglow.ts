@@ -140,7 +140,7 @@ The Drone locks onto an enemy until the enemy is defeated, the Drone self-destru
     { id: 'skin3', label: 'Party In The Garden', src: '/operators/goldenglow/skin3.png', chibiSrc: '/operators/goldenglow/chibi-skin3.webm', illustrator: 'Namie' },
   ],
   portrait: '/operators/goldenglow/portrait.png',
-  portraitFocus: { y: 17, x: 50, zoom: 290 },
+  portraitFocus: { y: 16.4, x: 49.7, zoom: 344 },
 }
 
 export default goldenglow

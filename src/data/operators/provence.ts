@@ -75,7 +75,7 @@ const provence: Operator = {
     { id: 'skin2', label: 'Wasteland Walker', src: '/operators/provence/skin2.png', chibiSrc: '/operators/provence/chibi-skin2.webm', illustrator: '渣念' },
   ],
   portrait: '/operators/provence/portrait.png',
-  portraitFocus: { y: -1, x: 40, zoom: 280 }
+  portraitFocus: { y: 0.4, x: 42.2, zoom: 324 },
 }
 
 export default provence

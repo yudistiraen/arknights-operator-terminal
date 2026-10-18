@@ -76,7 +76,7 @@ const astesia: Operator = {
     { id: 'skin3', label: 'Fantastic Crafts', src: '/operators/astesia/skin3.png', chibiSrc: '/operators/astesia/chibi-skin3.webm', illustrator: 'YUJI' },
   ],
   portrait: '/operators/astesia/portrait.png',
-  portraitFocus: { y: -8, x: 50, zoom: 260 },
+  portraitFocus: { y: -8.5, x: 50.3, zoom: 306 },
 }
 
 export default astesia

@@ -76,6 +76,8 @@ const gitano: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/gitano/e2.png', chibiSrc: '/operators/gitano/chibi.webm', chibiMoveSrc: '/operators/gitano/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
     { id: 'skin1', label: 'Unknown Journey', src: '/operators/gitano/skin1.png', chibiSrc: '/operators/gitano/chibi-skin1.webm', chibiMoveSrc: '/operators/gitano/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
   ],
+  portrait: '/operators/gitano/portrait.png',
+  portraitFocus: { y: -0.5, x: 51.4, zoom: 364 },
 }
 
 export default gitano

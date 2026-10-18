@@ -100,6 +100,7 @@ const toddifons: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/toddifons/e2.png', chibiSrc: '/operators/toddifons/chibi.webm', chibiMoveSrc: '/operators/toddifons/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '山x2' },
   ],
   portrait: '/operators/toddifons/portrait.png',
+  portraitFocus: { y: 11, x: 65.3, zoom: 320 },
 }
 
 export default toddifons

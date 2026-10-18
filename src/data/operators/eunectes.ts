@@ -108,6 +108,7 @@ const eunectes: Operator = {
     { id: 'skin1', label: 'Forgemaster', src: '/operators/eunectes/skin1.png', chibiSrc: '/operators/eunectes/chibi-skin1.webm', chibiMoveSrc: '/operators/eunectes/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
   ],
   portrait: '/operators/eunectes/portrait.png',
+  portraitFocus: { y: 5.1, x: 44.4, zoom: 370 },
 }
 
 export default eunectes

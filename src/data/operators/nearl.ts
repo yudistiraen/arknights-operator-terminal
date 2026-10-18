@@ -78,6 +78,7 @@ const nearl: Operator = {
     { id: 'skin1', label: 'Shining Dew SD01', src: '/operators/nearl/skin1.png', chibiSrc: '/operators/nearl/chibi-skin1.webm', chibiMoveSrc: '/operators/nearl/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/nearl/portrait.png',
+  portraitFocus: { y: -1, x: 32.9, zoom: 337 },
 }
 
 export default nearl

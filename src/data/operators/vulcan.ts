@@ -97,6 +97,7 @@ const vulcan: Operator = {
     { id: 'skin1', label: 'Ignis', src: '/operators/vulcan/skin1.png', chibiSrc: '/operators/vulcan/chibi-skin1.webm', chibiMoveSrc: '/operators/vulcan/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
   ],
   portrait: '/operators/vulcan/portrait.png',
+  portraitFocus: { y: -2.4, x: 33.7, zoom: 365 },
 }
 
 export default vulcan

@@ -74,7 +74,7 @@ const courier: Operator = {
     { id: 'skin2', label: 'Speechless Sound', src: '/operators/courier/skin2.png', chibiSrc: '/operators/courier/chibi-skin2.webm', illustrator: '竜崎いち' },
   ],
   portrait: '/operators/courier/portrait.png',
-  portraitFocus: { y: -4, x: 55, zoom: 300 }
+  portraitFocus: { y: -3.7, x: 53.2, zoom: 375 },
 }
 
 export default courier

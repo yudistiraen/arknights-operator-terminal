@@ -91,7 +91,7 @@ const harold: Operator = {
     { id: 'skin1', label: 'Inviting Snow', src: '/operators/harold/skin1.png', chibiSrc: '/operators/harold/chibi-skin1.webm', illustrator: '一千' },
   ],
   portrait: '/operators/harold/portrait.png',
-  portraitFocus: { y: -2, x: 40, zoom: 300 },
+  portraitFocus: { y: 2.2, x: 42.3, zoom: 414 },
 }
 
 export default harold

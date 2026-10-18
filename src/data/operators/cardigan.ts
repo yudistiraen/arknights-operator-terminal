@@ -56,7 +56,7 @@ const cardigan: Operator = {
     { id: 'skin2', label: 'Sunny Day', src: '/operators/cardigan/skin2.png', chibiSrc: '/operators/cardigan/chibi-skin2.webm', illustrator: '一立里子' },
   ],
   portrait: '/operators/cardigan/portrait.png',
-  portraitFocus: { y: -5, x: 40, zoom: 250 },
+  portraitFocus: { y: -3.7, x: 44.2, zoom: 296 },
 }
 
 export default cardigan

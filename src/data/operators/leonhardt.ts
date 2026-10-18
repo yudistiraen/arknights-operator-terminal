@@ -81,7 +81,7 @@ const leonhardt: Operator = {
     { id: 'skin1', label: 'Finder in the Rough', src: '/operators/leonhardt/skin1.png', chibiSrc: '/operators/leonhardt/chibi-skin1.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
     { id: 'skin2', label: 'Hope Cruise', src: '/operators/leonhardt/skin2.png', chibiSrc: '/operators/leonhardt/chibi-skin2.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
   ],
-  portraitFocus: { y: -5, x: 27, zoom: 270 },
+  portraitFocus: { y: 2.2, x: 32.2, zoom: 345 },
 }
 
 export default leonhardt

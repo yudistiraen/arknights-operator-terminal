@@ -103,6 +103,7 @@ const ceobe: Operator = {
     { id: 'skin2', label: 'Unfettered', src: '/operators/ceobe/skin2.png', chibiSrc: '/operators/ceobe/chibi-skin2.webm', chibiMoveSrc: '/operators/ceobe/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'LM7' },
   ],
   portrait: '/operators/ceobe/portrait.png',
+  portraitFocus: { y: 1.8, x: 51.4, zoom: 300 },
 }
 
 export default ceobe

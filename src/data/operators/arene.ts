@@ -75,7 +75,7 @@ const arene: Operator = {
     { id: 'skin2', label: 'Dangerous Invitation', src: '/operators/arene/skin2.png', chibiSrc: '/operators/arene/chibi-skin2.webm', illustrator: 'umo_yszx' },
   ],
   portrait: '/operators/arene/portrait.png',
-  portraitFocus: { y: -2, x: 50, zoom: 290 }
+  portraitFocus: { y: -0.2, x: 45.7, zoom: 352 },
 }
 
 export default arene

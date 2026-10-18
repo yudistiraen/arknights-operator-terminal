@@ -81,6 +81,7 @@ const shamare: Operator = {
     { id: 'skin2', label: 'Celestial Crane', src: '/operators/shamare/skin2.png', chibiSrc: '/operators/shamare/chibi-skin2.webm', chibiMoveSrc: '/operators/shamare/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/shamare/portrait.png',
+  portraitFocus: { y: -0.9, x: 49.5, zoom: 252 },
   summon: {
     name: 'Cursed Doll',
     icon: '/operators/shamare/cursed-doll.png',

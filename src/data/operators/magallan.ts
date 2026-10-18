@@ -158,6 +158,7 @@ const magallan: Operator = {
     { id: 'skin1', label: 'Shaved-Ice Memories', src: '/operators/magallan/skin1.png', chibiSrc: '/operators/magallan/chibi-skin1.webm', chibiMoveSrc: '/operators/magallan/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/magallan/portrait.png',
+  portraitFocus: { y: -5.7, x: 30.1, zoom: 344 },
 }
 
 export default magallan

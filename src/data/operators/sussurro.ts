@@ -77,6 +77,8 @@ const sussurro: Operator = {
     { id: 'skin1', label: 'Summer Flower FA026', src: '/operators/sussurro/skin1.png', chibiSrc: '/operators/sussurro/chibi-skin1.webm', chibiMoveSrc: '/operators/sussurro/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '将' },
     { id: 'skin2', label: 'Travel Freely', src: '/operators/sussurro/skin2.png', chibiSrc: '/operators/sussurro/chibi-skin2.webm', chibiMoveSrc: '/operators/sussurro/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '将' },
   ],
+  portrait: '/operators/sussurro/portrait.png',
+  portraitFocus: { y: -9.3, x: 41.2, zoom: 258 },
 }
 
 export default sussurro

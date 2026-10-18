@@ -123,7 +123,7 @@ Unlimited duration`, spInit: 0, sp: 65, dur: '∞' },
     { id: 'skin1', label: 'Condolence', src: '/operators/civilight-eterna/skin1.png', chibiSrc: '/operators/civilight-eterna/chibi.webm', illustrator: 'Chuzenji' },
   ],
   portrait: '/operators/civilight-eterna/portrait.png',
-  portraitFocus: { y: -1, x: 45, zoom: 250 },
+  portraitFocus: { y: 2, x: 47.3, zoom: 367 },
 }
 
 export default civilightEterna

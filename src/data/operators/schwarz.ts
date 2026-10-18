@@ -103,6 +103,7 @@ const schwarz: Operator = {
     { id: 'skin2', label: 'Skyline', src: '/operators/schwarz/skin2.png', chibiSrc: '/operators/schwarz/chibi-skin2.webm', chibiMoveSrc: '/operators/schwarz/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
   ],
   portrait: '/operators/schwarz/portrait.png',
+  portraitFocus: { y: -4.3, x: 43.7, zoom: 344 },
 }
 
 export default schwarz

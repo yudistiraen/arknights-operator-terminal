@@ -87,7 +87,7 @@ const missChristine: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/miss-christine/e2.png', chibiSrc: '/operators/miss-christine/chibi.webm', illustrator: 'YUJI' },
   ],
   portrait: '/operators/miss-christine/portrait.png',
-  portraitFocus: { y: 10, x: 70, zoom: 180 },
+  portraitFocus: { y: 28, x: 67.2, zoom: 200 },
 }
 
 export default missChristine

@@ -129,6 +129,7 @@ The Grand Preceptor became a scapegoat and was forced to commit suicide. Her twe
     { id: 'skin2', label: 'Explosive Blue Flame', src: '/operators/blaze/skin2.png', chibiSrc: '/operators/blaze/chibi-skin2.webm', chibiMoveSrc: '/operators/blaze/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Mag42' },
   ],
   portrait: '/operators/blaze/portrait.png',
+  portraitFocus: { y: 3, x: 36, zoom: 360 },
   alter: {
     name: 'Blaze the Igniting Spark', fileNo: 'REX1', class: 'Caster', branch: 'Primal Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
     position: 'Ranged',
@@ -261,6 +262,7 @@ The Grand Preceptor became a scapegoat and was forced to commit suicide. Her twe
       { id: 'skin1', label: 'Homecoming Night', src: '/operators/blaze/alter/skin1.png', chibiSrc: '/operators/blaze/alter/chibi-skin1.webm', chibiMoveSrc: '/operators/blaze/alter/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '百慕大飞鱼, Mag42' },
     ],
     portrait: '/operators/blaze/alter/portrait.png',
+    portraitFocus: { y: 5.3, x: 65.8, zoom: 378 },
   },
 }
 

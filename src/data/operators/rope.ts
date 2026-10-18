@@ -80,6 +80,8 @@ const rope: Operator = {
     { id: 'skin1', label: "Imp's House", src: '/operators/rope/skin1.png', chibiSrc: '/operators/rope/chibi-skin1.webm', chibiMoveSrc: '/operators/rope/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
     { id: 'skin2', label: 'Summer Flowers FA008', src: '/operators/rope/skin2.png', chibiSrc: '/operators/rope/chibi-skin2.webm', chibiMoveSrc: '/operators/rope/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
   ],
+  portrait: '/operators/rope/portrait.png',
+  portraitFocus: { y: 5.3, x: 48.9, zoom: 348 },
 }
 
 export default rope

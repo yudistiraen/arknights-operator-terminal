@@ -89,7 +89,7 @@ const elysium: Operator = {
     { id: 'skin2', label: 'Shining Dew SDm11', src: '/operators/elysium/skin2.png', chibiSrc: '/operators/elysium/chibi-skin2.webm', illustrator: 'Skade' },
   ],
   portrait: '/operators/elysium/portrait.png',
-  portraitFocus: { y: 7, x: 25, zoom: 290 },
+  portraitFocus: { y: 6.5, x: 26.9, zoom: 387 },
 }
 
 export default elysium

@@ -51,7 +51,7 @@ const plume: Operator = {
     { id: 'skin1', label: 'Easy Time', src: '/operators/plume/skin1.png', chibiSrc: '/operators/plume/chibi-skin1.webm', illustrator: 'deel' },
   ],
   portrait: '/operators/plume/portrait.png',
-  portraitFocus: { y: 15, x: 40, zoom: 300 },
+  portraitFocus: { y: 14.6, x: 44, zoom: 371 },
 }
 
 export default plume

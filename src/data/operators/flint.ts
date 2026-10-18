@@ -93,7 +93,7 @@ const flint: Operator = {
     { id: 'skin1', label: 'Gorgeous Flower', src: '/operators/flint/skin1.png', chibiSrc: '/operators/flint/chibi-skin1.webm', chibiMoveSrc: '/operators/flint/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
   ],
   portrait: '/operators/flint/portrait.png',
-  portraitFocus: { y: 2, x: 50, zoom: 280 },
+  portraitFocus: { y: 3.3, x: 47.9, zoom: 365 },
 }
 
 export default flint

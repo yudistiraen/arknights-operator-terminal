@@ -87,7 +87,7 @@ const humus: Operator = {
     { id: 'skin1', label: 'Blazing Street View', src: '/operators/humus/skin1.png', chibiSrc: '/operators/humus/chibi.webm', illustrator: '我妻洛酱' },
   ],
   portrait: '/operators/humus/portrait.png',
-  portraitFocus: { y: 10, x: 47, zoom: 340 },
+  portraitFocus: { y: 11.9, x: 47.4, zoom: 441 },
 }
 
 export default humus

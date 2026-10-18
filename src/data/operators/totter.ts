@@ -74,7 +74,7 @@ const totter: Operator = {
     { id: 'skin1', label: 'Shining Dew SDm09', src: '/operators/totter/skin1.png', chibiSrc: '/operators/totter/chibi-skin1.webm', illustrator: '板板' },
   ],
   portrait: '/operators/totter/portrait.png',
-  portraitFocus: { y: -3, x: 52, zoom: 350 }
+  portraitFocus: { y: -5.3, x: 50.9, zoom: 375 },
 }
 
 export default totter

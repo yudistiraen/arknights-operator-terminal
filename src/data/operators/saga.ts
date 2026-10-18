@@ -102,6 +102,7 @@ const saga: Operator = {
     { id: 'skin1', label: 'There They Be', src: '/operators/saga/skin1.png', chibiSrc: '/operators/saga/chibi-skin1.webm', chibiMoveSrc: '/operators/saga/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
   ],
   portrait: '/operators/saga/portrait.png',
+  portraitFocus: { y: 10.6, x: 55.3, zoom: 367 },
 }
 
 export default saga

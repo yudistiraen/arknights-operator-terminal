@@ -55,7 +55,7 @@ const orchid: Operator = {
     { id: 'skin1', label: 'Twines of Time', src: '/operators/orchid/skin1.png', chibiSrc: '/operators/orchid/chibi-skin1.webm', illustrator: 'Liyu黎' },
   ],
   portrait: '/operators/orchid/portrait.png',
-  portraitFocus: { y: -8, x: 45, zoom: 250 },
+  portraitFocus: { y: -5.3, x: 46, zoom: 344 },
 }
 
 export default orchid

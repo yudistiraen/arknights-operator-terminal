@@ -55,7 +55,7 @@ const melantha: Operator = {
     { id: 'skin1', label: 'Letters from Wessex', src: '/operators/melantha/skin1.png', chibiSrc: '/operators/melantha/chibi-skin1.webm', illustrator: '一立里子' },
   ],
   portrait: '/operators/melantha/portrait.png',
-  portraitFocus: { y: -5, x: 27, zoom: 250 },
+  portraitFocus: { y: -4.8, x: 34.1, zoom: 296 },
 }
 
 export default melantha

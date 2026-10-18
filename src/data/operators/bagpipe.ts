@@ -132,7 +132,7 @@ const bagpipe: Operator = {
     { id: 'skin3', label: 'Queen, No.1', src: '/operators/bagpipe/skin3.png', chibiSrc: '/operators/bagpipe/chibi-skin3.webm', chibiMoveSrc: '/operators/bagpipe/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'U介' },
   ],
   portrait: '/operators/bagpipe/portrait.png',
-  portraitFocus: { x: 48, y: 22, zoom: 300 },
+  portraitFocus: { y: 14.8, x: 53.1, zoom: 365 },
 }
 
 export default bagpipe

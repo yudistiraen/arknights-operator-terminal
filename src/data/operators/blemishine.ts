@@ -102,6 +102,7 @@ After reuniting with Margaret during the climax of the 24th Major season and wit
     { id: 'skin2', label: 'Kindness and Strength', src: '/operators/blemishine/skin2.png', chibiSrc: '/operators/blemishine/chibi-skin2.webm', chibiMoveSrc: '/operators/blemishine/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/blemishine/portrait.png',
+  portraitFocus: { y: -3.7, x: 39.7, zoom: 301 },
 }
 
 export default blemishine

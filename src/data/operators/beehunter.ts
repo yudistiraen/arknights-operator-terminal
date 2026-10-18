@@ -73,7 +73,7 @@ const beehunter: Operator = {
     { id: 'skin1', label: 'Honey Pilferer', src: '/operators/beehunter/skin1.png', chibiSrc: '/operators/beehunter/chibi-skin1.webm', illustrator: 'toast' },
   ],
   portrait: '/operators/beehunter/portrait.png',
-  portraitFocus: { y: -8, x: 45, zoom: 250 }
+  portraitFocus: { y: -7.1, x: 47.2, zoom: 314 },
 }
 
 export default beehunter

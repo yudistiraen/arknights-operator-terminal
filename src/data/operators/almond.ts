@@ -75,7 +75,7 @@ const almond: Operator = {
     { id: 'skin1', label: 'Almond Platter', src: '/operators/almond/skin1.png', chibiSrc: '/operators/almond/chibi-skin1.webm', illustrator: '直立行走' },
   ],
   portrait: '/operators/almond/portrait.png',
-  portraitFocus: { y: -7, x: 58, zoom: 250 },
+  portraitFocus: { y: -9.3, x: 59.5, zoom: 265 },
 }
 
 export default almond

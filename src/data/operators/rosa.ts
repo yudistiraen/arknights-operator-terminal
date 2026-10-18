@@ -101,6 +101,7 @@ const rosa: Operator = {
     { id: 'skin2', label: 'Forever Together', src: '/operators/rosa/skin2.png', chibiSrc: '/operators/rosa/chibi-skin2.webm', chibiMoveSrc: '/operators/rosa/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/rosa/portrait.png',
+  portraitFocus: { y: 13.1, x: 51.4, zoom: 420 },
 }
 
 export default rosa

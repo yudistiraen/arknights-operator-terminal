@@ -79,7 +79,7 @@ const luoXiaohei: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/luo-xiaohei/e2.png', chibiSrc: '/operators/luo-xiaohei/chibi.webm', illustrator: '九日九号' },
   ],
   portrait: '/operators/luo-xiaohei/portrait.png',
-  portraitFocus: { y: 13, x: 50, zoom: 180 },
+  portraitFocus: { y: 35.6, x: 45.5, zoom: 262 },
 }
 
 export default luoXiaohei

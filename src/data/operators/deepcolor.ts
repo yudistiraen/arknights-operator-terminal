@@ -85,7 +85,7 @@ const deepcolor: Operator = {
     { id: 'skin1', label: 'Melodic Portrayal', src: '/operators/deepcolor/skin1.png', chibiSrc: '/operators/deepcolor/chibi-skin1.webm', illustrator: 'REALMBW' },
   ],
   portrait: '/operators/deepcolor/portrait.png',
-  portraitFocus: { y: -7, x: 40, zoom: 220 },
+  portraitFocus: { y: -6.3, x: 41.9, zoom: 279 },
   summon: {
     name: 'Tentacle',
     icon: '/operators/deepcolor/tentacle.png',

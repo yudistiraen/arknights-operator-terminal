@@ -124,6 +124,7 @@ const mudrock: Operator = {
     { id: 'skin3', label: "Rubble", src: '/operators/mudrock/skin3.png', chibiSrc: '/operators/mudrock/chibi-skin3.webm', chibiMoveSrc: '/operators/mudrock/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Studio Montagne" },
   ],
   portrait: '/operators/mudrock/portrait.png',
+  portraitFocus: { y: 0.4, x: 37.9, zoom: 321 },
 }
 
 export default mudrock

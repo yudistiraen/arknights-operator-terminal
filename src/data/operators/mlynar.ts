@@ -123,7 +123,7 @@ const mlynar: Operator = {
     { id: 'skin2', label: 'Roar Against The Wilds', src: '/operators/mlynar/skin2.png', chibiSrc: '/operators/mlynar/chibi-skin2.webm', chibiMoveSrc: '/operators/mlynar/chibi-move-skin2.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 5 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: -0.3 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/mlynar/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 300 },
+  portraitFocus: { y: -0.6, x: 50.3, zoom: 455 },
 }
 
 export default mlynar

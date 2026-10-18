@@ -73,7 +73,7 @@ const myrtle: Operator = {
     { id: 'skin3', label: 'Bustling Festival', src: '/operators/myrtle/skin3.png', chibiSrc: '/operators/myrtle/chibi-skin3.webm', illustrator: '咩煲' },
   ],
   portrait: '/operators/myrtle/portrait.png',
-  portraitFocus: { y: 23, x: 50, zoom: 280 },
+  portraitFocus: { y: 21.1, x: 50.6, zoom: 341 },
 }
 
 export default myrtle

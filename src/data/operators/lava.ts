@@ -51,7 +51,7 @@ const lava: Operator = {
     { id: 'skin1', label: 'Bunch of Sunlight', src: '/operators/lava/skin1.png', chibiSrc: '/operators/lava/chibi-skin1.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/lava/portrait.png',
-  portraitFocus: { y: -5, x: 10, zoom: 250 },
+  portraitFocus: { y: -5.1, x: 24.2, zoom: 293 },
   alter: {
     name: 'Lava the Purgatory', fileNo: 'R103', class: 'Caster', branch: 'Splash Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
     position: 'Ranged', trait: 'Deals AOE Arts damage',
@@ -144,7 +144,7 @@ const lava: Operator = {
       { id: 'skin1', label: 'Dusk Wisteria', src: '/operators/lava/alter/skin1.png', chibiSrc: '/operators/lava/alter/chibi-skin1.webm', illustrator: 'Skade' },
     ],
     portrait: '/operators/lava/alter/portrait.png',
-    portraitFocus: { y: 4, x: 52, zoom: 280 },
+    portraitFocus: { y: 5.6, x: 50.3, zoom: 370 },
   },
 }
 

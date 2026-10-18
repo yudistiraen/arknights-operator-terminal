@@ -70,7 +70,7 @@ const jaye: Operator = {
     { id: 'skin1', label: 'Beach Guard GT002', src: '/operators/jaye/skin1.png', chibiSrc: '/operators/jaye/chibi-skin1.webm', illustrator: '阿鬼' },
   ],
   portrait: '/operators/jaye/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 250 },
+  portraitFocus: { y: -9, x: 36.6, zoom: 292 },
 }
 
 export default jaye

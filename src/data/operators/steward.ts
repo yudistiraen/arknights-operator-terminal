@@ -51,7 +51,7 @@ const steward: Operator = {
     { id: 'skin1', label: 'Snowstorm Invitation', src: '/operators/steward/skin1.png', chibiSrc: '/operators/steward/chibi-skin1.webm', illustrator: '一立里子' },
   ],
   portrait: '/operators/steward/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom:250 },
+  portraitFocus: { y: -4.7, x: 69, zoom: 311 },
 }
 
 export default steward

@@ -101,7 +101,7 @@ const glaucus: Operator = {
     { id: 'skin1', label: 'Exterminator in the Square', src: '/operators/glaucus/skin1.png', chibiSrc: '/operators/glaucus/chibi-skin1.webm', chibiMoveSrc: '/operators/glaucus/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/glaucus/portrait.png',
-  portraitFocus: { y: 20, x: 60, zoom: 295 },
+  portraitFocus: { y: 18, x: 59.1, zoom: 340 },
 }
 
 export default glaucus

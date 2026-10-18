@@ -78,7 +78,7 @@ const broca: Operator = {
     { id: 'skin1', label: 'Rest Between Sets', src: '/operators/broca/skin1.png', chibiSrc: '/operators/broca/chibi-skin1.webm', chibiMoveSrc: '/operators/broca/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/broca/portrait.png',
-  portraitFocus: { y: -5, x: 60, zoom: 280 },
+  portraitFocus: { y: -3.7, x: 62.3, zoom: 370 },
 }
 
 export default broca

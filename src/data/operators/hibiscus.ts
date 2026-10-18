@@ -55,7 +55,7 @@ const hibiscus: Operator = {
     { id: 'skin1', label: 'Night Watcher', src: '/operators/hibiscus/skin1.png', chibiSrc: '/operators/hibiscus/chibi-skin1.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/hibiscus/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 250 },
+  portraitFocus: { y: -5, x: 40.7, zoom: 295 },
   alter: {
     name: 'Hibiscus the Purifier', fileNo: 'PA13', class: 'Medic', branch: 'Incantation Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
     position: 'Ranged', trait: 'Attacks deal Arts damage and heal the HP of an ally within Attack Range for 50% of the damage dealt',
@@ -142,7 +142,7 @@ const hibiscus: Operator = {
       { id: 'e2', label: 'Elite 2', src: '/operators/hibiscus/alter/e2.png', chibiSrc: '/operators/hibiscus/alter/chibi.webm', illustrator: '竜崎いち' },
     ],
     portrait: '/operators/hibiscus/alter/portrait.png',
-    portraitFocus: { y: -5, x: 48, zoom: 270 },
+    portraitFocus: { y: -3.6, x: 48, zoom: 338 },
   },
 }
 

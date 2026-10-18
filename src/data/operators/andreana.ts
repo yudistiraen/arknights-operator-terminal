@@ -75,7 +75,7 @@ const andreana: Operator = {
     { id: 'skin1', label: 'Silent Arrow', src: '/operators/andreana/skin1.png', chibiSrc: '/operators/andreana/chibi-skin1.webm', illustrator: 'LLC' },
   ],
   portrait: '/operators/andreana/portrait.png',
-  portraitFocus: { y: -8, x: 55, zoom: 275 }
+  portraitFocus: { y: -9.6, x: 55.9, zoom: 289 },
   
 }
 

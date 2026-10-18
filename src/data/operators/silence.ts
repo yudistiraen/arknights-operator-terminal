@@ -79,6 +79,7 @@ const silence: Operator = {
     { id: 'skin2', label: 'Frosted Breath', src: '/operators/silence/skin2.png', chibiSrc: '/operators/silence/chibi-skin2.webm', chibiMoveSrc: '/operators/silence/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/silence/portrait.png',
+  portraitFocus: { y: -6.7, x: 50.2, zoom: 293 },
   summon: {
     name: 'Medic Drone',
     icon: '/operators/silence/medic-drone.png',

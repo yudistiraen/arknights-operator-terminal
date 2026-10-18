@@ -79,6 +79,8 @@ const pinecone: Operator = {
     { id: 'skin1', label: 'Sing a Song', src: '/operators/pinecone/skin1.png', chibiSrc: '/operators/pinecone/chibi-skin1.webm', chibiMoveSrc: '/operators/pinecone/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TrNyteal' },
     { id: 'skin2', label: 'Season of Travel', src: '/operators/pinecone/skin2.png', chibiSrc: '/operators/pinecone/chibi-skin2.webm', chibiMoveSrc: '/operators/pinecone/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TrNyteal' },
   ],
+  portrait: '/operators/pinecone/portrait.png',
+  portraitFocus: { y: 3.1, x: 50.5, zoom: 298 },
 }
 
 export default pinecone

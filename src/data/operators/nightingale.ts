@@ -129,6 +129,7 @@ const nightingale: Operator = {
     { id: 'skin2', label: "Iakhu of Flows", src: '/operators/nightingale/skin2.png', chibiSrc: '/operators/nightingale/chibi-skin2.webm', chibiMoveSrc: '/operators/nightingale/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
   ],
   portrait: '/operators/nightingale/portrait.png',
+  portraitFocus: { y: 14.2, x: 49.6, zoom: 371 },
 }
 
 export default nightingale

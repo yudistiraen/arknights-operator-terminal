@@ -55,7 +55,7 @@ const midnight: Operator = {
     { id: 'skin1', label: 'Seventh Night', src: '/operators/midnight/skin1.png', chibiSrc: '/operators/midnight/chibi-skin1.webm', illustrator: '竜崎いち' },
   ],
   portrait: '/operators/midnight/portrait.png',
-  portraitFocus: { y: -5, x: 60, zoom: 280 },
+  portraitFocus: { y: -5, x: 64.1, zoom: 355 },
 }
 
 export default midnight

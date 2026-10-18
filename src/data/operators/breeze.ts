@@ -73,7 +73,7 @@ const breeze: Operator = {
     { id: 'skin1', label: 'Half-sweet Strawberry', src: '/operators/breeze/skin1.png', chibiSrc: '/operators/breeze/chibi.webm', illustrator: 'Studio Montagne' },
   ],
   portrait: '/operators/breeze/portrait.png',
-  portraitFocus: { y: -7, x: 55, zoom: 260 },
+  portraitFocus: { y: -2.4, x: 55.2, zoom: 300 },
 }
 
 export default breeze

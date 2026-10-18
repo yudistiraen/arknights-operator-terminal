@@ -79,7 +79,7 @@ const firewatch: Operator = {
     { id: 'skin2', label: 'Snowywatch', src: '/operators/firewatch/skin2.png', chibiSrc: '/operators/firewatch/chibi-skin2.webm', chibiMoveSrc: '/operators/firewatch/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
   ],
   portrait: '/operators/firewatch/portrait.png',
-  portraitFocus: { y: 2, x: 47, zoom: 275 },
+  portraitFocus: { y: -1.4, x: 49.6, zoom: 283 },
 }
 
 export default firewatch

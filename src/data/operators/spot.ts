@@ -55,7 +55,7 @@ const spot: Operator = {
     { id: 'skin1', label: 'Professional', src: '/operators/spot/skin1.png', chibiSrc: '/operators/spot/chibi-skin1.webm', illustrator: '阿鬼' },
   ],
   portrait: '/operators/spot/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom:230 },
+  portraitFocus: { y: -4.6, x: 49.7, zoom: 273 },
 }
 
 export default spot

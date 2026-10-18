@@ -75,7 +75,7 @@ const texas: Operator = {
     { id: 'skin2', label: 'Willpower', src: '/operators/texas/skin2.png', chibiSrc: '/operators/texas/chibi-skin2.webm', illustrator: '幻象黑兔' },
   ],
   portrait: '/operators/texas/portrait.png',
-  portraitFocus: { y: -1, x: 60, zoom: 270 }
+  portraitFocus: { y: -2.6, x: 61.3, zoom: 308 },
 }
 
 export default texas

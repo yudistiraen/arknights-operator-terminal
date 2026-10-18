@@ -76,6 +76,8 @@ const myrrh: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/myrrh/e2.png', chibiSrc: '/operators/myrrh/chibi.webm', chibiMoveSrc: '/operators/myrrh/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
     { id: 'skin1', label: 'Bitter Herbs', src: '/operators/myrrh/skin1.png', chibiSrc: '/operators/myrrh/chibi-skin1.webm', chibiMoveSrc: '/operators/myrrh/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
   ],
+  portrait: '/operators/myrrh/portrait.png',
+  portraitFocus: { y: -8, x: 63.7, zoom: 258 },
 }
 
 export default myrrh

@@ -100,7 +100,7 @@ const mostima: Operator = {
     { id: 'skin2', label: 'Ethereal Harmony', src: '/operators/mostima/skin2.png', chibiSrc: '/operators/mostima/chibi-skin2.webm', illustrator: '三目YYB' },
   ],
   portrait: '/operators/mostima/portrait.png',
-  portraitFocus: { y: -4, x: 55, zoom: 250 },
+  portraitFocus: { y: -2.8, x: 55.9, zoom: 301 },
 }
 
 export default mostima

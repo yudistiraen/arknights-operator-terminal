@@ -72,7 +72,7 @@ const ambriel: Operator = {
     { id: 'skin1', label: 'Holiday HD29', src: '/operators/ambriel/skin1.png', chibiSrc: '/operators/ambriel/chibi-skin1.webm', illustrator: '水滴鱼' },
   ],
   portrait: '/operators/ambriel/portrait.png',
-  portraitFocus: { y: -3, x:35, zoom: 270 }
+  portraitFocus: { y: -1.3, x: 34.9, zoom: 319 },
 }
 
 export default ambriel

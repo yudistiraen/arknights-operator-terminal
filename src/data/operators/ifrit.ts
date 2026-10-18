@@ -126,6 +126,7 @@ const ifrit: Operator = {
     { id: 'skin3', label: 'Relaxing Trip', src: '/operators/ifrit/skin3.png', chibiSrc: '/operators/ifrit/chibi.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '折射镜' },
   ],
   portrait: '/operators/ifrit/portrait.png',
+  portraitFocus: { y: -9.2, x: 41.8, zoom: 281 },
 }
 
 export default ifrit

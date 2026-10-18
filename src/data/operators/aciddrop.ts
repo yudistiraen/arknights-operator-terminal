@@ -74,7 +74,7 @@ const aciddrop: Operator = {
     { id: 'skin2', label: 'Holiday HD75', src: '/operators/aciddrop/skin2.png', chibiSrc: '/operators/aciddrop/chibi-skin2.webm', illustrator: 'Lanzi' },
   ],
   portrait: '/operators/aciddrop/portrait.png',
-  portraitFocus: { y: -3, x: 48, zoom: 250 }
+  portraitFocus: { y: -1, x: 47.9, zoom: 293 },
 }
 
 export default aciddrop

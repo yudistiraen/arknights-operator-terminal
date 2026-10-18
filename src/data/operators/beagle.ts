@@ -55,7 +55,7 @@ const beagle: Operator = {
     { id: 'skin1', label: 'Dreadnaught', src: '/operators/beagle/skin1.png', chibiSrc: '/operators/beagle/chibi-skin1.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/beagle/portrait.png',
-  portraitFocus: { y: -13, x: 45, zoom: 200 },
+  portraitFocus: { y: -10, x: 44.7, zoom: 243 },
 }
 
 export default beagle

@@ -74,7 +74,7 @@ const perfumer: Operator = {
     { id: 'skin2', label: 'Leisurely Afternoon', src: '/operators/perfumer/skin2.png', chibiSrc: '/operators/perfumer/chibi-skin2.webm', illustrator: 'Lanzi' },
   ],
   portrait: '/operators/perfumer/portrait.png',
-  portraitFocus: { y: 0, x: 62, zoom: 260 },
+  portraitFocus: { y: -1.7, x: 61.2, zoom: 279 },
 }
 
 export default perfumer

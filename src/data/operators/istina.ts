@@ -96,6 +96,7 @@ const istina: Operator = {
     { id: 'skin1', label: 'Bibliosmia', src: '/operators/istina/skin1.png', chibiSrc: '/operators/istina/chibi-skin1.webm', chibiMoveSrc: '/operators/istina/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/istina/portrait.png',
+  portraitFocus: { y: -2.5, x: 50.6, zoom: 293 },
 }
 
 export default istina

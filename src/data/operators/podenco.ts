@@ -71,7 +71,7 @@ const podenco: Operator = {
     { id: 'skin1', label: 'Wake Up from a Nap', src: '/operators/podenco/skin1.png', chibiSrc: '/operators/podenco/chibi-skin1.webm', illustrator: 'アシマ' },
   ],
   portrait: '/operators/podenco/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 250 },
+  portraitFocus: { y: -4.6, x: 50.4, zoom: 278 },
 }
 
 export default podenco

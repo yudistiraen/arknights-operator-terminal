@@ -123,6 +123,7 @@ const hoshiguma: Operator = {
     { id: 'skin2', label: "Seeker SK97", src: '/operators/hoshiguma/skin2.png', chibiSrc: '/operators/hoshiguma/chibi-skin2.webm', chibiMoveSrc: '/operators/hoshiguma/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "infukun" },
   ],
   portrait: '/operators/hoshiguma/portrait.png',
+  portraitFocus: { y: -7.1, x: 57.2, zoom: 343 },
 }
 
 const hoshigumaBreacher: OperatorAlter = {
@@ -241,6 +242,7 @@ const hoshigumaBreacher: OperatorAlter = {
     { id: 'skin1', label: "An Ultimate Flash", src: '/operators/hoshiguma/breacher/skin1.png', chibiSrc: '/operators/hoshiguma/breacher/chibi-skin1.webm', chibiMoveSrc: '/operators/hoshiguma/breacher/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "树豚" },
   ],
   portrait: '/operators/hoshiguma/breacher/portrait.png',
+  portraitFocus: { y: -0.1, x: 57.5, zoom: 418 },
 }
 
 hoshiguma.alter = [hoshigumaBreacher]

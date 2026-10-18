@@ -104,7 +104,7 @@ const matterhorn: Operator = {
     { id: 'skin1', label: 'Beach Guard GT.001', src: '/operators/matterhorn/skin1.png', chibiSrc: '/operators/matterhorn/chibi-skin1.webm', illustrator: '竜崎いち' },
   ],
   portrait: '/operators/matterhorn/portrait.png',
-  portraitFocus: { y: 2, x: 40, zoom: 290 },
+  portraitFocus: { y: 0.2, x: 42.8, zoom: 384 },
 }
 
 export default matterhorn

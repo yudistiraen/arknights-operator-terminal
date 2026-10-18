@@ -86,6 +86,7 @@ const mayer: Operator = {
     { id: 'skin1', label: 'Visionblazer in the Courtyard', src: '/operators/mayer/skin1.png', chibiSrc: '/operators/mayer/chibi-skin1.webm', chibiMoveSrc: '/operators/mayer/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
   ],
   portrait: '/operators/mayer/portrait.png',
+  portraitFocus: { y: -10.9, x: 53.2, zoom: 269 },
   summon: {
     name: 'Robotter',
     icon: '/operators/mayer/robotter.png',

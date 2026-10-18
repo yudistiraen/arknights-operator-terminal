@@ -88,7 +88,7 @@ const enforcer: Operator = {
     { id: 'skin1', label: 'Paper Wing', src: '/operators/enforcer/skin1.png', chibiSrc: '/operators/enforcer/chibi-skin1.webm', illustrator: 'Chuzenji' },
   ],
   portrait: '/operators/enforcer/portrait.png',
-  portraitFocus: { y: 0, x: 47, zoom: 310 },
+  portraitFocus: { y: 1.9, x: 46.6, zoom: 408 },
 }
 
 export default enforcer

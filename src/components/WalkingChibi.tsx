@@ -21,9 +21,22 @@ function randomBetween(min: number, max: number) {
 
 interface WalkingChibiUnitProps {
   chibi: WalkableChibi
+  /** Rendered sprite width in px — drives the walk bounds and keeps walk speed proportional to size. */
+  spriteSize?: number
+  edgePadding?: number
+  /** Tailwind width/height classes for the sprite box; must match `spriteSize`. */
+  sizeClassName?: string
+  /** The translucent ground shadow keys badly against a chroma-key background, so the stream layout turns it off. */
+  showGroundShadow?: boolean
 }
 
-function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
+export function WalkingChibiUnit({
+  chibi,
+  spriteSize = SPRITE_SIZE,
+  edgePadding = EDGE_PADDING,
+  sizeClassName = 'w-19.25 h-19.25 md:w-21.5 md:h-21.5',
+  showGroundShadow = true,
+}: WalkingChibiUnitProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const flipRef = useRef<HTMLDivElement>(null)
   const idleVideoRef = useRef<HTMLDivElement>(null)
@@ -40,8 +53,9 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
     const moveVideoEl = moveVideoElRef.current
     if (!container || !flipTarget || !idleLayer || !moveLayer || !idleVideoEl || !moveVideoEl) return
 
-    const maxWalkX = () => window.innerWidth - SPRITE_SIZE - EDGE_PADDING
-    gsap.set(container, { x: randomBetween(EDGE_PADDING, maxWalkX()) })
+    const walkSpeed = WALK_SPEED_PX_PER_SEC * (spriteSize / SPRITE_SIZE)
+    const maxWalkX = () => Math.max(edgePadding, window.innerWidth - spriteSize - edgePadding)
+    gsap.set(container, { x: randomBetween(edgePadding, maxWalkX()) })
 
     // Idle starts visible/playing, move starts hidden — keep their decode state matching that
     // from the first frame instead of relying on the `walk()`/`onComplete` handoff below to
@@ -51,7 +65,7 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
 
     function walk() {
       const currentX = gsap.getProperty(container, 'x') as number
-      const targetX = randomBetween(EDGE_PADDING, maxWalkX())
+      const targetX = randomBetween(edgePadding, maxWalkX())
       const movingRight = targetX > currentX
       const walkDistance = Math.abs(targetX - currentX)
 
@@ -71,7 +85,7 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
 
       gsap.to(container, {
         x: targetX,
-        duration: Math.max(walkDistance / WALK_SPEED_PX_PER_SEC, 0.4),
+        duration: Math.max(walkDistance / walkSpeed, 0.4),
         ease: 'none',
         onComplete: () => {
           idleVideoEl!.currentTime = 0
@@ -92,7 +106,7 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
   return (
     <div
       ref={containerRef}
-      className="fixed bottom-0.5 left-0 z-99 pointer-events-none w-19.25 h-19.25 md:w-21.5 md:h-21.5"
+      className={`fixed bottom-0.5 left-0 z-99 pointer-events-none ${sizeClassName}`}
     >
       {/* The full chibi.framing transform (scale + offset) lives on this one plain wrapper div
           (not containerRef/flipRef, which GSAP owns for x-position and the walk-direction flip
@@ -108,7 +122,9 @@ function WalkingChibiUnit({ chibi }: WalkingChibiUnitProps) {
             5 mascots to roughly halve the frame rate on its own. A plain blurred ellipse costs
             nothing per frame since its own content never changes — the compositor just reuses the
             same rasterized layer. */}
-        <div className="absolute inset-x-0 bottom-[6%] mx-auto w-[55%] h-[12%] rounded-full bg-black/45 blur-[3px]" />
+        {showGroundShadow && (
+          <div className="absolute inset-x-0 bottom-[6%] mx-auto w-[55%] h-[12%] rounded-full bg-black/45 blur-[3px]" />
+        )}
         <div ref={flipRef} className="relative w-full h-full overflow-hidden">
           <div ref={idleVideoRef} className="absolute inset-0">
             <video

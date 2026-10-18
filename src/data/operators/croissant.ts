@@ -95,7 +95,7 @@ Automatically activated`, spInit: 12, sp: 20, dur: '30s' },
     { id: 'skin2', label: 'Seeker SK03', src: '/operators/croissant/skin2.png', chibiSrc: '/operators/croissant/chibi-skin2.webm', chibiMoveSrc: '/operators/croissant/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
   ],
   portrait: '/operators/croissant/portrait.png',
-  portraitFocus: { y: -10, x: 57, zoom: 250 },
+  portraitFocus: { y: -10.6, x: 55.3, zoom: 259 },
 }
 
 export default croissant

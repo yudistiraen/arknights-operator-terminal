@@ -73,7 +73,7 @@ const shirayuki: Operator = {
     { id: 'skin1', label: 'Wind of Breaking Blade', src: '/operators/shirayuki/skin1.png', chibiSrc: '/operators/shirayuki/chibi-skin1.webm', illustrator: '阿鬼' },
   ],
   portrait: '/operators/shirayuki/portrait.png',
-  portraitFocus: { y: -8, x: 5, zoom: 255 }
+  portraitFocus: { y: -7.9, x: 4.7, zoom: 265 },
 }
 
 export default shirayuki

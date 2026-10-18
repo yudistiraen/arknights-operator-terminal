@@ -130,6 +130,7 @@ const exusiai: Operator = {
     { id: 'skin3', label: 'Midnight Delivery', src: '/operators/exusiai/skin3.png', chibiSrc: '/operators/exusiai/chibi-skin3.webm', chibiMoveSrc: '/operators/exusiai/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '尾鱼' },
   ],
   portrait: '/operators/exusiai/portrait.png',
+  portraitFocus: { y: 0, x: 28, zoom: 330 },
 }
 
 const exusiaiNewCovenant: OperatorAlter = {
@@ -261,6 +262,7 @@ const exusiaiNewCovenant: OperatorAlter = {
     { id: 'skin1', label: 'The Legend Seeker', src: '/operators/exusiai/new-covenant/skin1.png', chibiSrc: '/operators/exusiai/new-covenant/chibi-skin1.webm', chibiMoveSrc: '/operators/exusiai/new-covenant/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
   ],
   portrait: '/operators/exusiai/new-covenant/portrait.png',
+  portraitFocus: { y: 0, x: 46.7, zoom: 341 },
 }
 
 exusiai.alter = [exusiaiNewCovenant]

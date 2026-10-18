@@ -126,7 +126,7 @@ Charged effect: The next attack deals {judge_s_1_enhance_checker.atk_scale:0%} d
     { id: 'skin2', label: 'Scribing', src: '/operators/penance/skin2.png', chibiSrc: '/operators/penance/chibi-skin2.webm', illustrator: 'IRIS_口艺' },
   ],
   portrait: '/operators/penance/portrait.png',
-  portraitFocus: { y: -2, x: 50, zoom: 285 },
+  portraitFocus: { y: 1.9, x: 50.5, zoom: 408 },
 }
 
 export default penance

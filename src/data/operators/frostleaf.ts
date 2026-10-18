@@ -88,7 +88,7 @@ const frostleaf: Operator = {
     { id: 'skin1', label: 'Breaking the Ice', src: '/operators/frostleaf/skin1.png', chibiSrc: '/operators/frostleaf/chibi-skin1.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/frostleaf/portrait.png',
-  portraitFocus: { y: 23, x: 47, zoom: 280 },
+  portraitFocus: { y: 21.2, x: 34.2, zoom: 327 },
 }
 
 export default frostleaf

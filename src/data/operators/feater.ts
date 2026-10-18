@@ -80,7 +80,7 @@ const feater: Operator = {
     { id: 'skin2', label: 'Gourmet', src: '/operators/feater/skin2.png', chibiSrc: '/operators/feater/chibi-skin2.webm', chibiMoveSrc: '/operators/feater/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'RAN' },
   ],
   portrait: '/operators/feater/portrait.png',
-  portraitFocus: { y: 3, x: 43, zoom: 240 },
+  portraitFocus: { y: -0.9, x: 42.2, zoom: 280 },
 }
 
 export default feater

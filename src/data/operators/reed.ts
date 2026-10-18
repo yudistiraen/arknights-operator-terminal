@@ -76,6 +76,7 @@ const reed: Operator = {
     { id: 'skin1', label: 'Emerald Holiday', src: '/operators/reed/skin1.png', chibiSrc: '/operators/reed/chibi-skin1.webm', chibiMoveSrc: '/operators/reed/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
   ],
   portrait: '/operators/reed/portrait.png',
+  portraitFocus: { y: 6.3, x: 41.3, zoom: 363 },
 }
 
 export default reed

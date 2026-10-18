@@ -98,6 +98,7 @@ const bellone: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/bellone/e2.png', chibiSrc: '/operators/bellone/chibi.webm', chibiMoveSrc: '/operators/bellone/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Lowro & Studio Montagne' },
   ],
   portrait: '/operators/bellone/portrait.png',
+  portraitFocus: { y: 0.3, x: 51.9, zoom: 454 },
   summon: {
     name: 'Bond',
     icon: '/operators/bellone/bond.png',

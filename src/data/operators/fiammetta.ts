@@ -127,7 +127,7 @@ Unlimited duration, can manually deactivate skill`, spInit: 0, sp: 15, dur: '∞
     { id: 'skin2', label: 'Judgment Day', src: '/operators/fiammetta/skin2.png', chibiSrc: '/operators/fiammetta/chibi-skin2.webm', chibiMoveSrc: '/operators/fiammetta/chibi-move-skin2.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0.6 }, chibiDetailFraming: { scale: 0.966, offsetXPercent: 0, offsetYPercent: 0.6 }, illustrator: '嘎嘎人' },
   ],
   portrait: '/operators/fiammetta/portrait.png',
-  portraitFocus: { y: 8, x: 51, zoom: 320 },
+  portraitFocus: { y: 7.8, x: 50.5, zoom: 355 },
 }
 
 export default fiammetta

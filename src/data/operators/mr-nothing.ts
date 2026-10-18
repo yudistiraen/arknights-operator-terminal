@@ -79,6 +79,7 @@ const mrNothing: Operator = {
     { id: 'skin1', label: 'Pale Rising Moon', src: '/operators/mr-nothing/skin1.png', chibiSrc: '/operators/mr-nothing/chibi-skin1.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/mr-nothing/portrait.png',
+  portraitFocus: { y: 0.9, x: 49.3, zoom: 448 },
 }
 
 export default mrNothing

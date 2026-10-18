@@ -103,6 +103,7 @@ const ash: Operator = {
     { id: 'skin1', label: 'Ranger', src: '/operators/ash/skin1.png', chibiSrc: '/operators/ash/chibi-skin1.webm', chibiMoveSrc: '/operators/ash/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
   ],
   portrait: '/operators/ash/portrait.png',
+  portraitFocus: { y: 3, x: 51.1, zoom: 408 },
 }
 
 export default ash

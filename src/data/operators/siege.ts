@@ -104,6 +104,7 @@ const siege: Operator = {
     { id: 'skin2', label: 'City Destroyer', src: '/operators/siege/skin2.png', chibiSrc: '/operators/siege/chibi-skin2.webm', chibiMoveSrc: '/operators/siege/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
   ],
   portrait: '/operators/siege/portrait.png',
+  portraitFocus: { y: -1.3, x: 36.5, zoom: 347 },
   alter: {
     name: 'Vina Victoria', fileNo: 'VC00', class: 'Guard', branch: 'Arts Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
     position: 'Melee', trait: 'Deals Arts damage', tags: ['DPS', 'Survival'], illustrator: 'Studio Montagne (original design by Infukun)',
@@ -204,6 +205,7 @@ const siege: Operator = {
       { id: 'skin1', label: 'Glorious Path', src: '/operators/siege/vina-victoria/skin1.png', chibiSrc: '/operators/siege/vina-victoria/chibi-skin1.webm', chibiMoveSrc: '/operators/siege/vina-victoria/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liyu黎' },
     ],
     portrait: '/operators/siege/vina-victoria/portrait.png',
+    portraitFocus: { y: 1.5, x: 68.3, zoom: 392 },
     summon: {
       name: 'Golden Vows', icon: '/operators/siege/vina-victoria/golden-vows.png', position: 'Low', trait: 'Blocks 1 enemy, and attacks deal True damage',
       stats: { hp: 4000, atk: 500, def: 300, res: 0, block: 1, cost: 0, aspd: '2.5s', rdp: '0s' },
