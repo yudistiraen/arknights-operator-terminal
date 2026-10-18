@@ -137,6 +137,7 @@ const chen: Operator = {
     { id: 'skin2', label: 'After Storm', src: '/operators/chen/skin2.png', chibiSrc: '/operators/chen/chibi-skin2.webm', chibiMoveSrc: '/operators/chen/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋' },
   ],
   portrait: '/operators/chen/portrait.png',
+  portraitFocus: { y: 0.4, x: 73.7, zoom: 343 },
 }
 
 const chenHolungday: OperatorAlter = {
@@ -272,6 +273,7 @@ const chenHolungday: OperatorAlter = {
     { id: 'skin2', label: 'Holiday HD79', src: '/operators/chen/holungday/skin2.png', chibiSrc: '/operators/chen/holungday/chibi-skin2.webm', chibiMoveSrc: '/operators/chen/holungday/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '三目YYB' },
   ],
   portrait: '/operators/chen/holungday/portrait.png',
+  portraitFocus: { y: 9.3, x: 57.1, zoom: 388 },
 }
 
 const chenDawnstreak: OperatorAlter = {
@@ -399,6 +401,7 @@ const chenDawnstreak: OperatorAlter = {
     { id: 'e2', label: 'Elite 2', src: '/operators/chen/dawnstreak/e2.png', chibiSrc: '/operators/chen/dawnstreak/chibi.webm', chibiMoveSrc: '/operators/chen/dawnstreak/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '三目YYB' },
   ],
   portrait: '/operators/chen/dawnstreak/portrait.png',
+  portraitFocus: { y: 2.5, x: 67.2, zoom: 361 },
 }
 
 chen.alter = [chenHolungday, chenDawnstreak]

@@ -96,6 +96,7 @@ const swire: Operator = {
     { id: 'skin1', label: 'Honor and Splendor', src: '/operators/swire/skin1.png', chibiSrc: '/operators/swire/chibi-skin1.webm', chibiMoveSrc: '/operators/swire/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/swire/portrait.png',
+  portraitFocus: { y: -7.1, x: 41.5, zoom: 295 },
   alter: {
     name: 'Swire the Elegant Wit', fileNo: 'LM22', class: 'Specialist', branch: 'Merchant', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
     position: 'Melee',
@@ -222,6 +223,7 @@ const swire: Operator = {
       { id: 'skin1', label: 'Rhythmic Blocks', src: '/operators/swire/alter/skin1.png', chibiSrc: '/operators/swire/alter/chibi-skin1.webm', chibiMoveSrc: '/operators/swire/alter/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
     ],
     portrait: '/operators/swire/alter/portrait.png',
+    portraitFocus: { y: -3.4, x: 43.7, zoom: 354 },
     summon: {
       name: 'Champagne Bomb',
       icon: '/operators/swire/alter/champagne-bomb.png',

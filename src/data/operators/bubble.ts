@@ -74,7 +74,7 @@ const bubble: Operator = {
     { id: 'skin1', label: 'The Wind Rider', src: '/operators/bubble/skin1.png', chibiSrc: '/operators/bubble/chibi.webm', illustrator: '香煎蟹黄' },
   ],
   portrait: '/operators/bubble/portrait.png',
-  portraitFocus: { y: -2, x: 10, zoom: 220 }
+  portraitFocus: { y: 1.9, x: 6.1, zoom: 228 },
 }
 
 export default bubble

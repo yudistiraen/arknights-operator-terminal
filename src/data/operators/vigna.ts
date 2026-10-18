@@ -71,7 +71,7 @@ const vigna: Operator = {
     { id: 'skin2', label: 'Black Wave', src: '/operators/vigna/skin2.png', chibiSrc: '/operators/vigna/chibi-skin2.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/vigna/portrait.png',
-  portraitFocus: { y: -5, x: 38, zoom: 250 },
+  portraitFocus: { y: -6.5, x: 38.4, zoom: 269 },
 }
 
 export default vigna

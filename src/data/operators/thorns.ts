@@ -107,6 +107,7 @@ const thorns: Operator = {
     { id: 'skin2', label: 'Blade-cleaved Tides', src: '/operators/thorns/skin2.png', chibiSrc: '/operators/thorns/chibi-skin2.webm', chibiMoveSrc: '/operators/thorns/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Studio Montagne' },
   ],
   portrait: '/operators/thorns/portrait.png',
+  portraitFocus: { y: -6.7, x: 44.7, zoom: 344 },
   alter: {
     name: 'Thorns the Lodestar', fileNo: 'II02', class: 'Specialist', branch: 'Alchemist', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
     position: 'Ranged', trait: 'Can throw Alchemical Units to assist in combat', tags: ['DPS', 'Support', 'Debuff'], illustrator: '嘎嘎人 (original design by 幻象黑兔)',
@@ -204,6 +205,7 @@ const thorns: Operator = {
       { id: 'skin1', label: 'Boundless Sail', src: '/operators/thorns/thorns-the-lodestar/skin1.png', chibiSrc: '/operators/thorns/thorns-the-lodestar/chibi-skin1.webm', chibiMoveSrc: '/operators/thorns/thorns-the-lodestar/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '嘎嘎人 (original design by 幻象黑兔)' },
     ],
     portrait: '/operators/thorns/thorns-the-lodestar/portrait.png',
+    portraitFocus: { y: 0.5, x: 63.9, zoom: 340 },
   },
 }
 

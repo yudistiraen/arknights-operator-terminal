@@ -141,7 +141,7 @@ Cannot use normal attacks while skill is inactive`, spInit: 10, sp: 25, dur: '25
     { id: 'skin2', label: 'Summer Flower FA017', src: '/operators/angelina/skin2.png', chibiSrc: '/operators/angelina/chibi-skin2.webm', illustrator: 'LM7' },
   ],
   portrait: '/operators/angelina/portrait.png',
-  portraitFocus: { y: -5, x: 40, zoom: 220 },
+  portraitFocus: { y: -3.4, x: 40.2, zoom: 290 },
 }
 
 export default angelina

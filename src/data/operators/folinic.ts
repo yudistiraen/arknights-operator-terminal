@@ -74,7 +74,7 @@ const folinic: Operator = {
     { id: 'skin1', label: 'Lasting Arrowroot', src: '/operators/folinic/skin1.png', chibiSrc: '/operators/folinic/chibi-skin1.webm', illustrator: 'm9nokuro' },
   ],
   portrait: '/operators/folinic/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 290 },
+  portraitFocus: { y: -8.2, x: 49.4, zoom: 308 },
 }
 
 export default folinic

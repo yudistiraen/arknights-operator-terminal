@@ -74,7 +74,7 @@ const durNar: Operator = {
     { id: 'skin1', label: 'Plush Cake', src: '/operators/dur-nar/skin1.png', chibiSrc: '/operators/dur-nar/chibi-skin1.webm', illustrator: '3MO' },
   ],
   portrait: '/operators/dur-nar/portrait.png',
-  portraitFocus: { y: -3, x:35, zoom: 270 }
+  portraitFocus: { y: -0.9, x: 40.7, zoom: 313 },
 }
 
 export default durNar

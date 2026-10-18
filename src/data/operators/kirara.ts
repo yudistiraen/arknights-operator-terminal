@@ -91,6 +91,7 @@ const kirara: Operator = {
     { id: 'skin2', label: 'Leisurely Snapshot', src: '/operators/kirara/skin2.png', chibiSrc: '/operators/kirara/chibi-skin2.webm', chibiMoveSrc: '/operators/kirara/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '我妻洛醬' },
   ],
   portrait: '/operators/kirara/portrait.png',
+  portraitFocus: { y: -3.9, x: 48.1, zoom: 286 },
 }
 
 export default kirara

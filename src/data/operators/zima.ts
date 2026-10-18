@@ -76,7 +76,7 @@ const zima: Operator = {
     { id: 'skin2', label: 'Ursus IO79', src: '/operators/zima/skin2.png', chibiSrc: '/operators/zima/chibi-skin2.webm', chibiMoveSrc: '/operators/zima/chibi-move-skin2.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1, offsetYPercent: 2 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/zima/portrait.png',
-  portraitFocus: { y: -5, x: 42, zoom: 270 }
+  portraitFocus: { y: -9, x: 40.1, zoom: 276 },
 }
 
 export default zima

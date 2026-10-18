@@ -77,6 +77,8 @@ const scavenger: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/scavenger/e2.png', chibiSrc: '/operators/scavenger/chibi.webm', chibiMoveSrc: '/operators/scavenger/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
     { id: 'skin1', label: 'Survive', src: '/operators/scavenger/skin1.png', chibiSrc: '/operators/scavenger/chibi-skin1.webm', chibiMoveSrc: '/operators/scavenger/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
   ],
+  portrait: '/operators/scavenger/portrait.png',
+  portraitFocus: { y: -4.4, x: 67.1, zoom: 358 },
 }
 
 export default scavenger

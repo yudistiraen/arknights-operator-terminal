@@ -106,7 +106,7 @@ const archetto: Operator = {
     { id: 'skin2', label: 'Glory to the Devout', src: '/operators/archetto/skin2.png', chibiSrc: '/operators/archetto/chibi-skin2.webm', illustrator: 'alchemaniac' },
   ],
   portrait: '/operators/archetto/portrait.png',
-  portraitFocus: { y: -5, x: 30, zoom: 210 },
+  portraitFocus: { y: -4.9, x: 30.5, zoom: 270 },
 }
 
 export default archetto

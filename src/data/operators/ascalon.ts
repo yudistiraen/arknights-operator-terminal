@@ -104,6 +104,7 @@ const ascalon: Operator = {
     { id: 'skin1', label: 'Phototaxis', src: '/operators/ascalon/skin1.png', chibiSrc: '/operators/ascalon/chibi-skin1.webm', chibiMoveSrc: '/operators/ascalon/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
   ],
   portrait: '/operators/ascalon/portrait.png',
+  portraitFocus: { y: -0.9, x: 50, zoom: 358 },
 }
 
 export default ascalon

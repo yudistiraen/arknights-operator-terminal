@@ -79,7 +79,7 @@ const beeswax: Operator = {
     { id: 'skin2', label: 'Holiday HD61', src: '/operators/beeswax/skin2.png', chibiSrc: '/operators/beeswax/chibi-skin2.webm', chibiMoveSrc: '/operators/beeswax/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'カワグチ' },
   ],
   portrait: '/operators/beeswax/portrait.png',
-  portraitFocus: { y: 15, x: 50, zoom: 290 },
+  portraitFocus: { y: 16.5, x: 48.8, zoom: 377 },
   summon: {
     name: 'Sand Obelisk',
     icon: '/operators/beeswax/sand-obelisk.png',

@@ -97,7 +97,7 @@ const w: Operator = {
     { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', characterSlotPrefix: 'W_', focus: { zoom: 0.62, offsetY: 30, offsetX: 750 } } },
   ],
   portrait: '/operators/w/portrait.png',
-  portraitFocus: { y: -5, x: 50, zoom: 250 },
+  portraitFocus: { y: -4.9, x: 47, zoom: 309 },
 }
 
 export default w

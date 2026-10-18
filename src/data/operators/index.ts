@@ -1,6 +1,7 @@
 import amiya from './amiya'
 import ascalon from './ascalon'
 import ash from './ash'
+import closure from './closure'
 import bagpipe from './bagpipe'
 import blaze from './blaze'
 import rosmontis from './rosmontis'
@@ -193,11 +194,14 @@ import surtr from './surtr'
 import suzuran from './suzuran'
 import thorns from './thorns'
 import weedy from './weedy'
+import viy from './viy'
+import crackborne from './crackborne'
 
 export const OPERATORS = [
   amiya,
   ascalon,
   ash,
+  closure,
   bagpipe,
   blaze,
   rosmontis,
@@ -390,6 +394,8 @@ export const OPERATORS = [
   suzuran,
   thorns,
   weedy,
+  viy,
+  crackborne,
 ].sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 
 export const DEFAULT_OPERATOR_INDEX = OPERATORS.findIndex(op => op.name === 'Amiya')

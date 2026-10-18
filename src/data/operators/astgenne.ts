@@ -73,7 +73,7 @@ const astgenne: Operator = {
     { id: 'skin1', label: 'Her Aspiration', src: '/operators/astgenne/skin1.png', chibiSrc: '/operators/astgenne/chibi-skin1.webm', illustrator: 'YUJI' },
   ],
   portrait: '/operators/astgenne/portrait.png',
-  portraitFocus: { y: -8, x: 50, zoom: 260 },
+  portraitFocus: { y: -2.6, x: 52, zoom: 305 },
 }
 
 export default astgenne

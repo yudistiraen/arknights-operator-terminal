@@ -109,6 +109,7 @@ const surtr: Operator = {
     { id: 'skin3', label: 'Prelude to Transcendence', src: '/operators/surtr/skin3.png', chibiSrc: '/operators/surtr/chibi-skin3.webm', chibiMoveSrc: '/operators/surtr/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ask' },
   ],
   portrait: '/operators/surtr/portrait.png',
+  portraitFocus: { y: 15.9, x: 42.1, zoom: 408 },
 }
 
 export default surtr

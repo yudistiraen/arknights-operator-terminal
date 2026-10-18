@@ -78,6 +78,7 @@ const projektRed: Operator = {
     { id: 'skin1', label: 'Light Breeze LB01', src: '/operators/projekt-red/skin1.png', chibiSrc: '/operators/projekt-red/chibi-skin1.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
   ],
   portrait: '/operators/projekt-red/portrait.png',
+  portraitFocus: { y: -0.7, x: 53.7, zoom: 365 },
 }
 
 export default projektRed

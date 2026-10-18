@@ -79,6 +79,7 @@ const hung: Operator = {
     { id: 'skin1', label: 'Just a Driver', src: '/operators/hung/skin1.png', chibiSrc: '/operators/hung/chibi-skin1.webm', chibiMoveSrc: '/operators/hung/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
   ],
   portrait: '/operators/hung/portrait.png',
+  portraitFocus: { y: -4.2, x: 32.2, zoom: 348 },
 }
 
 export default hung

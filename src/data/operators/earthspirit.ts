@@ -84,7 +84,7 @@ const earthspirit: Operator = {
     { id: 'skin1', label: 'Major Field', src: '/operators/earthspirit/skin1.png', chibiSrc: '/operators/earthspirit/chibi-skin1.webm', illustrator: 'HUG' },
   ],
   portrait: '/operators/earthspirit/portrait.png',
-  portraitFocus: { y: 3, x: 72, zoom: 290 },
+  portraitFocus: { y: 5.2, x: 72.5, zoom: 322 },
 }
 
 export default earthspirit

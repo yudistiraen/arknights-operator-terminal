@@ -82,7 +82,7 @@ const cliffheart: Operator = {
     { id: 'skin2', label: 'Highlands Visitor', src: '/operators/cliffheart/skin2.png', chibiSrc: '/operators/cliffheart/chibi-skin2.webm', chibiMoveSrc: '/operators/cliffheart/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/cliffheart/portrait.png',
-  portraitFocus: { y: -10, x: 36, zoom: 250 },
+  portraitFocus: { y: -4.8, x: 34.5, zoom: 314 },
 }
 
 export default cliffheart

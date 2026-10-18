@@ -84,6 +84,7 @@ const kafka: Operator = {
     { id: 'skin1', label: 'Cardboard Fairy', src: '/operators/kafka/skin1.png', chibiSrc: '/operators/kafka/chibi-skin1.webm', chibiMoveSrc: '/operators/kafka/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/kafka/portrait.png',
+  portraitFocus: { y: 2, x: 48.5, zoom: 324 },
 }
 
 export default kafka

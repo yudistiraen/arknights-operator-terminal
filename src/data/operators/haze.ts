@@ -76,6 +76,8 @@ const haze: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/haze/e2.png', chibiSrc: '/operators/haze/chibi.webm', chibiMoveSrc: '/operators/haze/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
     { id: 'skin1', label: 'The Nursing Home Creepshow', src: '/operators/haze/skin1.png', chibiSrc: '/operators/haze/chibi-skin1.webm', chibiMoveSrc: '/operators/haze/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '水滴鱼' },
   ],
+  portrait: '/operators/haze/portrait.png',
+  portraitFocus: { y: -6, x: 55.6, zoom: 254 },
 }
 
 export default haze

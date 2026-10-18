@@ -104,6 +104,7 @@ const whisperain: Operator = {
     { id: 'skin2', label: 'Priory of Abyss', src: '/operators/whisperain/skin2.png', chibiSrc: '/operators/whisperain/chibi-skin2.webm', chibiMoveSrc: '/operators/whisperain/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Chuzenji' },
   ],
   portrait: '/operators/whisperain/portrait.png',
+  portraitFocus: { y: 1.6, x: 49, zoom: 351 },
 }
 
 export default whisperain

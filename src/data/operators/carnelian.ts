@@ -101,6 +101,7 @@ const carnelian: Operator = {
     { id: 'skin2', label: 'Shining Dew SD08', src: '/operators/carnelian/skin2.png', chibiSrc: '/operators/carnelian/chibi-skin2.webm', chibiMoveSrc: '/operators/carnelian/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'カワグチ' },
   ],
   portrait: '/operators/carnelian/portrait.png',
+  portraitFocus: { y: 1, x: 49, zoom: 370 },
 }
 
 export default carnelian

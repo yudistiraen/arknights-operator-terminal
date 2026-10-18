@@ -89,7 +89,7 @@ const cantabile: Operator = {
     { id: 'skin2', label: 'Bard by the Lake', src: '/operators/cantabile/skin2.png', chibiSrc: '/operators/cantabile/chibi-skin2.webm', illustrator: '温泉瓜' },
   ],
   portrait: '/operators/cantabile/portrait.png',
-  portraitFocus: { y: -2, x: 53, zoom: 320 },
+  portraitFocus: { y: -3.4, x: 53.4, zoom: 338 },
 }
 
 export default cantabile

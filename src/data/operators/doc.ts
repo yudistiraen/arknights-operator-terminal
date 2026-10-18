@@ -91,7 +91,7 @@ const doc: Operator = {
     { id: 'skin1', label: 'Exhibition', src: '/operators/doc/skin1.png', chibiSrc: '/operators/doc/chibi-skin1.webm', illustrator: 'Ubisoft' },
   ],
   portrait: '/operators/doc/portrait.png',
-  portraitFocus: { y: -5, x: 40, zoom: 310 },
+  portraitFocus: { y: -6.1, x: 38.7, zoom: 360 },
 }
 
 export default doc

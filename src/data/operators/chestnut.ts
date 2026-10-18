@@ -74,7 +74,7 @@ const chestnut: Operator = {
     { id: 'skin1', label: 'Holiday HDm57', src: '/operators/chestnut/skin1.png', chibiSrc: '/operators/chestnut/chibi-skin1.webm', illustrator: '树豚' },
   ],
   portrait: '/operators/chestnut/portrait.png',
-  portraitFocus: { y: 18, x: 53, zoom: 350 }
+  portraitFocus: { y: 16.1, x: 52.1, zoom: 393 },
 }
 
 export default chestnut

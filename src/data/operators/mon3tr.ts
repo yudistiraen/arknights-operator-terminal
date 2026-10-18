@@ -121,6 +121,7 @@ const mon3tr: Operator = {
     { id: 'skin1', label: 'Sharpened Blades', src: '/operators/mon3tr/skin1.png', chibiSrc: '/operators/mon3tr/chibi-skin1.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋' },
   ],
   portrait: '/operators/mon3tr/portrait.png',
+  portraitFocus: { y: 2, x: 51.7, zoom: 345 },
 }
 
 export default mon3tr

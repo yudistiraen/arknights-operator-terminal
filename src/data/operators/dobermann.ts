@@ -74,7 +74,7 @@ const dobermann: Operator = {
     { id: 'skin1', label: 'Lieutenant', src: '/operators/dobermann/skin1.png', chibiSrc: '/operators/dobermann/chibi-skin1.webm', illustrator: 'LLC' },
   ],
   portrait: '/operators/dobermann/portrait.png',
-  portraitFocus: { y: 2, x: 40, zoom: 280 },
+  portraitFocus: { y: -0.8, x: 50.8, zoom: 325 },
 }
 
 export default dobermann

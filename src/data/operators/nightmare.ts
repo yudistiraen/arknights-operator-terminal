@@ -76,7 +76,7 @@ const nightmare: Operator = {
     { id: 'skin2', label: 'The Ferry Girl', src: '/operators/nightmare/skin2.png', chibiSrc: '/operators/nightmare/chibi-skin2.webm', illustrator: 'Yukuso' },
   ],
   portrait: '/operators/nightmare/portrait.png',
-  portraitFocus: { y: 3, x: 63, zoom: 270 },
+  portraitFocus: { y: -0.8, x: 61.5, zoom: 266 },
 }
 
 export default nightmare

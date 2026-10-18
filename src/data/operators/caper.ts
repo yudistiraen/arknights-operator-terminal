@@ -73,7 +73,7 @@ const caper: Operator = {
     { id: 'skin1', label: 'Summer Flowers FA083', src: '/operators/caper/skin1.png', chibiSrc: '/operators/caper/chibi-skin1.webm', illustrator: '臼' },
   ],
   portrait: '/operators/caper/portrait.png',
-  portraitFocus: { y: 3, x: 40, zoom: 270 }
+  portraitFocus: { y: 7, x: 43.8, zoom: 305 },
 }
 
 export default caper

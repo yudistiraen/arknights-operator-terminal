@@ -106,6 +106,7 @@ const saria: Operator = {
     { id: 'skin3', label: 'Unstained, Unshaken', src: '/operators/saria/skin3.png', chibiSrc: '/operators/saria/chibi-skin3.webm', chibiMoveSrc: '/operators/saria/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '九日九号' },
   ],
   portrait: '/operators/saria/portrait.png',
+  portraitFocus: { y: -7.8, x: 57.1, zoom: 318 },
 }
 
 export default saria

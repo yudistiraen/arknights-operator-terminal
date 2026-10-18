@@ -80,6 +80,7 @@ const sesa: Operator = {
     { id: 'skin1', label: 'To Evoke the Anima', src: '/operators/sesa/skin1.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/sesa/portrait.png',
+  portraitFocus: { y: 9.3, x: 42.7, zoom: 414 },
 }
 
 export default sesa

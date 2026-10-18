@@ -78,6 +78,8 @@ const may: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/may/e2.png', chibiSrc: '/operators/may/chibi.webm', chibiMoveSrc: '/operators/may/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
     { id: 'skin1', label: 'Summer Flowers FA054', src: '/operators/may/skin1.png', chibiSrc: '/operators/may/chibi-skin1.webm', chibiMoveSrc: '/operators/may/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
   ],
+  portrait: '/operators/may/portrait.png',
+  portraitFocus: { y: -0.3, x: 35.2, zoom: 279 },
 }
 
 export default may

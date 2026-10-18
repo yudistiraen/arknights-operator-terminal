@@ -104,6 +104,7 @@ const tsukinogi: Operator = {
     { id: 'skin2', label: 'Dance', src: '/operators/tsukinogi/skin2.png', chibiSrc: '/operators/tsukinogi/chibi-skin2.webm', chibiMoveSrc: '/operators/tsukinogi/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '上埜' },
   ],
   portrait: '/operators/tsukinogi/portrait.png',
+  portraitFocus: { y: 5.1, x: 48.2, zoom: 331 },
 }
 
 export default tsukinogi

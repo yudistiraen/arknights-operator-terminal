@@ -168,7 +168,7 @@ During Fever, Ave Mujica members who receive fatal damage will not retreat until
     { id: 'skin1', label: 'Master of Melodia', src: '/operators/togawa-sakiko/skin1.png', chibiSrc: '/operators/togawa-sakiko/chibi-skin1.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: -16.7, offsetYPercent: -0.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: -3.5, offsetYPercent: -0.3 }, illustrator: 'Yukuso' },
   ],
   portrait: '/operators/togawa-sakiko/portrait.png',
-  portraitFocus: { x: 4,y: -10, zoom: 240 },
+  portraitFocus: { y: -9.2, x: 19.1, zoom: 297 },
 }
 
 export default togawaSakiko

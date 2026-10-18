@@ -75,7 +75,7 @@ const purestream: Operator = {
     { id: 'skin1', label: 'Yearly Present', src: '/operators/purestream/skin1.png', chibiSrc: '/operators/purestream/chibi-skin1.webm', illustrator: '直立行走' },
   ],
   portrait: '/operators/purestream/portrait.png',
-  portraitFocus: { y: -5, x: 25, zoom: 250 },
+  portraitFocus: { y: 2.3, x: 29.4, zoom: 306 },
 }
 
 export default purestream

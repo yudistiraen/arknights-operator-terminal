@@ -80,7 +80,7 @@ const ayerscarpe: Operator = {
     { id: 'skin1', label: 'Tested One', src: '/operators/ayerscarpe/skin1.png', chibiSrc: '/operators/ayerscarpe/chibi-skin1.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/ayerscarpe/portrait.png',
-  portraitFocus: { y: 2, x: 48, zoom: 290 },
+  portraitFocus: { y: 4.2, x: 48.3, zoom: 360 },
 }
 
 export default ayerscarpe

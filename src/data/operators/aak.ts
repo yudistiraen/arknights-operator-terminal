@@ -101,7 +101,7 @@ const aak: Operator = {
     { id: 'skin2', label: 'Healing Hand, Evil Heart', src: '/operators/aak/skin2.png', chibiSrc: '/operators/aak/chibi-skin2.webm', chibiMoveSrc: '/operators/aak/chibi-move-skin2.webm', chibiFraming: { scale: 1.5, offsetXPercent: -0.7, offsetYPercent: 0.4 }, chibiDetailFraming: { scale: 0.99, offsetXPercent: -0.7, offsetYPercent: 0.4 }, illustrator: 'KuroBlood' },
   ],
   portrait: '/operators/aak/portrait.png',
-  portraitFocus: { y: -5, x: 40, zoom: 220 },
+  portraitFocus: { y: -2, x: 35, zoom: 330 },
 }
 
 export default aak

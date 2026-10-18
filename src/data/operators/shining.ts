@@ -104,6 +104,7 @@ const shining: Operator = {
     { id: 'skin1', label: 'Silent Night DN02', src: '/operators/shining/skin1.png', chibiSrc: '/operators/shining/chibi-skin1.webm', chibiMoveSrc: '/operators/shining/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/shining/portrait.png',
+  portraitFocus: { y: -6.4, x: 35, zoom: 331 },
 }
 
 export default shining

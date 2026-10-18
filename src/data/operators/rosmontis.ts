@@ -135,7 +135,7 @@ const rosmontis: Operator = {
     { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎' },
   ],
   portrait: '/operators/rosmontis/portrait.png',
-  portraitFocus: { x:52, y: 28, zoom: 310 },
+  portraitFocus: { y: 31.2, x: 54, zoom: 520 },
 }
 
 export default rosmontis

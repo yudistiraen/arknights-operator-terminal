@@ -118,7 +118,7 @@ Skill can be manually deactivated; when skill ends, Ulpianus returns to his orig
     { id: 'skin1', label: 'Staring into the Abyss', src: '/operators/ulpianus/skin1.png', chibiSrc: '/operators/ulpianus/chibi-skin1.webm', illustrator: 'Skade' },
   ],
   portrait: '/operators/ulpianus/portrait.png',
-  portraitFocus: { y: -2, x: 50, zoom: 290 },
+  portraitFocus: { y: 3, x: 47.7, zoom: 429 },
 }
 
 export default ulpianus

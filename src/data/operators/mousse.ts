@@ -81,7 +81,7 @@ const mousse: Operator = {
     { id: 'skin2', label: 'Hydration Time', src: '/operators/mousse/skin2.png', chibiSrc: '/operators/mousse/chibi.webm', illustrator: 'Iritoa' },
   ],
   portrait: '/operators/mousse/portrait.png',
-  portraitFocus: { y: 0, x: 45, zoom: 250 },
+  portraitFocus: { y: -1, x: 51, zoom: 299 },
 }
 
 export default mousse

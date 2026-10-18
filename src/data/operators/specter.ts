@@ -96,6 +96,7 @@ const specter: Operator = {
     { id: 'skin1', label: 'Undercurrent', src: '/operators/specter/skin1.png', chibiSrc: '/operators/specter/chibi-skin1.webm', chibiMoveSrc: '/operators/specter/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/specter/portrait.png',
+  portraitFocus: { y: -4.9, x: 70.1, zoom: 314 },
   alter: {
     name: 'Specter the Unchained', fileNo: 'CR02', class: 'Specialist', branch: 'Dollkeeper', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Celebration'],
     position: 'Melee',
@@ -217,6 +218,7 @@ const specter: Operator = {
       { id: 'skin1', label: 'Born as One', src: '/operators/specter/alter/skin1.png', chibiSrc: '/operators/specter/alter/chibi-skin1.webm', chibiMoveSrc: '/operators/specter/alter/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
     ],
     portrait: '/operators/specter/alter/portrait.png',
+    portraitFocus: { y: 20.2, x: 52.8, zoom: 515 },
   },
 }
 

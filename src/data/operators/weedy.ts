@@ -129,6 +129,7 @@ const weedy: Operator = {
     { id: 'skin2', label: 'Sedjem', src: '/operators/weedy/skin2.png', chibiSrc: '/operators/weedy/chibi-skin2.webm', chibiMoveSrc: '/operators/weedy/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/weedy/portrait.png',
+  portraitFocus: { y: 0.8, x: 59.9, zoom: 304 },
 }
 
 export default weedy

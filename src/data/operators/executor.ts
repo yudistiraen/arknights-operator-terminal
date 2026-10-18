@@ -79,7 +79,7 @@ const executor: Operator = {
     { id: 'skin1', label: 'Titleless Code', src: '/operators/executor/skin1.png', chibiSrc: '/operators/executor/chibi-skin1.webm', illustrator: 'Skade' },
   ],
   portrait: '/operators/executor/portrait.png',
-  portraitFocus: { y: 0, x: 50, zoom: 320 },
+  portraitFocus: { y: -2.3, x: 50, zoom: 386 },
 
 }
 

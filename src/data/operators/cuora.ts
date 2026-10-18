@@ -74,7 +74,7 @@ const cuora: Operator = {
     { id: 'skin2', label: 'Amongst Lotuses', src: '/operators/cuora/skin2.png', chibiSrc: '/operators/cuora/chibi-skin2.webm', illustrator: 'Studio Montagne' },
   ],
   portrait: '/operators/cuora/portrait.png',
-  portraitFocus: { y: -9, x: 70, zoom: 220 }
+  portraitFocus: { y: -8.1, x: 69.6, zoom: 264 },
 }
 
 export default cuora

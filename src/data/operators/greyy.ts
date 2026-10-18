@@ -75,6 +75,8 @@ const greyy: Operator = {
     { id: 'skin1', label: 'Eggcellent Craftsman', src: '/operators/greyy/skin1.png', chibiSrc: '/operators/greyy/chibi.webm', illustrator: '我妻洛酱' },
     { id: 'skin2', label: 'My Fellow Newsboy', src: '/operators/greyy/skin2.png', chibiSrc: '/operators/greyy/chibi-skin2.webm', chibiMoveSrc: '/operators/greyy/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '我妻洛酱' },
   ],
+  portrait: '/operators/greyy/portrait.png',
+  portraitFocus: { y: -3.9, x: 43.7, zoom: 287 },
 }
 
 export default greyy

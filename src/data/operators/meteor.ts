@@ -76,6 +76,8 @@ const meteor: Operator = {
     { id: 'skin1', label: "Bard's Holiday", src: '/operators/meteor/skin1.png', chibiSrc: '/operators/meteor/chibi-skin1.webm', chibiMoveSrc: '/operators/meteor/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'HUG' },
     { id: 'skin2', label: 'Gwiazdcytrony', src: '/operators/meteor/skin2.png', chibiSrc: '/operators/meteor/chibi-skin2.webm', chibiMoveSrc: '/operators/meteor/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'HUG' },
   ],
+  portrait: '/operators/meteor/portrait.png',
+  portraitFocus: { y: -4.9, x: 61.1, zoom: 316 },
 }
 
 export default meteor

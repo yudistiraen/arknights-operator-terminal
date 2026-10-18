@@ -132,6 +132,7 @@ const phantom: Operator = {
     { id: 'skin2', label: "Focus", src: '/operators/phantom/skin2.png', chibiSrc: '/operators/phantom/chibi-skin2.webm', chibiMoveSrc: '/operators/phantom/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
   ],
   portrait: '/operators/phantom/portrait.png',
+  portraitFocus: { y: 0.2, x: 49.2, zoom: 408 },
 }
 
 const tragodia: OperatorAlter = {
@@ -235,6 +236,7 @@ const tragodia: OperatorAlter = {
     { id: 'e2', label: "Elite 2", src: '/operators/phantom/tragodia/e2.png', chibiSrc: '/operators/phantom/tragodia/chibi.webm', chibiMoveSrc: '/operators/phantom/tragodia/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
   ],
   portrait: '/operators/phantom/tragodia/portrait.png',
+  portraitFocus: { y: 1.4, x: 36.4, zoom: 414 },
 }
 
 phantom.alter = [tragodia]

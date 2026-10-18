@@ -74,7 +74,7 @@ const nowell: Operator = {
     { id: 'skin1', label: 'The Spirit-Farer', src: '/operators/nowell/skin1.png', chibiSrc: '/operators/nowell/chibi-skin1.webm', illustrator: '板板' },
   ],
   portrait: '/operators/nowell/portrait.png',
-  portraitFocus: { y: 0, x: 61, zoom: 320 }
+  portraitFocus: { y: -2.2, x: 60.2, zoom: 372 },
 }
 
 export default nowell

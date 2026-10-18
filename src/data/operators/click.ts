@@ -74,7 +74,7 @@ const click: Operator = {
     { id: 'skin2', label: 'Holiday HD59', src: '/operators/click/skin2.png', chibiSrc: '/operators/click/chibi.webm', illustrator: 'れおえん' },
   ],
   portrait: '/operators/click/portrait.png',
-  portraitFocus: { y: 5, x: 60, zoom: 250 }
+  portraitFocus: { y: 1.9, x: 60, zoom: 257 },
 
 }
 

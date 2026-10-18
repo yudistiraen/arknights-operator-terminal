@@ -74,6 +74,8 @@ const vermeil: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/vermeil/e2.png', chibiSrc: '/operators/vermeil/chibi.webm', chibiMoveSrc: '/operators/vermeil/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KENTllaall' },
     { id: 'skin1', label: 'Playfellows', src: '/operators/vermeil/skin1.png', chibiSrc: '/operators/vermeil/chibi-skin1.webm', chibiMoveSrc: '/operators/vermeil/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '二开' },
   ],
+  portrait: '/operators/vermeil/portrait.png',
+  portraitFocus: { y: -2.2, x: 44.1, zoom: 261 },
 }
 
 export default vermeil

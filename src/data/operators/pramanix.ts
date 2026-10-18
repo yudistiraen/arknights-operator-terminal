@@ -77,6 +77,7 @@ const pramanix: Operator = {
     { id: 'skin1', label: "Caster's Frost", src: '/operators/pramanix/skin1.png', chibiSrc: '/operators/pramanix/chibi-skin1.webm', chibiMoveSrc: '/operators/pramanix/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/pramanix/portrait.png',
+  portraitFocus: { y: -2, x: 65.9, zoom: 322 },
 }
 
 export default pramanix

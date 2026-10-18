@@ -75,7 +75,7 @@ const aosta: Operator = {
     { id: 'skin1', label: 'Light Gun Adjuster', src: '/operators/aosta/skin1.png', chibiSrc: '/operators/aosta/chibi-skin1.webm', illustrator: 'infukun' },
   ],
   portrait: '/operators/aosta/portrait.png',
-  portraitFocus: { y: -5, x: 33, zoom: 295 }
+  portraitFocus: { y: -3.8, x: 31.3, zoom: 348 },
 }
 
 export default aosta

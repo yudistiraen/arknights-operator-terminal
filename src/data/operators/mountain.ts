@@ -124,6 +124,7 @@ const mountain: Operator = {
     { id: 'skin3', label: "The Hardcore Rider", src: '/operators/mountain/skin3.png', chibiSrc: '/operators/mountain/chibi-skin3.webm', chibiMoveSrc: '/operators/mountain/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "WincalBlanke" },
   ],
   portrait: '/operators/mountain/portrait.png',
+  portraitFocus: { y: -3, x: 46.5, zoom: 390 },
 }
 
 export default mountain

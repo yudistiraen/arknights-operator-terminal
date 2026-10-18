@@ -78,7 +78,7 @@ const chiave: Operator = {
     { id: 'skin1', label: 'One-man Racing Team', src: '/operators/chiave/skin1.png', chibiSrc: '/operators/chiave/chibi-skin1.webm', chibiMoveSrc: '/operators/chiave/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/chiave/portrait.png',
-  portraitFocus: { y: 0, x: 47, zoom: 320 },
+  portraitFocus: { y: 2, x: 47.9, zoom: 399 },
 }
 
 export default chiave

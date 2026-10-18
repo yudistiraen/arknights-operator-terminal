@@ -91,6 +91,7 @@ const manticore: Operator = {
     { id: 'skin2', label: 'Under A Veil', src: '/operators/manticore/skin2.png', chibiSrc: '/operators/manticore/chibi-skin2.webm', chibiMoveSrc: '/operators/manticore/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/manticore/portrait.png',
+  portraitFocus: { y: 10.7, x: 41.7, zoom: 319 },
 }
 
 export default manticore

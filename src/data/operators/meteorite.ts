@@ -92,6 +92,7 @@ const meteorite: Operator = {
     { id: 'skin2', label: 'Summer Flower FA240', src: '/operators/meteorite/skin2.png', chibiSrc: '/operators/meteorite/chibi-skin2.webm', chibiMoveSrc: '/operators/meteorite/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '臼' },
   ],
   portrait: '/operators/meteorite/portrait.png',
+  portraitFocus: { y: -7.7, x: 43.9, zoom: 310 },
 }
 
 export default meteorite

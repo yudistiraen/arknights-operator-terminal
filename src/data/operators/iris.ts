@@ -92,6 +92,7 @@ const iris: Operator = {
     { id: 'skin1', label: 'Mirror Visitor', src: '/operators/iris/skin1.png', chibiSrc: '/operators/iris/chibi-skin1.webm', chibiMoveSrc: '/operators/iris/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
   ],
   portrait: '/operators/iris/portrait.png',
+  portraitFocus: { y: 20, x: 55.1, zoom: 380 },
 }
 
 export default iris

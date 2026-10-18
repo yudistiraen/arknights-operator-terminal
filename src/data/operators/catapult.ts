@@ -55,7 +55,7 @@ const catapult: Operator = {
     { id: 'skin1', label: 'Holiday HD', src: '/operators/catapult/skin1.png', chibiSrc: '/operators/catapult/chibi-skin1.webm', illustrator: '二开' },
   ],
   portrait: '/operators/catapult/portrait.png',
-  portraitFocus: { y: -3, x: 58, zoom: 250 },
+  portraitFocus: { y: -1.4, x: 57.8, zoom: 333 },
 }
 
 export default catapult

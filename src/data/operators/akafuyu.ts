@@ -74,7 +74,7 @@ const akafuyu: Operator = {
     { id: 'skin1', label: 'Temperament', src: '/operators/akafuyu/skin1.png', chibiSrc: '/operators/akafuyu/chibi-skin1.webm', illustrator: 'Kumatangent (credited as "熊太")' },
   ],
   portrait: '/operators/akafuyu/portrait.png',
-  portraitFocus: { y: 2, x: 43, zoom: 295 }
+  portraitFocus: { y: 6.1, x: 42.6, zoom: 372 },
 }
 
 export default akafuyu

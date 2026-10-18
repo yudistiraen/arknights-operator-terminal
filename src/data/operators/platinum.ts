@@ -77,6 +77,7 @@ const platinum: Operator = {
     { id: 'skin1', label: 'Shining Dew SD05', src: '/operators/platinum/skin1.png', chibiSrc: '/operators/platinum/chibi-skin1.webm', chibiMoveSrc: '/operators/platinum/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/platinum/portrait.png',
+  portraitFocus: { y: -0.2, x: 50.9, zoom: 325 },
 }
 
 export default platinum

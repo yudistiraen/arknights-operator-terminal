@@ -74,7 +74,7 @@ const warfarin: Operator = {
     { id: 'skin2', label: 'Holiday HD31', src: '/operators/warfarin/skin2.png', chibiSrc: '/operators/warfarin/chibi-skin2.webm', illustrator: '时辰' },
   ],
   portrait: '/operators/warfarin/portrait.png',
-  portraitFocus: { y: -5, x: 70, zoom: 280 }
+  portraitFocus: { y: -6.2, x: 68.1, zoom: 311 },
 }
 
 export default warfarin

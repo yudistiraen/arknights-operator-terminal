@@ -55,7 +55,7 @@ const fang: Operator = {
     { id: 'skin1', label: 'Cruciata', src: '/operators/fang/skin1.png', chibiSrc: '/operators/fang/chibi-skin1.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/fang/portrait.png',
-  portraitFocus: { y: -5, x: 63, zoom: 250 },
+  portraitFocus: { y: -6.8, x: 59.1, zoom: 289 },
   alter: {
     name: 'Fang the Fire-Sharpened', fileNo: 'RF04', class: 'Vanguard', branch: 'Charger', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
     position: 'Melee', trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
@@ -145,7 +145,7 @@ const fang: Operator = {
       { id: 'skin1', label: 'A Pure Pianissimo', src: '/operators/fang/alter/skin1.png', chibiSrc: '/operators/fang/alter/chibi.webm', illustrator: '下野宏铭' },
     ],
     portrait: '/operators/fang/alter/portrait.png',
-    portraitFocus: { y: -2, x: 55, zoom: 280 },
+    portraitFocus: { y: -4.1, x: 55.9, zoom: 321 },
   },
 }
 

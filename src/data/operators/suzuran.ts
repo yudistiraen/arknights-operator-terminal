@@ -104,6 +104,7 @@ const suzuran: Operator = {
     { id: 'skin3', label: 'Yukibare', src: '/operators/suzuran/skin3.png', chibiSrc: '/operators/suzuran/chibi-skin3.webm', chibiMoveSrc: '/operators/suzuran/chibi-move-skin3.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Shō' },
   ],
   portrait: '/operators/suzuran/portrait.png',
+  portraitFocus: { y: -6.7, x: 55, zoom: 245 },
 }
 
 export default suzuran

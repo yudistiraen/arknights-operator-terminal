@@ -51,7 +51,7 @@ const adnachiel: Operator = {
     { id: 'skin1', label: 'Traceless Walker', src: '/operators/adnachiel/skin1.png', chibiSrc: '/operators/adnachiel/chibi-skin1.webm', illustrator: '一立里子' },
   ],
   portrait: '/operators/adnachiel/portrait.png',
-  portraitFocus: { y: 0, x: 50, zoom: 250 },
+  portraitFocus: { y: 2.4, x: 55.6, zoom: 332 },
 }
 
 export default adnachiel

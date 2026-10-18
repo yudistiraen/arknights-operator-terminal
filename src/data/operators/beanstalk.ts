@@ -85,7 +85,7 @@ const beanstalk: Operator = {
     note: 'Automatically respawns 15 seconds after being defeated.',
   },
   portrait: '/operators/beanstalk/portrait.png',
-  portraitFocus: { y: -8, x: 33, zoom: 240 }
+  portraitFocus: { y: -3.8, x: 34.6, zoom: 288 },
 }
 
 export default beanstalk

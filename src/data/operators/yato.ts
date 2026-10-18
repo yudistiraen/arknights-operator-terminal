@@ -68,7 +68,7 @@ const yato = {
       { id: 'e2', label: 'Elite 2', src: '/operators/yato/alter/e2.png', chibiSrc: '/operators/yato/alter/chibi.webm', illustrator: '一千' },
     ],
     portrait: '/operators/yato/alter/portrait.png',
-    portraitFocus: { y: -5, x: 47, zoom: 250 },
+    portraitFocus: { y: 5.4, x: 48.5, zoom: 402 },
   },
 } as unknown as Operator
 

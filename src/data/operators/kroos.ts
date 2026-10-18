@@ -56,7 +56,7 @@ const kroos: Operator = {
     { id: 'skin2', label: 'Moonlit Voyage', src: '/operators/kroos/skin2.png', chibiSrc: '/operators/kroos/chibi-skin2.webm', illustrator: '下野宏铭' },
   ],
   portrait: '/operators/kroos/portrait.png',
-  portraitFocus: { y: -5, x: 17, zoom: 250 },
+  portraitFocus: { y: 0.5, x: 25.1, zoom: 311 },
   alter: {
     name: 'Kroos the Keen Glint', fileNo: 'R170', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
     position: 'Ranged', trait: 'Attacks aerial enemies first',
@@ -149,7 +149,7 @@ const kroos: Operator = {
       { id: 'skin1', label: 'Along the Corridor', src: '/operators/kroos/alter/skin1.png', chibiSrc: '/operators/kroos/alter/chibi-skin1.webm', illustrator: 'm9nokuro' },
     ],
     portrait: '/operators/kroos/alter/portrait.png',
-    portraitFocus: { y: 12, x: 52, zoom: 290 },
+    portraitFocus: { y: 11.8, x: 50.6, zoom: 355 },
   },
 }
 

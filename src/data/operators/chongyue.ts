@@ -139,7 +139,7 @@ Max 2 charges`, spInit: 9, sp: 10 },
     { id: 'skin2', label: 'All-Round Actor', src: '/operators/chongyue/skin2.png', chibiSrc: '/operators/chongyue/chibi-skin2.webm', illustrator: 'KuroBlood' },
   ],
   portrait: '/operators/chongyue/portrait.png',
-  portraitFocus: { y: -1, x: 52, zoom: 300 },
+  portraitFocus: { y: 1.8, x: 51.5, zoom: 414 },
 }
 
 export default chongyue

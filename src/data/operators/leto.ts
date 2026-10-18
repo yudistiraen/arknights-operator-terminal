@@ -74,7 +74,7 @@ const leto: Operator = {
     { id: 'e2', label: 'Elite 2', src: '/operators/leto/e2.png', chibiSrc: '/operators/leto/chibi.webm', illustrator: 'Skade' },
   ],
   portrait: '/operators/leto/portrait.png',
-  portraitFocus: { y: 6, x: 50, zoom: 290 },
+  portraitFocus: { y: 5.5, x: 46.9, zoom: 324 },
 }
 
 export default leto

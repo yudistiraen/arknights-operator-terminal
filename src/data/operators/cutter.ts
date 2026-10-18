@@ -74,7 +74,7 @@ const cutter: Operator = {
     { id: 'skin1', label: 'Wiping Knife', src: '/operators/cutter/skin1.png', chibiSrc: '/operators/cutter/chibi-skin1.webm', illustrator: '百慕大飞鱼' },
   ],
   portrait: '/operators/cutter/portrait.png',
-  portraitFocus: { y: -2, x: 37, zoom: 250 }
+  portraitFocus: { y: -3.7, x: 37.9, zoom: 297 },
 }
 
 export default cutter

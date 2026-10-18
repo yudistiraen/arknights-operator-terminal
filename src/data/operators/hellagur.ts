@@ -93,7 +93,7 @@ const hellagur: Operator = {
     { id: 'skin1', label: 'Octopath Illusion', src: '/operators/hellagur/skin1.png', chibiSrc: '/operators/hellagur/chibi-skin1.webm', illustrator: 'Liduke' },
   ],
   portrait: '/operators/hellagur/portrait.png',
-  portraitFocus: { y: -5, x: 45, zoom: 300 },
+  portraitFocus: { y: 0, x: 47.5, zoom: 430 },
 }
 
 export default hellagur

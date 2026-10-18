@@ -89,6 +89,7 @@ const greythroat: Operator = {
     { id: 'skin1', label: 'Homecoming', src: '/operators/greythroat/skin1.png', chibiSrc: '/operators/greythroat/chibi-skin1.webm', chibiMoveSrc: '/operators/greythroat/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
   ],
   portrait: '/operators/greythroat/portrait.png',
+  portraitFocus: { y: -3.8, x: 41.6, zoom: 329 },
 }
 
 export default greythroat
