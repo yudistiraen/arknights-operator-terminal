@@ -12,9 +12,16 @@ dist
 dist-ssr
 *.local
 
+# Local env with secrets (template: .env.example)
+.env
+
 # Next.js
 .next
 out
+
+# Voice audio is served from Cloudflare R2 (scripts/assets/sync-r2.sh); local copies are the sync source
+public/operators/*/voice/
+public/audio/title-voices/
 
 # Chibi/Spine render pipeline scratch data
 scripts/chibi-pipeline/runtime-cache
