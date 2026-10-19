@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import shamareVoice from '../voices/shamare'
 
 const shamare: Operator = {
   name: 'Shamare', fileNo: 'R148', class: 'Supporter', branch: 'Hexer', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Siracusa', position: 'Ranged', race: 'Vulpo', gender: 'Female',
   birthplace: 'Siracusa', birthday: 'October 29th', height: '138 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: '下野宏铭',
   cv: { JP: 'Akane Fujita', CN: 'Fu Gui (credited as "Rachel" in EN)', EN: 'Kaitlyn Brooke', KR: 'Lee Seul' },
+  voice: shamareVoice,
   trait: 'Deals Arts damage',
   tags: ['Debuff'],
   stats: { hp: 1728, atk: 473, def: 105, res: 25, block: 1, cost: 12, aspd: '1.6s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import viyVoice from '../voices/viy'
 
 const viy: Operator = {
   name: 'Viy', fileNo: 'US53', class: 'Caster', branch: 'Mystic Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Critical Phase Transition (List of Items Required)'],
   faction: 'Ursus', position: 'Ranged', race: 'Kuranta', gender: 'Male', birthplace: 'Ursus',
   birthday: 'June 21st', height: '190 cm', combatExp: '16 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '二开',
   cv: { JP: 'Hiroki Takahashi', CN: 'Yu Songtao', EN: 'Egor Zhirnov', KR: 'Choi Hyun-sik' },
+  voice: viyVoice,
   trait: 'Attacks deal Arts damage; When unable to find a target, attacks can be stored up and fired all at once (Up to 3 charges).',
   tags: ['DPS'],
   stats: { hp: 1780, atk: 1510, def: 121, res: 20, block: 1, cost: 27, aspd: '3s', rdp: '80s' },

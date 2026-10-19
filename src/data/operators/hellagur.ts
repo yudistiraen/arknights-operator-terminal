@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import hellagurVoice from '../voices/hellagur'
 
 const hellagur: Operator = {
   name: 'Hellagur', fileNo: 'AZ01', class: 'Guard', branch: 'Soloblade', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Ursus', position: 'Melee', race: 'Liberi (Hippogryph)', gender: 'Male', birthplace: 'Ursus',
   birthday: 'May 5th', height: '193 cm', combatExp: '44 years', infectionStatus: 'Infected', illustrator: 'Liduke',
   cv: { JP: 'Show Hayami', CN: 'Liu Ruoban', EN: 'Paul Herzberg', KR: 'Si Young-jun' },
+  voice: hellagurVoice,
   trait: "Can't be healed by other units. Recovers 70 self HP every time this operator attacks an enemy",
   tags: ['DPS', 'Survival'],
   stats: { hp: 3825, atk: 762, def: 334, res: 0, block: 1, cost: 26, aspd: '1.2s', rdp: '70s' },

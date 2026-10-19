@@ -14,7 +14,8 @@
    - **Bukan lagi sumber chibi** — lihat bagian "Chibi Render Pipeline" di bawah
 3. **PRTS Wiki** — `https://prts.wiki/w/{Operator_Name_CN}` — data CN/original, cross-check
 4. **`ArknightsAssets/ArknightsGamedata`** (raw JSON di GitHub) — satu-satunya sumber untuk angka skill per-level (lihat langkah 6 di bawah)
-5. Penguin Statistics / Gamepress — referensi tambahan opsional
+5. **PC client lokal** (`F:/YostarGames/Arknights_EN`) — audio voice line JP/CN/EN/KR (lihat "Voice Lines" di bawah)
+6. Penguin Statistics / Gamepress — referensi tambahan opsional
 
 ---
 
@@ -254,6 +255,38 @@ Dua field di `OperatorSkin` (`src/types.ts`), sibling tapi tujuan beda — janga
 
 ---
 
+## Voice Lines (4 bahasa: JP / CN / EN / KR) — WAJIB
+
+Setiap operator baru harus punya voice set lengkap di **keempat bahasa** (ditampilkan di VoicePanel, accordion per bahasa). Semua dikerjakan oleh script yang sudah di-commit — jangan download manual, jangan scrape wiki.
+
+### Sumber
+- **Audio**: PC client lokal `F:/YostarGames/Arknights_EN/Arknights_Data/PersistentData/Bundles/audio/sound_beta_2/` — folder `voice/` (JP), `voice_en/`, `voice_cn/`, `voice_kr/`, satu `<charId>.ab` per karakter (skin dengan voice sendiri: `<charId>_skin#N.ab`). Line festival (CN_038 New Year / CN_043 Birthday / CN_044 Anniversary) tidak ada di bundle karakter tapi di `extra_*.ab` di folder yang sama — script sudah menanganinya.
+- **Text**: `charword_table.json` dari `ArknightsAssets/ArknightsGamedata` (`cn/en/jp/kr`), `{@nickname}` diganti sapaan Doctor per bahasa.
+- Keempat pack bahasa sudah ada di client, jadi **selalu pakai `--client-only`** (user lebih suka file game daripada PRTS). PRTS (`torappu.prts.wiki`) hanya fallback kalau sebuah bahasa benar-benar belum ada di client — tanya user dulu sebelum menghapus `--client-only`. Kalau bundle bahasa baru kosong untuk operator yang baru rilis, minta user buka game dan update resource (atau switch Voice Language) supaya bundle-nya ter-download.
+
+### Cara generate
+Butuh Python 3.10+, UnityPy (`python -m venv` + `pip install UnityPy` kalau venv belum ada), dan ffmpeg di PATH. Argumen = nama file operator di `src/data/operators/` (tanpa `.ts`), bisa banyak sekaligus:
+```bash
+python scripts/voice-pipeline/gen_operator_voices.py <slug> [<slug> ...] --client-only
+```
+Hasil:
+- `public/operators/<dir>/voice/{jp,cn,en,kr}/cn_XXX.mp3` — mono **48 kbps** MP3 (`MP3_BITRATE` di `gen_title_voices.py`; jangan naikkan ke 64k)
+- `src/data/voices/<slug>.ts` (tipe `OperatorVoice`) — per line: title, text 4 bahasa, `audio` = bahasa yang mp3-nya ada di disk
+- `voice:` otomatis di-wire ke file operator (sekali saja; aman di-rerun)
+
+Lalu update title voice splash (pool per bahasa, merge saat rerun):
+```bash
+python scripts/voice-pipeline/gen_title_voices.py --lang en
+```
+Saat ini hanya pool EN yang dipakai; jalankan juga `--lang jp|cn|kr` kalau pool bahasa itu sudah pernah dibuat di `src/data/titleVoices.json`.
+
+### Verifikasi
+- Output script per bahasa harus `on disk: N/N`. Kalau ada bahasa < N, cek apakah line itu memang tidak punya audio (mis. operator collab tanpa VA EN) sebelum dianggap gagal — laporkan ke user, jangan diam-diam lanjut.
+- Alter/variant **tidak** mewarisi voice base (`voice: undefined` di merge `OperatorTerminal`); alter punya voice sendiri — generate dengan target `<file>:<Nama Alter>`, mis. `gen_operator_voices.py "gavial:Gavial the Invincible" --client-only` → voice alter disimpan **satu tempat dengan base-nya**: audio di `/operators/gavial/voice/invincible/{jp,cn,en,kr}/` (tetap satu level di bawah `voice/`, jadi otomatis kena `.gitignore`, sync R2, dan rewrite Vercel), data di folder `src/data/voices/gavial/` (`index.ts` = base, `gavial-the-invincible.ts` = alter; base otomatis dipindah ke folder saat alter pertama di-generate), dan `voice:` di-wire setelah baris `name:` alter. Nama base dibaca dari blok `: Operator = {`, jadi file yang mendeklarasikan alter di atas base (zima, kaltsit, astgenne, eyjafjalla) aman.
+- Folder voice di-gitignore dan disajikan dari R2 — setelah generate, upload via `scripts/assets/sync-r2.sh` (`--dry-run` dulu). Ini outward-facing, konfirmasi ke user sebelum sync. Detail: [knowledge/cloudflare_r2.md](knowledge/cloudflare_r2.md).
+
+---
+
 ## Checklist Penambahan Operator
 
 - [ ] Data dasar, stats, range (base + E1/E2), physical exam
@@ -263,6 +296,7 @@ Dua field di `OperatorSkin` (`src/types.ts`), sibling tapi tujuan beda — janga
 - [ ] **Asset artwork didownload** (base.png, e2.png, skin*.png)
 - [ ] **Skill icons didownload**
 - [ ] **Chibi idle + walking di-render via `scripts/chibi-pipeline/`** (bukan wiki.gg), `chibiFraming` diisi default `{ scale: 1, offsetXPercent: 0, offsetYPercent: 0 }` (jangan dikalibrasi/diverifikasi pas frame — `chibiDetailFraming` tidak perlu diisi, otomatis fallback)
+- [ ] **Voice lines 4 bahasa (JP/CN/EN/KR)** via `gen_operator_voices.py <slug> --client-only` — semua bahasa `on disk: N/N`, `voice:` ter-wire, lalu rerun `gen_title_voices.py --lang en` dan sync ke R2 (setelah konfirmasi user)
 - [ ] Class/branch/faction icon tersedia di `public/icons/` (faction theme baru ditambahkan jika perlu)
 - [ ] Summon data & asset (jika ada)
 - [ ] Entry ditambahkan ke `OPERATORS[]` (`src/data/operators/<slug>.ts` + `index.ts`)

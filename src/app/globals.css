@@ -142,6 +142,11 @@ html {
   100% { transform: scaleX(1); opacity: 1; }
 }
 
+/* Spinner (L2D loading): one full turn, run forward on the ring and reversed at 2x on the inner arc. */
+@keyframes spinner-turn {
+  100% { transform: rotate(1turn); }
+}
+
 @keyframes pulse-glow {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.8; }

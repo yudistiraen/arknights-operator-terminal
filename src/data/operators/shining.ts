@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import shiningVoice from '../voices/shining'
 
 const shining: Operator = {
   name: 'Shining', fileNo: 'FO01', class: 'Medic', branch: 'Medic', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Followers', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'October 7th', height: '175 cm', combatExp: '7 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: '竜崎いち',
   cv: { JP: 'Risa Shimizu', CN: 'Qiwen (credited as "Ellen Wang" in EN)', EN: 'Jane Jackson', KR: 'Kim Sun-hye' },
+  voice: shiningVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing', 'Support'],
   stats: { hp: 1613, atk: 610, def: 158, res: 0, block: 1, cost: 20, aspd: '2.85s', rdp: '70s' },

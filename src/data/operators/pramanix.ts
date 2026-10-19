@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import pramanixVoice from '../voices/pramanix'
 
 const pramanix: Operator = {
   name: 'Pramanix', fileNo: 'JC05', class: 'Supporter', branch: 'Hexer', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Kjerag', position: 'Ranged', race: 'Feline', gender: 'Female',
   birthplace: 'Kjerag', birthday: 'February 13th', height: '161 cm', combatExp: '6 months', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Saori Hayami', CN: 'Xueting Mu', EN: 'Ashleigh Haddad', KR: 'Chun Song-e' },
+  voice: pramanixVoice,
   trait: 'Deals Arts damage',
   tags: ['Debuff'],
   stats: { hp: 1605, atk: 495, def: 102, res: 25, block: 1, cost: 12, aspd: '1.6s', rdp: '70s' },

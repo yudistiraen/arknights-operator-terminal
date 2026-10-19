@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import nightmareVoice from '../voices/nightmare'
 
 const nightmare: Operator = {
   name: 'Nightmare', fileNo: 'VC03', class: 'Caster', branch: 'Core Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Victoria', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'June 1st', height: '156 cm', combatExp: '6 months', infectionStatus: 'Infected', illustrator: 'Lpip',
   cv: { JP: 'Rie Takahashi', CN: 'Zhang Hong', EN: 'Triya Leong', KR: 'Lee Sae-ah' },
+  voice: nightmareVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS', 'Healing', 'Slow'],
   stats: { hp: 1510, atk: 622, def: 120, res: 20, block: 1, cost: 20, aspd: '1.6s', rdp: '70s' },

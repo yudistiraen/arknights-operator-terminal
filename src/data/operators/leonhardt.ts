@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import leonhardtVoice from '../voices/leonhardt'
 
 const leonhardt: Operator = {
   name: 'Leonhardt', fileNo: 'RB03', class: 'Caster', branch: 'Splash Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rim Billiton', position: 'Ranged', race: 'Cautus', gender: 'Male', birthplace: 'Rim Billiton',
   birthday: 'August 13th', height: '165 cm', combatExp: '2 years', infectionStatus: 'Confirmed infected by medical examination.', illustrator: '野崎つばた',
   cv: { JP: 'Soma Saito', CN: 'siro', EN: 'Kyle McCarley', KR: 'Lee Kyung-tae' },
+  voice: leonhardtVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE', 'Nuker'],
   stats: { hp: 1637, atk: 863, def: 120, res: 20, block: 1, cost: 33, aspd: '2.9s', rdp: '70s' },

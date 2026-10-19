@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import passengerVoice from '../voices/passenger'
 
 const passenger: Operator = {
   name: 'Passenger', fileNo: 'SG07', class: 'Caster', branch: 'Chain', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Ranged', race: 'Liberi', gender: 'Male', birthplace: 'Columbia',
   birthday: 'September 1st', height: '187 cm', combatExp: '16 years', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: 'Skade',
   cv: { JP: 'Takahiro Sakurai', CN: 'Zhang Fuzheng', EN: 'Stephen Spencer', KR: 'Yoon Dong-gi' },
+  voice: passengerVoice,
   trait: 'Attacks deal Arts damage and jump between 3 enemies. Each jump deals 15% less damage and inflicts a brief Slow',
   tags: ['DPS'],
   stats: { hp: 1558, atk: 689, def: 130, res: 20, block: 1, cost: 33, aspd: '2.3s', rdp: '70s' },

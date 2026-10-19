@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import chongyueVoice from '../voices/chongyue'
 
 const chongyue: Operator = {
   name: 'Chongyue', fileNo: 'NM04', class: 'Guard', branch: 'Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Sui', position: 'Melee', race: 'Undisclosed', gender: 'Male', birthplace: 'Yan',
   birthday: 'January 1st', height: '188 cm', combatExp: 'Undisclosed', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'KuroBlood',
   cv: { JP: 'Toshihiko Seki', CN: 'Ling Zhao', EN: 'Yong Yea', KR: 'Goo Ja-hyung' },
+  voice: chongyueVoice,
   trait: 'Blocks 1 enemy',
   tags: ['Nuker'],
   stats: { hp: 2635, atk: 590, def: 363, res: 0, block: 1, cost: 11, aspd: '0.78s', rdp: '70s' },

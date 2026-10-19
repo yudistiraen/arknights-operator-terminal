@@ -1,4 +1,6 @@
 import type { Operator } from '../../types'
+import blazeTheIgnitingSparkVoice from '../voices/blaze/blaze-the-igniting-spark'
+import blazeVoice from '../voices/blaze'
 
 const blaze: Operator = {
   name: 'Blaze', fileNo: 'RE41', class: 'Guard', branch: 'Centurion', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +9,7 @@ const blaze: Operator = {
   infectionStatus: 'Originium crystals are distributed across the surface of her body, confirmed Infected by medical examination.',
   illustrator: '唯@W',
   cv: { JP: 'Mai Nakahara', CN: 'Zhou Tong (credited as "Atom" in EN)', EN: 'Cristina Vee', KR: 'Kim Yeon-woo' },
+  voice: blazeVoice,
   trait: 'Attacks all blocked enemies',
   tags: ['DPS', 'Survival'],
   stats: { hp: 2821, atk: 765, def: 370, res: 0, block: 3, cost: 24, aspd: '1.2s', rdp: '70s' },
@@ -132,6 +135,7 @@ The Grand Preceptor became a scapegoat and was forced to commit suicide. Her twe
   portraitFocus: { y: 3, x: 36, zoom: 360 },
   alter: {
     name: 'Blaze the Igniting Spark', fileNo: 'REX1', class: 'Caster', branch: 'Primal Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+    voice: blazeTheIgnitingSparkVoice,
     position: 'Ranged',
     trait: 'Attacks deal Arts damage, and can inflict Elemental damage',
     tags: ['Elemental', 'DPS', 'AoE'],

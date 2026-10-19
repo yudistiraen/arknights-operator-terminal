@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ptilopsisVoice from '../voices/ptilopsis'
 
 const ptilopsis: Operator = {
   name: 'Ptilopsis', fileNo: 'RL04', class: 'Medic', branch: 'Multi-target Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Ranged', race: 'Liberi', gender: 'Female',
   birthplace: 'Columbia', birthday: 'October 6th', height: '164 cm', combatExp: 'None', infectionStatus: 'Traces of Originium Crystals have been detected in her body, confirming she is infected.', illustrator: '竜崎いち',
   cv: { JP: 'Hisako Kanemoto', CN: 'Gui Niang (credited as "D. QQ" in EN)', EN: 'Heather Nicol', KR: 'Kim Sae-hae' },
+  voice: ptilopsisVoice,
   trait: 'Restores the HP of 3 allies simultaneously',
   tags: ['Healing', 'Support'],
   stats: { hp: 1610, atk: 335, def: 150, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },

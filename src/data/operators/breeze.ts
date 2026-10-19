@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import breezeVoice from '../voices/breeze'
 
 const breeze: Operator = {
   name: 'Breeze', fileNo: 'R132', class: 'Medic', branch: 'Multi-target', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Voucher Exchange'],
   faction: 'Victoria', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Victoria',
   birthday: 'June 24th', height: '162 cm', combatExp: '1 year', infectionStatus: 'Infection confirmed by medical examination.', illustrator: '藻',
   cv: { JP: 'Haruna Ikezawa', CN: 'Chen Yujin (credited as "Jinni" in EN)', EN: 'Felecia Angelle', KR: 'Yoo Hye-ji' },
+  voice: breezeVoice,
   trait: 'Restores the HP of 3 allies simultaneously',
   tags: ['Healing', 'Support'],
   stats: { hp: 1795, atk: 373, def: 153, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },

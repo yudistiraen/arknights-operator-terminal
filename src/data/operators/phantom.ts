@@ -1,10 +1,13 @@
 import type { Operator, OperatorAlter } from '../../types'
+import tragodiaVoice from '../voices/phantom/tragodia'
+import phantomVoice from '../voices/phantom'
 
 const phantom: Operator = {
   name: 'Phantom', fileNo: 'R109', class: 'Specialist', branch: 'Executor', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Victoria', position: 'Melee', race: 'Feline', gender: 'Male', birthplace: 'Victoria',
   birthday: 'January 19th', height: '185 cm', combatExp: '9 years', infectionStatus: 'Crystals have appeared on his body. Infection confirmed by medical examination.', illustrator: 'Skade',
   cv: { JP: 'Akira Ishida', CN: 'Zhaokun Liu', EN: 'Ben Cura', KR: 'Pyo Young-jae' },
+  voice: phantomVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy', 'Crowd-Control', 'DPS'],
   stats: { hp: 1645, atk: 558, def: 322, res: 0, block: 1, cost: 10, aspd: '0.93s', rdp: '18s' },
@@ -137,6 +140,7 @@ const phantom: Operator = {
 
 const tragodia: OperatorAlter = {
   name: 'Tragodia', fileNo: 'CT01', class: 'Supporter', branch: 'Ritualist', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+  voice: tragodiaVoice,
   position: 'Ranged', trait: 'Attacks deal Arts damage, and can inflict Elemental Injury',
   tags: ['Elemental', 'Crowd-Control'],
   illustrator: 'Skade',

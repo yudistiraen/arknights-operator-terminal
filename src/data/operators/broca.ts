@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import brocaVoice from '../voices/broca'
 
 const broca: Operator = {
   name: 'Broca', fileNo: 'SR27', class: 'Guard', branch: 'Centurion', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: "Chiave's Gang", position: 'Melee', race: 'Feline', gender: 'Male', birthplace: 'Siracusa',
   birthday: 'February 4th', height: '189 cm', combatExp: '5 years', infectionStatus: 'Originium crystals are distributed across the surface of his body, confirmed Infected by medical examination.', illustrator: 'Infukun',
   cv: { JP: 'Kosuke Toriumi', CN: 'Zhaokun Liu', EN: 'Jonathan Bullock', KR: 'Sung Wan-kyung' },
+  voice: brocaVoice,
   trait: 'Attacks all blocked enemies',
   tags: ['AoE', 'Survival'],
   stats: { hp: 2335, atk: 842, def: 366, res: 0, block: 3, cost: 23, aspd: '1.2s', rdp: '70s' },

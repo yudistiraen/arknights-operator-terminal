@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import closureVoice from '../voices/closure'
 
 const closure: Operator = {
   name: 'Closure', fileNo: 'R00A', class: 'Vanguard', branch: 'Tactician', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'December 10th', height: '158 cm', combatExp: '20 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Liyu黎',
   cv: { JP: 'Manami Numakura', CN: 'Hou Xiaofei', EN: 'Carla Tassara', KR: 'Min Ah' },
+  voice: closureVoice,
   trait: 'This unit can designate one Tactical Point within attack range to call Reinforcements; ATK is increased to 150% when attacking enemies blocked by Reinforcements',
   tags: ['DP-Recovery', 'Crowd-Control'],
   stats: { hp: 1762, atk: 540, def: 151, res: 0, block: 1, cost: 15, aspd: '1s', rdp: '70s' },

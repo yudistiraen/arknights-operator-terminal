@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import enforcerVoice from '../voices/enforcer'
 
 const enforcer: Operator = {
   name: 'Enforcer', fileNo: 'LT10', class: 'Specialist', branch: 'Push Stroker', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Laterano', position: 'Melee', race: 'Sankta', gender: 'Male', birthplace: 'Laterano',
   birthday: 'January 30th', height: '176 cm', combatExp: 'Half a year', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Chuzenji',
   cv: { JP: 'Kensho Ono', CN: 'Du Guangyi', EN: 'Chase Brown', KR: 'Shin Yong-woo' },
+  voice: enforcerVoice,
   trait: 'Can attack all blocked enemies\nCan be deployed on Ranged Tiles',
   tags: ['Shift', 'Crowd-Control'],
   stats: { hp: 1889, atk: 639, def: 374, res: 0, block: 2, cost: 22, aspd: '1.2s', rdp: '80s' },

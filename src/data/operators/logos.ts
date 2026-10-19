@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import logosVoice from '../voices/logos'
 
 const logos: Operator = {
   name: 'Logos', fileNo: 'RE03', class: 'Caster', branch: 'Core Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Elite Op', position: 'Ranged', race: 'Sarkaz', gender: 'Male', birthplace: 'Kazdel',
   birthday: 'September 5th', height: '178 cm', combatExp: '12 years', infectionStatus: 'Infected', illustrator: 'Skade',
   cv: { JP: 'Jun Fukuyama', CN: 'Liang Dawei', EN: 'Kyle McCarley', KR: 'Son Su-ho' },
+  voice: logosVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS'],
   stats: { hp: 1663, atk: 761, def: 119, res: 20, block: 1, cost: 21, aspd: '1.6s', rdp: '70s' },

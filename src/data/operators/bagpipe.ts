@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import bagpipeVoice from '../voices/bagpipe'
 
 const bagpipe: Operator = {
   name: 'Bagpipe', fileNo: 'RV02', class: 'Vanguard', branch: 'Charger', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +8,7 @@ const bagpipe: Operator = {
   infectionStatus: 'Confirmed uninfected by medical examination.',
   illustrator: 'U介',
   cv: { JP: 'Aki Toyosaki', CN: 'Shen Yue (credited as "Iris" in EN)', EN: 'Lauren Conroy', KR: 'Son Seon-young' },
+  voice: bagpipeVoice,
   trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
   tags: ['DP-Recovery', 'DPS'],
   stats: { hp: 2484, atk: 586, def: 382, res: 0, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

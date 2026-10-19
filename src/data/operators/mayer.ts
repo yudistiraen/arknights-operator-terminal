@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mayerVoice from '../voices/mayer'
 
 const mayer: Operator = {
   name: 'Mayer', fileNo: 'RL05', class: 'Supporter', branch: 'Summoner', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Ranged', race: 'Anaty', gender: 'Female', birthplace: 'Columbia',
   birthday: 'November 20th', height: '159 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '幻象黑兔',
   cv: { JP: 'Chiwa Saitō', CN: 'Zi Mao (credited as "Kousou Mao" in EN)', EN: 'Anjali Kunapaneni', KR: 'Jung Hye-won' },
+  voice: mayerVoice,
   trait: 'Deals Arts damage\nCan use Summons in battles',
   tags: ['Summon', 'Crowd-Control'],
   stats: { hp: 1268, atk: 478, def: 130, res: 20, block: 1, cost: 11, aspd: '1.6s', rdp: '70s' },

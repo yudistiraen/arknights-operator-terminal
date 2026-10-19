@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import kirinRYatoVoice from '../voices/yato/kirin-r-yato'
 import yatoVoice from '../voices/yato'
 
 const yato = {
@@ -31,6 +32,7 @@ const yato = {
   portraitFocus: { y: -5, x: 70, zoom: 260 },
   alter: {
     name: 'Kirin R Yato', fileNo: 'MH02', class: 'Specialist', branch: 'Executor', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
+    voice: kirinRYatoVoice,
     position: 'Melee', trait: 'Significantly reduced Redeployment Time',
     tags: ['Fast-Redeploy', 'Nuker', 'Crossover'],
     illustrator: '一千',

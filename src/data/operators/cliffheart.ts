@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import cliffheartVoice from '../voices/cliffheart'
 
 const cliffheart: Operator = {
   name: 'Cliffheart', fileNo: 'JC06', class: 'Specialist', branch: 'Hookmaster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment', 'Beginner Mission (7-days consecutive login)'],
   faction: 'Kjerag', position: 'Melee', race: 'Feline', gender: 'Female', birthplace: 'Kjerag',
   birthday: 'November 28th', height: '163 cm', combatExp: 'Half a year', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Ryoko Shiraishi', CN: 'Fu Gui (credited as "Rachel" in EN)', EN: 'Rebecca Yeo', KR: 'Kim Bo-young' },
+  voice: cliffheartVoice,
   trait: 'Can Shift enemies by using skills\nCan be deployed on Ranged Tiles',
   tags: ['Shift', 'DPS'],
   stats: { hp: 1970, atk: 835, def: 340, res: 0, block: 2, cost: 13, aspd: '1.8s', rdp: '70s' },

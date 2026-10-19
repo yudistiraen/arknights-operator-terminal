@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ashVoice from '../voices/ash'
 
 const ash: Operator = {
   name: 'Ash', fileNo: 'RS01', class: 'Sniper', branch: 'Marksman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Crossover'],
   faction: 'Team Rainbow', position: 'Ranged', race: 'Unknown', gender: 'Female', birthplace: 'Unknown',
   birthday: 'December 24th', height: '170 cm', combatExp: 'Unknown', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'm9nokuro (credited as "Ubisoft" in-game)',
   cv: { JP: '', CN: '', EN: 'Patricia Summersett', KR: '' },
+  voice: ashVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS', 'Crossover'],
   stats: { hp: 1689, atk: 624, def: 169, res: 0, block: 1, cost: 14, aspd: '1s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import elysiumVoice from '../voices/elysium'
 
 const elysium: Operator = {
   name: 'Elysium', fileNo: 'R131', class: 'Vanguard', branch: 'Standard Bearer', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Liberi', gender: 'Male', birthplace: 'Iberia',
   birthday: 'May 8th', height: '187 cm', combatExp: '2 years', infectionStatus: 'Crystals have appeared on his body. Infection confirmed by medical examination.', illustrator: 'Skade',
   cv: { JP: 'Masahiro Yamanaka', CN: 'Yang Kaiqi', EN: 'Miguel Ferreño', KR: 'Nam Do-hyeong' },
+  voice: elysiumVoice,
   trait: 'Cannot block enemies during the skill duration',
   tags: ['DP-Recovery', 'Support'],
   stats: { hp: 1618, atk: 523, def: 329, res: 0, block: 1, cost: 11, aspd: '1.3s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import carnelianVoice from '../voices/carnelian'
 
 const carnelian: Operator = {
   name: 'Carnelian', fileNo: 'LN04', class: 'Caster', branch: 'Phalanx Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Leithanien', position: 'Ranged', race: 'Caprinae', gender: 'Female', birthplace: 'Sargon',
   birthday: 'January 17th', height: '173 cm', combatExp: '6 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'カワグチ',
   cv: { JP: 'Eri Kitamura', CN: 'Cai Na', EN: 'Sara Masry', KR: 'Park Shin-hee' },
+  voice: carnelianVoice,
   trait: 'Normally does not attack, but has greatly increased DEF and RES; When skill is active, attacks deal AoE Arts damage',
   tags: ['AoE', 'Defense'],
   stats: { hp: 2106, atk: 926, def: 258, res: 15, block: 1, cost: 24, aspd: '2s', rdp: '70s' },

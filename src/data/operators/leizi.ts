@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import leiziVoice from '../voices/leizi'
 
 const leizi: Operator = {
   name: 'Leizi', fileNo: 'YD05', class: 'Caster', branch: 'Chain Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Yan', position: 'Ranged', race: 'Kylin', gender: 'Female', birthplace: 'Yan',
   birthday: 'March 5th', height: '171 cm', combatExp: '5 years', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: '竜崎いち',
   cv: { JP: 'Yuuko Kaida', CN: 'Xu Xu (credited as "Skye" in EN)', EN: 'Xiao Wu', KR: 'Kang Si-hyun' },
+  voice: leiziVoice,
   trait: 'Attacks deal Arts damage and jump between 4 enemies. Each jump deals 15% less damage and inflicts a brief Slow',
   tags: ['DPS'],
   stats: { hp: 1443, atk: 710, def: 119, res: 20, block: 1, cost: 32, aspd: '2.3s', rdp: '70s' },

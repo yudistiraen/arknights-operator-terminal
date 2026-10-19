@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import sagaVoice from '../voices/saga'
 
 const saga: Operator = {
   name: 'Saga', fileNo: 'HK13', class: 'Vanguard', branch: 'Pioneer', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Higashi', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Higashi',
   birthday: 'December 31st', height: '164 cm', combatExp: '2 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '多元菌',
   cv: { JP: 'Sanae Kobayashi', CN: 'Lü Qi (credited as "Ruth" in EN)', EN: 'Yu Kousaka', KR: 'Soyeon' },
+  voice: sagaVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'DPS'],
   stats: { hp: 2205, atk: 615, def: 372, res: 0, block: 2, cost: 14, aspd: '1.05s', rdp: '70s' },

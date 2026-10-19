@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import tequilaVoice from '../voices/tequila'
 
 const tequila: Operator = {
   name: 'Tequila', fileNo: 'BV12', class: 'Guard', branch: 'Liberator', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Bolívar', position: 'Melee', race: 'Perro', gender: 'Male', birthplace: 'Bolívar',
   birthday: 'May 15th', height: '182 cm', combatExp: '3 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '一千',
   cv: { JP: 'Nobunaga Shimazaki', CN: 'Zhengwu Wenjie (credited as "Javen Zheng" in EN)', EN: 'Diego Becerril', KR: 'Kim Sin-woo' },
+  voice: tequilaVoice,
   trait: 'Normally does not attack and has 0 Block; When skill is inactive, ATK gradually increases up to +200% over 40 seconds. ATK is reset when the skill ends',
   tags: ['Nuker'],
   stats: { hp: 3987, atk: 352, def: 501, res: 15, block: 3, cost: 13, aspd: '1.2s', rdp: '80s' },

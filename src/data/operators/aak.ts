@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import aakVoice from '../voices/aak'
 
 const aak: Operator = {
   name: 'Aak', fileNo: 'LM20', class: 'Specialist', branch: 'Geek', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: "Lee's Detective Agency", position: 'Ranged', race: 'Feline', gender: 'Male', birthplace: 'Lungmen',
   birthday: 'March 25th', height: '161 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'KuroBlood',
   cv: { JP: 'Yuuko Sanpei', CN: 'Vila', EN: 'Casey Mongillo', KR: 'Jeon Suk-kyeong' },
+  voice: aakVoice,
   trait: 'Continually loses HP over time',
   tags: ['Support', 'DPS'],
   stats: { hp: 2034, atk: 703, def: 152, res: 10, block: 1, cost: 13, aspd: '1.3s', rdp: '70s' },

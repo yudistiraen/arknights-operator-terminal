@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import almondVoice from '../voices/almond'
 
 const almond: Operator = {
   name: 'Almond', fileNo: 'BS05', class: 'Specialist', branch: 'Hookmaster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Blacksteel', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Columbia',
   birthday: 'February 27th', height: '140 cm', combatExp: '1 year', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '直立行走',
   cv: { JP: 'Yū Serizawa', CN: 'Erjiao', EN: 'Eden Riegel', KR: 'Kim Ye-rim' },
+  voice: almondVoice,
   trait: 'Can Shift enemies by using skills\nCan be deployed on Ranged Tiles',
   tags: ['Shift'],
   stats: { hp: 2330, atk: 695, def: 455, res: 0, block: 2, cost: 13, aspd: '1.8s', rdp: '70s' },

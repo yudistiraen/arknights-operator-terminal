@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mlynarVoice from '../voices/mlynar'
 
 const mlynar: Operator = {
   name: 'Młynar', fileNo: 'KZ08', class: 'Guard', branch: 'Liberator', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Kazimierz', position: 'Melee', race: 'Kuranta', gender: 'Male', birthplace: 'Kazimierz',
   birthday: 'December 3rd', height: '191 cm', combatExp: '17 years', infectionStatus: 'Non-infected', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Rikiya Koyama', CN: 'Wang Yuhang', EN: 'Anthony Howell', KR: 'Choi Hyun-soo' },
+  voice: mlynarVoice,
   trait: 'Normally does not attack and has 0 Block; When skill is inactive, ATK gradually increases up to +200% over 40 seconds. ATK is reset when the skill ends',
   tags: ['DPS', 'Nuker'],
   stats: { hp: 4266, atk: 385, def: 502, res: 15, block: 3, cost: 12, aspd: '1.2s', rdp: '70s' },

@@ -1,7 +1,10 @@
 import type { Operator, OperatorAlter } from '../../types'
+import astgenneTheLightchaserVoice from '../voices/astgenne/astgenne-the-lightchaser'
+import astgenneVoice from '../voices/astgenne'
 
 const theLightchaser: OperatorAlter = {
   name: 'Astgenne the Lightchaser', fileNo: 'RL12', class: 'Supporter', branch: 'Decel Binder', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Retracing Our Steps (Oracular Riddles)'],
+  voice: astgenneTheLightchaserVoice,
   position: 'Ranged', trait: 'Deals Arts damage and Slows the target for a short time (0.8 seconds)',
   tags: ['Slow', 'DPS', 'Support'],
   illustrator: 'YUJI',
@@ -105,6 +108,7 @@ const astgenne: Operator = {
   faction: 'Rhine Lab', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'July 10th', height: '166 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'YUJI',
   cv: { JP: 'Saho Shirasu', CN: 'Cheng Li', EN: 'Maya Aoki Tuttle', KR: 'Kim Yi-an (credited as "Kim Ian")' },
+  voice: astgenneVoice,
   trait: 'Attacks deal Arts damage and jump between 4 enemies. Each jump deals 15% less damage and inflicts a brief (0.5 seconds) Slow',
   tags: ['DPS'],
   stats: { hp: 1440, atk: 705, def: 122, res: 20, block: 1, cost: 34, aspd: '2.3s', rdp: '80s' },

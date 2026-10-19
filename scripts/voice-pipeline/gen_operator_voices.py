@@ -19,6 +19,10 @@ in-game to download voice_cn / voice_kr bundles so they can come from the client
 
 Usage: python scripts/voice-pipeline/gen_operator_voices.py yato durin [--langs jp,en] [--client-only]
        [--client F:/YostarGames/Arknights_EN]
+       python scripts/voice-pipeline/gen_operator_voices.py "gavial:Gavial the Invincible" --client-only
+         — an alter inside an operator file: its voice sits with the base form — audio in
+           public/operators/<base dir>/voice/<alter subfolder>/, data in src/data/voices/<file>/<alter-slug>.ts
+           (the base moves to src/data/voices/<file>/index.ts) — and `voice:` is wired after the alter's `name:` line.
 """
 
 import argparse
@@ -27,6 +31,7 @@ import re
 import sys
 import tempfile
 import time
+import unicodedata
 from pathlib import Path
 
 import UnityPy
@@ -95,10 +100,30 @@ def extract_from_extra(voice_dir, char_id, voice_id, wav_path):
 
 
 def operator_name_and_asset_dir(source):
-    name = re.search(r"""name:\s*(['"`])((?:\\.|(?!\1).)*)\1""", source).group(2)
+    # Alter objects are often declared above the base (zima, kaltsit, ...), so read the name from the
+    # `: Operator = {` literal rather than the first `name:` in the file.
+    base_start = re.search(r':\s*Operator\s*=\s*\{', source)
+    name_pattern = re.compile(r"""name:\s*(['"`])((?:\\.|(?!\1).)*)\1""")
+    name = name_pattern.search(source, base_start.end() if base_start else 0).group(2)
     asset_dirs = re.findall(r"/operators/([^/'\"]+)/", source)
     asset_dir = max(set(asset_dirs), key=asset_dirs.count)
     return re.sub(r'\\(.)', r'\1', name), asset_dir
+
+
+def alter_block_span(source, alter_name):
+    """(start, end) of the alter object literal whose `name:` is alter_name; start = its name line."""
+    quoted_name = re.escape(alter_name).replace("'", r"\\?'")
+    match = re.search(rf"""^[ \t]*name:\s*(['"`]){quoted_name}\1""", source, re.MULTILINE)
+    if not match:
+        raise SystemExit(f'alter {alter_name!r}: no `name:` line in the operator file')
+    end = source.find('\n}\n', match.start())
+    return match.start(), (end if end != -1 else len(source))
+
+
+def alter_asset_dir(block):
+    # Alter assets live in a nested folder (e.g. /operators/gavial/invincible/), so take the whole parent path.
+    asset_dirs = re.findall(r"/operators/([^'\"]+)/[^/'\"]+\.(?:png|webm)", block)
+    return max(set(asset_dirs), key=asset_dirs.count)
 
 
 def find_char_id(character_table, operator_name):
@@ -115,27 +140,65 @@ def to_const_name(file_stem):
     return ('op' + camel if camel[0].isdigit() else camel) + 'Voice'
 
 
-def wire_into_operator_file(operator_path, file_stem, const_name):
-    source = operator_path.read_text(encoding='utf-8')
-    if re.search(r'^\s*voice:', source, re.MULTILINE):
-        return False
-    source = source.replace(
-        "import type { Operator } from '../../types'\n",
-        f"import type {{ Operator }} from '../../types'\nimport {const_name} from '../voices/{file_stem}'\n",
-        1,
+def add_voice_import(source, voice_module, const_name):
+    return re.sub(
+        r"^(import type \{[^}]*\} from '\.\./\.\./types'\n)",
+        rf"\1import {const_name} from '../voices/{voice_module}'\n",
+        source, count=1, flags=re.MULTILINE,
     )
+
+
+def wire_into_operator_file(operator_path, voice_module, const_name, alter_name=None):
+    source = operator_path.read_text(encoding='utf-8')
+    if re.search(rf'^\s*voice: {const_name},', source, re.MULTILINE):
+        return False
+    if alter_name:
+        start, _ = alter_block_span(source, alter_name)
+        # Alters have no `cv:` line; anchor `voice:` right after the alter's `name:` line.
+        line_end = source.index('\n', start)
+        indent = re.match(r'[ \t]*', source[start:]).group(0)
+        source = source[:line_end + 1] + f'{indent}voice: {const_name},\n' + source[line_end + 1:]
+        operator_path.write_text(add_voice_import(source, voice_module, const_name), encoding='utf-8')
+        return True
     source, replaced = re.subn(r'^(\s*)(cv: \{[^}]*\},)$', rf'\1\2\n\1voice: {const_name},', source, count=1, flags=re.MULTILINE)
     if not replaced:
         raise SystemExit(f'{operator_path.name}: no single-line `cv: {{...}},` to anchor `voice:` after')
-    operator_path.write_text(source, encoding='utf-8')
+    operator_path.write_text(add_voice_import(source, voice_module, const_name), encoding='utf-8')
     return True
 
 
-def build_operator(file_stem, character_table, charword_tables, client_root, languages, client_only):
+def build_operator(target, character_table, charword_tables, client_root, languages, client_only):
+    file_stem, _, alter_name = target.partition(':')
     operator_path = OPERATORS_DIR / f'{file_stem}.ts'
-    operator_name, asset_dir = operator_name_and_asset_dir(operator_path.read_text(encoding='utf-8'))
+    source = operator_path.read_text(encoding='utf-8')
+    # An alter's voice sits with its base form so each operator is one place to look (and one level
+    # deep for .gitignore / sync-r2 / the R2 rewrite):
+    #   audio  public/operators/<base dir>/voice/<alter subfolder>/<lang>/
+    #   data   src/data/voices/<file>/<alter slug>.ts, next to the base's src/data/voices/<file>/index.ts
+    operator_voice_dir = VOICES_DIR / file_stem
+    if alter_name:
+        start, end = alter_block_span(source, alter_name)
+        operator_name = alter_name
+        base_dir, _, alter_subdir = alter_asset_dir(source[start:end]).partition('/')
+        voice_dir = f'{base_dir}/voice/{alter_subdir}'
+        ascii_name = unicodedata.normalize('NFKD', alter_name).encode('ascii', 'ignore').decode()
+        voice_stem = re.sub(r'[^0-9a-z]+', '-', ascii_name.lower()).strip('-')
+        voice_module = f'{file_stem}/{voice_stem}'
+        voice_data_path = operator_voice_dir / f'{voice_stem}.ts'
+        flat_base_path = VOICES_DIR / f'{file_stem}.ts'
+        operator_voice_dir.mkdir(parents=True, exist_ok=True)
+        if flat_base_path.exists():
+            # '../voices/<file>' resolves to <file>/index.ts too, so the base's import stays valid.
+            base_body = flat_base_path.read_text(encoding='utf-8').replace("from '../../types'", "from '../../../types'", 1)
+            (operator_voice_dir / 'index.ts').write_text(base_body, encoding='utf-8')
+            flat_base_path.unlink()
+    else:
+        operator_name, asset_dir = operator_name_and_asset_dir(source)
+        voice_dir = f'{asset_dir}/voice'
+        voice_stem = voice_module = file_stem
+        voice_data_path = operator_voice_dir / 'index.ts' if operator_voice_dir.is_dir() else VOICES_DIR / f'{file_stem}.ts'
     char_id = find_char_id(character_table, operator_name)
-    print(f'{operator_name} ({char_id}) → /operators/{asset_dir}/voice', flush=True)
+    print(f'{operator_name} ({char_id}) → /operators/{voice_dir}', flush=True)
 
     words_by_lang = {
         language: {word['voiceId']: word for word in table['charWords'].values() if word['wordKey'] == char_id}
@@ -143,7 +206,7 @@ def build_operator(file_stem, character_table, charword_tables, client_root, lan
     }
     english_words = sorted(words_by_lang['en'].values(), key=lambda word: word['voiceIndex'])
     voice_ids = [word['voiceId'] for word in english_words]
-    voice_root = PROJECT_ROOT / 'public/operators' / asset_dir / 'voice'
+    voice_root = PROJECT_ROOT / 'public/operators' / voice_dir
 
     for language in languages:
         voice_folder = VOICE_FOLDER_BY_LANG[language]
@@ -187,26 +250,28 @@ def build_operator(file_stem, character_table, charword_tables, client_root, lan
                 text[language.upper()] = fill_nickname(word['voiceText'].strip(), language.upper())
         lines.append({'id': voice_id.lower(), 'title': english_word['voiceTitle'], 'text': text, 'audio': audio_by_voice_id[voice_id]})
 
-    const_name = to_const_name(file_stem)
+    const_name = to_const_name(voice_stem)
+    types_module = '../' * len(voice_data_path.relative_to(VOICES_DIR).parts) + 'types'
     body = (
-        "import type { OperatorVoice } from '../../types'\n\n"
+        f"import type {{ OperatorVoice }} from '../{types_module}'\n\n"
         "// Generated by scripts/voice-pipeline/gen_operator_voices.py — do not edit by hand.\n"
         f"const {const_name}: OperatorVoice = {{\n"
-        f"  audioDir: '/operators/{asset_dir}/voice',\n"
+        f"  audioDir: '/operators/{voice_dir}',\n"
         f"  lines: {json.dumps(lines, ensure_ascii=False, indent=2).replace(chr(10), chr(10) + '  ')},\n"
         "}\n\n"
         f"export default {const_name}\n"
     )
-    VOICES_DIR.mkdir(parents=True, exist_ok=True)
-    (VOICES_DIR / f'{file_stem}.ts').write_text(body, encoding='utf-8')
-    wired = wire_into_operator_file(operator_path, file_stem, const_name)
-    print(f'  {len(lines)} lines → src/data/voices/{file_stem}.ts{" (wired into operator file)" if wired else ""}', flush=True)
+    voice_data_path.parent.mkdir(parents=True, exist_ok=True)
+    voice_data_path.write_text(body, encoding='utf-8')
+    wired = wire_into_operator_file(operator_path, voice_module, const_name, alter_name or None)
+    print(f'  {len(lines)} lines → {voice_data_path.relative_to(PROJECT_ROOT).as_posix()}{" (wired into operator file)" if wired else ""}', flush=True)
 
 
 def main():
     sys.stdout.reconfigure(encoding='utf-8')
     parser = argparse.ArgumentParser()
-    parser.add_argument('operators', nargs='+', help='operator file basenames in src/data/operators/')
+    parser.add_argument('operators', nargs='+',
+                        help="operator file basenames in src/data/operators/; '<file>:<Alter Name>' targets an alter in that file")
     parser.add_argument('--client', default='F:/YostarGames/Arknights_EN')
     parser.add_argument('--langs', default=','.join(LANGUAGES), help='comma-separated audio languages to extract, e.g. jp,en')
     parser.add_argument('--client-only', action='store_true', help='never fall back to PRTS; lines missing from the client stay text-only')
@@ -215,8 +280,8 @@ def main():
 
     character_table = fetch_json(f'{GAMEDATA_ROOT}/en/gamedata/excel/character_table.json')
     charword_tables = {language: fetch_json(f'{GAMEDATA_ROOT}/{language}/gamedata/excel/charword_table.json') for language in LANGUAGES}
-    for file_stem in args.operators:
-        build_operator(file_stem, character_table, charword_tables, Path(args.client), languages, args.client_only)
+    for target in args.operators:
+        build_operator(target, character_table, charword_tables, Path(args.client), languages, args.client_only)
 
 
 if __name__ == '__main__':

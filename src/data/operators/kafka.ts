@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import kafkaVoice from '../voices/kafka'
 
 const kafka: Operator = {
   name: 'Kafka', fileNo: 'CB06', class: 'Specialist', branch: 'Executor', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Columbia', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'December 1st', height: '149 cm', combatExp: 'None', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Miyu Tomita', CN: 'Xiao Sibai (credited as "Shi Haku" in EN)', EN: 'Abby Trott', KR: 'Woo Jeong-shin' },
+  voice: kafkaVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy', 'Crowd-Control'],
   stats: { hp: 2025, atk: 525, def: 311, res: 0, block: 1, cost: 9, aspd: '0.93s', rdp: '18s' },

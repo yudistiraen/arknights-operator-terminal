@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import flintVoice from '../voices/flint'
 
 const flint: Operator = {
   name: 'Flint', fileNo: 'SG06', class: 'Guard', branch: 'Fighter', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Sargon',
   birthday: 'September 17th', height: '144 cm', combatExp: '15 years (Self-reported)', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'aZLing4',
   cv: { JP: 'Hibiku Yamamura', CN: 'Hou Xiaofei (credited as "Fifi" in EN)', EN: 'Akira Lee Watanabe', KR: 'Kwak Gyu-mi' },
+  voice: flintVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS'],
   stats: { hp: 2495, atk: 620, def: 334, res: 0, block: 1, cost: 10, aspd: '0.78s', rdp: '70s' },

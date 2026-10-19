@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import firewatchVoice from '../voices/firewatch'
 
 const firewatch: Operator = {
   name: 'Firewatch', fileNo: 'ST01', class: 'Sniper', branch: 'Deadeye', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Elafia', gender: 'Female', birthplace: 'Unknown',
   birthday: 'Unknown', height: '158 cm', combatExp: '5 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'aZLing4',
   cv: { JP: 'Ru Thing', CN: 'Liu Shisi (credited as "Jingxia Liu" in EN)', EN: 'Jemma Moore', KR: 'Jang Mi' },
+  voice: firewatchVoice,
   trait: 'Prioritizes attacking the enemy with lowest DEF within range first',
   tags: ['DPS', 'Nuker'],
   stats: { hp: 1450, atk: 1175, def: 131, res: 0, block: 1, cost: 21, aspd: '2.7s', rdp: '70s' },

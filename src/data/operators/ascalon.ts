@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ascalonVoice from '../voices/ascalon'
 
 const ascalon: Operator = {
   name: 'Ascalon', fileNo: 'SW00', class: 'Specialist', branch: 'Ambusher', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'S.W.E.E.P.', position: 'Melee', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'Unknown', height: '175 cm', combatExp: 'Unknown', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: 'Cenm0',
   cv: { JP: 'Miki Nagasawa', CN: 'Xu Hui', EN: 'Ali Hillis', KR: 'Lee Serena' },
+  voice: ascalonVoice,
   trait: 'Deals Damage to all targets within range\n50% chance to dodge Physical and Arts attacks and is less likely to be targeted by enemies',
   tags: ['Slow', 'DPS'],
   stats: { hp: 1823, atk: 954, def: 373, res: 30, block: 0, cost: 21, aspd: '3.5s', rdp: '70s' },

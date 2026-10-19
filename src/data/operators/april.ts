@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import aprilVoice from '../voices/april'
 
 const april: Operator = {
   name: 'April', fileNo: 'RB07', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rim Billiton', position: 'Ranged', race: 'Cautus', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'January 27th', height: '157 cm', combatExp: 'None', infectionStatus: "Originium crystals are present on the body's surface, confirmed Infected by medical examination.", illustrator: 'れおえん',
   cv: { JP: 'Minami Tanaka', CN: 'Song Yuanyuan (credited as "Esther" in EN)', EN: 'Tajinae Turner', KR: 'Park Ji-yoon' },
+  voice: aprilVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1280, atk: 528, def: 160, res: 0, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

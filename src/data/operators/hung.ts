@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import hungVoice from '../voices/hung'
 
 const hung: Operator = {
   name: 'Hung', fileNo: 'LM19', class: 'Defender', branch: 'Guardian', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: "Lee's Detective Agency", position: 'Melee', race: 'Perro', gender: 'Male', birthplace: 'Lungmen',
   birthday: 'July 1st', height: '183 cm', combatExp: '3 years', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'KuroBlood',
   cv: { JP: 'Satoshi Hino', CN: 'Lü Shujun (Mandarin); Lu Bin (Cantonese, credited as "Lost" in EN)', EN: 'Greg Chun', KR: 'Choi Nak-yoon' },
+  voice: hungVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing'],
   stats: { hp: 3023, atk: 442, def: 645, res: 10, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },

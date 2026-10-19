@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import asbestosVoice from '../voices/asbestos'
 
 const asbestos: Operator = {
   name: 'Asbestos', fileNo: 'RB05', class: 'Defender', branch: 'Arts Protector', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rim Billiton', position: 'Melee', race: 'Savra', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'July 30th', height: '156 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'TEAM EXPNDR',
   cv: { JP: 'Kei Shindou', CN: 'Luo Yanqian (credited as "Rose" in EN)', EN: 'Phoebe Panaretos', KR: 'Jung Yu-mi' },
+  voice: asbestosVoice,
   trait: 'Normal attacks deal Arts Damage while the skill is active',
   tags: ['Defense', 'DPS'],
   stats: { hp: 3135, atk: 633, def: 555, res: 15, block: 3, cost: 25, aspd: '1.6s', rdp: '70s' },

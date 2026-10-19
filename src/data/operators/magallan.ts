@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import magallanVoice from '../voices/magallan'
 
 const magallan: Operator = {
   name: 'Magallan', fileNo: 'RL06', class: 'Supporter', branch: 'Summoner', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'October 17th', height: '160 cm', combatExp: 'None', infectionStatus: 'Originium crystals not present on the body. Confirmed uninfected by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Mariya Ise', CN: 'Qu Zilan', EN: 'Maddie Matsumoto', KR: 'Kim Bo-na' },
+  voice: magallanVoice,
   trait: 'Deals Arts damage\nCan use Summons in battles',
   tags: ['Support', 'Slow', 'DPS'],
   stats: { hp: 1103, atk: 469, def: 140, res: 20, block: 1, cost: 12, aspd: '1.6s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import suzuranVoice from '../voices/suzuran'
 
 const suzuran: Operator = {
   name: 'Suzuran', fileNo: 'R172', class: 'Supporter', branch: 'Decel Binder', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Siracusa', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Higashi',
   birthday: 'October 9th', height: '137 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Shō',
   cv: { JP: 'Kaede Hondo', CN: 'Xiao Sibai (credited as "Shi Haku" in EN)', EN: 'Karin Kagami', KR: 'Jo Kyeong-I' },
+  voice: suzuranVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow', 'Support', 'DPS'],
   stats: { hp: 1480, atk: 596, def: 128, res: 25, block: 1, cost: 16, aspd: '1.9s', rdp: '70s' },

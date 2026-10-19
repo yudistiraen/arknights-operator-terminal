@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import cantabileVoice from '../voices/cantabile'
 
 const cantabile: Operator = {
   name: 'Cantabile', fileNo: 'R143', class: 'Vanguard', branch: 'Agent', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'April 7th', height: '169 cm', combatExp: '6 years', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '温泉瓜',
   cv: { JP: 'Yuka Saito', CN: 'Ruo Wu (credited as "Luttefair" in EN)', EN: 'Frankie Kevich', KR: 'Moon Sun-hee' },
+  voice: cantabileVoice,
   trait: 'Has reduced Redeployment Time, can use ranged attacks',
   tags: ['DP-Recovery', 'Fast-Redeploy'],
   stats: { hp: 1878, atk: 549, def: 262, res: 0, block: 1, cost: 10, aspd: '1s', rdp: '35s' },

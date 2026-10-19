@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import fartoothVoice from '../voices/fartooth'
 
 const fartooth: Operator = {
   name: 'Fartooth', fileNo: 'KZ13', class: 'Sniper', branch: 'Deadeye Sniper', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting'],
   faction: 'Pinus Sylvestris', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'October 10th', height: '155 cm', combatExp: '4 years', infectionStatus: 'Confirmed infected by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Suzuko Mimori', CN: 'Wen Liu', EN: 'Samantha Dakin', KR: 'Yeo Yun-mi' },
+  voice: fartoothVoice,
   trait: 'Prioritizes attacking the enemy with lowest DEF within range first',
   tags: ['DPS'],
   stats: { hp: 1522, atk: 1296, def: 163, res: 0, block: 1, cost: 22, aspd: '2.7s', rdp: '70s' },

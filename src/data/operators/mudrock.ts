@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mudrockVoice from '../voices/mudrock'
 
 const mudrock: Operator = {
   name: 'Mudrock', fileNo: 'R159', class: 'Defender', branch: 'Juggernaut', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'September 21st', height: '163 cm', combatExp: '4 years', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: 'm9nokuro',
   cv: { JP: 'Maaya Uchida', CN: 'Mang Yin', EN: 'Alexandra Boulton', KR: 'Kim Ye-rim' },
+  voice: mudrockVoice,
   trait: 'Cannot be healed by allies',
   tags: ['Survival', 'Defense', 'DPS'],
   stats: { hp: 3928, atk: 882, def: 602, res: 10, block: 3, cost: 36, aspd: '1.6s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import crackborneVoice from '../voices/crackborne'
 
 const crackborne: Operator = {
   name: 'Crackborne', fileNo: 'US42', class: 'Defender', branch: 'Primal Protector', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'Ursus', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'April 18th', height: '155 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Horin',
   cv: { JP: 'Moe Konoma', CN: 'Zhang Ye', EN: 'Anna Moleva', KR: 'Lee Ja-young' },
+  voice: crackborneVoice,
   trait: 'Blocks 3 enemies, and can inflict Elemental Injury',
   tags: ['Elemental', 'Survival'],
   stats: { hp: 3195, atk: 632, def: 599, res: 10, block: 3, cost: 25, aspd: '1.6s', rdp: '70s' },

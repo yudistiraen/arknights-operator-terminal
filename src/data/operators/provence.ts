@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import provenceVoice from '../voices/provence'
 
 const provence: Operator = {
   name: 'Provence', fileNo: 'SR03', class: 'Sniper', branch: 'Heavyshooter', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Siracusa', position: 'Ranged', race: 'Lupo', gender: 'Female', birthplace: 'Siracusa',
   birthday: 'November 30th', height: '162 cm', combatExp: '1 year', infectionStatus: 'Showed physical signs of Originium, infection confirmed by medical examination.', illustrator: '渣念',
   cv: { JP: 'Akari Kageyama', CN: 'Xu Chen', EN: 'Xanthe Huynh', KR: 'Park Ji-yoon' },
+  voice: provenceVoice,
   trait: 'High accuracy point-blank shot',
   tags: ['DPS'],
   stats: { hp: 1680, atk: 871, def: 215, res: 0, block: 1, cost: 19, aspd: '1.6s', rdp: '70s' },

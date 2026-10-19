@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import sesaVoice from '../voices/sesa'
 
 const sesa: Operator = {
   name: 'Sesa', fileNo: 'R158', class: 'Sniper', branch: 'Artilleryman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Ranged', race: 'Vouivre', gender: 'Male',
   birthplace: 'Sargon', birthday: 'April 22nd', height: '189 cm', combatExp: 'None', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: '竜崎いち',
   cv: { JP: 'Yuuki Ono', CN: 'Xu Xiang (credited as "Ethan" in EN)', EN: 'Jack Ayres', KR: 'Ryu Seung-gon' },
+  voice: sesaVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['AoE', 'Debuff'],
   stats: { hp: 1655, atk: 918, def: 123, res: 0, block: 1, cost: 28, aspd: '2.8s', rdp: '70s' },

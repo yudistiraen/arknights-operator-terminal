@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import whisperainVoice from '../voices/whisperain'
 
 const whisperain: Operator = {
   name: 'Whisperain', fileNo: 'R163', class: 'Medic', branch: 'Therapist', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +8,7 @@ const whisperain: Operator = {
   infectionStatus: 'Medical tests have confirmed that no infection is present.',
   illustrator: 'Chuzenji',
   cv: { JP: 'Saori Goto', CN: 'Liu Shisi (credited as "Jingxia Liu" in EN)', EN: 'Sam Slade', KR: 'Lee Ji-young' },
+  voice: whisperainVoice,
   trait: 'Has a large healing range, but the healing amount on farther targets is reduced to 80%',
   tags: ['Healing'],
   stats: { hp: 1632, atk: 532, def: 119, res: 10, block: 1, cost: 20, aspd: '2.85s', rdp: '70s' },

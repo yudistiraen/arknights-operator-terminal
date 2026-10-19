@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import haroldVoice from '../voices/harold'
 
 const harold: Operator = {
   name: 'Harold', fileNo: 'VC27', class: 'Medic', branch: 'Wandering Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Victoria', position: 'Ranged', race: 'Feline', gender: 'Male', birthplace: 'Victoria',
   birthday: 'September 21st', height: '190 cm', combatExp: '41 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '一千',
   cv: { JP: 'Takumi Yamazaki', CN: 'Dong Shengzhang', EN: 'Greg Haiste', KR: 'Seok Seung-hoon' },
+  voice: haroldVoice,
   trait: 'Restores the HP of allied units and recovers Elemental Injury by 50% of ATK (can recover Elemental Injury of unhurt allied units)',
   tags: ['Healing'],
   stats: { hp: 1378, atk: 376, def: 98, res: 10, block: 1, cost: 17, aspd: '2.85s', rdp: '80s' },

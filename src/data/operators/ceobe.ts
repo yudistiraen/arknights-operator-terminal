@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ceobeVoice from '../voices/ceobe'
 
 const ceobe: Operator = {
   name: 'Ceobe', fileNo: 'R155', class: 'Caster', branch: 'Core Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Perro', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'March 3rd', height: '153 cm', combatExp: '3 years', infectionStatus: 'Originium crystals are distributed across the surface of her body, confirmed Infected by medical examination.', illustrator: 'LM7',
   cv: { JP: 'Asami Seto', CN: 'Zi Mao', EN: 'Christina Costello', KR: 'Ryu Jeom-hee' },
+  voice: ceobeVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS', 'Crowd-Control'],
   stats: { hp: 1565, atk: 757, def: 128, res: 20, block: 1, cost: 21, aspd: '1.6s', rdp: '70s' },

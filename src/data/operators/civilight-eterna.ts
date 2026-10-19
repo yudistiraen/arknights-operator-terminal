@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import civilightEternaVoice from '../voices/civilight-eterna'
 
 const civilightEterna: Operator = {
   name: 'Civilight Eterna', fileNo: 'DWDB', class: 'Supporter', branch: 'Bard', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'July 11th', height: '165 cm', combatExp: 'Undisclosed', infectionStatus: 'Undisclosed', illustrator: 'Chuzenji',
   cv: { JP: 'Yuka Nanri', CN: 'Ji Guanlin', EN: 'Kari Wahlgren', KR: 'Kim Yoon-chae' },
+  voice: civilightEternaVoice,
   trait: 'Does not attack but continuously restores the HP of all allies within range (the HP restored per second is equal to 10% of self ATK). Self is unaffected by Inspiration',
   tags: ['Support', 'Survival', 'DPS'],
   stats: { hp: 1628, atk: 369, def: 226, res: 0, block: 1, cost: 10, aspd: '1.3s', rdp: '80s' },

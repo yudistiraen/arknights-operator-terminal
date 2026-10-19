@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import archettoVoice from '../voices/archetto'
 
 const archetto: Operator = {
   name: 'Archetto', fileNo: 'LT08', class: 'Sniper', branch: 'Marksman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Laterano', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Laterano',
   birthday: 'November 16th', height: '152 cm', combatExp: '2 years', infectionStatus: 'Non-infected', illustrator: 'alchemaniac',
   cv: { JP: 'Inori Minase', CN: 'Muyaruilin', EN: 'Rita Angel Taylor', KR: 'Kwon Da-ye' },
+  voice: archettoVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1705, atk: 528, def: 172, res: 0, block: 1, cost: 14, aspd: '1s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ukusikVoice from '../voices/ukusik'
 
 const ukusik: Operator = {
   name: 'Ukusik', fileNo: 'US39', class: 'Medic', branch: 'Chain Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'Ursus', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Ursus',
   birthday: 'June 1st', height: '147 cm', combatExp: '1 year', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '折射镜',
   cv: { JP: 'Momoka Terasawa', CN: 'Shi Conghao', EN: 'Vasilisa Eldarova', KR: 'Kim Soon-mi' },
+  voice: ukusikVoice,
   trait: 'Restores HP of allies, bouncing between 3 allies. Healing reduced by 25% per bounce.',
   tags: ['Healing'],
   stats: { hp: 1830, atk: 495, def: 175, res: 0, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },

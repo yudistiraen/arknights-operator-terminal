@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import penanceVoice from '../voices/penance'
 
 const penance: Operator = {
   name: 'Penance', fileNo: 'SR35', class: 'Defender', branch: 'Juggernaut', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Siracusa', position: 'Melee', race: 'Lupo', gender: 'Female', birthplace: 'Siracusa',
   birthday: 'July 9th', height: '168 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'IRIS_口艺',
   cv: { JP: 'Sayaka Ohara', CN: 'Shao Minjia', EN: 'Allegra Clark', KR: 'Bi Ju-eon' },
+  voice: penanceVoice,
   trait: 'Cannot be healed by allies',
   tags: ['Survival', 'DPS'],
   stats: { hp: 4655, atk: 916, def: 616, res: 10, block: 3, cost: 36, aspd: '1.6s', rdp: '70s' },

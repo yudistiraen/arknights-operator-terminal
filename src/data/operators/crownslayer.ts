@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import crownslayerVoice from '../voices/crownslayer'
 
 const crownslayer: Operator = {
   name: 'Crownslayer', fileNo: 'R315', class: 'Specialist', branch: 'Executor', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['I Portatori dei Velluti (Programma della Sfilata)'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Reproba', gender: 'Female', birthplace: 'Ursus',
   birthday: 'July 22nd', height: '161 cm', combatExp: '7 years', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '海猫络合物 (original design), 直立行走 (Operator art)',
   cv: { JP: 'Sayaka Senbongi', CN: 'Chen Yanyi', EN: 'Evgeniya Vagan', KR: 'Lee Joo-eun' },
+  voice: crownslayerVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy'],
   stats: { hp: 1695, atk: 635, def: 325, res: 0, block: 1, cost: 12, aspd: '0.93s', rdp: '22s' },

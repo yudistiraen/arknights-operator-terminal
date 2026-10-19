@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import croissantVoice from '../voices/croissant'
 
 const croissant: Operator = {
   name: 'Croissant', fileNo: 'PL04', class: 'Defender', branch: 'Protector', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Penguin Logistics', position: 'Melee', race: 'Forte', gender: 'Female', birthplace: 'Minos',
   birthday: 'September 29th', height: '163 cm', combatExp: '1 year', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: '幻象黑兔',
   cv: { JP: 'Yurika Kubo', CN: 'Wen Liu', EN: 'Risa Mei', KR: 'Yang Jung-hwa' },
+  voice: croissantVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense', 'Shift'],
   stats: { hp: 3670, atk: 380, def: 770, res: 0, block: 3, cost: 22, aspd: '1.2s', rdp: '70s' },

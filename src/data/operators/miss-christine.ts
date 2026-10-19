@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import missChristineVoice from '../voices/miss-christine'
 
 const missChristine: Operator = {
   name: 'Miss.Christine', fileNo: 'MEOW', class: 'Caster', branch: 'Primal Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Victoria', position: 'Ranged', race: 'Undisclosed', gender: 'Lady', birthplace: 'Unknown',
   birthday: 'Unknown', height: '35cm (sitting) / 75cm (stretching, including tail, approximate)', combatExp: 'Unknown', infectionStatus: "We were unable to perform imaging on Miss.Christine or obtain a blood sample. Warfarin eventually abandoned any attempt to track Miss.Christine's infection status.", illustrator: 'YUJI',
   cv: { JP: '', CN: '', EN: '', KR: '' },
+  voice: missChristineVoice,
   trait: 'Attacks deal Arts damage, and can inflict Elemental damage',
   tags: ['Elemental', 'DPS'],
   stats: { hp: 1287, atk: 565, def: 115, res: 15, block: 1, cost: 22, aspd: '1.6s', rdp: '80s' },

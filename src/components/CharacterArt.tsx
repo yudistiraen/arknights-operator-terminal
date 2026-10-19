@@ -77,7 +77,7 @@ export const CharacterArt = forwardRef<HTMLImageElement, CharacterArtProps>(
               className={`object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)] ${l2d && showL2D ? 'invisible' : ''}`}
             />
             {l2d && showL2D && (
-              <SpineViewer l2d={l2d} className="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]" />
+              <SpineViewer l2d={l2d} resolutionScale={transform.scale} className="absolute inset-0 w-full h-full drop-shadow-[0_20px_40px_rgba(0,0,0,0.45)]" />
             )}
           </div>
         </div>

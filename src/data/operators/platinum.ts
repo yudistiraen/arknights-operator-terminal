@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import platinumVoice from '../voices/platinum'
 
 const platinum: Operator = {
   name: 'Platinum', fileNo: 'KZ03', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Kazimierz', position: 'Ranged', race: 'Kuranta', gender: 'Female',
   birthplace: 'Kazimierz', birthday: 'February 13th', height: '160 cm', combatExp: '6 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Mizuki Kitajima', CN: 'Zhang Qi (credited as "Kiiki" in EN)', EN: 'Rosie Day', KR: 'Kim Chae-ha' },
+  voice: platinumVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1550, atk: 505, def: 165, res: 0, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

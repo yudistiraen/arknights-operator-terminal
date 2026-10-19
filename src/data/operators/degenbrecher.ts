@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import degenbrecherVoice from '../voices/degenbrecher'
 
 const degenbrecher: Operator = {
   name: 'Degenbrecher', fileNo: 'JC07', class: 'Guard', branch: 'Swordmaster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'Karlan Trade', position: 'Melee', race: 'Caprinae', gender: 'Female', birthplace: 'Leithanien',
   birthday: 'June 6th', height: '182 cm', combatExp: '25 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '竜崎いち',
   cv: { JP: 'Minami Takayama', CN: 'Wu Di', EN: 'Nina-Mercedés Rühl', KR: 'Lim Yoon-seon' },
+  voice: degenbrecherVoice,
   trait: 'Normal attacks deal damage twice',
   tags: ['Nuker', 'DPS', 'Debuff'],
   stats: { hp: 2891, atk: 685, def: 389, res: 0, block: 2, cost: 23, aspd: '1.3s', rdp: '70s' },

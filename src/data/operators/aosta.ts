@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import aostaVoice from '../voices/aosta'
 
 const aosta: Operator = {
   name: 'Aosta', fileNo: 'SR28', class: 'Sniper', branch: 'Spreadshooter', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: "Chiave's Gang", position: 'Ranged', race: 'Lupo', gender: 'Male', birthplace: 'Siracusa',
   birthday: 'May 9th', height: '177 cm', combatExp: '5 years', infectionStatus: 'Crystals have appeared on his body. Infection confirmed by medical examination.', illustrator: 'infukun',
   cv: { JP: 'Tatsuhisa Suzuki', CN: 'Wang Ning (Credited as "Kimi" in Global)', EN: 'Gianandrea Muià', KR: 'Lee Chang-min' },
+  voice: aostaVoice,
   trait: 'Attacks all enemies within range, and deals 150% damage to enemies in the row directly in front of this unit.',
   tags: ['AoE'],
   stats: { hp: 2376, atk: 756, def: 192, res: 0, block: 1, cost: 31, aspd: '2.3s', rdp: '70s' },

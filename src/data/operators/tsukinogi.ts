@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import tsukinogiVoice from '../voices/tsukinogi'
 
 const tsukinogi: Operator = {
   name: 'Tsukinogi', fileNo: 'R129', class: 'Supporter', branch: 'Abjurer', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +8,7 @@ const tsukinogi: Operator = {
   infectionStatus: 'Confirmed infected by medical examination.',
   illustrator: '上埜',
   cv: { JP: 'Sayaka Ohara', CN: 'Liang Shuang', EN: 'Seiko Suzuki', KR: 'Hong Su-jeong' },
+  voice: tsukinogiVoice,
   trait: 'Deals Arts damage; When skill is active, attacks instead restore the HP of allies (heal amount is equal to 75% of ATK)',
   tags: ['Support', 'Survival'],
   stats: { hp: 1720, atk: 445, def: 175, res: 25, block: 1, cost: 12, aspd: '1.6s', rdp: '70s' },

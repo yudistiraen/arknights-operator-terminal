@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import letoVoice from '../voices/leto'
 
 const leto: Operator = {
   name: 'Leto', fileNo: 'USS5', class: 'Guard', branch: 'Lord', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Ursus Student Self-Governing Group', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'March 30th', height: '167 cm', combatExp: '1.5 years', infectionStatus: 'Non-infected', illustrator: 'Skade',
   cv: { JP: 'Ayaka Asai', CN: 'Chen Yu', EN: 'Christina Sherman', KR: 'Lee Dal-lae' },
+  voice: letoVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS', 'Support'],
   stats: { hp: 2280, atk: 680, def: 375, res: 10, block: 2, cost: 19, aspd: '1.3s', rdp: '70s' },

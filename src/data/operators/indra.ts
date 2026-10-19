@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import indraVoice from '../voices/indra'
 
 const indra: Operator = {
   name: 'Indra', fileNo: 'GG03', class: 'Guard', branch: 'Fighter', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Vulcan and Indra Recruitment Voucher'],
   faction: 'Glasgow', position: 'Melee', race: 'Feline', gender: 'Female', birthplace: 'Unknown',
   birthday: 'April 15th', height: '173 cm', combatExp: '7 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Infukun',
   cv: { JP: 'Yuko Hara', CN: 'Miao Yang (credited as "Mia Miao" in EN)', EN: 'Polly Eachus', KR: 'Lee Sae-byeok' },
+  voice: indraVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS', 'Survival'],
   stats: { hp: 2565, atk: 605, def: 350, res: 0, block: 1, cost: 10, aspd: '0.78s', rdp: '70s' },

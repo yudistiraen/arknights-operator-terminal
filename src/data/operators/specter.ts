@@ -1,4 +1,6 @@
 import type { Operator } from '../../types'
+import specterTheUnchainedVoice from '../voices/specter/specter-the-unchained'
+import specterVoice from '../voices/specter'
 
 const specter: Operator = {
   name: 'Specter', fileNo: 'AA02', class: 'Guard', branch: 'Centurion', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +9,7 @@ const specter: Operator = {
   infectionStatus: `Showed no outward symptoms of Originium Infection, but Infection was confirmed by medical examination. More clinical research is required to fully diagnose Specter's Oripathy Status.`,
   illustrator: 'Skade',
   cv: { JP: 'Azumi Asakura', CN: 'Zhang Anqi (credited as "Angel Zhang" in EN)', EN: 'Harriet Carmichael', KR: 'Kim Hyeon-sim' },
+  voice: specterVoice,
   trait: 'Attacks all blocked enemies',
   tags: ['AoE', 'Survival'],
   stats: { hp: 2630, atk: 805, def: 355, res: 0, block: 3, cost: 23, aspd: '1.2s', rdp: '70s' },
@@ -99,6 +102,7 @@ const specter: Operator = {
   portraitFocus: { y: -4.9, x: 70.1, zoom: 314 },
   alter: {
     name: 'Specter the Unchained', fileNo: 'CR02', class: 'Specialist', branch: 'Dollkeeper', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Celebration'],
+    voice: specterTheUnchainedVoice,
     position: 'Melee',
     trait: 'Does not retreat upon receiving lethal damage, instead swaps to a <Substitute> (Substitute has 0 Block). Swaps back to the original after 20 seconds',
     tags: ['DPS', 'Fast-Redeploy'],

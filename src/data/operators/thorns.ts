@@ -1,10 +1,13 @@
 import type { Operator } from '../../types'
+import thornsTheLodestarVoice from '../voices/thorns/thorns-the-lodestar'
+import thornsVoice from '../voices/thorns'
 
 const thorns: Operator = {
   name: 'Thorns', fileNo: 'II01', class: 'Guard', branch: 'Lord', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Iberia', position: 'Melee', race: 'Aegir', gender: 'Male', birthplace: 'Iberia',
   birthday: 'March 17th', height: '177 cm', combatExp: '5 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '幻象黑兔',
   cv: { JP: 'Kaito Ishikawa', CN: 'Xu Xiang (credited as "Ethan" in EN)', EN: 'Javier Bañas', KR: 'Hong Bum-ki' },
+  voice: thornsVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS', 'Defense'],
   stats: { hp: 2612, atk: 741, def: 472, res: 10, block: 2, cost: 20, aspd: '1.3s', rdp: '70s' },
@@ -110,6 +113,7 @@ const thorns: Operator = {
   portraitFocus: { y: -6.7, x: 44.7, zoom: 344 },
   alter: {
     name: 'Thorns the Lodestar', fileNo: 'II02', class: 'Specialist', branch: 'Alchemist', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+    voice: thornsTheLodestarVoice,
     position: 'Ranged', trait: 'Can throw Alchemical Units to assist in combat', tags: ['DPS', 'Support', 'Debuff'], illustrator: '嘎嘎人 (original design by 幻象黑兔)',
     stats: { hp: 1373, atk: 541, def: 106, res: 30, block: 1, cost: 18, aspd: '1.5s', rdp: '70s' },
     range: {

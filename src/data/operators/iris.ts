@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import irisVoice from '../voices/iris'
 
 const iris: Operator = {
   name: 'Iris', fileNo: 'VC12', class: 'Caster', branch: 'Mystic Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Victoria', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'April 2nd', height: '147 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Xiaye Hongming',
   cv: { JP: 'Haruka Shiraishi', CN: 'KIYO', EN: 'Molly Jenkins', KR: 'Moon Yoo-jung' },
+  voice: irisVoice,
   trait: 'Attacks deal Arts damage; When unable to find a target, attacks can be stored up and fired all at once (Up to 3 charges)',
   tags: ['DPS'],
   stats: { hp: 1535, atk: 1259, def: 125, res: 20, block: 1, cost: 24, aspd: '3s', rdp: '70s' },

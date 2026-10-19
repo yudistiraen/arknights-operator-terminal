@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import swireVoice from '../voices/swire'
 
 const swire: Operator = {
   name: 'Swire', fileNo: 'LM08', class: 'Guard', branch: 'Instructor', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +8,7 @@ const swire: Operator = {
   infectionStatus: 'Non-infected as confirmed by medical report.',
   illustrator: '下野宏铭',
   cv: { JP: 'Sora Tokui', CN: 'Ying Xie', EN: 'Emma Ballantine', KR: 'Kim Yul' },
+  voice: swireVoice,
   trait: 'Can attack enemies from range; When attacking enemies not blocked by self, increase ATK to 120%',
   tags: ['DPS', 'Support'],
   stats: { hp: 1914, atk: 656, def: 413, res: 0, block: 2, cost: 16, aspd: '1.05s', rdp: '70s' },

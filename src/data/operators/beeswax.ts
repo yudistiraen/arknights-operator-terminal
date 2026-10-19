@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import beeswaxVoice from '../voices/beeswax'
 
 const beeswax: Operator = {
   name: 'Beeswax', fileNo: 'R147', class: 'Caster', branch: 'Phalanx Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Ranged', race: 'Caprinae', gender: 'Female', birthplace: 'Sargon',
   birthday: 'September 15th', height: '157 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'カワグチ',
   cv: { JP: 'Eri Kitamura', CN: 'Weng Yuan', EN: 'Natasha Atherton', KR: 'Kim Yeon-woo' },
+  voice: beeswaxVoice,
   trait: 'Normally does not attack, but has greatly increased DEF and RES; When skill is active, attacks deal AoE Arts damage',
   tags: ['AoE', 'Defense'],
   stats: { hp: 2005, atk: 735, def: 205, res: 15, block: 1, cost: 23, aspd: '2s', rdp: '70s' },

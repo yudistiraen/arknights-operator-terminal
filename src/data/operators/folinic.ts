@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import folinicVoice from '../voices/folinic'
 
 const folinic: Operator = {
   name: 'Folinic', fileNo: 'R133', class: 'Medic', branch: 'Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Ursus',
   birthday: 'August 18th', height: '164 cm', combatExp: 'Half-year mock combat training', infectionStatus: 'Infected', illustrator: 'm9nokuro',
   cv: { JP: 'Reina Kondo', CN: 'Fumeng Ruowei', EN: 'Skyler Davenport', KR: 'Lee Bo-hee' },
+  voice: folinicVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing', 'DPS'],
   stats: { hp: 1585, atk: 479, def: 133, res: 0, block: 1, cost: 21, aspd: '2.85s', rdp: '80s' },

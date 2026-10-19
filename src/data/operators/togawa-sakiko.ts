@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import togawaSakikoVoice from '../voices/togawa-sakiko'
 
 const togawaSakiko: Operator = {
   name: 'Togawa Sakiko', fileNo: 'AM01', class: 'Guard', branch: 'Lord', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Ave Mujica', position: 'Melee', race: 'Undisclosed', gender: 'Female', birthplace: 'Undisclosed',
   birthday: 'February 14th', height: '155 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: '〇亻',
   cv: { JP: 'Kanon Takao', CN: '', EN: '', KR: '' },
+  voice: togawaSakikoVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS', 'Crossover'],
   stats: { hp: 2356, atk: 785, def: 425, res: 10, block: 2, cost: 20, aspd: '1.3s', rdp: '70s' },

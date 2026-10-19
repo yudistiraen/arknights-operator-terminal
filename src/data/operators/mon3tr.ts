@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mon3trVoice from '../voices/mon3tr'
 
 const mon3tr: Operator = {
   name: 'Mon3tr', fileNo: 'RI08', class: 'Medic', branch: 'Chain Medic', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Rhodes Island',
   birthday: 'July 25th', height: '158 cm', combatExp: 'Undisclosed', infectionStatus: 'Non-infected', illustrator: '伍秋秋秋秋',
   cv: { JP: 'Fūka Izumi', CN: 'Chen Yixuan', EN: 'Molly Harris', KR: 'Lee Myung-ho' },
+  voice: mon3trVoice,
   trait: 'Restores HP of allies, bouncing between 3 allies. Healing reduced by 25% per bounce.',
   tags: ['Healing', 'DPS', 'Support'],
   stats: { hp: 2235, atk: 558, def: 221, res: 0, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },

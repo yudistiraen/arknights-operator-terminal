@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import warfarinVoice from '../voices/warfarin'
 
 const warfarin: Operator = {
   name: 'Warfarin', fileNo: 'R106', class: 'Medic', branch: 'Medic', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'June 27th', height: '157 cm', combatExp: '10 years', infectionStatus: "Non-infected as confirmed by medical report.", illustrator: '时辰',
   cv: { JP: 'Manaka Iwami', CN: 'Gelin Tian', EN: 'Lindsay Morton', KR: 'Shin Song-yi' },
+  voice: warfarinVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing', 'Support'],
   stats: { hp: 1520, atk: 580, def: 125, res: 0, block: 1, cost: 19, aspd: '2.85s', rdp: '70s' },

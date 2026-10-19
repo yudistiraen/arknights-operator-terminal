@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import executorVoice from '../voices/executor'
 
 const executor: Operator = {
   name: 'Executor', fileNo: 'LT01', class: 'Sniper', branch: 'Spreadshooter', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Laterano', position: 'Ranged', race: 'Sankta', gender: 'Male', birthplace: 'Laterano',
   birthday: 'July 7th', height: '181 cm', combatExp: '5 years', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'Skade',
   cv: { JP: 'Takashi Kondō', CN: 'Lengquan Yeyue (credited as "Ji Huang" in EN)', EN: 'Eliah Mountjoy', KR: 'Kim Young-sun' },
+  voice: executorVoice,
   trait: 'Attacks all enemies within range, and deals 150% damage to enemies in the row directly in front of this unit.',
   tags: ['AoE'],
   stats: { hp: 2330, atk: 785, def: 185, res: 0, block: 1, cost: 31, aspd: '2.3s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import belloneVoice from '../voices/bellone'
 
 const bellone: Operator = {
   name: 'Bellone', fileNo: 'SR42', class: 'Guard', branch: 'Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
   faction: 'Siracusa', position: 'Melee', race: 'Lupo', gender: 'Male', birthplace: 'Siracusa',
   birthday: 'August 6th', height: '180 cm', combatExp: '15 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Lowro & Studio Montagne',
   cv: { JP: 'Kentaro Kumagai', CN: 'Sang Yuze', EN: 'Samuele Torrigiani (also voices Italian)', KR: 'Han-sin' },
+  voice: belloneVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS', 'Debuff'],
   stats: { hp: 2625, atk: 665, def: 385, res: 0, block: 1, cost: 11, aspd: '0.78s', rdp: '70s' },

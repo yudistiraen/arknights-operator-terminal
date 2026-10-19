@@ -1,7 +1,10 @@
 import type { Operator, OperatorAlter } from '../../types'
+import eyjafjallaTheHvitAskaVoice from '../voices/eyjafjalla/eyjafjalla-the-hvit-aska'
+import eyjafjallaVoice from '../voices/eyjafjalla'
 
 const hvitAska: OperatorAlter = {
   name: 'Eyjafjalla the Hvít Aska', fileNo: 'LN10', class: 'Medic', branch: 'Wandering Medic', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Carnival'],
+  voice: eyjafjallaTheHvitAskaVoice,
   position: 'Ranged', trait: 'Restores the HP of allied units and recovers Elemental Injury by 50% of ATK (can recover Elemental Injury of unhurt allied units)',
   tags: ['Healing'],
   illustrator: 'Anmi',
@@ -103,6 +106,7 @@ const hvitAska: OperatorAlter = {
     { id: 'skin2', label: 'One More Story', src: '/operators/eyjafjalla/hvit-aska/skin2.png', chibiSrc: '/operators/eyjafjalla/hvit-aska/chibi-skin2.webm', chibiMoveSrc: '/operators/eyjafjalla/hvit-aska/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Anmi' },
   ],
   portrait: '/operators/eyjafjalla/hvit-aska/portrait.png',
+  portraitFocus: { y: -8.4, x: 48.3, zoom: 272 },
 }
 
 const eyjafjalla: Operator = {
@@ -110,6 +114,7 @@ const eyjafjalla: Operator = {
   faction: 'Leithanien', position: 'Ranged', race: 'Caprinae', gender: 'Female', birthplace: 'Leithanien',
   birthday: 'October 18th', height: '145 cm', combatExp: 'None', infectionStatus: 'Showed physical signs of Originium, infection confirmed by medical report.', illustrator: 'Anmi',
   cv: { JP: 'Risa Taneda', CN: 'Jiang Wen (credited as "Juniper Berry" in EN)', EN: 'Hollie Taylor', KR: 'Kim Ha-ru' },
+  voice: eyjafjallaVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS', 'Debuff'],
   stats: { hp: 1743, atk: 735, def: 122, res: 20, block: 1, cost: 21, aspd: '1.6s', rdp: '70s' },
