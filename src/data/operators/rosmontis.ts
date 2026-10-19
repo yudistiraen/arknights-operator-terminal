@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import rosmontisVoice from '../voices/rosmontis'
 
 const rosmontis: Operator = {
   name: 'Rosmontis', fileNo: 'RE45', class: 'Sniper', branch: 'Flinger', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Elite Op', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Columbia',
   birthday: 'July 6th', height: '142 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '唯@W',
   cv: { JP: 'Yui Ogura', CN: 'Zhang Ruoyu', EN: 'Hayden Daviau', KR: 'Yoon Eun-seo' },
+  voice: rosmontisVoice,
   trait: 'Attacks deal two instances of Physical damage to ground enemies in a small area (The second instance is a shockwave that has half the normal ATK)',
   tags: ['DPS'],
   stats: { hp: 1944, atk: 748, def: 275, res: 15, block: 1, cost: 25, aspd: '2.1s', rdp: '70s' },
@@ -130,9 +132,9 @@ const rosmontis: Operator = {
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/flinger-branch.png', factionIcon: '/icons/factions/elite-op.png',
   skins: [
     { id: 'base', label: 'Base', src: '/operators/rosmontis/base.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/rosmontis/e2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W', l2d: { skel: '/operators/rosmontis/l2d/rosmontis-e2.skel', atlas: '/operators/rosmontis/l2d/rosmontis-e2.atlas',focus: { zoom: 0.53, offsetY: -600, offsetX: -700 } } },
-    { id: 'skin1', label: 'Become Anew', src: '/operators/rosmontis/skin1.png', chibiSrc: '/operators/rosmontis/chibi-skin1.webm', illustrator: '唯@W' },
-    { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/rosmontis/e2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: '唯@W', l2d: { skel: '/operators/rosmontis/l2d/rosmontis-e2.skel', atlas: '/operators/rosmontis/l2d/rosmontis-e2.atlas', backdrop: { src: '/operators/rosmontis/l2d/rosmontis-e2-bg.png', x: -963, y: -157, width: 1979.9, height: 1979.9 }, focus: { zoom: 0.76, offsetY: -558, offsetX: -125 } } },
+    { id: 'skin1', label: 'Become Anew', src: '/operators/rosmontis/skin1.png', chibiSrc: '/operators/rosmontis/chibi-skin1.webm', illustrator: '唯@W', l2d: { skel: '/operators/rosmontis/l2d/rosmontis-become-anew.skel', atlas: '/operators/rosmontis/l2d/rosmontis-become-anew.atlas', backdrop: { src: '/operators/rosmontis/l2d/rosmontis-become-anew-bg.png', x: -765.9, y: 137.5, width: 1855.8, height: 1425.6 } } },
+    { id: 'skin2', label: 'An Airy Dream', src: '/operators/rosmontis/skin2.png', chibiSrc: '/operators/rosmontis/chibi.webm', illustrator: 'Liyu黎', l2d: { skel: '/operators/rosmontis/l2d/rosmontis-airy-dream.skel', atlas: '/operators/rosmontis/l2d/rosmontis-airy-dream.atlas', backdrop: { src: '/operators/rosmontis/l2d/rosmontis-airy-dream-bg.png', x: -766.2, y: 287.8, width: 1736, height: 1720 } } },
   ],
   portrait: '/operators/rosmontis/portrait.png',
   portraitFocus: { y: 31.2, x: 54, zoom: 520 },

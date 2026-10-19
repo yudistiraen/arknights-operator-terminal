@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import chiaveVoice from '../voices/chiave'
 
 const chiave: Operator = {
   name: 'Chiave', fileNo: 'SR26', class: 'Vanguard', branch: 'Pioneer', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: "Chiave's Gang", position: 'Melee', race: 'Vulpo', gender: 'Male', birthplace: 'Siracusa',
   birthday: 'September 9th', height: '182 cm', combatExp: '6 years', infectionStatus: 'Crystals are present on the surface of his body. Confirmed Infected by medical examination.', illustrator: 'Infukun',
   cv: { JP: 'Wataru Hatano', CN: 'Zhang Tongming', EN: 'Jacopo Calatroni', KR: 'Kim Ji-yul' },
+  voice: chiaveVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'DPS'],
   stats: { hp: 1824, atk: 592, def: 342, res: 0, block: 2, cost: 13, aspd: '1.05s', rdp: '70s' },

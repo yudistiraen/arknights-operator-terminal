@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mostimaVoice from '../voices/mostima'
 
 const mostima: Operator = {
   name: 'Mostima', fileNo: 'LT77', class: 'Caster', branch: 'Splash Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Laterano', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Laterano',
   birthday: 'December 12th', height: '170 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: '幻象黑兔',
   cv: { JP: 'Nana Mizuki', CN: 'Ruo Wu', EN: 'Kira Buckland', KR: 'Park Seon-young' },
+  voice: mostimaVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE', 'Support', 'Crowd-Control'],
   stats: { hp: 1831, atk: 939, def: 132, res: 20, block: 1, cost: 34, aspd: '2.9s', rdp: '70s' },

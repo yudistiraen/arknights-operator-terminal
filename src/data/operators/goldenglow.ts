@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import goldenglowVoice from '../voices/goldenglow'
 
 const goldenglow: Operator = {
   name: 'Goldenglow', fileNo: 'VC09', class: 'Caster', branch: 'Mech-Accord Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Victoria', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'January 7th', height: '159 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: 'Namie',
   cv: { JP: 'Ayane Sakura', CN: 'Bai Deng', EN: 'Heather Nicol', KR: 'Jung Hye-won' },
+  voice: goldenglowVoice,
   trait: "Controls a Drone to deal Arts damage to an enemy equal to 20% of ATK; when the Drone continuously attacks the same enemy, its damage will increase by 15% (up to 110% of ATK)",
   tags: ['DPS'],
   stats: { hp: 1480, atk: 331, def: 125, res: 20, block: 1, cost: 22, aspd: '1.3s', rdp: '70s' },

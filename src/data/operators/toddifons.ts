@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import toddifonsVoice from '../voices/toddifons'
 
 const toddifons: Operator = {
   name: 'Toddifons', fileNo: 'VC11', class: 'Sniper', branch: 'Besieger', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
@@ -7,6 +8,7 @@ const toddifons: Operator = {
   infectionStatus: 'Confirmed Infected by medical examination.',
   illustrator: '山x2',
   cv: { JP: 'Eri Sendai', CN: 'Yinzi Baobao (credited as "Gin" in EN)', EN: 'Annes Elwy', KR: 'Lee Sae-ah' },
+  voice: toddifonsVoice,
   trait: 'Attacks the heaviest enemy first',
   tags: ['DPS'],
   stats: { hp: 1667, atk: 1049, def: 123, res: 0, block: 1, cost: 23, aspd: '2.4s', rdp: '70s' },

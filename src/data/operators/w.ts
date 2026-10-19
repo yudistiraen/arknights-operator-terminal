@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import wVoice from '../voices/w'
 
 const w: Operator = {
   name: 'W', fileNo: 'B214', class: 'Sniper', branch: 'Artilleryman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Celebration'],
   faction: 'Babel', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'Claims to have forgotten', height: '165 cm', combatExp: '11 years', infectionStatus: 'Infected', illustrator: 'Liduke',
   cv: { JP: 'Ayana Taketatsu', CN: 'Ruan Congqing', EN: 'Caitlyn Bairstow', KR: 'Park Go-woon' },
+  voice: wVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['DPS', 'Crowd-Control'],
   stats: { hp: 1605, atk: 912, def: 133, res: 0, block: 1, cost: 29, aspd: '2.8s', rdp: '70s' },
@@ -93,8 +95,8 @@ const w: Operator = {
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/babel.png',
   skins: [
     { id: 'base', label: 'Base', src: '/operators/w/base.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-e2.skel', atlas: '/operators/w/l2d/w-e2.atlas' } },
-    { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', characterSlotPrefix: 'W_', focus: { zoom: 0.62, offsetY: 30, offsetX: 750 } } },
+    { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-e2.skel', atlas: '/operators/w/l2d/w-e2.atlas', backdrop: { src: '/operators/w/l2d/w-e2-bg.png', x: -757, y: 131, width: 1800, height: 1600 } } },
+    { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', backdrop: { src: '/operators/w/l2d/w-fugue-bg.png', x: -924, y: 108, width: 1930, height: 1520 }, characterSlotPrefix: 'W_', focus: { zoom: 1.82, offsetY: 32, offsetX: -6 } } },
   ],
   portrait: '/operators/w/portrait.png',
   portraitFocus: { y: -4.9, x: 47, zoom: 309 },

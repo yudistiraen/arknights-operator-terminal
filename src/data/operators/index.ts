@@ -203,6 +203,8 @@ import eyjafjalla from './eyjafjalla'
 import degenbrecher from './degenbrecher'
 import crownslayer from './crownslayer'
 import flametail from './flametail'
+import ebenholz from './ebenholz'
+import gavial from './gavial'
 
 export const OPERATORS = [
   amiya,
@@ -410,6 +412,8 @@ export const OPERATORS = [
   degenbrecher,
   crownslayer,
   flametail,
+  ebenholz,
+  gavial,
 ].sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 
 export const DEFAULT_OPERATOR_INDEX = OPERATORS.findIndex(op => op.name === 'Amiya')

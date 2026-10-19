@@ -1,10 +1,13 @@
 import type { Operator } from '../../types'
+import vinaVictoriaVoice from '../voices/siege/vina-victoria'
+import siegeVoice from '../voices/siege'
 
 const siege: Operator = {
   name: 'Siege', fileNo: 'GG01', class: 'Vanguard', branch: 'Pioneer', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Glasgow', position: 'Melee', race: 'Aslan', gender: 'Female', birthplace: 'Victoria',
   birthday: 'July 10th', height: '172 cm', combatExp: '5 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: 'infukun',
   cv: { JP: 'Ayako Kawasumi', CN: 'Shuang Liang', EN: 'Claudia Jolly', KR: 'Oh Roah' },
+  voice: siegeVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'DPS'],
   stats: { hp: 2251, atk: 575, def: 409, res: 0, block: 2, cost: 14, aspd: '1.05s', rdp: '70s' },
@@ -107,6 +110,7 @@ const siege: Operator = {
   portraitFocus: { y: -1.3, x: 36.5, zoom: 347 },
   alter: {
     name: 'Vina Victoria', fileNo: 'VC00', class: 'Guard', branch: 'Arts Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+    voice: vinaVictoriaVoice,
     position: 'Melee', trait: 'Deals Arts damage', tags: ['DPS', 'Survival'], illustrator: 'Studio Montagne (original design by Infukun)',
     stats: { hp: 2895, atk: 745, def: 450, res: 15, block: 1, cost: 21, aspd: '1.25s', rdp: '70s' },
     range: {

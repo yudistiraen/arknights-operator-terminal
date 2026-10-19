@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import manticoreVoice from '../voices/manticore'
 
 const manticore: Operator = {
   name: 'Manticore', fileNo: 'SG01', class: 'Specialist', branch: 'Ambusher', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Melee', race: 'Manticore', gender: 'Female', birthplace: 'Sargon',
   birthday: 'Unknown', height: '155 cm', combatExp: '1 year', infectionStatus: 'Infection confirmed by medical examination.', illustrator: '竜崎いち',
   cv: { JP: 'Ayaka Suwa', CN: 'Zi Mao (credited as "Kousou Mao" in EN)', EN: 'Haviland Stillwell', KR: 'Kim Bo-young' },
+  voice: manticoreVoice,
   trait: 'Deals Damage to all targets within range\n50% chance to dodge Physical and Arts attacks and is less likely to be targeted by enemies',
   tags: ['DPS', 'Survival'],
   stats: { hp: 1630, atk: 871, def: 373, res: 30, block: 0, cost: 20, aspd: '3.5s', rdp: '70s' },

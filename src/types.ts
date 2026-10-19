@@ -131,6 +131,10 @@ export interface SkinL2D {
    * pixels — scale varies per asset); zoom multiplies the auto viewport, so >1 zooms out and
    * <1 zooms in. Reach for this only when the automatic bounds don't center well. */
   focus?: { offsetX?: number; offsetY?: number; zoom?: number }
+  /** Static backdrop drawn behind the skeleton. In-game it's a set of Unity quads in the prefab
+   * (not part of the Spine data), pre-composited offline into one alpha-premultiplied PNG. The
+   * rect is in skeleton world units, y-up, (x, y) = bottom-left corner. */
+  backdrop?: { src: string; x: number; y: number; width: number; height: number }
 }
 
 export interface OperatorSkin {
@@ -215,6 +219,7 @@ export interface OperatorAlter {
   portrait: string
   portraitFocus?: PortraitFocus
   summon?: OperatorSummon
+  voice?: OperatorVoice
 }
 
 export interface OperatorRecord {

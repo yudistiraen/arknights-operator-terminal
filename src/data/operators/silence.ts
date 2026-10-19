@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import silenceVoice from '../voices/silence'
 
 const silence: Operator = {
   name: 'Silence', fileNo: 'RL01', class: 'Medic', branch: 'Medic', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Ranged', race: 'Liberi', gender: 'Female',
   birthplace: 'Columbia', birthday: 'May 18th', height: '154 cm', combatExp: 'None', infectionStatus: 'Crystals have appeared on her body. Infection confirmed by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Akari Kitou', CN: 'Liang Shuang', EN: 'Erica Lindbeck', KR: 'Seo Da-hye' },
+  voice: silenceVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing'],
   stats: { hp: 1595, atk: 557, def: 142, res: 0, block: 1, cost: 19, aspd: '2.85s', rdp: '70s' },

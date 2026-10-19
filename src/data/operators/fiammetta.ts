@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import fiammettaVoice from '../voices/fiammetta'
 
 const fiammetta: Operator = {
   name: 'Fiammetta', fileNo: 'LT11', class: 'Sniper', branch: 'Artilleryman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Laterano', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Laterano',
   birthday: 'April 3rd', height: '171 cm', combatExp: '4 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '幻象黑兔',
   cv: { JP: 'Fumiko Orikasa', CN: 'Xiaowen Xu', EN: 'Ina Marie Smith', KR: 'Kim Bo-na' },
+  voice: fiammettaVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['DPS'],
   stats: { hp: 1926, atk: 861, def: 156, res: 0, block: 1, cost: 29, aspd: '2.8s', rdp: '70s' },

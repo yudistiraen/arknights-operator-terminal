@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import insiderVoice from '../voices/insider'
 
 const insider: Operator = {
   name: 'Insider', fileNo: 'LT13', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Laterano', position: 'Ranged', race: 'Sankta', gender: 'Male', birthplace: 'Laterano',
   birthday: 'November 14th', height: '184 cm', combatExp: '8 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'umo_yszx',
   cv: { JP: 'Kento Ito', CN: 'Ma Yang', EN: 'Bill Millsap', KR: 'Jung Eui-jin' },
+  voice: insiderVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1411, atk: 511, def: 175, res: 0, block: 1, cost: 15, aspd: '1s', rdp: '80s' },

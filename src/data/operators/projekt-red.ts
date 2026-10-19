@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import projektRedVoice from '../voices/projekt-red'
 
 const projektRed: Operator = {
   name: 'Projekt Red', fileNo: 'SW01', class: 'Specialist', branch: 'Executor', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'S.W.E.E.P.', position: 'Melee', race: 'Lupo', gender: 'Female',
   birthplace: 'Undisclosed', birthday: 'August 25th', height: '162 cm', combatExp: '9 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: 'infukun',
   cv: { JP: 'Ami Koshimizu', CN: 'Muyaruilin', EN: 'Jenny Yokobori', KR: 'Park Seen-he' },
+  voice: projektRedVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy', 'Crowd-Control'],
   stats: { hp: 1505, atk: 605, def: 302, res: 0, block: 1, cost: 9, aspd: '0.93s', rdp: '18s' },

@@ -1,10 +1,13 @@
 import type { Operator, OperatorAlter } from '../../types'
+import exusiaiTheNewCovenantVoice from '../voices/exusiai/exusiai-the-new-covenant'
+import exusiaiVoice from '../voices/exusiai'
 
 const exusiai: Operator = {
   name: 'Exusiai', fileNo: 'PL03', class: 'Sniper', branch: 'Marksman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Penguin Logistics', position: 'Ranged', race: 'Sankta', gender: 'Female', birthplace: 'Laterano',
   birthday: 'December 24th', height: '159 cm', combatExp: '2 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: '幻象黑兔',
   cv: { JP: 'Manaka Iwami', CN: 'Shujin Cai', EN: 'Shannon Tarbet', KR: 'Lee Ji-hyun' },
+  voice: exusiaiVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1673, atk: 540, def: 161, res: 0, block: 1, cost: 14, aspd: '1s', rdp: '70s' },
@@ -135,6 +138,7 @@ const exusiai: Operator = {
 
 const exusiaiNewCovenant: OperatorAlter = {
   name: 'Exusiai the New Covenant', fileNo: 'PL08', class: 'Specialist', branch: 'Geek', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Celebration'],
+  voice: exusiaiTheNewCovenantVoice,
   position: 'Ranged', trait: 'Continually loses HP over time',
   tags: ['DPS', 'Support'],
   illustrator: '幻象黑兔',

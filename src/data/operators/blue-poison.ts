@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import bluePoisonVoice from '../voices/blue-poison'
 
 const bluePoison: Operator = {
   name: 'Blue Poison', fileNo: 'AA03', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Iberia', position: 'Ranged', race: 'Anura', gender: 'Female', birthplace: 'Unknown',
   birthday: 'January 18th', height: '157 cm', combatExp: 'None', infectionStatus: 'Uninfected as confirmed by medical examination. Also in remarkable physical condition and health.', illustrator: 'LLC',
   cv: { JP: 'Atsumi Tanezaki', CN: 'Chen Yanyi (credited as "Yee Chen" in EN)', EN: 'Alex Tregear', KR: 'Woo Jeong-sin' },
+  voice: bluePoisonVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1230, atk: 610, def: 130, res: 5, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

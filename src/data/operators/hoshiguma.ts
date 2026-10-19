@@ -1,10 +1,13 @@
 import type { Operator, OperatorAlter } from '../../types'
+import hoshigumaTheBreacherVoice from '../voices/hoshiguma/hoshiguma-the-breacher'
+import hoshigumaVoice from '../voices/hoshiguma'
 
 const hoshiguma: Operator = {
   name: 'Hoshiguma', fileNo: 'LM05', class: 'Defender', branch: 'Protector', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Lungmen Guard Department', position: 'Melee', race: 'Oni', gender: 'Female', birthplace: 'Higashi',
   birthday: 'January 20th', height: '184 cm', combatExp: '7 years', infectionStatus: 'Uninfected, confirmed by medical examination.', illustrator: 'infukun',
   cv: { JP: 'Kiyono Yasuno', CN: 'Chen Yu', EN: 'Meaghan Martin', KR: 'Lee Sae-byeok' },
+  voice: hoshigumaVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense', 'DPS'],
   stats: { hp: 3850, atk: 430, def: 723, res: 0, block: 3, cost: 23, aspd: '1.2s', rdp: '70s' },
@@ -128,6 +131,7 @@ const hoshiguma: Operator = {
 
 const hoshigumaBreacher: OperatorAlter = {
   name: 'Hoshiguma the Breacher', fileNo: 'LM23', class: 'Defender', branch: 'Arts Protector', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Carnival'],
+  voice: hoshigumaTheBreacherVoice,
   position: 'Melee', trait: 'Normal attacks deal Arts damage while the skill is active',
   tags: ['DPS', 'Survival'],
   illustrator: '树豚',

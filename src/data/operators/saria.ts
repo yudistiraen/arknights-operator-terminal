@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import sariaVoice from '../voices/saria'
 
 const saria: Operator = {
   name: 'Saria', fileNo: 'RL02', class: 'Defender', branch: 'Guardian', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Melee', race: 'Vouivre', gender: 'Female', birthplace: 'Columbia',
   birthday: 'April 23rd', height: '174 cm', combatExp: '5 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'NoriZC',
   cv: { JP: 'Yuka Iguchi', CN: 'Chen Yanyi (credited as "Yee Chen" in EN)', EN: 'Norma Butikofer', KR: 'Esther Won' },
+  voice: sariaVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing', 'Support'],
   stats: { hp: 3150, atk: 535, def: 655, res: 10, block: 3, cost: 22, aspd: '1.2s', rdp: '70s' },

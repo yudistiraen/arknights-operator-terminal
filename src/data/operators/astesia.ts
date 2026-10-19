@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import astesiaVoice from '../voices/astesia'
 
 const astesia: Operator = {
   name: 'Astesia', fileNo: 'RR01', class: 'Guard', branch: 'Arts Fighter', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'July 10th', height: '165 cm', combatExp: 'None', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'YUJI',
   cv: { JP: 'Kaori Nazuka', CN: 'KIYO', EN: 'Lexi Fontaine', KR: 'Kang Eun-ae' },
+  voice: astesiaVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS', 'Defense'],
   stats: { hp: 2523, atk: 690, def: 448, res: 15, block: 1, cost: 21, aspd: '1.25s', rdp: '70s' },

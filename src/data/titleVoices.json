@@ -346,6 +346,11 @@
       "src": "/audio/title-voices/en/char_183_skgoat.mp3"
     },
     {
+      "charId": "char_4046_ebnhlz",
+      "operator": "Ebenholz",
+      "src": "/audio/title-voices/en/char_4046_ebnhlz.mp3"
+    },
+    {
       "charId": "char_401_elysm",
       "operator": "Elysium",
       "src": "/audio/title-voices/en/char_401_elysm.mp3"
@@ -416,6 +421,11 @@
       "src": "/audio/title-voices/en/char_158_milu.mp3"
     },
     {
+      "charId": "char_420_flamtl",
+      "operator": "Flametail",
+      "src": "/audio/title-voices/en/char_420_flamtl.mp3"
+    },
+    {
       "charId": "char_415_flint",
       "operator": "Flint",
       "src": "/audio/title-voices/en/char_415_flint.mp3"
@@ -434,6 +444,16 @@
       "charId": "char_193_frostl",
       "operator": "Frostleaf",
       "src": "/audio/title-voices/en/char_193_frostl.mp3"
+    },
+    {
+      "charId": "char_187_ccheal",
+      "operator": "Gavial",
+      "src": "/audio/title-voices/en/char_187_ccheal.mp3"
+    },
+    {
+      "charId": "char_1026_gvial2",
+      "operator": "Gavial the Invincible",
+      "src": "/audio/title-voices/en/char_1026_gvial2.mp3"
     },
     {
       "charId": "char_109_fmout",

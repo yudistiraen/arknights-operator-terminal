@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import nightingaleVoice from '../voices/nightingale'
 
 const nightingale: Operator = {
   name: 'Nightingale', fileNo: 'FO03', class: 'Medic', branch: 'Multi-target', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Followers', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'May 4th', height: '164 cm', combatExp: '1 year', infectionStatus: 'Showed physical signs of Originium, infection confirmed by medical report.', illustrator: 'Skade',
   cv: { JP: 'Yui Ishikawa', CN: 'Shi Yin', EN: 'Sophie Colquhoun', KR: 'Lee Hyun-jin' },
+  voice: nightingaleVoice,
   trait: 'Restores the HP of 3 allies simultaneously',
   tags: ['Healing', 'Support'],
   stats: { hp: 1705, atk: 350, def: 169, res: 5, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },

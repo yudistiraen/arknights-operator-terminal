@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mrNothingVoice from '../voices/mr-nothing'
 
 const mrNothing: Operator = {
   name: 'Mr. Nothing', fileNo: 'YD11', class: 'Specialist', branch: 'Merchant', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Yan', position: 'Melee', race: 'Liberi', gender: 'Male', birthplace: 'Yan',
   birthday: 'January 13th', height: '187 cm', combatExp: '7 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Junichi Suwabe', CN: 'Liu Fei (credited as "Flynn Liu" in the Global server)', EN: 'David Cui Cui', KR: 'Lim Chae-heon' },
+  voice: mrNothingVoice,
   trait: 'Has reduced Redeployment Time, but DP Cost is not refunded upon retreating; While deployed, 3 DP are consumed every 3 seconds (automatically retreats without sufficient DP)',
   tags: ['Fast-Redeploy', 'DPS'],
   stats: { hp: 2598, atk: 765, def: 396, res: 0, block: 1, cost: 8, aspd: '1s', rdp: '25s' },

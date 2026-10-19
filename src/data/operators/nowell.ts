@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import nowellVoice from '../voices/nowell'
 
 const nowell: Operator = {
   name: 'Nowell', fileNo: 'VC29', class: 'Medic', branch: 'Therapist', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Victoria', position: 'Ranged', race: 'Vulpo', gender: 'Male', birthplace: 'Victoria',
   birthday: 'December 25th', height: '175 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '板板',
   cv: { JP: 'Tarusuke Shingaki', CN: 'Liu Yao', EN: 'Benjamin Lhommas', KR: 'Kwon Sung-hyuk' },
+  voice: nowellVoice,
   trait: 'Has a large healing range, but the healing amount on farther targets is reduced to 80%',
   tags: ['Healing'],
   stats: { hp: 1567, atk: 556, def: 108, res: 10, block: 1, cost: 20, aspd: '2.85s', rdp: '70s' },

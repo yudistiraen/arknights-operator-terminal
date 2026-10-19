@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import meteoriteVoice from '../voices/meteorite'
 
 const meteorite: Operator = {
   name: 'Meteorite', fileNo: 'ST03', class: 'Sniper', branch: 'Artilleryman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'August 30th', height: '170 cm', combatExp: '6 years', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'TOKI',
   cv: { JP: 'Risa Taneda', CN: 'Ke Zhong', EN: 'Hollie Taylor', KR: 'Kim So-young' },
+  voice: meteoriteVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['AoE', 'Debuff'],
   stats: { hp: 1505, atk: 865, def: 116, res: 0, block: 1, cost: 28, aspd: '2.8s', rdp: '70s' },

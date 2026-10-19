@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ifritVoice from '../voices/ifrit'
 
 const ifrit: Operator = {
   name: 'Ifrit', fileNo: 'RL03', class: 'Caster', branch: 'Blast Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhine Lab', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Unknown',
   birthday: 'July 22nd', height: '159 cm', combatExp: 'None', infectionStatus: 'Crystals have appeared on her body. Infection confirmed by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Yumiri Hanamori', CN: 'Qiwen', EN: 'Jennifer Sun Bell', KR: 'Soyeon' },
+  voice: ifritVoice,
   trait: 'Deals AOE Arts damage in a long line',
   tags: ['AoE', 'Debuff'],
   stats: { hp: 1680, atk: 870, def: 130, res: 20, block: 1, cost: 34, aspd: '2.9s', rdp: '70s' },

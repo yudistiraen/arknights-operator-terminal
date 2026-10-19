@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import texasVoice from '../voices/texas'
 
 const texas: Operator = {
   name: 'Texas', fileNo: 'PL02', class: 'Vanguard', branch: 'Pioneer', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment', 'Pinboard Missions (Phase 8)'],
   faction: 'Penguin Logistics', position: 'Melee', race: 'Lupo', gender: 'Female', birthplace: 'Columbia',
   birthday: 'June 1st', height: '161 cm', combatExp: '3 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: '幻象黑兔',
   cv: { JP: 'Azusa Tadokoro', CN: 'Menglu Yang', EN: 'Jessica Preddy', KR: 'Kim Chae-ha' },
+  voice: texasVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'Crowd-Control'],
   stats: { hp: 1950, atk: 570, def: 343, res: 0, block: 2, cost: 13, aspd: '1.05s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ayerscarpeVoice from '../voices/ayerscarpe'
 
 const ayerscarpe: Operator = {
   name: 'Ayerscarpe', fileNo: 'RB04', class: 'Guard', branch: 'Lord', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rim Billiton', position: 'Melee', race: 'Cautus', gender: 'Male', birthplace: 'Rim Billiton',
   birthday: 'October 25th', height: '173 cm', combatExp: '1 year', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'NoriZC',
   cv: { JP: 'Yuki Kaji', CN: 'Huang Jinze', EN: 'Ethan McHale', KR: 'Kim Myung-jun' },
+  voice: ayerscarpeVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS', 'AoE'],
   stats: { hp: 2420, atk: 745, def: 375, res: 10, block: 2, cost: 19, aspd: '1.3s', rdp: '70s' },

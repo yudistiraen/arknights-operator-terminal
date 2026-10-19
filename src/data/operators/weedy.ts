@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import weedyVoice from '../voices/weedy'
 
 const weedy: Operator = {
   name: 'Weedy', fileNo: 'R117', class: 'Specialist', branch: 'Push Stroker', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Aegir', gender: 'Female', birthplace: 'Iberia',
   birthday: 'January 23rd', height: '155 cm', combatExp: '3 years', infectionStatus: 'Non-infected', illustrator: 'Xiaye Hongming',
   cv: { JP: 'Maria Naganawa', CN: 'Song Yuanyuan', EN: 'Maya Graydon', KR: 'Oh Roah' },
+  voice: weedyVoice,
   trait: 'Can attack all blocked enemies\nCan be deployed on Ranged Tiles',
   tags: ['Shift', 'DPS', 'Crowd-Control'],
   stats: { hp: 2133, atk: 722, def: 439, res: 0, block: 2, cost: 21, aspd: '1.2s', rdp: '70s' },

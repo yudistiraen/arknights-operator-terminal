@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import rosaVoice from '../voices/rosa'
 
 const rosa: Operator = {
   name: 'Rosa', fileNo: 'USS4', class: 'Sniper', branch: 'Besieger', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Ursus Student Self-Governing Group', position: 'Ranged', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'October 31st', height: '174 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Reina Ueda', CN: 'Ye Zhiqiu', EN: 'Elizabeth Maxwell', KR: 'Choi Ha-ri' },
+  voice: rosaVoice,
   trait: 'Attacks the heaviest enemy first',
   tags: ['DPS', 'Crowd-Control'],
   stats: { hp: 1755, atk: 1142, def: 122, res: 0, block: 1, cost: 24, aspd: '2.4s', rdp: '70s' },

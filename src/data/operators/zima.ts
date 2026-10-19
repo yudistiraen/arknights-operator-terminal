@@ -1,7 +1,10 @@
 import type { Operator, OperatorAlter } from '../../types'
+import zimaTheRagingTideVoice from '../voices/zima/zima-the-raging-tide'
+import zimaVoice from '../voices/zima'
 
 const ragingTide: OperatorAlter = {
   name: 'Zima the Raging Tide', fileNo: 'USS0', class: 'Guard', branch: 'Earthshaker', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+  voice: zimaTheRagingTideVoice,
   position: 'Melee', trait: 'Attacks deal 50% ATK as AOE Physical damage to enemies around the target.',
   tags: ['DPS', 'Crowd-Control'],
   illustrator: '伍秋秋秋秋 (original design by Skade)',
@@ -102,6 +105,7 @@ const zima: Operator = {
   faction: 'Ursus Student Self-Governing Group', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'July 29th', height: '162 cm', combatExp: 'Half a year', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Ami Koshimizu', CN: 'You Fei (credited as "Certain" in EN)', EN: 'Amy Lennox', KR: 'Lee Myung-hi' },
+  voice: zimaVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'Support'],
   stats: { hp: 2150, atk: 470, def: 420, res: 0, block: 2, cost: 13, aspd: '1.05s', rdp: '70s' },

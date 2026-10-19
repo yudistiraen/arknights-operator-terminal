@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import surtrVoice from '../voices/surtr'
 
 const surtr: Operator = {
   name: 'Surtr', fileNo: 'R111', class: 'Guard', branch: 'Arts Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Sarkaz', gender: 'Female', birthplace: 'Unknown',
   birthday: 'January 22nd', height: '162 cm', combatExp: '2 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Ask',
   cv: { JP: 'Yui Horie', CN: 'Yunhezui (credited as "Yi Zhu" in EN)', EN: 'Kira Buckland', KR: 'Seo Yu-ri' },
+  voice: surtrVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS'],
   stats: { hp: 2916, atk: 772, def: 414, res: 15, block: 1, cost: 21, aspd: '1.25s', rdp: '70s' },

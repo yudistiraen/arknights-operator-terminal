@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import liskarmVoice from '../voices/liskarm'
 
 const liskarm: Operator = {
   name: 'Liskarm', fileNo: 'BS02', class: 'Defender', branch: 'Sentry Protector', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Blacksteel', position: 'Melee', race: 'Vouivre', gender: 'Female', birthplace: 'Vouivre',
   birthday: 'May 18th', height: '156 cm', combatExp: '3 years', infectionStatus: 'Medical tests confirm uninfected status.', illustrator: 'TOKI',
   cv: { JP: 'Yui Ishikawa', CN: 'Ruoyu Zhang', EN: 'Megan Maczko', KR: 'Yi Sae-ah' },
+  voice: liskarmVoice,
   trait: 'Blocks 3 enemies and attacks from long range',
   tags: ['Defense', 'DPS'],
   stats: { hp: 3240, atk: 470, def: 755, res: 0, block: 3, cost: 22, aspd: '1.2s', rdp: '70s' },

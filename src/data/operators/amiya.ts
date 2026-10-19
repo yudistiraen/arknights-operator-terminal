@@ -181,7 +181,7 @@ const amiya: Operator = {
       skins: [ 
         { id: 'base', label: 'Base', src: '/operators/amiya/guard-base.png', chibiSrc: '/operators/amiya/chibi.webm', chibiMoveSrc: '/operators/amiya/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '唯@W' },
         { id: 'skin1', label: 'Touch the Stars', src: '/operators/amiya/guard-skin1.png', chibiSrc: '/operators/amiya/guard-chibi.webm', chibiMoveSrc: '/operators/amiya/guard-chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Mag42' },
-        { id: 'skin2', label: 'In A Myriad of Universes', src: '/operators/amiya/guard-skin2.png', chibiSrc: '/operators/amiya/guard-chibi-skin2.webm', chibiMoveSrc: '/operators/amiya/guard-chibi-move-skin2.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -2, offsetYPercent: 0 }, illustrator: '三目YYB' },
+        { id: 'skin2', label: 'In A Myriad of Universes', src: '/operators/amiya/guard-skin2.png', chibiSrc: '/operators/amiya/guard-chibi-skin2.webm', chibiMoveSrc: '/operators/amiya/guard-chibi-move-skin2.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -2, offsetYPercent: 0 }, illustrator: '三目YYB', l2d: { skel: '/operators/amiya/l2d/amiya-guard-myriad.skel', atlas: '/operators/amiya/l2d/amiya-guard-myriad.atlas', backdrop: { src: '/operators/amiya/l2d/amiya-guard-myriad-bg.png', x: -1047, y: -18.2, width: 2000, height: 1714.2 } } },
       ],
     },
     {
@@ -248,7 +248,7 @@ const amiya: Operator = {
       classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/incantation-medic-branch.png',
       skins: [
         { id: 'base', label: 'Base', src: '/operators/amiya/medic-base.png', chibiSrc: '/operators/amiya/medic-chibi.webm', chibiMoveSrc: '/operators/amiya/medic-chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: -3.5 }, chibiDetailFraming: { scale: 0.99, offsetXPercent: -4.2, offsetYPercent: 0 }, illustrator: 'Mag42' },
-        { id: 'skin1', label: 'Solo Around The World', src: '/operators/amiya/medic-skin1.png', chibiSrc: '/operators/amiya/medic-chibi-skin1.webm', chibiMoveSrc: '/operators/amiya/medic-chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: -2 }, chibiDetailFraming: { scale: 0.98, offsetXPercent: -3.1, offsetYPercent: 0.7 }, illustrator: 'min' },
+        { id: 'skin1', label: 'Solo Around The World', src: '/operators/amiya/medic-skin1.png', chibiSrc: '/operators/amiya/medic-chibi-skin1.webm', chibiMoveSrc: '/operators/amiya/medic-chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: -2 }, chibiDetailFraming: { scale: 0.98, offsetXPercent: -3.1, offsetYPercent: 0.7 }, illustrator: 'min', l2d: { skel: '/operators/amiya/l2d/amiya-medic-solo.skel', atlas: '/operators/amiya/l2d/amiya-medic-solo.atlas', backdrop: { src: '/operators/amiya/l2d/amiya-medic-solo-bg.png', x: -894.9, y: -2.9, width: 1675.8, height: 1618.1 } } },
       ],
     },
   ],

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import akafuyuVoice from '../voices/akafuyu'
 
 const akafuyu: Operator = {
   name: 'Akafuyu', fileNo: 'HK04', class: 'Guard', branch: 'Soloblade', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Higashi', position: 'Melee', race: 'Aegir', gender: 'Female', birthplace: 'Higashi',
   birthday: 'March 27th', height: '176 cm', combatExp: '8 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Kumatangent (credited as "熊太")',
   cv: { JP: 'Yumi Uchiyama', CN: 'Lu Xiaotong (credited as "Thea" in EN)', EN: 'Reiko Narao', KR: 'Kim Yul' },
+  voice: akafuyuVoice,
   trait: "Can't be healed by other units. Recovers 70 self HP every time this operator attacks an enemy",
   tags: ['Survival', 'DPS'],
   stats: { hp: 3635, atk: 758, def: 383, res: 0, block: 1, cost: 25, aspd: '1.2s', rdp: '70s' },

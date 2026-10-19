@@ -1,7 +1,10 @@
 import type { Operator, OperatorAlter } from '../../types'
+import kalTsitEsperantaVoice from '../voices/kaltsit/kal-tsit-esperanta'
+import kaltsitVoice from '../voices/kaltsit'
 
 const esperanta: OperatorAlter = {
   name: "Kal'tsit Esperanta", fileNo: 'R002', class: 'Medic', branch: 'Watchman', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Celebration'],
+  voice: kalTsitEsperantaVoice,
   position: 'Ranged', trait: 'Restores the HP of allies, and can Take Off',
   tags: ['Soar', 'Healing', 'Support'],
   illustrator: 'Studio Montagne',
@@ -119,6 +122,7 @@ const kaltsit: Operator = {
   faction: 'Rhodes Island', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Rhodes Island (landship)',
   birthday: 'Undisclosed', height: '169 cm', combatExp: '3 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: '唯@W',
   cv: { JP: 'Yōko Hikasa', CN: 'Liu Xue', EN: 'Sura Siu', KR: 'Han Chae-eon' },
+  voice: kaltsitVoice,
   trait: 'Restores the HP of allies',
   tags: ['Summon', 'Healing'],
   stats: { hp: 1633, atk: 490, def: 215, res: 0, block: 1, cost: 20, aspd: '2.85s', rdp: '70s' },

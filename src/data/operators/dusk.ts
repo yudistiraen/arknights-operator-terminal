@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import duskVoice from '../voices/dusk'
 
 const dusk: Operator = {
   name: 'Dusk', fileNo: 'NM02', class: 'Caster', branch: 'Splash Caster', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Festival'],
   faction: 'Sui', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Yan',
   birthday: 'November 11th', height: '162 cm', combatExp: 'Undisclosed', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '幻象黑兔',
   cv: { JP: 'Yukana', CN: 'Kongwudenian (credited as "Blank" in EN)', EN: 'Aileen Mythen', KR: 'Bae Jeong-mi' },
+  voice: duskVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE', 'DPS', 'Crowd-Control'],
   stats: { hp: 1801, atk: 1028, def: 127, res: 20, block: 1, cost: 34, aspd: '2.9s', rdp: '70s' },

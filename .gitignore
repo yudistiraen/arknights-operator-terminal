@@ -19,9 +19,11 @@ dist-ssr
 .next
 out
 
-# Voice audio is served from Cloudflare R2 (scripts/assets/sync-r2.sh); local copies are the sync source
+# Voice audio and L2D (dynamic illustrations) are served from Cloudflare R2 (scripts/assets/sync-r2.sh);
+# local copies are the sync source
 public/operators/*/voice/
 public/audio/title-voices/
+public/operators/*/l2d/
 
 # Chibi/Spine render pipeline scratch data
 scripts/chibi-pipeline/runtime-cache

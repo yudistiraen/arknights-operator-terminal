@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import glaucusVoice from '../voices/glaucus'
 
 const glaucus: Operator = {
   name: 'Glaucus', fileNo: 'R128', class: 'Supporter', branch: 'Decel Binder', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Iberia', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Ægir Region',
   birthday: 'July 27th', height: '159 cm', combatExp: '4 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '下野宏铭',
   cv: { JP: 'Ai Nonaka', CN: 'Zhang Wen (credited as "Cuo" in EN)', EN: 'Erica Mendez', KR: 'Jung Hae-eun' },
+  voice: glaucusVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow', 'Crowd-Control'],
   stats: { hp: 1267, atk: 505, def: 100, res: 20, block: 1, cost: 15, aspd: '1.9s', rdp: '70s' },

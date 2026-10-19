@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import greythroatVoice from '../voices/greythroat'
 
 const greythroat: Operator = {
   name: 'GreyThroat', fileNo: 'R110', class: 'Sniper', branch: 'Marksman', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Undisclosed',
   birthday: 'November 14th', height: '162 cm', combatExp: '3 years', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'm9nokuro',
   cv: { JP: 'Misato Fukuen', CN: 'Yuan Weng', EN: 'Risa Mei', KR: 'Min Ah' },
+  voice: greythroatVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1493, atk: 513, def: 152, res: 0, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

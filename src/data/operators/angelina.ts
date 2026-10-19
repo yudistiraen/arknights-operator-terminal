@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import angelinaVoice from '../voices/angelina'
 
 const angelina: Operator = {
   name: 'Angelina', fileNo: 'SR02', class: 'Supporter', branch: 'Decel Binder', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Siracusa', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Siracusa',
   birthday: 'May 14th', height: '162 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: 'LM7',
   cv: { JP: 'Ayaka Ohashi', CN: 'He Yuwei', EN: 'Lizzie Waterworth', KR: 'Lee So-eun' },
+  voice: angelinaVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow', 'DPS', 'Support'],
   stats: { hp: 1385, atk: 542, def: 120, res: 25, block: 1, cost: 16, aspd: '1.9s', rdp: '70s' },

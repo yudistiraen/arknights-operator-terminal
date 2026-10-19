@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mountainVoice from '../voices/mountain'
 
 const mountain: Operator = {
   name: 'Mountain', fileNo: 'CB05', class: 'Guard', branch: 'Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Columbia', position: 'Melee', race: 'Feline', gender: 'Male', birthplace: 'Columbia',
   birthday: 'July 16th', height: '195 cm', combatExp: '6 years', infectionStatus: 'Crystals have appeared on his body. Infection confirmed by medical examination.', illustrator: "WincalBlanke",
   cv: { JP: 'Kazuya Nakai', CN: 'Neo Wang', EN: 'Blake Kubena', KR: 'Sung Wan-kyung' },
+  voice: mountainVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS', 'Survival'],
   stats: { hp: 2745, atk: 587, def: 357, res: 0, block: 1, cost: 11, aspd: '0.78s', rdp: '70s' },

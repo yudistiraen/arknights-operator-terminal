@@ -3,7 +3,7 @@
 # Plan and cache policy: knowledge/cloudflare_r2.md
 #
 # Usage (from repo root, Git Bash):
-#   scripts/assets/sync-r2.sh              # sync voice assets
+#   scripts/assets/sync-r2.sh              # sync voice + L2D assets
 #   scripts/assets/sync-r2.sh --dry-run    # show what would change, upload nothing
 #
 # Needs rclone on PATH and R2_* vars in .env (see .env.example).
@@ -27,6 +27,13 @@ for required_var in R2_ACCOUNT_ID R2_ACCESS_KEY_ID R2_SECRET_ACCESS_KEY R2_BUCKE
   fi
 done
 
+# winget installs rclone under its Packages dir, which shells started before the install (or Git Bash
+# launched from PowerShell) often don't have on PATH yet. Fall back to it.
+if ! command -v rclone >/dev/null 2>&1 && [[ -n "${LOCALAPPDATA:-}" ]]; then
+  winget_rclone="$(ls -d "$LOCALAPPDATA"/Microsoft/WinGet/Packages/Rclone.Rclone_*/rclone-*/ 2>/dev/null | tail -n 1)"
+  [[ -n "$winget_rclone" ]] && export PATH="$winget_rclone:$PATH"
+fi
+
 if ! command -v rclone >/dev/null 2>&1; then
   echo "rclone not found. Install it: winget install Rclone.Rclone" >&2
   exit 1
@@ -43,10 +50,11 @@ export RCLONE_CONFIG_R2_NO_CHECK_BUCKET=true
 # only after assetUrl() versioning is live (Stage B).
 cache_control="public, max-age=3600, stale-while-revalidate=86400"
 
-# Voice only for now. sync deletes remote files only within these include patterns.
+# Voice + L2D (dynamic illustrations, scripts/l2d-pipeline). sync deletes remote files only within these include patterns.
 rclone sync "$repo_root/public" "r2:$R2_BUCKET" \
   --include "operators/*/voice/**" \
   --include "audio/title-voices/**" \
+  --include "operators/*/l2d/**" \
   --header-upload "Cache-Control: $cache_control" \
   --transfers 16 \
   --checkers 32 \

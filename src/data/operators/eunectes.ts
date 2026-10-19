@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import eunectesVoice from '../voices/eunectes'
 
 const eunectes: Operator = {
   name: 'Eunectes', fileNo: 'SG03', class: 'Defender', branch: 'Duelist', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Sargon', position: 'Melee', race: 'Phidia', gender: 'Female', birthplace: 'Sargon',
   birthday: 'October 30th', height: '171 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Liduke',
   cv: { JP: 'Houko Kuwashima', CN: 'Zhang Xiaodou', EN: 'Jesse Vilinsky', KR: 'Bae Jeong-mi' },
+  voice: eunectesVoice,
   trait: 'Only restores SP when blocking enemies',
   tags: ['DPS', 'Survival', 'Defense'],
   stats: { hp: 4468, atk: 1077, def: 685, res: 0, block: 1, cost: 33, aspd: '1.6s', rdp: '70s' },

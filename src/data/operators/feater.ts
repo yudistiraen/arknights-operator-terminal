@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import featerVoice from '../voices/feater'
 
 const feater: Operator = {
   name: 'FEater', fileNo: 'YD01', class: 'Specialist', branch: 'Push Stroker', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Lungmen', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Yan',
   birthday: 'August 10th', height: '160 cm', combatExp: '11 years', infectionStatus: 'Infection confirmed by medical report.', illustrator: 'RAN',
   cv: { JP: 'Mie Sonozaki', CN: 'Xin Rui (credited as "Yue Xin" in EN)', EN: 'Ashleigh Haddad', KR: 'Song Ha-rim' },
+  voice: featerVoice,
   trait: 'Can attack all blocked enemies\nCan be deployed on Ranged Tiles',
   tags: ['Shift', 'Slow'],
   stats: { hp: 1845, atk: 640, def: 382, res: 0, block: 2, cost: 20, aspd: '1.2s', rdp: '70s' },

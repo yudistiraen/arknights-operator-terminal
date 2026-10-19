@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import flametailVoice from '../voices/flametail'
 
 const flametail: Operator = {
   name: 'Flametail', fileNo: 'KZ11', class: 'Vanguard', branch: 'Pioneer', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting'],
   faction: 'Pinus Sylvestris', position: 'Melee', race: 'Zalak', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'October 8th', height: '159 cm', combatExp: '6 years', infectionStatus: 'Originium crystals distributed across skin surface, confirmed Infected by medical examination.', illustrator: 'NoriZC',
   cv: { JP: 'Aya Hirano', CN: 'Su Wan (credited as "Sue" in EN)', EN: 'Jennie Kwan', KR: 'Kim Bo-min' },
+  voice: flametailVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'Survival'],
   stats: { hp: 2138, atk: 611, def: 392, res: 0, block: 2, cost: 14, aspd: '1.05s', rdp: '70s' },

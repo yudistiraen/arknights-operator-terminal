@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import andreanaVoice from '../voices/andreana'
 
 const andreana: Operator = {
   name: 'Andreana', fileNo: 'II04', class: 'Sniper', branch: 'Deadeye', rarity: 5, level: 70, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Abyssal Hunters', position: 'Ranged', race: 'Aegir', gender: 'Female', birthplace: 'Iberia',
   birthday: 'November 16th', height: '166 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'LLC',
   cv: { JP: 'Kaoru Sakura', CN: 'Shen Yin (credited as "Sherry Brown" in EN)', EN: 'Laura Carrero', KR: 'Hong Soo-jeong' },
+  voice: andreanaVoice,
   trait: 'Prioritizes attacking the enemy with lowest DEF within range first',
   tags: ['DPS', 'Slow'],
   stats: { hp: 1798, atk: 1110, def: 128, res: 0, block: 1, cost: 21, aspd: '2.7s', rdp: '70s' },

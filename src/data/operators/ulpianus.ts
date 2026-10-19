@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ulpianusVoice from '../voices/ulpianus'
 
 const ulpianus: Operator = {
   name: 'Ulpianus', fileNo: 'AA00', class: 'Guard', branch: 'Crusher', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Abyssal Hunters', position: 'Melee', race: 'Ægir', gender: 'Male', birthplace: 'Ægir',
   birthday: 'April 13th', height: '189 cm', combatExp: '22 years', infectionStatus: 'Non-infected', illustrator: 'Skade',
   cv: { JP: 'Daisuke Ono', CN: 'Liu Yijia', EN: 'Taylor Clarke-Hill', KR: 'Kim Young-chan' },
+  voice: ulpianusVoice,
   trait: 'Attacks all blocked enemies',
   tags: ['DPS', 'Survival'],
   stats: { hp: 6522, atk: 1649, def: 0, res: 0, block: 2, cost: 24, aspd: '2.5s', rdp: '70s' },

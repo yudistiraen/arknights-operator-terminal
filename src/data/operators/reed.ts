@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import reedVoice from '../voices/reed'
 
 const reed: Operator = {
   name: 'Reed', fileNo: 'HT03', class: 'Vanguard', branch: 'Charger', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Victoria', position: 'Melee', race: 'Draco', gender: 'Female',
   birthplace: 'Victoria', birthday: 'October 16th', height: '172 cm', combatExp: '7 years', infectionStatus: 'Originium crystals are distributed across the surface of her body, confirmed Infected by medical examination.', illustrator: 'STAR影法师',
   cv: { JP: 'Mamiko Noto', CN: 'Fumeng Ruowei (credited as "Tracy" in EN)', EN: 'Martha Mackintosh', KR: 'Yoo Bora' },
+  voice: reedVoice,
   trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
   tags: ['DPS', 'DP-Recovery'],
   stats: { hp: 2215, atk: 562, def: 364, res: 0, block: 1, cost: 12, aspd: '1s', rdp: '70s' },

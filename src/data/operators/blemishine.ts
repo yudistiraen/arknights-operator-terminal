@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import blemishineVoice from '../voices/blemishine'
 
 const blemishine: Operator = {
   name: 'Blemishine', fileNo: 'KZ09', class: 'Defender', branch: 'Guardian', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Kazimierz', position: 'Melee', race: 'Kuranta', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'July 15th', height: '165 cm', combatExp: 'Half a year', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Kana Hanazawa', CN: 'Wang Xiaotong (credited as "Cheddar" in EN)', EN: 'Ola Forman', KR: 'Yoon A-young' },
+  voice: blemishineVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing', 'DPS'],
   stats: { hp: 3242, atk: 581, def: 601, res: 10, block: 3, cost: 22, aspd: '1.2s', rdp: '70s' },

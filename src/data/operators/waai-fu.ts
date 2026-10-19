@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import waaiFuVoice from '../voices/waai-fu'
 
 const waaiFu: Operator = {
   name: 'Waai Fu', fileNo: 'LM12', class: 'Specialist', branch: 'Executor', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: "Lee's Detective Agency", position: 'Melee', race: 'Feline', gender: 'Female', birthplace: 'Yan',
   birthday: 'December 1st', height: '162 cm', combatExp: '14 years', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'KuroBlood',
   cv: { JP: 'Yuu Kobayashi', CN: 'KIYO (Mandarin); Xiantawutong (Cantonese, credited as "Cotton Candy" in EN)', EN: 'Molly Zhang', KR: 'Yoon Eun-seo' },
+  voice: waaiFuVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy', 'Debuff'],
   stats: { hp: 1455, atk: 536, def: 304, res: 0, block: 1, cost: 9, aspd: '0.93s', rdp: '18s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import istinaVoice from '../voices/istina'
 
 const istina: Operator = {
   name: 'Istina', fileNo: 'USS2', class: 'Supporter', branch: 'Decel Binder', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Ursus Student Self-Governing Group', position: 'Ranged', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'September 22nd', height: '156 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Aoi Yuuki', CN: 'Z-kun (credited as "Z" in EN)', EN: 'Risa Mei', KR: 'Kim Ga-ryeong' },
+  voice: istinaVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow', 'DPS'],
   stats: { hp: 1280, atk: 583, def: 104, res: 20, block: 1, cost: 15, aspd: '1.9s', rdp: '70s' },

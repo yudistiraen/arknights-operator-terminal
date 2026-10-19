@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import schwarzVoice from '../voices/schwarz'
 
 const schwarz: Operator = {
   name: 'Schwarz', fileNo: 'SS02', class: 'Sniper', branch: 'Heavyshooter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Siesta', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'Individual exhibits memory loss regarding this information', height: '169 cm', combatExp: '20 years', infectionStatus: 'Originium crystals have appeared on her body. Medical tests have confirmed her infection.', illustrator: 'Liduke',
   cv: { JP: 'Shizuka Itou', CN: 'Liangshang Feimao (credited as "Gino" in EN)', EN: 'Katelyn Gault', KR: 'Park Shin-hee' },
+  voice: schwarzVoice,
   trait: 'High accuracy point-blank shot',
   tags: ['DPS'],
   stats: { hp: 1833, atk: 940, def: 225, res: 0, block: 1, cost: 20, aspd: '1.6s', rdp: '70s' },

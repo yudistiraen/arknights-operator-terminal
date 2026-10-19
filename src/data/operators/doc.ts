@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import docVoice from '../voices/doc'
 
 const doc: Operator = {
   name: 'Doc', fileNo: 'RS06', class: 'Guard', branch: 'Instructor', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Team Rainbow', position: 'Melee', race: 'Unknown', gender: 'Male', birthplace: 'Unknown',
   birthday: 'September 16th', height: '177 cm', combatExp: 'Unknown', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Ubisoft',
   cv: { JP: '', CN: '', EN: 'Alex Ivanovici', KR: '' },
+  voice: docVoice,
   trait: 'Can attack enemies from range; When attacking enemies not blocked by self, increase ATK to 120%',
   tags: ['Healing', 'Support', 'Crossover'],
   stats: { hp: 2147, atk: 645, def: 353, res: 0, block: 2, cost: 16, aspd: '1.05s', rdp: '70s' },

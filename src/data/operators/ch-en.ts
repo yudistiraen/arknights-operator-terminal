@@ -1,4 +1,7 @@
 import type { Operator, OperatorAlter } from '../../types'
+import chEnTheHolungdayVoice from '../voices/ch-en/ch-en-the-holungday'
+import chEnTheDawnstreakVoice from '../voices/ch-en/ch-en-the-dawnstreak'
+import chEnVoice from '../voices/ch-en'
 
 const chenStory = `To the public, Ch'en Hui-chieh appears to be a stern Lung officer of the Lungmen Guard Department. However, she is more than meets the eye. Not only is she the niece of Lungmen's governor Wei Yenwu, but also the younger half-sister of Talulah Artorius, the leader of the infamous Reunion Movement. The sisters got separated after Talulah left Lungmen with Kashchey twenty years ago, an event Ch'en would later regard as an abduction. Since then, Ch'en had been training diligently to protect Lungmen, hoping to see her sister again one day. She put aside her hatred for her uncle, who she believed was responsible for her mother's disastrous remarriage, learning from him how to use Chi Xiao (赤霄, lit. "Crimson Firmament"), the legendary Dragon-Slaying Sword of Yan. As time passed, she achieved most of her goals, shaping her into a person with a strong sense of justice.\n\nAs the Special Inspection Unit Chief of the L.G.D., Ch'en is a trustworthy leader known for her brilliant tactics and mastery of swordplay. Those who know her privately consider her headstrong and perhaps somewhat stubborn. She has a rivalry with her childhood friends, Lin Yühsia, daughter of the criminal leader of Lungmen's underworld, and Swire, her fellow L.G.D. colleague. Despite this, she shows her caring side to those she trusts, both Swire and her colleague and long-time partner Hoshiguma.\n\nAnother incident in her lifetime would forever change her view of her uncle and the city: She contracted Oripathy along with her senior, Nine, three years ago (the year 1094) when she got injured during a mission by an Originium bomb. She managed to keep her position at the L.G.D. thanks to Wei's influence. However, the more Ch'en dove into the inner workings of the city, especially the neglected slums, the more she uncovered her uncle's hypocrisy. Indeed, during the Chernobog-Lungmen crisis, she saw the persecution of the Infected firsthand when Wei ordered his Shadow Guards to purge the slums. Ch'en chose to betray Wei's orders, and by extension Lungmen, by going to Chernobog to stop its incoming collision with the city.\n\nFollowing the fiery battle against Talulah that ended the crisis, Ch'en resigned from her position at the L.G.D. and joined Rhodes Island. During her stay in R.I., she gained many new experiences, such as the Dossoles affair during her summer vacation and her trip to Victoria with her former classmate Bagpipe. She learned to accept that not every story is black or white and has begun to question her long-standing motto of achieving justice by any means necessary. Nevertheless, she still has a long journey of learning and discovery ahead of her.`
 
@@ -32,6 +35,7 @@ const chen: Operator = {
   faction: 'Lungmen Guard Department', position: 'Melee', race: 'Lung', gender: 'Female', birthplace: 'Lungmen',
   birthday: 'July 7th', height: '168 cm', combatExp: '4 years', infectionStatus: 'Unknown', illustrator: '唯@W',
   cv: { JP: 'Shizuka Ishigami', CN: 'Jen Zhang', EN: 'Amy Lennox', KR: 'Chung Yu-joung' },
+  voice: chEnVoice,
   trait: 'Normal attacks deal damage twice',
   tags: ['Nuker', 'DPS'],
   stats: { hp: 2880, atk: 610, def: 352, res: 0, block: 2, cost: 23, aspd: '1.3s', rdp: '70s' },
@@ -142,6 +146,7 @@ const chen: Operator = {
 
 const chenHolungday: OperatorAlter = {
   name: "Ch'en the Holungday", fileNo: 'R112', class: 'Sniper', branch: 'Spreadshooter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Limited Headhunting - Carnival'],
+  voice: chEnTheHolungdayVoice,
   position: 'Ranged', trait: 'Attacks all enemies within range, and deals 150% damage to enemies in the row directly in front of this unit.',
   tags: ['DPS', 'AoE'],
   illustrator: '唯@W',
@@ -278,6 +283,7 @@ const chenHolungday: OperatorAlter = {
 
 const chenDawnstreak: OperatorAlter = {
   name: "Ch'en the Dawnstreak", fileNo: 'YD30', class: 'Guard', branch: 'Arts Fighter', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Standard Headhunting'],
+  voice: chEnTheDawnstreakVoice,
   position: 'Melee', trait: 'Deals Arts damage',
   tags: ['Nuker', 'DPS'],
   illustrator: '三目YYB',

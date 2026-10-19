@@ -1,4 +1,5 @@
 import type { Operator } from '../../types'
+import vulcanVoice from '../voices/vulcan'
 
 const vulcan: Operator = {
   name: 'Vulcan', fileNo: 'MN02', class: 'Defender', branch: 'Juggernaut', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Vulcan and Indra Recruitment Voucher'],
@@ -7,6 +8,7 @@ const vulcan: Operator = {
   infectionStatus: 'Shows physical signs of Oripathy, infection confirmed by medical examination.',
   illustrator: 'neco',
   cv: { JP: 'Rina Satō', CN: 'Xiao Mi (credited as "Mimia" in EN)', EN: 'Katelyn Gault', KR: 'Jang Kyung-hee (credited as "Chang Kyung-hee" in EN)' },
+  voice: vulcanVoice,
   trait: 'Cannot be healed by allies',
   tags: ['Survival', 'Defense', 'DPS'],
   stats: { hp: 4088, atk: 870, def: 585, res: 10, block: 3, cost: 35, aspd: '1.6s', rdp: '70s' },

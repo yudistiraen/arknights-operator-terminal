@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import nearlVoice from '../voices/nearl'
 
 const nearl: Operator = {
   name: 'Nearl', fileNo: 'FO02', class: 'Defender', branch: 'Guardian', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Followers', position: 'Melee', race: 'Kuranta', gender: 'Female',
   birthplace: 'Kazimierz', birthday: 'April 23rd', height: '171 cm', combatExp: '5 years', infectionStatus: 'Infection confirmed by medical report.', illustrator: '竜崎いち',
   cv: { JP: 'Ayane Sakura', CN: 'Xueting Mu', EN: 'Devora Wilde', KR: 'Kim Ye-rim' },
+  voice: nearlVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing'],
   stats: { hp: 2780, atk: 502, def: 625, res: 10, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },

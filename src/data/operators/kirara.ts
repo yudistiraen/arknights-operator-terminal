@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import kiraraVoice from '../voices/kirara'
 
 const kirara: Operator = {
   name: 'Kirara', fileNo: 'HK05', class: 'Specialist', branch: 'Ambusher', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting', 'Recruitment'],
   faction: 'Higashi', position: 'Melee', race: 'Aegir', gender: 'Female', birthplace: 'Higashi',
   birthday: 'November 29th', height: '160 cm', combatExp: 'None', infectionStatus: "Originium crystals are present on the body's surface, confirmed Infected by medical examination.", illustrator: '我妻洛醬',
   cv: { JP: 'Anzu Haruno', CN: 'Chen Tingting', EN: 'Summer Natsuki', KR: 'Yoon Mi-na' },
+  voice: kiraraVoice,
   trait: 'Deals Damage to all targets within range\n50% chance to dodge Physical and Arts attacks and is less likely to be targeted by enemies',
   tags: ['DPS', 'Survival'],
   stats: { hp: 1980, atk: 858, def: 340, res: 30, block: 0, cost: 20, aspd: '3.5s', rdp: '70s' },

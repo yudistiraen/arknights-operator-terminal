@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import gracebearerVoice from '../voices/gracebearer'
 
 const gracebearer: Operator = {
   name: 'Gracebearer', fileNo: 'BV27', class: 'Guard', branch: 'Primal Guard', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Bolívar', position: 'Melee', race: 'Undisclosed', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'February 18th', height: '162 cm', combatExp: '10 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '水滴鱼',
   cv: { JP: 'Sakura Kimura', CN: 'Jing Chen', EN: 'Dariana Romo', KR: 'Uhm Ji-eun' },
+  voice: gracebearerVoice,
   trait: 'Blocks 2 enemies, and can inflict Elemental damage',
   tags: ['Nuker', 'DPS'],
   stats: { hp: 2527, atk: 804, def: 344, res: 10, block: 2, cost: 22, aspd: '1.2s', rdp: '70s' },
