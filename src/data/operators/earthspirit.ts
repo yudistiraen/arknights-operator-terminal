@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import earthspiritVoice from '../voices/earthspirit'
 
 const earthspirit: Operator = {
   name: 'Earthspirit', fileNo: 'LN01', class: 'Supporter', branch: 'Decel Binder', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Leithanien', position: 'Ranged', race: 'Caprinae', gender: 'Female', birthplace: 'Leithanien',
   birthday: 'April 5th', height: '161 cm', combatExp: 'None', infectionStatus: 'Showed physical signs of Originium poisoning, infection confirmed by medical examination.', illustrator: 'HUG',
   cv: { JP: 'Aoi Yuuki', CN: 'Zilan Qu', EN: 'Sarah Wiedenheft', KR: 'Chae Min-ji' },
+  voice: earthspiritVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow'],
   stats: { hp: 1205, atk: 480, def: 101, res: 20, block: 1, cost: 14, aspd: '1.9s', rdp: '70s' },

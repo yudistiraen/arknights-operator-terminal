@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import matoimaruVoice from '../voices/matoimaru'
 
 const matoimaru: Operator = {
   name: 'Matoimaru', fileNo: 'HK01', class: 'Guard', branch: 'Dreadnought', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Higashi', position: 'Melee', race: 'Oni', gender: 'Female', birthplace: 'Higashi',
   birthday: 'January 3rd', height: '172 cm', combatExp: '3 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Airi Ōtsu', CN: 'Qiwen (credited as "Ellen Wang" in EN)', EN: 'Maddie Matsumoto', KR: 'Chae Min-ji' },
+  voice: matoimaruVoice,
   trait: 'Blocks 1 enemy',
   tags: ['Survival', 'DPS'],
   stats: { hp: 3640, atk: 916, def: 156, res: 0, block: 1, cost: 17, aspd: '1.5s', rdp: '70s' },

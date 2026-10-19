@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import scavengerVoice from '../voices/scavenger'
 
 const scavenger: Operator = {
   name: 'Scavenger', fileNo: 'SW02', class: 'Vanguard', branch: 'Pioneer', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'S.W.E.E.P.', position: 'Melee', race: 'Zalak', gender: 'Female', birthplace: 'Unknown',
   birthday: 'August 22nd', height: '164 cm', combatExp: '4 years', infectionStatus: 'Infection confirmed by medical examination.', illustrator: '戏言咸咸',
   cv: { JP: 'You Taichi', CN: 'Miao Yang (credited as "Mia Miao" in EN)', EN: 'Jennifer Armour', KR: 'Chong Yu-mi' },
+  voice: scavengerVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'DPS'],
   stats: { hp: 1835, atk: 470, def: 310, res: 0, block: 2, cost: 12, aspd: '1.05s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import jayeVoice from '../voices/jaye'
 
 const jaye: Operator = {
   name: 'Jaye', fileNo: 'LM14', class: 'Specialist', branch: 'Merchant', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Lungmen', position: 'Melee', race: 'Ursus', gender: 'Male', birthplace: 'Lungmen',
   birthday: 'September 17th', height: '174 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: '阿鬼',
   cv: { JP: 'Yusuke Shirai', CN: 'Sun Ye', EN: 'Yung-I Chang', KR: 'Lee Hyun' },
+  voice: jayeVoice,
   trait: 'Has reduced Redeployment Time, but DP Cost is not refunded upon retreating; While deployed, 3 DP are consumed every 3 seconds (automatically retreats without sufficient DP)',
   tags: ['Fast-Redeploy', 'DPS'],
   stats: { hp: 2284, atk: 674, def: 378, res: 0, block: 1, cost: 7, aspd: '1s', rdp: '25s' },

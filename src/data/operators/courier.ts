@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import courierVoice from '../voices/courier'
 
 const courier: Operator = {
   name: 'Courier', fileNo: 'JC04', class: 'Vanguard', branch: 'Pioneer', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Credit Store'],
   faction: 'Karlan Trade', position: 'Melee', race: 'Itra', gender: 'Male', birthplace: 'Kjerag',
   birthday: 'March 5th', height: '177 cm', combatExp: '2 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '竜崎いち',
   cv: { JP: 'Daisuke Hirakawa', CN: 'Xu Xiang (credited as "Ethan" in EN)', EN: 'Joseph May', KR: 'Choi Seung-hun' },
+  voice: courierVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery', 'Defense'],
   stats: { hp: 1985, atk: 435, def: 382, res: 0, block: 2, cost: 12, aspd: '1.05s', rdp: '70s' },

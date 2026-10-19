@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import akkordVoice from '../voices/akkord'
 
 const akkord: Operator = {
   name: 'Akkord', fileNo: 'LN22', class: 'Caster', branch: 'Blast Caster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Voucher Exchange'],
   faction: 'Leithanien', position: 'Ranged', race: 'Caprinae', gender: 'Female', birthplace: 'Leithanien',
   birthday: 'August 11th', height: '165 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: 'Chi4',
   cv: { JP: 'Saya Aizawa', CN: 'Kokomi', EN: 'Amira Leisner', KR: 'Lim Jae-yi' },
+  voice: akkordVoice,
   trait: 'Deals AOE Arts damage in a long line',
   tags: ['AoE', 'DPS'],
   stats: { hp: 1528, atk: 680, def: 110, res: 20, block: 1, cost: 32, aspd: '2.9s', rdp: '70s' },

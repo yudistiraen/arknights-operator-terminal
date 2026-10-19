@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import beehunterVoice from '../voices/beehunter'
 
 const beehunter: Operator = {
   name: 'Beehunter', fileNo: 'US10', class: 'Guard', branch: 'Fighter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Ursus', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'October 2nd', height: '163 cm', combatExp: '2 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'toast',
   cv: { JP: 'Yuko Hara', CN: 'Mang Yin (credited as "Duduru" in EN)', EN: 'Emma Breezy', KR: 'Kwak Gyu-mi' },
+  voice: beehunterVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS'],
   stats: { hp: 2435, atk: 573, def: 312, res: 0, block: 1, cost: 9, aspd: '0.78s', rdp: '70s' },

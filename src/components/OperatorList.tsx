@@ -197,7 +197,7 @@ export function OperatorList() {
 
   const buildOperatorHref = (entry: RosterEntry) => {
     const slug = toSlug(OPERATORS[entry.operatorIndex].name)
-    return entry.alterIndex !== null ? `/operator?operator=${slug}&alter=${entry.alterIndex + 1}` : `/operator?operator=${slug}`
+    return entry.alterIndex !== null ? `/operator?codeName=${slug}&alter=${entry.alterIndex + 1}` : `/operator?codeName=${slug}`
   }
 
   useGSAP(() => {

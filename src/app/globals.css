@@ -152,6 +152,12 @@ html {
   50% { opacity: 0.3; }
 }
 
+/* VoicePanel level meter: three bars bounce while a line is playing. */
+@keyframes voice-level {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
 /* Terra region callout (WorldMap.tsx): marker → leader line → tag → text.
    Scale/opacity only — Tailwind v4 positions with the separate `translate` property. */
 @keyframes callout-marker {

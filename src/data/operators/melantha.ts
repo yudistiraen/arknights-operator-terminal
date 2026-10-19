@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import melanthaVoice from '../voices/melantha'
 
 const melantha: Operator = {
   name: 'Melantha', fileNo: 'PA41', class: 'Guard', branch: 'Dreadnought', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A4', position: 'Melee', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'March 19th', height: '161 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
   cv: { JP: 'Yuko Hara', CN: 'Yue Xin', EN: 'Penelope Rawlins', KR: 'Yoon Mi-na' },
+  voice: melanthaVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS', 'Survival'],
   stats: { hp: 2745, atk: 803, def: 155, res: 0, block: 1, cost: 15, aspd: '1.5s', rdp: '70s' },

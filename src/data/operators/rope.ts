@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ropeVoice from '../voices/rope'
 
 const rope: Operator = {
   name: 'Rope', fileNo: 'RB02', class: 'Specialist', branch: 'Hookmaster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Lungmen', position: 'Melee', race: 'Cautus', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'April 4th', height: '155 cm', combatExp: '2 years', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'm9nokuro',
   cv: { JP: 'Chiyuki Miura (from 2024/05/01); Ayumi Fujimura (until 2024/05/01)', CN: 'Zhang Qi (credited as "Kiliki" in EN)', EN: 'Claire Morgan', KR: 'Lee Sae-byeok' },
+  voice: ropeVoice,
   trait: 'Can Shift enemies by using skills\nCan be deployed on Ranged Tiles',
   tags: ['Shift'],
   stats: { hp: 1720, atk: 728, def: 325, res: 0, block: 2, cost: 12, aspd: '1.8s', rdp: '70s' },

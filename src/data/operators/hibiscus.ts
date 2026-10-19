@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import hibiscusVoice from '../voices/hibiscus'
 
 const hibiscus: Operator = {
   name: 'Hibiscus', fileNo: 'PA13', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A1', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Victoria',
   birthday: 'June 21st', height: '153 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Yuka Iguchi', CN: 'Gui Niang', EN: 'Yuuki Luna', KR: 'Bang Yeon-jee' },
+  voice: hibiscusVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing'],
   stats: { hp: 1220, atk: 390, def: 110, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import luoXiaoheiVoice from '../voices/luo-xiaohei'
 
 const luoXiaohei: Operator = {
   name: 'Luo Xiaohei', fileNo: 'R161', class: 'Guard', branch: 'Lord', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Yan', position: 'Melee', race: 'Feline', gender: 'Male', birthplace: 'Unknown',
   birthday: 'November 1st', height: 'Unknown', combatExp: 'Unknown', infectionStatus: 'Non-infected', illustrator: '九日九号',
   cv: { JP: 'Kana Hanazawa', CN: 'Shanxin', EN: '', KR: '' },
+  voice: luoXiaoheiVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS'],
   stats: { hp: 2040, atk: 698, def: 325, res: 10, block: 2, cost: 17, aspd: '1.3s', rdp: '70s' },

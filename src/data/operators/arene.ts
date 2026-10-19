@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import areneVoice from '../voices/arene'
 
 const arene: Operator = {
   name: 'Arene', fileNo: 'LT06', class: 'Guard', branch: 'Lord', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Laterano', position: 'Melee', race: 'Sankta', gender: 'Male', birthplace: 'Laterano',
   birthday: 'September 7th', height: '161 cm', combatExp: 'Half a year', infectionStatus: 'Crystals have appeared on his body. Infection confirmed by medical examination.', illustrator: 'umo_yszx',
   cv: { JP: 'Yoshitsugu Matsuoka', CN: 'Feng Xiu', EN: 'Kieran Regan', KR: 'Lee Kyung-tae' },
+  voice: areneVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS'],
   stats: { hp: 2250, atk: 695, def: 340, res: 10, block: 2, cost: 18, aspd: '1.3s', rdp: '70s' },

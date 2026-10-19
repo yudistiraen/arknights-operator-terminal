@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import gummyVoice from '../voices/gummy'
 
 const gummy: Operator = {
   name: 'Gummy', fileNo: 'USS3', class: 'Defender', branch: 'Guardian', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment', 'Starter Pack'],
   faction: 'Ursus Student Self-Governing Group', position: 'Melee', race: 'Ursus', gender: 'Female', birthplace: 'Ursus',
   birthday: 'October 2nd', height: '155 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'Skade',
   cv: { JP: 'Natsumi Takamori', CN: 'Liang Ruixue (credited as "Winter" in EN)', EN: 'Cristina Vee', KR: 'Kim Chae-ha' },
+  voice: gummyVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing'],
   stats: { hp: 2550, atk: 435, def: 562, res: 10, block: 3, cost: 20, aspd: '1.2s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import meteorVoice from '../voices/meteor'
 
 const meteor: Operator = {
   name: 'Meteor', fileNo: 'ST02', class: 'Sniper', branch: 'Marksman', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Kazimierz', position: 'Ranged', race: 'Kuranta', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'May 1st', height: '164 cm', combatExp: '6 years', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'HUG',
   cv: { JP: 'Ayaka Fukuhara', CN: 'Hou Xiaofei (credited as "Fifi" in EN)', EN: 'Samantha Dakin', KR: 'Jo Kyoung-I' },
+  voice: meteorVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS', 'Debuff'],
   stats: { hp: 1370, atk: 465, def: 165, res: 0, block: 1, cost: 12, aspd: '1s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import hazeVoice from '../voices/haze'
 
 const haze: Operator = {
   name: 'Haze', fileNo: 'VC02', class: 'Caster', branch: 'Core Caster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Victoria', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'January 2nd', height: '158 cm', combatExp: 'Half a year', infectionStatus: 'Infection confirmed by medical examination.', illustrator: 'Skade',
   cv: { JP: 'Ru Thing', CN: 'Ke Zhong', EN: 'Ratana', KR: 'Lee Seul' },
+  voice: hazeVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS', 'Debuff'],
   stats: { hp: 1420, atk: 583, def: 110, res: 20, block: 1, cost: 19, aspd: '1.6s', rdp: '70s' },

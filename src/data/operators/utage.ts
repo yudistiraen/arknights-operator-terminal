@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import utageVoice from '../voices/utage'
 
 const utage: Operator = {
   name: 'Utage', fileNo: 'HK03', class: 'Guard', branch: 'Soloblade', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Higashi', position: 'Melee', race: 'Unknown', gender: 'Female', birthplace: 'Higashi',
   birthday: 'April 4th', height: '161 cm', combatExp: 'None', infectionStatus: 'Confirmed infected by medical examination.', illustrator: '釜飯轟々丸',
   cv: { JP: 'Mayu Yoshioka', CN: 'Xu Xu (credited as "Skye" in EN)', EN: 'Ayaka Kyo', KR: 'Choi Ha-ri' },
+  voice: utageVoice,
   trait: "Can't be healed by other units. Recovers 70 self HP every time this operator attacks an enemy",
   tags: ['DPS', 'Survival'],
   stats: { hp: 3444, atk: 723, def: 352, res: 0, block: 1, cost: 24, aspd: '1.2s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import durinVoice from '../voices/durin'
 
 const durin: Operator = {
   name: 'Durin', fileNo: 'A44', class: 'Caster', branch: 'Core Caster', rarity: 2, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op A4', position: 'Ranged', race: 'Durin', gender: 'Female', birthplace: 'Durin',
   birthday: 'December 15th', height: '131 cm', combatExp: '2 years', infectionStatus: 'Non-infected', illustrator: 'Skade',
   cv: { JP: 'Akari Kageyama', CN: 'Menglu Yang', EN: 'Emma Ballantine', KR: 'Yang Jung-hwa' },
+  voice: durinVoice,
   trait: 'Deals Arts damage',
   tags: ['Starter'],
   stats: { hp: 952, atk: 340, def: 62, res: 10, block: 1, cost: 12, aspd: '1.6s', rdp: '70s' },

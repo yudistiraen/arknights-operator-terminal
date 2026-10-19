@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import frostleafVoice from '../voices/frostleaf'
 
 const frostleaf: Operator = {
   name: 'Frostleaf', fileNo: 'R123', class: 'Guard', branch: 'Lord', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Vulpo', gender: 'Female', birthplace: 'Columbia',
   birthday: 'May 1st', height: '157 cm', combatExp: '7 years', infectionStatus: 'Showed physical signs of Oripathy, infection confirmed by medical examination.', illustrator: '下野宏铭',
   cv: { JP: 'Ai Kakuma', CN: 'Ruan Congqing (credited as "Ruan" in EN)', EN: 'Ina Marie Smith', KR: 'Jang Mi' },
+  voice: frostleafVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['Slow', 'DPS'],
   stats: { hp: 2260, atk: 660, def: 323, res: 10, block: 2, cost: 18, aspd: '1.3s', rdp: '70s' },

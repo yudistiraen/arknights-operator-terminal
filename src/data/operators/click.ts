@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import clickVoice from '../voices/click'
 
 const click: Operator = {
   name: 'Click', fileNo: 'R140', class: 'Caster', branch: 'Mech-Accord', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Zalak', gender: 'Female', birthplace: 'Undisclosed',
   birthday: 'May 9th', height: '144 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'れおえん',
   cv: { JP: 'Yuuko Kurose', CN: 'Zhang Hong (credited as "Elivia" in EN)', EN: 'Leona Renee', KR: 'Park Seon-young' },
+  voice: clickVoice,
   trait: "Controls a Drone to deal Arts damage to an enemy (equal to 20% of the Mech-Accord Caster's ATK); When the Drone continuously attacks the same enemy, its damage will increase (+15%) (up to 110% of the operator's ATK)",
   tags: ['DPS', 'Crowd-Control'],
   stats: { hp: 1440, atk: 375, def: 120, res: 20, block: 1, cost: 20, aspd: '1.3s', rdp: '70s' },

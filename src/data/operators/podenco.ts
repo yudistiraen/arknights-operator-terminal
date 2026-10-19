@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import podencoVoice from '../voices/podenco'
 
 const podenco: Operator = {
   name: 'Podenco', fileNo: 'R157', class: 'Supporter', branch: 'Decel Binder', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Perro', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'March 25th', height: '145 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'アシマ',
   cv: { JP: 'Hikaru Ueda', CN: 'Fu Gui', EN: 'Lou Arruti', KR: 'Bang Si-woo' },
+  voice: podencoVoice,
   trait: 'Deals Arts damage and Slows the target for a short time (0.8s)',
   tags: ['Slow', 'Healing'],
   stats: { hp: 1163, atk: 492, def: 96, res: 20, block: 1, cost: 14, aspd: '1.9s', rdp: '70s' },

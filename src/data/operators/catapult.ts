@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import catapultVoice from '../voices/catapult'
 
 const catapult: Operator = {
   name: 'Catapult', fileNo: 'PA63', class: 'Sniper', branch: 'Artilleryman', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A6', position: 'Ranged', race: 'Kuranta', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'August 8th', height: '163 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: 'm9nokuro',
   cv: { JP: 'Junko Minagawa', CN: 'Jing Liu', EN: 'Clare Louise Connolly', KR: 'Kang Sae-bom' },
+  voice: catapultVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['AoE'],
   stats: { hp: 1150, atk: 672, def: 85, res: 0, block: 1, cost: 23, aspd: '2.8s', rdp: '70s' },

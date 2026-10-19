@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import orchidVoice from '../voices/orchid'
 
 const orchid: Operator = {
   name: 'Orchid', fileNo: 'PA61', class: 'Supporter', branch: 'Decel Binder', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A6', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'January 15th', height: '164 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: 'Skade',
   cv: { JP: 'Airi Ōtsu', CN: 'Ke Zhong', EN: 'Susie Riddell', KR: 'Yeo Min-jeong' },
+  voice: orchidVoice,
   trait: 'Deals Arts damage and Slows the target for a short time',
   tags: ['Slow'],
   stats: { hp: 935, atk: 418, def: 83, res: 15, block: 1, cost: 12, aspd: '1.9s', rdp: '70s' },

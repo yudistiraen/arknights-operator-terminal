@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import dobermannVoice from '../voices/dobermann'
 
 const dobermann: Operator = {
   name: 'Dobermann', fileNo: 'R100', class: 'Guard', branch: 'Instructor', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'May 27th', height: '163 cm', combatExp: '6 years', infectionStatus: 'Infected', illustrator: 'LLC',
   cv: { JP: 'Atsumi Tanezaki', CN: 'Gui Niang', EN: 'Lucy Montgomery', KR: 'Kim Hyun-ji' },
+  voice: dobermannVoice,
   trait: 'Can attack enemies from range; When attacking enemies not blocked by self, increase ATK to 120%',
   tags: ['DPS', 'Support'],
   stats: { hp: 2024, atk: 602, def: 382, res: 0, block: 2, cost: 15, aspd: '1.05s', rdp: '70s' },

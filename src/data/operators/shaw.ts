@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import shawVoice from '../voices/shaw'
 
 const shaw: Operator = {
   name: 'Shaw', fileNo: 'LM11', class: 'Specialist', branch: 'Push Stroker', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Lungmen', position: 'Melee', race: 'Zalak', gender: 'Female', birthplace: 'Lungmen',
   birthday: 'January 5th', height: '135 cm', combatExp: 'None', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: '阿鬼',
   cv: { JP: 'Ryō Hirohashi', CN: 'Xiao Sibai (credited as "Shi Haku" in EN)', EN: 'Harriet Carmichael', KR: 'Seo Eun-bi' },
+  voice: shawVoice,
   trait: 'Can attack all blocked enemies\nCan be deployed on Ranged Tiles',
   tags: ['Shift'],
   stats: { hp: 1785, atk: 580, def: 365, res: 15, block: 2, cost: 19, aspd: '1.2s', rdp: '70s' },

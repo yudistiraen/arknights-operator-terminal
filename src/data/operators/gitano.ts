@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import gitanoVoice from '../voices/gitano'
 
 const gitano: Operator = {
   name: 'Gitano', fileNo: 'SI01', class: 'Caster', branch: 'Splash Caster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Sami', position: 'Ranged', race: 'Elafia', gender: 'Female', birthplace: 'Sami',
   birthday: 'January 15th', height: '171 cm', combatExp: '1 year', infectionStatus: 'Showed physical signs of Originium, infection confirmed by medical examination.', illustrator: '谜肘',
   cv: { JP: 'Kana Yuuki', CN: 'Xu Hui (credited as "Chris Xu" in EN)', EN: 'Sarah Ovens', KR: 'Kim Bo-na' },
+  voice: gitanoVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE'],
   stats: { hp: 1598, atk: 715, def: 118, res: 20, block: 1, cost: 32, aspd: '2.9s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import contrailVoice from '../voices/contrail'
 
 const contrail: Operator = {
   name: 'Contrail', fileNo: 'CB33', class: 'Specialist', branch: 'Skyranger', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Voucher Exchange'],
   faction: 'Columbia', position: 'Melee', race: 'Zalak', gender: 'Female', birthplace: 'Columbia',
   birthday: 'March 16th', height: '155 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: '虬墨一型',
   cv: { JP: 'Ritsuka Tachibana', CN: 'Ze Ling', EN: 'Olivia Tucker', KR: 'Mi-so' },
+  voice: contrailVoice,
   trait: 'After Taking Off, can block 2 flying enemies',
   tags: ['Soar', 'Crowd-Control'],
   stats: { hp: 2255, atk: 692, def: 393, res: 0, block: 2, cost: 16, aspd: '1.5s', rdp: '70s' },

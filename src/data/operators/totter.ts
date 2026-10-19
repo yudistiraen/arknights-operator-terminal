@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import totterVoice from '../voices/totter'
 
 const totter: Operator = {
   name: 'Totter', fileNo: 'SG11', class: 'Sniper', branch: 'Besieger', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Sargon', position: 'Ranged', race: 'Liberi', gender: 'Male', birthplace: 'Sargon',
   birthday: 'June 21st', height: '185 cm', combatExp: '20 years', infectionStatus: 'Originium crystals distributed across surface of body, confirmed Infected by medical examination.', illustrator: '板板',
   cv: { JP: 'Chikahiro Kobayashi', CN: 'Liu Beichen', EN: 'Mercer Boffey', KR: 'Lee Jin-moo' },
+  voice: totterVoice,
   trait: 'Attacks the heaviest enemy first',
   tags: ['DPS'],
   stats: { hp: 1550, atk: 970, def: 145, res: 0, block: 1, cost: 22, aspd: '2.4s', rdp: '70s' },

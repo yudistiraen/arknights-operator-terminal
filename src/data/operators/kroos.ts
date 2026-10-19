@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import kroosVoice from '../voices/kroos'
 
 const kroos: Operator = {
   name: 'Kroos', fileNo: 'PA12', class: 'Sniper', branch: 'Marksman', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A1', position: 'Ranged', race: 'Cautus', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'November 22nd', height: '154 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Azusa Tadokoro', CN: 'Su Wan', EN: 'Grace Hogg-Robinson', KR: 'Yang Jung-hwa' },
+  voice: kroosVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1060, atk: 425, def: 126, res: 0, block: 1, cost: 11, aspd: '1s', rdp: '70s' },

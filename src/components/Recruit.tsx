@@ -140,7 +140,7 @@ export function Recruit() {
 
   const buildHref = (alterIndex: number | null, name: string) => {
     const slug = toSlug(name)
-    return alterIndex !== null ? `/operator?operator=${slug}&alter=${alterIndex + 1}` : `/operator?operator=${slug}`
+    return alterIndex !== null ? `/operator?codeName=${slug}&alter=${alterIndex + 1}` : `/operator?codeName=${slug}`
   }
 
   useGSAP(() => {

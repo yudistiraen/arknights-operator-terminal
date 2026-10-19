@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import cutterVoice from '../voices/cutter'
 
 const cutter: Operator = {
   name: 'Cutter', fileNo: 'R144', class: 'Guard', branch: 'Swordmaster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Melee', race: 'Vulpo', gender: 'Female', birthplace: 'Columbia',
   birthday: 'May 2nd', height: '155 cm', combatExp: '3 years', infectionStatus: 'Originium crystals are distributed inside the body, confirmed Infected by medical examination.', illustrator: '下野宏铭',
   cv: { JP: 'Sayuri Yahagi', CN: 'Su Wan (credited as "Sue" in EN)', EN: 'Kristen Li', KR: 'Esther Won' },
+  voice: cutterVoice,
   trait: 'Normal attacks deal damage twice',
   tags: ['Nuker', 'DPS'],
   stats: { hp: 2320, atk: 641, def: 325, res: 0, block: 2, cost: 21, aspd: '1.3s', rdp: '70s' },

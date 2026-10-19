@@ -9,5 +9,5 @@ export default async function OperatorPage({ params, searchParams }: OperatorPag
   const { name } = await params
   const { alter } = await searchParams
   const slug = decodeURIComponent(name)
-  redirect(alter ? `/operator?operator=${slug}&alter=${alter}` : `/operator?operator=${slug}`)
+  redirect(alter ? `/operator?codeName=${slug}&alter=${alter}` : `/operator?codeName=${slug}`)
 }

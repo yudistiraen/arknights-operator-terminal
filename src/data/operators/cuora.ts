@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import cuoraVoice from '../voices/cuora'
 
 const cuora: Operator = {
   name: 'Cuora', fileNo: 'IU05', class: 'Defender', branch: 'Protector', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Melee', race: 'Petram', gender: 'Female', birthplace: 'Undisclosed',
   birthday: 'Undisclosed', height: '148 cm', combatExp: 'None', infectionStatus: 'Showed physical signs of Originium, visible internal blotches, infection confirmed by medical report.', illustrator: 'Skade',
   cv: { JP: 'Ayaka Suwa', CN: 'Gelin Tian', EN: 'Xanthe Huynh', KR: 'Jung Hye-won' },
+  voice: cuoraVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense'],
   stats: { hp: 3105, atk: 365, def: 765, res: 0, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },

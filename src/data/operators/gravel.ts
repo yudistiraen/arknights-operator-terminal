@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import gravelVoice from '../voices/gravel'
 
 const gravel: Operator = {
   name: 'Gravel', fileNo: 'KZ04', class: 'Specialist', branch: 'Executor', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Kazimierz', position: 'Melee', race: 'Zalak', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'January 20th', height: '156 cm', combatExp: '4 years', infectionStatus: 'No Originium crystals are visible. Medical examinations confirm her status as non-Infected.', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Rika Tachibana', CN: 'Gui Niang (credited as "D. QQ" in EN)', EN: 'Naomi McDonald', KR: 'Chae Min-ji' },
+  voice: gravelVoice,
   trait: 'Significantly reduced Redeployment Time',
   tags: ['Fast-Redeploy', 'Defense'],
   stats: { hp: 1420, atk: 452, def: 335, res: 0, block: 1, cost: 8, aspd: '0.93s', rdp: '18s' },

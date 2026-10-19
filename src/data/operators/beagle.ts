@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import beagleVoice from '../voices/beagle'
 
 const beagle: Operator = {
   name: 'Beagle', fileNo: 'PA14', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A1', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Bolivar',
   birthday: 'March 2nd', height: '154 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Nana Harumura', CN: 'Wang Xiaotong', EN: 'Claire Morgan', KR: 'Lee Hyun-jin' },
+  voice: beagleVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense'],
   stats: { hp: 2035, atk: 295, def: 550, res: 0, block: 3, cost: 18, aspd: '1.2s', rdp: '70s' },

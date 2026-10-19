@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import rangersVoice from '../voices/rangers'
 
 const rangers: Operator = {
   name: 'Rangers', fileNo: 'A42', class: 'Sniper', branch: 'Marksman', rarity: 2, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op A4', position: 'Ranged', race: 'Savra', gender: 'Male', birthplace: 'Sargon',
   birthday: 'July 22nd', height: '179 cm', combatExp: '5 years', infectionStatus: 'Non-infected', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Shunsuke Takeuchi', CN: 'Kong Xin', EN: 'David Menkin', KR: 'Kim Ki-hyeon' },
+  voice: rangersVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['Starter'],
   stats: { hp: 780, atk: 269, def: 66, res: 0, block: 1, cost: 7, aspd: '1s', rdp: '70s' },

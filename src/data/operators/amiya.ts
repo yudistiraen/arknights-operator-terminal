@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import amiyaVoice from '../voices/amiya'
 
 const amiya: Operator = {
   name: 'Amiya', fileNo: 'R001', class: 'Caster', branch: 'Core Caster', rarity: 5, level: 80, elite: 2, trust: 200, how_to_get: ['Main Theme Story'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Cautus/Chimera', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'December 23rd', height: '142 cm', combatExp: '3 years', infectionStatus: 'Infected', illustrator: '唯@W',
   cv: { JP: 'Tomoyo Kurosawa', CN: 'Dian Tao', EN: 'Emma Ballantine', KR: 'Lee Ji-hyun' },
+  voice: amiyaVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS'],
   stats: { hp: 1480, atk: 612, def: 121, res: 20, block: 1, cost: 20, aspd: '1.6s', rdp: '70s' },

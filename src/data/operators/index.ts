@@ -196,6 +196,13 @@ import thorns from './thorns'
 import weedy from './weedy'
 import viy from './viy'
 import crackborne from './crackborne'
+import ukusik from './ukusik'
+import dusk from './dusk'
+import fartooth from './fartooth'
+import eyjafjalla from './eyjafjalla'
+import degenbrecher from './degenbrecher'
+import crownslayer from './crownslayer'
+import flametail from './flametail'
 
 export const OPERATORS = [
   amiya,
@@ -396,6 +403,13 @@ export const OPERATORS = [
   weedy,
   viy,
   crackborne,
+  ukusik,
+  dusk,
+  fartooth,
+  eyjafjalla,
+  degenbrecher,
+  crownslayer,
+  flametail,
 ].sort((a, b) => a.rarity - b.rarity || a.name.localeCompare(b.name))
 
 export const DEFAULT_OPERATOR_INDEX = OPERATORS.findIndex(op => op.name === 'Amiya')

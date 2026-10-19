@@ -83,9 +83,10 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
   const activeVariant = variantIndex >= 0 ? baseOperator.variants?.[variantIndex] : undefined
   const activeAlter = activeAlterIndex !== null ? alters[activeAlterIndex] : undefined
   const activeOperator = activeAlter
-    ? { ...baseOperator, ...activeAlter } as typeof baseOperator
+    // Voice lines are recorded per character form, so an alter/variant never inherits the base set.
+    ? { ...baseOperator, voice: undefined, ...activeAlter } as typeof baseOperator
     : activeVariant
-      ? { ...baseOperator, ...activeVariant } as typeof baseOperator
+      ? { ...baseOperator, voice: undefined, ...activeVariant } as typeof baseOperator
       : baseOperator
   const factionTheme = getFactionTheme(activeOperator.faction)
   const [accentR, accentG, accentB] = factionTheme.accent
@@ -238,7 +239,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
     const nextAlterIndex = nextEntry.alterIndex
     const nextOperator = OPERATORS[nextIndex]
     const nextSlug = toSlug(nextOperator.name)
-    const nextUrl = nextAlterIndex !== null ? `/operator?operator=${nextSlug}&alter=${nextAlterIndex + 1}` : `/operator?operator=${nextSlug}`
+    const nextUrl = nextAlterIndex !== null ? `/operator?codeName=${nextSlug}&alter=${nextAlterIndex + 1}` : `/operator?codeName=${nextSlug}`
     const nextSrc = (nextAlterIndex !== null ? altersOf(nextOperator)[nextAlterIndex]?.skins[0]?.src : undefined) ?? nextOperator.skins[0].src
     playArtTransition(nextSrc, () => {
       setOperatorIndex(nextIndex)
@@ -266,7 +267,7 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
       setVariantIndex(-1)
       setSkinIndex(0)
       setExpandedPanelId(null)
-      window.history.replaceState(null, '', targetAlterIndex !== null ? `/operator?operator=${slug}&alter=${targetAlterIndex + 1}` : `/operator?operator=${slug}`)
+      window.history.replaceState(null, '', targetAlterIndex !== null ? `/operator?codeName=${slug}&alter=${targetAlterIndex + 1}` : `/operator?codeName=${slug}`)
     })
   }, [operatorIndex, baseOperator, alters, playArtTransition])
 
@@ -516,15 +517,13 @@ export function OperatorTerminal({ initialOperatorIndex, initialAlterIndex = nul
               </div>
               <div className="flex gap-1.5 md:gap-2 flex-none md:flex-[2]">
                 {hasModules ? renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3`, BUTTON_HOVER, <>
-                  <div className="flex items-center justify-between">
-                    <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Modules</h2>
-                    <div className="flex gap-1">
-                      {Object.values(activeOperator.modules).filter(mod => 'stages' in mod).map(mod => (
-                        <span key={mod.code} className="text-[9px] md:text-[11px] px-1 md:px-1.5 py-0.5 border border-gc-line-strong text-gc-ink font-data tracking-[0.06em]">{mod.code}</span>
-                      ))}
-                    </div>
+                  <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Modules</h2>
+                  <div className="mt-2 md:mt-3 flex flex-row flex-wrap gap-1 md:gap-1.5">
+                    {Object.values(activeOperator.modules).filter(mod => 'stages' in mod).map(mod => (
+                      <span key={mod.code} className="text-[9px] md:text-[11px] px-1 md:px-1.5 py-0.5 border border-gc-line-strong text-gc-ink font-data tracking-[0.06em]">{mod.code}</span>
+                    ))}
                   </div>
-                  <span className="text-[10px] md:text-xs text-gc-dim font-data">{Object.keys(activeOperator.modules).length} Equipped</span>
+                  <span className="mt-1.5 md:mt-2 text-[10px] md:text-xs text-gc-dim font-data">{Object.keys(activeOperator.modules).length} Equipped</span>
                 </>) : renderCard('modules', `${BUTTON_BASE} flex-1 p-2 md:p-3 opacity-40`, BUTTON_HOVER, <>
                   <div className="flex items-center gap-2">
                     <h2 className="font-display text-[11px] md:text-[13px] uppercase tracking-[0.16em] text-gc-text leading-none">Modules</h2>
