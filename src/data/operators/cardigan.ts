@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import cardiganVoice from '../voices/cardigan'
 
 const cardigan: Operator = {
   name: 'Cardigan', fileNo: 'PA45', class: 'Defender', branch: 'Protector', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Op Reserve A4', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Leithanien',
   birthday: 'August 2nd', height: '156 cm', combatExp: 'Half a year', infectionStatus: 'Non-infected', illustrator: '一立里子',
   cv: { JP: 'Azumi Asakura', CN: 'Z-kun', EN: 'Anjali Kunapaneni', KR: 'Lee Jae-hyun' },
+  voice: cardiganVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense'],
   stats: { hp: 2430, atk: 305, def: 475, res: 0, block: 3, cost: 18, aspd: '1.2s', rdp: '70s' },

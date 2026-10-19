@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import durNarVoice from '../voices/dur-nar'
 
 const durNar: Operator = {
   name: 'Dur-nar', fileNo: 'R124', class: 'Defender', branch: 'Arts Protector', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Credit Store'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Vulpo', gender: 'Female', birthplace: 'Columbia',
   birthday: 'August 11th', height: '160 cm', combatExp: '8 years', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '下野宏铭',
   cv: { JP: 'Nanako Mori', CN: 'Lu Xiaotong (credited as "Thea" in EN)', EN: 'Triya Leong', KR: 'Yoon A-young' },
+  voice: durNarVoice,
   trait: 'Normal attacks deal Arts Damage while the skill is active',
   tags: ['Defense', 'DPS'],
   stats: { hp: 3007, atk: 648, def: 548, res: 15, block: 3, cost: 24, aspd: '1.6s', rdp: '70s' },

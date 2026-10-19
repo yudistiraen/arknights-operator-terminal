@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import purestreamVoice from '../voices/purestream'
 
 const purestream: Operator = {
   name: 'Purestream', fileNo: 'R160', class: 'Medic', branch: 'Therapist', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Limited Gift Pack'],
   faction: 'Yan', position: 'Ranged', race: 'Aegir', gender: 'Female', birthplace: 'Yan',
   birthday: 'October 24th', height: '155 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: '唯@W',
   cv: { JP: 'Marie Miyake', CN: 'Cheng Li', EN: 'Kristen Li', KR: 'Oh Roah' },
+  voice: purestreamVoice,
   trait: 'Has a large healing range, but the healing amount on farther targets is reduced to 80%',
   tags: ['Healing', 'Support'],
   stats: { hp: 1365, atk: 454, def: 118, res: 10, block: 1, cost: 19, aspd: '2.85s', rdp: '80s' },

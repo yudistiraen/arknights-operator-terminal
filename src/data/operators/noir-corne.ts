@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import noirCorneVoice from '../voices/noir-corne'
 
 const noirCorne: Operator = {
   name: 'Noir Corne', fileNo: 'A43', class: 'Defender', branch: 'Protector', rarity: 2, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op A4', position: 'Melee', race: 'Oni', gender: 'Male', birthplace: 'Higashi',
   birthday: 'August 30th', height: '180 cm', combatExp: '8 years', infectionStatus: 'Infected', illustrator: 'Ryuuzaki Ichi',
   cv: { JP: 'Kengo Kawanishi', CN: 'Zhaokun Liu', EN: 'Ben Cura', KR: 'Ryu Seung-gon' },
+  voice: noirCorneVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Starter'],
   stats: { hp: 1670, atk: 240, def: 315, res: 0, block: 3, cost: 14, aspd: '1.2s', rdp: '70s' },

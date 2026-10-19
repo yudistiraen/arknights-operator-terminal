@@ -1,0 +1,108 @@
+import type { Operator } from '../../types'
+
+const fartooth: Operator = {
+  name: 'Fartooth', fileNo: 'KZ13', class: 'Sniper', branch: 'Deadeye Sniper', rarity: 6, level: 90, elite: 2, trust: 200, how_to_get: ['Kernel Headhunting'],
+  faction: 'Pinus Sylvestris', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Kazimierz',
+  birthday: 'October 10th', height: '155 cm', combatExp: '4 years', infectionStatus: 'Confirmed infected by medical examination.', illustrator: 'NoriZC',
+  cv: { JP: 'Suzuko Mimori', CN: 'Wen Liu', EN: 'Samantha Dakin', KR: 'Yeo Yun-mi' },
+  trait: 'Prioritizes attacking the enemy with lowest DEF within range first',
+  tags: ['DPS'],
+  stats: { hp: 1522, atk: 1296, def: 163, res: 0, block: 1, cost: 22, aspd: '2.7s', rdp: '70s' },
+  range: {
+    base: [[0, 1, 1, 1, 1, 0], [0, 2, 1, 1, 1, 0], [0, 1, 1, 1, 1, 0]],
+    e1: [[1, 1, 1, 0, 0], [1, 1, 1, 1, 0], [2, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0]],
+    e2: [[1, 1, 1, 0, 0], [1, 1, 1, 1, 0], [2, 1, 1, 1, 1], [1, 1, 1, 1, 0], [1, 1, 1, 0, 0]],
+  },
+  physicalExam: { 'Physical Strength': 'Standard', Mobility: 'Excellent', Endurance: 'Standard', 'Tactical Acumen': 'Normal', 'Combat Skill': 'Excellent', 'Originium Arts': 'Standard' },
+  talents: [
+    { name: 'Concentration', desc: 'When no damage is taken in the past 10 seconds, ATK +10%', elite: 'E1' },
+    { name: 'Concentration', desc: 'When no damage is taken in the past 10 seconds, ATK +13% (+3%)', elite: 'E1 (Potential 5)' },
+    { name: 'Concentration', desc: 'When no damage is taken in the past 10 seconds, ATK +15%', elite: 'E2' },
+    { name: 'Concentration', desc: 'When no damage is taken in the past 10 seconds, ATK +18% (+3%)', elite: 'E2 (Potential 5)' },
+    { name: 'Stilled Breath', desc: "When this unit's skill is active, becomes less likely to be targeted by attacks and attacks ignore the target's Physical Dodge", elite: 'E2' },
+  ],
+  skills: [
+    {
+      name: 'Swift Strike γ', icon: '/operators/fartooth/skill-1.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'ATK +45%; ASPD +45', spInit: 15, sp: 35, dur: '35s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'ATK +20%; ASPD +20', spInit: 0, sp: 45, dur: '35s' },
+        { level: '2', desc: 'ATK +22%; ASPD +20', spInit: 0, sp: 44, dur: '35s' },
+        { level: '3', desc: 'ATK +24%; ASPD +20', spInit: 0, sp: 43, dur: '35s' },
+        { level: '4', desc: 'ATK +27%; ASPD +25', spInit: 5, sp: 42, dur: '35s' },
+        { level: '5', desc: 'ATK +29%; ASPD +25', spInit: 5, sp: 41, dur: '35s' },
+        { level: '6', desc: 'ATK +31%; ASPD +25', spInit: 5, sp: 40, dur: '35s' },
+        { level: '7', desc: 'ATK +34%; ASPD +35', spInit: 10, sp: 39, dur: '35s' },
+        { level: 'M1', desc: 'ATK +37%; ASPD +35', spInit: 10, sp: 38, dur: '35s' },
+        { level: 'M2', desc: 'ATK +40%; ASPD +35', spInit: 10, sp: 37, dur: '35s' },
+        { level: 'M3', desc: 'ATK +45%; ASPD +45', spInit: 15, sp: 35, dur: '35s' },
+      ],
+    },
+    {
+      name: 'Ally Support', icon: '/operators/fartooth/skill-2.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Can attack blocked enemies outside of Attack Range. ASPD +110', spInit: 25, sp: 40, dur: '35s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +60', spInit: 15, sp: 40, dur: '25s' },
+        { level: '2', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +65', spInit: 15, sp: 40, dur: '26s' },
+        { level: '3', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +70', spInit: 15, sp: 40, dur: '27s' },
+        { level: '4', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +75', spInit: 18, sp: 40, dur: '28s' },
+        { level: '5', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +80', spInit: 18, sp: 40, dur: '29s' },
+        { level: '6', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +85', spInit: 18, sp: 40, dur: '30s' },
+        { level: '7', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +90', spInit: 21, sp: 40, dur: '31s' },
+        { level: 'M1', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +95', spInit: 22, sp: 40, dur: '32s' },
+        { level: 'M2', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +100', spInit: 23, sp: 40, dur: '33s' },
+        { level: 'M3', desc: 'Can attack blocked enemies outside of Attack Range. ASPD +110', spInit: 25, sp: 40, dur: '35s' },
+      ],
+    },
+    {
+      name: 'Feathershine Arrows', icon: '/operators/fartooth/skill-3.png', activation: 'Manual', recovery: 'Auto Recovery',
+      desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +140%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 140%',
+      spInit: 10, sp: 20, dur: '20s', rank: 'M3',
+      levels: [
+        { level: '1', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +60%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 120%', spInit: 5, sp: 30, dur: '16s' },
+        { level: '2', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +65%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 120%', spInit: 5, sp: 29, dur: '16s' },
+        { level: '3', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +70%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 120%', spInit: 5, sp: 28, dur: '16s' },
+        { level: '4', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +80%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 125%', spInit: 6, sp: 27, dur: '16s' },
+        { level: '5', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +85%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 125%', spInit: 6, sp: 26, dur: '16s' },
+        { level: '6', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +90%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 125%', spInit: 6, sp: 25, dur: '16s' },
+        { level: '7', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +100%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 130%', spInit: 7, sp: 24, dur: '17s' },
+        { level: 'M1', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +110%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 130%', spInit: 8, sp: 23, dur: '18s' },
+        { level: 'M2', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +120%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 130%', spInit: 9, sp: 22, dur: '19s' },
+        { level: 'M3', desc: 'Attack Range changes to an infinitely long straight line ahead, ATK +140%. When attacking an enemy outside of the normal Attack Range, damage dealt increases to 140%', spInit: 10, sp: 20, dur: '20s' },
+      ],
+    },
+  ],
+  modules: {
+    original: { code: 'Original', name: "Fartooth's Badge", desc: 'Appointed as Sniper Operator during field operations to exercise Deadeye responsibilities' },
+    deax: { code: 'DEA-X', name: 'First-show Support Set', stages: [
+      { stage: 1, atk: '+70', aspd: '+5', effect: 'The further away the enemy, the higher the damage dealt (up to an increase of 15%)' },
+      { stage: 2, atk: '+85', aspd: '+6', effect: 'When no damage is taken within the past 8 seconds, ATK +20%' },
+      { stage: 3, atk: '+100', aspd: '+7', effect: 'When no damage is taken within the past 6 seconds, ATK +22%' },
+    ]},
+    deay: { code: 'DEA-Y', name: 'Fan Letters', stages: [
+      { stage: 1, hp: '+80', atk: '+80', effect: 'If the attacked enemy remains alive, gain 1 additional SP' },
+      { stage: 2, hp: '+100', atk: '+100', effect: 'When no damage is taken within the past 5 seconds, ATK +15% and ASPD +4' },
+      { stage: 3, hp: '+120', atk: '+120', effect: 'When no damage is taken within the past 3 seconds, ATK +15% and ASPD +7' },
+    ]},
+  },
+  story: 'The Kazimierzian Liberi village girl named Justyna Valentine had long dreamt about becoming a knight. Unfortunately, an accident along the journey to Kawalerielki caused her to become an Infected. Despite her condition, she managed to become a promising knightess, the famed "Fartooth Knight," in the Kazimierz Major pursuing the dream of founding a knightclub while rejecting all sponsorships. However, Justyna was "marked for death" by the Major\'s stakeholders who saw her as a threat to their status quo. She was reported to be on the run after being involved in a violent brawl with the fans of a certain knightclub, preventing her from fighting together with Maria Nearl in the pairs match against Snowyheel Knightclub.\n\nIn truth, Fartooth got attacked by assassins from the Armorless Union on that day, managing to fend them off with the help from "Flametail" Sona and "Ashlock" Greynuty. Having nowhere to go, she decided to join Pinus Sylvestris. Later on, under the invitation of the Adeptus Sprawiedliwi, she was willing to help her knightclub friends in their quest to start the second Kawalerielki Separation during the return of the Radiant Knight and expose the rampant capitalism of Kazimierz to the public as well as to the whole world.',
+  profile: '"Fartooth" Knight Justyna, garnered initial fame at the Major, presently affiliated with the Infected knight-founded Pinus Sylvestris Knightclub. An Infected knight with some degree of fame in Kazimierz. Following a string of crises in the recent Major, Pinus Sylvestris and Rhodes Island emerged with a cooperative relationship, in which Fartooth Knight came to Rhodes Island as a collaborator, to receive Oripathy treatment, and provide Rhodes Island with combat support.',
+  records: [
+    { title: 'Clinical Analysis', content: `Imaging tests show the indistinct outlines of internal organs, obscured by abnormal shadows. Originium granules detected in the circulatory system. The subject is confirmed to be infected with Oripathy.\n\n[Cell-Originium Assimilation] 5%\nOperator Fartooth's degree of infection is relatively light, but minor crystallization is visible on the surface of the body.\n\n[Blood Originium-Crystal Density] 0.21u/L\nGiven the overall stability of her condition, and control over her lesions, treatment is focused on monitoring.\n\nKnight competitions really do pay out fast. If she didn't have the money to afford treatment, there's no chance she'd be in such good condition. Undeniably, the Blood Knight has given options to those who otherwise had none.\n——Warfarin` },
+    { title: 'Archive File 1', content: `With the agreement between Pinus Sylvestris Knightclub and Rhodes Island and several Infected knights arriving to receive treatment, we have gained a rough understanding of the characters of these knights.\nFartooth Knight is seen as a woman of few words, cold and reserved. She earned the title "Fartooth" as an independent knight, declining droves of invitations from firms and Knight Orders, publicly declaring that she was considering founding a Knightclub herself. This choice brought her considerable hassle, but also served as the turning point for her to join Pinus Sylvestris.\nCompared to the Knightclub's early members, the later-arriving Fartooth Knight needed some time to acclimate. However, from her relationship with the likes of Flametail, as well as her interaction with our Operators during her time at Rhodes Island, we see that Fartooth Knight is surprisingly not as aloof and difficult to approach as her outward appearance may suggest. Under her firm shell, this Infected knight has a fairly gentle manner—even soft.` },
+    { title: 'Archive File 2', content: `Fartooth Knight was shone brilliantly in the Major preliminaries; her strength cannot be underestimated.\nRarer is that while her individual strength is second-to-none in Pinus Sylvestris, she doesn't share the same failing that many with strength often do—arrogance. This small-statured knight is entirely adept at cooperation, proactively coordinating with her teammates. If required to serve as primary offense, her attacks are fierce and intense, but if other assault personnel are in her lineup, Fartooth will change tactics, as though she can hear the wind, seizing upon its tiniest whispers of information, providing agile and flexible long-range support to her teammates.\nAlso worth mentioning is that on first contact, Fartooth Knight's succinct and unique manner of speech led some operators to misunderstand her for a time. However, we all quickly grasped that her tendency to utter perplexing sentence fragments, supplemented by further explanation, comes from her penchant for lonely pondering—she keeps rapidly deducing the main point in her head, reaching a conclusion, and then blurting it out. After realizing how she confuses those around her, only then does she follow up by elaborating.` },
+    { title: 'Archive File 3', content: `Fartooth Knight, original name Justyna Valentine, was born in a tranquil part of rural Kazimierz, and up until adulthood, was no more than a normal village girl.\nJustyna longed since childhood to become a knight, like any average Kazimierzian child would. The knights in shining armor were awe-inspiring, dashing and formidable, the targets of all their adoration. Despite the prevalence of the Major and the old chivalric spirit gradually fading from Kazimierzian minds as Justyna grew up, her image of the knights wasn't badly damaged (an all-too-rare case), thanks to the Radiant Knight. When she finally met her knightly role model, both parties were far removed from where they started, but Justyna's feelings are known only to herself.\nHowever, bearing the dream of knighthood, the now-grown village girl who ventured on a journey to the Grand Knight Territory had never once imagined the utterly unexpected misfortune that might strike her. Before she could officially register to become a knight at Kawalerielki, an accident en route infected her with Oripathy, and in the time when the Blood Knight hadn't yet won the championship, it was no more than wild fantasy for Infected to become knights. Her dream snuffed out by unforeseeable circumstances, she had nowhere to go, and nowhere to return. That is until the Blood Knight reigned victorious, and news came of the push for the Infected Knights Act.\nThoroughly damped down before, fires of hope is ignited once again, true and searing, so hot as to scald some, yet making for it like mad, unable to let go.` },
+    { title: 'Archive File 4', content: `Fartooth's experiences are by no means unusual; like all Infected knights, she had to strive far harder than the vast majority if she wished to obtain formal knight qualification. It's hard to imagine how this girl of such unassuming stature survived through the bloodiness of the illegal tournaments, or how she struggled to obtain her knighthood, how she could finally make a brilliant show in the preliminaries, and obtain a title so quickly.\nAnd though there was much controversy as this lone girl barged her way into the Major, she had some supporters of her own too, as well as a considerable income. In the masses' eyes, past the living exception of the Blood Knight, there was no better outcome for an Infected knight than this.\nBut for Fartooth herself, all this may not have been so important. No matter if she wanted to found her own Knightclub, or agreed to join Pinus Sylvestris, it all went far in showing she wanted something more than simple fame or wealth.\nShe was now a knight. Had Justyna the village girl's dream really come true? She'd become Infected, then once again found hope, had narrowly climbed up on this thin, thin thread, but the higher she climbed, the more she came in touch with the other side of the knights she'd once yearned after. Now in the present, perhaps more than any riches or renown, more than any chivalric glory that once was her dream, Justyna simply wants to return home.\nIn her time receiving treatment at Rhodes Island, Fartooth spends most of her time on the upper deck, except when she's with her Knightclub fellows. There, she recalls how she used to work in the fields, saving the money to buy her first longbow, fantasizing about her gallant figure as she wielded it someday. She reminisces on the haystacks that smelt of sunshine, on the wind brushing past her ears, and her friends and family that would listen as she blew folk songs. Yet by the time she could be as gallant as she dreamed, she now only wanted to return to those simple, peaceful countryside days.\nWhen she sits alone high up, playing her carved recorder, she only hopes that somehow the wind will carry her flutesong back home, just as if she could return home with it.\n\nOf course, Justyna is clearer than anyone that for Infected, returning to past life is little more than a wild hope.` },
+    { title: 'Promotion Record', content: `Fartooth tends to stay with the other members of her Knightclub. Despite Wild Mane and Ashlock's quarrels giving her headaches, she continues to silently follow her companions as they work together. Compared to Flametail's overflowing ideas, and the goals Ashlock and Wild Mane hold to, Fartooth's motive for joining and staying in Pinus Sylvestris is the simplest of all.\nFlametail invited her. As Infected knights together, they stand in identical situations, and Pinus Sylvestris brought her a sense of security. For someone left out of the crowd, with nowhere to return to, no further reason could be needed. One could say that Fartooth doesn't care what sort of direction Pinus Sylvestris may head in future; so long as her companions are still there, so long as this new home remains, that is enough for her.\nShe'll spare nothing, protecting all this that she treasures.` },
+  ],
+  classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/deadeye-branch.png', factionIcon: '/icons/factions/pinus-sylvestris.png',
+  skins: [
+    { id: 'base', label: 'Base', src: '/operators/fartooth/base.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/fartooth/e2.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Hear the Wind Sing', src: '/operators/fartooth/skin1.png', chibiSrc: '/operators/fartooth/chibi-skin1.webm', chibiMoveSrc: '/operators/fartooth/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+  ],
+  portrait: '/operators/fartooth/portrait.png',
+  portraitFocus: { y: 4.6, x: 55.4, zoom: 353 },
+}
+
+export default fartooth

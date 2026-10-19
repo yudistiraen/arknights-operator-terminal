@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import caperVoice from '../voices/caper'
 
 const caper: Operator = {
   name: 'Caper', fileNo: 'BV32', class: 'Sniper', branch: 'Loopshooter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Voucher Exchange'],
   faction: 'Bolívar', position: 'Ranged', race: 'Cautus', gender: 'Female', birthplace: 'Bolívar',
   birthday: 'January 20th', height: '150 cm', combatExp: '2 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: '臼',
   cv: { JP: 'Miharu Hanai', CN: 'Ge Zirui', EN: 'Vanessa Marroquin', KR: 'Lee Bo-yong' },
+  voice: caperVoice,
   trait: 'Can only attack while holding a boomerang projectile (projectile takes time to return)',
   tags: ['DPS'],
   stats: { hp: 2200, atk: 665, def: 160, res: 0, block: 1, cost: 14, aspd: '1s', rdp: '70s' },

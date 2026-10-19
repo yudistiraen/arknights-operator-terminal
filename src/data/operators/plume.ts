@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import plumeVoice from '../voices/plume'
 
 const plume: Operator = {
   name: 'Plume', fileNo: 'LT05', class: 'Vanguard', branch: 'Charger', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Laterano', position: 'Melee', race: 'Liberi', gender: 'Female', birthplace: 'Laterano',
   birthday: 'October 28th', height: '158 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: 'deel',
   cv: { JP: 'Rika Tachibana', CN: 'Vila', EN: 'Rosie Jones', KR: 'Yoon Mi-na' },
+  voice: plumeVoice,
   trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
   tags: ['DPS', 'DP-Recovery'],
   stats: { hp: 1226, atk: 495, def: 279, res: 0, block: 1, cost: 10, aspd: '1s', rdp: '70s' },

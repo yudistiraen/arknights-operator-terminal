@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import aciddropVoice from '../voices/aciddrop'
 
 const aciddrop: Operator = {
   name: 'Aciddrop', fileNo: 'R139', class: 'Sniper', branch: 'Heavyshooter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'August 13th', height: '150 cm', combatExp: '1 year', infectionStatus: 'Confirmed infected by medical examination.', illustrator: 'Lanzi',
   cv: { JP: 'Yui Nakajima', CN: 'Pixiugang (credited as "Hayami" in EN)', EN: 'Sydney Miede', KR: 'Park Seon-young' },
+  voice: aciddropVoice,
   trait: 'High accuracy point-blank shot',
   tags: ['DPS'],
   stats: { hp: 1576, atk: 815, def: 209, res: 0, block: 1, cost: 18, aspd: '1.6s', rdp: '70s' },

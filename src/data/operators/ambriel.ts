@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import ambrielVoice from '../voices/ambriel'
 
 const ambriel: Operator = {
   name: 'Ambriel', fileNo: 'LT02', class: 'Sniper', branch: 'Deadeye', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Laterano', position: 'Ranged', race: 'Sankta', gender: 'Female', birthplace: 'Laterano',
   birthday: 'January 13th', height: '160 cm', combatExp: '1 year', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'm9nokuro',
   cv: { JP: 'Nozomi Nishida', CN: 'Liu Zhixiao', EN: 'Melody Peng', KR: 'Son Seon-young' },
+  voice: ambrielVoice,
   trait: 'Prioritizes attacking the enemy with lowest DEF within range first',
   tags: ['DPS', 'Slow'],
   stats: { hp: 1595, atk: 1052, def: 122, res: 0, block: 1, cost: 20, aspd: '2.7s', rdp: '70s' },

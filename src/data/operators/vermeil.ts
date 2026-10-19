@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import vermeilVoice from '../voices/vermeil'
 
 const vermeil: Operator = {
   name: 'Vermeil', fileNo: 'R122', class: 'Sniper', branch: 'Marksman', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Siracusa', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Unknown',
   birthday: 'June 25th', height: '153 cm', combatExp: '2 years', infectionStatus: 'Originium crystals visible on skin, confirmed Infected by medical examination.', illustrator: 'KENTllaall',
   cv: { JP: 'Ayaka Saitō', CN: 'Zhong Ke', EN: 'Lara Jill Miller', KR: 'Kim Seo-young' },
+  voice: vermeilVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1230, atk: 550, def: 162, res: 0, block: 1, cost: 12, aspd: '1s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import lavaVoice from '../voices/lava'
 
 const lava: Operator = {
   name: 'Lava', fileNo: 'PA15', class: 'Caster', branch: 'Splash Caster', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A1', position: 'Ranged', race: 'Sarkaz', gender: 'Female', birthplace: 'Victoria',
   birthday: 'June 22nd', height: '154 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Kaori Mizuhashi', CN: 'Ying Xie', EN: 'Díana Bermudez', KR: 'Kim Ha-young' },
+  voice: lavaVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE'],
   stats: { hp: 1141, atk: 642, def: 95, res: 15, block: 1, cost: 30, aspd: '2.9s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import chestnutVoice from '../voices/chestnut'
 
 const chestnut: Operator = {
   name: 'Chestnut', fileNo: 'R134', class: 'Medic', branch: 'Wandering', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Durin', gender: 'Male', birthplace: 'Undisclosed',
   birthday: 'March 15th', height: '132 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '树豚',
   cv: { JP: 'Shōya Chiba', CN: 'An Zhi', EN: 'Chris Naoki Lee', KR: 'Hong Seung-hyo' },
+  voice: chestnutVoice,
   trait: 'Restores the HP of allied units and recovers Elemental Injury by 50% of ATK (can recover Elemental Injury of unhurt allied units)',
   tags: ['Healing'],
   stats: { hp: 1237, atk: 424, def: 101, res: 10, block: 1, cost: 14, aspd: '2.85s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import adnachielVoice from '../voices/adnachiel'
 
 const adnachiel: Operator = {
   name: 'Adnachiel', fileNo: 'PA44', class: 'Sniper', branch: 'Marksman', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A4', position: 'Ranged', race: 'Sankta', gender: 'Male', birthplace: 'Laterano',
   birthday: 'May 30th', height: '171 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
   cv: { JP: 'Kengo Kawanishi', CN: 'Ke Muqing', EN: 'Stefan Menaul', KR: 'Shim Kyu-hyuck' },
+  voice: adnachielVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS'],
   stats: { hp: 1080, atk: 415, def: 134, res: 0, block: 1, cost: 11, aspd: '1s', rdp: '70s' },

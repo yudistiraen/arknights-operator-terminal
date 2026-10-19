@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import stewardVoice from '../voices/steward'
 
 const steward: Operator = {
   name: 'Steward', fileNo: 'PA42', class: 'Caster', branch: 'Core Caster', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A4', position: 'Ranged', race: 'Vulpo', gender: 'Male', birthplace: 'Kjerag',
   birthday: 'December 24th', height: '172 cm', combatExp: 'Half a year', infectionStatus: 'Infected', illustrator: '一立里子',
   cv: { JP: 'Chihiro Suzuki', CN: 'Pei Zhang', EN: 'Gregg Lowe', KR: 'Han Man-joong' },
+  voice: stewardVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS'],
   stats: { hp: 1100, atk: 520, def: 90, res: 15, block: 1, cost: 18, aspd: '1.6s', rdp: '70s' },

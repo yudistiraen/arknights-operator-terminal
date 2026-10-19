@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import yatoVoice from '../voices/yato'
 
 const yato = {
   name: 'Yato', fileNo: 'A41', class: 'Vanguard', branch: 'Pioneer', rarity: 2, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op A4', position: 'Melee', race: 'Oni', gender: 'Female', birthplace: 'Higashi',
   birthday: 'May 14th', height: '161 cm', combatExp: '8 years', infectionStatus: 'Infected', illustrator: 'Skade',
   cv: { JP: 'Saki Fujita', CN: 'Hou Xiaofei', EN: 'Jessica McDonald', KR: 'Woo Jeong-sin' },
+  voice: yatoVoice,
   trait: 'Blocks 2 enemies',
   tags: ['Starter'],
   stats: { hp: 1030, atk: 232, def: 192, res: 0, block: 2, cost: 7, aspd: '1.05s', rdp: '70s' },

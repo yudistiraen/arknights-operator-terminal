@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import popukarVoice from '../voices/popukar'
 
 const popukar: Operator = {
   name: 'Popukar', fileNo: 'PA65', class: 'Guard', branch: 'Centurion', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A6', position: 'Melee', race: 'Cautus', gender: 'Female', birthplace: 'Rim Billiton',
   birthday: 'July 2nd', height: '144 cm', combatExp: '4 years', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Chiyo Ousaki', CN: 'Chen Yanyi', EN: 'Kayli Mills', KR: 'Ryu Jeom-hee' },
+  voice: popukarVoice,
   trait: 'Attacks all blocked enemies',
   tags: ['AoE', 'Survival'],
   stats: { hp: 1858, atk: 545, def: 245, res: 0, block: 2, cost: 19, aspd: '1.2s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import fangVoice from '../voices/fang'
 
 const fang: Operator = {
   name: 'Fang', fileNo: 'PA11', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A1', position: 'Melee', race: 'Kuranta', gender: 'Female', birthplace: 'Kazimierz',
   birthday: 'December 2nd', height: '158 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Ryoko Shiraishi', CN: 'Chen Yanyi', EN: 'Norma Butikofer', KR: 'Kim Ha-ru' },
+  voice: fangVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery'],
   stats: { hp: 1325, atk: 325, def: 310, res: 0, block: 2, cost: 11, aspd: '1.05s', rdp: '70s' },

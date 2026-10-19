@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import greyyVoice from '../voices/greyy'
 
 const greyy: Operator = {
   name: 'Greyy', fileNo: 'R119', class: 'Caster', branch: 'Splash Caster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Bolívar', position: 'Ranged', race: 'Perro', gender: 'Male', birthplace: 'Bolívar',
   birthday: 'June 6th', height: '163 cm', combatExp: 'None', infectionStatus: 'Crystals visible on surface, infection confirmed by medical report.', illustrator: '我妻洛酱',
   cv: { JP: 'Mai Fuchigami', CN: 'Z-kun (credited as "Z" in EN)', EN: 'Maihan', KR: 'So Yeon' },
+  voice: greyyVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['AoE', 'Slow'],
   stats: { hp: 1537, atk: 699, def: 130, res: 20, block: 1, cost: 32, aspd: '2.9s', rdp: '70s' },

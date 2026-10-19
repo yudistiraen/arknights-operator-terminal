@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import perfumerVoice from '../voices/perfumer'
 
 const perfumer: Operator = {
   name: 'Perfumer', fileNo: 'MN03', class: 'Medic', branch: 'Multi-target Medic', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Minos',
   birthday: 'January 30th', height: '158 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: 'Lanzi',
   cv: { JP: 'Rie Takahashi', CN: 'Yang Donghui', EN: 'Sam Slade', KR: 'Lee Hyun-jin' },
+  voice: perfumerVoice,
   trait: 'Restores the HP of up to 3 allies simultaneously.',
   tags: ['Healing'],
   stats: { hp: 1560, atk: 320, def: 145, res: 0, block: 1, cost: 16, aspd: '2.85s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import pineconeVoice from '../voices/pinecone'
 
 const pinecone: Operator = {
   name: 'Pinecone', fileNo: 'CB09', class: 'Sniper', branch: 'Spreadshooter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Columbia', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Columbia',
   birthday: 'March 12th', height: '148 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: 'TrNyteal',
   cv: { JP: 'Riho Tsuda', CN: 'Muyaruilin', EN: 'Molly Jenkins', KR: 'Bang Yeon-ji' },
+  voice: pineconeVoice,
   trait: 'Attacks all enemies within range, and deals 150% damage to enemies in the row directly in front of this unit.',
   tags: ['AoE', 'DPS'],
   stats: { hp: 2200, atk: 667, def: 167, res: 0, block: 1, cost: 30, aspd: '2.3s', rdp: '70s' },

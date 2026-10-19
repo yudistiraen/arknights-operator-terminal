@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import vanillaVoice from '../voices/vanilla'
 
 const vanilla: Operator = {
   name: 'Vanilla', fileNo: 'BS04', class: 'Vanguard', branch: 'Pioneer', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Blacksteel', position: 'Melee', race: 'Vouivre', gender: 'Female', birthplace: 'Vouivre',
   birthday: 'February 16th', height: '172 cm', combatExp: '1 year', infectionStatus: 'Non-infected', illustrator: 'm9nokuro',
   cv: { JP: 'Shiori Sugiura', CN: 'Ruoyu Zhang', EN: 'Stephanie Sheh', KR: 'Kang Sae-bom' },
+  voice: vanillaVoice,
   trait: 'Blocks 2 enemies',
   tags: ['DP-Recovery'],
   stats: { hp: 1270, atk: 405, def: 240, res: 0, block: 2, cost: 11, aspd: '1.05s', rdp: '70s' },

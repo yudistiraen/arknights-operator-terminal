@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import myrtleVoice from '../voices/myrtle'
 
 const myrtle: Operator = {
   name: 'Myrtle', fileNo: 'R108', class: 'Vanguard', branch: 'Standard Bearer', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Durin', gender: 'Female', birthplace: 'Unknown',
   birthday: 'December 13th', height: '131 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: '咩煲',
   cv: { JP: 'Shino Shimoji', CN: 'Gin', EN: 'Hollie Taylor', KR: 'Chung Yu-joung' },
+  voice: myrtleVoice,
   trait: 'Cannot block enemies during the skill duration',
   tags: ['DP-Recovery', 'Healing'],
   stats: { hp: 1565, atk: 520, def: 300, res: 0, block: 1, cost: 10, aspd: '1.3s', rdp: '70s' },

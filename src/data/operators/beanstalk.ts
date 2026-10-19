@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import beanstalkVoice from '../voices/beanstalk'
 
 const beanstalk: Operator = {
   name: 'Beanstalk', fileNo: 'CB16', class: 'Vanguard', branch: 'Tactician', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Ranged', race: 'Reproba', gender: 'Female', birthplace: 'Columbia',
   birthday: 'March 10th', height: '155 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '一千',
   cv: { JP: 'Ayasa Itou', CN: 'Niunai-kun (credited as "Miruku" in EN)', EN: 'Roshni Edwards', KR: 'Jang Ye-na' },
+  voice: beanstalkVoice,
   trait: 'This unit can designate one Tactical Point within attack range to call Reinforcements; ATK is increased to 150% when attacking enemies blocked by Reinforcements',
   tags: ['DP-Recovery', 'Summon'],
   stats: { hp: 1569, atk: 455, def: 125, res: 0, block: 1, cost: 13, aspd: '1s', rdp: '70s' },

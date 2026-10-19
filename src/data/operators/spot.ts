@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import spotVoice from '../voices/spot'
 
 const spot: Operator = {
   name: 'Spot', fileNo: 'PA64', class: 'Defender', branch: 'Guardian', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A6', position: 'Melee', race: 'Rebbah', gender: 'Male', birthplace: 'Sargon',
   birthday: 'April 30th', height: '169 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '阿鬼',
   cv: { JP: 'Atsushi Abe', CN: 'Zhao Yang', EN: "Hyoie O'Grady", KR: 'Kim Ji-yul' },
+  voice: spotVoice,
   trait: 'Can heal allies by using the skill',
   tags: ['Defense', 'Healing'],
   stats: { hp: 1833, atk: 350, def: 472, res: 10, block: 3, cost: 17, aspd: '1.2s', rdp: '70s' },

@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import indigoVoice from '../voices/indigo'
 
 const indigo: Operator = {
   name: 'Indigo', fileNo: 'II05', class: 'Caster', branch: 'Mystic Caster', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Iberia', position: 'Ranged', race: 'Phidia', gender: 'Female', birthplace: 'Iberia',
   birthday: 'September 30th', height: '167 cm', combatExp: 'None', infectionStatus: 'Medical tests have confirmed that no infection is present.', illustrator: '织布机loom',
   cv: { JP: 'Kumiko Yokote (credited as "Hyo-sei")', CN: 'Sun Yuting (credited as "Tin" in EN)', EN: 'Nikki García', KR: 'Kim Seo-young' },
+  voice: indigoVoice,
   trait: 'Attacks deal Arts damage; When unable to find a target, attacks can be stored up and fired all at once (Up to 3 charges)',
   tags: ['DPS', 'Crowd-Control'],
   stats: { hp: 1435, atk: 1116, def: 117, res: 20, block: 1, cost: 23, aspd: '3s', rdp: '70s' },

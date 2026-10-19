@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import anselVoice from '../voices/ansel'
 
 const ansel: Operator = {
   name: 'Ansel', fileNo: 'PA43', class: 'Medic', branch: 'Medic', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A4', position: 'Ranged', race: 'Cautus', gender: 'Male', birthplace: 'Rim Billiton',
   birthday: 'January 31st', height: '163 cm', combatExp: 'Half a year', infectionStatus: 'Non-infected', illustrator: '一立里子',
   cv: { JP: 'Mayumi Kaneko', CN: 'Zi Mao', EN: 'Claire Morgan', KR: 'Ahn Hyun-seo' },
+  voice: anselVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing'],
   stats: { hp: 1135, atk: 407, def: 109, res: 0, block: 1, cost: 17, aspd: '2.85s', rdp: '70s' },

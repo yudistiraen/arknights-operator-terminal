@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import midnightVoice from '../voices/midnight'
 
 const midnight: Operator = {
   name: 'Midnight', fileNo: 'PA62', class: 'Guard', branch: 'Lord', rarity: 3, level: 55, elite: 1, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Op Reserve A6', position: 'Melee', race: 'Sarkaz', gender: 'Male', birthplace: 'Far East',
   birthday: 'May 20th', height: '187 cm', combatExp: 'None', infectionStatus: 'Infected', illustrator: '竜崎いち',
   cv: { JP: 'Hidenori Takahashi', CN: 'Ma Yang', EN: 'Alex Jordan', KR: 'Kang Ho-chul' },
+  voice: midnightVoice,
   trait: 'Can launch Ranged Attacks that deal 80% of normal ATK',
   tags: ['DPS'],
   stats: { hp: 1653, atk: 547, def: 282, res: 10, block: 2, cost: 16, aspd: '1.3s', rdp: '70s' },

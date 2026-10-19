@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mousseVoice from '../voices/mousse'
 
 const mousse: Operator = {
   name: 'Mousse', fileNo: 'VC04', class: 'Guard', branch: 'Arts Fighter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Victoria', position: 'Melee', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'August 19th', height: '154 cm', combatExp: 'Half a year', infectionStatus: 'Showed physical signs of Originium, infection confirmed by medical report.', illustrator: 'Iritoa',
   cv: { JP: 'Natsumi Takamori', CN: 'Yuqi Zhang', EN: 'Angel Lin', KR: 'Jo Kyoung-I' },
+  voice: mousseVoice,
   trait: 'Deals Arts damage',
   tags: ['DPS'],
   stats: { hp: 2345, atk: 644, def: 357, res: 15, block: 1, cost: 20, aspd: '1.25s', rdp: '70s' },

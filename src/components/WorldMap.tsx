@@ -571,7 +571,7 @@ export function WorldMap() {
                 {activeOperators.map(op => (
                   <Link
                     key={op.name}
-                    href={`/operator?operator=${toSlug(op.name)}`}
+                    href={`/operator?codeName=${toSlug(op.name)}`}
                     onClick={playClick}
                     className={`group relative flex items-center gap-2 border border-gc-line bg-gc-base pl-1 pr-3 py-1 active:scale-[0.97] ${FOCUS_RING} [transition:transform_0.15s_ease] motion-reduce:transition-none`}
                   >

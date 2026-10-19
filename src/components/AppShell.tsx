@@ -8,6 +8,8 @@ import { SplashScreen } from './SplashScreen'
 import { SideMenu } from './SideMenu'
 import { WalkingChibi } from './WalkingChibi'
 import { getWalkableChibis } from '../lib/operators'
+import { pickTitleVoice } from '../lib/titleVoice'
+import { assetUrl } from '../lib/assetUrl'
 import { MAX_WALKING_CHIBIS, getChibiId, readChibiSelectionCookie, writeChibiSelectionCookie, applyChibiSelectionToggle } from '../lib/chibiSelection'
 
 gsap.registerPlugin(useGSAP)
@@ -63,6 +65,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const splashRef = useRef<HTMLDivElement>(null)
 
+  // Picked and preloaded while the splash is up so the click plays it with no fetch delay.
+  // No language switcher yet, so this uses the default (EN) pool.
+  const titleVoiceRef = useRef<HTMLAudioElement | null>(null)
+  useEffect(() => {
+    const titleVoice = pickTitleVoice()
+    if (!titleVoice) return
+    const titleVoiceAudio = new Audio(assetUrl(titleVoice.src))
+    titleVoiceAudio.preload = 'auto'
+    titleVoiceAudio.volume = 0.8
+    titleVoiceRef.current = titleVoiceAudio
+  }, [])
+
   const [selectedChibiIds, setSelectedChibiIds] = useState<string[]>([])
   useEffect(() => {
     const cookieSelection = readChibiSelectionCookie()
@@ -105,6 +119,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     // so a fast click would otherwise start the BGM unmuted despite a muted cookie.
     const startMuted = readMuteCookie()
     if (startMuted !== isMuted) setIsMuted(startMuted)
+
+    // A random operator calls out the title, like tapping the in-game title screen. It's a UI
+    // sound like enter_effect, so it plays even when the BGM is muted.
+    titleVoiceRef.current?.play().catch(() => {})
 
     const audioElement = audioRef.current
     if (audioElement) {

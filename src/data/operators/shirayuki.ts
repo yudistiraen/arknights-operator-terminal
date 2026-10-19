@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import shirayukiVoice from '../voices/shirayuki'
 
 const shirayuki: Operator = {
   name: 'Shirayuki', fileNo: 'LM10', class: 'Sniper', branch: 'Artilleryman', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Higashi', position: 'Ranged', race: 'Anaty', gender: 'Female', birthplace: 'Higashi',
   birthday: 'July 20th', height: '154 cm', combatExp: '3 years', infectionStatus: 'Confirmed non-infected by medical examination.', illustrator: '阿鬼',
   cv: { JP: 'Nana Harumura', CN: 'Ke Zhong', EN: 'Rae Lim', KR: 'Min Ah' },
+  voice: shirayukiVoice,
   trait: 'Deals AOE Physical damage',
   tags: ['AoE', 'Slow'],
   stats: { hp: 1630, atk: 867, def: 100, res: 0, block: 1, cost: 27, aspd: '2.8s', rdp: '70s' },

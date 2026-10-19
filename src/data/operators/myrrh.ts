@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import myrrhVoice from '../voices/myrrh'
 
 const myrrh: Operator = {
   name: 'Myrrh', fileNo: 'R104', class: 'Medic', branch: 'Medic', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Unknown',
   birthday: 'May 5th', height: '143 cm', combatExp: 'None', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: 'Xiaye Hongming',
   cv: { JP: 'Kana Yuuki', CN: 'Z-kun (credited as "Z" in EN)', EN: 'Angel Lin', KR: 'Kang Eun-ae' },
+  voice: myrrhVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing'],
   stats: { hp: 1420, atk: 465, def: 131, res: 0, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },

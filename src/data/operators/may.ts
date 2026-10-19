@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import mayVoice from '../voices/may'
 
 const may: Operator = {
   name: 'May', fileNo: 'VC01', class: 'Sniper', branch: 'Marksman', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Victoria', position: 'Ranged', race: 'Liberi', gender: 'Female', birthplace: 'Victoria',
   birthday: 'May 1st', height: '151 cm', combatExp: 'Half a year', infectionStatus: 'Confirmed uninfected by medical examination.', illustrator: 'Xiaye Hongming',
   cv: { JP: 'Kaori Mizuhashi', CN: 'Liu Wen', EN: 'Lizzie Freeman', KR: 'Yoo Young' },
+  voice: mayVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS', 'Slow'],
   stats: { hp: 1632, atk: 478, def: 105, res: 0, block: 1, cost: 12, aspd: '1s', rdp: '70s' },

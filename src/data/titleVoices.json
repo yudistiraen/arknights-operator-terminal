@@ -1,0 +1,1104 @@
+{
+  "EN": [
+    {
+      "charId": "char_009_12fce",
+      "operator": "12F",
+      "src": "/audio/title-voices/en/char_009_12fce.mp3"
+    },
+    {
+      "charId": "char_225_haak",
+      "operator": "Aak",
+      "src": "/audio/title-voices/en/char_225_haak.mp3"
+    },
+    {
+      "charId": "char_366_acdrop",
+      "operator": "Aciddrop",
+      "src": "/audio/title-voices/en/char_366_acdrop.mp3"
+    },
+    {
+      "charId": "char_211_adnach",
+      "operator": "Adnachiel",
+      "src": "/audio/title-voices/en/char_211_adnach.mp3"
+    },
+    {
+      "charId": "char_475_akafyu",
+      "operator": "Akafuyu",
+      "src": "/audio/title-voices/en/char_475_akafyu.mp3"
+    },
+    {
+      "charId": "char_4051_akkord",
+      "operator": "Akkord",
+      "src": "/audio/title-voices/en/char_4051_akkord.mp3"
+    },
+    {
+      "charId": "char_4105_almond",
+      "operator": "Almond",
+      "src": "/audio/title-voices/en/char_4105_almond.mp3"
+    },
+    {
+      "charId": "char_302_glaze",
+      "operator": "Ambriel",
+      "src": "/audio/title-voices/en/char_302_glaze.mp3"
+    },
+    {
+      "charId": "char_002_amiya",
+      "operator": "Amiya",
+      "src": "/audio/title-voices/en/char_002_amiya.mp3"
+    },
+    {
+      "charId": "char_218_cuttle",
+      "operator": "Andreana",
+      "src": "/audio/title-voices/en/char_218_cuttle.mp3"
+    },
+    {
+      "charId": "char_291_aglina",
+      "operator": "Angelina",
+      "src": "/audio/title-voices/en/char_291_aglina.mp3"
+    },
+    {
+      "charId": "char_212_ansel",
+      "operator": "Ansel",
+      "src": "/audio/title-voices/en/char_212_ansel.mp3"
+    },
+    {
+      "charId": "char_346_aosta",
+      "operator": "Aosta",
+      "src": "/audio/title-voices/en/char_346_aosta.mp3"
+    },
+    {
+      "charId": "char_365_aprl",
+      "operator": "April",
+      "src": "/audio/title-voices/en/char_365_aprl.mp3"
+    },
+    {
+      "charId": "char_332_archet",
+      "operator": "Archetto",
+      "src": "/audio/title-voices/en/char_332_archet.mp3"
+    },
+    {
+      "charId": "char_271_spikes",
+      "operator": "Arene",
+      "src": "/audio/title-voices/en/char_271_spikes.mp3"
+    },
+    {
+      "charId": "char_378_asbest",
+      "operator": "Asbestos",
+      "src": "/audio/title-voices/en/char_378_asbest.mp3"
+    },
+    {
+      "charId": "char_4132_ascln",
+      "operator": "Ascalon",
+      "src": "/audio/title-voices/en/char_4132_ascln.mp3"
+    },
+    {
+      "charId": "char_274_astesi",
+      "operator": "Astesia",
+      "src": "/audio/title-voices/en/char_274_astesi.mp3"
+    },
+    {
+      "charId": "char_135_halo",
+      "operator": "Astgenne",
+      "src": "/audio/title-voices/en/char_135_halo.mp3"
+    },
+    {
+      "charId": "char_1047_halo2",
+      "operator": "Astgenne the Lightchaser",
+      "src": "/audio/title-voices/en/char_1047_halo2.mp3"
+    },
+    {
+      "charId": "char_294_ayer",
+      "operator": "Ayerscarpe",
+      "src": "/audio/title-voices/en/char_294_ayer.mp3"
+    },
+    {
+      "charId": "char_222_bpipe",
+      "operator": "Bagpipe",
+      "src": "/audio/title-voices/en/char_222_bpipe.mp3"
+    },
+    {
+      "charId": "char_122_beagle",
+      "operator": "Beagle",
+      "src": "/audio/title-voices/en/char_122_beagle.mp3"
+    },
+    {
+      "charId": "char_452_bstalk",
+      "operator": "Beanstalk",
+      "src": "/audio/title-voices/en/char_452_bstalk.mp3"
+    },
+    {
+      "charId": "char_137_brownb",
+      "operator": "Beehunter",
+      "src": "/audio/title-voices/en/char_137_brownb.mp3"
+    },
+    {
+      "charId": "char_344_beewax",
+      "operator": "Beeswax",
+      "src": "/audio/title-voices/en/char_344_beewax.mp3"
+    },
+    {
+      "charId": "char_4037_demetr",
+      "operator": "Bellone",
+      "src": "/audio/title-voices/en/char_4037_demetr.mp3"
+    },
+    {
+      "charId": "char_017_huang",
+      "operator": "Blaze",
+      "src": "/audio/title-voices/en/char_017_huang.mp3"
+    },
+    {
+      "charId": "char_1040_blaze2",
+      "operator": "Blaze the Igniting Spark",
+      "src": "/audio/title-voices/en/char_1040_blaze2.mp3"
+    },
+    {
+      "charId": "char_423_blemsh",
+      "operator": "Blemishine",
+      "src": "/audio/title-voices/en/char_423_blemsh.mp3"
+    },
+    {
+      "charId": "char_129_bluep",
+      "operator": "Blue Poison",
+      "src": "/audio/title-voices/en/char_129_bluep.mp3"
+    },
+    {
+      "charId": "char_275_breeze",
+      "operator": "Breeze",
+      "src": "/audio/title-voices/en/char_275_breeze.mp3"
+    },
+    {
+      "charId": "char_356_broca",
+      "operator": "Broca",
+      "src": "/audio/title-voices/en/char_356_broca.mp3"
+    },
+    {
+      "charId": "char_381_bubble",
+      "operator": "Bubble",
+      "src": "/audio/title-voices/en/char_381_bubble.mp3"
+    },
+    {
+      "charId": "char_4188_confes",
+      "operator": "CONFESS-47",
+      "src": "/audio/title-voices/en/char_4188_confes.mp3"
+    },
+    {
+      "charId": "char_497_ctable",
+      "operator": "Cantabile",
+      "src": "/audio/title-voices/en/char_497_ctable.mp3"
+    },
+    {
+      "charId": "char_4100_caper",
+      "operator": "Caper",
+      "src": "/audio/title-voices/en/char_4100_caper.mp3"
+    },
+    {
+      "charId": "char_209_ardign",
+      "operator": "Cardigan",
+      "src": "/audio/title-voices/en/char_209_ardign.mp3"
+    },
+    {
+      "charId": "char_426_billro",
+      "operator": "Carnelian",
+      "src": "/audio/title-voices/en/char_426_billro.mp3"
+    },
+    {
+      "charId": "char_286_cast3",
+      "operator": "Castle-3",
+      "src": "/audio/title-voices/en/char_286_cast3.mp3"
+    },
+    {
+      "charId": "char_282_catap",
+      "operator": "Catapult",
+      "src": "/audio/title-voices/en/char_282_catap.mp3"
+    },
+    {
+      "charId": "char_2013_cerber",
+      "operator": "Ceobe",
+      "src": "/audio/title-voices/en/char_2013_cerber.mp3"
+    },
+    {
+      "charId": "char_010_chen",
+      "operator": "Ch'en",
+      "src": "/audio/title-voices/en/char_010_chen.mp3"
+    },
+    {
+      "charId": "char_1050_chen3",
+      "operator": "Ch'en the Dawnstreak",
+      "src": "/audio/title-voices/en/char_1050_chen3.mp3"
+    },
+    {
+      "charId": "char_1013_chen2",
+      "operator": "Ch'en the Holungday",
+      "src": "/audio/title-voices/en/char_1013_chen2.mp3"
+    },
+    {
+      "charId": "char_4041_chnut",
+      "operator": "Chestnut",
+      "src": "/audio/title-voices/en/char_4041_chnut.mp3"
+    },
+    {
+      "charId": "char_349_chiave",
+      "operator": "Chiave",
+      "src": "/audio/title-voices/en/char_349_chiave.mp3"
+    },
+    {
+      "charId": "char_2024_chyue",
+      "operator": "Chongyue",
+      "src": "/audio/title-voices/en/char_2024_chyue.mp3"
+    },
+    {
+      "charId": "char_4134_cetsyr",
+      "operator": "Civilight Eterna",
+      "src": "/audio/title-voices/en/char_4134_cetsyr.mp3"
+    },
+    {
+      "charId": "char_328_cammou",
+      "operator": "Click",
+      "src": "/audio/title-voices/en/char_328_cammou.mp3"
+    },
+    {
+      "charId": "char_173_slchan",
+      "operator": "Cliffheart",
+      "src": "/audio/title-voices/en/char_173_slchan.mp3"
+    },
+    {
+      "charId": "char_4228_closur",
+      "operator": "Closure",
+      "src": "/audio/title-voices/en/char_4228_closur.mp3"
+    },
+    {
+      "charId": "char_4165_ctrail",
+      "operator": "Contrail",
+      "src": "/audio/title-voices/en/char_4165_ctrail.mp3"
+    },
+    {
+      "charId": "char_159_peacok",
+      "operator": "Conviction",
+      "src": "/audio/title-voices/en/char_159_peacok.mp3"
+    },
+    {
+      "charId": "char_198_blackd",
+      "operator": "Courier",
+      "src": "/audio/title-voices/en/char_198_blackd.mp3"
+    },
+    {
+      "charId": "char_4225_tanya",
+      "operator": "Crackborne",
+      "src": "/audio/title-voices/en/char_4225_tanya.mp3"
+    },
+    {
+      "charId": "char_201_moeshd",
+      "operator": "Croissant",
+      "src": "/audio/title-voices/en/char_201_moeshd.mp3"
+    },
+    {
+      "charId": "char_1502_crosly",
+      "operator": "Crownslayer",
+      "src": "/audio/title-voices/en/char_1502_crosly.mp3"
+    },
+    {
+      "charId": "char_150_snakek",
+      "operator": "Cuora",
+      "src": "/audio/title-voices/en/char_150_snakek.mp3"
+    },
+    {
+      "charId": "char_301_cutter",
+      "operator": "Cutter",
+      "src": "/audio/title-voices/en/char_301_cutter.mp3"
+    },
+    {
+      "charId": "char_110_deepcl",
+      "operator": "Deepcolor",
+      "src": "/audio/title-voices/en/char_110_deepcl.mp3"
+    },
+    {
+      "charId": "char_4116_blkkgt",
+      "operator": "Degenbrecher",
+      "src": "/audio/title-voices/en/char_4116_blkkgt.mp3"
+    },
+    {
+      "charId": "char_130_doberm",
+      "operator": "Dobermann",
+      "src": "/audio/title-voices/en/char_130_doberm.mp3"
+    },
+    {
+      "charId": "char_4125_rdoc",
+      "operator": "Doc",
+      "src": "/audio/title-voices/en/char_4125_rdoc.mp3"
+    },
+    {
+      "charId": "char_260_durnar",
+      "operator": "Dur-nar",
+      "src": "/audio/title-voices/en/char_260_durnar.mp3"
+    },
+    {
+      "charId": "char_501_durin",
+      "operator": "Durin",
+      "src": "/audio/title-voices/en/char_501_durin.mp3"
+    },
+    {
+      "charId": "char_2015_dusk",
+      "operator": "Dusk",
+      "src": "/audio/title-voices/en/char_2015_dusk.mp3"
+    },
+    {
+      "charId": "char_183_skgoat",
+      "operator": "Earthspirit",
+      "src": "/audio/title-voices/en/char_183_skgoat.mp3"
+    },
+    {
+      "charId": "char_401_elysm",
+      "operator": "Elysium",
+      "src": "/audio/title-voices/en/char_401_elysm.mp3"
+    },
+    {
+      "charId": "char_4036_forcer",
+      "operator": "Enforcer",
+      "src": "/audio/title-voices/en/char_4036_forcer.mp3"
+    },
+    {
+      "charId": "char_416_zumama",
+      "operator": "Eunectes",
+      "src": "/audio/title-voices/en/char_416_zumama.mp3"
+    },
+    {
+      "charId": "char_279_excu",
+      "operator": "Executor",
+      "src": "/audio/title-voices/en/char_279_excu.mp3"
+    },
+    {
+      "charId": "char_103_angel",
+      "operator": "Exusiai",
+      "src": "/audio/title-voices/en/char_103_angel.mp3"
+    },
+    {
+      "charId": "char_1041_angel2",
+      "operator": "Exusiai the New Covenant",
+      "src": "/audio/title-voices/en/char_1041_angel2.mp3"
+    },
+    {
+      "charId": "char_180_amgoat",
+      "operator": "Eyjafjalla",
+      "src": "/audio/title-voices/en/char_180_amgoat.mp3"
+    },
+    {
+      "charId": "char_1016_agoat2",
+      "operator": "Eyjafjalla the Hvít Aska",
+      "src": "/audio/title-voices/en/char_1016_agoat2.mp3"
+    },
+    {
+      "charId": "char_241_panda",
+      "operator": "FEater",
+      "src": "/audio/title-voices/en/char_241_panda.mp3"
+    },
+    {
+      "charId": "char_123_fang",
+      "operator": "Fang",
+      "src": "/audio/title-voices/en/char_123_fang.mp3"
+    },
+    {
+      "charId": "char_1036_fang2",
+      "operator": "Fang the Fire-Sharpened",
+      "src": "/audio/title-voices/en/char_1036_fang2.mp3"
+    },
+    {
+      "charId": "char_430_fartth",
+      "operator": "Fartooth",
+      "src": "/audio/title-voices/en/char_430_fartth.mp3"
+    },
+    {
+      "charId": "char_300_phenxi",
+      "operator": "Fiammetta",
+      "src": "/audio/title-voices/en/char_300_phenxi.mp3"
+    },
+    {
+      "charId": "char_158_milu",
+      "operator": "Firewatch",
+      "src": "/audio/title-voices/en/char_158_milu.mp3"
+    },
+    {
+      "charId": "char_415_flint",
+      "operator": "Flint",
+      "src": "/audio/title-voices/en/char_415_flint.mp3"
+    },
+    {
+      "charId": "char_345_folnic",
+      "operator": "Folinic",
+      "src": "/audio/title-voices/en/char_345_folnic.mp3"
+    },
+    {
+      "charId": "char_4093_frston",
+      "operator": "Friston-3",
+      "src": "/audio/title-voices/en/char_4093_frston.mp3"
+    },
+    {
+      "charId": "char_193_frostl",
+      "operator": "Frostleaf",
+      "src": "/audio/title-voices/en/char_193_frostl.mp3"
+    },
+    {
+      "charId": "char_109_fmout",
+      "operator": "Gitano",
+      "src": "/audio/title-voices/en/char_109_fmout.mp3"
+    },
+    {
+      "charId": "char_326_glacus",
+      "operator": "Glaucus",
+      "src": "/audio/title-voices/en/char_326_glacus.mp3"
+    },
+    {
+      "charId": "char_377_gdglow",
+      "operator": "Goldenglow",
+      "src": "/audio/title-voices/en/char_377_gdglow.mp3"
+    },
+    {
+      "charId": "char_4187_graceb",
+      "operator": "Gracebearer",
+      "src": "/audio/title-voices/en/char_4187_graceb.mp3"
+    },
+    {
+      "charId": "char_237_gravel",
+      "operator": "Gravel",
+      "src": "/audio/title-voices/en/char_237_gravel.mp3"
+    },
+    {
+      "charId": "char_367_swllow",
+      "operator": "GreyThroat",
+      "src": "/audio/title-voices/en/char_367_swllow.mp3"
+    },
+    {
+      "charId": "char_253_greyy",
+      "operator": "Greyy",
+      "src": "/audio/title-voices/en/char_253_greyy.mp3"
+    },
+    {
+      "charId": "char_196_sunbr",
+      "operator": "Gummy",
+      "src": "/audio/title-voices/en/char_196_sunbr.mp3"
+    },
+    {
+      "charId": "char_4114_harold",
+      "operator": "Harold",
+      "src": "/audio/title-voices/en/char_4114_harold.mp3"
+    },
+    {
+      "charId": "char_141_nights",
+      "operator": "Haze",
+      "src": "/audio/title-voices/en/char_141_nights.mp3"
+    },
+    {
+      "charId": "char_188_helage",
+      "operator": "Hellagur",
+      "src": "/audio/title-voices/en/char_188_helage.mp3"
+    },
+    {
+      "charId": "char_120_hibisc",
+      "operator": "Hibiscus",
+      "src": "/audio/title-voices/en/char_120_hibisc.mp3"
+    },
+    {
+      "charId": "char_1024_hbisc2",
+      "operator": "Hibiscus the Purifier",
+      "src": "/audio/title-voices/en/char_1024_hbisc2.mp3"
+    },
+    {
+      "charId": "char_136_hsguma",
+      "operator": "Hoshiguma",
+      "src": "/audio/title-voices/en/char_136_hsguma.mp3"
+    },
+    {
+      "charId": "char_1044_hsgma2",
+      "operator": "Hoshiguma the Breacher",
+      "src": "/audio/title-voices/en/char_1044_hsgma2.mp3"
+    },
+    {
+      "charId": "char_491_humus",
+      "operator": "Humus",
+      "src": "/audio/title-voices/en/char_491_humus.mp3"
+    },
+    {
+      "charId": "char_226_hmau",
+      "operator": "Hung",
+      "src": "/audio/title-voices/en/char_226_hmau.mp3"
+    },
+    {
+      "charId": "char_134_ifrit",
+      "operator": "Ifrit",
+      "src": "/audio/title-voices/en/char_134_ifrit.mp3"
+    },
+    {
+      "charId": "char_469_indigo",
+      "operator": "Indigo",
+      "src": "/audio/title-voices/en/char_469_indigo.mp3"
+    },
+    {
+      "charId": "char_155_tiger",
+      "operator": "Indra",
+      "src": "/audio/title-voices/en/char_155_tiger.mp3"
+    },
+    {
+      "charId": "char_498_inside",
+      "operator": "Insider",
+      "src": "/audio/title-voices/en/char_498_inside.mp3"
+    },
+    {
+      "charId": "char_338_iris",
+      "operator": "Iris",
+      "src": "/audio/title-voices/en/char_338_iris.mp3"
+    },
+    {
+      "charId": "char_195_glassb",
+      "operator": "Istina",
+      "src": "/audio/title-voices/en/char_195_glassb.mp3"
+    },
+    {
+      "charId": "char_347_jaksel",
+      "operator": "Jackie",
+      "src": "/audio/title-voices/en/char_347_jaksel.mp3"
+    },
+    {
+      "charId": "char_272_strong",
+      "operator": "Jaye",
+      "src": "/audio/title-voices/en/char_272_strong.mp3"
+    },
+    {
+      "charId": "char_235_jesica",
+      "operator": "Jessica",
+      "src": "/audio/title-voices/en/char_235_jesica.mp3"
+    },
+    {
+      "charId": "char_4000_jnight",
+      "operator": "Justice Knight",
+      "src": "/audio/title-voices/en/char_4000_jnight.mp3"
+    },
+    {
+      "charId": "char_214_kafka",
+      "operator": "Kafka",
+      "src": "/audio/title-voices/en/char_214_kafka.mp3"
+    },
+    {
+      "charId": "char_003_kalts",
+      "operator": "Kal'tsit",
+      "src": "/audio/title-voices/en/char_003_kalts.mp3"
+    },
+    {
+      "charId": "char_1052_kalts2",
+      "operator": "Kal'tsit Esperanta",
+      "src": "/audio/title-voices/en/char_1052_kalts2.mp3"
+    },
+    {
+      "charId": "char_478_kirara",
+      "operator": "Kirara",
+      "src": "/audio/title-voices/en/char_478_kirara.mp3"
+    },
+    {
+      "charId": "char_1029_yato2",
+      "operator": "Kirin R Yato",
+      "src": "/audio/title-voices/en/char_1029_yato2.mp3"
+    },
+    {
+      "charId": "char_124_kroos",
+      "operator": "Kroos",
+      "src": "/audio/title-voices/en/char_124_kroos.mp3"
+    },
+    {
+      "charId": "char_1021_kroos2",
+      "operator": "Kroos the Keen Glint",
+      "src": "/audio/title-voices/en/char_1021_kroos2.mp3"
+    },
+    {
+      "charId": "char_285_medic2",
+      "operator": "Lancet-2",
+      "src": "/audio/title-voices/en/char_285_medic2.mp3"
+    },
+    {
+      "charId": "char_121_lava",
+      "operator": "Lava",
+      "src": "/audio/title-voices/en/char_121_lava.mp3"
+    },
+    {
+      "charId": "char_1011_lava2",
+      "operator": "Lava the Purgatory",
+      "src": "/audio/title-voices/en/char_1011_lava2.mp3"
+    },
+    {
+      "charId": "char_306_leizi",
+      "operator": "Leizi",
+      "src": "/audio/title-voices/en/char_306_leizi.mp3"
+    },
+    {
+      "charId": "char_373_lionhd",
+      "operator": "Leonhardt",
+      "src": "/audio/title-voices/en/char_373_lionhd.mp3"
+    },
+    {
+      "charId": "char_194_leto",
+      "operator": "Leto",
+      "src": "/audio/title-voices/en/char_194_leto.mp3"
+    },
+    {
+      "charId": "char_107_liskam",
+      "operator": "Liskarm",
+      "src": "/audio/title-voices/en/char_107_liskam.mp3"
+    },
+    {
+      "charId": "char_4133_logos",
+      "operator": "Logos",
+      "src": "/audio/title-voices/en/char_4133_logos.mp3"
+    },
+    {
+      "charId": "char_248_mgllan",
+      "operator": "Magallan",
+      "src": "/audio/title-voices/en/char_248_mgllan.mp3"
+    },
+    {
+      "charId": "char_215_mantic",
+      "operator": "Manticore",
+      "src": "/audio/title-voices/en/char_215_mantic.mp3"
+    },
+    {
+      "charId": "char_289_gyuki",
+      "operator": "Matoimaru",
+      "src": "/audio/title-voices/en/char_289_gyuki.mp3"
+    },
+    {
+      "charId": "char_199_yak",
+      "operator": "Matterhorn",
+      "src": "/audio/title-voices/en/char_199_yak.mp3"
+    },
+    {
+      "charId": "char_133_mm",
+      "operator": "May",
+      "src": "/audio/title-voices/en/char_133_mm.mp3"
+    },
+    {
+      "charId": "char_242_otter",
+      "operator": "Mayer",
+      "src": "/audio/title-voices/en/char_242_otter.mp3"
+    },
+    {
+      "charId": "char_208_melan",
+      "operator": "Melantha",
+      "src": "/audio/title-voices/en/char_208_melan.mp3"
+    },
+    {
+      "charId": "char_126_shotst",
+      "operator": "Meteor",
+      "src": "/audio/title-voices/en/char_126_shotst.mp3"
+    },
+    {
+      "charId": "char_219_meteo",
+      "operator": "Meteorite",
+      "src": "/audio/title-voices/en/char_219_meteo.mp3"
+    },
+    {
+      "charId": "char_283_midn",
+      "operator": "Midnight",
+      "src": "/audio/title-voices/en/char_283_midn.mp3"
+    },
+    {
+      "charId": "char_4179_monstr",
+      "operator": "Mon3tr",
+      "src": "/audio/title-voices/en/char_4179_monstr.mp3"
+    },
+    {
+      "charId": "char_213_mostma",
+      "operator": "Mostima",
+      "src": "/audio/title-voices/en/char_213_mostma.mp3"
+    },
+    {
+      "charId": "char_264_f12yin",
+      "operator": "Mountain",
+      "src": "/audio/title-voices/en/char_264_f12yin.mp3"
+    },
+    {
+      "charId": "char_185_frncat",
+      "operator": "Mousse",
+      "src": "/audio/title-voices/en/char_185_frncat.mp3"
+    },
+    {
+      "charId": "char_455_nothin",
+      "operator": "Mr. Nothing",
+      "src": "/audio/title-voices/en/char_455_nothin.mp3"
+    },
+    {
+      "charId": "char_311_mudrok",
+      "operator": "Mudrock",
+      "src": "/audio/title-voices/en/char_311_mudrok.mp3"
+    },
+    {
+      "charId": "char_117_myrrh",
+      "operator": "Myrrh",
+      "src": "/audio/title-voices/en/char_117_myrrh.mp3"
+    },
+    {
+      "charId": "char_151_myrtle",
+      "operator": "Myrtle",
+      "src": "/audio/title-voices/en/char_151_myrtle.mp3"
+    },
+    {
+      "charId": "char_4064_mlynar",
+      "operator": "Młynar",
+      "src": "/audio/title-voices/en/char_4064_mlynar.mp3"
+    },
+    {
+      "charId": "char_148_nearl",
+      "operator": "Nearl",
+      "src": "/audio/title-voices/en/char_148_nearl.mp3"
+    },
+    {
+      "charId": "char_179_cgbird",
+      "operator": "Nightingale",
+      "src": "/audio/title-voices/en/char_179_cgbird.mp3"
+    },
+    {
+      "charId": "char_164_nightm",
+      "operator": "Nightmare",
+      "src": "/audio/title-voices/en/char_164_nightm.mp3"
+    },
+    {
+      "charId": "char_500_noirc",
+      "operator": "Noir Corne",
+      "src": "/audio/title-voices/en/char_500_noirc.mp3"
+    },
+    {
+      "charId": "char_4173_nowell",
+      "operator": "Nowell",
+      "src": "/audio/title-voices/en/char_4173_nowell.mp3"
+    },
+    {
+      "charId": "char_278_orchid",
+      "operator": "Orchid",
+      "src": "/audio/title-voices/en/char_278_orchid.mp3"
+    },
+    {
+      "charId": "char_472_pasngr",
+      "operator": "Passenger",
+      "src": "/audio/title-voices/en/char_472_pasngr.mp3"
+    },
+    {
+      "charId": "char_4065_judge",
+      "operator": "Penance",
+      "src": "/audio/title-voices/en/char_4065_judge.mp3"
+    },
+    {
+      "charId": "char_181_flower",
+      "operator": "Perfumer",
+      "src": "/audio/title-voices/en/char_181_flower.mp3"
+    },
+    {
+      "charId": "char_250_phatom",
+      "operator": "Phantom",
+      "src": "/audio/title-voices/en/char_250_phatom.mp3"
+    },
+    {
+      "charId": "char_4136_phonor",
+      "operator": "PhonoR-0",
+      "src": "/audio/title-voices/en/char_4136_phonor.mp3"
+    },
+    {
+      "charId": "char_440_pinecn",
+      "operator": "Pinecone",
+      "src": "/audio/title-voices/en/char_440_pinecn.mp3"
+    },
+    {
+      "charId": "char_204_platnm",
+      "operator": "Platinum",
+      "src": "/audio/title-voices/en/char_204_platnm.mp3"
+    },
+    {
+      "charId": "char_192_falco",
+      "operator": "Plume",
+      "src": "/audio/title-voices/en/char_192_falco.mp3"
+    },
+    {
+      "charId": "char_258_podego",
+      "operator": "Podenco",
+      "src": "/audio/title-voices/en/char_258_podego.mp3"
+    },
+    {
+      "charId": "char_281_popka",
+      "operator": "Popukar",
+      "src": "/audio/title-voices/en/char_281_popka.mp3"
+    },
+    {
+      "charId": "char_174_slbell",
+      "operator": "Pramanix",
+      "src": "/audio/title-voices/en/char_174_slbell.mp3"
+    },
+    {
+      "charId": "char_144_red",
+      "operator": "Projekt Red",
+      "src": "/audio/title-voices/en/char_144_red.mp3"
+    },
+    {
+      "charId": "char_145_prove",
+      "operator": "Provence",
+      "src": "/audio/title-voices/en/char_145_prove.mp3"
+    },
+    {
+      "charId": "char_128_plosis",
+      "operator": "Ptilopsis",
+      "src": "/audio/title-voices/en/char_128_plosis.mp3"
+    },
+    {
+      "charId": "char_385_finlpp",
+      "operator": "Purestream",
+      "src": "/audio/title-voices/en/char_385_finlpp.mp3"
+    },
+    {
+      "charId": "char_503_rang",
+      "operator": "Rangers",
+      "src": "/audio/title-voices/en/char_503_rang.mp3"
+    },
+    {
+      "charId": "char_261_sddrag",
+      "operator": "Reed",
+      "src": "/audio/title-voices/en/char_261_sddrag.mp3"
+    },
+    {
+      "charId": "char_236_rope",
+      "operator": "Rope",
+      "src": "/audio/title-voices/en/char_236_rope.mp3"
+    },
+    {
+      "charId": "char_197_poca",
+      "operator": "Rosa",
+      "src": "/audio/title-voices/en/char_197_poca.mp3"
+    },
+    {
+      "charId": "char_391_rosmon",
+      "operator": "Rosmontis",
+      "src": "/audio/title-voices/en/char_391_rosmon.mp3"
+    },
+    {
+      "charId": "char_362_saga",
+      "operator": "Saga",
+      "src": "/audio/title-voices/en/char_362_saga.mp3"
+    },
+    {
+      "charId": "char_202_demkni",
+      "operator": "Saria",
+      "src": "/audio/title-voices/en/char_202_demkni.mp3"
+    },
+    {
+      "charId": "char_149_scave",
+      "operator": "Scavenger",
+      "src": "/audio/title-voices/en/char_149_scave.mp3"
+    },
+    {
+      "charId": "char_340_shwaz",
+      "operator": "Schwarz",
+      "src": "/audio/title-voices/en/char_340_shwaz.mp3"
+    },
+    {
+      "charId": "char_379_sesa",
+      "operator": "Sesa",
+      "src": "/audio/title-voices/en/char_379_sesa.mp3"
+    },
+    {
+      "charId": "char_254_vodfox",
+      "operator": "Shamare",
+      "src": "/audio/title-voices/en/char_254_vodfox.mp3"
+    },
+    {
+      "charId": "char_277_sqrrel",
+      "operator": "Shaw",
+      "src": "/audio/title-voices/en/char_277_sqrrel.mp3"
+    },
+    {
+      "charId": "char_147_shining",
+      "operator": "Shining",
+      "src": "/audio/title-voices/en/char_147_shining.mp3"
+    },
+    {
+      "charId": "char_118_yuki",
+      "operator": "Shirayuki",
+      "src": "/audio/title-voices/en/char_118_yuki.mp3"
+    },
+    {
+      "charId": "char_112_siege",
+      "operator": "Siege",
+      "src": "/audio/title-voices/en/char_112_siege.mp3"
+    },
+    {
+      "charId": "char_108_silent",
+      "operator": "Silence",
+      "src": "/audio/title-voices/en/char_108_silent.mp3"
+    },
+    {
+      "charId": "char_143_ghost",
+      "operator": "Specter",
+      "src": "/audio/title-voices/en/char_143_ghost.mp3"
+    },
+    {
+      "charId": "char_1023_ghost2",
+      "operator": "Specter the Unchained",
+      "src": "/audio/title-voices/en/char_1023_ghost2.mp3"
+    },
+    {
+      "charId": "char_284_spot",
+      "operator": "Spot",
+      "src": "/audio/title-voices/en/char_284_spot.mp3"
+    },
+    {
+      "charId": "char_210_stward",
+      "operator": "Steward",
+      "src": "/audio/title-voices/en/char_210_stward.mp3"
+    },
+    {
+      "charId": "char_350_surtr",
+      "operator": "Surtr",
+      "src": "/audio/title-voices/en/char_350_surtr.mp3"
+    },
+    {
+      "charId": "char_298_susuro",
+      "operator": "Sussurro",
+      "src": "/audio/title-voices/en/char_298_susuro.mp3"
+    },
+    {
+      "charId": "char_358_lisa",
+      "operator": "Suzuran",
+      "src": "/audio/title-voices/en/char_358_lisa.mp3"
+    },
+    {
+      "charId": "char_308_swire",
+      "operator": "Swire",
+      "src": "/audio/title-voices/en/char_308_swire.mp3"
+    },
+    {
+      "charId": "char_1033_swire2",
+      "operator": "Swire the Elegant Wit",
+      "src": "/audio/title-voices/en/char_1033_swire2.mp3"
+    },
+    {
+      "charId": "char_376_therex",
+      "operator": "THRM-EX",
+      "src": "/audio/title-voices/en/char_376_therex.mp3"
+    },
+    {
+      "charId": "char_486_takila",
+      "operator": "Tequila",
+      "src": "/audio/title-voices/en/char_486_takila.mp3"
+    },
+    {
+      "charId": "char_102_texas",
+      "operator": "Texas",
+      "src": "/audio/title-voices/en/char_102_texas.mp3"
+    },
+    {
+      "charId": "char_293_thorns",
+      "operator": "Thorns",
+      "src": "/audio/title-voices/en/char_293_thorns.mp3"
+    },
+    {
+      "charId": "char_1039_thorn2",
+      "operator": "Thorns the Lodestar",
+      "src": "/audio/title-voices/en/char_1039_thorn2.mp3"
+    },
+    {
+      "charId": "char_363_toddi",
+      "operator": "Toddifons",
+      "src": "/audio/title-voices/en/char_363_toddi.mp3"
+    },
+    {
+      "charId": "char_4062_totter",
+      "operator": "Totter",
+      "src": "/audio/title-voices/en/char_4062_totter.mp3"
+    },
+    {
+      "charId": "char_1042_phatm2",
+      "operator": "Tragodia",
+      "src": "/audio/title-voices/en/char_1042_phatm2.mp3"
+    },
+    {
+      "charId": "char_343_tknogi",
+      "operator": "Tsukinogi",
+      "src": "/audio/title-voices/en/char_343_tknogi.mp3"
+    },
+    {
+      "charId": "char_4224_turdus",
+      "operator": "Ukusik",
+      "src": "/audio/title-voices/en/char_4224_turdus.mp3"
+    },
+    {
+      "charId": "char_4145_ulpia",
+      "operator": "Ulpianus",
+      "src": "/audio/title-voices/en/char_4145_ulpia.mp3"
+    },
+    {
+      "charId": "char_337_utage",
+      "operator": "Utage",
+      "src": "/audio/title-voices/en/char_337_utage.mp3"
+    },
+    {
+      "charId": "char_240_wyvern",
+      "operator": "Vanilla",
+      "src": "/audio/title-voices/en/char_240_wyvern.mp3"
+    },
+    {
+      "charId": "char_190_clour",
+      "operator": "Vermeil",
+      "src": "/audio/title-voices/en/char_190_clour.mp3"
+    },
+    {
+      "charId": "char_290_vigna",
+      "operator": "Vigna",
+      "src": "/audio/title-voices/en/char_290_vigna.mp3"
+    },
+    {
+      "charId": "char_1019_siege2",
+      "operator": "Vina Victoria",
+      "src": "/audio/title-voices/en/char_1019_siege2.mp3"
+    },
+    {
+      "charId": "char_4226_veen",
+      "operator": "Viy",
+      "src": "/audio/title-voices/en/char_4226_veen.mp3"
+    },
+    {
+      "charId": "char_163_hpsts",
+      "operator": "Vulcan",
+      "src": "/audio/title-voices/en/char_163_hpsts.mp3"
+    },
+    {
+      "charId": "char_113_cqbw",
+      "operator": "W",
+      "src": "/audio/title-voices/en/char_113_cqbw.mp3"
+    },
+    {
+      "charId": "char_243_waaifu",
+      "operator": "Waai Fu",
+      "src": "/audio/title-voices/en/char_243_waaifu.mp3"
+    },
+    {
+      "charId": "char_171_bldsk",
+      "operator": "Warfarin",
+      "src": "/audio/title-voices/en/char_171_bldsk.mp3"
+    },
+    {
+      "charId": "char_400_weedy",
+      "operator": "Weedy",
+      "src": "/audio/title-voices/en/char_400_weedy.mp3"
+    },
+    {
+      "charId": "char_436_whispr",
+      "operator": "Whisperain",
+      "src": "/audio/title-voices/en/char_436_whispr.mp3"
+    },
+    {
+      "charId": "char_502_nblade",
+      "operator": "Yato",
+      "src": "/audio/title-voices/en/char_502_nblade.mp3"
+    },
+    {
+      "charId": "char_115_headbr",
+      "operator": "Zima",
+      "src": "/audio/title-voices/en/char_115_headbr.mp3"
+    },
+    {
+      "charId": "char_1051_headb2",
+      "operator": "Zima the Raging Tide",
+      "src": "/audio/title-voices/en/char_1051_headb2.mp3"
+    }
+  ]
+}

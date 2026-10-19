@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import jessicaVoice from '../voices/jessica'
 
 const jessica: Operator = {
   name: 'Jessica', fileNo: 'BS03', class: 'Sniper', branch: 'Marksman', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment', 'TR-3'],
   faction: 'Blacksteel', position: 'Ranged', race: 'Feline', gender: 'Female', birthplace: 'Victoria',
   birthday: 'March 3rd', height: '147 cm', combatExp: '2 years', infectionStatus: 'Non-infected as confirmed by medical report.', illustrator: 'm9nokuro',
   cv: { JP: 'Ryō Hirohashi', CN: 'Hou Xiaofei (credited as "Fifi" in EN)', EN: 'Yuuki Luna (from 2023/09/05); Rebecca LaChance (until 2023/09/05)', KR: 'Kim Ha-young' },
+  voice: jessicaVoice,
   trait: 'Attacks aerial enemies first',
   tags: ['DPS', 'Survival'],
   stats: { hp: 1320, atk: 475, def: 154, res: 0, block: 1, cost: 12, aspd: '1s', rdp: '70s' },

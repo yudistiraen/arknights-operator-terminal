@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import op12fVoice from '../voices/12f'
 
 const op12f: Operator = {
   name: '12F', fileNo: 'R303', class: 'Caster', branch: 'Splash Caster', rarity: 2, level: 30, elite: 0, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Rhodes Island', position: 'Ranged', race: 'Savra', gender: 'Male', birthplace: 'Unknown',
   birthday: 'March 3rd', height: '181 cm', combatExp: '5 years', infectionStatus: 'Non-infected', illustrator: 'Hai Mao',
   cv: { JP: 'Atsushi Kakehashi', CN: 'MinoruK', EN: 'James Phoon', KR: 'Kim Young-sun' },
+  voice: op12fVoice,
   trait: 'Deals AOE Arts damage',
   tags: ['Starter'],
   stats: { hp: 1461, atk: 432, def: 50, res: 10, block: 1, cost: 24, aspd: '2.9s', rdp: '70s' },

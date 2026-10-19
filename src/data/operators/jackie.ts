@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import jackieVoice from '../voices/jackie'
 
 const jackie: Operator = {
   name: 'Jackie', fileNo: 'R166', class: 'Guard', branch: 'Fighter', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Columbia', position: 'Melee', race: 'Perro', gender: 'Female', birthplace: 'Columbia',
   birthday: 'September 15th', height: '157 cm', combatExp: 'None', infectionStatus: "Originium crystals are present on the body's surface, confirmed Infected by medical examination.", illustrator: 'Nagu',
   cv: { JP: 'Sayumi Suzushiro', CN: 'Qiwen (credited as "Ellen Wang" in EN)', EN: 'Jessica Hann', KR: 'Yeo Min-jung' },
+  voice: jackieVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS'],
   stats: { hp: 2278, atk: 529, def: 308, res: 0, block: 1, cost: 9, aspd: '0.78s', rdp: '70s' },

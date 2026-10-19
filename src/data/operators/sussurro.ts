@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import sussurroVoice from '../voices/sussurro'
 
 const sussurro: Operator = {
   name: 'Sussurro', fileNo: 'R107', class: 'Medic', branch: 'Medic', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting', 'Recruitment'],
   faction: 'Siracusa', position: 'Ranged', race: 'Vulpo', gender: 'Female', birthplace: 'Siracusa',
   birthday: 'September 4th', height: '142 cm', combatExp: '1 year', infectionStatus: 'Crystals have appeared on her body. Infection confirmed by medical examination.', illustrator: '将',
   cv: { JP: 'Haruka Terui', CN: 'Yue Xin', EN: 'Cassandra Lee Morris', KR: 'Seo Yu-ri' },
+  voice: sussurroVoice,
   trait: 'Restores the HP of allies',
   tags: ['Healing'],
   stats: { hp: 1345, atk: 548, def: 122, res: 0, block: 1, cost: 18, aspd: '2.85s', rdp: '70s' },

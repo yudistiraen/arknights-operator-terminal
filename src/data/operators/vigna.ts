@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import vignaVoice from '../voices/vigna'
 
 const vigna: Operator = {
   name: 'Vigna', fileNo: 'R105', class: 'Vanguard', branch: 'Charger', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Columbia', position: 'Melee', race: 'Sarkaz', gender: 'Female', birthplace: 'Kazdel',
   birthday: 'December 12th', height: '142 cm', combatExp: '1 year', infectionStatus: 'Infected', illustrator: '下野宏铭',
   cv: { JP: 'Asami Shimoda', CN: 'Zhang Anqi', EN: 'Julia Gu', KR: 'Ahn Hyun-seo' },
+  voice: vignaVoice,
   trait: 'Obtain 1 DP after this unit defeats an enemy; Refunds the original DP Cost when retreated',
   tags: ['DPS', 'DP-Recovery'],
   stats: { hp: 1845, atk: 558, def: 351, res: 0, block: 1, cost: 11, aspd: '1s', rdp: '70s' },

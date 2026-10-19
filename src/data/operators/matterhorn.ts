@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import matterhornVoice from '../voices/matterhorn'
 
 const matterhorn: Operator = {
   name: 'Matterhorn', fileNo: 'JC03', class: 'Defender', branch: 'Protector', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Karlan Trade', position: 'Melee', race: 'Forte', gender: 'Male', birthplace: 'Kjerag',
   birthday: 'May 19th', height: '182 cm', combatExp: '6 years', infectionStatus: 'Non-infected', illustrator: '竜崎いち',
   cv: { JP: 'Shunsuke Takeuchi', CN: 'MinoruK', EN: 'Adam Diggle', KR: 'Jang Min-hyuck' },
+  voice: matterhornVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense'],
   stats: { hp: 3620, atk: 375, def: 670, res: 20, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },

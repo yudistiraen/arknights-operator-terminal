@@ -15,6 +15,22 @@ export interface OperatorCV {
   KR: string
 }
 
+export type VoiceLanguage = keyof OperatorCV
+
+export interface VoiceLine {
+  // Lowercased charword voiceId, e.g. 'cn_001' → `${audioDir}/jp/cn_001.mp3`
+  id: string
+  title: string
+  text: Partial<Record<VoiceLanguage, string>>
+  // Languages that have a recorded clip for this line (some lines are text-only in a language).
+  audio?: VoiceLanguage[]
+}
+
+export interface OperatorVoice {
+  audioDir: string
+  lines: VoiceLine[]
+}
+
 export interface OperatorStats {
   hp: number
   atk: number
@@ -235,6 +251,7 @@ export interface Operator {
   infectionStatus: string
   illustrator: string
   cv: OperatorCV
+  voice?: OperatorVoice
   trait: string,
   tags: string[]
   stats: OperatorStats

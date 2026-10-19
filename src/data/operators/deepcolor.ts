@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import deepcolorVoice from '../voices/deepcolor'
 
 const deepcolor: Operator = {
   name: 'Deepcolor', fileNo: 'AA04', class: 'Supporter', branch: 'Summoner', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Ægir', position: 'Ranged', race: 'Undisclosed', gender: 'Female', birthplace: 'Undisclosed',
   birthday: 'June 12th', height: '163 cm', combatExp: 'None', infectionStatus: 'Non-infected', illustrator: 'REALMBW',
   cv: { JP: 'You Taichi', CN: 'Mihu zzZ', EN: 'Jenny Yokobori', KR: 'Kim Sae-hae' },
+  voice: deepcolorVoice,
   trait: 'Deals Arts damage\nCan use Summons in battles',
   tags: ['Summon'],
   stats: { hp: 1350, atk: 403, def: 125, res: 15, block: 1, cost: 10, aspd: '1.6s', rdp: '70s' },

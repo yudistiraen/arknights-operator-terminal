@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import bubbleVoice from '../voices/bubble'
 
 const bubble: Operator = {
   name: 'Bubble', fileNo: 'R146', class: 'Defender', branch: 'Protector', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Recruitment', 'Headhunting'],
   faction: 'Sargon', position: 'Melee', race: 'Cerato', gender: 'Female', birthplace: 'Sargon',
   birthday: 'March 19th', height: '135 cm', combatExp: 'None', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: 'Cenm0',
   cv: { JP: 'Hikaru Akao', CN: 'Mihu zzZ (credited as "Misty" in EN)', EN: 'Ama Lee', KR: 'Bang Yeon-ji' },
+  voice: bubbleVoice,
   trait: 'Blocks 3 enemies',
   tags: ['Defense'],
   stats: { hp: 3416, atk: 370, def: 720, res: 0, block: 3, cost: 21, aspd: '1.2s', rdp: '70s' },

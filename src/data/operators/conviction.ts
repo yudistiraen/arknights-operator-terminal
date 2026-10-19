@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import convictionVoice from '../voices/conviction'
 
 const conviction: Operator = {
   name: 'Conviction', fileNo: 'MN01', class: 'Guard', branch: 'Dreadnought', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Event Reward'],
   faction: 'Minos', position: 'Melee', race: 'Unknown (Suspected Liberi)', gender: 'Conviction', birthplace: 'Minos',
   birthday: 'Unknown', height: '145 cm', combatExp: 'Unknown', infectionStatus: 'Confirmed infected by medical examination.', illustrator: 'TOMATO',
   cv: { JP: 'Yuri Yamaoka', CN: 'Ying Xie', EN: 'Jad Saxton', KR: 'Kim Hyeon-sim' },
+  voice: convictionVoice,
   trait: 'Blocks 1 enemy',
   tags: ['DPS', 'Survival', 'Crowd-Control', 'Nuker'],
   stats: { hp: 3705, atk: 951, def: 188, res: 0, block: 1, cost: 16, aspd: '1.5s', rdp: '70s' },

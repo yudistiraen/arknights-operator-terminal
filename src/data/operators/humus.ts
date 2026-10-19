@@ -1,10 +1,12 @@
 import type { Operator } from '../../types'
+import humusVoice from '../voices/humus'
 
 const humus: Operator = {
   name: 'Humus', fileNo: 'R171', class: 'Guard', branch: 'Reaper', rarity: 4, level: 70, elite: 2, trust: 200, how_to_get: ['Headhunting'],
   faction: 'Rhodes Island', position: 'Melee', race: 'Forte', gender: 'Male', birthplace: 'Columbia',
   birthday: 'February 20th', height: '185 cm', combatExp: '18 years', infectionStatus: 'Confirmed Infected by medical examination.', illustrator: '我妻洛酱',
   cv: { JP: 'Kazuki Kyan', CN: 'MinoruK (credited as "Yuxuan Liu" in EN)', EN: 'Gabriel Romero', KR: 'Park Ju-kwang' },
+  voice: humusVoice,
   trait: 'Cannot be healed by allies; Attacks deal AoE damage; Recovers 50 HP for every enemy hit during attacks, up to Block count',
   tags: ['DPS', 'Survival'],
   stats: { hp: 2150, atk: 616, def: 403, res: 0, block: 2, cost: 21, aspd: '1.3s', rdp: '70s' },
