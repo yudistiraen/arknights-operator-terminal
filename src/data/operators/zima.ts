@@ -94,8 +94,8 @@ const ragingTide: OperatorAlter = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/earthshaker-branch.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/zima/raging-tide/base.png', chibiSrc: '/operators/zima/raging-tide/chibi.webm', chibiMoveSrc: '/operators/zima/raging-tide/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋 (original design by Skade)' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/zima/raging-tide/e2.png', chibiSrc: '/operators/zima/raging-tide/chibi.webm', chibiMoveSrc: '/operators/zima/raging-tide/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋 (original design by Skade)' },
+    { id: 'base', label: 'Base', src: '/operators/zima/raging-tide/base.png', chibiSrc: '/operators/zima/raging-tide/chibi.webm', chibiMoveSrc: '/operators/zima/raging-tide/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋 (original design by Skade)' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/zima/raging-tide/e2.png', chibiSrc: '/operators/zima/raging-tide/chibi.webm', chibiMoveSrc: '/operators/zima/raging-tide/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋 (original design by Skade)' },
   ],
   portrait: '/operators/zima/raging-tide/portrait.png',
 }
@@ -171,10 +171,10 @@ const zima: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/ursus-student-self-governing-group.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/zima/base.png', chibiSrc: '/operators/zima/chibi.webm', chibiMoveSrc: '/operators/zima/chibi-move.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 2 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 2 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/zima/e2.png', chibiSrc: '/operators/zima/chibi.webm', chibiMoveSrc: '/operators/zima/chibi-move.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 2 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 2 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Ready to Go', src: '/operators/zima/skin1.png', chibiSrc: '/operators/zima/chibi-skin1.webm', chibiMoveSrc: '/operators/zima/chibi-move-skin1.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: 8, offsetYPercent: 2 }, illustrator: 'Skade' },
-    { id: 'skin2', label: 'Ursus IO79', src: '/operators/zima/skin2.png', chibiSrc: '/operators/zima/chibi-skin2.webm', chibiMoveSrc: '/operators/zima/chibi-move-skin2.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1, offsetYPercent: 2 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/zima/base.png', chibiSrc: '/operators/zima/chibi.webm', chibiMoveSrc: '/operators/zima/chibi-move.webm', chibiFraming: { scale: 1.17, offsetXPercent: 0.1, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 2 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/zima/e2.png', chibiSrc: '/operators/zima/chibi.webm', chibiMoveSrc: '/operators/zima/chibi-move.webm', chibiFraming: { scale: 1.17, offsetXPercent: 0.1, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 2 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Ready to Go', src: '/operators/zima/skin1.png', chibiSrc: '/operators/zima/chibi-skin1.webm', chibiMoveSrc: '/operators/zima/chibi-move-skin1.webm', chibiFraming: { scale: 1.18, offsetXPercent: 3.1, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 8, offsetYPercent: 2 }, illustrator: 'Skade' },
+    { id: 'skin2', label: 'Ursus IO79', src: '/operators/zima/skin2.png', chibiSrc: '/operators/zima/chibi-skin2.webm', chibiMoveSrc: '/operators/zima/chibi-move-skin2.webm', chibiFraming: { scale: 1.18, offsetXPercent: -0.2, offsetYPercent: 3.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1, offsetYPercent: 2 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/zima/portrait.png',
   portraitFocus: { y: -9, x: 40.1, zoom: 276 },

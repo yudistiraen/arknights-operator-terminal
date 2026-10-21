@@ -76,9 +76,9 @@ const gummy: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/guardian-branch.png', factionIcon: '/icons/factions/ursus-student-self-governing-group.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/gummy/base.png', chibiSrc: '/operators/gummy/chibi.webm', chibiMoveSrc: '/operators/gummy/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/gummy/e2.png', chibiSrc: '/operators/gummy/chibi.webm', chibiMoveSrc: '/operators/gummy/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Summer Flowers FA011', src: '/operators/gummy/skin1.png', chibiSrc: '/operators/gummy/chibi-skin1.webm', chibiMoveSrc: '/operators/gummy/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/gummy/base.png', chibiSrc: '/operators/gummy/chibi.webm', chibiMoveSrc: '/operators/gummy/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/gummy/e2.png', chibiSrc: '/operators/gummy/chibi.webm', chibiMoveSrc: '/operators/gummy/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Summer Flowers FA011', src: '/operators/gummy/skin1.png', chibiSrc: '/operators/gummy/chibi-skin1.webm', chibiMoveSrc: '/operators/gummy/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/gummy/portrait.png',
   portraitFocus: { y: -9.4, x: 53.5, zoom: 266 },

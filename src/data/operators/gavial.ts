@@ -98,9 +98,9 @@ const gavial: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: "Base", src: '/operators/gavial/base.png', chibiSrc: '/operators/gavial/chibi.webm', chibiMoveSrc: '/operators/gavial/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
-    { id: 'e2', label: "Elite 2", src: '/operators/gavial/e2.png', chibiSrc: '/operators/gavial/chibi.webm', chibiMoveSrc: '/operators/gavial/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
-    { id: 'skin1', label: "Combat Medic", src: '/operators/gavial/skin1.png', chibiSrc: '/operators/gavial/chibi-skin1.webm', chibiMoveSrc: '/operators/gavial/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
+    { id: 'base', label: "Base", src: '/operators/gavial/base.png', chibiSrc: '/operators/gavial/chibi.webm', chibiMoveSrc: '/operators/gavial/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.6, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
+    { id: 'e2', label: "Elite 2", src: '/operators/gavial/e2.png', chibiSrc: '/operators/gavial/chibi.webm', chibiMoveSrc: '/operators/gavial/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.6, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
+    { id: 'skin1', label: "Combat Medic", src: '/operators/gavial/skin1.png', chibiSrc: '/operators/gavial/chibi-skin1.webm', chibiMoveSrc: '/operators/gavial/chibi-move-skin1.webm', chibiFraming: { scale: 1.31, offsetXPercent: 1.9, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
   ],
   portrait: '/operators/gavial/portrait.png',
 }
@@ -222,9 +222,9 @@ const gavialInvincible: OperatorAlter = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/centurion-branch.png',
   skins: [
-    { id: 'base', label: "Base", src: '/operators/gavial/invincible/base.png', chibiSrc: '/operators/gavial/invincible/chibi.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
-    { id: 'e2', label: "Elite 2", src: '/operators/gavial/invincible/e2.png', chibiSrc: '/operators/gavial/invincible/chibi.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
-    { id: 'skin1', label: "Holiday HD26", src: '/operators/gavial/invincible/skin1.png', chibiSrc: '/operators/gavial/invincible/chibi-skin1.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "SculLhunter" },
+    { id: 'base', label: "Base", src: '/operators/gavial/invincible/base.png', chibiSrc: '/operators/gavial/invincible/chibi.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 4.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC" },
+    { id: 'e2', label: "Elite 2", src: '/operators/gavial/invincible/e2.png', chibiSrc: '/operators/gavial/invincible/chibi.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 4.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "LLC", l2d: { skel: '/operators/gavial/l2d/invincible-e2.skel', atlas: '/operators/gavial/l2d/invincible-e2.atlas', backdrop: { src: '/operators/gavial/l2d/invincible-e2-bg.png', x: -830, y: 120, width: 1699.6, height: 2079.1 }, overlays: [{ src: '/operators/gavial/l2d/invincible-e2-fg1.png', x: -1092.4, y: 28.6, width: 2129.5, height: 1790 }] } },
+    { id: 'skin1', label: "Holiday HD26", src: '/operators/gavial/invincible/skin1.png', chibiSrc: '/operators/gavial/invincible/chibi-skin1.webm', chibiMoveSrc: '/operators/gavial/invincible/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "SculLhunter" },
   ],
   portrait: '/operators/gavial/invincible/portrait.png',
 }

@@ -101,9 +101,9 @@ const degenbrecher: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/swordmaster-branch.png', factionIcon: '/icons/factions/karlan-trade.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/degenbrecher/base.png', chibiSrc: '/operators/degenbrecher/chibi.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/degenbrecher/e2.png', chibiSrc: '/operators/degenbrecher/chibi.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'skin1', label: 'The Shadow of the Dark Moon', src: '/operators/degenbrecher/skin1.png', chibiSrc: '/operators/degenbrecher/chibi-skin1.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'base', label: 'Base', src: '/operators/degenbrecher/base.png', chibiSrc: '/operators/degenbrecher/chibi.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/degenbrecher/e2.png', chibiSrc: '/operators/degenbrecher/chibi.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'skin1', label: 'The Shadow of the Dark Moon', src: '/operators/degenbrecher/skin1.png', chibiSrc: '/operators/degenbrecher/chibi-skin1.webm', chibiMoveSrc: '/operators/degenbrecher/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/degenbrecher/portrait.png',
   portraitFocus: { y: 2.6, x: 48.7, zoom: 383 },

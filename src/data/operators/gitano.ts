@@ -74,9 +74,9 @@ const gitano: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png', factionIcon: '/icons/factions/sami.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/gitano/base.png', chibiSrc: '/operators/gitano/chibi.webm', chibiMoveSrc: '/operators/gitano/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/gitano/e2.png', chibiSrc: '/operators/gitano/chibi.webm', chibiMoveSrc: '/operators/gitano/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
-    { id: 'skin1', label: 'Unknown Journey', src: '/operators/gitano/skin1.png', chibiSrc: '/operators/gitano/chibi-skin1.webm', chibiMoveSrc: '/operators/gitano/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
+    { id: 'base', label: 'Base', src: '/operators/gitano/base.png', chibiSrc: '/operators/gitano/chibi.webm', chibiMoveSrc: '/operators/gitano/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/gitano/e2.png', chibiSrc: '/operators/gitano/chibi.webm', chibiMoveSrc: '/operators/gitano/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
+    { id: 'skin1', label: 'Unknown Journey', src: '/operators/gitano/skin1.png', chibiSrc: '/operators/gitano/chibi-skin1.webm', chibiMoveSrc: '/operators/gitano/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.7, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '谜肘' },
   ],
   portrait: '/operators/gitano/portrait.png',
   portraitFocus: { y: -0.5, x: 51.4, zoom: 364 },

@@ -76,9 +76,9 @@ const waaiFu: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/executor-branch.png', factionIcon: '/icons/factions/lees-detective-agency.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/waai-fu/base.png', chibiSrc: '/operators/waai-fu/chibi.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 2 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/waai-fu/e2.png', chibiSrc: '/operators/waai-fu/chibi.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 2 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
-    { id: 'skin1', label: 'Wild Flower of Street', src: '/operators/waai-fu/skin1.png', chibiSrc: '/operators/waai-fu/chibi-skin1.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move-skin1.webm', chibiFraming: { scale: 1.1, offsetXPercent: 0, offsetYPercent: 2 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
+    { id: 'base', label: 'Base', src: '/operators/waai-fu/base.png', chibiSrc: '/operators/waai-fu/chibi.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move.webm', chibiFraming: { scale: 1.16, offsetXPercent: -1.1, offsetYPercent: 3.7 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/waai-fu/e2.png', chibiSrc: '/operators/waai-fu/chibi.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move.webm', chibiFraming: { scale: 1.16, offsetXPercent: -1.1, offsetYPercent: 3.7 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
+    { id: 'skin1', label: 'Wild Flower of Street', src: '/operators/waai-fu/skin1.png', chibiSrc: '/operators/waai-fu/chibi-skin1.webm', chibiMoveSrc: '/operators/waai-fu/chibi-move-skin1.webm', chibiFraming: { scale: 1.16, offsetXPercent: 0.4, offsetYPercent: 3.7 }, chibiDetailFraming: { scale: 1, offsetXPercent: -4, offsetYPercent: 2 }, illustrator: 'KuroBlood' },
   ],
   portraitFocus: { y: -2.6, x: 58.6, zoom: 315 },
 }

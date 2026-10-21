@@ -73,9 +73,9 @@ const reed: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/charger-branch.png', factionIcon: '/icons/factions/victoria.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/reed/base.png', chibiSrc: '/operators/reed/chibi.webm', chibiMoveSrc: '/operators/reed/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/reed/e2.png', chibiSrc: '/operators/reed/chibi.webm', chibiMoveSrc: '/operators/reed/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
-    { id: 'skin1', label: 'Emerald Holiday', src: '/operators/reed/skin1.png', chibiSrc: '/operators/reed/chibi-skin1.webm', chibiMoveSrc: '/operators/reed/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
+    { id: 'base', label: 'Base', src: '/operators/reed/base.png', chibiSrc: '/operators/reed/chibi.webm', chibiMoveSrc: '/operators/reed/chibi-move.webm', chibiFraming: { scale: 1.59, offsetXPercent: 11.2, offsetYPercent: -6.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/reed/e2.png', chibiSrc: '/operators/reed/chibi.webm', chibiMoveSrc: '/operators/reed/chibi-move.webm', chibiFraming: { scale: 1.59, offsetXPercent: 11.2, offsetYPercent: -6.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
+    { id: 'skin1', label: 'Emerald Holiday', src: '/operators/reed/skin1.png', chibiSrc: '/operators/reed/chibi-skin1.webm', chibiMoveSrc: '/operators/reed/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'STAR影法师' },
   ],
   portrait: '/operators/reed/portrait.png',
   portraitFocus: { y: 6.3, x: 41.3, zoom: 363 },

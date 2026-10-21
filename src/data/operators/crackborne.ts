@@ -93,8 +93,8 @@ const crackborne: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/primal-protector-branch.png', factionIcon: '/icons/factions/ursus.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/crackborne/base.png', chibiSrc: '/operators/crackborne/chibi.webm', chibiMoveSrc: '/operators/crackborne/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Horin' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/crackborne/e2.png', chibiSrc: '/operators/crackborne/chibi.webm', chibiMoveSrc: '/operators/crackborne/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Horin' },
+    { id: 'base', label: 'Base', src: '/operators/crackborne/base.png', chibiSrc: '/operators/crackborne/chibi.webm', chibiMoveSrc: '/operators/crackborne/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 2.2, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Horin' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/crackborne/e2.png', chibiSrc: '/operators/crackborne/chibi.webm', chibiMoveSrc: '/operators/crackborne/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 2.2, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Horin' },
   ],
   portrait: '/operators/crackborne/portrait.png',
   portraitFocus: { y: 6.4, x: 66.5, zoom: 383 },

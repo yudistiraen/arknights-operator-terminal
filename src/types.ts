@@ -135,7 +135,23 @@ export interface SkinL2D {
    * (not part of the Spine data), pre-composited offline into one alpha-premultiplied PNG. The
    * rect is in skeleton world units, y-up, (x, y) = bottom-left corner. */
   backdrop?: { src: string; x: number; y: number; width: number; height: number }
+  /** Prefab quads that draw in front of (part of) the skeleton — water splashes, wind, fire,
+   * frames — composited per insertion point, same rect convention as {@link backdrop}. Drawn
+   * right after the slot named `afterSlot` (a spine-unity separator slot, for skeletons split
+   * into parts), or over the whole skeleton when omitted; `before` draws it ahead of the skeleton
+   * (after the backdrop). `blend: 'erase'` is an in-game Mask/Erase quad: its alpha cuts everything
+   * drawn so far (e.g. torn-paper edges). Entries with `particles` draw those systems of the
+   * {@link particles} document at that point instead of an image. Items at the same point draw in
+   * list order. */
+  overlays?: SkinL2DOverlay[]
+  /** JSON of the illustration's idle Unity ParticleSystems (scripts/l2d-pipeline/particles.py),
+   * simulated in the browser by src/lib/l2dParticles.ts. */
+  particles?: string
 }
+
+export type SkinL2DOverlay =
+  | { src: string; x: number; y: number; width: number; height: number; afterSlot?: string; before?: boolean; blend?: 'erase' }
+  | { particles: number[]; afterSlot?: string; before?: boolean }
 
 export interface OperatorSkin {
   id: string
@@ -160,7 +176,9 @@ export interface OperatorSkin {
    * Togawa Sakiko / Amiya's history in operator_context.md for exactly that fix). Percentage-based
    * (relative to the display box, not raw px), same idea as {@link SkinL2D.focus}. Do NOT
    * repurpose this for how the chibi looks in other contexts (e.g. the operator detail HUD box)
-   * — that's a different, independent concern with its own field, {@link chibiDetailFraming}. */
+   * — that's a different, independent concern with its own field, {@link chibiDetailFraming}.
+   * Values are NOT hand-tuned: generate them with scripts/chibi-pipeline/standardize-walking-framing.mjs,
+   * which matches every mascot's on-screen height, feet line and center to Amiya base. */
   chibiFraming?: { scale: number; offsetXPercent: number; offsetYPercent: number }
   /** Chibi framing for the operator detail page's HUD preview box (CharacterArt.tsx) — purely
    * cosmetic centering within that specific box, unrelated to {@link chibiFraming}'s job of

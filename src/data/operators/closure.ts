@@ -117,8 +117,8 @@ const closure: Operator = {
     note: "Command Center's effective range depends on which skill Closure has active: a 3-tile line with Recursive Tactics, a 3x3 square with Model Expansion, or an extended cross shape with Q.E.D.",
   },
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/closure/base.png', chibiSrc: '/operators/closure/chibi.webm', chibiMoveSrc: '/operators/closure/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liyu黎' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/closure/e2.png', chibiSrc: '/operators/closure/chibi.webm', chibiMoveSrc: '/operators/closure/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liyu黎' },
+    { id: 'base', label: 'Base', src: '/operators/closure/base.png', chibiSrc: '/operators/closure/chibi.webm', chibiMoveSrc: '/operators/closure/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.9, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liyu黎' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/closure/e2.png', chibiSrc: '/operators/closure/chibi.webm', chibiMoveSrc: '/operators/closure/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.9, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liyu黎' },
   ],
   portrait: '/operators/closure/portrait.png',
   portraitFocus: { y: 14.5, x: 55.9, zoom: 377 },

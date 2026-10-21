@@ -75,12 +75,12 @@ const shamare: Operator = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/hexer-branch.png', factionIcon: '/icons/factions/siracusa.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/shamare/base.png', chibiSrc: '/operators/shamare/chibi.webm', chibiMoveSrc: '/operators/shamare/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'base', label: 'Base', src: '/operators/shamare/base.png', chibiSrc: '/operators/shamare/chibi.webm', chibiMoveSrc: '/operators/shamare/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: -1.3, offsetYPercent: 5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
     // fexli/ArknightsResource has no separate dorm Spine build for Elite 2 — only base/skin1/skin2
     // builds exist in char_254_vodfox — so Elite 2 reuses the base chibi as a placeholder.
-    { id: 'e2', label: 'Elite 2', src: '/operators/shamare/e2.png', chibiSrc: '/operators/shamare/chibi.webm', chibiMoveSrc: '/operators/shamare/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
-    { id: 'skin1', label: 'Echo of the Horrorlair', src: '/operators/shamare/skin1.png', chibiSrc: '/operators/shamare/chibi-skin1.webm', chibiMoveSrc: '/operators/shamare/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
-    { id: 'skin2', label: 'Celestial Crane', src: '/operators/shamare/skin2.png', chibiSrc: '/operators/shamare/chibi-skin2.webm', chibiMoveSrc: '/operators/shamare/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/shamare/e2.png', chibiSrc: '/operators/shamare/chibi.webm', chibiMoveSrc: '/operators/shamare/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: -1.3, offsetYPercent: 5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'skin1', label: 'Echo of the Horrorlair', src: '/operators/shamare/skin1.png', chibiSrc: '/operators/shamare/chibi-skin1.webm', chibiMoveSrc: '/operators/shamare/chibi-move-skin1.webm', chibiFraming: { scale: 1.4, offsetXPercent: -0.7, offsetYPercent: 0.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'skin2', label: 'Celestial Crane', src: '/operators/shamare/skin2.png', chibiSrc: '/operators/shamare/chibi-skin2.webm', chibiMoveSrc: '/operators/shamare/chibi-move-skin2.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.4, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/shamare/portrait.png',
   portraitFocus: { y: -0.9, x: 49.5, zoom: 252 },

@@ -10,6 +10,7 @@
 //     --anim Move --out <frames output dir> \
 //     [--fps 30] [--size 600] [--samples 60] [--margin 0.12] \
 //     [--bounds-mode getBounds|pixel-probe] [--sample-mode union|t0] [--hide-slots "C_*,X"]
+//     [--shared-camera Move]  (union another clip's envelope into this clip's camera)
 //
 // See render-chibi.mjs for the orchestrator that wires this together with download +
 // version-detect + encode for a full operator.
@@ -37,6 +38,9 @@ const VIEWER_DIR = path.join(__dirname, 'viewer')
  * @param {'getBounds'|'pixel-probe'} [opts.boundsMode]
  * @param {'union'|'t0'} [opts.sampleMode]
  * @param {string} [opts.hideSlots] - comma-separated slot/attachment names to hide (`*` suffix = prefix match)
+ * @param {string[]} [opts.sharedCameraAnims] - other clips whose motion envelope is unioned into this
+ *   clip's camera. Rendering idle with ['Move'] and move with ['Relax'] gives both the identical camera,
+ *   so they share one scale and ground line (required for WalkingChibi's single chibiFraming).
  */
 export async function runCapture(opts) {
   const {
@@ -51,6 +55,7 @@ export async function runCapture(opts) {
     boundsMode = 'getBounds',
     sampleMode = 'union',
     hideSlots = '',
+    sharedCameraAnims = [],
   } = opts
 
   const modelFiles = await fs.readdir(modelDir)
@@ -96,13 +101,27 @@ export async function runCapture(opts) {
     }
 
     const sampleCount = sampleMode === 't0' ? 1 : samples
-    const framing = await page.evaluate(
-      (anim, n, marginPct, mode) => window.__spineComputeFraming(anim, n, marginPct, mode),
-      anim,
-      sampleCount,
-      margin,
-      boundsMode,
-    )
+    const computeFraming = (clip) =>
+      page.evaluate(
+        (clip, n, marginPct, mode) => window.__spineComputeFraming(clip, n, marginPct, mode),
+        clip,
+        sampleCount,
+        margin,
+        boundsMode,
+      )
+    let framing = await computeFraming(anim)
+    for (const sharedAnim of sharedCameraAnims) {
+      const sharedDuration = await page.evaluate((clip) => window.__spineGetDuration(clip), sharedAnim)
+      if (!(sharedDuration > 0)) throw new Error(`--shared-camera clip "${sharedAnim}" is missing or has 0 duration`)
+      const sharedFraming = await computeFraming(sharedAnim)
+      framing = {
+        minX: Math.min(framing.minX, sharedFraming.minX),
+        maxX: Math.max(framing.maxX, sharedFraming.maxX),
+        minY: Math.min(framing.minY, sharedFraming.minY),
+        maxY: Math.max(framing.maxY, sharedFraming.maxY),
+      }
+    }
+    await page.evaluate((rect) => window.__spineSetFraming(rect), framing)
 
     const frameCount = Math.max(1, Math.round(duration * fps))
     await fs.mkdir(outDir, { recursive: true })
@@ -137,6 +156,7 @@ export async function runCapture(opts) {
       boundsMode,
       sampleMode,
       hideSlots,
+      sharedCameraAnims,
       framingRect: framing,
       canvasMapping,
     }
@@ -165,6 +185,7 @@ if (isMain) {
       'bounds-mode': { type: 'string', default: 'getBounds' },
       'sample-mode': { type: 'string', default: 'union' },
       'hide-slots': { type: 'string', default: '' },
+      'shared-camera': { type: 'string', default: '' },
     },
   })
 
@@ -187,6 +208,7 @@ if (isMain) {
     boundsMode: values['bounds-mode'],
     sampleMode: values['sample-mode'],
     hideSlots: values['hide-slots'],
+    sharedCameraAnims: values['shared-camera'].split(',').filter(Boolean),
   })
 
   console.log(`Captured ${meta.frameCount} frames (${meta.duration.toFixed(3)}s @ ${meta.fps}fps) to ${values.out}`)

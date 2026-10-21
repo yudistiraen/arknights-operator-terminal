@@ -20,8 +20,8 @@ const castle3: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/dreadnought-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/castle-3/base.png', chibiSrc: '/operators/castle-3/chibi.webm', chibiMoveSrc: '/operators/castle-3/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
-    { id: 'skin1', label: 'SUM019.ver', src: '/operators/castle-3/skin1.png', chibiSrc: '/operators/castle-3/chibi-skin1.webm', chibiMoveSrc: '/operators/castle-3/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
+    { id: 'base', label: 'Base', src: '/operators/castle-3/base.png', chibiSrc: '/operators/castle-3/chibi.webm', chibiMoveSrc: '/operators/castle-3/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
+    { id: 'skin1', label: 'SUM019.ver', src: '/operators/castle-3/skin1.png', chibiSrc: '/operators/castle-3/chibi-skin1.webm', chibiMoveSrc: '/operators/castle-3/chibi-move-skin1.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.7, offsetYPercent: 1.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
   ],
 }
 

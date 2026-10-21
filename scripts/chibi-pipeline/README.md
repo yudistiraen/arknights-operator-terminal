@@ -38,18 +38,67 @@ node scripts/chibi-pipeline/render-chibi.mjs \
   --out scripts/chibi-pipeline/out/amiya/chibi-move.webm
 ```
 
-Then sanity-check idle vs move agree in apparent size before wiring them up:
+Optionally sanity-check idle vs move agree in apparent size before wiring them up:
 
 ```sh
-node scripts/chibi-pipeline/measure-framing.mjs \
-  --idle-meta scripts/chibi-pipeline/out/amiya/frames-relax/meta.json \
-  --move-meta scripts/chibi-pipeline/out/amiya/frames-move/meta.json
+node scripts/chibi-pipeline/measure-framing.mjs   --idle-meta scripts/chibi-pipeline/out/amiya/frames-relax/meta.json   --move-meta scripts/chibi-pipeline/out/amiya/frames-move/meta.json
 ```
 
-That prints a `chibiFraming` object — paste it into the skin's entry in
-`src/data/operators.ts` (see `chibiFraming`'s doc comment in `src/types.ts` for what each
-field means and how it's applied). Finally, copy the two `.webm` files into
-`public/operators/<name>/` and set `chibiSrc`/`chibiMoveSrc` in `operators.ts`.
+Copy the two `.webm` files into `public/operators/<name>/`, set `chibiSrc`/`chibiMoveSrc`
+plus a placeholder `chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }`, then
+apply the walking-chibi standard (next section) — never ship the identity placeholder.
+
+## Walking chibi: idle + move MUST share one camera
+
+`render-chibi.mjs` auto-fits each clip's camera to that clip's own motion envelope. For a walking
+mascot that's wrong: `WalkingChibi.tsx` applies one `chibiFraming` to both layers, so an idle and
+move rendered with different cameras visibly shrink/grow or sink/float when the mascot stops
+(Blue Poison, Reed, Mountain all shipped like this). Always render walkable skins as a pair:
+
+```sh
+node scripts/chibi-pipeline/render-walking-pair.mjs   --model spine/char_129_bluep/build_char_129_bluep/Spine   --idle-out scripts/chibi-pipeline/out/blue-poison/chibi.webm   --move-out scripts/chibi-pipeline/out/blue-poison/chibi-move.webm
+```
+
+It unions both clips' envelopes into one framing rect (`--shared-camera` on `capture.mjs`/
+`render-chibi.mjs`) and exits non-zero if the two renders' rects aren't identical.
+
+To check already-published assets, `audit-walking-pairs.py` estimates each pair's idle/move camera
+ratio by matching the (rigid) chibi head across scales — bounding boxes can't, since walk and idle
+poses differ. Same-camera pairs measure ratio 0.98–1.02 with feet delta ≤ 1%; anything flagged
+gets re-rendered with `render-walking-pair.mjs`, never patched via `chibiFraming`. It needs numpy +
+OpenCV in a throwaway venv (see the script's docstring).
+
+## Walking chibi framing standard
+
+Every render's camera is auto-fit to its own clip, so the character's size and position inside
+the 600×600 video differ per operator. `standardize-walking-framing.mjs` measures the published
+**Move** clip's alpha bounding box (median per frame) and solves `chibiFraming` so every mascot
+appears on screen exactly like the reference, **Amiya base** (`scale 1.5`, offsets 0):
+
+| Rule | Value (fraction of the sprite box) |
+|---|---|
+| Body height (Move bbox, ears/horns included) | 1.0125 |
+| Feet line (bbox bottom) | 1.0475 |
+| Horizontal center | 0.5187 |
+| Max on-screen width (wide non-humanoid cap) | 1.5 |
+
+```sh
+node scripts/chibi-pipeline/standardize-walking-framing.mjs --only april            # dry run
+node scripts/chibi-pipeline/standardize-walking-framing.mjs --only april --write    # rewrite the data file
+node scripts/chibi-pipeline/standardize-walking-framing.mjs --write                 # every walkable skin
+```
+
+Guardrails:
+
+- **Measured from Move, not idle** — walk cycles are always upright; idles can sit, lie or kneel.
+- **Don't hand-tune `chibiFraming`.** If a result looks wrong, fix the video (floating props →
+  `--hide-slots`, wrong clip, phantom bounds → `--bounds-mode pixel-probe`) and re-run.
+- **Read the warnings.** `move/idle height` > 15% means idle will visibly resize when the mascot
+  stops — re-render both clips with the same options. `scale outlier` means check it visually.
+- **HUD box stays untouched.** On `--write`, a skin with no `chibiDetailFraming` gets its previous
+  `chibiFraming` pinned as `chibiDetailFraming`, so the operator page's chibi box doesn't move.
+- **Changing the standard** is a user decision: edit `REFERENCE`, run `--calibrate`, paste the
+  printed values into `TARGET`, then `--write` everything.
 
 ## What each script does
 
@@ -63,6 +112,9 @@ field means and how it's applied). Finally, copy the two `.webm` files into
 | `encode.mjs` | ffmpeg: frames -> alpha-channel VP9 webm, then verifies the `alpha_mode=1` tag |
 | `measure-framing.mjs` | Diagnostic: compares an idle render's and move render's `meta.json` and reports the `chibiFraming` to use |
 | `render-chibi.mjs` | Orchestrator wiring the above together for one clip |
+| `render-walking-pair.mjs` | Renders a walkable skin's idle + move with one shared camera (required for walking chibi) |
+| `audit-walking-pairs.py` | Flags published idle/move pairs whose cameras differ (head template matching) |
+| `standardize-walking-framing.mjs` | Solves `chibiFraming` for every walkable skin to the Amiya standard (see above) |
 
 Output lands in gitignored `scripts/chibi-pipeline/out/<char-code>/` — never written
 directly into `public/`. Moving the finished file into `public/operators/<name>/` and
@@ -102,8 +154,8 @@ original incidents:
   Check the atlas region list first; hiding also tightens the framing, so `chibiFraming`
   scale may need lowering to keep the old apparent size.
 - **Final placement.** Copying the rendered `.webm` into `public/operators/<name>/` and
-  filling in `chibiSrc`/`chibiMoveSrc`/`chibiFraming`/`chibiDetailFraming` in
-  `operators.ts`.
+  filling in `chibiSrc`/`chibiMoveSrc` in `src/data/operators/<name>.ts` (`chibiFraming` then
+  comes from `standardize-walking-framing.mjs`).
 
 ## A note on the Spine runtime API surface
 

@@ -72,9 +72,9 @@ const matoimaru: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/dreadnought-branch.png', factionIcon: '/icons/factions/higashi.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/matoimaru/base.png', chibiSrc: '/operators/matoimaru/chibi.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/matoimaru/e2.png', chibiSrc: '/operators/matoimaru/chibi.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'skin1', label: 'Frosted Steps', src: '/operators/matoimaru/skin1.png', chibiSrc: '/operators/matoimaru/chibi-skin1.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'base', label: 'Base', src: '/operators/matoimaru/base.png', chibiSrc: '/operators/matoimaru/chibi.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.7, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/matoimaru/e2.png', chibiSrc: '/operators/matoimaru/chibi.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.7, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'skin1', label: 'Frosted Steps', src: '/operators/matoimaru/skin1.png', chibiSrc: '/operators/matoimaru/chibi-skin1.webm', chibiMoveSrc: '/operators/matoimaru/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 2.2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/matoimaru/portrait.png',
   portraitFocus: { y: 1.6, x: 55.9, zoom: 372 },

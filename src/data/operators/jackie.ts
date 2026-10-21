@@ -75,9 +75,9 @@ const jackie: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/fighter-branch.png', factionIcon: '/icons/factions/columbia.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/jackie/base.png', chibiSrc: '/operators/jackie/chibi.webm', chibiMoveSrc: '/operators/jackie/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/jackie/e2.png', chibiSrc: '/operators/jackie/chibi.webm', chibiMoveSrc: '/operators/jackie/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
-    { id: 'skin1', label: 'Take a Leap', src: '/operators/jackie/skin1.png', chibiSrc: '/operators/jackie/chibi-skin1.webm', chibiMoveSrc: '/operators/jackie/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
+    { id: 'base', label: 'Base', src: '/operators/jackie/base.png', chibiSrc: '/operators/jackie/chibi.webm', chibiMoveSrc: '/operators/jackie/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/jackie/e2.png', chibiSrc: '/operators/jackie/chibi.webm', chibiMoveSrc: '/operators/jackie/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
+    { id: 'skin1', label: 'Take a Leap', src: '/operators/jackie/skin1.png', chibiSrc: '/operators/jackie/chibi-skin1.webm', chibiMoveSrc: '/operators/jackie/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Nagu' },
   ],
   portrait: '/operators/jackie/portrait.png',
   portraitFocus: { y: -8.7, x: 30.3, zoom: 282 },

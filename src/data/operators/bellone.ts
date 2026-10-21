@@ -96,8 +96,8 @@ const bellone: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/fighter-branch.png', factionIcon: '/icons/factions/siracusa.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/bellone/base.png', chibiSrc: '/operators/bellone/chibi.webm', chibiMoveSrc: '/operators/bellone/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Lowro' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/bellone/e2.png', chibiSrc: '/operators/bellone/chibi.webm', chibiMoveSrc: '/operators/bellone/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Lowro & Studio Montagne' },
+    { id: 'base', label: 'Base', src: '/operators/bellone/base.png', chibiSrc: '/operators/bellone/chibi.webm', chibiMoveSrc: '/operators/bellone/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Lowro' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/bellone/e2.png', chibiSrc: '/operators/bellone/chibi.webm', chibiMoveSrc: '/operators/bellone/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Lowro & Studio Montagne' },
   ],
   portrait: '/operators/bellone/portrait.png',
   portraitFocus: { y: 0.3, x: 51.9, zoom: 454 },

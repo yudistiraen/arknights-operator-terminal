@@ -99,9 +99,9 @@ const saga: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/higashi.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/saga/base.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/saga/e2.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
-    { id: 'skin1', label: 'There They Be', src: '/operators/saga/skin1.png', chibiSrc: '/operators/saga/chibi-skin1.webm', chibiMoveSrc: '/operators/saga/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+    { id: 'base', label: 'Base', src: '/operators/saga/base.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 2.7, offsetYPercent: 4.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/saga/e2.png', chibiSrc: '/operators/saga/chibi.webm', chibiMoveSrc: '/operators/saga/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 2.7, offsetYPercent: 4.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
+    { id: 'skin1', label: 'There They Be', src: '/operators/saga/skin1.png', chibiSrc: '/operators/saga/chibi-skin1.webm', chibiMoveSrc: '/operators/saga/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.5, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '多元菌' },
   ],
   portrait: '/operators/saga/portrait.png',
   portraitFocus: { y: 10.6, x: 55.3, zoom: 367 },

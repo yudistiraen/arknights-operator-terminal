@@ -155,9 +155,9 @@ const magallan: Operator = {
     },
   ],
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/magallan/base.png', chibiSrc: '/operators/magallan/chibi.webm', chibiMoveSrc: '/operators/magallan/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/magallan/e2.png', chibiSrc: '/operators/magallan/chibi.webm', chibiMoveSrc: '/operators/magallan/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Shaved-Ice Memories', src: '/operators/magallan/skin1.png', chibiSrc: '/operators/magallan/chibi-skin1.webm', chibiMoveSrc: '/operators/magallan/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'base', label: 'Base', src: '/operators/magallan/base.png', chibiSrc: '/operators/magallan/chibi.webm', chibiMoveSrc: '/operators/magallan/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.8, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/magallan/e2.png', chibiSrc: '/operators/magallan/chibi.webm', chibiMoveSrc: '/operators/magallan/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.8, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Shaved-Ice Memories', src: '/operators/magallan/skin1.png', chibiSrc: '/operators/magallan/chibi-skin1.webm', chibiMoveSrc: '/operators/magallan/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: -0.8, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/magallan/portrait.png',
   portraitFocus: { y: -5.7, x: 30.1, zoom: 344 },

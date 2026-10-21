@@ -90,9 +90,9 @@ const flint: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/fighter-branch.png', factionIcon: '/icons/factions/sargon.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/flint/base.png', chibiSrc: '/operators/flint/chibi.webm', chibiMoveSrc: '/operators/flint/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/flint/e2.png', chibiSrc: '/operators/flint/chibi.webm', chibiMoveSrc: '/operators/flint/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
-    { id: 'skin1', label: 'Gorgeous Flower', src: '/operators/flint/skin1.png', chibiSrc: '/operators/flint/chibi-skin1.webm', chibiMoveSrc: '/operators/flint/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
+    { id: 'base', label: 'Base', src: '/operators/flint/base.png', chibiSrc: '/operators/flint/chibi.webm', chibiMoveSrc: '/operators/flint/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/flint/e2.png', chibiSrc: '/operators/flint/chibi.webm', chibiMoveSrc: '/operators/flint/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
+    { id: 'skin1', label: 'Gorgeous Flower', src: '/operators/flint/skin1.png', chibiSrc: '/operators/flint/chibi-skin1.webm', chibiMoveSrc: '/operators/flint/chibi-move-skin1.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.2, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'aZLing4' },
   ],
   portrait: '/operators/flint/portrait.png',
   portraitFocus: { y: 3.3, x: 47.9, zoom: 365 },

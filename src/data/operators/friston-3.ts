@@ -22,7 +22,7 @@ const friston3: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/protector-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/friston-3/base.png', chibiSrc: '/operators/friston-3/chibi.webm', chibiMoveSrc: '/operators/friston-3/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '过失帝国' },
+    { id: 'base', label: 'Base', src: '/operators/friston-3/base.png', chibiSrc: '/operators/friston-3/chibi.webm', chibiMoveSrc: '/operators/friston-3/chibi-move.webm', chibiFraming: { scale: 1.65, offsetXPercent: 1.4, offsetYPercent: -9.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '过失帝国' },
   ],
 }
 

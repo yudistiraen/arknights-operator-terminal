@@ -74,9 +74,9 @@ const indra: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/fighter-branch.png', factionIcon: '/icons/factions/glasgow.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/indra/base.png', chibiSrc: '/operators/indra/chibi.webm', chibiMoveSrc: '/operators/indra/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/indra/e2.png', chibiSrc: '/operators/indra/chibi.webm', chibiMoveSrc: '/operators/indra/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'skin1', label: 'Valiant General', src: '/operators/indra/skin1.png', chibiSrc: '/operators/indra/chibi-skin1.webm', chibiMoveSrc: '/operators/indra/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'base', label: 'Base', src: '/operators/indra/base.png', chibiSrc: '/operators/indra/chibi.webm', chibiMoveSrc: '/operators/indra/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.8, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/indra/e2.png', chibiSrc: '/operators/indra/chibi.webm', chibiMoveSrc: '/operators/indra/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.8, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'skin1', label: 'Valiant General', src: '/operators/indra/skin1.png', chibiSrc: '/operators/indra/chibi-skin1.webm', chibiMoveSrc: '/operators/indra/chibi-move-skin1.webm', chibiFraming: { scale: 1.3, offsetXPercent: -4.8, offsetYPercent: 2.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/indra/portrait.png',
   portraitFocus: { y: -5.4, x: 54.9, zoom: 374 },

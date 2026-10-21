@@ -98,9 +98,9 @@ const flametail: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/pinus-sylvestris.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/flametail/base.png', chibiSrc: '/operators/flametail/chibi.webm', chibiMoveSrc: '/operators/flametail/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/flametail/e2.png', chibiSrc: '/operators/flametail/chibi.webm', chibiMoveSrc: '/operators/flametail/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Sport For All', src: '/operators/flametail/skin1.png', chibiSrc: '/operators/flametail/chibi-skin1.webm', chibiMoveSrc: '/operators/flametail/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'base', label: 'Base', src: '/operators/flametail/base.png', chibiSrc: '/operators/flametail/chibi.webm', chibiMoveSrc: '/operators/flametail/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 6.7, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/flametail/e2.png', chibiSrc: '/operators/flametail/chibi.webm', chibiMoveSrc: '/operators/flametail/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 6.7, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Sport For All', src: '/operators/flametail/skin1.png', chibiSrc: '/operators/flametail/chibi-skin1.webm', chibiMoveSrc: '/operators/flametail/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 2.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/flametail/portrait.png',
   portraitFocus: { y: 9.4, x: 73.8, zoom: 349 },

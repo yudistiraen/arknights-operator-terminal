@@ -11,6 +11,7 @@
 //     [--fps 30] [--size 600] [--samples 60] [--margin 0.12] \
 //     [--bounds-mode getBounds|pixel-probe] [--sample-mode union|t0] [--work-dir <dir>]
 //     [--hide-slots "C_*"]  (hide dorm-scene props baked into the setup pose)
+//     [--shared-camera Move]  (idle+move MUST share a camera — see render-walking-pair.mjs)
 
 import path from 'node:path'
 import fs from 'node:fs/promises'
@@ -49,6 +50,7 @@ export async function renderChibi(opts) {
     boundsMode = 'getBounds',
     sampleMode = 'union',
     hideSlots = '',
+    sharedCameraAnims = [],
     workDir,
   } = opts
 
@@ -79,6 +81,7 @@ export async function renderChibi(opts) {
     boundsMode,
     sampleMode,
     hideSlots,
+    sharedCameraAnims,
   })
   console.log(`      -> ${meta.frameCount} frames, ${meta.duration.toFixed(3)}s`)
 
@@ -106,6 +109,7 @@ if (isMain) {
       'sample-mode': { type: 'string', default: 'union' },
       'work-dir': { type: 'string' },
       'hide-slots': { type: 'string', default: '' },
+      'shared-camera': { type: 'string', default: '' },
     },
   })
 
@@ -128,5 +132,6 @@ if (isMain) {
     sampleMode: values['sample-mode'],
     workDir: values['work-dir'],
     hideSlots: values['hide-slots'],
+    sharedCameraAnims: values['shared-camera'].split(',').filter(Boolean),
   })
 }

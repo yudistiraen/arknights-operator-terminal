@@ -75,9 +75,9 @@ const nearl: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/guardian-branch.png', factionIcon: '/icons/factions/followers.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/nearl/base.png', chibiSrc: '/operators/nearl/chibi.webm', chibiMoveSrc: '/operators/nearl/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/nearl/e2.png', chibiSrc: '/operators/nearl/chibi.webm', chibiMoveSrc: '/operators/nearl/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'skin1', label: 'Shining Dew SD01', src: '/operators/nearl/skin1.png', chibiSrc: '/operators/nearl/chibi-skin1.webm', chibiMoveSrc: '/operators/nearl/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'base', label: 'Base', src: '/operators/nearl/base.png', chibiSrc: '/operators/nearl/chibi.webm', chibiMoveSrc: '/operators/nearl/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.1, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/nearl/e2.png', chibiSrc: '/operators/nearl/chibi.webm', chibiMoveSrc: '/operators/nearl/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.1, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'skin1', label: 'Shining Dew SD01', src: '/operators/nearl/skin1.png', chibiSrc: '/operators/nearl/chibi-skin1.webm', chibiMoveSrc: '/operators/nearl/chibi-move-skin1.webm', chibiFraming: { scale: 1.36, offsetXPercent: 3.4, offsetYPercent: 0.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/nearl/portrait.png',
   portraitFocus: { y: -1, x: 32.9, zoom: 337 },

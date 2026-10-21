@@ -19,7 +19,7 @@ const confess47: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/laterano.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/confess-47/base.png', chibiSrc: '/operators/confess-47/chibi.webm', chibiMoveSrc: '/operators/confess-47/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '抽象Rotate' },
+    { id: 'base', label: 'Base', src: '/operators/confess-47/base.png', chibiSrc: '/operators/confess-47/chibi.webm', chibiMoveSrc: '/operators/confess-47/chibi-move.webm', chibiFraming: { scale: 1.48, offsetXPercent: 1.3, offsetYPercent: -5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '抽象Rotate' },
   ],
 }
 

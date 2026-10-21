@@ -132,9 +132,9 @@ const logos: Operator = {
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/elite-op.png',
   portraitFocus: { y: 1.5, x: 43.7, zoom: 450 },
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/logos/base.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/logos/e2.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Radiant Serenity', src: '/operators/logos/skin1.png', chibiSrc: '/operators/logos/chibi-skin1.webm', chibiMoveSrc: '/operators/logos/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: -3 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/logos/base.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.57, offsetXPercent: -1.1, offsetYPercent: 1.4 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/logos/e2.png', chibiSrc: '/operators/logos/chibi.webm', chibiMoveSrc: '/operators/logos/chibi-move.webm', chibiFraming: { scale: 1.57, offsetXPercent: -1.1, offsetYPercent: 1.4 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -8, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Radiant Serenity', src: '/operators/logos/skin1.png', chibiSrc: '/operators/logos/chibi-skin1.webm', chibiMoveSrc: '/operators/logos/chibi-move-skin1.webm', chibiFraming: { scale: 1.51, offsetXPercent: 0.2, offsetYPercent: 0.3 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/logos/portrait.png',
 }

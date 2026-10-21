@@ -77,9 +77,9 @@ const ayerscarpe: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/lord-branch.png', factionIcon: '/icons/factions/rim-billiton.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/ayerscarpe/base.png', chibiSrc: '/operators/ayerscarpe/chibi.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/ayerscarpe/e2.png', chibiSrc: '/operators/ayerscarpe/chibi.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Tested One', src: '/operators/ayerscarpe/skin1.png', chibiSrc: '/operators/ayerscarpe/chibi-skin1.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'base', label: 'Base', src: '/operators/ayerscarpe/base.png', chibiSrc: '/operators/ayerscarpe/chibi.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move.webm', chibiFraming: { scale: 1.25, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/ayerscarpe/e2.png', chibiSrc: '/operators/ayerscarpe/chibi.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move.webm', chibiFraming: { scale: 1.25, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Tested One', src: '/operators/ayerscarpe/skin1.png', chibiSrc: '/operators/ayerscarpe/chibi-skin1.webm', chibiMoveSrc: '/operators/ayerscarpe/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/ayerscarpe/portrait.png',
   portraitFocus: { y: 4.2, x: 48.3, zoom: 360 },

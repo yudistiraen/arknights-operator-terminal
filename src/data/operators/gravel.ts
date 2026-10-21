@@ -73,9 +73,9 @@ const gravel: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/executor-branch.png', factionIcon: '/icons/factions/kazimierz.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/gravel/base.png', chibiSrc: '/operators/gravel/chibi.webm', chibiMoveSrc: '/operators/gravel/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/gravel/e2.png', chibiSrc: '/operators/gravel/chibi.webm', chibiMoveSrc: '/operators/gravel/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'skin1', label: 'Modeling Night', src: '/operators/gravel/skin1.png', chibiSrc: '/operators/gravel/chibi-skin1.webm', chibiMoveSrc: '/operators/gravel/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'base', label: 'Base', src: '/operators/gravel/base.png', chibiSrc: '/operators/gravel/chibi.webm', chibiMoveSrc: '/operators/gravel/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 2.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/gravel/e2.png', chibiSrc: '/operators/gravel/chibi.webm', chibiMoveSrc: '/operators/gravel/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 2.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'skin1', label: 'Modeling Night', src: '/operators/gravel/skin1.png', chibiSrc: '/operators/gravel/chibi-skin1.webm', chibiMoveSrc: '/operators/gravel/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/gravel/portrait.png',
   portraitFocus: { y: -5.9, x: 45.7, zoom: 310 },
