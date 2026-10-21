@@ -105,9 +105,9 @@ const eunectes: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/duelist-branch.png', factionIcon: '/icons/factions/sargon.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/eunectes/base.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/eunectes/e2.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
-    { id: 'skin1', label: 'Forgemaster', src: '/operators/eunectes/skin1.png', chibiSrc: '/operators/eunectes/chibi-skin1.webm', chibiMoveSrc: '/operators/eunectes/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'base', label: 'Base', src: '/operators/eunectes/base.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -0.3, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/eunectes/e2.png', chibiSrc: '/operators/eunectes/chibi.webm', chibiMoveSrc: '/operators/eunectes/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -0.3, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
+    { id: 'skin1', label: 'Forgemaster', src: '/operators/eunectes/skin1.png', chibiSrc: '/operators/eunectes/chibi-skin1.webm', chibiMoveSrc: '/operators/eunectes/chibi-move-skin1.webm', chibiFraming: { scale: 1.29, offsetXPercent: 0.4, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Liduke' },
   ],
   portrait: '/operators/eunectes/portrait.png',
   portraitFocus: { y: 5.1, x: 44.4, zoom: 370 },

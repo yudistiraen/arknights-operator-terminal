@@ -74,9 +74,9 @@ const myrrh: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/myrrh/base.png', chibiSrc: '/operators/myrrh/chibi.webm', chibiMoveSrc: '/operators/myrrh/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/myrrh/e2.png', chibiSrc: '/operators/myrrh/chibi.webm', chibiMoveSrc: '/operators/myrrh/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
-    { id: 'skin1', label: 'Bitter Herbs', src: '/operators/myrrh/skin1.png', chibiSrc: '/operators/myrrh/chibi-skin1.webm', chibiMoveSrc: '/operators/myrrh/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'base', label: 'Base', src: '/operators/myrrh/base.png', chibiSrc: '/operators/myrrh/chibi.webm', chibiMoveSrc: '/operators/myrrh/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/myrrh/e2.png', chibiSrc: '/operators/myrrh/chibi.webm', chibiMoveSrc: '/operators/myrrh/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'skin1', label: 'Bitter Herbs', src: '/operators/myrrh/skin1.png', chibiSrc: '/operators/myrrh/chibi-skin1.webm', chibiMoveSrc: '/operators/myrrh/chibi-move-skin1.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.9, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
   ],
   portrait: '/operators/myrrh/portrait.png',
   portraitFocus: { y: -8, x: 63.7, zoom: 258 },

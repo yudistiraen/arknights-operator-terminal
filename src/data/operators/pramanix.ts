@@ -74,9 +74,9 @@ const pramanix: Operator = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/hexer-branch.png', factionIcon: '/icons/factions/kjerag.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/pramanix/base.png', chibiSrc: '/operators/pramanix/chibi.webm', chibiMoveSrc: '/operators/pramanix/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/pramanix/e2.png', chibiSrc: '/operators/pramanix/chibi.webm', chibiMoveSrc: '/operators/pramanix/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
-    { id: 'skin1', label: "Caster's Frost", src: '/operators/pramanix/skin1.png', chibiSrc: '/operators/pramanix/chibi-skin1.webm', chibiMoveSrc: '/operators/pramanix/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'base', label: 'Base', src: '/operators/pramanix/base.png', chibiSrc: '/operators/pramanix/chibi.webm', chibiMoveSrc: '/operators/pramanix/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/pramanix/e2.png', chibiSrc: '/operators/pramanix/chibi.webm', chibiMoveSrc: '/operators/pramanix/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
+    { id: 'skin1', label: "Caster's Frost", src: '/operators/pramanix/skin1.png', chibiSrc: '/operators/pramanix/chibi-skin1.webm', chibiMoveSrc: '/operators/pramanix/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.8, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Ryuuzaki Ichi' },
   ],
   portrait: '/operators/pramanix/portrait.png',
   portraitFocus: { y: -2, x: 65.9, zoom: 322 },

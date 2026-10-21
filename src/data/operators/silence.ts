@@ -73,12 +73,12 @@ const silence: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/rhine-lab.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/silence/base.png', chibiSrc: '/operators/silence/chibi.webm', chibiMoveSrc: '/operators/silence/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'base', label: 'Base', src: '/operators/silence/base.png', chibiSrc: '/operators/silence/chibi.webm', chibiMoveSrc: '/operators/silence/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.7, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
     // fexli/ArknightsResource has no separate dorm Spine build for Elite 2 — only base/sweep_1/winter_2
     // builds exist in char_108_silent — so Elite 2 reuses the base chibi as a placeholder.
-    { id: 'e2', label: 'Elite 2', src: '/operators/silence/e2.png', chibiSrc: '/operators/silence/chibi.webm', chibiMoveSrc: '/operators/silence/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Lacquer', src: '/operators/silence/skin1.png', chibiSrc: '/operators/silence/chibi-skin1.webm', chibiMoveSrc: '/operators/silence/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin2', label: 'Frosted Breath', src: '/operators/silence/skin2.png', chibiSrc: '/operators/silence/chibi-skin2.webm', chibiMoveSrc: '/operators/silence/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/silence/e2.png', chibiSrc: '/operators/silence/chibi.webm', chibiMoveSrc: '/operators/silence/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.7, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Lacquer', src: '/operators/silence/skin1.png', chibiSrc: '/operators/silence/chibi-skin1.webm', chibiMoveSrc: '/operators/silence/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: -2.5, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin2', label: 'Frosted Breath', src: '/operators/silence/skin2.png', chibiSrc: '/operators/silence/chibi-skin2.webm', chibiMoveSrc: '/operators/silence/chibi-move-skin2.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.3, offsetYPercent: 4.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/silence/portrait.png',
   portraitFocus: { y: -6.7, x: 50.2, zoom: 293 },

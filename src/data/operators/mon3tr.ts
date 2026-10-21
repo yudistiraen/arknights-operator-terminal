@@ -118,9 +118,9 @@ const mon3tr: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/chain-medic-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/mon3tr/base.png', chibiSrc: '/operators/mon3tr/chibi.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '唯@W' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/mon3tr/e2.png', chibiSrc: '/operators/mon3tr/chibi.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '唯@W' },
-    { id: 'skin1', label: 'Sharpened Blades', src: '/operators/mon3tr/skin1.png', chibiSrc: '/operators/mon3tr/chibi-skin1.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋' },
+    { id: 'base', label: 'Base', src: '/operators/mon3tr/base.png', chibiSrc: '/operators/mon3tr/chibi.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move.webm', chibiFraming: { scale: 1.51, offsetXPercent: 0.2, offsetYPercent: 0.3 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '唯@W' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/mon3tr/e2.png', chibiSrc: '/operators/mon3tr/chibi.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move.webm', chibiFraming: { scale: 1.51, offsetXPercent: 0.2, offsetYPercent: 0.3 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '唯@W' },
+    { id: 'skin1', label: 'Sharpened Blades', src: '/operators/mon3tr/skin1.png', chibiSrc: '/operators/mon3tr/chibi-skin1.webm', chibiMoveSrc: '/operators/mon3tr/chibi-move-skin1.webm', chibiFraming: { scale: 1.35, offsetXPercent: 0.4, offsetYPercent: 4.1 }, chibiDetailFraming: { scale: 1.2, offsetXPercent: -5, offsetYPercent: 0 }, illustrator: '伍秋秋秋秋' },
   ],
   portrait: '/operators/mon3tr/portrait.png',
   portraitFocus: { y: 2, x: 51.7, zoom: 345 },

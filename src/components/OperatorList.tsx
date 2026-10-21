@@ -20,6 +20,52 @@ const SELECT_CHEVRON = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 const selectBase = `appearance-none ${INPUT_CLASSES} pl-3.5 pr-10 cursor-pointer`
 const optionBase = "bg-gc-float text-gc-text"
 
+const ECHO_HOLD_MS = 1400
+
+/** Big centered echo of the search query while the user types — pointer-transparent, fades on pause. */
+function TypeEcho({ query, matchCount, isVisible, anchorRef }: {
+  query: string
+  matchCount: number
+  isVisible: boolean
+  anchorRef: React.RefObject<HTMLDivElement | null>
+}) {
+  // Center on the roster column, not the viewport, so the side menu doesn't push the echo off-center.
+  const [horizontalBounds, setHorizontalBounds] = useState<{ left: number; width: number } | null>(null)
+  useEffect(() => {
+    if (!isVisible || !anchorRef.current) return
+    const { left, width } = anchorRef.current.getBoundingClientRect()
+    setHorizontalBounds({ left, width })
+  }, [isVisible, anchorRef])
+
+  const settledText = query.slice(0, -1)
+  const newestKey = query.slice(-1)
+  return (
+    <div
+      aria-hidden="true"
+      style={horizontalBounds ?? undefined}
+      className={`pointer-events-none fixed inset-0 z-30 flex items-center justify-center px-4 transition-opacity ease-out ${isVisible && query ? 'opacity-100 duration-100' : 'opacity-0 duration-500'}`}
+    >
+      {/* Readability scrim: layered radial falloff so the grid still reads at the edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_35%_at_50%_50%,rgba(11,11,12,0.88),rgba(11,11,12,0.55)_55%,transparent_100%)]" />
+      <div className="relative flex flex-col items-center gap-4 max-w-full">
+        <p className="font-display uppercase text-gc-ink text-[clamp(2.25rem,9vw,7.5rem)] leading-none tracking-[-0.03em] break-all text-center [text-shadow:0_2px_24px_rgba(0,0,0,0.6)]">
+          <span>{settledText.replace(/ /g, ' ')}</span>
+          {newestKey && (
+            <span key={query.length} className="inline-block animate-[type-echo-key_0.22s_cubic-bezier(0.22,1.2,0.36,1)] motion-reduce:animate-none">
+              {newestKey === ' ' ? ' ' : newestKey}
+            </span>
+          )}
+          <span className="inline-block w-[0.08em] h-[0.9em] ml-[0.06em] align-[-0.05em] bg-gc-signal animate-[type-echo-caret_1s_steps(1)_infinite] motion-reduce:animate-none" />
+        </p>
+        <span className={`font-data text-[11px] md:text-[12px] uppercase tracking-[0.18em] tabular-nums ${matchCount > 0 ? 'text-gc-text' : 'text-gc-alert'}`}>
+          {matchCount > 0 ? `${matchCount} ${matchCount === 1 ? 'operator' : 'operators'}` : 'No operator matches'}
+          <span className="text-gc-ghost"> · Esc to clear</span>
+        </span>
+      </div>
+    </div>
+  )
+}
+
 interface FilterOption {
   value: string
   label: string
@@ -180,6 +226,57 @@ export function OperatorList() {
 
   const activeFilterCount = [rarityFilter, classFilter, branchFilter, factionFilter].filter(f => f !== 'all').length + (searchQuery ? 1 : 0)
 
+  // Type-to-search (Dota 2 hero-grid style): keystrokes anywhere on the page mirror into the search
+  // input, and the query is echoed large in the middle of the screen until typing pauses.
+  const [isEchoVisible, setIsEchoVisible] = useState(false)
+  const echoTimeoutRef = useRef<number | null>(null)
+  const isFirstQueryRender = useRef(true)
+  const searchQueryRef = useRef(searchQuery)
+  searchQueryRef.current = searchQuery
+
+  useEffect(() => {
+    if (isFirstQueryRender.current) {
+      isFirstQueryRender.current = false
+      return
+    }
+    if (echoTimeoutRef.current !== null) window.clearTimeout(echoTimeoutRef.current)
+    setIsEchoVisible(searchQuery.length > 0)
+    echoTimeoutRef.current = window.setTimeout(() => setIsEchoVisible(false), ECHO_HOLD_MS)
+    return () => {
+      if (echoTimeoutRef.current !== null) window.clearTimeout(echoTimeoutRef.current)
+    }
+  }, [searchQuery])
+
+  useEffect(() => {
+    const handleTypeAnywhere = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return
+      const target = event.target as HTMLElement | null
+      if (target && (target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName))) return
+
+      // Read/write the ref synchronously: fast typing can outrun React's re-render.
+      const currentQuery = searchQueryRef.current
+      let nextQuery: string
+      if (event.key === 'Backspace') {
+        if (!currentQuery) return
+        nextQuery = currentQuery.slice(0, -1)
+      } else if (event.key === 'Escape') {
+        if (!currentQuery) return
+        nextQuery = ''
+      } else if (event.key.length === 1) {
+        // A leading space keeps its default page-scroll behaviour; spaces inside a name ("Blue Poison") are typed.
+        if (event.key === ' ' && !currentQuery) return
+        nextQuery = currentQuery + event.key
+      } else {
+        return
+      }
+      event.preventDefault()
+      searchQueryRef.current = nextQuery
+      setSearchQuery(nextQuery)
+    }
+    window.addEventListener('keydown', handleTypeAnywhere)
+    return () => window.removeEventListener('keydown', handleTypeAnywhere)
+  }, [])
+
   const clearFilters = () => {
     setSearchQuery('')
     setRarityFilter('all')
@@ -337,6 +434,7 @@ export function OperatorList() {
         )}
       </main>
 
+      <TypeEcho query={searchQuery} matchCount={filteredEntries.length} isVisible={isEchoVisible} anchorRef={containerRef} />
     </div>
   )
 }

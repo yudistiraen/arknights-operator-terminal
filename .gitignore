@@ -49,3 +49,6 @@ scripts/chibi-pipeline/out
 *.njsproj
 *.sln
 *.sw?
+
+# throwaway venv for scripts/chibi-pipeline/audit-walking-pairs.py
+.venv-audit/

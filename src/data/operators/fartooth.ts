@@ -99,9 +99,9 @@ const fartooth: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/deadeye-branch.png', factionIcon: '/icons/factions/pinus-sylvestris.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/fartooth/base.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/fartooth/e2.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Hear the Wind Sing', src: '/operators/fartooth/skin1.png', chibiSrc: '/operators/fartooth/chibi-skin1.webm', chibiMoveSrc: '/operators/fartooth/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'base', label: 'Base', src: '/operators/fartooth/base.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.7, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/fartooth/e2.png', chibiSrc: '/operators/fartooth/chibi.webm', chibiMoveSrc: '/operators/fartooth/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.7, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Hear the Wind Sing', src: '/operators/fartooth/skin1.png', chibiSrc: '/operators/fartooth/chibi-skin1.webm', chibiMoveSrc: '/operators/fartooth/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 2.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
   ],
   portrait: '/operators/fartooth/portrait.png',
   portraitFocus: { y: 4.6, x: 55.4, zoom: 353 },

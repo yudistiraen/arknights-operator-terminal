@@ -93,9 +93,9 @@ const istina: Operator = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/decel-binder-branch.png', factionIcon: '/icons/factions/ursus-student-self-governing-group.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/istina/base.png', chibiSrc: '/operators/istina/chibi.webm', chibiMoveSrc: '/operators/istina/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/istina/e2.png', chibiSrc: '/operators/istina/chibi.webm', chibiMoveSrc: '/operators/istina/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Bibliosmia', src: '/operators/istina/skin1.png', chibiSrc: '/operators/istina/chibi-skin1.webm', chibiMoveSrc: '/operators/istina/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/istina/base.png', chibiSrc: '/operators/istina/chibi.webm', chibiMoveSrc: '/operators/istina/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/istina/e2.png', chibiSrc: '/operators/istina/chibi.webm', chibiMoveSrc: '/operators/istina/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Bibliosmia', src: '/operators/istina/skin1.png', chibiSrc: '/operators/istina/chibi-skin1.webm', chibiMoveSrc: '/operators/istina/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/istina/portrait.png',
   portraitFocus: { y: -2.5, x: 50.6, zoom: 293 },

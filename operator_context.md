@@ -231,20 +231,44 @@ Alur di baliknya: deteksi versi Spine dari header `.skel` → ambil runtime `spi
 
 **Yang tetap manual (butuh judgment, lihat README untuk detail):** menemukan char code (nama tampilan sering tidak mirip nama folder), disambiguasi folder skin (render 1 frame + bandingkan visual ke `skin1.png`/`skin2.png`), cek clip 0-duration dulu (sebagian operator idle di `Relax` bukan `Default`), pilih `--bounds-mode pixel-probe` kalau model punya attachment tak terlihat yang mengacaukan `getBounds()` (gejala: bounding box identik di semua sample regardless of waktu), dan penempatan akhir file ke `public/`.
 
-### `chibiFraming` vs `chibiDetailFraming` — isi default, jangan dikalibrasi
+### `chibiFraming` vs `chibiDetailFraming` — standar walking chibi (acuan: Amiya)
 
 Dua field di `OperatorSkin` (`src/types.ts`), sibling tapi tujuan beda — jangan saling gantikan:
 
 | Field | Dipakai di | Tujuan |
 |---|---|---|
-| `chibiFraming` | `WalkingChibi.tsx` — satu transform (`scale`+`offsetXPercent`+`offsetYPercent`) diterapkan ke wrapper yang membungkus **kedua** layer (idle & move) sekaligus | Ukuran + posisi mascot secara keseluruhan; karena satu transform untuk keduanya, idle & move otomatis selalu align |
+| `chibiFraming` | `WalkingChibi.tsx` — satu transform (`scale`+`offsetXPercent`+`offsetYPercent`) diterapkan ke wrapper yang membungkus **kedua** layer (idle & move) sekaligus | Ukuran + posisi mascot; **wajib mengikuti standar di bawah**, jangan diisi identity |
 | `chibiDetailFraming` | `CharacterArt.tsx` (HUD chibi halaman detail, cuma idle) | Kosmetik murni — biar center di box HUD |
 
-**Jangan coba mengukur/mengkalibrasi nilai ini supaya pas pixel-perfect di frame** (dulu ada `measure-framing.mjs` + proses sampling untuk itu — sekarang tidak dipakai lagi untuk operator baru). Cukup isi `chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }` sebagai default di setiap skin yang punya `chibiMoveSrc`. `chibiDetailFraming` tidak perlu diisi sama sekali — `OperatorTerminal.tsx` otomatis fallback ke `chibiFraming` kalau kosong. Fine-tuning visual (kalau memang perlu) dilakukan belakangan oleh user secara manual, bukan bagian dari alur penambahan operator.
+**Kenapa perlu standar:** kamera tiap render di-auto-fit ke motion envelope clip-nya sendiri, jadi ukuran & posisi karakter di dalam video 600×600 beda-beda per operator (props, ekor, efek). `chibiFraming` identity (`scale: 1`) membuat tiap mascot tampil dengan ukuran acak.
+
+**Standar (acuan = Amiya base, `scale: 1.5, offset 0/0` — yang sudah di-approve user):** semua mascot harus tampil di layar dengan
+1. **Tinggi badan sama** — tinggi bbox alpha clip **Move** = 1.0125× tinggi sprite box (termasuk telinga/tanduk, sama seperti Amiya diukur).
+2. **Garis kaki sama** — bawah bbox di 1.0475× tinggi box (sedikit di bawah tepi box, menapak ke tepi viewport).
+3. **Center horizontal sama** — 0.5187× lebar box.
+4. **Batas lebar** — lebar di layar maksimal 1.5× box (pengaman untuk non-humanoid lebar; Friston-3 masih di bawah batas).
+
+Diukur dari clip **Move**, bukan idle: walk cycle selalu pose berdiri tegak, sedangkan idle bisa duduk/rebahan/berlutut (Ch'en Holungday skin2, Iris skin1) yang akan bikin ukuran salah. Pakai median per-frame, bukan union, supaya satu frame ayunan senjata tidak mendominasi.
+
+**Cara pakai — jangan hitung manual, jalankan script:**
+
+```sh
+node scripts/chibi-pipeline/standardize-walking-framing.mjs --only <file-operator>          # dry run
+node scripts/chibi-pipeline/standardize-walking-framing.mjs --only <file-operator> --write  # tulis ke src/data/operators/<file>.ts
+```
+
+Tanpa `--only` = semua operator. Script idempotent (aman di-run ulang). Saat menulis, kalau skin belum punya `chibiDetailFraming`, nilai `chibiFraming` lama otomatis di-pin jadi `chibiDetailFraming` supaya box HUD tidak ikut berubah.
+
+**Guardrail:**
+- Setelah render chibi baru, isi `chibiFraming` sementara `{ scale: 1, offsetXPercent: 0, offsetYPercent: 0 }` lalu **wajib** jalankan script di atas dengan `--write` — jangan biarkan identity.
+- Jangan tuning `chibiFraming` per operator dengan tangan/eyeballing. Kalau hasil script terlihat salah, cari penyebabnya di video (prop melayang dari `--hide-slots`, efek besar, clip salah) dan render ulang, atau tambahkan pengecualian yang terdokumentasi di script.
+- Baca kolom warning output script: `move/idle height` > 15% = idle & move beda ukuran di dalam frame (idle akan tampak lebih kecil/besar saat berhenti — render ulang dengan `--bounds-mode`/`--samples` yang sama); `scale outlier` = cek visual.
+- Target (`TARGET` di script) sengaja di-hardcode. Hanya ubah kalau user memutuskan acuan baru: ubah `REFERENCE`, jalankan `--calibrate`, paste hasilnya ke `TARGET`, lalu `--write` semua.
+- `chibiDetailFraming` tetap bebas (kosmetik HUD) dan tidak tersentuh script kecuali pin satu kali di atas.
+
+**Wajib: idle + move dirender dengan SATU kamera** — pakai `node scripts/chibi-pipeline/render-walking-pair.mjs --model <spine path> --idle-out ... --move-out ...`, bukan dua kali `render-chibi.mjs` terpisah. Kamera per-clip yang auto-fit bikin idle & move beda skala/garis kaki → mascot mengecil/tenggelam saat berhenti (kasus Blue Poison, Reed, Mountain). `chibiFraming` tidak bisa memperbaiki ini. Untuk mengecek aset yang sudah ada: `scripts/chibi-pipeline/audit-walking-pairs.py` (head template matching; detail di README pipeline).
 
 **Prasyarat `chibiFraming`:** idle dan move harus dirender dari pipeline/konvensi yang sama. Kalau idle operator belum sempat direndernya ulang lewat pipeline ini (masih chibi wiki.gg lama), jangan paksa masuk skema wrapper-shared — render ulang idle-nya dulu.
-
-`chibiDetailFraming` tidak wajib diisi manual — `OperatorTerminal.tsx` otomatis fallback ke `chibiFraming` kalau field ini kosong tapi `chibiFraming` ada (masuk akal karena keduanya sama-sama menampilkan capture persegi hasil pipeline yang sama). Isi eksplisit hanya kalau box HUD detail memang butuh nilai berbeda dari mascot berjalan. Operator lama yang belum punya `chibiFraming` sama sekali (masih chibi wiki.gg landscape) tetap jatuh ke default generic `CharacterArt.tsx` (`scale-110 -translate-y-2 md:-translate-y-4`) — tidak terpengaruh perubahan ini.
 
 ### Perilaku `WalkingChibi.tsx` (mascot berjalan)
 
@@ -295,7 +319,7 @@ Saat ini hanya pool EN yang dipakai; jalankan juga `--lang jp|cn|kr` kalau pool 
 - [ ] Profile / story / records (opsional, dari halaman File & Story wiki)
 - [ ] **Asset artwork didownload** (base.png, e2.png, skin*.png)
 - [ ] **Skill icons didownload**
-- [ ] **Chibi idle + walking di-render via `scripts/chibi-pipeline/`** (bukan wiki.gg), `chibiFraming` diisi default `{ scale: 1, offsetXPercent: 0, offsetYPercent: 0 }` (jangan dikalibrasi/diverifikasi pas frame — `chibiDetailFraming` tidak perlu diisi, otomatis fallback)
+- [ ] **Chibi idle + walking di-render via `scripts/chibi-pipeline/render-walking-pair.mjs`** (satu kamera untuk idle+move, bukan wiki.gg), `chibiFraming` diisi lewat `node scripts/chibi-pipeline/standardize-walking-framing.mjs --only <file> --write` (standar Amiya — jangan biarkan identity, jangan tuning manual)
 - [ ] **Voice lines 4 bahasa (JP/CN/EN/KR)** via `gen_operator_voices.py <slug> --client-only` — semua bahasa `on disk: N/N`, `voice:` ter-wire, lalu rerun `gen_title_voices.py --lang en` dan sync ke R2 (setelah konfirmasi user)
 - [ ] Class/branch/faction icon tersedia di `public/icons/` (faction theme baru ditambahkan jika perlu)
 - [ ] Summon data & asset (jika ada)

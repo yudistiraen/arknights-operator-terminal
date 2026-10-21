@@ -20,8 +20,8 @@ const justiceKnight: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/pinus-sylvestris.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/justice-knight/base.png', chibiSrc: '/operators/justice-knight/chibi.webm', chibiMoveSrc: '/operators/justice-knight/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
-    { id: 'skin1', label: 'Tournament Fantasy Retrofit Kit', src: '/operators/justice-knight/skin1.png', chibiSrc: '/operators/justice-knight/chibi-skin1.webm', chibiMoveSrc: '/operators/justice-knight/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '过失帝国' },
+    { id: 'base', label: 'Base', src: '/operators/justice-knight/base.png', chibiSrc: '/operators/justice-knight/chibi.webm', chibiMoveSrc: '/operators/justice-knight/chibi-move.webm', chibiFraming: { scale: 1.38, offsetXPercent: -1.4, offsetYPercent: -0.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'NoriZC' },
+    { id: 'skin1', label: 'Tournament Fantasy Retrofit Kit', src: '/operators/justice-knight/skin1.png', chibiSrc: '/operators/justice-knight/chibi-skin1.webm', chibiMoveSrc: '/operators/justice-knight/chibi-move-skin1.webm', chibiFraming: { scale: 1.46, offsetXPercent: 0, offsetYPercent: -3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '过失帝国' },
   ],
 }
 

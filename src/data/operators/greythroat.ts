@@ -86,9 +86,9 @@ const greythroat: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/greythroat/base.png', chibiSrc: '/operators/greythroat/chibi.webm', chibiMoveSrc: '/operators/greythroat/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/greythroat/e2.png', chibiSrc: '/operators/greythroat/chibi.webm', chibiMoveSrc: '/operators/greythroat/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
-    { id: 'skin1', label: 'Homecoming', src: '/operators/greythroat/skin1.png', chibiSrc: '/operators/greythroat/chibi-skin1.webm', chibiMoveSrc: '/operators/greythroat/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
+    { id: 'base', label: 'Base', src: '/operators/greythroat/base.png', chibiSrc: '/operators/greythroat/chibi.webm', chibiMoveSrc: '/operators/greythroat/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.4, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/greythroat/e2.png', chibiSrc: '/operators/greythroat/chibi.webm', chibiMoveSrc: '/operators/greythroat/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.4, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
+    { id: 'skin1', label: 'Homecoming', src: '/operators/greythroat/skin1.png', chibiSrc: '/operators/greythroat/chibi-skin1.webm', chibiMoveSrc: '/operators/greythroat/chibi-move-skin1.webm', chibiFraming: { scale: 1.46, offsetXPercent: -2.2, offsetYPercent: -3.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro' },
   ],
   portrait: '/operators/greythroat/portrait.png',
   portraitFocus: { y: -3.8, x: 41.6, zoom: 329 },

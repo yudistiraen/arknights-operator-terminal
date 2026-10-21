@@ -95,8 +95,8 @@ const w: Operator = {
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/babel.png',
   skins: [
     { id: 'base', label: 'Base', src: '/operators/w/base.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-e2.skel', atlas: '/operators/w/l2d/w-e2.atlas', backdrop: { src: '/operators/w/l2d/w-e2-bg.png', x: -757, y: 131, width: 1800, height: 1600 } } },
-    { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', backdrop: { src: '/operators/w/l2d/w-fugue-bg.png', x: -924, y: 108, width: 1930, height: 1520 }, characterSlotPrefix: 'W_', focus: { zoom: 1.82, offsetY: 32, offsetX: -6 } } },
+    { id: 'e2', label: 'Elite 2', src: '/operators/w/e2.png', chibiSrc: '/operators/w/chibi.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-e2.skel', atlas: '/operators/w/l2d/w-e2.atlas', backdrop: { src: '/operators/w/l2d/w-e2-bg.png', x: -757, y: 131, width: 1800, height: 1678.5 }, overlays: [{ src: '/operators/w/l2d/w-e2-fg1.png', x: -725, y: 100.9, width: 1574.2, height: 1673.1 }] } },
+    { id: 'skin1', label: 'Fugue', src: '/operators/w/skin1.png', chibiSrc: '/operators/w/chibi-skin1.webm', illustrator: 'Liduke', l2d: { skel: '/operators/w/l2d/w-fugue.skel', atlas: '/operators/w/l2d/w-fugue.atlas', backdrop: { src: '/operators/w/l2d/w-fugue-bg.png', x: -924, y: 108, width: 1930, height: 1520 }, overlays: [{ src: '/operators/w/l2d/w-fugue-fg1.png', x: 57, y: 364, width: 500, height: 500 }], characterSlotPrefix: 'W_', focus: { zoom: 1.82, offsetY: 32, offsetX: -6 } } },
   ],
   portrait: '/operators/w/portrait.png',
   portraitFocus: { y: -4.9, x: 47, zoom: 309 },

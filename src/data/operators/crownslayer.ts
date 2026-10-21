@@ -97,9 +97,9 @@ const crownslayer: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/executor-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/crownslayer/base.png', chibiSrc: '/operators/crownslayer/chibi.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/crownslayer/e2.png', chibiSrc: '/operators/crownslayer/chibi.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
-    { id: 'skin1', label: 'The Dark Night Terminator', src: '/operators/crownslayer/skin1.png', chibiSrc: '/operators/crownslayer/chibi-skin1.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
+    { id: 'base', label: 'Base', src: '/operators/crownslayer/base.png', chibiSrc: '/operators/crownslayer/chibi.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 0.1, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/crownslayer/e2.png', chibiSrc: '/operators/crownslayer/chibi.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 0.1, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
+    { id: 'skin1', label: 'The Dark Night Terminator', src: '/operators/crownslayer/skin1.png', chibiSrc: '/operators/crownslayer/chibi-skin1.webm', chibiMoveSrc: '/operators/crownslayer/chibi-move-skin1.webm', chibiFraming: { scale: 1.36, offsetXPercent: -1.7, offsetYPercent: 1.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '海猫络合物 (original design), 直立行走 (Operator art)' },
   ],
   portrait: '/operators/crownslayer/portrait.png',
   portraitFocus: { y: -7.7, x: 38.5, zoom: 308 },

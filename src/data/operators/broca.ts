@@ -75,9 +75,9 @@ const broca: Operator = {
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/centurion-branch.png', factionIcon: '/icons/factions/siracusa.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/broca/base.png', chibiSrc: '/operators/broca/chibi.webm', chibiMoveSrc: '/operators/broca/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/broca/e2.png', chibiSrc: '/operators/broca/chibi.webm', chibiMoveSrc: '/operators/broca/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'skin1', label: 'Rest Between Sets', src: '/operators/broca/skin1.png', chibiSrc: '/operators/broca/chibi-skin1.webm', chibiMoveSrc: '/operators/broca/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'base', label: 'Base', src: '/operators/broca/base.png', chibiSrc: '/operators/broca/chibi.webm', chibiMoveSrc: '/operators/broca/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 7.2, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/broca/e2.png', chibiSrc: '/operators/broca/chibi.webm', chibiMoveSrc: '/operators/broca/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 7.2, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'skin1', label: 'Rest Between Sets', src: '/operators/broca/skin1.png', chibiSrc: '/operators/broca/chibi-skin1.webm', chibiMoveSrc: '/operators/broca/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/broca/portrait.png',
   portraitFocus: { y: -3.7, x: 62.3, zoom: 370 },

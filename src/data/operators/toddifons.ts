@@ -98,8 +98,8 @@ const toddifons: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/besieger-branch.png', factionIcon: '/icons/factions/victoria.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/toddifons/base.png', chibiSrc: '/operators/toddifons/chibi.webm', chibiMoveSrc: '/operators/toddifons/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '山x2' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/toddifons/e2.png', chibiSrc: '/operators/toddifons/chibi.webm', chibiMoveSrc: '/operators/toddifons/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '山x2' },
+    { id: 'base', label: 'Base', src: '/operators/toddifons/base.png', chibiSrc: '/operators/toddifons/chibi.webm', chibiMoveSrc: '/operators/toddifons/chibi-move.webm', chibiFraming: { scale: 1.31, offsetXPercent: 1.4, offsetYPercent: 1.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '山x2' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/toddifons/e2.png', chibiSrc: '/operators/toddifons/chibi.webm', chibiMoveSrc: '/operators/toddifons/chibi-move.webm', chibiFraming: { scale: 1.31, offsetXPercent: 1.4, offsetYPercent: 1.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '山x2' },
   ],
   portrait: '/operators/toddifons/portrait.png',
   portraitFocus: { y: 11, x: 65.3, zoom: 320 },

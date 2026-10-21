@@ -98,9 +98,9 @@ const glaucus: Operator = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/decel-binder-branch.png', factionIcon: '/icons/factions/iberia.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/glaucus/base.png', chibiSrc: '/operators/glaucus/chibi.webm', chibiMoveSrc: '/operators/glaucus/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/glaucus/e2.png', chibiSrc: '/operators/glaucus/chibi.webm', chibiMoveSrc: '/operators/glaucus/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
-    { id: 'skin1', label: 'Exterminator in the Square', src: '/operators/glaucus/skin1.png', chibiSrc: '/operators/glaucus/chibi-skin1.webm', chibiMoveSrc: '/operators/glaucus/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'base', label: 'Base', src: '/operators/glaucus/base.png', chibiSrc: '/operators/glaucus/chibi.webm', chibiMoveSrc: '/operators/glaucus/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/glaucus/e2.png', chibiSrc: '/operators/glaucus/chibi.webm', chibiMoveSrc: '/operators/glaucus/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
+    { id: 'skin1', label: 'Exterminator in the Square', src: '/operators/glaucus/skin1.png', chibiSrc: '/operators/glaucus/chibi-skin1.webm', chibiMoveSrc: '/operators/glaucus/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: -2.8, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '下野宏铭' },
   ],
   portrait: '/operators/glaucus/portrait.png',
   portraitFocus: { y: 18, x: 59.1, zoom: 340 },

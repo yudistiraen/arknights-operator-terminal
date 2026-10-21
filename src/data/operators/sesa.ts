@@ -75,11 +75,11 @@ const sesa: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/artilleryman-branch.png', factionIcon: '/icons/factions/sargon.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/sesa/base.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/sesa/e2.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'base', label: 'Base', src: '/operators/sesa/base.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: 0.9, offsetYPercent: 2.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/sesa/e2.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: 0.9, offsetYPercent: 2.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
     // fexli/ArknightsResource has no separate dorm Spine build for "To Evoke the Anima" (skin1) —
     // only one char_379_sesa build folder exists in the repo — so this skin reuses the base chibi as a placeholder.
-    { id: 'skin1', label: 'To Evoke the Anima', src: '/operators/sesa/skin1.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'skin1', label: 'To Evoke the Anima', src: '/operators/sesa/skin1.png', chibiSrc: '/operators/sesa/chibi.webm', chibiMoveSrc: '/operators/sesa/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: 0.9, offsetYPercent: 2.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/sesa/portrait.png',
   portraitFocus: { y: 9.3, x: 42.7, zoom: 414 },

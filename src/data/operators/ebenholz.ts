@@ -133,9 +133,9 @@ const ebenholz: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/mystic-caster-branch.png', factionIcon: '/icons/factions/leithanien.png',
   skins: [
-    { id: 'base', label: "Base", src: '/operators/ebenholz/base.png', chibiSrc: '/operators/ebenholz/chibi.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
-    { id: 'e2', label: "Elite 2", src: '/operators/ebenholz/e2.png', chibiSrc: '/operators/ebenholz/chibi.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
-    { id: 'skin1', label: "Eine Variation", src: '/operators/ebenholz/skin1.png', chibiSrc: '/operators/ebenholz/chibi-skin1.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
+    { id: 'base', label: "Base", src: '/operators/ebenholz/base.png', chibiSrc: '/operators/ebenholz/chibi.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.1, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
+    { id: 'e2', label: "Elite 2", src: '/operators/ebenholz/e2.png', chibiSrc: '/operators/ebenholz/chibi.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.1, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
+    { id: 'skin1', label: "Eine Variation", src: '/operators/ebenholz/skin1.png', chibiSrc: '/operators/ebenholz/chibi-skin1.webm', chibiMoveSrc: '/operators/ebenholz/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.5, offsetYPercent: 3.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "竜崎いち" },
   ],
   portrait: '/operators/ebenholz/portrait.png',
 }

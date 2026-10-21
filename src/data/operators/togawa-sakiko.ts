@@ -165,9 +165,9 @@ During Fever, Ave Mujica members who receive fatal damage will not retreat until
   ],
   classIcon: '/icons/classes/guard-class.png', branchIcon: '/icons/branches/lord-branch.png', factionIcon: '/icons/factions/ave-mujica.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/togawa-sakiko/base.png', chibiSrc: '/operators/togawa-sakiko/chibi.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1.2, offsetYPercent: -0.3 }, illustrator: '〇亻' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/togawa-sakiko/e2.png', chibiSrc: '/operators/togawa-sakiko/chibi.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move.webm', chibiFraming: { scale: 1.5, offsetXPercent: 0, offsetYPercent: 0 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1.2, offsetYPercent: -0.3 }, illustrator: '〇亻' },
-    { id: 'skin1', label: 'Master of Melodia', src: '/operators/togawa-sakiko/skin1.png', chibiSrc: '/operators/togawa-sakiko/chibi-skin1.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: -16.7, offsetYPercent: -0.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: -3.5, offsetYPercent: -0.3 }, illustrator: 'Yukuso' },
+    { id: 'base', label: 'Base', src: '/operators/togawa-sakiko/base.png', chibiSrc: '/operators/togawa-sakiko/chibi.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move.webm', chibiFraming: { scale: 1.49, offsetXPercent: 1.5, offsetYPercent: 0.2 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1.2, offsetYPercent: -0.3 }, illustrator: '〇亻' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/togawa-sakiko/e2.png', chibiSrc: '/operators/togawa-sakiko/chibi.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move.webm', chibiFraming: { scale: 1.49, offsetXPercent: 1.5, offsetYPercent: 0.2 }, chibiDetailFraming: { scale: 1, offsetXPercent: -1.2, offsetYPercent: -0.3 }, illustrator: '〇亻' },
+    { id: 'skin1', label: 'Master of Melodia', src: '/operators/togawa-sakiko/skin1.png', chibiSrc: '/operators/togawa-sakiko/chibi-skin1.webm', chibiMoveSrc: '/operators/togawa-sakiko/chibi-move-skin1.webm', chibiFraming: { scale: 1.5, offsetXPercent: 14.7, offsetYPercent: 0.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: -3.5, offsetYPercent: -0.3 }, illustrator: 'Yukuso' },
   ],
   portrait: '/operators/togawa-sakiko/portrait.png',
   portraitFocus: { y: -9.2, x: 19.1, zoom: 297 },

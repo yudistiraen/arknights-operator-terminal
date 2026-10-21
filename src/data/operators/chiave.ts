@@ -75,9 +75,9 @@ const chiave: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/siracusa.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/chiave/base.png', chibiSrc: '/operators/chiave/chibi.webm', chibiMoveSrc: '/operators/chiave/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/chiave/e2.png', chibiSrc: '/operators/chiave/chibi.webm', chibiMoveSrc: '/operators/chiave/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
-    { id: 'skin1', label: 'One-man Racing Team', src: '/operators/chiave/skin1.png', chibiSrc: '/operators/chiave/chibi-skin1.webm', chibiMoveSrc: '/operators/chiave/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'base', label: 'Base', src: '/operators/chiave/base.png', chibiSrc: '/operators/chiave/chibi.webm', chibiMoveSrc: '/operators/chiave/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -1.8, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/chiave/e2.png', chibiSrc: '/operators/chiave/chibi.webm', chibiMoveSrc: '/operators/chiave/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -1.8, offsetYPercent: 3.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
+    { id: 'skin1', label: 'One-man Racing Team', src: '/operators/chiave/skin1.png', chibiSrc: '/operators/chiave/chibi-skin1.webm', chibiMoveSrc: '/operators/chiave/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: -0.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Infukun' },
   ],
   portrait: '/operators/chiave/portrait.png',
   portraitFocus: { y: 2, x: 47.9, zoom: 399 },

@@ -14,7 +14,8 @@ const SPRING_EASE = 'ease-[cubic-bezier(0.22,1.2,0.36,1)]'
 
 export function VoicePanel({ operator }: { operator: Operator }) {
   const [openLanguage, setOpenLanguage] = useState<VoiceLanguage | null>(null)
-  const [playingLineId, setPlayingLineId] = useState<string | null>(null)
+  // Keyed by language + line id: every language list shares the same line ids and stays mounted while collapsed.
+  const [playingLineKey, setPlayingLineKey] = useState<string | null>(null)
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const progressBarRef = useRef<HTMLSpanElement | null>(null)
   const animationFrameRef = useRef<number | null>(null)
@@ -26,7 +27,7 @@ export function VoicePanel({ operator }: { operator: Operator }) {
     animationFrameRef.current = null
     audioRef.current?.pause()
     audioRef.current = null
-    setPlayingLineId(null)
+    setPlayingLineKey(null)
   }
 
   // Stop audio when the panel closes or the operator/form changes.
@@ -40,14 +41,19 @@ export function VoicePanel({ operator }: { operator: Operator }) {
   const trackProgress = () => {
     const audio = audioRef.current
     if (!audio) return
-    if (progressBarRef.current && audio.duration) {
-      progressBarRef.current.style.transform = `scaleX(${audio.currentTime / audio.duration})`
+    // Streamed/proxied mp3s can report an Infinity duration; fall back to the seekable range.
+    const totalDuration = Number.isFinite(audio.duration)
+      ? audio.duration
+      : audio.seekable.length > 0 ? audio.seekable.end(audio.seekable.length - 1) : 0
+    if (progressBarRef.current && totalDuration > 0) {
+      progressBarRef.current.style.transform = `scaleX(${Math.min(audio.currentTime / totalDuration, 1)})`
     }
     animationFrameRef.current = requestAnimationFrame(trackProgress)
   }
 
   const toggleLine = (language: VoiceLanguage, line: VoiceLine) => {
-    const wasPlaying = playingLineId === line.id
+    const lineKey = `${language}:${line.id}`
+    const wasPlaying = playingLineKey === lineKey
     stopPlayback()
     if (wasPlaying || !operator.voice) return
 
@@ -55,7 +61,7 @@ export function VoicePanel({ operator }: { operator: Operator }) {
     audio.addEventListener('ended', stopPlayback)
     audio.addEventListener('error', stopPlayback)
     audioRef.current = audio
-    setPlayingLineId(line.id)
+    setPlayingLineKey(lineKey)
     audio.play().catch(stopPlayback)
     animationFrameRef.current = requestAnimationFrame(trackProgress)
   }
@@ -103,7 +109,7 @@ export function VoicePanel({ operator }: { operator: Operator }) {
                           key={line.id}
                           line={line}
                           language={language}
-                          isPlaying={playingLineId === line.id}
+                          isPlaying={playingLineKey === `${language}:${line.id}`}
                           progressBarRef={progressBarRef}
                           onToggle={() => toggleLine(language, line)}
                         />
@@ -176,13 +182,15 @@ function VoiceLineRow({ line, language, isPlaying, progressBarRef, onToggle }: {
           )}
         </span>
 
-        {/* Playback progress */}
+        {/* Playback progress: yellow fill running along a dim track, sitting right above the row's border-bottom */}
         {isPlaying && (
-          <span
-            ref={progressBarRef}
-            className="pointer-events-none absolute left-0 right-0 bottom-0 h-px bg-gc-signal origin-left"
-            style={{ transform: 'scaleX(0)' }}
-          />
+          <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-gc-signal/15">
+            <span
+              ref={progressBarRef}
+              className="absolute inset-0 bg-gc-signal origin-left"
+              style={{ transform: 'scaleX(0)' }}
+            />
+          </span>
         )}
       </button>
     </li>

@@ -89,9 +89,9 @@ const iris: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/mystic-caster-branch.png', factionIcon: '/icons/factions/victoria.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/iris/base.png', chibiSrc: '/operators/iris/chibi.webm', chibiMoveSrc: '/operators/iris/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/iris/e2.png', chibiSrc: '/operators/iris/chibi.webm', chibiMoveSrc: '/operators/iris/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
-    { id: 'skin1', label: 'Mirror Visitor', src: '/operators/iris/skin1.png', chibiSrc: '/operators/iris/chibi-skin1.webm', chibiMoveSrc: '/operators/iris/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'base', label: 'Base', src: '/operators/iris/base.png', chibiSrc: '/operators/iris/chibi.webm', chibiMoveSrc: '/operators/iris/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 3.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/iris/e2.png', chibiSrc: '/operators/iris/chibi.webm', chibiMoveSrc: '/operators/iris/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 3.5, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
+    { id: 'skin1', label: 'Mirror Visitor', src: '/operators/iris/skin1.png', chibiSrc: '/operators/iris/chibi-skin1.webm', chibiMoveSrc: '/operators/iris/chibi-move-skin1.webm', chibiFraming: { scale: 2.15, offsetXPercent: 0, offsetYPercent: -15 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Xiaye Hongming' },
   ],
   portrait: '/operators/iris/portrait.png',
   portraitFocus: { y: 20, x: 55.1, zoom: 380 },

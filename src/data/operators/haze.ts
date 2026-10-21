@@ -74,9 +74,9 @@ const haze: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/core-caster-branch.png', factionIcon: '/icons/factions/victoria.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/haze/base.png', chibiSrc: '/operators/haze/chibi.webm', chibiMoveSrc: '/operators/haze/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/haze/e2.png', chibiSrc: '/operators/haze/chibi.webm', chibiMoveSrc: '/operators/haze/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'The Nursing Home Creepshow', src: '/operators/haze/skin1.png', chibiSrc: '/operators/haze/chibi-skin1.webm', chibiMoveSrc: '/operators/haze/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '水滴鱼' },
+    { id: 'base', label: 'Base', src: '/operators/haze/base.png', chibiSrc: '/operators/haze/chibi.webm', chibiMoveSrc: '/operators/haze/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: -2.3, offsetYPercent: 4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/haze/e2.png', chibiSrc: '/operators/haze/chibi.webm', chibiMoveSrc: '/operators/haze/chibi-move.webm', chibiFraming: { scale: 1.32, offsetXPercent: -2.3, offsetYPercent: 4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'The Nursing Home Creepshow', src: '/operators/haze/skin1.png', chibiSrc: '/operators/haze/chibi-skin1.webm', chibiMoveSrc: '/operators/haze/chibi-move-skin1.webm', chibiFraming: { scale: 1.32, offsetXPercent: 1.3, offsetYPercent: 3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '水滴鱼' },
   ],
   portrait: '/operators/haze/portrait.png',
   portraitFocus: { y: -6, x: 55.6, zoom: 254 },

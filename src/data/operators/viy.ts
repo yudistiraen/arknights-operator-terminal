@@ -113,8 +113,8 @@ const viy: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/mystic-caster-branch.png', factionIcon: '/icons/factions/ursus.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/viy/base.png', chibiSrc: '/operators/viy/chibi.webm', chibiMoveSrc: '/operators/viy/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '二开' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/viy/e2.png', chibiSrc: '/operators/viy/chibi.webm', chibiMoveSrc: '/operators/viy/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '二开' },
+    { id: 'base', label: 'Base', src: '/operators/viy/base.png', chibiSrc: '/operators/viy/chibi.webm', chibiMoveSrc: '/operators/viy/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '二开' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/viy/e2.png', chibiSrc: '/operators/viy/chibi.webm', chibiMoveSrc: '/operators/viy/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '二开' },
   ],
   portrait: '/operators/viy/portrait.png',
   portraitFocus: { y: -0.2, x: 60.5, zoom: 468 },

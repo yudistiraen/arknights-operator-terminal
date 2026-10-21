@@ -95,11 +95,11 @@ const april: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/rim-billiton.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/april/base.png', chibiSrc: '/operators/april/chibi.webm', chibiMoveSrc: '/operators/april/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/april/e2.png', chibiSrc: '/operators/april/chibi.webm', chibiMoveSrc: '/operators/april/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
-    { id: 'skin1', label: 'Faraway Gaze', src: '/operators/april/skin1.png', chibiSrc: '/operators/april/chibi-skin1.webm', chibiMoveSrc: '/operators/april/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
+    { id: 'base', label: 'Base', src: '/operators/april/base.png', chibiSrc: '/operators/april/chibi.webm', chibiMoveSrc: '/operators/april/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/april/e2.png', chibiSrc: '/operators/april/chibi.webm', chibiMoveSrc: '/operators/april/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
+    { id: 'skin1', label: 'Faraway Gaze', src: '/operators/april/skin1.png', chibiSrc: '/operators/april/chibi-skin1.webm', chibiMoveSrc: '/operators/april/chibi-move-skin1.webm', chibiFraming: { scale: 1.26, offsetXPercent: 4.2, offsetYPercent: 3.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'れおえん' },
   ],
-  portraitFocus: { y: 10, x: 47.4, zoom: 335 },
+  portraitFocus: { y: 10, x: 49.4, zoom: 305 },
 }
 
 export default april

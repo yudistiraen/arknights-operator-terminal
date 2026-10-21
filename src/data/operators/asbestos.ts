@@ -79,9 +79,9 @@ const asbestos: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/arts-protector-branch.png', factionIcon: '/icons/factions/rim-billiton.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/asbestos/base.png', chibiSrc: '/operators/asbestos/chibi.webm', chibiMoveSrc: '/operators/asbestos/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/asbestos/e2.png', chibiSrc: '/operators/asbestos/chibi.webm', chibiMoveSrc: '/operators/asbestos/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
-    { id: 'skin1', label: 'Glen Sonata', src: '/operators/asbestos/skin1.png', chibiSrc: '/operators/asbestos/chibi-skin1.webm', chibiMoveSrc: '/operators/asbestos/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
+    { id: 'base', label: 'Base', src: '/operators/asbestos/base.png', chibiSrc: '/operators/asbestos/chibi.webm', chibiMoveSrc: '/operators/asbestos/chibi-move.webm', chibiFraming: { scale: 1.25, offsetXPercent: 1.9, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/asbestos/e2.png', chibiSrc: '/operators/asbestos/chibi.webm', chibiMoveSrc: '/operators/asbestos/chibi-move.webm', chibiFraming: { scale: 1.25, offsetXPercent: 1.9, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
+    { id: 'skin1', label: 'Glen Sonata', src: '/operators/asbestos/skin1.png', chibiSrc: '/operators/asbestos/chibi-skin1.webm', chibiMoveSrc: '/operators/asbestos/chibi-move-skin1.webm', chibiFraming: { scale: 1.25, offsetXPercent: -0.5, offsetYPercent: 3.5 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TEAM EXPNDR' },
   ],
   portrait: '/operators/asbestos/portrait.png',
   portraitFocus: { y: -6, x: 38.9, zoom: 304 },

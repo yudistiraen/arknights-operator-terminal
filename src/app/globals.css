@@ -261,3 +261,14 @@ html {
   }
 }
 
+
+/* OperatorList type-to-search echo (Dota 2 hero-grid style): newest key pops in, caret blinks. */
+@keyframes type-echo-key {
+  0% { transform: translateY(0.12em) scale(1.35); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes type-echo-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}

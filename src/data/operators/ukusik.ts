@@ -73,8 +73,8 @@ const ukusik: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/chain-medic-branch.png', factionIcon: '/icons/factions/ursus.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/ukusik/base.png', chibiSrc: '/operators/ukusik/chibi.webm', chibiMoveSrc: '/operators/ukusik/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '折射镜' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/ukusik/e2.png', chibiSrc: '/operators/ukusik/chibi.webm', chibiMoveSrc: '/operators/ukusik/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '折射镜' },
+    { id: 'base', label: 'Base', src: '/operators/ukusik/base.png', chibiSrc: '/operators/ukusik/chibi.webm', chibiMoveSrc: '/operators/ukusik/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '折射镜' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/ukusik/e2.png', chibiSrc: '/operators/ukusik/chibi.webm', chibiMoveSrc: '/operators/ukusik/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '折射镜' },
   ],
   portrait: '/operators/ukusik/portrait.png',
 }

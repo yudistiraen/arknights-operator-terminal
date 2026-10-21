@@ -76,9 +76,9 @@ const mrNothing: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/merchant-branch.png', factionIcon: '/icons/factions/yan.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/mr-nothing/base.png', chibiSrc: '/operators/mr-nothing/chibi.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/mr-nothing/e2.png', chibiSrc: '/operators/mr-nothing/chibi.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Pale Rising Moon', src: '/operators/mr-nothing/skin1.png', chibiSrc: '/operators/mr-nothing/chibi-skin1.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/mr-nothing/base.png', chibiSrc: '/operators/mr-nothing/chibi.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.4, offsetYPercent: 2.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/mr-nothing/e2.png', chibiSrc: '/operators/mr-nothing/chibi.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 1.4, offsetYPercent: 2.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Pale Rising Moon', src: '/operators/mr-nothing/skin1.png', chibiSrc: '/operators/mr-nothing/chibi-skin1.webm', chibiMoveSrc: '/operators/mr-nothing/chibi-move-skin1.webm', chibiFraming: { scale: 1.66, offsetXPercent: 15.3, offsetYPercent: -8.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/mr-nothing/portrait.png',
   portraitFocus: { y: 0.9, x: 49.3, zoom: 448 },

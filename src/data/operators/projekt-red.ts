@@ -75,9 +75,9 @@ const projektRed: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/executor-branch.png', factionIcon: '/icons/factions/sweep.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/projekt-red/base.png', chibiSrc: '/operators/projekt-red/chibi.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/projekt-red/e2.png', chibiSrc: '/operators/projekt-red/chibi.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
-    { id: 'skin1', label: 'Light Breeze LB01', src: '/operators/projekt-red/skin1.png', chibiSrc: '/operators/projekt-red/chibi-skin1.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
+    { id: 'base', label: 'Base', src: '/operators/projekt-red/base.png', chibiSrc: '/operators/projekt-red/chibi.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -0.1, offsetYPercent: 3.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/projekt-red/e2.png', chibiSrc: '/operators/projekt-red/chibi.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: -0.1, offsetYPercent: 3.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
+    { id: 'skin1', label: 'Light Breeze LB01', src: '/operators/projekt-red/skin1.png', chibiSrc: '/operators/projekt-red/chibi-skin1.webm', chibiMoveSrc: '/operators/projekt-red/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.6, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'infukun' },
   ],
   portrait: '/operators/projekt-red/portrait.png',
   portraitFocus: { y: -0.7, x: 53.7, zoom: 365 },

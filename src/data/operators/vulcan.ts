@@ -94,9 +94,9 @@ const vulcan: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/juggernaut-branch.png', factionIcon: '/icons/factions/minos.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/vulcan/base.png', chibiSrc: '/operators/vulcan/chibi.webm', chibiMoveSrc: '/operators/vulcan/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/vulcan/e2.png', chibiSrc: '/operators/vulcan/chibi.webm', chibiMoveSrc: '/operators/vulcan/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
-    { id: 'skin1', label: 'Ignis', src: '/operators/vulcan/skin1.png', chibiSrc: '/operators/vulcan/chibi-skin1.webm', chibiMoveSrc: '/operators/vulcan/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
+    { id: 'base', label: 'Base', src: '/operators/vulcan/base.png', chibiSrc: '/operators/vulcan/chibi.webm', chibiMoveSrc: '/operators/vulcan/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/vulcan/e2.png', chibiSrc: '/operators/vulcan/chibi.webm', chibiMoveSrc: '/operators/vulcan/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
+    { id: 'skin1', label: 'Ignis', src: '/operators/vulcan/skin1.png', chibiSrc: '/operators/vulcan/chibi-skin1.webm', chibiMoveSrc: '/operators/vulcan/chibi-move-skin1.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.9, offsetYPercent: 3.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'neco' },
   ],
   portrait: '/operators/vulcan/portrait.png',
   portraitFocus: { y: -2.4, x: 33.7, zoom: 365 },

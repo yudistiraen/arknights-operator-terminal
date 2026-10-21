@@ -100,9 +100,9 @@ const ash: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/team-rainbow.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/ash/base.png', chibiSrc: '/operators/ash/chibi.webm', chibiMoveSrc: '/operators/ash/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/ash/e2.png', chibiSrc: '/operators/ash/chibi.webm', chibiMoveSrc: '/operators/ash/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
-    { id: 'skin1', label: 'Ranger', src: '/operators/ash/skin1.png', chibiSrc: '/operators/ash/chibi-skin1.webm', chibiMoveSrc: '/operators/ash/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
+    { id: 'base', label: 'Base', src: '/operators/ash/base.png', chibiSrc: '/operators/ash/chibi.webm', chibiMoveSrc: '/operators/ash/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/ash/e2.png', chibiSrc: '/operators/ash/chibi.webm', chibiMoveSrc: '/operators/ash/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.7, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
+    { id: 'skin1', label: 'Ranger', src: '/operators/ash/skin1.png', chibiSrc: '/operators/ash/chibi-skin1.webm', chibiMoveSrc: '/operators/ash/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: -2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'm9nokuro (credited as "Ubisoft" in-game)' },
   ],
   portrait: '/operators/ash/portrait.png',
   portraitFocus: { y: 3, x: 51.1, zoom: 408 },

@@ -75,9 +75,9 @@ const scavenger: Operator = {
   ],
   classIcon: '/icons/classes/vanguard-class.png', branchIcon: '/icons/branches/pioneer-branch.png', factionIcon: '/icons/factions/sweep.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/scavenger/base.png', chibiSrc: '/operators/scavenger/chibi.webm', chibiMoveSrc: '/operators/scavenger/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/scavenger/e2.png', chibiSrc: '/operators/scavenger/chibi.webm', chibiMoveSrc: '/operators/scavenger/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
-    { id: 'skin1', label: 'Survive', src: '/operators/scavenger/skin1.png', chibiSrc: '/operators/scavenger/chibi-skin1.webm', chibiMoveSrc: '/operators/scavenger/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
+    { id: 'base', label: 'Base', src: '/operators/scavenger/base.png', chibiSrc: '/operators/scavenger/chibi.webm', chibiMoveSrc: '/operators/scavenger/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.7, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/scavenger/e2.png', chibiSrc: '/operators/scavenger/chibi.webm', chibiMoveSrc: '/operators/scavenger/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.7, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
+    { id: 'skin1', label: 'Survive', src: '/operators/scavenger/skin1.png', chibiSrc: '/operators/scavenger/chibi-skin1.webm', chibiMoveSrc: '/operators/scavenger/chibi-move-skin1.webm', chibiFraming: { scale: 1.31, offsetXPercent: 0.9, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '戏言咸咸' },
   ],
   portrait: '/operators/scavenger/portrait.png',
   portraitFocus: { y: -4.4, x: 67.1, zoom: 358 },

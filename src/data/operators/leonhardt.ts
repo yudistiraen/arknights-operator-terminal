@@ -78,10 +78,10 @@ const leonhardt: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/splash-caster-branch.png', factionIcon: '/icons/factions/rim-billiton.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/leonhardt/base.png', chibiSrc: '/operators/leonhardt/chibi.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/leonhardt/e2.png', chibiSrc: '/operators/leonhardt/chibi.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
-    { id: 'skin1', label: 'Finder in the Rough', src: '/operators/leonhardt/skin1.png', chibiSrc: '/operators/leonhardt/chibi-skin1.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
-    { id: 'skin2', label: 'Hope Cruise', src: '/operators/leonhardt/skin2.png', chibiSrc: '/operators/leonhardt/chibi-skin2.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin2.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
+    { id: 'base', label: 'Base', src: '/operators/leonhardt/base.png', chibiSrc: '/operators/leonhardt/chibi.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 0.7, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/leonhardt/e2.png', chibiSrc: '/operators/leonhardt/chibi.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 0.7, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
+    { id: 'skin1', label: 'Finder in the Rough', src: '/operators/leonhardt/skin1.png', chibiSrc: '/operators/leonhardt/chibi-skin1.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1, offsetYPercent: 2.8 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
+    { id: 'skin2', label: 'Hope Cruise', src: '/operators/leonhardt/skin2.png', chibiSrc: '/operators/leonhardt/chibi-skin2.webm', chibiMoveSrc: '/operators/leonhardt/chibi-move-skin2.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.8, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '野崎つばた' },
   ],
   portraitFocus: { y: 2.2, x: 32.2, zoom: 345 },
 }

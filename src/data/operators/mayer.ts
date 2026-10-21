@@ -83,9 +83,9 @@ const mayer: Operator = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/summoner-branch.png', factionIcon: '/icons/factions/rhine-lab.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/mayer/base.png', chibiSrc: '/operators/mayer/chibi.webm', chibiMoveSrc: '/operators/mayer/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/mayer/e2.png', chibiSrc: '/operators/mayer/chibi.webm', chibiMoveSrc: '/operators/mayer/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
-    { id: 'skin1', label: 'Visionblazer in the Courtyard', src: '/operators/mayer/skin1.png', chibiSrc: '/operators/mayer/chibi-skin1.webm', chibiMoveSrc: '/operators/mayer/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
+    { id: 'base', label: 'Base', src: '/operators/mayer/base.png', chibiSrc: '/operators/mayer/chibi.webm', chibiMoveSrc: '/operators/mayer/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/mayer/e2.png', chibiSrc: '/operators/mayer/chibi.webm', chibiMoveSrc: '/operators/mayer/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
+    { id: 'skin1', label: 'Visionblazer in the Courtyard', src: '/operators/mayer/skin1.png', chibiSrc: '/operators/mayer/chibi-skin1.webm', chibiMoveSrc: '/operators/mayer/chibi-move-skin1.webm', chibiFraming: { scale: 2.23, offsetXPercent: 2.6, offsetYPercent: -18.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '幻象黑兔' },
   ],
   portrait: '/operators/mayer/portrait.png',
   portraitFocus: { y: -10.9, x: 53.2, zoom: 269 },

@@ -73,9 +73,9 @@ const leizi: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/chain-branch.png', factionIcon: '/icons/factions/yan.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/leizi/base.png', chibiSrc: '/operators/leizi/chibi.webm', chibiMoveSrc: '/operators/leizi/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/leizi/e2.png', chibiSrc: '/operators/leizi/chibi.webm', chibiMoveSrc: '/operators/leizi/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'skin1', label: 'The Archivist and Her Pilgrimage', src: '/operators/leizi/skin1.png', chibiSrc: '/operators/leizi/chibi-skin1.webm', chibiMoveSrc: '/operators/leizi/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'base', label: 'Base', src: '/operators/leizi/base.png', chibiSrc: '/operators/leizi/chibi.webm', chibiMoveSrc: '/operators/leizi/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/leizi/e2.png', chibiSrc: '/operators/leizi/chibi.webm', chibiMoveSrc: '/operators/leizi/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.2, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'skin1', label: 'The Archivist and Her Pilgrimage', src: '/operators/leizi/skin1.png', chibiSrc: '/operators/leizi/chibi-skin1.webm', chibiMoveSrc: '/operators/leizi/chibi-move-skin1.webm', chibiFraming: { scale: 1.25, offsetXPercent: 1.9, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portraitFocus: { y: 9.8, x: 48.7, zoom: 350 },
 }

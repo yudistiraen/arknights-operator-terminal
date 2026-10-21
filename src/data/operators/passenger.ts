@@ -125,9 +125,9 @@ const passenger: Operator = {
   ],
   classIcon: '/icons/classes/caster-class.png', branchIcon: '/icons/branches/chain-branch.png', factionIcon: '/icons/factions/sargon.png',
   skins: [
-    { id: 'base', label: "Base", src: '/operators/passenger/base.png', chibiSrc: '/operators/passenger/chibi.webm', chibiMoveSrc: '/operators/passenger/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
-    { id: 'e2', label: "Elite 2", src: '/operators/passenger/e2.png', chibiSrc: '/operators/passenger/chibi.webm', chibiMoveSrc: '/operators/passenger/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
-    { id: 'skin1', label: "Dream in a Moment", src: '/operators/passenger/skin1.png', chibiSrc: '/operators/passenger/chibi-skin1.webm', chibiMoveSrc: '/operators/passenger/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
+    { id: 'base', label: "Base", src: '/operators/passenger/base.png', chibiSrc: '/operators/passenger/chibi.webm', chibiMoveSrc: '/operators/passenger/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.7, offsetYPercent: 2.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
+    { id: 'e2', label: "Elite 2", src: '/operators/passenger/e2.png', chibiSrc: '/operators/passenger/chibi.webm', chibiMoveSrc: '/operators/passenger/chibi-move.webm', chibiFraming: { scale: 1.29, offsetXPercent: 1.7, offsetYPercent: 2.4 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
+    { id: 'skin1', label: "Dream in a Moment", src: '/operators/passenger/skin1.png', chibiSrc: '/operators/passenger/chibi-skin1.webm', chibiMoveSrc: '/operators/passenger/chibi-move-skin1.webm', chibiFraming: { scale: 1.29, offsetXPercent: -0.1, offsetYPercent: 2.9 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: "Skade" },
   ],
   portrait: '/operators/passenger/portrait.png',
   portraitFocus: { y: 1.9, x: 63.9, zoom: 399 },

@@ -76,9 +76,9 @@ const hung: Operator = {
   ],
   classIcon: '/icons/classes/defender-class.png', branchIcon: '/icons/branches/guardian-branch.png', factionIcon: '/icons/factions/lees-detective-agency.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/hung/base.png', chibiSrc: '/operators/hung/chibi.webm', chibiMoveSrc: '/operators/hung/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/hung/e2.png', chibiSrc: '/operators/hung/chibi.webm', chibiMoveSrc: '/operators/hung/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
-    { id: 'skin1', label: 'Just a Driver', src: '/operators/hung/skin1.png', chibiSrc: '/operators/hung/chibi-skin1.webm', chibiMoveSrc: '/operators/hung/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
+    { id: 'base', label: 'Base', src: '/operators/hung/base.png', chibiSrc: '/operators/hung/chibi.webm', chibiMoveSrc: '/operators/hung/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 4.2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/hung/e2.png', chibiSrc: '/operators/hung/chibi.webm', chibiMoveSrc: '/operators/hung/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: 4.2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
+    { id: 'skin1', label: 'Just a Driver', src: '/operators/hung/skin1.png', chibiSrc: '/operators/hung/chibi-skin1.webm', chibiMoveSrc: '/operators/hung/chibi-move-skin1.webm', chibiFraming: { scale: 1.28, offsetXPercent: 0.7, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'KuroBlood' },
   ],
   portrait: '/operators/hung/portrait.png',
   portraitFocus: { y: -4.2, x: 32.2, zoom: 348 },

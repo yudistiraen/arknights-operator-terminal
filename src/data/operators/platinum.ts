@@ -74,9 +74,9 @@ const platinum: Operator = {
   ],
   classIcon: '/icons/classes/sniper-class.png', branchIcon: '/icons/branches/marksman-branch.png', factionIcon: '/icons/factions/kazimierz.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/platinum/base.png', chibiSrc: '/operators/platinum/chibi.webm', chibiMoveSrc: '/operators/platinum/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/platinum/e2.png', chibiSrc: '/operators/platinum/chibi.webm', chibiMoveSrc: '/operators/platinum/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
-    { id: 'skin1', label: 'Shining Dew SD05', src: '/operators/platinum/skin1.png', chibiSrc: '/operators/platinum/chibi-skin1.webm', chibiMoveSrc: '/operators/platinum/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'base', label: 'Base', src: '/operators/platinum/base.png', chibiSrc: '/operators/platinum/chibi.webm', chibiMoveSrc: '/operators/platinum/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 3.3, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/platinum/e2.png', chibiSrc: '/operators/platinum/chibi.webm', chibiMoveSrc: '/operators/platinum/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 3.3, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
+    { id: 'skin1', label: 'Shining Dew SD05', src: '/operators/platinum/skin1.png', chibiSrc: '/operators/platinum/chibi-skin1.webm', chibiMoveSrc: '/operators/platinum/chibi-move-skin1.webm', chibiFraming: { scale: 1.36, offsetXPercent: 1.6, offsetYPercent: 5.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Skade' },
   ],
   portrait: '/operators/platinum/portrait.png',
   portraitFocus: { y: -0.2, x: 50.9, zoom: 325 },

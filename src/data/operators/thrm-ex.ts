@@ -20,8 +20,8 @@ const thrmEx: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/executor-branch.png', factionIcon: '/icons/factions/rhodes-island.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/thrm-ex/base.png', chibiSrc: '/operators/thrm-ex/chibi.webm', chibiMoveSrc: '/operators/thrm-ex/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
-    { id: 'skin1', label: 'Dual-threat Quarterback', src: '/operators/thrm-ex/skin1.png', chibiSrc: '/operators/thrm-ex/chibi-skin1.webm', chibiMoveSrc: '/operators/thrm-ex/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Anisotropy' },
+    { id: 'base', label: 'Base', src: '/operators/thrm-ex/base.png', chibiSrc: '/operators/thrm-ex/chibi.webm', chibiMoveSrc: '/operators/thrm-ex/chibi-move.webm', chibiFraming: { scale: 1.27, offsetXPercent: 1.5, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'TOKI' },
+    { id: 'skin1', label: 'Dual-threat Quarterback', src: '/operators/thrm-ex/skin1.png', chibiSrc: '/operators/thrm-ex/chibi-skin1.webm', chibiMoveSrc: '/operators/thrm-ex/chibi-move-skin1.webm', chibiFraming: { scale: 1.33, offsetXPercent: 0.5, offsetYPercent: 1.7 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Anisotropy' },
   ],
 }
 

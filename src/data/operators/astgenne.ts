@@ -96,8 +96,8 @@ const theLightchaser: OperatorAlter = {
   ],
   classIcon: '/icons/classes/supporter-class.png', branchIcon: '/icons/branches/decel-binder-branch.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/astgenne/the-lightchaser/base.png', chibiSrc: '/operators/astgenne/the-lightchaser/chibi.webm', chibiMoveSrc: '/operators/astgenne/the-lightchaser/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'YUJI' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/astgenne/the-lightchaser/e2.png', chibiSrc: '/operators/astgenne/the-lightchaser/chibi.webm', chibiMoveSrc: '/operators/astgenne/the-lightchaser/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'YUJI' },
+    { id: 'base', label: 'Base', src: '/operators/astgenne/the-lightchaser/base.png', chibiSrc: '/operators/astgenne/the-lightchaser/chibi.webm', chibiMoveSrc: '/operators/astgenne/the-lightchaser/chibi-move.webm', chibiFraming: { scale: 1.55, offsetXPercent: -0.8, offsetYPercent: -6.2 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'YUJI' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/astgenne/the-lightchaser/e2.png', chibiSrc: '/operators/astgenne/the-lightchaser/chibi.webm', chibiMoveSrc: '/operators/astgenne/the-lightchaser/chibi-move.webm', chibiFraming: { scale: 1.55, offsetXPercent: -0.8, offsetYPercent: -6.2 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'YUJI' },
   ],
   portrait: '/operators/astgenne/the-lightchaser/portrait.png',
   portraitFocus: { y: -35.9, x: 34.7, zoom: 175 },

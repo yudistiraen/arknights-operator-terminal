@@ -101,9 +101,9 @@ const ascalon: Operator = {
   ],
   classIcon: '/icons/classes/specialist-class.png', branchIcon: '/icons/branches/ambusher-branch.png', factionIcon: '/icons/factions/sweep.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/ascalon/base.png', chibiSrc: '/operators/ascalon/chibi.webm', chibiMoveSrc: '/operators/ascalon/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/ascalon/e2.png', chibiSrc: '/operators/ascalon/chibi.webm', chibiMoveSrc: '/operators/ascalon/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
-    { id: 'skin1', label: 'Phototaxis', src: '/operators/ascalon/skin1.png', chibiSrc: '/operators/ascalon/chibi-skin1.webm', chibiMoveSrc: '/operators/ascalon/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
+    { id: 'base', label: 'Base', src: '/operators/ascalon/base.png', chibiSrc: '/operators/ascalon/chibi.webm', chibiMoveSrc: '/operators/ascalon/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: -1.2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/ascalon/e2.png', chibiSrc: '/operators/ascalon/chibi.webm', chibiMoveSrc: '/operators/ascalon/chibi-move.webm', chibiFraming: { scale: 1.3, offsetXPercent: -1.2, offsetYPercent: 3.1 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
+    { id: 'skin1', label: 'Phototaxis', src: '/operators/ascalon/skin1.png', chibiSrc: '/operators/ascalon/chibi-skin1.webm', chibiMoveSrc: '/operators/ascalon/chibi-move-skin1.webm', chibiFraming: { scale: 1.27, offsetXPercent: 0.7, offsetYPercent: 3.6 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: 'Cenm0' },
   ],
   portrait: '/operators/ascalon/portrait.png',
   portraitFocus: { y: -0.9, x: 50, zoom: 358 },

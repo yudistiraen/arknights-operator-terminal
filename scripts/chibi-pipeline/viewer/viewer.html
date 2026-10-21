@@ -238,6 +238,13 @@
         return framing
       }
 
+      // Overrides the locked camera with an explicit world rect — used by capture.mjs's shared-
+      // camera mode, which unions the idle and move envelopes so both clips render at one scale.
+      window.__spineSetFraming = function (rect) {
+        framing = { ...rect }
+        return framing
+      }
+
       window.__spineRenderAt = function (animName, t) {
         if (!framing) throw new Error('__spineComputeFraming must be called before __spineRenderAt')
         poseAt(animName, t)

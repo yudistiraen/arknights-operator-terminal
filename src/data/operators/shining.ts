@@ -101,9 +101,9 @@ const shining: Operator = {
   ],
   classIcon: '/icons/classes/medic-class.png', branchIcon: '/icons/branches/medic-branch.png', factionIcon: '/icons/factions/followers.png',
   skins: [
-    { id: 'base', label: 'Base', src: '/operators/shining/base.png', chibiSrc: '/operators/shining/chibi.webm', chibiMoveSrc: '/operators/shining/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'e2', label: 'Elite 2', src: '/operators/shining/e2.png', chibiSrc: '/operators/shining/chibi.webm', chibiMoveSrc: '/operators/shining/chibi-move.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
-    { id: 'skin1', label: 'Silent Night DN02', src: '/operators/shining/skin1.png', chibiSrc: '/operators/shining/chibi-skin1.webm', chibiMoveSrc: '/operators/shining/chibi-move-skin1.webm', chibiFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'base', label: 'Base', src: '/operators/shining/base.png', chibiSrc: '/operators/shining/chibi.webm', chibiMoveSrc: '/operators/shining/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'e2', label: 'Elite 2', src: '/operators/shining/e2.png', chibiSrc: '/operators/shining/chibi.webm', chibiMoveSrc: '/operators/shining/chibi-move.webm', chibiFraming: { scale: 1.28, offsetXPercent: 1.3, offsetYPercent: 3.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
+    { id: 'skin1', label: 'Silent Night DN02', src: '/operators/shining/skin1.png', chibiSrc: '/operators/shining/chibi-skin1.webm', chibiMoveSrc: '/operators/shining/chibi-move-skin1.webm', chibiFraming: { scale: 1.36, offsetXPercent: -1.2, offsetYPercent: 6.3 }, chibiDetailFraming: { scale: 1, offsetXPercent: 0, offsetYPercent: 0 }, illustrator: '竜崎いち' },
   ],
   portrait: '/operators/shining/portrait.png',
   portraitFocus: { y: -6.4, x: 35, zoom: 331 },
